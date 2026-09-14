@@ -1,0 +1,24 @@
+{
+  "no": "org:roman-knorr",
+  "tipo": "Organizacao",
+  "nome": "Román Knörr",
+  "url": "entidades/organizacao/roman-knorr/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/roman-knorr-duran",
+      "ocorrencias": 15
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 6
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "no": "org:351-portuguese-startup-association",
+  "tipo": "Organizacao",
+  "nome": "351 Portuguese Startup Association",
+  "url": "entidades/organizacao/351-portuguese-startup-association/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/cintia-costa",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

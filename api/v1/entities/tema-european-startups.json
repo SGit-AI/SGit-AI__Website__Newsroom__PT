@@ -1,0 +1,64 @@
+{
+  "no": "tema:european-startups",
+  "tipo": "Tema",
+  "nome": "European startups",
+  "url": "entidades/tema/european-startups/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/cintia-costa",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/hector-lv",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/karan-setiya",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-gutman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luiza-castro-rey",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/micael-lopes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/mike-sigal",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-figueiredo",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 16,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 16
+  }
+}

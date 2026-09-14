@@ -1,0 +1,20 @@
+{
+  "no": "editor:comissao-europeia",
+  "tipo": "Editor",
+  "nome": "Comissão Europeia",
+  "url": "entidades/editor/comissao-europeia/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

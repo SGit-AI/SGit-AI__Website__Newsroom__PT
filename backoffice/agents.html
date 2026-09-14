@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents · pt.newsroom back office</title>
+<meta name="description" content="What every agent did to every article, derived from the repository&#x27;s records.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/agents.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/agents.html">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../backoffice/agents.html">agents</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.6.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Agents</div></div>
+<h1 class="h-2" style="max-width:30em">What every agent did to every article, derived from the
+records rather than written down.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 8px">62 entries,
+35 still open. Each one names the file and the path it came from, and the
+build fails if that path does not resolve. Nothing here was authored for this page: attributing a
+sentence to a model that never wrote it would be a claim with a forged source, and this whole site
+is an argument that a source is the thing that matters.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Per article</div></div>
+<div class="rolar"><table><thead><tr><th>Article</th><th style="width:110px">Section</th>
+  <th style="width:100px">State</th><th style="width:70px">Entries</th>
+  <th style="width:70px">Open</th><th style="width:220px">Agents</th></tr></thead>
+  <tbody><tr><td class="sm"><a href="../artigos/2026/09/14/agenda-nacional-instrumento-legal/">A agenda nacional de IA existe e o seu instrumento legal não pôde ser co</a></td><td class="mono xs">politicas</td><td class="mono xs">procurado</td><td class="mono xs">14</td><td class="mono xs">13</td><td class="mono xs">chatgpt · editor · pesquisa · redacao</td></tr><tr><td class="sm"><a href="../artigos/2026/09/14/registo-nacional-nao-devolve-texto/">Duas das três páginas do registo nacional não devolvem texto a um leitor</a></td><td class="mono xs">politicas</td><td class="mono xs">verificado</td><td class="mono xs">19</td><td class="mono xs">10</td><td class="mono xs">chatgpt · editor · pesquisa · redacao · verificacao</td></tr><tr><td class="sm"><a href="../artigos/2026/09/14/quantas-startups-sao-de-ia/">Quantas das startups ativas em Portugal são empresas de IA, e porque nen</a></td><td class="mono xs">empresas</td><td class="mono xs">procurado</td><td class="mono xs">7</td><td class="mono xs">6</td><td class="mono xs">pesquisa · redacao</td></tr><tr><td class="sm"><a href="../artigos/2026/09/14/regulador-designacao-ausente/">O regulador foi designado e o instrumento de designação não está na pági</a></td><td class="mono xs">instituicoes</td><td class="mono xs">procurado</td><td class="mono xs">5</td><td class="mono xs">4</td><td class="mono xs">pesquisa · redacao</td></tr><tr><td class="sm"><a href="../artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/">O mesmo evento nomeia os seus palcos de duas maneiras</a></td><td class="mono xs">eventos</td><td class="mono xs">verificado</td><td class="mono xs">9</td><td class="mono xs">1</td><td class="mono xs">pesquisa · redacao · verificacao</td></tr><tr><td class="sm"><a href="../artigos/2026/09/14/uma-captura-nao-mostra-movimento/">Uma captura não mostra movimento; duas mostram</a></td><td class="mono xs">eventos</td><td class="mono xs">verificado</td><td class="mono xs">8</td><td class="mono xs">1</td><td class="mono xs">pesquisa · redacao · verificacao</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Everything, by agent</div></div>
+<pt-comment-map src="../dados/comentarios.json"></pt-comment-map>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/agents.html</code> · version <span class="ver">v0.6.0</span>.
+</div>
+
+</div>
+<script type="module" src="../assets/components/pt-comment-map/v1/v1.0/v1.0.0/pt-comment-map.js"></script></body>
+</html>

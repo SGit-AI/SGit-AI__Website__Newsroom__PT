@@ -1,13 +1,38 @@
 {
   "quando": "2026-09-14T12:00:00Z",
+  "especie": "arranque",
   "prompt": "00-bootstrap.md — construir o MVP v0.1.0",
   "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
-  "pastas_alteradas": ["build/", "dados/", "fontes/congeladas/", "redacao/", "assets/", "admin/", ".github/"],
+  "pastas_alteradas": [
+    "build/",
+    "dados/",
+    "fontes/congeladas/",
+    "redacao/",
+    "assets/",
+    "admin/",
+    ".github/"
+  ],
   "issues_movidos": [
-    { "id": "001", "de": null, "para": "procurado" },
-    { "id": "002", "de": null, "para": "procurado" },
-    { "id": "003", "de": null, "para": "procurado" },
-    { "id": "004", "de": null, "para": "congelado" }
+    {
+      "id": "001",
+      "de": null,
+      "para": "procurado"
+    },
+    {
+      "id": "002",
+      "de": null,
+      "para": "procurado"
+    },
+    {
+      "id": "003",
+      "de": null,
+      "para": "procurado"
+    },
+    {
+      "id": "004",
+      "de": null,
+      "para": "congelado"
+    }
   ],
   "portoes": true,
   "versao": "v0.1.0",

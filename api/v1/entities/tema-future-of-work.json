@@ -1,0 +1,64 @@
+{
+  "no": "tema:future-of-work",
+  "tipo": "Tema",
+  "nome": "Future of work",
+  "url": "entidades/tema/future-of-work/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-gouveia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/janelle-harder",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joao-ramos",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/jorge-sebastiao",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/kasia-szczesniak",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nashwa-shah",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/raffaella-loncao",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 20,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 20
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "no": "instituicao:diario-da-republica-eletronico",
+  "tipo": "Instituicao",
+  "nome": "Diário da República Eletrónico",
+  "url": "entidades/instituicao/diario-da-republica-eletronico/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": "registo",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 1,
+    "entrada": 1
+  }
+}

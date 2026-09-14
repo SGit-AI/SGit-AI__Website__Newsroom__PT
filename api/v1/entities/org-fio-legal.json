@@ -1,0 +1,28 @@
+{
+  "no": "org:fio-legal",
+  "tipo": "Organizacao",
+  "nome": "Fio Legal",
+  "url": "entidades/organizacao/fio-legal/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 6
+    },
+    {
+      "fonte": "2026-09-14/oradores/filipa-faria",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores/luiza-castro-rey",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:angelee-sidar",
+  "tipo": "Pessoa",
+  "nome": "Angelee SIDAR",
+  "url": "entidades/pessoa/angelee-sidar/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 9,
+    "entrada": 0
+  }
+}

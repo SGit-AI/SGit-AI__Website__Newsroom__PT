@@ -1,0 +1,28 @@
+{
+  "no": "org:accenture",
+  "tipo": "Organizacao",
+  "nome": "Accenture",
+  "url": "entidades/organizacao/accenture/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/tina-valand",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

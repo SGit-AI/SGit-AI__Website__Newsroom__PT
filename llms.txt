@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.3.1 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.6.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -13,7 +13,7 @@ suficiente para ser interessante.
 ## O que é real hoje, em números que vêm de ficheiros
 
 - 92 ficheiros congelados de 1 captura(s), cada um com SHA-256, todos reverificados em cada construção
-- 304 nós e 854 arestas; cada aresta é um verbo português com um inverso distinto
+- 312 nós e 946 arestas; cada aresta é um verbo português com um inverso distinto
 - 70 pessoas e 67 organizações, derivadas das fontes, nunca escritas à mão
 - 15 sessões lidas do recuo estático da agenda congelada
 - 19 afirmações entregues por assistentes exteriores; 9 com o excerto encontrado nos bytes; 0 publicadas
@@ -29,6 +29,7 @@ suficiente para ser interessante.
 
 - [/](https://pt.newsroom.sgit.ai/index.html): A primeira página. O desenho escolhido pelo editor a 13 de setembro de 2026.
 - [/artigos/](https://pt.newsroom.sgit.ai/artigos/index.html): Os artigos, por data. Cada um é uma pasta com a prosa, a verificação de cada afirmação e a proveniência.
+- [/entidades/](https://pt.newsroom.sgit.ai/entidades/index.html): Uma página por nó do grafo que é uma coisa do mundo: pessoa, organização, instituição, editor, tema, lugar. Cada página é a lista das frases em que a entidade entra, mais a contagem de onde o seu nome aparece nos bytes congelados. Nenhuma linha escrita sobre ninguém.
 - [/api/](https://pt.newsroom.sgit.ai/api/index.html): A API só de leitura, e uma consola que a invoca. Cada caminho é um ficheiro: não há servidor, e por isso não há verbo que não seja GET. Os caminhos são em INGLÊS de propósito — a intenção é várias línguas sobre um só conjunto de dados.
 - [/proveniencia/](https://pt.newsroom.sgit.ai/proveniencia/index.html): Quem escreve este site: agentes de IA, de vários fornecedores, com curadoria de um editor humano nomeado. Contado a partir dos ficheiros de proveniência de cada artigo.
 - [/backoffice/](https://pt.newsroom.sgit.ai/backoffice/index.html): A consola de operações. EM INGLÊS: o seu público é quem opera a redação, não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal.
@@ -71,6 +72,21 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://pt.newsroom.sgit.ai/dados/excluidas.json — as fontes que foram tentadas e não resolveram
 - https://pt.newsroom.sgit.ai/dados/historias.json — o índice dos artigos, derivado das pastas datadas
 - https://pt.newsroom.sgit.ai/dados/documentos.json — todos os documentos markdown deste repositório
+- https://pt.newsroom.sgit.ai/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
+- https://pt.newsroom.sgit.ai/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
+- https://pt.newsroom.sgit.ai/dados/redacao.json — a mesa: as bancadas, a carga de cada uma, e o quadro
+
+## As entidades, em endereços construíveis
+
+Uma entidade é um nó do grafo que é uma coisa do mundo, e o caminho sai do tipo e do id do nó:
+
+    https://pt.newsroom.sgit.ai/entidades/<tipo>/<id>/          a página
+    https://pt.newsroom.sgit.ai/api/v1/entities/<tipo>-<id>.json      a mesma coisa em JSON
+
+Os tipos com página: pessoa, organizacao, instituicao, editor, evento, local, palco, tema,
+tecnologia, setor, produto, servico, ideia. Uma página de entidade não tem uma linha escrita
+sobre ela: tem os campos verbatim da fonte, as arestas lidas em voz alta pela leitura publicada
+na ontologia, e a contagem de onde o nome aparece em cada cópia congelada.
 
 ## Os artigos, em endereços construíveis
 
@@ -81,6 +97,7 @@ Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do 
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.md         a prosa
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/afirmacoes.json   cada afirmação e o seu estado
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/proveniencia.json que agente, quando, porquê
+    https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/comentarios.json quem disse o quê, e de onde saiu
 
 A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
@@ -99,3 +116,7 @@ escrito pelo editor de registo, e é a única coisa que põe um artigo na primei
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
 5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
+   existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
+   escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um
+   `de` não resolver.

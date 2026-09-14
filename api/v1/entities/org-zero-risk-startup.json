@@ -1,0 +1,40 @@
+{
+  "no": "org:zero-risk-startup",
+  "tipo": "Organizacao",
+  "nome": "Zero Risk Startup",
+  "url": "entidades/organizacao/zero-risk-startup/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/paulo-andrez",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/patrocinadores",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 6,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

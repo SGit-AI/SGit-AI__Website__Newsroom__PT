@@ -1,0 +1,32 @@
+{
+  "no": "setor:saude",
+  "tipo": "Setor",
+  "nome": "Saúde",
+  "url": "entidades/setor/saude/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 36
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-14/registo/gov-ia",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 4,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 3
+  }
+}

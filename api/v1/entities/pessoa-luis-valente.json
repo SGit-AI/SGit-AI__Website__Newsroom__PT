@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:luis-valente",
+  "tipo": "Pessoa",
+  "nome": "Luis Valente",
+  "url": "entidades/pessoa/luis-valente/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 11,
+    "entrada": 0
+  }
+}

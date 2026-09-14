@@ -1,0 +1,20 @@
+{
+  "no": "org:creativity-matter",
+  "tipo": "Organizacao",
+  "nome": "Creativity Matter",
+  "url": "entidades/organizacao/creativity-matter/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

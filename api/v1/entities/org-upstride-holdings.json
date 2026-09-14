@@ -1,0 +1,24 @@
+{
+  "no": "org:upstride-holdings",
+  "tipo": "Organizacao",
+  "nome": "UpStride Holdings",
+  "url": "entidades/organizacao/upstride-holdings/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

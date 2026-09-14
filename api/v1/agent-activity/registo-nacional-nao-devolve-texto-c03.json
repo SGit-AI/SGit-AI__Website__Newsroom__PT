@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T13:40:00Z",
+  "agente": "pesquisa",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "registo-nacional-nao-devolve-texto"
+  },
+  "texto": "Implementou build/pdf.py depois de a extração de um PDF do Diário da República devolver zero caracteres — o que se veio a verificar ser cifra e tipos subconjuntados, não uma página vazia.",
+  "porque": "Sem esta distinção, este artigo teria afirmado que o registo nacional não se lê. A afirmação teria sido falsa e teria parecido sustentada.",
+  "estado": "feito",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[2]",
+  "id": "registo-nacional-nao-devolve-texto-c03",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

@@ -1,0 +1,15 @@
+{
+  "no": "editor:diario-da-republica",
+  "tipo": "Editor",
+  "nome": "Diário da República",
+  "url": "entidades/editor/diario-da-republica/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": "registo",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

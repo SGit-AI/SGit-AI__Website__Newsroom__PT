@@ -1,0 +1,28 @@
+{
+  "no": "org:time-to-rise",
+  "tipo": "Organizacao",
+  "nome": "Time to Rise",
+  "url": "entidades/organizacao/time-to-rise/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 6
+    },
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores/sylvie-ritt",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

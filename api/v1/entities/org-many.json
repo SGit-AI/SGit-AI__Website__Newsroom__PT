@@ -1,0 +1,24 @@
+{
+  "no": "org:many",
+  "tipo": "Organizacao",
+  "nome": "Many",
+  "url": "entidades/organizacao/many/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/nashwa-shah",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

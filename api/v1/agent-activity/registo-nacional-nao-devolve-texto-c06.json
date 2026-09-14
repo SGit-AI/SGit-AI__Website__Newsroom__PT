@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "registo-nacional-nao-devolve-texto"
+  },
+  "texto": "Um humano ainda não abriu nenhuma das três páginas num navegador para confirmar que o conteúdo ESTÁ lá para um leitor humano. A medição é sobre o que um leitor automático recebe, e o artigo diz isso — mas a confirmação humana tornaria a história mais forte.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#por_rever[0]",
+  "id": "registo-nacional-nao-devolve-texto-c06",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

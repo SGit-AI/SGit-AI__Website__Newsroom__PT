@@ -99,6 +99,8 @@ TIPOS = [
      "definicao": "Uma espécie de serviço que uma página congelada diz que alguém presta, correspondida pelo léxico publicado. Categorias, não nomes de produto."},
     {"id": "Produto",      "rotulo": "Produto",      "en": "Product",      "cor": "#c2410c", "seccao": "empresas",
      "definicao": "Uma espécie de produto que uma página congelada nomeia, correspondida pelo léxico publicado. Categorias, não nomes de produto."},
+    {"id": "Editor",       "rotulo": "Editor",       "en": "Publisher",    "cor": "#475569", "seccao": "instituicoes",
+     "definicao": "A casa que publica uma página congelada: um organismo, um jornal, um portal, o sítio de um evento. Sai do campo de editor do registo pela fórmula `editor_de_fonte`, e diz quem PUBLICA a página — não quem a escreveu, não quem a opera. Existe como tipo à parte porque a definição de Instituição é «um organismo público, um regulador ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas: alargar aquela definição para caber aqui seria mudar o que ela promete."},
 ]
 
 # verbo_pt / inverso_pt / domínio -> alcance / en / como a aresta se LÊ em português
@@ -165,6 +167,14 @@ ARESTAS = [
      "{s} oferece {t}",                       "{t} é oferecido por {s}"),
     ("publicado_em",   "publica_registo", "Politica",    "Instituicao", "published_in",   "publishes_record",
      "{s} é publicada em {t}",                "{t} publica no registo {s}"),
+    ("publicada_por",  "publica_pagina",  "Fonte",       "Editor",      "issued_by",      "issues",
+     "{s} é publicada por {t}",               "{t} publica a página {s}"),
+    ("publicada_por",  "publica_pagina",  "Fonte",       "Instituicao", "issued_by",      "issues",
+     "{s} é publicada por {t}",               "{t} publica a página {s}"),
+    ("publicada_por",  "publica_pagina",  "Fonte",       "Evento",      "issued_by",      "issues",
+     "{s} é publicada por {t}",               "{t} publica a página {s}"),
+    ("publicada_por",  "publica_pagina",  "Fonte",       "Organizacao", "issued_by",      "issues",
+     "{s} é publicada por {t}",               "{t} publica a página {s}"),
 ]
 
 # Verbos cujas arestas são DERIVADAS pelo léxico e não lidas de uma lista. Cada uma leva
@@ -179,7 +189,7 @@ PROIBIDOS = [
 ]
 
 TAXONOMIA = [
-    {"id": "entidades",  "rotulo": "Entidades",            "tipos": ["Pessoa", "Organizacao", "Instituicao", "Local"]},
+    {"id": "entidades",  "rotulo": "Entidades",            "tipos": ["Pessoa", "Organizacao", "Instituicao", "Editor", "Local"]},
     {"id": "programa",   "rotulo": "Programa",             "tipos": ["Evento", "Sessao", "Palco"]},
     {"id": "registo",    "rotulo": "Registo público",      "tipos": ["Politica"]},
     {"id": "prova",      "rotulo": "Prova",                "tipos": ["Captura", "Fonte", "Cobertura"]},
@@ -199,6 +209,32 @@ CLASSE_PAPEL = [
     ("consultor",  "consultor, jurista ou académico, pelo título listado",
      r"\b(advisor|adviser|counsel|professor|researcher|lawyer|legal|consultant|author|phd)\b"),
 ]
+
+
+def editor_de_fonte(publicador):
+    """A fórmula `editor_de_fonte` — publicada em ontologia.formulas.
+
+    O registo grava, para cada página congelada, o editor verbatim. A mesma casa aparece lá escrita
+    de mais do que uma maneira: «Diário da República Eletrónico (INCM)» e «Diário da República»,
+    «CORDIS — Comissão Europeia» e «Comissão Europeia». Esta função reduz a cadeia à casa que
+    publica, em dois passos e nenhum mais:
+
+      1. tira o parêntesis final, que nomeia quem OPERA e não quem publica — «(INCM)», «(AMA)»;
+      2. fica com o segmento depois do último travessão, que separa a coleção da casa.
+
+    O que a fórmula NÃO faz é juntar nomes que continuem diferentes depois destes dois passos. Se
+    o registo diz «Diário da República» numa linha e «Diário da República Eletrónico» noutra, o
+    grafo fica com dois nós, porque são duas coisas que o registo diz e decidir que são a mesma
+    seria uma inferência nossa e não um facto dele. É a mesma recusa que produziu a história dos
+    dois nomes para os mesmos palcos.
+    """
+    t = (publicador or "").strip()
+    if not t:
+        return ""
+    t = re.sub(r"\s*\([^()]*\)\s*$", "", t).strip()
+    if "\u2014" in t:
+        t = t.rsplit("\u2014", 1)[1].strip()
+    return t
 
 
 def classe_papel(papel):
@@ -233,6 +269,12 @@ def ontologia():
              "porque_publicada": "É a única classificação que este site inventa. Publicada como padrão para que um leitor possa discordar dela.",
              "nunca_diz": "O que a pessoa é. Diz o que o título listado contém.",
              "regras": [{"classe": c, "rotulo": r, "padrao": p} for c, r, p in CLASSE_PAPEL]},
+            {"id": "editor_de_fonte",
+             "o_que_faz": "Reduz o campo de editor do registo à casa que publica a página.",
+             "porque_publicada": "Faz nascer nós e arestas. Dois passos, nomeados, para que um leitor possa refazer o mesmo caminho: tirar o parêntesis final (quem opera) e ficar com o segmento depois do último travessão (a casa, e não a coleção).",
+             "nunca_diz": "Que dois nomes diferentes são a mesma casa. Se o registo diz duas coisas, o grafo diz duas coisas.",
+             "passos": ["tirar o parêntesis final: «dados.gov.pt (AMA)» → «dados.gov.pt»",
+                        "ficar com o segmento depois do último travessão: «CORDIS — Comissão Europeia» → «Comissão Europeia»"]},
             {"id": "lexico",
              "o_que_faz": "Faz nascer arestas derivadas a partir de palavras numa página congelada.",
              "porque_publicada": "dados/lexico.json. O portão 8 volta a correr cada padrão sobre os bytes.",
@@ -261,11 +303,14 @@ def main():
 
     nos, arestas, vistos = [], [], set()
 
+    por_no = {}
+
     def no(n):
         if n["id"] in vistos:
             return
         vistos.add(n["id"])
         nos.append(n)
+        por_no[n["id"]] = n
 
     def aresta(verbo, s, t, bloco, **extra):
         arestas.append({"id": f"{verbo}:{s}:{t}", "verbo": verbo, "origem": s, "destino": t,
@@ -391,6 +436,48 @@ def main():
                                   % (d.get("caracteres_visiveis"), d.get("bytes"))),
             "fonte": fid})
         aresta("consta_em", iid, f"fonte:{fid}", "prova")
+
+    # --- quem publica cada página congelada ----------------------------------
+    # Até aqui o grafo sabia de onde veio cada byte e não sabia de QUEM. A ligação faltava, e
+    # faltava exatamente onde um leitor a quer: lê-se «Comissão Europeia» numa página e não há
+    # nada por trás do nome. Esta passagem fecha isso — cada Fonte ganha uma aresta para a casa
+    # que a publica, e a casa ganha uma página que lista tudo o que dela foi congelado.
+    #
+    # Resolve-se contra os nós que JÁ existem antes de se criar um novo, senão o Governo de
+    # Portugal ficava com dois nós (um do registo nacional, outro daqui) e o grafo passava a
+    # dizer que são duas casas. A ordem é a da especificidade da fonte do nó: um Evento e uma
+    # Instituição foram lidos de uma página congelada; um Editor é derivado de um campo do
+    # registo, e por isso é o último recurso e não o primeiro.
+    por_rotulo = {}
+    for n in nos:
+        if n["tipo"] in ("Evento", "Instituicao", "Organizacao"):
+            por_rotulo.setdefault(n["rotulo"], n["id"])
+
+    editores = {}
+    for f in registo["fontes"]:
+        nome = editor_de_fonte(f["publicador"])
+        if not nome:
+            continue
+        d = editores.setdefault(nome, {"verbatim": set(), "fontes": []})
+        d["verbatim"].add(f["publicador"])
+        d["fontes"].append(f["id"])
+
+    for nome in sorted(editores):
+        d = editores[nome]
+        alvo = por_rotulo.get(nome)
+        if alvo is None:
+            alvo = "editor:" + ident(nome)
+            no({"id": alvo, "tipo": "Editor", "rotulo": nome, "bloco": "registo",
+                "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+                "fonte": d["fontes"][0]})
+        n = por_no.get(alvo)
+        if n is not None:
+            n["publica"] = len(d["fontes"])
+            # As formas exatas em que o registo escreve esta casa. Mais do que uma é um facto
+            # sobre o registo, e fica à vista em vez de ser reduzido a uma.
+            n["verbatim_no_registo"] = sorted(d["verbatim"])
+        for fid in d["fontes"]:
+            aresta("publicada_por", f"fonte:{fid}", alvo, "prova")
 
     # --- as histórias --------------------------------------------------------
     for h in historias["historias"]:

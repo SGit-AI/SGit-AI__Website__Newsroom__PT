@@ -1,0 +1,56 @@
+{
+  "no": "tema:sales",
+  "tipo": "Tema",
+  "nome": "Sales",
+  "url": "entidades/tema/sales/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/brian-nogaro",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-gouveia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/dina-kondratiuk",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joao-ramos",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nashwa-shah",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-kastrati",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 10,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 9
+  }
+}

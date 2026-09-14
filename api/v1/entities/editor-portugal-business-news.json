@@ -1,0 +1,20 @@
+{
+  "no": "editor:portugal-business-news",
+  "tipo": "Editor",
+  "nome": "Portugal Business News",
+  "url": "entidades/editor/portugal-business-news/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 29
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

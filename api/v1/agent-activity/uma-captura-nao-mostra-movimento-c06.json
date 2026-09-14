@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a1"
+  },
+  "texto": "A lista de oradores tem 70 nomes.",
+  "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/oradores",
+  "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[0]",
+  "id": "uma-captura-nao-mostra-movimento-c06",
+  "artigo": "uma-captura-nao-mostra-movimento"
+}

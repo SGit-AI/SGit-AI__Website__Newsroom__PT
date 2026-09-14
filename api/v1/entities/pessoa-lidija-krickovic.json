@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:lidija-krickovic",
+  "tipo": "Pessoa",
+  "nome": "Lidija Krickovic",
+  "url": "entidades/pessoa/lidija-krickovic/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/lidija-krickovic",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 12,
+    "entrada": 0
+  }
+}

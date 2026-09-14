@@ -1,0 +1,15 @@
+{
+  "no": "editor:aicep-portugal-global",
+  "tipo": "Editor",
+  "nome": "AICEP Portugal Global",
+  "url": "entidades/editor/aicep-portugal-global/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": "registo",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

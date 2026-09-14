@@ -1,0 +1,44 @@
+{
+  "no": "pessoa:ricardo",
+  "tipo": "Pessoa",
+  "nome": "Ricardo",
+  "url": "entidades/pessoa/ricardo/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/ricardo",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 8
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 6
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/faq",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 7,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 5,
+    "entrada": 0
+  }
+}

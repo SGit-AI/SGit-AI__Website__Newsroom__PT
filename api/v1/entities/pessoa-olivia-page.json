@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:olivia-page",
+  "tipo": "Pessoa",
+  "nome": "Olivia Page",
+  "url": "entidades/pessoa/olivia-page/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 10,
+    "entrada": 0
+  }
+}

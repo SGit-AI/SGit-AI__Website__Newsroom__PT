@@ -1,0 +1,1144 @@
+{
+  "id": "pt-comentarios",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "O trabalho dos agentes sobre os artigos, derivado dos registos do repositório. Cada entrada nomeia o ficheiro de onde saiu. Nenhuma foi escrita para aqui.",
+  "agentes": {
+    "pesquisa": {
+      "nome": "Pesquisa",
+      "fornecedor": "esta redação",
+      "especie": "departamento",
+      "id_correio": "pesquisa.pt",
+      "alias": "@Pesquisa"
+    },
+    "redacao": {
+      "nome": "Redação",
+      "fornecedor": "esta redação",
+      "especie": "departamento",
+      "id_correio": "redacao.pt",
+      "alias": "@Redacao"
+    },
+    "verificacao": {
+      "nome": "Verificação",
+      "fornecedor": "esta redação",
+      "especie": "departamento",
+      "id_correio": "verificacao.pt",
+      "alias": "@Verificacao"
+    },
+    "editor": {
+      "nome": "Dinis Cruz",
+      "fornecedor": "humano",
+      "especie": "editor de registo",
+      "id_correio": "dinis.humano",
+      "alias": "@Dinis"
+    },
+    "chatgpt": {
+      "nome": "chatgpt",
+      "fornecedor": "gpt-6-astra",
+      "especie": "assistente exterior"
+    }
+  },
+  "especies": {
+    "acao": "Uma coisa que um agente fez, com a hora a que a fez.",
+    "pergunta": "Uma pergunta que ficou em aberto, escrita por quem a deixou.",
+    "verificacao": "Uma afirmação relida contra os bytes, e o que a releitura devolveu.",
+    "falta": "Uma coisa que a redação diz que ainda não tem.",
+    "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
+    "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
+  },
+  "contagem": 62,
+  "abertos": 35,
+  "por_agente": {
+    "pesquisa": {
+      "total": 20,
+      "abertos": 10,
+      "especies": {
+        "acao": 10,
+        "pergunta": 10
+      }
+    },
+    "redacao": {
+      "total": 10,
+      "abertos": 7,
+      "especies": {
+        "falta": 7,
+        "acao": 3
+      }
+    },
+    "chatgpt": {
+      "total": 16,
+      "abertos": 16,
+      "especies": {
+        "proposta": 16
+      }
+    },
+    "editor": {
+      "total": 2,
+      "abertos": 2,
+      "especies": {
+        "decisao": 2
+      }
+    },
+    "verificacao": {
+      "total": 14,
+      "abertos": 0,
+      "especies": {
+        "acao": 3,
+        "verificacao": 11
+      }
+    }
+  },
+  "por_artigo": {
+    "agenda-nacional-instrumento-legal": {
+      "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
+      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+      "seccao": "politicas",
+      "estado": "procurado",
+      "contagem": 14,
+      "abertos": 13,
+      "por_agente": {
+        "pesquisa": 3,
+        "redacao": 2,
+        "chatgpt": 8,
+        "editor": 1
+      }
+    },
+    "dois-nomes-para-os-mesmos-palcos": {
+      "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
+      "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
+      "seccao": "eventos",
+      "estado": "verificado",
+      "contagem": 9,
+      "abertos": 1,
+      "por_agente": {
+        "pesquisa": 3,
+        "redacao": 1,
+        "verificacao": 5
+      }
+    },
+    "quantas-startups-sao-de-ia": {
+      "url": "artigos/2026/09/14/quantas-startups-sao-de-ia/",
+      "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+      "seccao": "empresas",
+      "estado": "procurado",
+      "contagem": 7,
+      "abertos": 6,
+      "por_agente": {
+        "pesquisa": 4,
+        "redacao": 3
+      }
+    },
+    "registo-nacional-nao-devolve-texto": {
+      "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
+      "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
+      "seccao": "politicas",
+      "estado": "verificado",
+      "contagem": 19,
+      "abertos": 10,
+      "por_agente": {
+        "pesquisa": 4,
+        "redacao": 1,
+        "verificacao": 5,
+        "chatgpt": 8,
+        "editor": 1
+      }
+    },
+    "regulador-designacao-ausente": {
+      "url": "artigos/2026/09/14/regulador-designacao-ausente/",
+      "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+      "seccao": "instituicoes",
+      "estado": "procurado",
+      "contagem": 5,
+      "abertos": 4,
+      "por_agente": {
+        "pesquisa": 3,
+        "redacao": 2
+      }
+    },
+    "uma-captura-nao-mostra-movimento": {
+      "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
+      "titulo": "Uma captura não mostra movimento; duas mostram",
+      "seccao": "eventos",
+      "estado": "verificado",
+      "contagem": 8,
+      "abertos": 1,
+      "por_agente": {
+        "pesquisa": 3,
+        "redacao": 1,
+        "verificacao": 4
+      }
+    }
+  },
+  "fluxo": [
+    {
+      "quando": "2026-09-14T18:10:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 001. Nenhuma prosa foi escrita: não há material que a sustente.",
+      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#cronologia[0]",
+      "id": "agenda-nacional-instrumento-legal-c01",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "O PDF do diploma. build/pdf.py já lê os PDF do Diário da República. O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é muito pior.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#por_rever[0]",
+      "id": "agenda-nacional-instrumento-legal-c02",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "Uma segunda fonte independente para o número e a data.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#por_rever[1]",
+      "id": "agenda-nacional-instrumento-legal-c03",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "O PDF do diploma. build/pdf.py já lê os PDF do Diário da República. O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é muito pior.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json#o_que_falta[0]",
+      "id": "agenda-nacional-instrumento-legal-c04",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "Uma segunda fonte independente para o número e a data.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json#o_que_falta[1]",
+      "id": "agenda-nacional-instrumento-legal-c05",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-01"
+      },
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "agenda-nacional-instrumento-legal-c06",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "agenda-nacional-instrumento-legal-c07",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "agenda-nacional-instrumento-legal-c08",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "agenda-nacional-instrumento-legal-c09",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "agenda-nacional-instrumento-legal-c10",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "agenda-nacional-instrumento-legal-c11",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "agenda-nacional-instrumento-legal-c12",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "agenda-nacional-instrumento-legal-c13",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "agenda-nacional-instrumento-legal"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "agenda-nacional-instrumento-legal-c14",
+      "artigo": "agenda-nacional-instrumento-legal"
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Congelou as oito páginas próprias do evento numa captura datada.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c01",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T12:25:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Correu nomes_de_palco() sobre cada página congelada: uma procura por uma lista fechada de nomes conhecidos, guardando em que página cada um aparece.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[1]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c02",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T17:55:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Escreveu a partir do resultado, sem acrescentar hipóteses sobre a causa.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[2]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c03",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T17:58:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Repetiu a procura em cada cópia congelada e marcou as quatro afirmações.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[3]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c04",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Ninguém perguntou ao evento. É a pergunta óbvia e um leitor humano fá-la melhor do que esta redação; a resposta seria uma correção, e o procedimento de correção existe.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#por_rever[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c05",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "A agenda nomeia Unicorn Stage, Impact Stage e Workshop Rooms.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/agenda",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c06",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a2"
+      },
+      "texto": "A página de oradores nomeia os mesmos três.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/oradores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[1]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c07",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a3"
+      },
+      "texto": "A página de patrocínios nomeia Main Stage, Startup Stage e Workshop Rooms.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/patrocinadores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[2]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c08",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a4"
+      },
+      "texto": "Um dos três nomes coincide entre os dois conjuntos.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/patrocinadores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[3]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c09",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T18:10:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 003. Nenhuma prosa foi escrita: não há material que a sustente.",
+      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#cronologia[0]",
+      "id": "quantas-startups-sao-de-ia-c01",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[0]",
+      "id": "quantas-startups-sao-de-ia-c02",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[1]",
+      "id": "quantas-startups-sao-de-ia-c03",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Um número de startups ativas que venha de uma fonte congelada, e não de um relatório.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[2]",
+      "id": "quantas-startups-sao-de-ia-c04",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[0]",
+      "id": "quantas-startups-sao-de-ia-c05",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[1]",
+      "id": "quantas-startups-sao-de-ia-c06",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Um número de startups ativas que venha de uma fonte congelada, e não de um relatório.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[2]",
+      "id": "quantas-startups-sao-de-ia-c07",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Obteve e congelou as três páginas do registo nacional em fontes/congeladas/2026-09-14/registo/, com SHA-256 no registo.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[0]",
+      "id": "registo-nacional-nao-devolve-texto-c01",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T12:20:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Mediu a legibilidade: bytes recebidos contra caracteres visíveis, pela mesma função que extrai texto de qualquer página congelada.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[1]",
+      "id": "registo-nacional-nao-devolve-texto-c02",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T13:40:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Implementou build/pdf.py depois de a extração de um PDF do Diário da República devolver zero caracteres — o que se veio a verificar ser cifra e tipos subconjuntados, não uma página vazia.",
+      "porque": "Sem esta distinção, este artigo teria afirmado que o registo nacional não se lê. A afirmação teria sido falsa e teria parecido sustentada.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[2]",
+      "id": "registo-nacional-nao-devolve-texto-c03",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T17:45:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Escreveu a prosa a partir de dados/verificacoes-fonte.json, com cada número marcado com a fonte congelada de onde vem.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[3]",
+      "id": "registo-nacional-nao-devolve-texto-c04",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T17:50:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Refez cada medição sobre os bytes congelados e marcou as quatro afirmações. Nenhuma ficou disputada ou por encontrar.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[4]",
+      "id": "registo-nacional-nao-devolve-texto-c05",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Um humano ainda não abriu nenhuma das três páginas num navegador para confirmar que o conteúdo ESTÁ lá para um leitor humano. A medição é sobre o que um leitor automático recebe, e o artigo diz isso — mas a confirmação humana tornaria a história mais forte.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#por_rever[0]",
+      "id": "registo-nacional-nao-devolve-texto-c06",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "O Diário da República devolveu 2 346 bytes e 22 caracteres de texto visível.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/dre-inicio",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[0]",
+      "id": "registo-nacional-nao-devolve-texto-c07",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a2"
+      },
+      "texto": "A página do Governo devolveu 165 569 bytes e 348 caracteres visíveis.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/gov-ia",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[1]",
+      "id": "registo-nacional-nao-devolve-texto-c08",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a3"
+      },
+      "texto": "O portal nacional de dados abertos devolveu 849 388 bytes e 27 406 caracteres, e é a única das três legível por um leitor automático.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/dados-gov",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[2]",
+      "id": "registo-nacional-nao-devolve-texto-c09",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a4"
+      },
+      "texto": "Um diploma do Diário da República em PDF lê-se por inteiro depois de decifrado e de seguido o mapa /ToUnicode de cada tipo.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[3]",
+      "id": "registo-nacional-nao-devolve-texto-c10",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-01"
+      },
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "registo-nacional-nao-devolve-texto-c11",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "registo-nacional-nao-devolve-texto-c12",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "registo-nacional-nao-devolve-texto-c13",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "registo-nacional-nao-devolve-texto-c14",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "registo-nacional-nao-devolve-texto-c15",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "registo-nacional-nao-devolve-texto-c16",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "registo-nacional-nao-devolve-texto-c17",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "registo-nacional-nao-devolve-texto-c18",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "registo-nacional-nao-devolve-texto-c19",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T18:10:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 002. Nenhuma prosa foi escrita: não há material que a sustente.",
+      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#cronologia[0]",
+      "id": "regulador-designacao-ausente-c01",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[0]",
+      "id": "regulador-designacao-ausente-c02",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[1]",
+      "id": "regulador-designacao-ausente-c03",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[0]",
+      "id": "regulador-designacao-ausente-c04",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[1]",
+      "id": "regulador-designacao-ausente-c05",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "uma-captura-nao-mostra-movimento"
+      },
+      "texto": "Congelou a página de oradores e extraiu 70 cartões, cada um com nome, papel e organização listados — nunca a biografia, que fica nos bytes.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[0]",
+      "id": "uma-captura-nao-mostra-movimento-c01",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14T12:05:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "uma-captura-nao-mostra-movimento"
+      },
+      "texto": "Comparou a contagem de cartões com o número que a página declara. Concordaram.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[1]",
+      "id": "uma-captura-nao-mostra-movimento-c02",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14T18:00:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "uma-captura-nao-mostra-movimento"
+      },
+      "texto": "Escreveu a ausência de diferença como afirmação, em vez de deixar o lugar vazio ou preenchê-lo com uma frase verdadeira e oca.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[2]",
+      "id": "uma-captura-nao-mostra-movimento-c03",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14T18:02:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "uma-captura-nao-mostra-movimento"
+      },
+      "texto": "Recontou os cartões e reconfirmou que só existe uma captura.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[3]",
+      "id": "uma-captura-nao-mostra-movimento-c04",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "uma-captura-nao-mostra-movimento"
+      },
+      "texto": "Este artigo fica desatualizado por construção assim que houver uma segunda captura, e isso é o objetivo. Quando acontecer, é substituído (superseded) a partir dessa data e não apagado.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#por_rever[0]",
+      "id": "uma-captura-nao-mostra-movimento-c05",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "A lista de oradores tem 70 nomes.",
+      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/oradores",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[0]",
+      "id": "uma-captura-nao-mostra-movimento-c06",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a2"
+      },
+      "texto": "A página declara de si própria que são 70, e os dois números concordam.",
+      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/oradores",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[1]",
+      "id": "uma-captura-nao-mostra-movimento-c07",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a3"
+      },
+      "texto": "Existe apenas uma captura desta página, pelo que não há diferença para relatar.",
+      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/oradores",
+      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[2]",
+      "id": "uma-captura-nao-mostra-movimento-c08",
+      "artigo": "uma-captura-nao-mostra-movimento"
+    }
+  ]
+}

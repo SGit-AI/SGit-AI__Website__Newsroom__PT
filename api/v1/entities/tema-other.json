@@ -1,0 +1,64 @@
+{
+  "no": "tema:other",
+  "tipo": "Tema",
+  "nome": "Other",
+  "url": "entidades/tema/other/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/nina-chande",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/abertas/fct-unidades",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/igor-nikolaiev",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/irina-shurmina",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/janelle-harder",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lauren-mucklow",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 19,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 11
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "agenda-nacional-instrumento-legal"
+  },
+  "texto": "Uma segunda fonte independente para o número e a data.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#por_rever[1]",
+  "id": "agenda-nacional-instrumento-legal-c03",
+  "artigo": "agenda-nacional-instrumento-legal"
+}

@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:sofia-bobrik",
+  "tipo": "Pessoa",
+  "nome": "Sofia Bobrik",
+  "url": "entidades/pessoa/sofia-bobrik/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/sofia-bobrik",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 6,
+    "entrada": 0
+  }
+}

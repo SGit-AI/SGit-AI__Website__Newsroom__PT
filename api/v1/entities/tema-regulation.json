@@ -1,0 +1,28 @@
+{
+  "no": "tema:regulation",
+  "tipo": "Tema",
+  "nome": "Regulation",
+  "url": "entidades/tema/regulation/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/luiza-castro-rey",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/thiago-vieira",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 3
+  }
+}

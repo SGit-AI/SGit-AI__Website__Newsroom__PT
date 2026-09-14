@@ -105,6 +105,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
        <a href="{raiz}backoffice/correio.html">mail</a> ·
        <a href="{raiz}backoffice/pontes.html">bridges</a> ·
        <a href="{raiz}backoffice/docs.html">documents</a> ·
+       <a href="{raiz}backoffice/agents.html">agents</a> ·
        <a href="{raiz}admin/versions.html">versions</a></div>
   <div><span class="ver">{VERSAO}</span></div>
 </div>
@@ -247,6 +248,59 @@ def commits_recentes(n=12):
         return [l.split("\t", 3) for l in r.stdout.strip().split("\n") if l.count("\t") >= 3]
     except Exception:
         return []
+
+
+def pagina_agentes():
+    """Who did what, across every article. The console's answer to «manage the actions of the
+    multiple agents».
+
+    It is one component reading one file, and that is the point: `dados/comentarios.json` is
+    DERIVED from records that already exist — each article's provenance timeline, its verification
+    record, what the newsroom says it still lacks, and what arrived from an outside assistant with
+    the result of searching the frozen bytes for its excerpt. Nothing on this page was written for
+    this page.
+
+    The alternative was to let agents write comments into a file. It would read better and it
+    would be theatre: a comment attributed to a model that never wrote it is a claim with a forged
+    source, which is worse than a claim with none. So the rule is the same one the paper lives
+    under, turned on the newsroom itself — every entry walks back to a file, and gate 25 fails the
+    build when one does not."""
+    dados = json.loads((DADOS / "comentarios.json").read_text(encoding="utf-8")) \
+        if (DADOS / "comentarios.json").exists() else {"contagem": 0, "por_artigo": {}}
+
+    linhas = "".join(
+        f'<tr><td class="sm"><a href="../{e(v["url"])}">{e(v["titulo"][:72])}</a></td>'
+        f'<td class="mono xs">{e(v["seccao"])}</td>'
+        f'<td class="mono xs">{e(v["estado"])}</td>'
+        f'<td class="mono xs">{v["contagem"]}</td>'
+        f'<td class="mono xs">{v["abertos"]}</td>'
+        f'<td class="mono xs">{e(" · ".join(sorted(v["por_agente"])))}</td></tr>'
+        for v in sorted(dados.get("por_artigo", {}).values(), key=lambda x: -x["abertos"]))
+
+    corpo = f"""
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Agents</div></div>
+<h1 class="h-2" style="max-width:30em">What every agent did to every article, derived from the
+records rather than written down.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 8px">{dados.get("contagem", 0)} entries,
+{dados.get("abertos", 0)} still open. Each one names the file and the path it came from, and the
+build fails if that path does not resolve. Nothing here was authored for this page: attributing a
+sentence to a model that never wrote it would be a claim with a forged source, and this whole site
+is an argument that a source is the thing that matters.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Per article</div></div>
+<div class="rolar"><table><thead><tr><th>Article</th><th style="width:110px">Section</th>
+  <th style="width:100px">State</th><th style="width:70px">Entries</th>
+  <th style="width:70px">Open</th><th style="width:220px">Agents</th></tr></thead>
+  <tbody>{linhas}</tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Everything, by agent</div></div>
+<pt-comment-map src="../dados/comentarios.json"></pt-comment-map>
+"""
+    extra = ('<script type="module" '
+             'src="../assets/components/pt-comment-map/v1/v1.0/v1.0.0/pt-comment-map.js"></script>')
+    return pagina("backoffice/agents.html", "Agents",
+                  "What every agent did to every article, derived from the repository's records.",
+                  corpo, extra_body=extra)
 
 
 def pagina_console(docs):
@@ -462,15 +516,34 @@ never hand-edited.</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Run it yourself</div></div>
 <div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--painel);
-border:1px solid var(--filete);white-space:pre">python3 build/extract.py --fetch    # fetch, freeze, hash, register, extract, diff
-python3 build/entregas.py --fetch   # freeze delivery sources, check every excerpt
-python3 build/graph.py              # ontology, graph, triples, manifest
+border:1px solid var(--filete);white-space:pre">python3 build/tudo.py               # THE WHOLE BUILD, IN ORDER, THEN THE THREE GATES
+python3 build/tudo.py --fetch       # the same, going to the network for the sources first
+python3 build/tudo.py --so-portoes  # gates only, no rebuild
+
+# what build/tudo.py runs, in this order — the order is load-bearing
+python3 build/extract.py [--fetch]  # fetch, freeze, hash, register, extract, diff
+python3 build/graph.py              # ontology, graph, triples, manifest, source publishers
+python3 build/entidades.py          # dados/entidades.json + a page per entity  ← before any page
+python3 build/comentarios.py        # agent activity per article, derived from the records
 python3 build/artigos.py            # article folders -&gt; pages + derived index
 python3 build/build.py              # every reader-facing page
+python3 build/paginas_extra.py      # /api/ and /proveniencia/
+python3 build/api.py                # api/v1/ — every path is a file on disk
 python3 build/backoffice.py         # this console
 python3 build/chrome.py             # llms.txt, sitemap.xml, index.md
-python3 build/gates.py              # the section gates  — must print OK
-node admin/build/validate.js        # the site gate      — must print OK</pre></div>
+python3 build/gates.py              # gates  1-15  — must print OK
+python3 build/gates_artigos.py      # gates 16-25  — must print OK
+node admin/build/validate.js        # the site gate — must print OK
+
+# build/entregas.py is run per delivery, not per build:
+python3 build/entregas.py --fetch   # freeze delivery sources, check every excerpt</pre></div>
+<p class="xs" style="padding-top:10px"><b>Use <code>build/tudo.py</code>.</b> The order matters and
+it is not obvious: <code>entidades.py</code> must run before anything that writes a page, because
+the pass that turns a name in prose into a link reads the file it produces — run out of order,
+nothing breaks, the site just quietly has fewer links than it should. The command list in
+<code>CLAUDE.md</code> is older than half these steps, and <code>CLAUDE.md</code> is the rules
+file: it is in the deny list on purpose, and editing the rules to match the code is backwards. So
+the real order lives in an executable file, where it cannot go stale without something failing.</p>
 <p class="xs" style="padding-top:10px">Without <code>--fetch</code> the first two run against the
 copies already frozen and touch no network. That is how the site is rebuilt from a clone, years
 later, to exactly the same pages.</p>
@@ -494,6 +567,7 @@ def main():
         escrever("backoffice/index.html", pagina_console(docs)),
         escrever("backoffice/docs.html", pagina_docs(docs)),
         escrever("backoffice/viewer.html", pagina_viewer()),
+        escrever("backoffice/agents.html", pagina_agentes()),
     ]
     (DADOS / "documentos.json").write_text(json.dumps({
         "id": "pt-documentos", "versao": "0.1.0", "atualizado": time.strftime("%Y-%m-%d"),

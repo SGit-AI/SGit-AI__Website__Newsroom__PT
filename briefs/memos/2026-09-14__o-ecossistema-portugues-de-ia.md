@@ -161,8 +161,9 @@ whose entire argument is provenance.
 Recorded here rather than silently dropped. The brief is large and the honest thing is to say
 which parts are landed and which are not.
 
-- **Entity pages and prose-level linking** (§2) — the largest item. Needs an entity resolver, a
-  page per entity, and a link pass over the prose.
+- ~~**Entity pages and prose-level linking** (§2)~~ — **built in v0.4.0.** 198 entity pages, a
+  published linking formula, 313 links in prose, and a component that loads the graph live. Its own
+  record is [`2026-09-14__ligar-as-entidades.md`](2026-09-14__ligar-as-entidades.md).
 - **Agent comments per article** (§5.1) — needs the data model, a file per article, and a
   visualisation.
 - **The visual news desk** — the brief points at

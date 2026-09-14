@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "regulador-designacao-ausente"
+  },
+  "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[0]",
+  "id": "regulador-designacao-ausente-c02",
+  "artigo": "regulador-designacao-ausente"
+}

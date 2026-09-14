@@ -85,6 +85,10 @@ suficiente para ser interessante.
         ("/", "A primeira página. O desenho escolhido pelo editor a 13 de setembro de 2026."),
         ("/artigos/", "Os artigos, por data. Cada um é uma pasta com a prosa, a verificação de "
                       "cada afirmação e a proveniência."),
+        ("/entidades/", "Uma página por nó do grafo que é uma coisa do mundo: pessoa, organização, "
+                        "instituição, editor, tema, lugar. Cada página é a lista das frases em que "
+                        "a entidade entra, mais a contagem de onde o seu nome aparece nos bytes "
+                        "congelados. Nenhuma linha escrita sobre ninguém."),
         ("/api/", "A API só de leitura, e uma consola que a invoca. Cada caminho é um ficheiro: "
                   "não há servidor, e por isso não há verbo que não seja GET. Os caminhos são em "
                   "INGLÊS de propósito — a intenção é várias línguas sobre um só conjunto de dados."),
@@ -139,6 +143,21 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://{HOST}/dados/excluidas.json — as fontes que foram tentadas e não resolveram
 - https://{HOST}/dados/historias.json — o índice dos artigos, derivado das pastas datadas
 - https://{HOST}/dados/documentos.json — todos os documentos markdown deste repositório
+- https://{HOST}/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
+- https://{HOST}/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
+- https://{HOST}/dados/redacao.json — a mesa: as bancadas, a carga de cada uma, e o quadro
+
+## As entidades, em endereços construíveis
+
+Uma entidade é um nó do grafo que é uma coisa do mundo, e o caminho sai do tipo e do id do nó:
+
+    https://{HOST}/entidades/<tipo>/<id>/          a página
+    https://{HOST}/api/v1/entities/<tipo>-<id>.json      a mesma coisa em JSON
+
+Os tipos com página: pessoa, organizacao, instituicao, editor, evento, local, palco, tema,
+tecnologia, setor, produto, servico, ideia. Uma página de entidade não tem uma linha escrita
+sobre ela: tem os campos verbatim da fonte, as arestas lidas em voz alta pela leitura publicada
+na ontologia, e a contagem de onde o nome aparece em cada cópia congelada.
 
 ## Os artigos, em endereços construíveis
 
@@ -149,6 +168,7 @@ Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do 
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.md         a prosa
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/afirmacoes.json   cada afirmação e o seu estado
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/proveniencia.json que agente, quando, porquê
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/comentarios.json quem disse o quê, e de onde saiu
 
 A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
@@ -161,6 +181,10 @@ escrito pelo editor de registo, e é a única coisa que põe um artigo na primei
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
 5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
+   existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
+   escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um
+   `de` não resolver.
 """
     (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
 

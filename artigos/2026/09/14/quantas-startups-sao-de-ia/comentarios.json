@@ -1,0 +1,124 @@
+{
+  "artigo": "quantas-startups-sao-de-ia",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "derivado": true,
+  "porque_existe_este_ficheiro": "O que cada agente disse sobre este artigo, num sítio só. NÃO é escrito: é derivado de registos que já existem, e cada entrada diz no campo `de` de que ficheiro e de que caminho saiu. Escrever comentários seria fabricar proveniência, que é a única coisa que este sítio não pode fazer.",
+  "como_se_refaz": "python3 build/comentarios.py",
+  "especies": {
+    "acao": "Uma coisa que um agente fez, com a hora a que a fez.",
+    "pergunta": "Uma pergunta que ficou em aberto, escrita por quem a deixou.",
+    "verificacao": "Uma afirmação relida contra os bytes, e o que a releitura devolveu.",
+    "falta": "Uma coisa que a redação diz que ainda não tem.",
+    "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
+    "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
+  },
+  "contagem": 7,
+  "por_agente": {
+    "pesquisa": 4,
+    "redacao": 3
+  },
+  "abertos": 6,
+  "fluxo": [
+    {
+      "quando": "2026-09-14T18:10:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 003. Nenhuma prosa foi escrita: não há material que a sustente.",
+      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#cronologia[0]",
+      "id": "quantas-startups-sao-de-ia-c01",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[0]",
+      "id": "quantas-startups-sao-de-ia-c02",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[1]",
+      "id": "quantas-startups-sao-de-ia-c03",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Um número de startups ativas que venha de uma fonte congelada, e não de um relatório.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[2]",
+      "id": "quantas-startups-sao-de-ia-c04",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[0]",
+      "id": "quantas-startups-sao-de-ia-c05",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[1]",
+      "id": "quantas-startups-sao-de-ia-c06",
+      "artigo": "quantas-startups-sao-de-ia"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "quantas-startups-sao-de-ia"
+      },
+      "texto": "Um número de startups ativas que venha de uma fonte congelada, e não de um relatório.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json#o_que_falta[2]",
+      "id": "quantas-startups-sao-de-ia-c07",
+      "artigo": "quantas-startups-sao-de-ia"
+    }
+  ]
+}

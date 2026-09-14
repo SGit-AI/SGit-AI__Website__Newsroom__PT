@@ -128,6 +128,26 @@ COLECCOES = [
      "pt": "equipa", "summary": "The three departments and the editor of record"},
     {"path": "documents", "ficheiro": "documentos.json", "lista": "documentos", "chave": None,
      "pt": "documentos", "summary": "Every markdown document in this repository"},
+    {"path": "desk", "ficheiro": "redacao.json", "lista": None, "chave": None,
+     "pt": "redacao", "summary": "The newsroom floor: benches, their load, and the board",
+     "description": "Counted from files that already exist — the issue board, the mail between "
+                    "departments, the run records, and the per-agent work. Nothing here moves "
+                    "anything: a story's state lives in the files of its own folder, and the "
+                    "«publicado» column is the named editor's line and nobody else's."},
+    {"path": "agent-activity", "ficheiro": "comentarios.json", "lista": "fluxo", "chave": "id",
+     "pt": "comentarios", "summary": "What every agent did to every article, derived not written",
+     "description": "One entry per recorded action, question, verification, gap, outside proposal "
+                    "or editorial decision. Every entry carries a `de` field naming the file and "
+                    "path it was derived from, and the build fails if that path does not resolve. "
+                    "Nothing here was authored for the record: a comment attributed to a model "
+                    "that never wrote it is a claim with a forged source."},
+    {"path": "entities", "ficheiro": "entidades.json", "lista": "entidades", "chave": "no",
+     "pt": "entidades", "summary": "Every graph node that is a thing in the world, with a page",
+     "description": "One entry per person, organisation, institution, publisher, topic or place. "
+                    "Each carries where its name appears in the frozen bytes and how often, and "
+                    "whether it is linkable in prose under the published linking formula. Keys are "
+                    "Portuguese because that is what the repository holds; the path is English "
+                    "because the intent is several languages over one set of data."},
     {"path": "manifest", "ficheiro": "manifesto.json", "lista": None, "chave": None,
      "pt": "manifesto", "summary": "Every data file with its SHA-256"},
     {"path": "excluded", "ficheiro": "excluidas.json", "lista": None, "chave": None,

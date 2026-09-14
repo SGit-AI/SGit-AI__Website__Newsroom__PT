@@ -1,0 +1,32 @@
+{
+  "no": "tema:pricing",
+  "tipo": "Tema",
+  "nome": "Pricing",
+  "url": "entidades/tema/pricing/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 35
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores/nina-chande",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-martins-freire",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 4,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

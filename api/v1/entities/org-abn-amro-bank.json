@@ -1,0 +1,24 @@
+{
+  "no": "org:abn-amro-bank",
+  "tipo": "Organizacao",
+  "nome": "ABN AMRO Bank",
+  "url": "entidades/organizacao/abn-amro-bank/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/karan-setiya",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

@@ -194,6 +194,19 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 .caminho { font-size: 19px; line-height: 1.5; margin: 0; }
 .caminho .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
 
+/* --- entidades -------------------------------------------------------------
+   Um índice de duzentos nomes numa só coluna é uma página que se percorre com o
+   polegar durante meio minuto. Em colunas, lê-se de um relance — e `columns` faz
+   isto sem tocar na marcação, que continua a ser uma lista. */
+.colunas { columns: 3; column-gap: 40px; padding-left: 1.1em; }
+.colunas li { break-inside: avoid; margin-bottom: .3em; }
+.entidade-vizinhanca { border: 1px solid var(--filete); background: var(--painel); padding: 14px 16px; }
+/* Uma menção ligada é uma ligação com um sublinhado mais discreto: o corpo de um
+   artigo pode ter várias, e sublinhá-las todas a cheio transformava a prosa num
+   índice. Ainda é claramente uma ligação — só não grita. */
+a.ent { text-decoration: none; border-bottom: 1px solid var(--filete-2); color: inherit; }
+a.ent:hover { border-bottom-color: var(--acento); color: var(--acento); }
+
 /* --- telemóvel: a mesma hierarquia numa coluna ----------------------------- */
 @media (max-width: 900px) {
   :root { --goteira: 18px; }
@@ -213,6 +226,7 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
   .datalinha { font-size: 11px; gap: 10px; }
   #cy { height: 420px; }
   .chip { white-space: normal; }     /* uma ficha longa parte-se em vez de alargar a linha */
+  .colunas { columns: 1; }
   ul[style*="columns"] { columns: 1 !important; }
   .quadro { grid-template-columns: 1fr; }
 }

@@ -1,0 +1,20 @@
+{
+  "no": "pessoa:hudi-shehu",
+  "tipo": "Pessoa",
+  "nome": "Hudi Shehu",
+  "url": "entidades/pessoa/hudi-shehu/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 4,
+    "entrada": 0
+  }
+}

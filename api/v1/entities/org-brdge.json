@@ -1,0 +1,28 @@
+{
+  "no": "org:brdge",
+  "tipo": "Organizacao",
+  "nome": "Brdge",
+  "url": "entidades/organizacao/brdge/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 7
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

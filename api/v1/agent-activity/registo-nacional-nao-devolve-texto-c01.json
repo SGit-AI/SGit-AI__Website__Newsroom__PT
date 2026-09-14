@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T12:00:00Z",
+  "agente": "pesquisa",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "registo-nacional-nao-devolve-texto"
+  },
+  "texto": "Obteve e congelou as três páginas do registo nacional em fontes/congeladas/2026-09-14/registo/, com SHA-256 no registo.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[0]",
+  "id": "registo-nacional-nao-devolve-texto-c01",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

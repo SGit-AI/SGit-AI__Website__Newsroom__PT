@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T17:45:00Z",
+  "agente": "redacao",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "registo-nacional-nao-devolve-texto"
+  },
+  "texto": "Escreveu a prosa a partir de dados/verificacoes-fonte.json, com cada número marcado com a fonte congelada de onde vem.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[3]",
+  "id": "registo-nacional-nao-devolve-texto-c04",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

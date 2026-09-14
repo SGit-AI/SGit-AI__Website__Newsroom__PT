@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.3.1</span></div>
+  <div><span class="ver">v0.6.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,114 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.6.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>A mesa passa a ser uma sala.</b> <code>/redacao/</code> abre com quatro bancadas — Pesquisa,
+Redação, Verificação, o editor de registo — cada uma a mostrar quantos cartões estão à espera dela e
+quanto do seu trabalho está por fechar. Clica-se numa e a sala responde: o que faz, o que
+<b>recusa</b> fazer, em que pastas escreve. Uma tabela mostra linhas; uma sala mostra carga, e é a
+segunda a pergunta que se faz a uma redação às cinco da tarde.
+<br><br>
+<b>Não há maneira de mover um cartão, e a ausência é o desenho.</b> O estado de uma história vive
+nos ficheiros da pasta dela, e quem o muda é quem tem direito de escrita nessa pasta. Uma sala que
+deixasse arrastar um cartão para «publicado» estaria a oferecer, num clique e a quem quer que
+abrisse a página, exatamente o gesto que esta publicação reserva a um humano nomeado. E o quadro em
+tabela fica por baixo, sem JavaScript: metade dos leitores deste site são máquinas, e uma redação
+que só se deixasse ler por uma delas seria a ironia errada.
+<br><br>
+<b>Um defeito apanhado na própria construção.</b> A primeira versão do quadro assumiu um artigo por
+issue e escondeu um artigo — o issue 001 encomendou duas histórias, e o quadro mostrava seis
+cartões e parecia completo. Um quadro que esconde trabalho é pior do que não haver quadro,
+precisamente por parecer completo. O cartão passa a ser o ARTIGO, que é a coisa que tem ficheiros.
+<br><br>
+<b>O portão 26: «construção» não é a palavra que se escreve para escapar à fronteira.</b> O portão
+12 isenta uma execução que não declara departamento, porque a sessão de arranque cria tudo. As
+sessões desta semana são de construção e usam essa isenção — então passam a ter de a merecer: não
+congelar uma fonte, não mover um cartão, não pôr nada em publicado, não registar uma versão com os
+portões vermelhos. Cinco testes de injeção. Uma isenção que qualquer execução invoca escrevendo a
+palavra certa não é uma fronteira — é uma porta com o nome ao lado.
+</td>
+</tr>
+
+<tr>
+<td class="mono"><span class="vnum">v0.5.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>O trabalho dos agentes passa a estar à vista — e nada dele foi escrito.</b> Cada artigo ganha um
+<code>comentarios.json</code> e um mapa por baixo da proveniência: quem disse o quê, quando, e o que
+ficou em aberto. 62 entradas, 5 agentes, 35 por fechar.
+<br><br>
+A maneira fácil de fazer isto seria <b>escrever</b> os comentários. Ficariam bem — um do ChatGPT a
+sugerir, outro da Perplexity a discordar — e nada daquilo teria acontecido. Atribuir a um modelo de
+outro fornecedor uma frase que ele nunca escreveu é pior do que uma afirmação sem fonte: é uma
+afirmação com uma <b>fonte falsa</b>. Por isso cada entrada é DERIVADA de um registo que já existe —
+a cronologia de proveniência, o registo de verificação, o que a redação diz que ainda lhe falta, o
+que chegou de fora com o resultado de se ter procurado o excerto nos bytes, e a decisão do editor
+ou a sua ausência — e diz no campo <code>de</code> de que ficheiro e de que caminho saiu.
+<br><br>
+<b>O portão 25</b> abre esse ficheiro e percorre esse caminho. Se não resolver, a construção falha:
+é a regra das afirmações virada para dentro. Sete testes de injeção, e o que mais vale a pena é o
+último — um nome de agente que ninguém declarou é um colaborador anónimo numa publicação cujo
+argumento inteiro é saber quem disse o quê.
+<br><br>
+<b>Uma proposta exterior liga-se a um artigo pela SECÇÃO, e diz isso por extenso.</b> «Chegou para a
+secção das políticas, que é a secção deste artigo» — não afirma que seja sobre ele. Para isso é
+preciso alguém ler as duas coisas, e esse alguém é o editor.
+<br><br>
+<b><code>build/tudo.py</code>: a construção inteira num comando.</b> São dez passos e a ordem importa —
+<code>entidades.py</code> tem de correr antes de tudo o que escreve uma página, porque é o ficheiro
+dele que faz uma menção virar ligação. Fora de ordem não rebenta: produz um site com menos ligações
+do que devia e nenhum aviso. A lista de comandos no <code>CLAUDE.md</code> é mais antiga do que
+metade destes passos, e aquele ficheiro é o das regras — está na lista de recusa de propósito, e
+mudá-lo para acompanhar o código é ao contrário. A ordem verdadeira passa a viver num ficheiro
+executável, que é o único sítio onde não pode ficar desatualizada sem que alguma coisa falhe.
+</td>
+</tr>
+
+<tr>
+<td class="mono"><span class="vnum">v0.4.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>Os nomes passam a ter endereço.</b> 198 entidades — pessoas, organizações, instituições,
+editores, temas, lugares — cada uma com página em <code>entidades/&lt;tipo&gt;/&lt;id&gt;/</code>, e a
+primeira menção de cada uma em qualquer página do jornal passa a ligar para lá. São 313 ligações.
+Uma página de entidade <b>não tem uma linha escrita sobre ela</b>: tem os campos verbatim da fonte,
+as arestas lidas em voz alta pela leitura publicada na ontologia — «o evento lista X sob Y» — e a
+contagem de em que ficheiro congelado o nome aparece e quantas vezes. É o §6 a pagar-se: foi por
+isto que valeu a pena recusar <code>relacionado_com</code>.
+<br><br>
+<b>A fórmula de ligação é publicada, porque é uma classificação.</b> Nome verbatim com os acentos
+que os bytes lhe deram, pelo menos 6 caracteres, limites de palavra, a primeira menção de cada
+página e mais nenhuma, nunca dentro de outra ligação. E só os tipos que nomeiam uma coisa própria:
+ligar a palavra «hardware» à página de uma Tecnologia seria dizer que aquela palavra é uma
+referência àquele nó, e não é — é a palavra. Uma ligação destas diz «o texto contém este nome»,
+nunca «o texto é sobre esta entidade».
+<br><br>
+<b>O grafo passa a saber de QUEM veio cada byte.</b> Cada fonte congelada ganha uma aresta
+<code>publicada_por</code> para a casa que a publica, derivada do registo pela fórmula
+<code>editor_de_fonte</code>. Um tipo novo, <code>Editor</code>, em vez de alargar
+<code>Instituição</code>: a definição publicada de Instituição é «um organismo público, um regulador
+ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas — alargar a definição para
+caber seria mudar o que ela promete a quem já a leu. E dois nomes que continuem diferentes depois
+da fórmula ficam dois nós: se o registo diz «Diário da República» e «Diário da República
+Eletrónico», são duas coisas que ele diz.
+<br><br>
+<b>Dois fundamentos para uma ligação, e a página diz qual.</b> O forte é o nome estar nos bytes
+(179 entidades). O fraco é ser o nome que o nosso próprio registo dá ao editor de uma fonte (4) —
+existe porque «Diário da República» publica duas fontes congeladas e não aparece em byte nenhum,
+visto que a página inicial daquele registo devolve 22 caracteres visíveis a um leitor automático, o
+que é uma das histórias deste jornal. Os dois não são confundidos: o campo diz qual é, a página
+explica-o, e o portão 22 falha a construção se alguém invocar o fraco tendo o forte.
+<br><br>
+<b>Quatro portões novos (21 a 24), dez testes de injeção.</b> Dois dos testes apanharam defeitos nos
+próprios portões antes de apanharem o que quer que fosse no site, e o portão 24 — «nenhuma página
+de Pessoa diz nada sobre a pessoa» — teve de ser endurecido quando a célula da organização passou a
+conter uma ligação: um portão que deixa de ver metade do que guarda não guarda nada.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.3.1</span></td>
@@ -225,7 +333,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.3.1</span>.
+duplicados. Versão <span class="ver">v0.6.0</span>.
 </div>
 
 </div>

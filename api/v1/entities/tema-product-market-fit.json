@@ -1,0 +1,64 @@
+{
+  "no": "tema:product-market-fit",
+  "tipo": "Tema",
+  "nome": "Product-market fit",
+  "url": "entidades/tema/product-market-fit/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ben-lakoff",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/david-graham",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/igor-nikolaiev",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-gutman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/olesia-rykova",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sebastian-horstmann",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/wouter-heijnen",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 12,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 12
+  }
+}

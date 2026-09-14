@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a2"
+  },
+  "texto": "A página de oradores nomeia os mesmos três.",
+  "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/oradores",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[1]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c07",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

@@ -1,0 +1,5504 @@
+{
+  "id": "pt-entidades",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "Uma entrada por nó do grafo que é uma coisa do mundo. Cada uma tem página, e as que têm `ligavel: true` são as que uma menção em prosa passa a ligar. O nome é o rótulo do nó, que veio dos bytes de uma cópia congelada; `nos_bytes` diz em que ficheiros congelados esse nome aparece e quantas vezes.",
+  "formula": {
+    "id": "ligacao_de_entidade",
+    "o_que_faz": "Transforma uma menção em prosa numa ligação para a página da entidade.",
+    "porque_publicada": "Decidir que uma sequência de letras numa frase é uma entidade é classificar, e o §6 do resumo diz que uma classificação é uma fórmula publicada ou não acontece.",
+    "nunca_diz": "Que o texto é SOBRE a entidade. Diz que o texto contém aquele nome, tal e qual como a fonte congelada o escreve.",
+    "regras": [
+      "a correspondência é do nome verbatim do nó, com as maiúsculas e os acentos que os bytes lhe deram; não há correspondência aproximada, nem sem acentos, nem por apelido",
+      "o nome tem de ter pelo menos 6 caracteres",
+      "o nome tem de ter um dos dois fundamentos, e a página da entidade diz qual: `bytes` — aparece, tal e qual, nos bytes de pelo menos uma cópia congelada; ou `registo` — é o nome que o nosso próprio registo dá ao editor de pelo menos uma fonte congelada. O segundo é mais fraco e está marcado como tal: é um facto sobre o nosso registo e não sobre a página. Uma entidade sem nenhum dos dois tem página e nunca é ligada",
+      "os limites são de palavra: um nome dentro de outra palavra não é uma menção",
+      "só ligam em prosa os tipos que nomeiam uma coisa própria (Editor, Evento, Instituicao, Local, Organizacao, Palco, Pessoa); os tipos derivados pelo léxico têm página e não se impõem ao texto, porque o seu rótulo é um substantivo comum e a palavra não é uma referência ao nó",
+      "uma entidade nunca é ligada na sua própria página",
+      "liga-se a primeira menção de cada entidade em cada página, e no máximo 1",
+      "nunca dentro de uma ligação, de um elemento de código, de uma marca ou de um atributo"
+    ]
+  },
+  "contagem": 198,
+  "ligaveis": 172,
+  "por_fundamento": {
+    "bytes": 179,
+    "registo": 4,
+    "nenhum": 15
+  },
+  "ligaveis_em_prosa": 147,
+  "por_tipo": {
+    "Editor": 8,
+    "Evento": 1,
+    "Ideia": 4,
+    "Instituicao": 3,
+    "Local": 1,
+    "Organizacao": 67,
+    "Palco": 2,
+    "Pessoa": 70,
+    "Produto": 1,
+    "Servico": 3,
+    "Setor": 7,
+    "Tecnologia": 8,
+    "Tema": 23
+  },
+  "entidades": [
+    {
+      "no": "editor:comissao-europeia",
+      "tipo": "Editor",
+      "nome": "Comissão Europeia",
+      "url": "entidades/editor/comissao-europeia/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "editor:diario-da-republica",
+      "tipo": "Editor",
+      "nome": "Diário da República",
+      "url": "entidades/editor/diario-da-republica/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": "registo",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "editor:digitalgov",
+      "tipo": "Editor",
+      "nome": "digitalGOV",
+      "url": "entidades/editor/digitalgov/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 13
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "editor:aicep-portugal-global",
+      "tipo": "Editor",
+      "nome": "AICEP Portugal Global",
+      "url": "entidades/editor/aicep-portugal-global/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": "registo",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "editor:autoridade-nacional-de-comunicacoes",
+      "tipo": "Editor",
+      "nome": "Autoridade Nacional de Comunicações",
+      "url": "entidades/editor/autoridade-nacional-de-comunicacoes/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": "registo",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "editor:portugal-business-news",
+      "tipo": "Editor",
+      "nome": "Portugal Business News",
+      "url": "entidades/editor/portugal-business-news/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 29
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "editor:scaleup-porto",
+      "tipo": "Editor",
+      "nome": "ScaleUp Porto",
+      "url": "entidades/editor/scaleup-porto/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/imprensa/scaleup-porto",
+          "ocorrencias": 11
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "editor:startupevents-org",
+      "tipo": "Editor",
+      "nome": "StartupEvents.org",
+      "url": "entidades/editor/startupevents-org/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/imprensa/startupevents-org",
+          "ocorrencias": 16
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "evento:startup-summit-lisbon-2026",
+      "tipo": "Evento",
+      "nome": "Startup Summit Lisbon 2026",
+      "url": "entidades/evento/startup-summit-lisbon-2026/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/faq",
+          "ocorrencias": 24
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 14
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-14/oradores/ricardo",
+          "ocorrencias": 12
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/imprensa/startupevents-org",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/imprensa/scaleup-porto",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores/anmol-goel",
+          "ocorrencias": 7
+        }
+      ],
+      "ficheiros_com_o_nome": 78,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 2,
+        "entrada": 161
+      }
+    },
+    {
+      "no": "ideia:sustentabilidade",
+      "tipo": "Ideia",
+      "nome": "Sustentabilidade",
+      "url": "entidades/ideia/sustentabilidade/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 7
+      }
+    },
+    {
+      "no": "ideia:angariar",
+      "tipo": "Ideia",
+      "nome": "Angariar capital",
+      "url": "entidades/ideia/angariar/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 5
+      }
+    },
+    {
+      "no": "ideia:saida",
+      "tipo": "Ideia",
+      "nome": "Saída",
+      "url": "entidades/ideia/saida/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 4
+      }
+    },
+    {
+      "no": "ideia:internacionalizar",
+      "tipo": "Ideia",
+      "nome": "Internacionalizar",
+      "url": "entidades/ideia/internacionalizar/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "instituicao:governo-de-portugal",
+      "tipo": "Instituicao",
+      "nome": "Governo de Portugal",
+      "url": "entidades/instituicao/governo-de-portugal/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 1,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "instituicao:diario-da-republica-eletronico",
+      "tipo": "Instituicao",
+      "nome": "Diário da República Eletrónico",
+      "url": "entidades/instituicao/diario-da-republica-eletronico/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": "registo",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 1,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "instituicao:dados-gov-pt",
+      "tipo": "Instituicao",
+      "nome": "dados.gov.pt",
+      "url": "entidades/instituicao/dados-gov-pt/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 1007
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 1,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "local:beato-innovation-district",
+      "tipo": "Local",
+      "nome": "Beato Innovation District",
+      "url": "entidades/local/beato-innovation-district/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/local",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/faq",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-14/imprensa/startupevents-org",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores/amit-grinvald",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores/andreia-gaudencio",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 78,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:brdge",
+      "tipo": "Organizacao",
+      "nome": "Brdge",
+      "url": "entidades/organizacao/brdge/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 7
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "org:independent",
+      "tipo": "Organizacao",
+      "nome": "Independent",
+      "url": "entidades/organizacao/independent/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-14/oradores/amit-grinvald",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores/slavi-slavev",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "org:time-to-rise",
+      "tipo": "Organizacao",
+      "nome": "Time to Rise",
+      "url": "entidades/organizacao/time-to-rise/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores/sylvie-ritt",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "org:351-portuguese-startup-association",
+      "tipo": "Organizacao",
+      "nome": "351 Portuguese Startup Association",
+      "url": "entidades/organizacao/351-portuguese-startup-association/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/cintia-costa",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:abn-amro-bank",
+      "tipo": "Organizacao",
+      "nome": "ABN AMRO Bank",
+      "url": "entidades/organizacao/abn-amro-bank/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:accenture",
+      "tipo": "Organizacao",
+      "nome": "Accenture",
+      "url": "entidades/organizacao/accenture/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/tina-valand",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:aiffin",
+      "tipo": "Organizacao",
+      "nome": "Aiffin",
+      "url": "entidades/organizacao/aiffin/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 12
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 7
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:angels-way",
+      "tipo": "Organizacao",
+      "nome": "Angels Way",
+      "url": "entidades/organizacao/angels-way/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:around-pr-studio",
+      "tipo": "Organizacao",
+      "nome": "Around PR Studio",
+      "url": "entidades/organizacao/around-pr-studio/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/viachaslau-smirnou",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:brandulogy",
+      "tipo": "Organizacao",
+      "nome": "BRANDULOGY",
+      "url": "entidades/organizacao/brandulogy/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/tania-tome",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:bsc-ai-factory",
+      "tipo": "Organizacao",
+      "nome": "BSC AI Factory",
+      "url": "entidades/organizacao/bsc-ai-factory/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/andreia-gaudencio",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:bankless-ventures",
+      "tipo": "Organizacao",
+      "nome": "Bankless Ventures",
+      "url": "entidades/organizacao/bankless-ventures/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:business-network-albania",
+      "tipo": "Organizacao",
+      "nome": "Business Network Albania",
+      "url": "entidades/organizacao/business-network-albania/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:cosysense",
+      "tipo": "Organizacao",
+      "nome": "Cosysense",
+      "url": "entidades/organizacao/cosysense/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sebastian-horstmann",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:creativity-matter",
+      "tipo": "Organizacao",
+      "nome": "Creativity Matter",
+      "url": "entidades/organizacao/creativity-matter/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:digiseg",
+      "tipo": "Organizacao",
+      "nome": "Digiseg",
+      "url": "entidades/organizacao/digiseg/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:dyrectli-capital",
+      "tipo": "Organizacao",
+      "nome": "Dyrectli Capital",
+      "url": "entidades/organizacao/dyrectli-capital/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:ecox-bombastic-burgh",
+      "tipo": "Organizacao",
+      "nome": "Ecox / Bombastic Burgh",
+      "url": "entidades/organizacao/ecox-bombastic-burgh/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/jorge-sebastiao",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:fiiys-ltd",
+      "tipo": "Organizacao",
+      "nome": "FIIYS Ltd",
+      "url": "entidades/organizacao/fiiys-ltd/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:fast-track-ventures",
+      "tipo": "Organizacao",
+      "nome": "Fast Track Ventures",
+      "url": "entidades/organizacao/fast-track-ventures/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:fio-legal",
+      "tipo": "Organizacao",
+      "nome": "Fio Legal",
+      "url": "entidades/organizacao/fio-legal/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores/luiza-castro-rey",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:fio-legal-fractional-freelance-hr",
+      "tipo": "Organizacao",
+      "nome": "Fio Legal | Fractional Freelance HR",
+      "url": "entidades/organizacao/fio-legal-fractional-freelance-hr/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:first-ten-advisory",
+      "tipo": "Organizacao",
+      "nome": "First Ten Advisory",
+      "url": "entidades/organizacao/first-ten-advisory/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:freedom-vas",
+      "tipo": "Organizacao",
+      "nome": "Freedom VAs",
+      "url": "entidades/organizacao/freedom-vas/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/satya-morarji",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:gacs-ltd-gacsym-ventures",
+      "tipo": "Organizacao",
+      "nome": "Gacs Ltd & Gacsym Ventures",
+      "url": "entidades/organizacao/gacs-ltd-gacsym-ventures/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/anmol-goel",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 5,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:globalfy",
+      "tipo": "Organizacao",
+      "nome": "Globalfy",
+      "url": "entidades/organizacao/globalfy/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/diego-sampaio",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:growth-geek-unipessoal-lda",
+      "tipo": "Organizacao",
+      "nome": "Growth Geek Unipessoal LDA",
+      "url": "entidades/organizacao/growth-geek-unipessoal-lda/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:humannovate-consulting",
+      "tipo": "Organizacao",
+      "nome": "Humannovate Consulting",
+      "url": "entidades/organizacao/humannovate-consulting/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/janelle-harder",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:ideasoft",
+      "tipo": "Organizacao",
+      "nome": "IdeaSoft",
+      "url": "entidades/organizacao/ideasoft/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:jab-holdings",
+      "tipo": "Organizacao",
+      "nome": "JAB Holdings",
+      "url": "entidades/organizacao/jab-holdings/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/vini-devnani",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:jci",
+      "tipo": "Organizacao",
+      "nome": "JCI",
+      "url": "entidades/organizacao/jci/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/oradores/pedro-simoes",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores/brian-nogaro",
+          "ocorrencias": 4
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:konnect-ai-human-strategy-execution-workspace",
+      "tipo": "Organizacao",
+      "nome": "KONNECT - AI + Human Strategy Execution Workspace",
+      "url": "entidades/organizacao/konnect-ai-human-strategy-execution-workspace/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:kapisci",
+      "tipo": "Organizacao",
+      "nome": "Kapisci",
+      "url": "entidades/organizacao/kapisci/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:lexidy",
+      "tipo": "Organizacao",
+      "nome": "LEXIDY",
+      "url": "entidades/organizacao/lexidy/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-figueiredo",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:ladies-who-talk",
+      "tipo": "Organizacao",
+      "nome": "Ladies Who Talk",
+      "url": "entidades/organizacao/ladies-who-talk/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/irina-shurmina",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:lexidy-law-boutique-slp",
+      "tipo": "Organizacao",
+      "nome": "Lexidy Law Boutique SLP",
+      "url": "entidades/organizacao/lexidy-law-boutique-slp/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:like-no-other",
+      "tipo": "Organizacao",
+      "nome": "Like No Other",
+      "url": "entidades/organizacao/like-no-other/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:linkilaw-solicitors-cbca-group",
+      "tipo": "Organizacao",
+      "nome": "Linkilaw Solicitors, CBCA Group",
+      "url": "entidades/organizacao/linkilaw-solicitors-cbca-group/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:lisa-press-consulting",
+      "tipo": "Organizacao",
+      "nome": "Lisa Press Consulting",
+      "url": "entidades/organizacao/lisa-press-consulting/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:lisbon-business-leaders",
+      "tipo": "Organizacao",
+      "nome": "Lisbon Business Leaders",
+      "url": "entidades/organizacao/lisbon-business-leaders/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/kasia-szczesniak",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:mvmt-studio",
+      "tipo": "Organizacao",
+      "nome": "MVMT Studio",
+      "url": "entidades/organizacao/mvmt-studio/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/max-rodman",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:many",
+      "tipo": "Organizacao",
+      "nome": "Many",
+      "url": "entidades/organizacao/many/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nashwa-shah",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:mykor",
+      "tipo": "Organizacao",
+      "nome": "Mykor",
+      "url": "entidades/organizacao/mykor/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/olivia-page",
+          "ocorrencias": 14
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 9
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:ow-ventures-scr",
+      "tipo": "Organizacao",
+      "nome": "OW Ventures SCR",
+      "url": "entidades/organizacao/ow-ventures-scr/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:on-this-planet",
+      "tipo": "Organizacao",
+      "nome": "On This Planet",
+      "url": "entidades/organizacao/on-this-planet/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/raffaella-loncao",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:pr-agency-techwaves",
+      "tipo": "Organizacao",
+      "nome": "PR Agency TechWaves",
+      "url": "entidades/organizacao/pr-agency-techwaves/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sofia-bobrik",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:pactum-global",
+      "tipo": "Organizacao",
+      "nome": "Pactum Global",
+      "url": "entidades/organizacao/pactum-global/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/thiago-vieira",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:pioneering-people",
+      "tipo": "Organizacao",
+      "nome": "Pioneering People",
+      "url": "entidades/organizacao/pioneering-people/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-kastrati",
+          "ocorrencias": 12
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 7
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:prifly-advisors",
+      "tipo": "Organizacao",
+      "nome": "PriFly Advisors",
+      "url": "entidades/organizacao/prifly-advisors/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:roman-knorr",
+      "tipo": "Organizacao",
+      "nome": "Román Knörr",
+      "url": "entidades/organizacao/roman-knorr/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/roman-knorr-duran",
+          "ocorrencias": 15
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 6
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:s8-aquisitions",
+      "tipo": "Organizacao",
+      "nome": "S8 Aquisitions",
+      "url": "entidades/organizacao/s8-aquisitions/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/brian-nogaro",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:soulbranding",
+      "tipo": "Organizacao",
+      "nome": "SOULBRANDING",
+      "url": "entidades/organizacao/soulbranding/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/olesia-rykova",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:self-employed",
+      "tipo": "Organizacao",
+      "nome": "Self-Employed",
+      "url": "entidades/organizacao/self-employed/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:sibillastrupule-com",
+      "tipo": "Organizacao",
+      "nome": "SibillaStrupule.com",
+      "url": "entidades/organizacao/sibillastrupule-com/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sibilla-strupule",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:sigal-ventures",
+      "tipo": "Organizacao",
+      "nome": "Sigal Ventures",
+      "url": "entidades/organizacao/sigal-ventures/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/mike-sigal",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:solegency",
+      "tipo": "Organizacao",
+      "nome": "Solegency",
+      "url": "entidades/organizacao/solegency/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:sotavento-angels-fund",
+      "tipo": "Organizacao",
+      "nome": "Sotavento Angels Fund",
+      "url": "entidades/organizacao/sotavento-angels-fund/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:sotavento-invest",
+      "tipo": "Organizacao",
+      "nome": "Sotavento Invest",
+      "url": "entidades/organizacao/sotavento-invest/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/wouter-heijnen",
+          "ocorrencias": 12
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:startup-summit",
+      "tipo": "Organizacao",
+      "nome": "Startup Summit",
+      "url": "entidades/organizacao/startup-summit/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/faq",
+          "ocorrencias": 44
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 36
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 35
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 25
+        },
+        {
+          "fonte": "2026-09-14/oradores/ricardo",
+          "ocorrencias": 22
+        },
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 20
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 18
+        },
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 17
+        },
+        {
+          "fonte": "2026-09-14/imprensa/scaleup-porto",
+          "ocorrencias": 15
+        },
+        {
+          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-14/imprensa/startupevents-org",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 12
+        }
+      ],
+      "ficheiros_com_o_nome": 79,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:time-space",
+      "tipo": "Organizacao",
+      "nome": "TIME & SPACE",
+      "url": "entidades/organizacao/time-space/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/micael-lopes",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:trivevo",
+      "tipo": "Organizacao",
+      "nome": "Trivevo",
+      "url": "entidades/organizacao/trivevo/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-martins-freire",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:upstride-holdings",
+      "tipo": "Organizacao",
+      "nome": "UpStride Holdings",
+      "url": "entidades/organizacao/upstride-holdings/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:vntr-capital",
+      "tipo": "Organizacao",
+      "nome": "VNTR Capital",
+      "url": "entidades/organizacao/vntr-capital/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/kristina-kutan",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:what-she-said-limited",
+      "tipo": "Organizacao",
+      "nome": "What She Said Limited",
+      "url": "entidades/organizacao/what-she-said-limited/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lauren-mucklow",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:zero-risk-startup",
+      "tipo": "Organizacao",
+      "nome": "Zero Risk Startup",
+      "url": "entidades/organizacao/zero-risk-startup/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/paulo-andrez",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 6,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:zoya-mesaric-private-international-practice",
+      "tipo": "Organizacao",
+      "nome": "Zoya Mesaric – Private International Practice",
+      "url": "entidades/organizacao/zoya-mesaric-private-international-practice/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "org:ilof",
+      "tipo": "Organizacao",
+      "nome": "iLoF",
+      "url": "entidades/organizacao/ilof/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "palco:unicorn-stage",
+      "tipo": "Palco",
+      "nome": "Unicorn Stage",
+      "url": "entidades/palco/unicorn-stage/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 4
+      }
+    },
+    {
+      "no": "palco:impact-stage",
+      "tipo": "Palco",
+      "nome": "Impact Stage",
+      "url": "entidades/palco/impact-stage/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "pessoa:jorge-sebastiao",
+      "tipo": "Pessoa",
+      "nome": "Jorge Sebastiao",
+      "url": "entidades/pessoa/jorge-sebastiao/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/jorge-sebastiao",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 15,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:daniel-grech",
+      "tipo": "Pessoa",
+      "nome": "Daniel Grech",
+      "url": "entidades/pessoa/daniel-grech/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 14,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:akshay-ruparelia",
+      "tipo": "Pessoa",
+      "nome": "Akshay Ruparelia",
+      "url": "entidades/pessoa/akshay-ruparelia/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 13,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:igor-nikolaiev",
+      "tipo": "Pessoa",
+      "nome": "Igor Nikolaiev",
+      "url": "entidades/pessoa/igor-nikolaiev/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 13,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:lisa-rebecca-press",
+      "tipo": "Pessoa",
+      "nome": "Lisa Rebecca Press",
+      "url": "entidades/pessoa/lisa-rebecca-press/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 13,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:sebastian-horstmann",
+      "tipo": "Pessoa",
+      "nome": "Sebastian Horstmann",
+      "url": "entidades/pessoa/sebastian-horstmann/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sebastian-horstmann",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 13,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:tina-valand",
+      "tipo": "Pessoa",
+      "nome": "Tina Valand",
+      "url": "entidades/pessoa/tina-valand/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/tina-valand",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 13,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:alexandra-isenegger",
+      "tipo": "Pessoa",
+      "nome": "Alexandra Isenegger",
+      "url": "entidades/pessoa/alexandra-isenegger/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:hector-lv",
+      "tipo": "Pessoa",
+      "nome": "Héctor LV",
+      "url": "entidades/pessoa/hector-lv/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:joaquim-nascimento",
+      "tipo": "Pessoa",
+      "nome": "Joaquim Nascimento",
+      "url": "entidades/pessoa/joaquim-nascimento/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:karan-setiya",
+      "tipo": "Pessoa",
+      "nome": "Karan Setiya",
+      "url": "entidades/pessoa/karan-setiya/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:lauren-mucklow",
+      "tipo": "Pessoa",
+      "nome": "Lauren Mucklow",
+      "url": "entidades/pessoa/lauren-mucklow/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lauren-mucklow",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:lidija-krickovic",
+      "tipo": "Pessoa",
+      "nome": "Lidija Krickovic",
+      "url": "entidades/pessoa/lidija-krickovic/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:olesia-rykova",
+      "tipo": "Pessoa",
+      "nome": "Olesia Rykova",
+      "url": "entidades/pessoa/olesia-rykova/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/olesia-rykova",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:precy-servito",
+      "tipo": "Pessoa",
+      "nome": "Precy Servito",
+      "url": "entidades/pessoa/precy-servito/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:raffaella-loncao",
+      "tipo": "Pessoa",
+      "nome": "Raffaella Loncao",
+      "url": "entidades/pessoa/raffaella-loncao/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/raffaella-loncao",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:rita-figueiredo",
+      "tipo": "Pessoa",
+      "nome": "Rita Figueiredo",
+      "url": "entidades/pessoa/rita-figueiredo/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-figueiredo",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:saachin-bhatt",
+      "tipo": "Pessoa",
+      "nome": "Saachin Bhatt",
+      "url": "entidades/pessoa/saachin-bhatt/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:tania-tome",
+      "tipo": "Pessoa",
+      "nome": "Tania Tome",
+      "url": "entidades/pessoa/tania-tome/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/tania-tome",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 12,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:daniel-gouveia",
+      "tipo": "Pessoa",
+      "nome": "Daniel Gouveia",
+      "url": "entidades/pessoa/daniel-gouveia/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:david-graham",
+      "tipo": "Pessoa",
+      "nome": "David Graham",
+      "url": "entidades/pessoa/david-graham/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:joao-ramos",
+      "tipo": "Pessoa",
+      "nome": "João Ramos",
+      "url": "entidades/pessoa/joao-ramos/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:luis-gutman",
+      "tipo": "Pessoa",
+      "nome": "Luis Gutman",
+      "url": "entidades/pessoa/luis-gutman/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:luis-valente",
+      "tipo": "Pessoa",
+      "nome": "Luis Valente",
+      "url": "entidades/pessoa/luis-valente/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:luiza-castro-rey",
+      "tipo": "Pessoa",
+      "nome": "Luiza Castro Rey",
+      "url": "entidades/pessoa/luiza-castro-rey/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luiza-castro-rey",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:mark-paul-haaksman",
+      "tipo": "Pessoa",
+      "nome": "Mark Paul Haaksman",
+      "url": "entidades/pessoa/mark-paul-haaksman/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:max-rodman",
+      "tipo": "Pessoa",
+      "nome": "Max Rodman",
+      "url": "entidades/pessoa/max-rodman/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/max-rodman",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:rita-martins-freire",
+      "tipo": "Pessoa",
+      "nome": "Rita Martins Freire",
+      "url": "entidades/pessoa/rita-martins-freire/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-martins-freire",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:satya-morarji",
+      "tipo": "Pessoa",
+      "nome": "Satya Morarji",
+      "url": "entidades/pessoa/satya-morarji/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/satya-morarji",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:sibilla-strupule",
+      "tipo": "Pessoa",
+      "nome": "Sibilla Strupule",
+      "url": "entidades/pessoa/sibilla-strupule/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sibilla-strupule",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:slavi-slavev",
+      "tipo": "Pessoa",
+      "nome": "Slavi Slavev",
+      "url": "entidades/pessoa/slavi-slavev/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/slavi-slavev",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:viachaslau-smirnou",
+      "tipo": "Pessoa",
+      "nome": "Viachaslau Smirnou",
+      "url": "entidades/pessoa/viachaslau-smirnou/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/viachaslau-smirnou",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:vini-devnani",
+      "tipo": "Pessoa",
+      "nome": "Vini Devnani",
+      "url": "entidades/pessoa/vini-devnani/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/vini-devnani",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 11,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:ben-lakoff",
+      "tipo": "Pessoa",
+      "nome": "Ben Lakoff",
+      "url": "entidades/pessoa/ben-lakoff/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:dina-kondratiuk",
+      "tipo": "Pessoa",
+      "nome": "Dina Kondratiuk",
+      "url": "entidades/pessoa/dina-kondratiuk/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:diogo-mendonca",
+      "tipo": "Pessoa",
+      "nome": "Diogo Mendonça",
+      "url": "entidades/pessoa/diogo-mendonca/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:ed-chandler",
+      "tipo": "Pessoa",
+      "nome": "Ed Chandler",
+      "url": "entidades/pessoa/ed-chandler/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:elias-flachowsky",
+      "tipo": "Pessoa",
+      "nome": "Elias Flachowsky",
+      "url": "entidades/pessoa/elias-flachowsky/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:filipa-faria",
+      "tipo": "Pessoa",
+      "nome": "Filipa Faria",
+      "url": "entidades/pessoa/filipa-faria/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:janelle-harder",
+      "tipo": "Pessoa",
+      "nome": "Janelle Harder",
+      "url": "entidades/pessoa/janelle-harder/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/janelle-harder",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:micael-lopes",
+      "tipo": "Pessoa",
+      "nome": "Micael Lopes",
+      "url": "entidades/pessoa/micael-lopes/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/micael-lopes",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:mike-sigal",
+      "tipo": "Pessoa",
+      "nome": "Mike Sigal",
+      "url": "entidades/pessoa/mike-sigal/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/mike-sigal",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:muhammad-farooq-rathod",
+      "tipo": "Pessoa",
+      "nome": "Muhammad Farooq Rathod",
+      "url": "entidades/pessoa/muhammad-farooq-rathod/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:nashwa-shah",
+      "tipo": "Pessoa",
+      "nome": "Nashwa Shah",
+      "url": "entidades/pessoa/nashwa-shah/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nashwa-shah",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:nina-chande",
+      "tipo": "Pessoa",
+      "nome": "Nina Chandé",
+      "url": "entidades/pessoa/nina-chande/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 15
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:olivia-page",
+      "tipo": "Pessoa",
+      "nome": "Olivia Page",
+      "url": "entidades/pessoa/olivia-page/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/olivia-page",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:rita-kastrati",
+      "tipo": "Pessoa",
+      "nome": "Rita Kastrati",
+      "url": "entidades/pessoa/rita-kastrati/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/rita-kastrati",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:sylvie-ritt",
+      "tipo": "Pessoa",
+      "nome": "Sylvie Ritt",
+      "url": "entidades/pessoa/sylvie-ritt/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sylvie-ritt",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:thiago-vieira",
+      "tipo": "Pessoa",
+      "nome": "Thiago Vieira",
+      "url": "entidades/pessoa/thiago-vieira/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/thiago-vieira",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:wouter-heijnen",
+      "tipo": "Pessoa",
+      "nome": "Wouter Heijnen",
+      "url": "entidades/pessoa/wouter-heijnen/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/wouter-heijnen",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:zoya-mesaric-mag-a-pth",
+      "tipo": "Pessoa",
+      "nome": "Zoya Mesaric",
+      "url": "entidades/pessoa/zoya-mesaric-mag-a-pth/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+          "ocorrencias": 21
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 8
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 10,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:angelee-sidar",
+      "tipo": "Pessoa",
+      "nome": "Angelee SIDAR",
+      "url": "entidades/pessoa/angelee-sidar/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:irina-shurmina",
+      "tipo": "Pessoa",
+      "nome": "Irina Shurmina",
+      "url": "entidades/pessoa/irina-shurmina/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/irina-shurmina",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:kasia-szczesniak",
+      "tipo": "Pessoa",
+      "nome": "Kasia Szczesniak",
+      "url": "entidades/pessoa/kasia-szczesniak/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/kasia-szczesniak",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:kristina-kutan",
+      "tipo": "Pessoa",
+      "nome": "Kristina Kutan",
+      "url": "entidades/pessoa/kristina-kutan/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/kristina-kutan",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:nataliia-komarnytska",
+      "tipo": "Pessoa",
+      "nome": "Nataliia Komarnytska",
+      "url": "entidades/pessoa/nataliia-komarnytska/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:roman-knorr-duran",
+      "tipo": "Pessoa",
+      "nome": "Román Knörr Durán",
+      "url": "entidades/pessoa/roman-knorr-duran/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/roman-knorr-duran",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 9,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:amit-grinvald",
+      "tipo": "Pessoa",
+      "nome": "Amit Grinvald",
+      "url": "entidades/pessoa/amit-grinvald/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/amit-grinvald",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 8,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:anisha-yadav",
+      "tipo": "Pessoa",
+      "nome": "Anisha Yadav",
+      "url": "entidades/pessoa/anisha-yadav/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 8,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:brian-nogaro",
+      "tipo": "Pessoa",
+      "nome": "Brian Nogaro",
+      "url": "entidades/pessoa/brian-nogaro/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/brian-nogaro",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 8,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:cintia-costa",
+      "tipo": "Pessoa",
+      "nome": "Cíntia Costa",
+      "url": "entidades/pessoa/cintia-costa/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/cintia-costa",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 8,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:diego-sampaio",
+      "tipo": "Pessoa",
+      "nome": "Diego Sampaio",
+      "url": "entidades/pessoa/diego-sampaio/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/diego-sampaio",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 7,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:paulo-andrez",
+      "tipo": "Pessoa",
+      "nome": "Paulo Andrez",
+      "url": "entidades/pessoa/paulo-andrez/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/paulo-andrez",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 6,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 7,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:andreia-gaudencio",
+      "tipo": "Pessoa",
+      "nome": "Andreia Gaudêncio",
+      "url": "entidades/pessoa/andreia-gaudencio/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/andreia-gaudencio",
+          "ocorrencias": 15
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 6,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:pedro-simoes",
+      "tipo": "Pessoa",
+      "nome": "Pedro Simões",
+      "url": "entidades/pessoa/pedro-simoes/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/pedro-simoes",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 6,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:sofia-bobrik",
+      "tipo": "Pessoa",
+      "nome": "Sofia Bobrik",
+      "url": "entidades/pessoa/sofia-bobrik/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/sofia-bobrik",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 6,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:anmol-goel",
+      "tipo": "Pessoa",
+      "nome": "Anmol Goel",
+      "url": "entidades/pessoa/anmol-goel/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/anmol-goel",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 5,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 5,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:ricardo",
+      "tipo": "Pessoa",
+      "nome": "Ricardo",
+      "url": "entidades/pessoa/ricardo/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ricardo",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 8
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/faq",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 7,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 5,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:alexandre-daletchine",
+      "tipo": "Pessoa",
+      "nome": "Alexandre Daletchine",
+      "url": "entidades/pessoa/alexandre-daletchine/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 4,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "pessoa:hudi-shehu",
+      "tipo": "Pessoa",
+      "nome": "Hudi Shehu",
+      "url": "entidades/pessoa/hudi-shehu/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 4,
+        "entrada": 0
+      }
+    },
+    {
+      "no": "produto:plataforma",
+      "tipo": "Produto",
+      "nome": "Plataforma",
+      "url": "entidades/produto/plataforma/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 8
+        },
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "servico:consultoria",
+      "tipo": "Servico",
+      "nome": "Consultoria",
+      "url": "entidades/servico/consultoria/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 10
+      }
+    },
+    {
+      "no": "servico:juridico",
+      "tipo": "Servico",
+      "nome": "Jurídico",
+      "url": "entidades/servico/juridico/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "servico:aceleracao",
+      "tipo": "Servico",
+      "nome": "Aceleração",
+      "url": "entidades/servico/aceleracao/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "setor:fintech",
+      "tipo": "Setor",
+      "nome": "Tecnologia financeira",
+      "url": "entidades/setor/fintech/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 8
+      }
+    },
+    {
+      "no": "setor:investimento-anjo",
+      "tipo": "Setor",
+      "nome": "Investimento anjo",
+      "url": "entidades/setor/investimento-anjo/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "setor:saude",
+      "tipo": "Setor",
+      "nome": "Saúde",
+      "url": "entidades/setor/saude/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 36
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-14/registo/gov-ia",
+          "ocorrencias": 3
+        }
+      ],
+      "ficheiros_com_o_nome": 4,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "setor:capital-de-risco",
+      "tipo": "Setor",
+      "nome": "Capital de risco",
+      "url": "entidades/setor/capital-de-risco/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "setor:comercio",
+      "tipo": "Setor",
+      "nome": "Comércio e retalho",
+      "url": "entidades/setor/comercio/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "setor:educacao",
+      "tipo": "Setor",
+      "nome": "Educação",
+      "url": "entidades/setor/educacao/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-14/registo/gov-ia",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 4,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "setor:imobiliario",
+      "tipo": "Setor",
+      "nome": "Imobiliário",
+      "url": "entidades/setor/imobiliario/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 8
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "tecnologia:ia",
+      "tipo": "Tecnologia",
+      "nome": "Inteligência artificial",
+      "url": "entidades/tecnologia/ia/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 16
+      }
+    },
+    {
+      "no": "tecnologia:cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "nome": "Cadeia de blocos",
+      "url": "entidades/tecnologia/cadeia-de-blocos/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 5
+      }
+    },
+    {
+      "no": "tecnologia:agentes",
+      "tipo": "Tecnologia",
+      "nome": "Agentes autónomos",
+      "url": "entidades/tecnologia/agentes/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tecnologia:ciberseguranca",
+      "tipo": "Tecnologia",
+      "nome": "Cibersegurança",
+      "url": "entidades/tecnologia/ciberseguranca/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tecnologia:nuvem",
+      "tipo": "Tecnologia",
+      "nome": "Computação em nuvem",
+      "url": "entidades/tecnologia/nuvem/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": null,
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tecnologia:ia-generativa",
+      "tipo": "Tecnologia",
+      "nome": "IA generativa",
+      "url": "entidades/tecnologia/ia-generativa/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tecnologia:dados",
+      "tipo": "Tecnologia",
+      "nome": "Dados",
+      "url": "entidades/tecnologia/dados/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 32
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 7
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "tecnologia:hardware",
+      "tipo": "Tecnologia",
+      "nome": "Hardware",
+      "url": "entidades/tecnologia/hardware/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "tema:leadership",
+      "tipo": "Tema",
+      "nome": "Leadership",
+      "url": "entidades/tema/leadership/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/amit-grinvald",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/brian-nogaro",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/cintia-costa",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 37,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 37
+      }
+    },
+    {
+      "no": "tema:founder-journey",
+      "tipo": "Tema",
+      "nome": "Founder journey",
+      "url": "entidades/tema/founder-journey/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/cintia-costa",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/irina-shurmina",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/janelle-harder",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 32,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 32
+      }
+    },
+    {
+      "no": "tema:ai",
+      "tipo": "Tema",
+      "nome": "AI",
+      "url": "entidades/tema/ai/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 93
+        },
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 64
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+          "ocorrencias": 41
+        },
+        {
+          "fonte": "2026-09-14/oradores/tina-valand",
+          "ocorrencias": 27
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 21
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 16
+        },
+        {
+          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+          "ocorrencias": 15
+        },
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 14
+        },
+        {
+          "fonte": "2026-09-14/oradores/slavi-slavev",
+          "ocorrencias": 12
+        },
+        {
+          "fonte": "2026-09-14/oradores/andreia-gaudencio",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 10
+        }
+      ],
+      "ficheiros_com_o_nome": 36,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 21
+      }
+    },
+    {
+      "no": "tema:future-of-work",
+      "tipo": "Tema",
+      "nome": "Future of work",
+      "url": "entidades/tema/future-of-work/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/janelle-harder",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/jorge-sebastiao",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/kasia-szczesniak",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nashwa-shah",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/raffaella-loncao",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 20,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 20
+      }
+    },
+    {
+      "no": "tema:fundraising",
+      "tipo": "Tema",
+      "nome": "Fundraising",
+      "url": "entidades/tema/fundraising/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/agenda",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/imprensa/startupevents-org",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/amit-grinvald",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/jorge-sebastiao",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luiza-castro-rey",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 19,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 17
+      }
+    },
+    {
+      "no": "tema:european-startups",
+      "tipo": "Tema",
+      "nome": "European startups",
+      "url": "entidades/tema/european-startups/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/cintia-costa",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luiza-castro-rey",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/micael-lopes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/mike-sigal",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-figueiredo",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 16,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 16
+      }
+    },
+    {
+      "no": "tema:go-to-market",
+      "tipo": "Tema",
+      "nome": "Go-to-market",
+      "url": "entidades/tema/go-to-market/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diego-sampaio",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-figueiredo",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/roman-knorr-duran",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sibilla-strupule",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 15,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 15
+      }
+    },
+    {
+      "no": "tema:scaling",
+      "tipo": "Tema",
+      "nome": "Scaling",
+      "url": "entidades/tema/scaling/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/alexandra-isenegger",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/angelee-sidar",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lauren-mucklow",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/olivia-page",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 15,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 15
+      }
+    },
+    {
+      "no": "tema:operations",
+      "tipo": "Tema",
+      "nome": "Operations",
+      "url": "entidades/tema/operations/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/diego-sampaio",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/kristina-kutan",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/max-rodman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-figueiredo",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 14,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 14
+      }
+    },
+    {
+      "no": "tema:product-market-fit",
+      "tipo": "Tema",
+      "nome": "Product-market fit",
+      "url": "entidades/tema/product-market-fit/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/olesia-rykova",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sebastian-horstmann",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/wouter-heijnen",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 12,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 12
+      }
+    },
+    {
+      "no": "tema:mental-health",
+      "tipo": "Tema",
+      "nome": "Mental health",
+      "url": "entidades/tema/mental-health/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/max-rodman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/micael-lopes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nashwa-shah",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/raffaella-loncao",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/slavi-slavev",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sylvie-ritt",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/vini-devnani",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 11,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 11
+      }
+    },
+    {
+      "no": "tema:other",
+      "tipo": "Tema",
+      "nome": "Other",
+      "url": "entidades/tema/other/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/abertas/fct-unidades",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/irina-shurmina",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/janelle-harder",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lauren-mucklow",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 19,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 11
+      }
+    },
+    {
+      "no": "tema:hiring",
+      "tipo": "Tema",
+      "nome": "Hiring",
+      "url": "entidades/tema/hiring/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ed-chandler",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/filipa-faria",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/precy-servito",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/raffaella-loncao",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-kastrati",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-martins-freire",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/satya-morarji",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sylvie-ritt",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/vini-devnani",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 10,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 10
+      }
+    },
+    {
+      "no": "tema:venture-capital",
+      "tipo": "Tema",
+      "nome": "Venture capital",
+      "url": "entidades/tema/venture-capital/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/kristina-kutan",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-gutman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/mike-sigal",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/olivia-page",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sibilla-strupule",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/viachaslau-smirnou",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 13,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 10
+      }
+    },
+    {
+      "no": "tema:sales",
+      "tipo": "Tema",
+      "nome": "Sales",
+      "url": "entidades/tema/sales/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/brian-nogaro",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/daniel-gouveia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/elias-flachowsky",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/nashwa-shah",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-kastrati",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 10,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 9
+      }
+    },
+    {
+      "no": "tema:lp-investor-perspective",
+      "tipo": "Tema",
+      "nome": "LP / investor perspective",
+      "url": "entidades/tema/lp-investor-perspective/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/ben-lakoff",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/mike-sigal",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sibilla-strupule",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 7,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 7
+      }
+    },
+    {
+      "no": "tema:go",
+      "tipo": "Tema",
+      "nome": "Go-",
+      "url": "entidades/tema/go/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/dina-kondratiuk",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/oradores",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-14/oradores/akshay-ruparelia",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/anisha-yadav",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/david-graham",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/diego-sampaio",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/hector-lv",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/igor-nikolaiev",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joao-ramos",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/joaquim-nascimento",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/karan-setiya",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/luis-valente",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 22,
+      "fundamento": "bytes",
+      "ligavel": false,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 5
+      }
+    },
+    {
+      "no": "tema:deep-tech",
+      "tipo": "Tema",
+      "nome": "Deep tech",
+      "url": "entidades/tema/deep-tech/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/jorge-sebastiao",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sebastian-horstmann",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 4,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 4
+      }
+    },
+    {
+      "no": "tema:regulation",
+      "tipo": "Tema",
+      "nome": "Regulation",
+      "url": "entidades/tema/regulation/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/luiza-castro-rey",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/saachin-bhatt",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/thiago-vieira",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
+      }
+    },
+    {
+      "no": "tema:climate-tech",
+      "tipo": "Tema",
+      "nome": "Climate tech",
+      "url": "entidades/tema/climate-tech/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/index",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/olivia-page",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/sebastian-horstmann",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/patrocinadores",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 5,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tema:pricing",
+      "tipo": "Tema",
+      "nome": "Pricing",
+      "url": "entidades/tema/pricing/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+          "ocorrencias": 35
+        },
+        {
+          "fonte": "2026-09-14/bilhetes",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-14/oradores/nina-chande",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-14/oradores/rita-martins-freire",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 4,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 2
+      }
+    },
+    {
+      "no": "tema:exits-m-a",
+      "tipo": "Tema",
+      "nome": "Exits / M&A",
+      "url": "entidades/tema/exits-m-a/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/lidija-krickovic",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    },
+    {
+      "no": "tema:from-zero-to-funded-angel-investment-playbook",
+      "tipo": "Tema",
+      "nome": "From Zero to Funded: Angel Investment Playbook",
+      "url": "entidades/tema/from-zero-to-funded-angel-investment-playbook/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-14/oradores/paulo-andrez",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": false,
+      "grau": {
+        "saida": 0,
+        "entrada": 1
+      }
+    }
+  ]
+}

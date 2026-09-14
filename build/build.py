@@ -1013,13 +1013,26 @@ def mesa(d):
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">A mesa · o quadro, o correio e as
 execuções</div></div>
-<p class="std" style="max-width:48em;padding-bottom:18px">Nada nesta página é desenhado à mão. O
-quadro é feito dos ficheiros em <code>redacao/issues/</code>, o correio dos ficheiros em
+<p class="std" style="max-width:48em;padding-bottom:18px">Nada nesta página é desenhado à mão. A
+sala é feita de <code>dados/redacao.json</code>, que por sua vez é contado a partir dos ficheiros
+em <code>redacao/issues/</code>, <code>redacao/correio/</code>, <code>redacao/runs/</code> e do
+trabalho por agente em <code>dados/comentarios.json</code>. Clique numa bancada para ver o que ela
+faz, o que <b>recusa</b> fazer, e o que está à espera dela — e repare que não há maneira de mover
+um cartão daqui: o estado de uma história vive nos ficheiros da pasta dela, e a coluna
+«publicado» é a linha do editor de registo. O correio vem dos ficheiros em
 <code>redacao/correio/</code>, e as execuções dos ficheiros em <code>redacao/runs/</code>. Um
 departamento só escreve na sua própria pasta, e o portão 12 falha a construção se a diferença de
 uma execução mostrar a pesquisa a escrever prosa ou a redação a tocar numa fonte. É o que faz
 disto uma redação e não um script.</p>
 
+<pt-newsroom-floor raiz="../"></pt-newsroom-floor>
+
+<div class="rule" style="padding:34px 0 8px"><div class="sect">O mesmo quadro, sem
+JavaScript</div></div>
+<p class="xs" style="max-width:48em;padding-bottom:12px">A sala acima precisa de um navegador que
+corra módulos. Esta versão não, e por isso fica: metade dos leitores deste site são máquinas, e
+uma redação que só se deixasse ler por uma delas seria a ironia errada. As duas saem dos mesmos
+ficheiros.</p>
 <div class="quadro" style="padding-bottom:34px">{colunas}</div>
 
 <div class="rule g2" style="padding:22px 0 34px">
@@ -1039,7 +1052,9 @@ disto uma redação e não um script.</p>
     return pagina("redacao/index.html", "A mesa",
                   "O quadro de trabalho, o correio entre os departamentos e o registo de cada "
                   "execução. Tudo a partir dos ficheiros que os agentes escreveram.",
-                  corpo, aqui=None)
+                  corpo, aqui=None,
+                  extra_body='<script type="module" src="../assets/components/'
+                             'pt-newsroom-floor/v1/v1.0/v1.0.0/pt-newsroom-floor.js"></script>')
 
 
 # ============================================================ páginas de texto ===

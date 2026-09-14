@@ -1,0 +1,15 @@
+{
+  "no": "ideia:saida",
+  "tipo": "Ideia",
+  "nome": "Saída",
+  "url": "entidades/ideia/saida/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": null,
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 4
+  }
+}

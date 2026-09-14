@@ -1,0 +1,20 @@
+{
+  "no": "tecnologia:ia-generativa",
+  "tipo": "Tecnologia",
+  "nome": "IA generativa",
+  "url": "entidades/tecnologia/ia-generativa/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

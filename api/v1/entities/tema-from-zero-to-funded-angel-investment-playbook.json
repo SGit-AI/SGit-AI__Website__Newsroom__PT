@@ -1,0 +1,20 @@
+{
+  "no": "tema:from-zero-to-funded-angel-investment-playbook",
+  "tipo": "Tema",
+  "nome": "From Zero to Funded: Angel Investment Playbook",
+  "url": "entidades/tema/from-zero-to-funded-angel-investment-playbook/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/paulo-andrez",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

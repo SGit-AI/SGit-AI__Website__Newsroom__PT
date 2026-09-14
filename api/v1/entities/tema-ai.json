@@ -1,0 +1,64 @@
+{
+  "no": "tema:ai",
+  "tipo": "Tema",
+  "nome": "AI",
+  "url": "entidades/tema/ai/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 93
+    },
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 64
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "ocorrencias": 41
+    },
+    {
+      "fonte": "2026-09-14/oradores/tina-valand",
+      "ocorrencias": 27
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 21
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+      "ocorrencias": 15
+    },
+    {
+      "fonte": "2026-09-14/oradores/igor-nikolaiev",
+      "ocorrencias": 14
+    },
+    {
+      "fonte": "2026-09-14/oradores/slavi-slavev",
+      "ocorrencias": 12
+    },
+    {
+      "fonte": "2026-09-14/oradores/andreia-gaudencio",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "ocorrencias": 10
+    }
+  ],
+  "ficheiros_com_o_nome": 36,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 21
+  }
+}

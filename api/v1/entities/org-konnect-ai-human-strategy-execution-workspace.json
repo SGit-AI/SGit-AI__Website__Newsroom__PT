@@ -1,0 +1,24 @@
+{
+  "no": "org:konnect-ai-human-strategy-execution-workspace",
+  "tipo": "Organizacao",
+  "nome": "KONNECT - AI + Human Strategy Execution Workspace",
+  "url": "entidades/organizacao/konnect-ai-human-strategy-execution-workspace/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

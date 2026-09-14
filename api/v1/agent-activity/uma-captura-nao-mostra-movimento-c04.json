@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T18:02:00Z",
+  "agente": "verificacao",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "uma-captura-nao-mostra-movimento"
+  },
+  "texto": "Recontou os cartões e reconfirmou que só existe uma captura.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[3]",
+  "id": "uma-captura-nao-mostra-movimento-c04",
+  "artigo": "uma-captura-nao-mostra-movimento"
+}

@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:sebastian-horstmann",
+  "tipo": "Pessoa",
+  "nome": "Sebastian Horstmann",
+  "url": "entidades/pessoa/sebastian-horstmann/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/sebastian-horstmann",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 13,
+    "entrada": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:ed-chandler",
+  "tipo": "Pessoa",
+  "nome": "Ed Chandler",
+  "url": "entidades/pessoa/ed-chandler/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 10,
+    "entrada": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:hector-lv",
+  "tipo": "Pessoa",
+  "nome": "Héctor LV",
+  "url": "entidades/pessoa/hector-lv/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/hector-lv",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 12,
+    "entrada": 0
+  }
+}

@@ -67,7 +67,8 @@
         "missao": "Find the primary source and leave it as bytes this newsroom holds, before any claim stands on it.",
         "afirmacao_central": "This role is failing when a published claim cannot be walked back to a SHA-256 in dados/registo.json.",
         "gravidade": "No claim without bytes we hold."
-      }
+      },
+      "id_curto": "pesquisa"
     },
     {
       "id": "redacao.pt",
@@ -124,7 +125,8 @@
         "missao": "Write from what research registered and nothing else, carrying on every claim the mark of the frozen source it stands on.",
         "afirmacao_central": "This role is failing when a claim in the text has no source mark, or one the register does not know.",
         "gravidade": "Every sentence stands on a registered source."
-      }
+      },
+      "id_curto": "redacao"
     },
     {
       "id": "verificacao.pt",
@@ -180,7 +182,8 @@
         "missao": "Re-read every cited source in the frozen copy and mark each claim confirmed, disputed or not found.",
         "afirmacao_central": "This role is failing when a story reaches the editor with claims nobody reopened.",
         "gravidade": "Publish the record, never the verdict."
-      }
+      },
+      "id_curto": "verificacao"
     },
     {
       "id": "bastidores.pt",
@@ -247,7 +250,8 @@
         "missao": "Give the editor of record a view of what each agent has in front of it, and a way to speak to it, without publishing a single claim about Portugal.",
         "afirmacao_central": "This role is failing when a back-office page states a number that is not a count of files in this repository, or when the editor has to open a terminal to know where a story stands.",
         "gravidade": "The back office reports on the newsroom, never on the world."
-      }
+      },
+      "id_curto": "bastidores"
     },
     {
       "id": "dinis.humano",
@@ -294,7 +298,8 @@
         "missao": "Read every page before it goes live, and answer for what this publication says.",
         "afirmacao_central": "This role is failing when something was published that he did not read.",
         "gravidade": "A named editor of record is a person taking responsibility."
-      }
+      },
+      "id_curto": "editor"
     }
   ],
   "publicacao": {
@@ -356,5 +361,25 @@
       "bloqueados",
       "fechados"
     ]
+  },
+  "dois_identificadores": {
+    "nota": "Cada agente tem dois identificadores, e os dois estão aqui para não estarem espalhados por scripts. O `id` é o endereço do protocolo — «<papel>.<equipa>», que é o que dá nome à pasta de correio. O `id_curto` é o nome pelo qual este repositório o conhecia antes de ele ter caixa de correio, e é a chave de dados/comentarios.json, de dados/redacao.json e das entradas de comentário de cada artigo.",
+    "porque_nao_se_unificou": "Renomear o `id_curto` obrigaria a reescrever o ficheiro de comentários de cada artigo, e esses ficheiros são registo: são a prova de que um comentário não foi inventado, e o portão 25 abre cada um e percorre o caminho que ele nomeia. Mudar-lhes a chave para arrumar um nome seria mexer na prova para arrumar a apresentação. Os dois identificadores ficam, e a correspondência é publicada aqui em vez de ser adivinhada.",
+    "quem_o_usa": {
+      "id": [
+        "redacao/correio/<id>/",
+        "dados/correio.json",
+        "dados/quadro.json"
+      ],
+      "id_curto": [
+        "dados/comentarios.json#agentes",
+        "dados/redacao.json#bancadas",
+        "artigos/<data>__<slug>/comentarios.json"
+      ]
+    }
+  },
+  "assistentes_exteriores": {
+    "nota": "Um assistente exterior — ChatGPT, Perplexity — aparece no mapa de comentários de cada artigo e NÃO é um papel deste registo. Não tem caixa de correio, não tem quadro e não tem definição de papel, porque não participa na operação: entrega uma lista de pistas e vai-se. build/comentarios.py deriva-os das entregas e não de uma lista escrita à mão, de modo que uma entrega de outra ferramenta entra sozinha.",
+    "onde_estao": "dados/comentarios.json#agentes, com especie «assistente exterior»"
   }
 }
