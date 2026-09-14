@@ -47,7 +47,8 @@ def primeira(d):
     hoje = reg["atualizado"]
 
     publicadas = [h for h in hist["historias"] if h["estado"] == "publicado"]
-    em_preparacao = [h for h in hist["historias"] if h["estado"] in ("rascunho", "verificado")]
+    em_preparacao = [h for h in hist["historias"]
+                     if h["estado"] in ("procurado", "rascunho", "verificado")]
 
     # --- a história principal -------------------------------------------------
     # Não há nenhuma publicada nesta versão, e a primeira página di-lo em vez de encenar uma.
@@ -157,18 +158,20 @@ def primeira(d):
         + '</div>')
 
     # --- «Em preparação» ------------------------------------------------------
-    if em_preparacao:
-        cartoes = "".join(
-            f'<div class="col sp10"><div class="kick">{e(h.get("seccao", ""))}</div>'
-            f'<h3 class="h-3">{e(h["titulo"])}</h3></div>' for h in em_preparacao[:3])
-    else:
-        abertas = [i for i in d["issues"] if i["estado"] == "procurado"][:3]
-        cartoes = "".join(
-            f'<div class="col sp10"><div class="kick">{e(i["seccao"])}</div>'
-            f'<h3 class="h-3">{e(i["titulo"])}</h3>'
-            f'<p class="sm">{e(i.get("enquadramento", ""))}</p>'
-            f'<div class="chips"><span class="chip">{e(i["estado"])}</span></div></div>'
-            for i in abertas)
+    # O desenho manda listar aqui as histórias em rascunho ou verificado, POR TÍTULO apenas. São
+    # agora artigos a sério, cada um com a sua pasta datada e o seu endereço definitivo: o título
+    # liga para lá. O que NÃO liga daqui é o corpo — um artigo por publicar não tem lugar na
+    # primeira página, e é o editor de registo que muda isso.
+    cartoes = "".join(
+        f'<div class="col sp10"><div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
+        f'<h3 class="h-3"><a href="{e(h["url"])}">{e(h["titulo"])}</a></h3>'
+        f'<div class="chips"><span class="chip">{e(h["estado"])}</span>'
+        f'{ficha_estado("confirmada", str(h["verificacao"]["confirmadas"]) + " confirmadas") if h.get("verificacao", {}).get("confirmadas") else ""}'
+        f'</div></div>'
+        for h in em_preparacao[:6])
+    if not cartoes:
+        cartoes = ('<p class="sm">Nenhum artigo em preparação. Todos os que existem estão '
+                   'publicados, ou ainda nem pasta têm.</p>')
 
     legenda = ('<div class="mono" style="font-size:12px;color:var(--sec-2)">'
                'confirmado <span class="pastilha" style="background:var(--acento)"></span> '
@@ -412,15 +415,64 @@ DESCRICAO_SECCAO = {
 
 
 def seccao(sid, d):
-    rot, desc = DESCRICAO_SECCAO[sid]
+    """Uma secção é uma pasta: seccoes/<id>/seccao.json é o seu registo editorial, e esta página é
+    construída a partir dele. O que a secção cobre, o que pode e não pode afirmar HOJE, que fontes
+    tem por congelar e que perguntas estão em aberto passam a ser dados com que se pode discordar,
+    em vez de prosa escrita num template."""
+    s = d["seccoes"].get(sid) or {}
+    rot = s.get("rotulo") or DESCRICAO_SECCAO[sid][0]
+    desc = s.get("ambito") or DESCRICAO_SECCAO[sid][1]
     g = d["grafo"]
     tipos = [t["id"] for t in d["ontologia"]["tipos"] if t.get("seccao") == sid]
     nos = [n for n in g["nos"] if n["tipo"] in tipos]
+    artigos_sec = [h for h in d["historias"]["historias"] if h["seccao"] == sid]
+
     corpo = [f'<div class="rule" style="padding:26px 0 8px"><div class="sect">{e(rot)}</div></div>',
              f'<p class="std" style="max-width:44em;padding-bottom:18px">{e(desc)}</p>']
 
+    # o registo editorial: o que a secção pode e não pode afirmar hoje
+    if s:
+        alvos = "".join(
+            f'<tr><td class="mono xs">{e(t["id"])}</td>'
+            f'<td><span class="chip {"ok" if t["estado"] == "congelada" else "miss"}">'
+            f'{e(t["estado"].replace("_", " "))}</span></td>'
+            f'<td class="sm">{e(t["porque"])}</td></tr>' for t in s.get("fontes_alvo", []))
+        perguntas = "".join(f'<li class="sm">{e(x)}</li>' for x in s.get("perguntas_em_aberto", []))
+        corpo.append(
+            f'<div class="g2" style="padding-bottom:22px">'
+            f'<div class="painel col sp8"><div class="sect">O que esta secção pode afirmar hoje</div>'
+            f'<p class="sm">{e(s.get("o_que_pode_afirmar_hoje", ""))}</p></div>'
+            f'<div class="painel col sp8" style="border-left:3px solid var(--aviso)">'
+            f'<div class="sect">O que não pode</div>'
+            f'<p class="sm">{e(s.get("o_que_nao_pode", ""))}</p></div></div>'
+            f'<p class="std it" style="max-width:46em;padding-bottom:18px">'
+            f'{e(s.get("a_afirmacao_honesta", ""))}</p>')
+        if alvos:
+            corpo.append(
+                f'<div class="hair" style="padding:16px 0"><div class="sect">As fontes desta '
+                f'secção</div><div class="rolar" style="padding-top:8px"><table><thead><tr>'
+                f'<th style="width:180px">Fonte</th><th style="width:140px">Estado</th>'
+                f'<th>Porquê</th></tr></thead><tbody>{alvos}</tbody></table></div></div>')
+        if perguntas:
+            corpo.append(
+                f'<div class="hair" style="padding:16px 0"><div class="sect">Perguntas em '
+                f'aberto</div><ul style="max-width:48em">{perguntas}</ul></div>')
+
+    # os artigos desta secção
+    if artigos_sec:
+        linhas_a = "".join(
+            f'<tr><td class="mono xs">{e(h["data"])}</td>'
+            f'<td><a href="../{e(h["url"])}">{e(h["titulo"])}</a></td>'
+            f'<td><span class="chip">{e(h["estado"])}</span></td></tr>' for h in artigos_sec)
+        corpo.append(
+            f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Os artigos desta '
+            f'secção</div></div><div class="rolar"><table><thead><tr><th style="width:100px">Data'
+            f'</th><th>Artigo</th><th style="width:130px">Estado</th></tr></thead>'
+            f'<tbody>{linhas_a}</tbody></table></div>')
+
     if not nos:
         corpo.append(
+            '<div class="rule" style="padding:22px 0 8px"><div class="sect">O grafo</div></div>'
             '<div class="painel"><p class="sm">Esta secção existe na ontologia e ainda não tem '
             'um único nó, porque nenhuma fonte congelada a alimenta. Está aqui vazia e a dizer '
             'que está vazia, em vez de ser escondida da navegação: o tamanho do que ainda não se '
@@ -1271,6 +1323,16 @@ def ler_correio():
     return sorted(msgs, key=lambda m: m.get("quando") or "")
 
 
+def ler_seccoes():
+    """O registo editorial de cada secção, de seccoes/<id>/seccao.json."""
+    base = ROOT / "seccoes"
+    out = {}
+    for f in sorted(base.glob("*/seccao.json")) if base.exists() else []:
+        s = json.loads(f.read_text(encoding="utf-8"))
+        out[s["id"]] = s
+    return out
+
+
 def ler_runs():
     p = ROOT / "redacao" / "runs"
     return sorted((json.loads(f.read_text(encoding="utf-8")) for f in p.glob("*.json")),
@@ -1289,6 +1351,7 @@ def carregar_tudo():
         "verif": carregar("verificacoes-fonte.json"),
         "historias": carregar("historias.json") or {"historias": []},
         "issues": ler_issues(), "correio": ler_correio(), "runs": ler_runs(),
+        "seccoes": ler_seccoes(),
     }
     vd = ROOT / "dados" / "verificacoes"
     n = 0

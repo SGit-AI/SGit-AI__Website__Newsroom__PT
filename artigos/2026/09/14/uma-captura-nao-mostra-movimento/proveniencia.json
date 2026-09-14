@@ -1,0 +1,24 @@
+{
+  "artigo": "uma-captura-nao-mostra-movimento",
+  "porque_existe_este_ficheiro": "Diz de onde veio o artigo, e não apenas em que assenta.",
+  "cronologia": [
+    { "quando": "2026-09-14T12:00:00Z", "quem": "pesquisa",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Congelou a página de oradores e extraiu 70 cartões, cada um com nome, papel e organização listados — nunca a biografia, que fica nos bytes.",
+      "produziu": ["dados/pessoas.json", "dados/mudancas.json"] },
+    { "quando": "2026-09-14T12:05:00Z", "quem": "pesquisa",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Comparou a contagem de cartões com o número que a página declara. Concordaram.",
+      "nota": "A extração da declaração falhou na primeira tentativa porque a função de texto removia blocos <noscript>, que é onde esta página guarda o seu conteúdo. Corrigido antes de qualquer número entrar num ficheiro." },
+    { "quando": "2026-09-14T18:00:00Z", "quem": "redacao",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Escreveu a ausência de diferença como afirmação, em vez de deixar o lugar vazio ou preenchê-lo com uma frase verdadeira e oca." },
+    { "quando": "2026-09-14T18:02:00Z", "quem": "verificacao",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Recontou os cartões e reconfirmou que só existe uma captura." }
+  ],
+  "aviso_sobre_esta_cronologia": "Todas as entradas são da mesma sessão e do mesmo modelo: foi a sessão de arranque. Numa execução normal os departamentos são passagens separadas.",
+  "por_rever": [
+    "Este artigo fica desatualizado por construção assim que houver uma segunda captura, e isso é o objetivo. Quando acontecer, é substituído (superseded) a partir dessa data e não apagado."
+  ]
+}

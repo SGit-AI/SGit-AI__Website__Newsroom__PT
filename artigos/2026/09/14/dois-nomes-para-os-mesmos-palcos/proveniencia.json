@@ -1,0 +1,24 @@
+{
+  "artigo": "dois-nomes-para-os-mesmos-palcos",
+  "porque_existe_este_ficheiro": "Diz de onde veio o artigo, e não apenas em que assenta.",
+  "cronologia": [
+    { "quando": "2026-09-14T12:00:00Z", "quem": "pesquisa",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Congelou as oito páginas próprias do evento numa captura datada.",
+      "produziu": ["dados/registo.json"] },
+    { "quando": "2026-09-14T12:25:00Z", "quem": "pesquisa",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Correu nomes_de_palco() sobre cada página congelada: uma procura por uma lista fechada de nomes conhecidos, guardando em que página cada um aparece.",
+      "nota": "A lista de nomes candidatos é herdada da secção /portugal/ de newsroom.sgit.ai, que encontrou o mesmo padrão nesta mesma matéria em setembro de 2026. Aqui foi confirmada, não assumida." },
+    { "quando": "2026-09-14T17:55:00Z", "quem": "redacao",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Escreveu a partir do resultado, sem acrescentar hipóteses sobre a causa." },
+    { "quando": "2026-09-14T17:58:00Z", "quem": "verificacao",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Repetiu a procura em cada cópia congelada e marcou as quatro afirmações." }
+  ],
+  "aviso_sobre_esta_cronologia": "Todas as entradas são da mesma sessão e do mesmo modelo: foi a sessão de arranque e não havia mais ninguém. Numa execução normal os departamentos são passagens separadas, com registos separados em redacao/runs/.",
+  "por_rever": [
+    "Ninguém perguntou ao evento. É a pergunta óbvia e um leitor humano fá-la melhor do que esta redação; a resposta seria uma correção, e o procedimento de correção existe."
+  ]
+}

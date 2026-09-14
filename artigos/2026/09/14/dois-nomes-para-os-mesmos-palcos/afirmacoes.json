@@ -1,0 +1,21 @@
+{
+  "artigo": "dois-nomes-para-os-mesmos-palcos",
+  "verificado_em": "2026-09-14",
+  "por": "verificacao",
+  "como": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+  "afirmacoes": [
+    { "id": "a1", "texto": "A agenda nomeia Unicorn Stage, Impact Stage e Workshop Rooms.",
+      "fonte": "2026-09-14/agenda", "estado": "confirmada",
+      "refeita": { "encontrados": ["Impact Stage", "Unicorn Stage", "Workshop Rooms"] } },
+    { "id": "a2", "texto": "A página de oradores nomeia os mesmos três.",
+      "fonte": "2026-09-14/oradores", "estado": "confirmada",
+      "refeita": { "encontrados": ["Impact Stage", "Unicorn Stage", "Workshop Rooms"] } },
+    { "id": "a3", "texto": "A página de patrocínios nomeia Main Stage, Startup Stage e Workshop Rooms.",
+      "fonte": "2026-09-14/patrocinadores", "estado": "confirmada",
+      "refeita": { "encontrados": ["Main Stage", "Startup Stage", "Workshop Rooms"] } },
+    { "id": "a4", "texto": "Um dos três nomes coincide entre os dois conjuntos.",
+      "fonte": "2026-09-14/patrocinadores", "estado": "confirmada",
+      "refeita": { "interseccao": ["Workshop Rooms"] } }
+  ],
+  "resumo": { "confirmadas": 4, "disputadas": 0, "nao_encontradas": 0 }
+}

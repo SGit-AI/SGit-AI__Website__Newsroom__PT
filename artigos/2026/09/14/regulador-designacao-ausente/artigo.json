@@ -1,0 +1,36 @@
+{
+  "data": "2026-09-14",
+  "estado": "procurado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "origem": "resumo-de-comissionamento §11",
+  "slug": "regulador-designacao-ausente",
+  "seccao": "instituicoes",
+  "issue": "002",
+  "antetitulo": "Instituições",
+  "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+  "entrada": "Encomendada pelo §11 do resumo de comissionamento. Dois factos, duas citações, e uma pergunta em vez de uma resposta. Ainda não há prosa.",
+  "especie": "registo_publico",
+  "o_que_e": "Um contentor aberto. Publica-se o registo, nunca o veredicto, e nenhum adjetivo sobre uma parte nomeada.",
+  "o_que_nao_afirma": [
+    "Não afirmará que nenhuma autoridade foi designada. Afirmará o que está e o que não está no registo público, com datas e hashes."
+  ],
+  "assenta_em": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
+  ],
+  "departamentos": {
+    "pesquisa": "Aberto. Ver o_que_falta.",
+    "redacao": "Por começar.",
+    "verificacao": "Por começar."
+  },
+  "o_que_ja_se_tem": [
+    "CONFIRMADA nos bytes: a Comissão Europeia diz que os Estados-Membros deveriam ter designado autoridades competentes até 2 de agosto de 2025.",
+    "CONFIRMADA nos bytes: a página temática oficial portuguesa descreve o Regulamento sem identificar nominalmente a autoridade nacional.",
+    "SEM FONTE LEGÍVEL: a página da ANACOM que a entrega cita devolveu 403 a esta redação. Um 403 é um servidor a bloquear um cliente, não uma recusa de informação."
+  ],
+  "o_que_falta": [
+    "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+    "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente."
+  ]
+}

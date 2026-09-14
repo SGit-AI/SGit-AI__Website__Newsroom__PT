@@ -1,0 +1,15 @@
+{
+  "id": "diaspora",
+  "rotulo": "A diáspora",
+  "ordem": 7,
+  "ambito": "Quem saiu, quem voltou, e quem opera a partir de fora.",
+  "o_que_pode_afirmar_hoje": "Nada. Não há uma única fonte congelada para esta secção.",
+  "o_que_nao_pode": "Tudo o resto. E esta é a secção onde é mais fácil escorregar para afirmações sobre pessoas que nenhuma fonte sustenta.",
+  "a_afirmacao_honesta": "A secção está vazia e a página di-lo.",
+  "fontes_alvo": [],
+  "perguntas_em_aberto": [
+    "Onde é que a nacionalidade ou o percurso de alguém está PUBLICADO por uma fonte primária, e não inferido? Sem resposta a isto, a secção não deve abrir."
+  ],
+  "aviso_obrigatorio": true,
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

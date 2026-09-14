@@ -1,0 +1,36 @@
+{
+  "data": "2026-09-14",
+  "estado": "procurado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "origem": "resumo-de-comissionamento §11",
+  "slug": "quantas-startups-sao-de-ia",
+  "seccao": "empresas",
+  "issue": "003",
+  "antetitulo": "Empresas",
+  "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+  "entrada": "Encomendada pelo §11 do resumo de comissionamento. Publicar o mínimo verificável, nomear o método, e dizer o tamanho do que não se consegue ver — na página, não numa nota de rodapé. Ainda não há prosa.",
+  "especie": "limite_do_registo",
+  "o_que_e": "Um contentor aberto. A afirmação honesta desta história não é um número: é o método e o tamanho do que fica invisível.",
+  "o_que_nao_afirma": [
+    "Não citará um número de um relatório como se fosse um conjunto de dados.",
+    "Não reclamará a lista subjacente a partir de uma figura publicada."
+  ],
+  "assenta_em": [
+    "2026-09-14/abertas/cordis"
+  ],
+  "departamentos": {
+    "pesquisa": "Aberto. Ver o_que_falta.",
+    "redacao": "Por começar.",
+    "verificacao": "Por começar."
+  },
+  "o_que_ja_se_tem": [
+    "O facto estrutural: não há registo comercial aberto em Portugal. O registo é por empresa, pago e com código de acesso; o registo de beneficiários efetivos deixou de ser de acesso público em 2022.",
+    "Uma semente aberta congelada: CORDIS, os projetos de investigação europeus."
+  ],
+  "o_que_falta": [
+    "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+    "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+    "Um número de startups ativas que venha de uma fonte congelada, e não de um relatório."
+  ]
+}

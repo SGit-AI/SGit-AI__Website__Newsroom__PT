@@ -1,0 +1,30 @@
+{
+  "slug": "uma-captura-nao-mostra-movimento",
+  "data": "2026-09-14",
+  "seccao": "eventos",
+  "antetitulo": "A lista mexe-se",
+  "titulo": "Uma captura não mostra movimento; duas mostram",
+  "entrada": "Só existe uma captura da lista de oradores, com 70 nomes. Não há aqui nenhuma diferença para relatar, e dizer o contrário seria inventar uma. Este artigo existe para dizer isso, e para ficar à espera da segunda captura.",
+  "estado": "verificado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "origem": "primeira-pagina",
+  "issue": null,
+  "especie": "ausencia_declarada",
+  "o_que_e": "Um artigo sobre o que esta redação ainda NÃO pode afirmar, escrito antes de poder afirmá-lo. O método desta casa diz que numa matéria em movimento a diferença é a notícia; com uma só captura não há diferença, e essa é a afirmação honesta de hoje.",
+  "o_que_nao_afirma": [
+    "Não afirma que a lista está estável. Afirma que não foi observada nenhuma mudança, porque não houve duas observações.",
+    "Não afirma nada sobre nenhuma pessoa da lista."
+  ],
+  "assenta_em": ["2026-09-14/oradores"],
+  "departamentos": {
+    "pesquisa": "Congelou a lista de oradores e contou os cartões; comparou a contagem com o número que a própria página declara.",
+    "redacao": "Escreveu a ausência em vez de a omitir.",
+    "verificacao": "Voltou a contar os cartões na cópia congelada."
+  },
+  "espera_por": {
+    "o_que": "Uma segunda captura da mesma página, em qualquer data posterior.",
+    "quem": "A execução diária da redação.",
+    "o_que_muda": "Com duas capturas, dados/mudancas.json passa a ter uma diferença, e este artigo passa a poder relatar quem entrou e quem saiu — sem nunca dizer porquê."
+  }
+}

@@ -1,8 +1,197 @@
 {
   "id": "pt-historias",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "atualizado": "2026-09-14",
-  "nota": "O registo das histórias. Nenhuma está publicada na v0.1.0, e a primeira página di-lo em vez de encenar uma manchete. O estado «publicado» é escrito pelo editor de registo e por mais ninguém: uma execução automática que o escrevesse falharia o portão 11.",
-  "estados": ["rascunho", "verificado", "publicado", "superseded"],
-  "historias": []
+  "nota": "O índice dos artigos, DERIVADO das pastas em artigos/<aaaa>/<mm>/<dd>/<slug>/ por build/artigos.py. Não se edita este ficheiro: edita-se a pasta. É a mesma regra que governa as organizações, derivadas dos cartões de orador — um índice escrito à mão acaba por discordar das pastas, e nada parece avariado.",
+  "estados": [
+    {
+      "id": "procurado",
+      "rotulo": "Procurado",
+      "significa": "A pasta existe para recolher material. Ainda não há prosa."
+    },
+    {
+      "id": "rascunho",
+      "rotulo": "Rascunho",
+      "significa": "Há prosa, escrita a partir do que a pesquisa registou."
+    },
+    {
+      "id": "verificado",
+      "rotulo": "Verificado",
+      "significa": "Cada afirmação foi relida na cópia congelada e marcada."
+    },
+    {
+      "id": "publicado",
+      "rotulo": "Publicado",
+      "significa": "O editor de registo leu e pôs a linha."
+    },
+    {
+      "id": "superseded",
+      "rotulo": "Substituído",
+      "significa": "Substituído a partir de uma data. Nunca apagado."
+    }
+  ],
+  "contagem": 6,
+  "publicados": 0,
+  "historias": [
+    {
+      "slug": "uma-captura-nao-mostra-movimento",
+      "data": "2026-09-14",
+      "seccao": "eventos",
+      "titulo": "Uma captura não mostra movimento; duas mostram",
+      "entrada": "Só existe uma captura da lista de oradores, com 70 nomes. Não há aqui nenhuma diferença para relatar, e dizer o contrário seria inventar uma. Este artigo existe para dizer isso, e para ficar à espera da segunda captura.",
+      "antetitulo": "A lista mexe-se",
+      "estado": "verificado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
+      "pasta": "artigos/2026/09/14/uma-captura-nao-mostra-movimento",
+      "issue": null,
+      "assenta_em": [
+        "2026-09-14/oradores"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/oradores"
+      ],
+      "verificacao": {
+        "confirmadas": 3,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
+    {
+      "slug": "regulador-designacao-ausente",
+      "data": "2026-09-14",
+      "seccao": "instituicoes",
+      "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+      "entrada": "Encomendada pelo §11 do resumo de comissionamento. Dois factos, duas citações, e uma pergunta em vez de uma resposta. Ainda não há prosa.",
+      "antetitulo": "Instituições",
+      "estado": "procurado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/regulador-designacao-ausente/",
+      "pasta": "artigos/2026/09/14/regulador-designacao-ausente",
+      "issue": "002",
+      "assenta_em": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
+      ],
+      "marcas_na_prosa": [],
+      "verificacao": {
+        "confirmadas": 0,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": false
+    },
+    {
+      "slug": "registo-nacional-nao-devolve-texto",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
+      "entrada": "Esta redação obteve e congelou três páginas do registo público português. O Diário da República e a página do Governo devolveram bytes e quase nenhum texto visível: renderizam por script. É uma medição com data e hash, não uma opinião sobre quem publica.",
+      "antetitulo": "O registo nacional · uma medição",
+      "estado": "verificado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
+      "pasta": "artigos/2026/09/14/registo-nacional-nao-devolve-texto",
+      "issue": "001",
+      "assenta_em": [
+        "2026-09-14/registo/dre-inicio",
+        "2026-09-14/registo/gov-ia",
+        "2026-09-14/registo/dados-gov"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/registo/dre-inicio",
+        "2026-09-14/registo/gov-ia",
+        "2026-09-14/registo/dados-gov"
+      ],
+      "verificacao": {
+        "confirmadas": 4,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
+    {
+      "slug": "quantas-startups-sao-de-ia",
+      "data": "2026-09-14",
+      "seccao": "empresas",
+      "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+      "entrada": "Encomendada pelo §11 do resumo de comissionamento. Publicar o mínimo verificável, nomear o método, e dizer o tamanho do que não se consegue ver — na página, não numa nota de rodapé. Ainda não há prosa.",
+      "antetitulo": "Empresas",
+      "estado": "procurado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/quantas-startups-sao-de-ia/",
+      "pasta": "artigos/2026/09/14/quantas-startups-sao-de-ia",
+      "issue": "003",
+      "assenta_em": [
+        "2026-09-14/abertas/cordis"
+      ],
+      "marcas_na_prosa": [],
+      "verificacao": {
+        "confirmadas": 0,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": false
+    },
+    {
+      "slug": "dois-nomes-para-os-mesmos-palcos",
+      "data": "2026-09-14",
+      "seccao": "eventos",
+      "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
+      "entrada": "Em páginas diferentes do seu próprio site, congeladas no mesmo dia, o Startup Summit Lisbon 2026 chama aos palcos nomes diferentes. Ambas as páginas são dele; nenhuma está errada — estão em desacordo.",
+      "antetitulo": "Verificação",
+      "estado": "verificado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
+      "pasta": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos",
+      "issue": null,
+      "assenta_em": [
+        "2026-09-14/agenda",
+        "2026-09-14/oradores",
+        "2026-09-14/patrocinadores"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/agenda",
+        "2026-09-14/oradores",
+        "2026-09-14/patrocinadores"
+      ],
+      "verificacao": {
+        "confirmadas": 4,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
+    {
+      "slug": "agenda-nacional-instrumento-legal",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+      "entrada": "Encomendada pelo §11 do resumo de comissionamento. Esta pasta existe para recolher o material; ainda não há prosa e nada aqui é uma afirmação.",
+      "antetitulo": "Políticas",
+      "estado": "procurado",
+      "publicado_em": null,
+      "publicado_por": null,
+      "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
+      "pasta": "artigos/2026/09/14/agenda-nacional-instrumento-legal",
+      "issue": "001",
+      "assenta_em": [
+        "2026-09-14/registo/dre-inicio",
+        "2026-09-14/registo/gov-ia"
+      ],
+      "marcas_na_prosa": [],
+      "verificacao": {
+        "confirmadas": 0,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": false
+    }
+  ]
 }

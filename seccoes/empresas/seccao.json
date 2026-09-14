@@ -1,0 +1,25 @@
+{
+  "id": "empresas",
+  "rotulo": "As empresas",
+  "ordem": 1,
+  "ambito": "Organizações portuguesas que fazem, vendem ou aplicam IA, e as pessoas coletivas à volta delas: investidores, aceleradoras, consultoras.",
+  "o_que_pode_afirmar_hoje": "As organizações sob as quais o Startup Summit lista os seus oradores, derivadas dos cartões e nunca escritas à mão.",
+  "o_que_nao_pode": "Nada parecido com um censo. Não há registo comercial aberto em Portugal: o registo é por empresa, pago e com código de acesso, e o registo de beneficiários efetivos deixou de ser de acesso público em 2022.",
+  "a_afirmacao_honesta": "Estas são as organizações portuguesas que aparecem em financiamento público europeu e nacional, com montantes e datas. É um grafo mais pequeno, e cada aresta é citável.",
+  "fontes_alvo": [
+    {
+      "id": "cordis",
+      "estado": "congelada",
+      "porque": "Projetos de investigação europeus, com conjuntos de dados abertos."
+    },
+    {
+      "id": "recuperar-portugal",
+      "estado": "nao_resolve",
+      "porque": "O portal de transparência do plano de recuperação. Metade da semente aberta do dia um, e não respondeu a nenhuma tentativa."
+    }
+  ],
+  "perguntas_em_aberto": [
+    "Qual é o número de startups ativas que vem de uma FONTE e não de um relatório?"
+  ],
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

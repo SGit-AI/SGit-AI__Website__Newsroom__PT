@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.1.2</span></div>
+  <div><span class="ver">v0.2.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,50 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.2.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>Um artigo passa a ser uma pasta datada.</b>
+<code>artigos/&lt;aaaa&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> com quatro ficheiros: a prosa,
+o registo de verificação de cada afirmação, a proveniência — que execução de que agente o produziu
+e por que ordem — e o JSON que diz o que o artigo é. Uma pasta e não um ficheiro porque um artigo
+não é só o texto: é o texto mais os bytes em que assenta mais quem os releu mais quem o escreveu,
+e num ficheiro único três dessas quatro coisas acabam noutro sítio e deixam de concordar.
+<br><br>
+A data no caminho é a data do <b>material</b>, não a da publicação. Seis pastas abertas: três com
+prosa e verificação feita, três a recolher material para as histórias que o §11 do resumo
+encomendou. Nenhuma publicada — essa linha é do editor de registo.
+<code>dados/historias.json</code> passa a ser DERIVADO das pastas, como as organizações são
+derivadas dos cartões de orador.
+<br><br>
+<b>Cada uma das oito secções ganha pasta e registo editorial.</b>
+<code>seccoes/&lt;id&gt;/seccao.json</code> diz o que a secção cobre, o que pode e o que NÃO pode
+afirmar hoje, que fontes tem congeladas e quais não resolveram, e que perguntas estão em aberto.
+As duas secções sem uma única fonte congelada são obrigadas pelo portão 20 a responder «Nada.» à
+pergunta do que podem afirmar.
+<br><br>
+<b>Um back office, em inglês.</b> <code>/backoffice/</code>: a consola de operações com o estado do
+pipeline, quem pode escrever onde, o quadro, os artigos, a cobertura de cada secção, as execuções
+e os commits — e um leitor para os 32 documentos markdown deste repositório, que os lê dos próprios
+bytes em vez de uma cópia. Está em inglês por decisão do editor, e a condição dessa exceção é
+verificada: o portão 19 falha a construção se uma página dos bastidores citar uma fonte congelada
+como prova. A consola relata a redação, nunca o mundo.
+<br><br>
+<b>Cinco portões novos, num ficheiro à parte.</b> <code>build/gates_artigos.py</code> existe
+separado porque <code>build/gates.py</code> está na lista de recusa de
+<code>.claude/settings.json</code>: um agente que possa editar o portão que o trava não tem portão
+nenhum, e a maneira errada de acrescentar verificações seria levantar essa proteção. Os cinco
+foram testados por injeção, como os outros.
+<br><br>
+<b>Dois defeitos de renderização corrigidos e vale a pena dizer quais:</b> o renderizador de
+markdown fazia de cada LINHA um parágrafo, o que partia a prosa a meio da frase e deixava um
+<code>**negrito**</code> a atravessar a quebra sem fechar; e a prosa de artigo não tinha ritmo
+vertical nenhum porque <code>.std</code> tem margem zero — o que está certo na primeira página,
+onde o espaço vem do <code>gap</code> da coluna, e errado num artigo, que não tem coluna nenhuma.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.1.2</span></td>
@@ -114,7 +158,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.1.2</span>.
+duplicados. Versão <span class="ver">v0.2.0</span>.
 </div>
 
 </div>

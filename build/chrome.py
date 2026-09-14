@@ -45,6 +45,10 @@ def main():
 
     n_afirm = sum(x["contagens"]["afirmacoes"] for x in ent.get("entregas", []))
     n_conf = sum(x["contagens"]["confirmadas"] for x in ent.get("entregas", []))
+    hist = carregar("historias.json")
+    lista_artigos = "\n" + "\n".join(
+        f'- https://{HOST}/{h["url"]} — {h["titulo"]} ({h["estado"]})'
+        for h in hist.get("historias", [])) if hist.get("historias") else ""
 
     # ------------------------------------------------------------- llms.txt ---
     llms = f"""# pt.newsroom.sgit.ai
@@ -79,6 +83,10 @@ suficiente para ser interessante.
 """
     HUBS = [
         ("/", "A primeira página. O desenho escolhido pelo editor a 13 de setembro de 2026."),
+        ("/artigos/", "Os artigos, por data. Cada um é uma pasta com a prosa, a verificação de "
+                      "cada afirmação e a proveniência."),
+        ("/backoffice/", "A consola de operações. EM INGLÊS: o seu público é quem opera a redação, "
+                         "não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal."),
         ("/registo/", "O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção."),
         ("/grafo/", "A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso."),
         ("/ficheiros/", "O manifesto: cada ficheiro de dados com o seu SHA-256."),
@@ -123,6 +131,22 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://{HOST}/dados/aviso.json — o aviso de proteção de dados, como dados
 - https://{HOST}/dados/equipa.json — os departamentos e o editor de registo
 - https://{HOST}/dados/excluidas.json — as fontes que foram tentadas e não resolveram
+- https://{HOST}/dados/historias.json — o índice dos artigos, derivado das pastas datadas
+- https://{HOST}/dados/documentos.json — todos os documentos markdown deste repositório
+
+## Os artigos, em endereços construíveis
+
+Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do slug:
+
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/            a página
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.json       estado, secção, fontes
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.md         a prosa
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/afirmacoes.json   cada afirmação e o seu estado
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/proveniencia.json que agente, quando, porquê
+
+A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
+escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
+{lista_artigos}
 
 ## Como ler este site sem o interpretar mal
 

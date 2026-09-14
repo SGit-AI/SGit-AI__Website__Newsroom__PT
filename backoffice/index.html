@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Console · pt.newsroom back office</title>
+<meta name="description" content="The operations console for pt.newsroom.sgit.ai: pipeline, departments, board, articles, sections, runs.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/index.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/index.html">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.2.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Console</div></div>
+<h1 class="h-2" style="max-width:28em">What the newsroom has done, what it is waiting on, and who
+is allowed to do what.</h1>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">The pipeline</div></div>
+<div class="rolar"><table><thead><tr><th style="width:150px">Stage</th><th style="width:130px">Now</th>
+  <th>Detail</th><th style="width:100px">Owner</th><th style="width:150px">State</th></tr></thead>
+  <tbody><tr><td><b>1 · Fetch &amp; freeze</b></td><td class="mono">92 files</td><td class="sm">1 dated snapshot(s), every SHA-256 re-verified each build</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>2 · Extract</b></td><td class="mono">298 nodes</td><td class="sm">842 edges, 25 Portuguese verbs each with a reading</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>3 · Deliveries</b></td><td class="mono">9/19 excerpts</td><td class="sm">found in the frozen bytes · 0 items approved by the editor</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>4 · Write</b></td><td class="mono">3 with prose</td><td class="sm">6 article folders exist</td><td class="mono xs">redacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>5 · Verify</b></td><td class="mono">11 claims</td><td class="sm">re-read against the frozen copy and marked</td><td class="mono xs">verificacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>6 · Publish</b></td><td class="mono">0 published</td><td class="sm">the editor of record writes this line, and nothing else can</td><td class="mono xs">editor</td><td><span class="chip">waiting on a human</span></td></tr></tbody></table></div>
+<p class="xs" style="max-width:48em;padding-top:10px">Stage 6 is the only one that cannot be moved
+by any agent. <code>estado: publicado</code> is the editor of record's line; gate 11 fails the
+build if it appears without their name and a date.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Departments · who may write where</div></div>
+<div class="rolar"><table><thead><tr><th style="width:190px">Department</th>
+  <th style="width:210px">Writes only in</th><th>Refuses</th><th>Wrong when</th></tr></thead>
+  <tbody><tr><td><b>Research</b><div class="mono xs">Pesquisa</div><div class="xs" style="padding-top:4px">No claim without bytes we hold.</div></td><td class="mono xs">fontes/congeladas/&lt;data&gt;/<br>dados/registo.json<br>dados/*.json extraídos das fontes</td><td class="sm">Reading a source over the network at publish time; citing a page nobody froze; tidying a messy source value into a cleaner one.</td><td class="sm">A claim cannot be walked back to a SHA-256 in the register.</td></tr><tr><td><b>Reporting</b><div class="mono xs">Redação</div><div class="xs" style="padding-top:4px">Every sentence stands on a registered source.</div></td><td class="mono xs">conteudo/*.md</td><td class="sm">A claim with no source; an adjective about a named party; prose more certain than the snapshots are.</td><td class="sm">A claim in the text has no source mark, or one the register does not know.</td></tr><tr><td><b>Verification</b><div class="mono xs">Verificação</div><div class="xs" style="padding-top:4px">Publish the record, never the verdict.</div></td><td class="mono xs">dados/verificacoes/*.json</td><td class="sm">Editing the story. Marking a claim confirmed without re-reading it.</td><td class="sm">A story reaches the editor with claims nobody reopened.</td></tr></tbody></table></div>
+<div class="painel" style="margin-top:14px">
+<div class="sect">Editor of record · Dinis Cruz</div>
+<p class="sm" style="padding-top:6px">Reads every page before it goes live, and is the named person answerable for what this publication says.</p>
+<div class="sect" style="padding-top:12px">Only they can</div><ul><li class="sm">Put a story into «publicado». No automated run can.</li><li class="sm">Decide a removal under the notice.</li><li class="sm">Clear an item that is «parado» (blocked).</li></ul>
+<p class="xs" style="padding-top:8px">Gate 12 reads each run record and fails the build if a
+department wrote outside its own folder. That check is what makes this a newsroom rather than a
+script with role names in the comments.</p></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Board · 4 issues</div></div>
+<div class="quadro"><div class="coluna"><div class="sect">procurado <span class="mono xs">3</span></div><div class="cartao"><div class="mono xs">001 · politicas</div><div style="padding-top:4px;font-size:13px">A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível po</div></div><div class="cartao"><div class="mono xs">002 · instituicoes</div><div style="padding-top:4px;font-size:13px">O regulador foi designado e o instrumento de designação não está na página de IA do Governo</div></div><div class="cartao"><div class="mono xs">003 · empresas</div><div style="padding-top:4px;font-size:13px">Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz</div></div></div><div class="coluna"><div class="sect">congelado <span class="mono xs">1</span></div><div class="cartao"><div class="mono xs">004 · politicas</div><div style="padding-top:4px;font-size:13px">Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível</div></div></div></div>
+<p class="xs" style="padding-top:10px">Rendered from <code>redacao/issues/*.json</code>.
+2 mail files in <code>redacao/correio/</code>. The reader-facing version of this board is
+<a href="../redacao/">A mesa</a>, in Portuguese.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Articles · 6
+  folders, 0 published</div></div>
+<div class="rolar"><table><thead><tr><th style="width:90px">Date</th><th>Title</th>
+  <th style="width:110px">Section</th><th style="width:120px">State</th>
+  <th style="width:110px">Evidence</th><th style="width:100px">Files</th></tr></thead>
+  <tbody><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/uma-captura-nao-mostra-movimento/">Uma captura não mostra movimento; duas mostram</a></td><td class="mono xs">eventos</td><td><span class="chip">verificado</span></td><td class="mono xs">1 src · 3 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/uma-captura-nao-mostra-movimento/artigo.json">json</a> <a href="../artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json">prov</a></td></tr><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/regulador-designacao-ausente/">O regulador foi designado e o instrumento de designação não está na página de IA do Go</a></td><td class="mono xs">instituicoes</td><td><span class="chip">procurado</span></td><td class="mono xs">2 src · 0 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/regulador-designacao-ausente/artigo.json">json</a> <a href="../artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json">prov</a></td></tr><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/registo-nacional-nao-devolve-texto/">Duas das três páginas do registo nacional não devolvem texto a um leitor automático</a></td><td class="mono xs">politicas</td><td><span class="chip">verificado</span></td><td class="mono xs">3 src · 4 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/registo-nacional-nao-devolve-texto/artigo.json">json</a> <a href="../artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json">prov</a></td></tr><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/quantas-startups-sao-de-ia/">Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto d</a></td><td class="mono xs">empresas</td><td><span class="chip">procurado</span></td><td class="mono xs">1 src · 0 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/quantas-startups-sao-de-ia/artigo.json">json</a> <a href="../artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json">prov</a></td></tr><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/">O mesmo evento nomeia os seus palcos de duas maneiras</a></td><td class="mono xs">eventos</td><td><span class="chip">verificado</span></td><td class="mono xs">3 src · 4 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.json">json</a> <a href="../artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json">prov</a></td></tr><tr><td class="mono xs">2026-09-14</td><td><a href="../artigos/2026/09/14/agenda-nacional-instrumento-legal/">A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no re</a></td><td class="mono xs">politicas</td><td><span class="chip">procurado</span></td><td class="mono xs">2 src · 0 ok</td><td class="mono xs"><a href="../artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json">json</a> <a href="../artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json">prov</a></td></tr></tbody></table></div>
+<p class="xs" style="padding-top:10px">Each article is a folder at
+<code>artigos/&lt;yyyy&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> holding the prose, the claim
+record and the provenance. <code>dados/historias.json</code> is derived from those folders and is
+never hand-edited.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Sections · coverage</div></div>
+<div class="rolar"><table><thead><tr><th style="width:170px">Section</th>
+  <th style="width:180px">State</th><th style="width:90px">Graph</th><th style="width:100px">Articles</th>
+  <th style="width:140px">Sources</th><th>First open question</th></tr></thead>
+  <tbody><tr><td><a href="../empresas/">As empresas</a><div class="mono xs">seccoes/empresas/seccao.json</div></td><td><span class="chip ok">has data</span></td><td class="mono xs">78 nodes</td><td class="mono xs">1 article(s)</td><td class="mono xs">1 frozen · 1 pending</td><td class="sm">Qual é o número de startups ativas que vem de uma FONTE e não de um relatório?</td></tr><tr><td><a href="../protagonistas/">Os protagonistas</a><div class="mono xs">seccoes/protagonistas/seccao.json</div></td><td><span class="chip ok">has data</span></td><td class="mono xs">70 nodes</td><td class="mono xs">0 article(s)</td><td class="mono xs">1 frozen</td><td class="sm">Esta secção é a que tem mais risco para pessoas reais. Qualquer alargamento das categorias detidas exige mudar o aviso P</td></tr><tr><td><a href="../instituicoes/">As instituições</a><div class="mono xs">seccoes/instituicoes/seccao.json</div></td><td><span class="chip ok">has data</span></td><td class="mono xs">3 nodes</td><td class="mono xs">1 article(s)</td><td class="mono xs">2 frozen · 1 pending</td><td class="sm">Onde está o ato de designação da autoridade nacional para o Regulamento de IA?</td></tr><tr><td><a href="../politicas/">As políticas</a><div class="mono xs">seccoes/politicas/seccao.json</div></td><td><span class="chip miss">empty, and says so</span></td><td class="mono xs">0 nodes</td><td class="mono xs">2 article(s)</td><td class="mono xs">2 frozen</td><td class="sm">Como é que se ENCONTRA o endereço do PDF de um diploma no Diário da República sem o construir por adivinhação?</td></tr><tr><td><a href="../casos-de-uso/">Os casos de uso</a><div class="mono xs">seccoes/casos-de-uso/seccao.json</div></td><td><span class="chip ok">has data</span></td><td class="mono xs">35 nodes</td><td class="mono xs">0 article(s)</td><td class="mono xs">1 frozen</td><td class="sm">O léxico corre sobre prosa inglesa porque a fonte é inglesa. Quando houver fontes portuguesas, precisa de padrões portug</td></tr><tr><td><a href="../codigo-aberto/">O código aberto</a><div class="mono xs">seccoes/codigo-aberto/seccao.json</div></td><td><span class="chip miss">empty, and says so</span></td><td class="mono xs">0 nodes</td><td class="mono xs">0 article(s)</td><td class="mono xs">0 frozen</td><td class="sm">Qual é a fonte primária? Um índice de repositórios não é um registo; um registo de financiamento que nomeie software abe</td></tr><tr><td><a href="../diaspora/">A diáspora</a><div class="mono xs">seccoes/diaspora/seccao.json</div></td><td><span class="chip miss">empty, and says so</span></td><td class="mono xs">0 nodes</td><td class="mono xs">0 article(s)</td><td class="mono xs">0 frozen</td><td class="sm">Onde é que a nacionalidade ou o percurso de alguém está PUBLICADO por uma fonte primária, e não inferido? Sem resposta a</td></tr><tr><td><a href="../eventos/">Os eventos</a><div class="mono xs">seccoes/eventos/seccao.json</div></td><td><span class="chip ok">has data</span></td><td class="mono xs">19 nodes</td><td class="mono xs">2 article(s)</td><td class="mono xs">3 frozen</td><td class="sm">Que outros eventos portugueses publicam programa e lista de oradores de forma congelável?</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Runs</div></div>
+<div class="rolar"><table><thead><tr><th style="width:150px">When</th><th>Prompt</th>
+  <th style="width:170px">Model</th><th style="width:200px">Folders</th>
+  <th style="width:90px">Gates</th><th style="width:80px">Version</th></tr></thead>
+  <tbody><tr><td class="mono xs">2026-09-14T12:00:00Z</td><td class="sm">00-bootstrap.md — construir o MVP v0.1.0</td><td class="xs">Claude Opus 5 (Claude Code, sessão remota)</td><td class="mono xs">build/, dados/, fontes/congeladas/, redacao/, assets/, admin/, .github/</td><td><span class="chip ok">green</span></td><td class="mono xs">v0.1.0</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Recent commits</div></div>
+<div class="rolar"><table><thead><tr><th style="width:80px">Commit</th>
+  <th style="width:140px">When</th><th>Subject</th></tr></thead>
+  <tbody><tr><td class="mono xs">cfb2530</td><td class="mono xs">2026-09-14 13:06</td><td class="sm">site v0.1.2: a página das entregas mostra de onde uma entrega vem, ao lado do que aconteceu quando voltou</td></tr><tr><td class="mono xs">6da7dcb</td><td class="mono xs">2026-09-14 13:05</td><td class="sm">site v0.1.1: o passo da aprovação de uma entrega deixa de ser folclore — a página mostra como se faz, com os i</td></tr><tr><td class="mono xs">282def2</td><td class="mono xs">2026-09-14 13:02</td><td class="sm">site v0.1.0: o MVP — ingestão contra fontes reais, grafo em verbos portugueses, aviso antes do primeiro nome, </td></tr><tr><td class="mono xs">b98f48d</td><td class="mono xs">2026-09-14 13:03</td><td class="sm">Initial commit</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Run it yourself</div></div>
+<div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--painel);
+border:1px solid var(--filete);white-space:pre">python3 build/extract.py --fetch    # fetch, freeze, hash, register, extract, diff
+python3 build/entregas.py --fetch   # freeze delivery sources, check every excerpt
+python3 build/graph.py              # ontology, graph, triples, manifest
+python3 build/artigos.py            # article folders -&gt; pages + derived index
+python3 build/build.py              # every reader-facing page
+python3 build/backoffice.py         # this console
+python3 build/chrome.py             # llms.txt, sitemap.xml, index.md
+python3 build/gates.py              # the section gates  — must print OK
+node admin/build/validate.js        # the site gate      — must print OK</pre></div>
+<p class="xs" style="padding-top:10px">Without <code>--fetch</code> the first two run against the
+copies already frozen and touch no network. That is how the site is rebuilt from a clone, years
+later, to exactly the same pages.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Elsewhere in the estate</div></div>
+<div class="rolar"><table><thead><tr><th style="width:230px">Site</th><th>What is there</th>
+  </tr></thead><tbody>
+<tr><td><a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a></td><td class="sm">The parent publication and the argument this site is an instance of. The commissioning brief for pt.newsroom lives there, not here.</td></tr><tr><td><a href="https://newsroom.sgit.ai/portugal/index.html">newsroom.sgit.ai/portugal/</a></td><td class="sm">Where this method was proven before it was copied: the ingestion path, the gates, the biography posture and the notice all come from there.</td></tr><tr><td><a href="https://newsroom.sgit.ai/pt-newsroom/index.html">newsroom.sgit.ai/pt-newsroom/</a></td><td class="sm">The front-page design this site builds, rendered at full size from its own sources.</td></tr><tr><td><a href="https://sgit.ai">sgit.ai</a></td><td class="sm">The platform: the vault layer and the shipped CLI. Research deliveries arrive as sgit vaults, and a read key is the only credential that may be recorded.</td></tr><tr><td><a href="https://coding.sgit.ai">coding.sgit.ai</a></td><td class="sm">How the code in this repository is meant to be written and reviewed.</td></tr><tr><td><a href="https://graphs.sgit.ai">graphs.sgit.ai</a></td><td class="sm">The published grammar this site&#x27;s ontology obeys: every edge a verb with a distinct named inverse, and a path that reads aloud.</td></tr>
+</tbody></table></div>
+<p class="xs" style="padding-top:10px">32 markdown documents in this repository are
+readable at <a href="docs.html">documents</a>.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/index.html</code> · version <span class="ver">v0.2.0</span>.
+</div>
+
+</div>
+</body>
+</html>

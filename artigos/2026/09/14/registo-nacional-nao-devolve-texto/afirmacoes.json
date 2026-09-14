@@ -1,0 +1,38 @@
+{
+  "artigo": "registo-nacional-nao-devolve-texto",
+  "verificado_em": "2026-09-14",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "O Diário da República devolveu 2 346 bytes e 22 caracteres de texto visível.",
+      "fonte": "2026-09-14/registo/dre-inicio",
+      "estado": "confirmada",
+      "refeita": { "bytes": 2346, "caracteres_visiveis": 22 }
+    },
+    {
+      "id": "a2",
+      "texto": "A página do Governo devolveu 165 569 bytes e 348 caracteres visíveis.",
+      "fonte": "2026-09-14/registo/gov-ia",
+      "estado": "confirmada",
+      "refeita": { "bytes": 165569, "caracteres_visiveis": 348 }
+    },
+    {
+      "id": "a3",
+      "texto": "O portal nacional de dados abertos devolveu 849 388 bytes e 27 406 caracteres, e é a única das três legível por um leitor automático.",
+      "fonte": "2026-09-14/registo/dados-gov",
+      "estado": "confirmada",
+      "refeita": { "bytes": 849388, "caracteres_visiveis": 27406 }
+    },
+    {
+      "id": "a4",
+      "texto": "Um diploma do Diário da República em PDF lê-se por inteiro depois de decifrado e de seguido o mapa /ToUnicode de cada tipo.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "estado": "confirmada",
+      "refeita": { "caracteres_extraidos": 30808, "ficheiro": "RCM n.º 70/2026" },
+      "nota": "Confirmada contra um diploma concreto e não em abstrato: a RCM n.º 70/2026, congelada como fonte de uma entrega de investigação, lida por build/pdf.py."
+    }
+  ],
+  "resumo": { "confirmadas": 4, "disputadas": 0, "nao_encontradas": 0 }
+}

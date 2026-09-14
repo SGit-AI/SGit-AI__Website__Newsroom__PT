@@ -137,6 +137,20 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 .escuro .sm { color: var(--filete-2); }
 .escuro a { color: var(--acento-claro); }
 
+/* --- prosa de artigo -------------------------------------------------------
+   `.std` tem `margin: 0` porque na primeira página cada parágrafo é um filho de uma coluna
+   flex com `gap` — o espaço vem do contentor. A prosa de um artigo não tem contentor nenhum a
+   dar-lhe espaço, e sem isto os parágrafos colam-se uns aos outros e o artigo lê-se como um
+   bloco só. O ritmo vertical vive aqui, e não em cada parágrafo. */
+.prosa > p { margin: 0 0 1.05em; }
+.prosa > p:last-child { margin-bottom: 0; }
+.prosa > h2 { margin: 1.8em 0 .5em; }
+.prosa > h3 { margin: 1.5em 0 .4em; }
+.prosa > h2:first-child, .prosa > h3:first-child { margin-top: 0; }
+.prosa > ul { margin: 0 0 1.05em; padding-left: 1.2em; }
+.prosa > ul li { margin-bottom: .35em; }
+.prosa .chip { margin: 0 1px; }
+
 /* --- blocos de casa -------------------------------------------------------- */
 .aviso-bloco { border-left: 3px solid var(--aviso); padding: 12px 0 12px 16px; margin: 22px 0; }
 .agent { border-top: 1px solid var(--filete); margin-top: 40px; padding-top: 14px;

@@ -1,0 +1,18 @@
+{
+  "artigo": "uma-captura-nao-mostra-movimento",
+  "verificado_em": "2026-09-14",
+  "por": "verificacao",
+  "como": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+  "afirmacoes": [
+    { "id": "a1", "texto": "A lista de oradores tem 70 nomes.",
+      "fonte": "2026-09-14/oradores", "estado": "confirmada",
+      "refeita": { "cartoes_contados": 70 } },
+    { "id": "a2", "texto": "A página declara de si própria que são 70, e os dois números concordam.",
+      "fonte": "2026-09-14/oradores", "estado": "confirmada",
+      "refeita": { "declarado_na_pagina": 70, "concordam": true } },
+    { "id": "a3", "texto": "Existe apenas uma captura desta página, pelo que não há diferença para relatar.",
+      "fonte": "2026-09-14/oradores", "estado": "confirmada",
+      "refeita": { "capturas": ["2026-09-14"], "mudancas_registadas": 0 } }
+  ],
+  "resumo": { "confirmadas": 3, "disputadas": 0, "nao_encontradas": 0 }
+}

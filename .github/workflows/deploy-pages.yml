@@ -57,6 +57,11 @@ jobs:
       # site gate would be well-formed and could still be dishonest.
       - name: The section gates (hashes, refusals, accents, the Portuguese path, the quarantine)
         run: python3 build/gates.py
+      # The gates for the structures that came after build/gates.py, in their own file because
+      # gates.py is in the deny list of .claude/settings.json on purpose: an agent that can edit
+      # the gate that stops it has no gate. Either script failing is a release that does not happen.
+      - name: The article, section and back-office gates
+        run: python3 build/gates_artigos.py
       - name: Validate the site (structure, links, version, canonical, key-leak tripwire)
         run: node admin/build/validate.js
 

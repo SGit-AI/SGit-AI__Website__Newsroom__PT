@@ -37,10 +37,15 @@ EXTRA = [("registo", "Registo"), ("grafo", "Grafo")]
 
 # As páginas de mecânica, no rodapé e não na mancheta.
 RODAPE = [
-    ("metodo", "Método"), ("equipa", "A redação"), ("entregas", "Entregas de investigação"),
-    ("redacao", "A mesa"), ("ficheiros", "Os ficheiros"), ("aviso", "Aviso de proteção de dados"),
+    ("artigos", "Os artigos"), ("metodo", "Método"), ("equipa", "A redação"),
+    ("entregas", "Entregas de investigação"), ("redacao", "A mesa"),
+    ("ficheiros", "Os ficheiros"), ("aviso", "Aviso de proteção de dados"),
     ("sobre", "Sobre e limites"),
 ]
+
+# A consola de operações. No rodapé como maquinaria, e não na mancheta: não é a publicação, e está
+# em inglês de propósito — o seu público é quem opera a redação, não quem lê o jornal.
+BASTIDORES = ("backoffice", "Back office (EN)")
 
 LEMA = ("O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo "
         "e grande o suficiente para ser interessante.")
@@ -138,6 +143,8 @@ def bloco_declaracao(nomeia_pessoas=False, raiz="/"):
 
 def rodape(raiz):
     ligacoes = " · ".join(f'<a href="{raiz}{sid}/">{rot}</a>' for sid, rot in RODAPE)
+    ligacoes += (f' · <a href="{raiz}{BASTIDORES[0]}/">{BASTIDORES[1]}</a>'
+                 f' · <a href="{raiz}admin/versions.html">Versões</a>')
     return (
         f'<div class="rodape g4">'
         f'<div class="col sp6"><div class="sect">Ficha técnica</div>'
@@ -214,35 +221,61 @@ def escrever(rel, texto):
     return rel
 
 
-def md_para_html(md):
+def md_para_html(md, raiz=""):
     """O renderizador de markdown das histórias. Pequeno de propósito: uma história é prosa com
-    marcas de fonte, e mais nada. As marcas `[[fonte:<id>]]` tornam-se fichas ligadas ao registo."""
-    saida, lista = [], False
+    marcas de fonte, e mais nada. As marcas `[[fonte:<id>]]` tornam-se fichas ligadas ao registo.
+
+    `raiz` é o prefixo até à raiz do site. Um artigo vive em
+    `artigos/<aaaa>/<mm>/<dd>/<slug>/` — cinco níveis — e uma ficha de fonte escrita com um
+    caminho fixo funcionaria numa página e não na outra. O portão de ligações do site apanha-o,
+    e apanhou.
+
+    UM PARÁGRAFO É SEPARADO POR UMA LINHA EM BRANCO, não por uma quebra de linha. A prosa deste
+    site é escrita com a linha cortada aos 96 caracteres, como todo o resto do repositório; uma
+    versão anterior desta função fazia de cada LINHA um parágrafo, e o resultado era prosa partida
+    a meio da frase e um `**negrito**` que atravessava a quebra e nunca fechava. As linhas de um
+    parágrafo são juntadas antes de serem formatadas, que é o que o markdown sempre quis dizer."""
+    saida, lista, paragrafo = [], False, []
+
+    def fechar_paragrafo():
+        if paragrafo:
+            saida.append(f'<p class="std">{inline(" ".join(paragrafo), raiz)}</p>')
+            paragrafo.clear()
+
+    def fechar_lista():
+        nonlocal lista
+        if lista:
+            saida.append("</ul>")
+            lista = False
+
     for linha in md.split("\n"):
         t = linha.rstrip()
-        if re.match(r"^### ", t):
-            saida.append(f'<h3 class="h-3">{e(t[4:])}</h3>'); continue
-        if re.match(r"^## ", t):
-            saida.append(f'<h2 class="h-2">{e(t[3:])}</h2>'); continue
-        if re.match(r"^# ", t):
-            saida.append(f'<h1 class="h-lead">{e(t[2:])}</h1>'); continue
+        if re.match(r"^#{1,3} ", t):
+            fechar_paragrafo(); fechar_lista()
+            nivel = len(t) - len(t.lstrip("#"))
+            classe = {1: "h-lead", 2: "h-2", 3: "h-3"}[nivel]
+            saida.append(f'<h{min(nivel + 1, 3)} class="{classe}">'
+                         f'{inline(t[nivel + 1:], raiz)}</h{min(nivel + 1, 3)}>')
+            continue
         if t.startswith("- "):
+            fechar_paragrafo()
             if not lista:
                 saida.append("<ul>"); lista = True
-            saida.append(f"<li class=\"sm\">{inline(t[2:])}</li>"); continue
-        if lista:
-            saida.append("</ul>"); lista = False
-        if t.strip():
-            saida.append(f'<p class="std">{inline(t)}</p>')
-    if lista:
-        saida.append("</ul>")
+            saida.append(f'<li class="sm">{inline(t[2:], raiz)}</li>')
+            continue
+        if not t.strip():
+            fechar_paragrafo(); fechar_lista()
+            continue
+        fechar_lista()
+        paragrafo.append(t.strip())
+    fechar_paragrafo(); fechar_lista()
     return "\n".join(saida)
 
 
-def inline(t):
+def inline(t, raiz=""):
     t = e(t)
     t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
     t = re.sub(r"\[\[fonte:([^\]]+)\]\]",
-               lambda m: f'<a class="chip ok" href="../registo/#{e(m.group(1))}">'
+               lambda m: f'<a class="chip ok" href="{raiz}registo/#{e(m.group(1))}">'
                          f'{e(m.group(1))}</a>', t)
     return t

@@ -1,0 +1,265 @@
+{
+  "id": "pt-documentos",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
+  "contagem": 32,
+  "documentos": [
+    {
+      "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
+      "titulo": "SKILL",
+      "categoria": "Agent skills",
+      "bytes": 6985,
+      "linhas": 127,
+      "palavras": 1111
+    },
+    {
+      "caminho": ".claude/skills/newsroom-review/SKILL.md",
+      "titulo": "SKILL",
+      "categoria": "Agent skills",
+      "bytes": 2552,
+      "linhas": 40,
+      "palavras": 391
+    },
+    {
+      "caminho": ".claude/skills/newsroom-run/SKILL.md",
+      "titulo": "SKILL",
+      "categoria": "Agent skills",
+      "bytes": 4896,
+      "linhas": 70,
+      "palavras": 718
+    },
+    {
+      "caminho": "CLAUDE.md",
+      "titulo": "pt.newsroom.sgit.ai — the rules of this repository",
+      "categoria": "Repository root",
+      "bytes": 5614,
+      "linhas": 85,
+      "palavras": 841
+    },
+    {
+      "caminho": "LICENSES.md",
+      "titulo": "Licenças",
+      "categoria": "Repository root",
+      "bytes": 3145,
+      "linhas": 61,
+      "palavras": 456
+    },
+    {
+      "caminho": "README.md",
+      "titulo": "pt.newsroom.sgit.ai",
+      "categoria": "Repository root",
+      "bytes": 7738,
+      "linhas": 140,
+      "palavras": 1195
+    },
+    {
+      "caminho": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1956,
+      "linhas": 36,
+      "palavras": 324
+    },
+    {
+      "caminho": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 3152,
+      "linhas": 53,
+      "palavras": 502
+    },
+    {
+      "caminho": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1778,
+      "linhas": 34,
+      "palavras": 310
+    },
+    {
+      "caminho": "artigos/LEIA-ME.md",
+      "titulo": "`artigos/` — um artigo é uma pasta, não um ficheiro",
+      "categoria": "Articles",
+      "bytes": 3097,
+      "linhas": 56,
+      "palavras": 504
+    },
+    {
+      "caminho": "briefs/pack/00__READ-ME-FIRST.md",
+      "titulo": "Briefing pack: build and run `pt.newsroom.sgit.ai`",
+      "categoria": "Commissioning pack",
+      "bytes": 4127,
+      "linhas": 65,
+      "palavras": 636
+    },
+    {
+      "caminho": "briefs/pack/01__the-brief.md",
+      "titulo": "11 — Commissioning brief: `pt.newsroom.sgit.ai`",
+      "categoria": "Commissioning pack",
+      "bytes": 26258,
+      "linhas": 415,
+      "palavras": 4278
+    },
+    {
+      "caminho": "briefs/pack/02__the-design/README.md",
+      "titulo": "The design: the front page of pt.newsroom.sgit.ai",
+      "categoria": "Commissioning pack",
+      "bytes": 3814,
+      "linhas": 55,
+      "palavras": 597
+    },
+    {
+      "caminho": "briefs/pack/03__inherit/README.md",
+      "titulo": "What to inherit from newsroom.sgit.ai, and what to rewrite",
+      "categoria": "Commissioning pack",
+      "bytes": 6513,
+      "linhas": 42,
+      "palavras": 1006
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/CLAUDE.md",
+      "titulo": "pt.newsroom.sgit.ai — the rules of this repository",
+      "categoria": "Commissioning pack",
+      "bytes": 5360,
+      "linhas": 83,
+      "palavras": 799
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/README.md",
+      "titulo": "The newsroom: how pt.newsroom.sgit.ai keeps itself alive",
+      "categoria": "Commissioning pack",
+      "bytes": 6873,
+      "linhas": 98,
+      "palavras": 1095
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/prompts/00-bootstrap.md",
+      "titulo": "00 — Bootstrap: build MVP v0.1.0 of pt.newsroom.sgit.ai",
+      "categoria": "Commissioning pack",
+      "bytes": 6413,
+      "linhas": 99,
+      "palavras": 834
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/prompts/10-daily-run.md",
+      "titulo": "10 — The scheduled run",
+      "categoria": "Commissioning pack",
+      "bytes": 712,
+      "linhas": 15,
+      "palavras": 113
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/prompts/20-editor-review.md",
+      "titulo": "20 — The editor's review session",
+      "categoria": "Commissioning pack",
+      "bytes": 819,
+      "linhas": 17,
+      "palavras": 145
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/prompts/30-correction.md",
+      "titulo": "30 — When a source contradicts a published claim",
+      "categoria": "Commissioning pack",
+      "bytes": 1290,
+      "linhas": 19,
+      "palavras": 210
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/skills/newsroom-review/SKILL.md",
+      "titulo": "SKILL",
+      "categoria": "Commissioning pack",
+      "bytes": 2552,
+      "linhas": 40,
+      "palavras": 391
+    },
+    {
+      "caminho": "briefs/pack/04__the-newsroom/skills/newsroom-run/SKILL.md",
+      "titulo": "SKILL",
+      "categoria": "Commissioning pack",
+      "bytes": 4896,
+      "linhas": 70,
+      "palavras": 718
+    },
+    {
+      "caminho": "briefs/pack/05__schedule/README.md",
+      "titulo": "Running the newsroom on a schedule",
+      "categoria": "Commissioning pack",
+      "bytes": 4035,
+      "linhas": 62,
+      "palavras": 619
+    },
+    {
+      "caminho": "briefs/pack/06__acceptance.md",
+      "titulo": "Acceptance: what MVP v0.1.0 is, and the one-story test",
+      "categoria": "Commissioning pack",
+      "bytes": 3491,
+      "linhas": 58,
+      "palavras": 554
+    },
+    {
+      "caminho": "briefs/pack/07__handover.md",
+      "titulo": "Handover: what exists on newsroom.sgit.ai, where, and what was decided",
+      "categoria": "Commissioning pack",
+      "bytes": 4707,
+      "linhas": 61,
+      "palavras": 725
+    },
+    {
+      "caminho": "briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md",
+      "titulo": "12 — Research brief for ChatGPT: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
+      "categoria": "Commissioning pack",
+      "bytes": 15728,
+      "linhas": 248,
+      "palavras": 2364
+    },
+    {
+      "caminho": "briefs/pack/08__research-briefs/13__research-brief-for-perplexity.md",
+      "titulo": "13 — Research brief for Perplexity: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
+      "categoria": "Commissioning pack",
+      "bytes": 14352,
+      "linhas": 237,
+      "palavras": 2110
+    },
+    {
+      "caminho": "briefs/pack/08__research-briefs/README.md",
+      "titulo": "Research briefs for outside assistants, and how their deliveries enter the newsroom",
+      "categoria": "Commissioning pack",
+      "bytes": 4074,
+      "linhas": 65,
+      "palavras": 604
+    },
+    {
+      "caminho": "briefs/pack/LICENSE.md",
+      "titulo": "Licences in this pack",
+      "categoria": "Commissioning pack",
+      "bytes": 996,
+      "linhas": 15,
+      "palavras": 120
+    },
+    {
+      "caminho": "index.md",
+      "titulo": "pt.newsroom.sgit.ai",
+      "categoria": "Repository root",
+      "bytes": 794,
+      "linhas": 15,
+      "palavras": 100
+    },
+    {
+      "caminho": "redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md",
+      "titulo": "2026-09-14T1200__sessao-de-arranque__o-que-foi-construido",
+      "categoria": "Newsroom files",
+      "bytes": 1696,
+      "linhas": 29,
+      "palavras": 274
+    },
+    {
+      "caminho": "redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md",
+      "titulo": "2026-09-14T1205__editor__tres-primeiras-historias",
+      "categoria": "Newsroom files",
+      "bytes": 841,
+      "linhas": 20,
+      "palavras": 138
+    }
+  ]
+}
