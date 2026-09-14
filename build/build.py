@@ -737,6 +737,31 @@ def entrega_pagina(x, d):
             f'editor sobre a ontologia, não um defeito da entrega.</p>'
             f'<ul style="margin:0">{lista}</ul>{mais}</div>')
 
+    # O exemplo é escrito com os ids REAIS desta entrega, e o primeiro item sugerido é o que tem
+    # mais afirmações confirmadas: um exemplo com ids inventados obrigaria o editor a traduzi-lo
+    # antes de o poder usar, e é aí que se enganam os ids.
+    ordenados = sorted(x["itens"], key=lambda it: -it["resumo"]["confirmada"])
+    melhor = ordenados[0] if ordenados else None
+    pior = next((it for it in x["itens"] if it["resumo"]["confirmada"] == 0), None)
+    decisao = {
+        "entrega": x["id"], "estado": "em_revisao",
+        "decidido_por": "<o nome do editor>", "decidido_em": "<hoje>",
+        "itens": {},
+        "comentarios": [{"quem": "<quem>", "quando": "<datahora>",
+                         "sobre": melhor["id"] if melhor else "<id do item>",
+                         "texto": "<o comentário>"}],
+    }
+    if melhor:
+        decisao["itens"][melhor["id"]] = {
+            "estado": "aprovada",
+            "comentario": f'{melhor["resumo"]["confirmada"]} de '
+                          f'{len(melhor["afirmacoes"])} afirmações com o excerto nos bytes'}
+    if pior:
+        decisao["itens"][pior["id"]] = {
+            "estado": "rejeitada",
+            "comentario": "nenhuma afirmação tem fonte legível; abrir issue de pesquisa"}
+    exemplo_decisao = json.dumps(decisao, indent=2, ensure_ascii=False)
+
     consultas = "".join(f'<li class="xs mono">{e(q)}</li>' for q in x["consultas"])
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px">
@@ -784,6 +809,26 @@ conferida contra os bytes</div></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Comentários e decisões</div></div>
 <div class="correio">{comentarios}</div>
+
+<div class="painel" style="margin-top:22px">
+<div class="sect">Como o editor de registo aprova ou rejeita</div>
+<p class="sm" style="padding:8px 0">Uma decisão é um ficheiro, como tudo o resto nesta redação, e
+fica no repositório onde qualquer pessoa a pode ler. O editor escreve
+<code>redacao/revisoes/{e(x["id"])}.json</code> — ou corre <code>/newsroom-entregas</code>, que
+percorre os itens um a um e escreve o ficheiro por ele. Um item sem entrada fica por rever, que é
+o estado seguro; só <code>aprovada</code> o deixa ser escrito como facto, e só uma pessoa o
+escreve.</p>
+<div class="rolar"><pre class="mono xs" style="margin:0;padding:12px;background:var(--papel);
+border:1px solid var(--filete);white-space:pre">{e(exemplo_decisao)}</pre></div>
+<p class="xs" style="padding-top:10px"><b>Uma regra que o portão impõe e não é uma preferência:</b>
+não se aprova um item cujas afirmações estejam todas «sem fonte legível». Aprovar quer dizer
+«isto pode ser escrito como facto», e não há bytes para o sustentar. Se o item for valioso — e
+vários destes são — o caminho é abrir um issue de pesquisa para encontrar uma fonte que se consiga
+ler, e não baixar a barra.</p>
+<p class="xs" style="padding-top:8px">Depois da decisão: <code>python3 build/entregas.py</code> →
+<code>build/build.py</code> → <code>build/gates.py</code> → <code>node
+admin/build/validate.js</code>. Os dois portões têm de imprimir OK antes de a versão subir.</p>
+</div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">As consultas que o assistente diz
 ter feito · {len(x["consultas"])}</div></div>

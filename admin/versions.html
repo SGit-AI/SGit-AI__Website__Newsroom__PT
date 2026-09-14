@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.1.0</span></div>
+  <div><span class="ver">v0.1.1</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,28 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.1.1</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>O passo da aprovação deixa de ser folclore.</b> A página de cada entrega passa a mostrar
+exatamente como o editor de registo aprova ou rejeita um item — com os identificadores REAIS
+daquela entrega, e não um exemplo com nomes inventados que o editor teria de traduzir antes de
+poder usar, que é onde se enganam os identificadores. O item sugerido para aprovação é o que tem
+mais afirmações com o excerto nos bytes; o sugerido para rejeição é um que não tem nenhuma.
+<br><br>
+<b>Uma competência nova: <code>/newsroom-entregas</code>.</b> A sessão de revisão de uma entrega,
+escrita para o editor: receber o ficheiro sem lhe tocar, congelar o que ele nomeia, conferir cada
+excerto, e decidir item a item. Diz também o que fazer quando uma fonte não é legível mas devia
+ser — o caminho do PDF do Diário da República — e por que razão não se contorna um 403.
+<br><br>
+<b>Uma regra que estava no portão e não estava escrita em lado nenhum que o editor lesse:</b> não
+se aprova um item cujas afirmações estejam todas sem fonte legível. Aprovar quer dizer «isto pode
+ser escrito como facto», e nesse caso não há bytes para o sustentar. O caminho é abrir um issue de
+pesquisa, não baixar a barra.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.1.0</span></td>
@@ -75,7 +97,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.1.0</span>.
+duplicados. Versão <span class="ver">v0.1.1</span>.
 </div>
 
 </div>
