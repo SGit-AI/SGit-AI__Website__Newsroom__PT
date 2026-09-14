@@ -1,0 +1,8 @@
+{
+  "id": "ia",
+  "tipo": "Tecnologia",
+  "rotulo": "Inteligência artificial",
+  "en": "Artificial intelligence",
+  "corre_sobre": "en",
+  "padrao": "\\b(artificial intelligence|machine learning|\\bAI\\b|\\bML\\b|deep learning)\\b"
+}

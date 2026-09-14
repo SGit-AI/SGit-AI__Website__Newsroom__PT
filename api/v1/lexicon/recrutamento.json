@@ -1,0 +1,8 @@
+{
+  "id": "recrutamento",
+  "tipo": "Serviço",
+  "rotulo": "Recrutamento",
+  "en": "Talent",
+  "corre_sobre": "en",
+  "padrao": "\\b(talent (?:acquisition|partner)|recruit(?:ing|ment)|executive search)\\b"
+}

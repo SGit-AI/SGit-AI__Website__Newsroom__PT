@@ -1,0 +1,24 @@
+{
+  "id": "rita-figueiredo",
+  "fonte": "2026-09-14/oradores/rita-figueiredo",
+  "temas": [
+    "Go-to-market",
+    "Leadership",
+    "Operations",
+    "European startups",
+    "Scaling"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "Banking"
+    },
+    {
+      "etiqueta": "juridico",
+      "tipo": "Serviço",
+      "correspondeu": "legal services"
+    }
+  ],
+  "bio_chars": 793
+}

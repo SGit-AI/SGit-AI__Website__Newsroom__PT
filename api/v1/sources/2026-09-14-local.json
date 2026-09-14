@@ -1,0 +1,14 @@
+{
+  "id": "2026-09-14/local",
+  "pagina": "local",
+  "captura": "2026-09-14",
+  "grupo": "evento",
+  "url": "https://startupsummit.io/location",
+  "congelada": "fontes/congeladas/2026-09-14/local.snapshot",
+  "sha256": "016db504f8b34760d763d37a93f534370b55515e595ec12cc42d070e002e30c7",
+  "bytes": 13789,
+  "obtida": "2026-09-14T12:16:03Z",
+  "publicador": "Startup Summit Lisbon 2026",
+  "lingua": "en",
+  "estado": "primaria"
+}

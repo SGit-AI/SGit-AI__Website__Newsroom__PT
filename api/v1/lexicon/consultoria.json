@@ -1,0 +1,8 @@
+{
+  "id": "consultoria",
+  "tipo": "Serviço",
+  "rotulo": "Consultoria",
+  "en": "Consulting",
+  "corre_sobre": "en",
+  "padrao": "\\b(consult(?:ing|ancy)|advisory (?:firm|services)|fractional)\\b"
+}

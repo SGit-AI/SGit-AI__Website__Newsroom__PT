@@ -1,0 +1,24 @@
+{
+  "id": "joaquim-nascimento",
+  "fonte": "2026-09-14/oradores/joaquim-nascimento",
+  "temas": [
+    "AI",
+    "Go-",
+    "Product-market fit",
+    "Founder journey",
+    "Future of work"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "saude",
+      "tipo": "Setor",
+      "correspondeu": "Healthcare"
+    },
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    }
+  ],
+  "bio_chars": 620
+}

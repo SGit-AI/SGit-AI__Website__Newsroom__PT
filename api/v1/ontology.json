@@ -1,0 +1,612 @@
+{
+  "id": "pt-ontologia",
+  "versao": "0.1.0",
+  "nota": "A gramática deste grafo. Os verbos são portugueses e o campo `en` é uma anotação: num sítio nativamente português, um caminho que não se lê em voz alta em português tem as arestas erradas (§6 do resumo). O portão 10 lê cada verbo em voz alta e falha a construção se um deles não produzir uma frase.",
+  "seccoes": [
+    {
+      "id": "empresas",
+      "rotulo": "As empresas",
+      "en": "Companies"
+    },
+    {
+      "id": "protagonistas",
+      "rotulo": "Os protagonistas",
+      "en": "People"
+    },
+    {
+      "id": "instituicoes",
+      "rotulo": "As instituições",
+      "en": "Institutions"
+    },
+    {
+      "id": "politicas",
+      "rotulo": "As políticas",
+      "en": "Policies"
+    },
+    {
+      "id": "casos-de-uso",
+      "rotulo": "Os casos de uso",
+      "en": "Use cases"
+    },
+    {
+      "id": "codigo-aberto",
+      "rotulo": "O código aberto",
+      "en": "Open source"
+    },
+    {
+      "id": "diaspora",
+      "rotulo": "A diáspora",
+      "en": "Diaspora"
+    },
+    {
+      "id": "eventos",
+      "rotulo": "Os eventos",
+      "en": "Events"
+    }
+  ],
+  "tipos": [
+    {
+      "id": "Evento",
+      "rotulo": "Evento",
+      "en": "Event",
+      "cor": "#0f766e",
+      "seccao": "eventos",
+      "definicao": "Um encontro datado e localizado que publica um programa e uma lista de quem fala."
+    },
+    {
+      "id": "Sessao",
+      "rotulo": "Sessão",
+      "en": "Session",
+      "cor": "#115e59",
+      "seccao": "eventos",
+      "definicao": "Um item do programa publicado de um evento, com um dia, uma hora e normalmente um palco. Título verbatim, na língua em que o evento o publicou."
+    },
+    {
+      "id": "Palco",
+      "rotulo": "Palco",
+      "en": "Stage",
+      "cor": "#0e7490",
+      "seccao": "eventos",
+      "definicao": "Uma sala ou palco nomeado onde se agendam sessões. Este evento nomeia os seus palcos de duas maneiras em páginas diferentes do seu próprio site."
+    },
+    {
+      "id": "Pessoa",
+      "rotulo": "Pessoa",
+      "en": "Person",
+      "cor": "#b45309",
+      "seccao": "protagonistas",
+      "definicao": "Uma pessoa nomeada na lista de oradores publicada pelo evento, na sua qualidade profissional. Nome, papel listado, organização listada, ligações, os tópicos que o próprio evento lhe atribui, e as palavras da sua página que correspondem a um léxico publicado. Nunca uma biografia, nunca um contacto."
+    },
+    {
+      "id": "Organizacao",
+      "rotulo": "Organização",
+      "en": "Organisation",
+      "cor": "#1d4ed8",
+      "seccao": "empresas",
+      "definicao": "Uma organização sob a qual uma pessoa está LISTADA no seu cartão de orador. Derivada dos cartões, nunca escrita à mão; marcadores como «Independent» são assinalados, não removidos."
+    },
+    {
+      "id": "Local",
+      "rotulo": "Local",
+      "en": "Place",
+      "cor": "#4a5b6a",
+      "seccao": "eventos",
+      "definicao": "Um sítio onde algo decorre. Não é uma pessoa, por isso a sua morada pode ser detida."
+    },
+    {
+      "id": "Instituicao",
+      "rotulo": "Instituição",
+      "en": "Institution",
+      "cor": "#7c3aed",
+      "seccao": "instituicoes",
+      "definicao": "Um organismo público, um regulador ou uma unidade de investigação. Distinto de Organização porque a fonte e as obrigações são diferentes: uma instituição publica registo, uma empresa publica comunicação."
+    },
+    {
+      "id": "Politica",
+      "rotulo": "Política",
+      "en": "Policy",
+      "cor": "#6d28d9",
+      "seccao": "politicas",
+      "definicao": "Uma política pública anunciada, e — quando existe e quando se consegue encontrar — o instrumento legal que a cria. O segundo é frequentemente o problema."
+    },
+    {
+      "id": "Captura",
+      "rotulo": "Captura",
+      "en": "Snapshot",
+      "cor": "#5c5f66",
+      "seccao": null,
+      "definicao": "Uma captura datada das fontes: cada página obtida, congelada em bytes neste repositório, e hasheada."
+    },
+    {
+      "id": "Fonte",
+      "rotulo": "Fonte",
+      "en": "Source",
+      "cor": "#8a8d94",
+      "seccao": null,
+      "definicao": "Uma página congelada de uma captura, com o seu SHA-256. É a coisa até onde uma afirmação anda para trás."
+    },
+    {
+      "id": "Cobertura",
+      "rotulo": "Cobertura",
+      "en": "Coverage",
+      "cor": "#a16207",
+      "seccao": null,
+      "definicao": "A página publicada por um terceiro sobre esta matéria, obtida, congelada e hasheada como qualquer outra fonte. Ligada, nunca reproduzida."
+    },
+    {
+      "id": "Historia",
+      "rotulo": "História",
+      "en": "Story",
+      "cor": "#b91c1c",
+      "seccao": null,
+      "definicao": "Uma peça que esta publicação escreveu, assente em fontes congeladas nomeadas e lida pelo editor de registo antes de publicar."
+    },
+    {
+      "id": "Tema",
+      "rotulo": "Tema",
+      "en": "Topic",
+      "cor": "#7c3aed",
+      "seccao": "casos-de-uso",
+      "definicao": "Um tópico que o evento lista na página de uma pessoa, verbatim. Lido da página congelada, nunca derivado: o vocabulário deles, não o nosso."
+    },
+    {
+      "id": "Setor",
+      "rotulo": "Setor",
+      "en": "Industry",
+      "cor": "#0e7490",
+      "seccao": "empresas",
+      "definicao": "Um setor nomeado pelo léxico publicado e correspondido na página de alguém. A aresta leva as palavras correspondidas. Diz que a página contém aquelas palavras; mais nada."
+    },
+    {
+      "id": "Tecnologia",
+      "rotulo": "Tecnologia",
+      "en": "Technology",
+      "cor": "#0369a1",
+      "seccao": "casos-de-uso",
+      "definicao": "Uma tecnologia nomeada pelo léxico publicado e correspondida numa página congelada. Derivada por fórmula; a aresta mostra a prova."
+    },
+    {
+      "id": "Ideia",
+      "rotulo": "Ideia",
+      "en": "Idea",
+      "cor": "#9333ea",
+      "seccao": "casos-de-uso",
+      "definicao": "Uma ideia recorrente da conversa de fundadores, nomeada pelo léxico publicado. Derivada por fórmula."
+    },
+    {
+      "id": "Servico",
+      "rotulo": "Serviço",
+      "en": "Service",
+      "cor": "#be185d",
+      "seccao": "empresas",
+      "definicao": "Uma espécie de serviço que uma página congelada diz que alguém presta, correspondida pelo léxico publicado. Categorias, não nomes de produto."
+    },
+    {
+      "id": "Produto",
+      "rotulo": "Produto",
+      "en": "Product",
+      "cor": "#c2410c",
+      "seccao": "empresas",
+      "definicao": "Uma espécie de produto que uma página congelada nomeia, correspondida pelo léxico publicado. Categorias, não nomes de produto."
+    }
+  ],
+  "arestas": [
+    {
+      "verbo": "fala_em",
+      "inverso": "recebe",
+      "dominio": "Pessoa",
+      "alcance": "Evento",
+      "en": {
+        "verbo": "speaks_at",
+        "inverso": "hosts"
+      },
+      "leitura": "{s} fala em {t}",
+      "leitura_inversa": "{t} recebe {s}"
+    },
+    {
+      "verbo": "listado_sob",
+      "inverso": "organizacao_de",
+      "dominio": "Pessoa",
+      "alcance": "Organizacao",
+      "en": {
+        "verbo": "listed_under",
+        "inverso": "lists"
+      },
+      "leitura": "o evento lista {s} sob {t}",
+      "leitura_inversa": "{t} é a organização sob a qual o evento lista {s}"
+    },
+    {
+      "verbo": "decorre_em",
+      "inverso": "e_local_de",
+      "dominio": "Evento",
+      "alcance": "Local",
+      "en": {
+        "verbo": "takes_place_at",
+        "inverso": "venue_of"
+      },
+      "leitura": "{s} decorre em {t}",
+      "leitura_inversa": "{t} é local de {s}"
+    },
+    {
+      "verbo": "organizado_por",
+      "inverso": "organiza",
+      "dominio": "Evento",
+      "alcance": "Organizacao",
+      "en": {
+        "verbo": "organised_by",
+        "inverso": "organises"
+      },
+      "leitura": "{s} é organizado por {t}",
+      "leitura_inversa": "{t} organiza {s}"
+    },
+    {
+      "verbo": "parte_de",
+      "inverso": "contem",
+      "dominio": "Sessao",
+      "alcance": "Evento",
+      "en": {
+        "verbo": "part_of",
+        "inverso": "contains"
+      },
+      "leitura": "{s} faz parte de {t}",
+      "leitura_inversa": "{t} contém {s}"
+    },
+    {
+      "verbo": "no_palco",
+      "inverso": "acolhe",
+      "dominio": "Sessao",
+      "alcance": "Palco",
+      "en": {
+        "verbo": "on_stage",
+        "inverso": "stages"
+      },
+      "leitura": "{s} está no {t}",
+      "leitura_inversa": "{t} acolhe {s}"
+    },
+    {
+      "verbo": "capturado_em",
+      "inverso": "captura",
+      "dominio": "Fonte",
+      "alcance": "Captura",
+      "en": {
+        "verbo": "captured_in",
+        "inverso": "captures"
+      },
+      "leitura": "{s} foi capturada em {t}",
+      "leitura_inversa": "{t} captura {s}"
+    },
+    {
+      "verbo": "consta_em",
+      "inverso": "atesta",
+      "dominio": "Pessoa",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "attested_by",
+        "inverso": "attests"
+      },
+      "leitura": "{s} consta de {t}",
+      "leitura_inversa": "{t} atesta {s}"
+    },
+    {
+      "verbo": "consta_em",
+      "inverso": "atesta",
+      "dominio": "Sessao",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "attested_by",
+        "inverso": "attests"
+      },
+      "leitura": "{s} consta de {t}",
+      "leitura_inversa": "{t} atesta {s}"
+    },
+    {
+      "verbo": "consta_em",
+      "inverso": "atesta",
+      "dominio": "Evento",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "attested_by",
+        "inverso": "attests"
+      },
+      "leitura": "{s} consta de {t}",
+      "leitura_inversa": "{t} atesta {s}"
+    },
+    {
+      "verbo": "consta_em",
+      "inverso": "atesta",
+      "dominio": "Instituicao",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "attested_by",
+        "inverso": "attests"
+      },
+      "leitura": "{s} consta de {t}",
+      "leitura_inversa": "{t} atesta {s}"
+    },
+    {
+      "verbo": "consta_em",
+      "inverso": "atesta",
+      "dominio": "Politica",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "attested_by",
+        "inverso": "attests"
+      },
+      "leitura": "{s} consta de {t}",
+      "leitura_inversa": "{t} atesta {s}"
+    },
+    {
+      "verbo": "presente_em",
+      "inverso": "inclui",
+      "dominio": "Pessoa",
+      "alcance": "Captura",
+      "en": {
+        "verbo": "present_in",
+        "inverso": "includes"
+      },
+      "leitura": "{s} está presente em {t}",
+      "leitura_inversa": "{t} inclui {s}"
+    },
+    {
+      "verbo": "ausente_de",
+      "inverso": "nao_inclui",
+      "dominio": "Pessoa",
+      "alcance": "Captura",
+      "en": {
+        "verbo": "absent_from",
+        "inverso": "lacks"
+      },
+      "leitura": "{s} está ausente de {t}",
+      "leitura_inversa": "{t} não inclui {s}"
+    },
+    {
+      "verbo": "cobre",
+      "inverso": "coberto_por",
+      "dominio": "Cobertura",
+      "alcance": "Evento",
+      "en": {
+        "verbo": "covers",
+        "inverso": "covered_by"
+      },
+      "leitura": "{s} cobre {t}",
+      "leitura_inversa": "{t} é coberto por {s}"
+    },
+    {
+      "verbo": "publicado_por",
+      "inverso": "publica",
+      "dominio": "Cobertura",
+      "alcance": "Organizacao",
+      "en": {
+        "verbo": "published_by",
+        "inverso": "publishes"
+      },
+      "leitura": "{s} é publicada por {t}",
+      "leitura_inversa": "{t} publica {s}"
+    },
+    {
+      "verbo": "assenta_em",
+      "inverso": "sustenta",
+      "dominio": "Historia",
+      "alcance": "Fonte",
+      "en": {
+        "verbo": "stands_on",
+        "inverso": "supports"
+      },
+      "leitura": "{s} assenta em {t}",
+      "leitura_inversa": "{t} sustenta {s}"
+    },
+    {
+      "verbo": "relata",
+      "inverso": "relatado_por",
+      "dominio": "Historia",
+      "alcance": "Evento",
+      "en": {
+        "verbo": "reports",
+        "inverso": "reported_by"
+      },
+      "leitura": "{s} relata {t}",
+      "leitura_inversa": "{t} é relatado por {s}"
+    },
+    {
+      "verbo": "fala_sobre",
+      "inverso": "falado_por",
+      "dominio": "Pessoa",
+      "alcance": "Tema",
+      "en": {
+        "verbo": "speaks_on",
+        "inverso": "spoken_on_by"
+      },
+      "leitura": "{s} fala sobre {t}",
+      "leitura_inversa": "{t} é falado por {s}"
+    },
+    {
+      "verbo": "atua_em",
+      "inverso": "praticado_por",
+      "dominio": "Pessoa",
+      "alcance": "Setor",
+      "en": {
+        "verbo": "active_in",
+        "inverso": "practised_by"
+      },
+      "leitura": "{s} atua em {t}",
+      "leitura_inversa": "{t} é praticado por {s}"
+    },
+    {
+      "verbo": "usa",
+      "inverso": "usado_por",
+      "dominio": "Pessoa",
+      "alcance": "Tecnologia",
+      "en": {
+        "verbo": "uses",
+        "inverso": "used_by"
+      },
+      "leitura": "{s} usa {t}",
+      "leitura_inversa": "{t} é usada por {s}"
+    },
+    {
+      "verbo": "defende",
+      "inverso": "defendido_por",
+      "dominio": "Pessoa",
+      "alcance": "Ideia",
+      "en": {
+        "verbo": "advocates",
+        "inverso": "advocated_by"
+      },
+      "leitura": "{s} defende {t}",
+      "leitura_inversa": "{t} é defendida por {s}"
+    },
+    {
+      "verbo": "oferece",
+      "inverso": "oferecido_por",
+      "dominio": "Pessoa",
+      "alcance": "Servico",
+      "en": {
+        "verbo": "offers",
+        "inverso": "offered_by"
+      },
+      "leitura": "{s} oferece {t}",
+      "leitura_inversa": "{t} é oferecido por {s}"
+    },
+    {
+      "verbo": "oferece",
+      "inverso": "oferecido_por",
+      "dominio": "Pessoa",
+      "alcance": "Produto",
+      "en": {
+        "verbo": "offers",
+        "inverso": "offered_by"
+      },
+      "leitura": "{s} oferece {t}",
+      "leitura_inversa": "{t} é oferecido por {s}"
+    },
+    {
+      "verbo": "publicado_em",
+      "inverso": "publica_registo",
+      "dominio": "Politica",
+      "alcance": "Instituicao",
+      "en": {
+        "verbo": "published_in",
+        "inverso": "publishes_record"
+      },
+      "leitura": "{s} é publicada em {t}",
+      "leitura_inversa": "{t} publica no registo {s}"
+    }
+  ],
+  "verbos_derivados": [
+    "atua_em",
+    "defende",
+    "oferece",
+    "usa"
+  ],
+  "proibidos": [
+    {
+      "verbo": "relacionado_com",
+      "porque": "Simétrico, logo seria o seu próprio inverso, e não diz nada que um leitor possa percorrer."
+    },
+    {
+      "verbo": "associado_a",
+      "porque": "O verbo a que se recorre quando não se sabe qual é a relação. Descubra-se, ou deixe-se a aresta de fora."
+    },
+    {
+      "verbo": "menciona",
+      "porque": "Num grafo construído a partir de texto, tudo «menciona» alguma coisa. É a ausência de um verbo."
+    },
+    {
+      "verbo": "trabalha_em",
+      "porque": "Não é o que a fonte diz. Um cartão de orador lista uma organização; não afirma uma relação laboral. A aresta é listado_sob."
+    }
+  ],
+  "taxonomia": [
+    {
+      "id": "entidades",
+      "rotulo": "Entidades",
+      "tipos": [
+        "Pessoa",
+        "Organizacao",
+        "Instituicao",
+        "Local"
+      ]
+    },
+    {
+      "id": "programa",
+      "rotulo": "Programa",
+      "tipos": [
+        "Evento",
+        "Sessao",
+        "Palco"
+      ]
+    },
+    {
+      "id": "registo",
+      "rotulo": "Registo público",
+      "tipos": [
+        "Politica"
+      ]
+    },
+    {
+      "id": "prova",
+      "rotulo": "Prova",
+      "tipos": [
+        "Captura",
+        "Fonte",
+        "Cobertura"
+      ]
+    },
+    {
+      "id": "nosso",
+      "rotulo": "O nosso trabalho",
+      "tipos": [
+        "Historia"
+      ]
+    },
+    {
+      "id": "temas",
+      "rotulo": "Temas",
+      "tipos": [
+        "Tema"
+      ]
+    },
+    {
+      "id": "derivado",
+      "rotulo": "Derivado por fórmula",
+      "tipos": [
+        "Setor",
+        "Tecnologia",
+        "Ideia",
+        "Servico",
+        "Produto"
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "id": "classe_papel",
+      "o_que_faz": "Classifica uma pessoa pelo título sob o qual o evento a lista.",
+      "porque_publicada": "É a única classificação que este site inventa. Publicada como padrão para que um leitor possa discordar dela.",
+      "nunca_diz": "O que a pessoa é. Diz o que o título listado contém.",
+      "regras": [
+        {
+          "classe": "investidor",
+          "rotulo": "do lado do investimento, pelo título listado",
+          "padrao": "\\b(investor|partner|ventures?|\\bvc\\b|angel|capital|fund|\\blp\\b)\\b"
+        },
+        {
+          "classe": "fundador",
+          "rotulo": "fundador ou operacional, pelo título listado",
+          "padrao": "\\b(founder|co-founder|ceo|cto|coo|cpo|chief|head of|director|managing|leader)\\b"
+        },
+        {
+          "classe": "consultor",
+          "rotulo": "consultor, jurista ou académico, pelo título listado",
+          "padrao": "\\b(advisor|adviser|counsel|professor|researcher|lawyer|legal|consultant|author|phd)\\b"
+        }
+      ]
+    },
+    {
+      "id": "lexico",
+      "o_que_faz": "Faz nascer arestas derivadas a partir de palavras numa página congelada.",
+      "porque_publicada": "dados/lexico.json. O portão 8 volta a correr cada padrão sobre os bytes.",
+      "nunca_diz": "Nada sobre a pessoa. Diz que a página contém aquelas palavras."
+    }
+  ]
+}

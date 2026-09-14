@@ -16,7 +16,9 @@
     "Não afirma que a lista está estável. Afirma que não foi observada nenhuma mudança, porque não houve duas observações.",
     "Não afirma nada sobre nenhuma pessoa da lista."
   ],
-  "assenta_em": ["2026-09-14/oradores"],
+  "assenta_em": [
+    "2026-09-14/oradores"
+  ],
   "departamentos": {
     "pesquisa": "Congelou a lista de oradores e contou os cartões; comparou a contagem com o número que a própria página declara.",
     "redacao": "Escreveu a ausência em vez de a omitir.",
@@ -26,5 +28,6 @@
     "o_que": "Uma segunda captura da mesma página, em qualquer data posterior.",
     "quem": "A execução diária da redação.",
     "o_que_muda": "Com duas capturas, dados/mudancas.json passa a ter uma diferença, e este artigo passa a poder relatar quem entrou e quem saiu — sem nunca dizer porquê."
-  }
+  },
+  "bloco_primeira_pagina": "secundaria-2"
 }

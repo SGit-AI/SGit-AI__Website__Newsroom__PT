@@ -1,0 +1,8 @@
+{
+  "id": "sustentabilidade",
+  "tipo": "Ideia",
+  "rotulo": "Sustentabilidade",
+  "en": "Sustainability",
+  "corre_sobre": "en",
+  "padrao": "\\b(sustainab(?:le|ility)|impact (?:investing|driven)|ESG|circular economy)\\b"
+}

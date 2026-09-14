@@ -1,0 +1,3621 @@
+{
+  "id": "pt-temas",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "captura": "2026-09-14",
+  "nota": "Duas coisas lidas da página de cada pessoa no site do evento, congelada e hasheada como qualquer outra fonte. TEMAS é a lista de tópicos do próprio evento para essa pessoa, verbatim. ETIQUETAS são derivadas: cada uma é uma entrada do léxico publicado (dados/lexico.json, uma expressão regular) que correspondeu ao texto da página, e leva consigo as palavras que correspondeu e mais nada. Uma etiqueta diz que a página contém aquelas palavras; não é uma caracterização da pessoa.",
+  "lexico": {
+    "id": "pt-lexico",
+    "versao": "0.1.0",
+    "entradas": 30
+  },
+  "contagem": 70,
+  "com_temas": 64,
+  "com_etiquetas": 49,
+  "temas_distintos": 23,
+  "etiquetas_distintas": 23,
+  "pessoas": [
+    {
+      "id": "andreia-gaudencio",
+      "fonte": "2026-09-14/oradores/andreia-gaudencio",
+      "temas": [],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 576
+    },
+    {
+      "id": "paulo-andrez",
+      "fonte": "2026-09-14/oradores/paulo-andrez",
+      "temas": [
+        "From Zero to Funded: Angel Investment Playbook"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "investimento-anjo",
+          "tipo": "Setor",
+          "correspondeu": "angel investor"
+        }
+      ],
+      "bio_chars": 174
+    },
+    {
+      "id": "luis-valente",
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "temas": [
+        "Fundraising",
+        "Venture capital",
+        "LP / investor perspective",
+        "AI",
+        "Go-to-market"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 571
+    },
+    {
+      "id": "anmol-goel",
+      "fonte": "2026-09-14/oradores/anmol-goel",
+      "temas": [],
+      "etiquetas": [],
+      "bio_chars": 157
+    },
+    {
+      "id": "karan-setiya",
+      "fonte": "2026-09-14/oradores/karan-setiya",
+      "temas": [
+        "LP / investor perspective",
+        "Founder journey",
+        "Go-to-market",
+        "Venture capital",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "Fintech"
+        },
+        {
+          "etiqueta": "educacao",
+          "tipo": "Setor",
+          "correspondeu": "edTech"
+        }
+      ],
+      "bio_chars": 131
+    },
+    {
+      "id": "rita-kastrati",
+      "fonte": "2026-09-14/oradores/rita-kastrati",
+      "temas": [
+        "Fundraising",
+        "Sales",
+        "Hiring",
+        "Founder journey",
+        "Future of work"
+      ],
+      "etiquetas": [],
+      "bio_chars": 598
+    },
+    {
+      "id": "luis-gutman",
+      "fonte": "2026-09-14/oradores/luis-gutman",
+      "temas": [
+        "Venture capital",
+        "Product-market fit",
+        "Leadership",
+        "European startups",
+        "Scaling"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "capital-de-risco",
+          "tipo": "Setor",
+          "correspondeu": "venture capital"
+        }
+      ],
+      "bio_chars": 457
+    },
+    {
+      "id": "hector-lv",
+      "fonte": "2026-09-14/oradores/hector-lv",
+      "temas": [
+        "Fundraising",
+        "Go-to-market",
+        "Leadership",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "internacionalizar",
+          "tipo": "Ideia",
+          "correspondeu": "cross-border"
+        },
+        {
+          "etiqueta": "angariar",
+          "tipo": "Ideia",
+          "correspondeu": "fundraising"
+        },
+        {
+          "etiqueta": "juridico",
+          "tipo": "Serviço",
+          "correspondeu": "law firm"
+        }
+      ],
+      "bio_chars": 486
+    },
+    {
+      "id": "tina-valand",
+      "fonte": "2026-09-14/oradores/tina-valand",
+      "temas": [
+        "AI",
+        "Go-to-market",
+        "Leadership",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "fintech"
+        },
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "ia-generativa",
+          "tipo": "Tecnologia",
+          "correspondeu": "Generative AI"
+        },
+        {
+          "etiqueta": "agentes",
+          "tipo": "Tecnologia",
+          "correspondeu": "Agentic"
+        }
+      ],
+      "bio_chars": 699
+    },
+    {
+      "id": "vini-devnani",
+      "fonte": "2026-09-14/oradores/vini-devnani",
+      "temas": [
+        "Hiring",
+        "Leadership",
+        "Future of work",
+        "Mental health",
+        "Go-to-market"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "Fractional"
+        }
+      ],
+      "bio_chars": 251
+    },
+    {
+      "id": "luiza-castro-rey",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey",
+      "temas": [
+        "Fundraising",
+        "AI",
+        "Leadership",
+        "Regulation",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "cadeia-de-blocos",
+          "tipo": "Tecnologia",
+          "correspondeu": "Web3"
+        }
+      ],
+      "bio_chars": 746
+    },
+    {
+      "id": "nashwa-shah",
+      "fonte": "2026-09-14/oradores/nashwa-shah",
+      "temas": [
+        "Sales",
+        "Leadership",
+        "Mental health",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "capital-de-risco",
+          "tipo": "Setor",
+          "correspondeu": "venture capital"
+        }
+      ],
+      "bio_chars": 453
+    },
+    {
+      "id": "rita-figueiredo",
+      "fonte": "2026-09-14/oradores/rita-figueiredo",
+      "temas": [
+        "Go-to-market",
+        "Leadership",
+        "Operations",
+        "European startups",
+        "Scaling"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "Banking"
+        },
+        {
+          "etiqueta": "juridico",
+          "tipo": "Serviço",
+          "correspondeu": "legal services"
+        }
+      ],
+      "bio_chars": 793
+    },
+    {
+      "id": "filipa-faria",
+      "fonte": "2026-09-14/oradores/filipa-faria",
+      "temas": [
+        "Hiring",
+        "Leadership",
+        "Mental health"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "banking"
+        },
+        {
+          "etiqueta": "saude",
+          "tipo": "Setor",
+          "correspondeu": "healthcare"
+        }
+      ],
+      "bio_chars": 348
+    },
+    {
+      "id": "ricardo",
+      "fonte": "2026-09-14/oradores/ricardo",
+      "temas": [],
+      "etiquetas": [],
+      "bio_chars": 31
+    },
+    {
+      "id": "raffaella-loncao",
+      "fonte": "2026-09-14/oradores/raffaella-loncao",
+      "temas": [
+        "Hiring",
+        "Founder journey",
+        "Leadership",
+        "Future of work",
+        "Mental health"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "Sustainable"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "advisory firm"
+        }
+      ],
+      "bio_chars": 462
+    },
+    {
+      "id": "muhammad-farooq-rathod",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+      "temas": [
+        "Go-to-market",
+        "Product-market fit",
+        "Founder journey",
+        "Operations",
+        "Leadership"
+      ],
+      "etiquetas": [],
+      "bio_chars": 143
+    },
+    {
+      "id": "zoya-mesaric-mag-a-pth",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+      "temas": [
+        "Mental health",
+        "Other",
+        "Leadership",
+        "Founder journey",
+        "Future of work"
+      ],
+      "etiquetas": [],
+      "bio_chars": 391
+    },
+    {
+      "id": "alexandra-isenegger",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "temas": [
+        "Leadership",
+        "Founder journey",
+        "Scaling",
+        "Future of work",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "internacionalizar",
+          "tipo": "Ideia",
+          "correspondeu": "cross-border"
+        },
+        {
+          "etiqueta": "juridico",
+          "tipo": "Serviço",
+          "correspondeu": "law firm"
+        }
+      ],
+      "bio_chars": 791
+    },
+    {
+      "id": "viachaslau-smirnou",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou",
+      "temas": [
+        "AI",
+        "Other",
+        "Venture capital",
+        "Founder journey",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 311
+    },
+    {
+      "id": "roman-knorr-duran",
+      "fonte": "2026-09-14/oradores/roman-knorr-duran",
+      "temas": [
+        "AI",
+        "Founder journey",
+        "Go-to-market",
+        "European startups"
+      ],
+      "etiquetas": [],
+      "bio_chars": 561
+    },
+    {
+      "id": "akshay-ruparelia",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "temas": [
+        "Leadership",
+        "Founder journey",
+        "Go-to-market",
+        "Scaling",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia-generativa",
+          "tipo": "Tecnologia",
+          "correspondeu": "GenAI"
+        },
+        {
+          "etiqueta": "cadeia-de-blocos",
+          "tipo": "Tecnologia",
+          "correspondeu": "blockchain"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "Consultancy"
+        }
+      ],
+      "bio_chars": 626
+    },
+    {
+      "id": "saachin-bhatt",
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "temas": [
+        "AI",
+        "Deep tech",
+        "Regulation",
+        "Product-market fit",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "consultancy"
+        }
+      ],
+      "bio_chars": 656
+    },
+    {
+      "id": "dina-kondratiuk",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk",
+      "temas": [
+        "Fundraising",
+        "Leadership",
+        "Sales"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "angariar",
+          "tipo": "Ideia",
+          "correspondeu": "fundraising"
+        },
+        {
+          "etiqueta": "aceleracao",
+          "tipo": "Serviço",
+          "correspondeu": "accelerator"
+        }
+      ],
+      "bio_chars": 384
+    },
+    {
+      "id": "joao-ramos",
+      "fonte": "2026-09-14/oradores/joao-ramos",
+      "temas": [
+        "Go-to-market",
+        "Leadership",
+        "Sales",
+        "Scaling",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "investimento-anjo",
+          "tipo": "Setor",
+          "correspondeu": "angel investor"
+        }
+      ],
+      "bio_chars": 216
+    },
+    {
+      "id": "thiago-vieira",
+      "fonte": "2026-09-14/oradores/thiago-vieira",
+      "temas": [
+        "Scaling",
+        "Go-to-market",
+        "Regulation"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "investimento-anjo",
+          "tipo": "Setor",
+          "correspondeu": "Angel Investor"
+        },
+        {
+          "etiqueta": "ciberseguranca",
+          "tipo": "Tecnologia",
+          "correspondeu": "Cybersecurity"
+        }
+      ],
+      "bio_chars": 108
+    },
+    {
+      "id": "diego-sampaio",
+      "fonte": "2026-09-14/oradores/diego-sampaio",
+      "temas": [
+        "Go-to-market",
+        "Operations"
+      ],
+      "etiquetas": [],
+      "bio_chars": 387
+    },
+    {
+      "id": "amit-grinvald",
+      "fonte": "2026-09-14/oradores/amit-grinvald",
+      "temas": [
+        "Fundraising",
+        "Leadership"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "angariar",
+          "tipo": "Ideia",
+          "correspondeu": "fundraising"
+        }
+      ],
+      "bio_chars": 371
+    },
+    {
+      "id": "janelle-harder",
+      "fonte": "2026-09-14/oradores/janelle-harder",
+      "temas": [
+        "Leadership",
+        "Future of work",
+        "Founder journey",
+        "Other"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "Consulting"
+        }
+      ],
+      "bio_chars": 531
+    },
+    {
+      "id": "kasia-szczesniak",
+      "fonte": "2026-09-14/oradores/kasia-szczesniak",
+      "temas": [
+        "AI",
+        "Leadership",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 616
+    },
+    {
+      "id": "lisa-rebecca-press",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+      "temas": [
+        "Fundraising",
+        "AI",
+        "Operations",
+        "Scaling",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "nuvem",
+          "tipo": "Tecnologia",
+          "correspondeu": "SaaS"
+        },
+        {
+          "etiqueta": "angariar",
+          "tipo": "Ideia",
+          "correspondeu": "fundraising"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "Consulting"
+        }
+      ],
+      "bio_chars": 534
+    },
+    {
+      "id": "david-graham",
+      "fonte": "2026-09-14/oradores/david-graham",
+      "temas": [
+        "Fundraising",
+        "LP / investor perspective",
+        "Go-to-market",
+        "Product-market fit",
+        "Founder journey"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "advisory firm"
+        }
+      ],
+      "bio_chars": 415
+    },
+    {
+      "id": "igor-nikolaiev",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev",
+      "temas": [
+        "AI",
+        "Go-to-market",
+        "Other",
+        "Product-market fit"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "fintech"
+        },
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "nuvem",
+          "tipo": "Tecnologia",
+          "correspondeu": "SaaS"
+        },
+        {
+          "etiqueta": "cadeia-de-blocos",
+          "tipo": "Tecnologia",
+          "correspondeu": "Web3"
+        }
+      ],
+      "bio_chars": 790
+    },
+    {
+      "id": "precy-servito",
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "temas": [
+        "AI",
+        "Operations",
+        "Leadership",
+        "Hiring",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "consulting"
+        }
+      ],
+      "bio_chars": 587
+    },
+    {
+      "id": "irina-shurmina",
+      "fonte": "2026-09-14/oradores/irina-shurmina",
+      "temas": [
+        "Leadership",
+        "Other",
+        "Founder journey"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "plataforma",
+          "tipo": "Produto",
+          "correspondeu": "platform for"
+        }
+      ],
+      "bio_chars": 704
+    },
+    {
+      "id": "jorge-sebastiao",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao",
+      "temas": [
+        "AI",
+        "Deep tech",
+        "Fundraising",
+        "Founder journey",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "ciberseguranca",
+          "tipo": "Tecnologia",
+          "correspondeu": "CyberSecurity"
+        },
+        {
+          "etiqueta": "hardware",
+          "tipo": "Tecnologia",
+          "correspondeu": "Robotics"
+        },
+        {
+          "etiqueta": "cadeia-de-blocos",
+          "tipo": "Tecnologia",
+          "correspondeu": "Web3"
+        },
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "Sustainability"
+        }
+      ],
+      "bio_chars": 210
+    },
+    {
+      "id": "anisha-yadav",
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "temas": [
+        "Product-market fit",
+        "Go-",
+        "Sales"
+      ],
+      "etiquetas": [],
+      "bio_chars": 457
+    },
+    {
+      "id": "lauren-mucklow",
+      "fonte": "2026-09-14/oradores/lauren-mucklow",
+      "temas": [
+        "Other",
+        "Founder journey",
+        "Leadership",
+        "Scaling",
+        "AI"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "sustainable"
+        },
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "consultancy"
+        }
+      ],
+      "bio_chars": 381
+    },
+    {
+      "id": "max-rodman",
+      "fonte": "2026-09-14/oradores/max-rodman",
+      "temas": [
+        "Fundraising",
+        "Leadership",
+        "Founder journey",
+        "Mental health",
+        "Operations"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "imobiliario",
+          "tipo": "Setor",
+          "correspondeu": "Real Estate"
+        }
+      ],
+      "bio_chars": 226
+    },
+    {
+      "id": "sibilla-strupule",
+      "fonte": "2026-09-14/oradores/sibilla-strupule",
+      "temas": [
+        "Fundraising",
+        "Venture capital",
+        "LP / investor perspective",
+        "European startups",
+        "Go-to-market"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "saida",
+          "tipo": "Ideia",
+          "correspondeu": "exit"
+        }
+      ],
+      "bio_chars": 449
+    },
+    {
+      "id": "mark-paul-haaksman",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+      "temas": [
+        "Fundraising",
+        "LP / investor perspective",
+        "Founder journey",
+        "Other",
+        "Scaling"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "impact investing"
+        }
+      ],
+      "bio_chars": 393
+    },
+    {
+      "id": "micael-lopes",
+      "fonte": "2026-09-14/oradores/micael-lopes",
+      "temas": [
+        "AI",
+        "Founder journey",
+        "European startups",
+        "Mental health",
+        "Other"
+      ],
+      "etiquetas": [],
+      "bio_chars": 97
+    },
+    {
+      "id": "satya-morarji",
+      "fonte": "2026-09-14/oradores/satya-morarji",
+      "temas": [
+        "Hiring",
+        "Founder journey",
+        "Operations",
+        "Leadership",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "comercio",
+          "tipo": "Setor",
+          "correspondeu": "e-commerce"
+        }
+      ],
+      "bio_chars": 759
+    },
+    {
+      "id": "tania-tome",
+      "fonte": "2026-09-14/oradores/tania-tome",
+      "temas": [
+        "Leadership",
+        "Founder journey",
+        "AI",
+        "Future of work",
+        "Scaling"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "Sustainability"
+        }
+      ],
+      "bio_chars": 724
+    },
+    {
+      "id": "angelee-sidar",
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "temas": [
+        "Fundraising",
+        "Leadership",
+        "Founder journey",
+        "Scaling"
+      ],
+      "etiquetas": [],
+      "bio_chars": 738
+    },
+    {
+      "id": "ben-lakoff",
+      "fonte": "2026-09-14/oradores/ben-lakoff",
+      "temas": [
+        "Fundraising",
+        "Venture capital",
+        "LP / investor perspective",
+        "Product-market fit",
+        "Founder journey"
+      ],
+      "etiquetas": [],
+      "bio_chars": 214
+    },
+    {
+      "id": "rita-martins-freire",
+      "fonte": "2026-09-14/oradores/rita-martins-freire",
+      "temas": [
+        "Hiring",
+        "Operations",
+        "Leadership",
+        "Pricing",
+        "Go-"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "sustainable"
+        }
+      ],
+      "bio_chars": 727
+    },
+    {
+      "id": "sebastian-horstmann",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann",
+      "temas": [
+        "AI",
+        "Product-market fit",
+        "Climate tech",
+        "Deep tech",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "dados",
+          "tipo": "Tecnologia",
+          "correspondeu": "data infrastructure"
+        },
+        {
+          "etiqueta": "plataforma",
+          "tipo": "Produto",
+          "correspondeu": "operating system for"
+        }
+      ],
+      "bio_chars": 561
+    },
+    {
+      "id": "sofia-bobrik",
+      "fonte": "2026-09-14/oradores/sofia-bobrik",
+      "temas": [],
+      "etiquetas": [
+        {
+          "etiqueta": "angariar",
+          "tipo": "Ideia",
+          "correspondeu": "fundraising"
+        }
+      ],
+      "bio_chars": 405
+    },
+    {
+      "id": "pedro-simoes",
+      "fonte": "2026-09-14/oradores/pedro-simoes",
+      "temas": [
+        "Other"
+      ],
+      "etiquetas": [],
+      "bio_chars": 201
+    },
+    {
+      "id": "sylvie-ritt",
+      "fonte": "2026-09-14/oradores/sylvie-ritt",
+      "temas": [
+        "Leadership",
+        "Founder journey",
+        "Mental health",
+        "Other",
+        "Hiring"
+      ],
+      "etiquetas": [],
+      "bio_chars": 354
+    },
+    {
+      "id": "daniel-grech",
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "temas": [
+        "AI",
+        "Founder journey",
+        "Future of work",
+        "European startups",
+        "Deep tech"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "fintech"
+        },
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        },
+        {
+          "etiqueta": "agentes",
+          "tipo": "Tecnologia",
+          "correspondeu": "agentic"
+        },
+        {
+          "etiqueta": "saida",
+          "tipo": "Ideia",
+          "correspondeu": "acquired by"
+        }
+      ],
+      "bio_chars": 756
+    },
+    {
+      "id": "elias-flachowsky",
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "temas": [
+        "Founder journey",
+        "Leadership",
+        "Mental health",
+        "Other",
+        "Sales"
+      ],
+      "etiquetas": [],
+      "bio_chars": 393
+    },
+    {
+      "id": "kristina-kutan",
+      "fonte": "2026-09-14/oradores/kristina-kutan",
+      "temas": [
+        "Leadership",
+        "Operations",
+        "Founder journey",
+        "Venture capital"
+      ],
+      "etiquetas": [],
+      "bio_chars": 539
+    },
+    {
+      "id": "hudi-shehu",
+      "fonte": null,
+      "temas": [],
+      "etiquetas": [],
+      "bio_chars": 0,
+      "nota": "sem cópia congelada da página desta pessoa"
+    },
+    {
+      "id": "alexandre-daletchine",
+      "fonte": null,
+      "temas": [],
+      "etiquetas": [],
+      "bio_chars": 0,
+      "nota": "sem cópia congelada da página desta pessoa"
+    },
+    {
+      "id": "slavi-slavev",
+      "fonte": "2026-09-14/oradores/slavi-slavev",
+      "temas": [
+        "AI",
+        "Founder journey",
+        "Leadership",
+        "Mental health",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 435
+    },
+    {
+      "id": "wouter-heijnen",
+      "fonte": "2026-09-14/oradores/wouter-heijnen",
+      "temas": [
+        "Fundraising",
+        "Go-",
+        "Product-market fit",
+        "Founder journey"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "saude",
+          "tipo": "Setor",
+          "correspondeu": "healthcare"
+        }
+      ],
+      "bio_chars": 443
+    },
+    {
+      "id": "diogo-mendonca",
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "temas": [
+        "Product-market fit",
+        "Sales",
+        "Operations",
+        "Leadership",
+        "Venture capital"
+      ],
+      "etiquetas": [],
+      "bio_chars": 119
+    },
+    {
+      "id": "lidija-krickovic",
+      "fonte": "2026-09-14/oradores/lidija-krickovic",
+      "temas": [
+        "Scaling",
+        "Operations",
+        "Leadership",
+        "Exits / M&A",
+        "Hiring"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "saida",
+          "tipo": "Ideia",
+          "correspondeu": "exit"
+        },
+        {
+          "etiqueta": "sustentabilidade",
+          "tipo": "Ideia",
+          "correspondeu": "sustainable"
+        }
+      ],
+      "bio_chars": 608
+    },
+    {
+      "id": "ed-chandler",
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "temas": [
+        "Leadership",
+        "Scaling",
+        "Founder journey",
+        "Operations",
+        "Hiring"
+      ],
+      "etiquetas": [],
+      "bio_chars": 815
+    },
+    {
+      "id": "cintia-costa",
+      "fonte": "2026-09-14/oradores/cintia-costa",
+      "temas": [
+        "European startups",
+        "Leadership",
+        "Founder journey"
+      ],
+      "etiquetas": [],
+      "bio_chars": 304
+    },
+    {
+      "id": "olivia-page",
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "temas": [
+        "Fundraising",
+        "Venture capital",
+        "Founder journey",
+        "Climate tech",
+        "Scaling"
+      ],
+      "etiquetas": [],
+      "bio_chars": 635
+    },
+    {
+      "id": "olesia-rykova",
+      "fonte": "2026-09-14/oradores/olesia-rykova",
+      "temas": [
+        "Go-",
+        "AI",
+        "Product-market fit",
+        "Founder journey",
+        "Leadership"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "consultoria",
+          "tipo": "Serviço",
+          "correspondeu": "Fractional"
+        },
+        {
+          "etiqueta": "aceleracao",
+          "tipo": "Serviço",
+          "correspondeu": "accelerator"
+        }
+      ],
+      "bio_chars": 788
+    },
+    {
+      "id": "joaquim-nascimento",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "temas": [
+        "AI",
+        "Go-",
+        "Product-market fit",
+        "Founder journey",
+        "Future of work"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "saude",
+          "tipo": "Setor",
+          "correspondeu": "Healthcare"
+        },
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 620
+    },
+    {
+      "id": "daniel-gouveia",
+      "fonte": "2026-09-14/oradores/daniel-gouveia",
+      "temas": [
+        "AI",
+        "Sales",
+        "Mental health",
+        "Future of work",
+        "Leadership"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 349
+    },
+    {
+      "id": "nataliia-komarnytska",
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+      "temas": [
+        "Operations",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "FinTech"
+        },
+        {
+          "etiqueta": "cadeia-de-blocos",
+          "tipo": "Tecnologia",
+          "correspondeu": "blockchain"
+        }
+      ],
+      "bio_chars": 174
+    },
+    {
+      "id": "brian-nogaro",
+      "fonte": "2026-09-14/oradores/brian-nogaro",
+      "temas": [
+        "Sales",
+        "Leadership"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "saida",
+          "tipo": "Ideia",
+          "correspondeu": "Acquisition"
+        }
+      ],
+      "bio_chars": 330
+    },
+    {
+      "id": "nina-chande",
+      "fonte": "2026-09-14/oradores/nina-chande",
+      "temas": [
+        "Pricing",
+        "Scaling",
+        "AI",
+        "Operations"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "ia",
+          "tipo": "Tecnologia",
+          "correspondeu": "AI"
+        }
+      ],
+      "bio_chars": 485
+    },
+    {
+      "id": "mike-sigal",
+      "fonte": "2026-09-14/oradores/mike-sigal",
+      "temas": [
+        "Fundraising",
+        "Venture capital",
+        "LP / investor perspective",
+        "European startups"
+      ],
+      "etiquetas": [
+        {
+          "etiqueta": "fintech",
+          "tipo": "Setor",
+          "correspondeu": "Fintech"
+        }
+      ],
+      "bio_chars": 213
+    }
+  ],
+  "pessoa_temas": [
+    {
+      "pessoa": "paulo-andrez",
+      "tema": "From Zero to Funded: Angel Investment Playbook",
+      "fonte": "2026-09-14/oradores/paulo-andrez"
+    },
+    {
+      "pessoa": "luis-valente",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "luis-valente",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "luis-valente",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "luis-valente",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "luis-valente",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "rita-kastrati",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/rita-kastrati"
+    },
+    {
+      "pessoa": "rita-kastrati",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/rita-kastrati"
+    },
+    {
+      "pessoa": "rita-kastrati",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/rita-kastrati"
+    },
+    {
+      "pessoa": "rita-kastrati",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/rita-kastrati"
+    },
+    {
+      "pessoa": "rita-kastrati",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/rita-kastrati"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "hector-lv",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "hector-lv",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "hector-lv",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "hector-lv",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "tina-valand",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "tema": "Regulation",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "nashwa-shah",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/nashwa-shah"
+    },
+    {
+      "pessoa": "nashwa-shah",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/nashwa-shah"
+    },
+    {
+      "pessoa": "nashwa-shah",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/nashwa-shah"
+    },
+    {
+      "pessoa": "nashwa-shah",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/nashwa-shah"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "filipa-faria",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/filipa-faria"
+    },
+    {
+      "pessoa": "filipa-faria",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/filipa-faria"
+    },
+    {
+      "pessoa": "filipa-faria",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/filipa-faria"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "muhammad-farooq-rathod",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod"
+    },
+    {
+      "pessoa": "muhammad-farooq-rathod",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod"
+    },
+    {
+      "pessoa": "muhammad-farooq-rathod",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod"
+    },
+    {
+      "pessoa": "muhammad-farooq-rathod",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod"
+    },
+    {
+      "pessoa": "muhammad-farooq-rathod",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod"
+    },
+    {
+      "pessoa": "zoya-mesaric-mag-a-pth",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth"
+    },
+    {
+      "pessoa": "zoya-mesaric-mag-a-pth",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth"
+    },
+    {
+      "pessoa": "zoya-mesaric-mag-a-pth",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth"
+    },
+    {
+      "pessoa": "zoya-mesaric-mag-a-pth",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth"
+    },
+    {
+      "pessoa": "zoya-mesaric-mag-a-pth",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "roman-knorr-duran",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/roman-knorr-duran"
+    },
+    {
+      "pessoa": "roman-knorr-duran",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/roman-knorr-duran"
+    },
+    {
+      "pessoa": "roman-knorr-duran",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/roman-knorr-duran"
+    },
+    {
+      "pessoa": "roman-knorr-duran",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/roman-knorr-duran"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "tema": "Deep tech",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "tema": "Regulation",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "dina-kondratiuk",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk"
+    },
+    {
+      "pessoa": "dina-kondratiuk",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk"
+    },
+    {
+      "pessoa": "dina-kondratiuk",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "thiago-vieira",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/thiago-vieira"
+    },
+    {
+      "pessoa": "thiago-vieira",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/thiago-vieira"
+    },
+    {
+      "pessoa": "thiago-vieira",
+      "tema": "Regulation",
+      "fonte": "2026-09-14/oradores/thiago-vieira"
+    },
+    {
+      "pessoa": "diego-sampaio",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/diego-sampaio"
+    },
+    {
+      "pessoa": "diego-sampaio",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/diego-sampaio"
+    },
+    {
+      "pessoa": "amit-grinvald",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/amit-grinvald"
+    },
+    {
+      "pessoa": "amit-grinvald",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/amit-grinvald"
+    },
+    {
+      "pessoa": "janelle-harder",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/janelle-harder"
+    },
+    {
+      "pessoa": "janelle-harder",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/janelle-harder"
+    },
+    {
+      "pessoa": "janelle-harder",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/janelle-harder"
+    },
+    {
+      "pessoa": "janelle-harder",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/janelle-harder"
+    },
+    {
+      "pessoa": "kasia-szczesniak",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/kasia-szczesniak"
+    },
+    {
+      "pessoa": "kasia-szczesniak",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/kasia-szczesniak"
+    },
+    {
+      "pessoa": "kasia-szczesniak",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/kasia-szczesniak"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "david-graham",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "david-graham",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "david-graham",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "david-graham",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "david-graham",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "precy-servito",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "precy-servito",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "precy-servito",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "precy-servito",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "precy-servito",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "irina-shurmina",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/irina-shurmina"
+    },
+    {
+      "pessoa": "irina-shurmina",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/irina-shurmina"
+    },
+    {
+      "pessoa": "irina-shurmina",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/irina-shurmina"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "tema": "Deep tech",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "anisha-yadav",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/anisha-yadav"
+    },
+    {
+      "pessoa": "anisha-yadav",
+      "tema": "Go-",
+      "fonte": "2026-09-14/oradores/anisha-yadav"
+    },
+    {
+      "pessoa": "anisha-yadav",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/anisha-yadav"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "max-rodman",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "max-rodman",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "max-rodman",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "max-rodman",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "max-rodman",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "tema": "Go-to-market",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "micael-lopes",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/micael-lopes"
+    },
+    {
+      "pessoa": "micael-lopes",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/micael-lopes"
+    },
+    {
+      "pessoa": "micael-lopes",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/micael-lopes"
+    },
+    {
+      "pessoa": "micael-lopes",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/micael-lopes"
+    },
+    {
+      "pessoa": "micael-lopes",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/micael-lopes"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "tania-tome",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "tania-tome",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "tania-tome",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "tania-tome",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "tania-tome",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "angelee-sidar",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/angelee-sidar"
+    },
+    {
+      "pessoa": "angelee-sidar",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/angelee-sidar"
+    },
+    {
+      "pessoa": "angelee-sidar",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/angelee-sidar"
+    },
+    {
+      "pessoa": "angelee-sidar",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/angelee-sidar"
+    },
+    {
+      "pessoa": "ben-lakoff",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/ben-lakoff"
+    },
+    {
+      "pessoa": "ben-lakoff",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/ben-lakoff"
+    },
+    {
+      "pessoa": "ben-lakoff",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/ben-lakoff"
+    },
+    {
+      "pessoa": "ben-lakoff",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/ben-lakoff"
+    },
+    {
+      "pessoa": "ben-lakoff",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/ben-lakoff"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "tema": "Pricing",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "tema": "Go-",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "tema": "Climate tech",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "tema": "Deep tech",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "pedro-simoes",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/pedro-simoes"
+    },
+    {
+      "pessoa": "sylvie-ritt",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/sylvie-ritt"
+    },
+    {
+      "pessoa": "sylvie-ritt",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/sylvie-ritt"
+    },
+    {
+      "pessoa": "sylvie-ritt",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/sylvie-ritt"
+    },
+    {
+      "pessoa": "sylvie-ritt",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/sylvie-ritt"
+    },
+    {
+      "pessoa": "sylvie-ritt",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/sylvie-ritt"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "tema": "Deep tech",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "elias-flachowsky",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/elias-flachowsky"
+    },
+    {
+      "pessoa": "elias-flachowsky",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/elias-flachowsky"
+    },
+    {
+      "pessoa": "elias-flachowsky",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/elias-flachowsky"
+    },
+    {
+      "pessoa": "elias-flachowsky",
+      "tema": "Other",
+      "fonte": "2026-09-14/oradores/elias-flachowsky"
+    },
+    {
+      "pessoa": "elias-flachowsky",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/elias-flachowsky"
+    },
+    {
+      "pessoa": "kristina-kutan",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/kristina-kutan"
+    },
+    {
+      "pessoa": "kristina-kutan",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/kristina-kutan"
+    },
+    {
+      "pessoa": "kristina-kutan",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/kristina-kutan"
+    },
+    {
+      "pessoa": "kristina-kutan",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/kristina-kutan"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "wouter-heijnen",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/wouter-heijnen"
+    },
+    {
+      "pessoa": "wouter-heijnen",
+      "tema": "Go-",
+      "fonte": "2026-09-14/oradores/wouter-heijnen"
+    },
+    {
+      "pessoa": "wouter-heijnen",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/wouter-heijnen"
+    },
+    {
+      "pessoa": "wouter-heijnen",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/wouter-heijnen"
+    },
+    {
+      "pessoa": "diogo-mendonca",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/diogo-mendonca"
+    },
+    {
+      "pessoa": "diogo-mendonca",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/diogo-mendonca"
+    },
+    {
+      "pessoa": "diogo-mendonca",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/diogo-mendonca"
+    },
+    {
+      "pessoa": "diogo-mendonca",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/diogo-mendonca"
+    },
+    {
+      "pessoa": "diogo-mendonca",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/diogo-mendonca"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "tema": "Exits / M&A",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "ed-chandler",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/ed-chandler"
+    },
+    {
+      "pessoa": "ed-chandler",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/ed-chandler"
+    },
+    {
+      "pessoa": "ed-chandler",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/ed-chandler"
+    },
+    {
+      "pessoa": "ed-chandler",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/ed-chandler"
+    },
+    {
+      "pessoa": "ed-chandler",
+      "tema": "Hiring",
+      "fonte": "2026-09-14/oradores/ed-chandler"
+    },
+    {
+      "pessoa": "cintia-costa",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/cintia-costa"
+    },
+    {
+      "pessoa": "cintia-costa",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/cintia-costa"
+    },
+    {
+      "pessoa": "cintia-costa",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/cintia-costa"
+    },
+    {
+      "pessoa": "olivia-page",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/olivia-page"
+    },
+    {
+      "pessoa": "olivia-page",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/olivia-page"
+    },
+    {
+      "pessoa": "olivia-page",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/olivia-page"
+    },
+    {
+      "pessoa": "olivia-page",
+      "tema": "Climate tech",
+      "fonte": "2026-09-14/oradores/olivia-page"
+    },
+    {
+      "pessoa": "olivia-page",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/olivia-page"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "tema": "Go-",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "tema": "Go-",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "tema": "Product-market fit",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "tema": "Founder journey",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "tema": "Mental health",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "tema": "Future of work",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "nataliia-komarnytska",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska"
+    },
+    {
+      "pessoa": "nataliia-komarnytska",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska"
+    },
+    {
+      "pessoa": "brian-nogaro",
+      "tema": "Sales",
+      "fonte": "2026-09-14/oradores/brian-nogaro"
+    },
+    {
+      "pessoa": "brian-nogaro",
+      "tema": "Leadership",
+      "fonte": "2026-09-14/oradores/brian-nogaro"
+    },
+    {
+      "pessoa": "nina-chande",
+      "tema": "Pricing",
+      "fonte": "2026-09-14/oradores/nina-chande"
+    },
+    {
+      "pessoa": "nina-chande",
+      "tema": "Scaling",
+      "fonte": "2026-09-14/oradores/nina-chande"
+    },
+    {
+      "pessoa": "nina-chande",
+      "tema": "AI",
+      "fonte": "2026-09-14/oradores/nina-chande"
+    },
+    {
+      "pessoa": "nina-chande",
+      "tema": "Operations",
+      "fonte": "2026-09-14/oradores/nina-chande"
+    },
+    {
+      "pessoa": "mike-sigal",
+      "tema": "Fundraising",
+      "fonte": "2026-09-14/oradores/mike-sigal"
+    },
+    {
+      "pessoa": "mike-sigal",
+      "tema": "Venture capital",
+      "fonte": "2026-09-14/oradores/mike-sigal"
+    },
+    {
+      "pessoa": "mike-sigal",
+      "tema": "LP / investor perspective",
+      "fonte": "2026-09-14/oradores/mike-sigal"
+    },
+    {
+      "pessoa": "mike-sigal",
+      "tema": "European startups",
+      "fonte": "2026-09-14/oradores/mike-sigal"
+    }
+  ],
+  "pessoa_etiquetas": [
+    {
+      "pessoa": "andreia-gaudencio",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/andreia-gaudencio"
+    },
+    {
+      "pessoa": "paulo-andrez",
+      "etiqueta": "investimento-anjo",
+      "tipo": "Setor",
+      "correspondeu": "angel investor",
+      "fonte": "2026-09-14/oradores/paulo-andrez"
+    },
+    {
+      "pessoa": "luis-valente",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/luis-valente"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "Fintech",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "karan-setiya",
+      "etiqueta": "educacao",
+      "tipo": "Setor",
+      "correspondeu": "edTech",
+      "fonte": "2026-09-14/oradores/karan-setiya"
+    },
+    {
+      "pessoa": "luis-gutman",
+      "etiqueta": "capital-de-risco",
+      "tipo": "Setor",
+      "correspondeu": "venture capital",
+      "fonte": "2026-09-14/oradores/luis-gutman"
+    },
+    {
+      "pessoa": "hector-lv",
+      "etiqueta": "internacionalizar",
+      "tipo": "Ideia",
+      "correspondeu": "cross-border",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "hector-lv",
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "hector-lv",
+      "etiqueta": "juridico",
+      "tipo": "Serviço",
+      "correspondeu": "law firm",
+      "fonte": "2026-09-14/oradores/hector-lv"
+    },
+    {
+      "pessoa": "tina-valand",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "fintech",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "etiqueta": "ia-generativa",
+      "tipo": "Tecnologia",
+      "correspondeu": "Generative AI",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "tina-valand",
+      "etiqueta": "agentes",
+      "tipo": "Tecnologia",
+      "correspondeu": "Agentic",
+      "fonte": "2026-09-14/oradores/tina-valand"
+    },
+    {
+      "pessoa": "vini-devnani",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Fractional",
+      "fonte": "2026-09-14/oradores/vini-devnani"
+    },
+    {
+      "pessoa": "luiza-castro-rey",
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "Web3",
+      "fonte": "2026-09-14/oradores/luiza-castro-rey"
+    },
+    {
+      "pessoa": "nashwa-shah",
+      "etiqueta": "capital-de-risco",
+      "tipo": "Setor",
+      "correspondeu": "venture capital",
+      "fonte": "2026-09-14/oradores/nashwa-shah"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "Banking",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "rita-figueiredo",
+      "etiqueta": "juridico",
+      "tipo": "Serviço",
+      "correspondeu": "legal services",
+      "fonte": "2026-09-14/oradores/rita-figueiredo"
+    },
+    {
+      "pessoa": "filipa-faria",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "banking",
+      "fonte": "2026-09-14/oradores/filipa-faria"
+    },
+    {
+      "pessoa": "filipa-faria",
+      "etiqueta": "saude",
+      "tipo": "Setor",
+      "correspondeu": "healthcare",
+      "fonte": "2026-09-14/oradores/filipa-faria"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "Sustainable",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "raffaella-loncao",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "advisory firm",
+      "fonte": "2026-09-14/oradores/raffaella-loncao"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "etiqueta": "internacionalizar",
+      "tipo": "Ideia",
+      "correspondeu": "cross-border",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "alexandra-isenegger",
+      "etiqueta": "juridico",
+      "tipo": "Serviço",
+      "correspondeu": "law firm",
+      "fonte": "2026-09-14/oradores/alexandra-isenegger"
+    },
+    {
+      "pessoa": "viachaslau-smirnou",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "etiqueta": "ia-generativa",
+      "tipo": "Tecnologia",
+      "correspondeu": "GenAI",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "blockchain",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "akshay-ruparelia",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Consultancy",
+      "fonte": "2026-09-14/oradores/akshay-ruparelia"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "saachin-bhatt",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "consultancy",
+      "fonte": "2026-09-14/oradores/saachin-bhatt"
+    },
+    {
+      "pessoa": "dina-kondratiuk",
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk"
+    },
+    {
+      "pessoa": "dina-kondratiuk",
+      "etiqueta": "aceleracao",
+      "tipo": "Serviço",
+      "correspondeu": "accelerator",
+      "fonte": "2026-09-14/oradores/dina-kondratiuk"
+    },
+    {
+      "pessoa": "joao-ramos",
+      "etiqueta": "investimento-anjo",
+      "tipo": "Setor",
+      "correspondeu": "angel investor",
+      "fonte": "2026-09-14/oradores/joao-ramos"
+    },
+    {
+      "pessoa": "thiago-vieira",
+      "etiqueta": "investimento-anjo",
+      "tipo": "Setor",
+      "correspondeu": "Angel Investor",
+      "fonte": "2026-09-14/oradores/thiago-vieira"
+    },
+    {
+      "pessoa": "thiago-vieira",
+      "etiqueta": "ciberseguranca",
+      "tipo": "Tecnologia",
+      "correspondeu": "Cybersecurity",
+      "fonte": "2026-09-14/oradores/thiago-vieira"
+    },
+    {
+      "pessoa": "amit-grinvald",
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising",
+      "fonte": "2026-09-14/oradores/amit-grinvald"
+    },
+    {
+      "pessoa": "janelle-harder",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Consulting",
+      "fonte": "2026-09-14/oradores/janelle-harder"
+    },
+    {
+      "pessoa": "kasia-szczesniak",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/kasia-szczesniak"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "etiqueta": "nuvem",
+      "tipo": "Tecnologia",
+      "correspondeu": "SaaS",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "lisa-rebecca-press",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Consulting",
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press"
+    },
+    {
+      "pessoa": "david-graham",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "advisory firm",
+      "fonte": "2026-09-14/oradores/david-graham"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "fintech",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "etiqueta": "nuvem",
+      "tipo": "Tecnologia",
+      "correspondeu": "SaaS",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "igor-nikolaiev",
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "Web3",
+      "fonte": "2026-09-14/oradores/igor-nikolaiev"
+    },
+    {
+      "pessoa": "precy-servito",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "precy-servito",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "consulting",
+      "fonte": "2026-09-14/oradores/precy-servito"
+    },
+    {
+      "pessoa": "irina-shurmina",
+      "etiqueta": "plataforma",
+      "tipo": "Produto",
+      "correspondeu": "platform for",
+      "fonte": "2026-09-14/oradores/irina-shurmina"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "etiqueta": "ciberseguranca",
+      "tipo": "Tecnologia",
+      "correspondeu": "CyberSecurity",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "etiqueta": "hardware",
+      "tipo": "Tecnologia",
+      "correspondeu": "Robotics",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "Web3",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "jorge-sebastiao",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "Sustainability",
+      "fonte": "2026-09-14/oradores/jorge-sebastiao"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "sustainable",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "lauren-mucklow",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "consultancy",
+      "fonte": "2026-09-14/oradores/lauren-mucklow"
+    },
+    {
+      "pessoa": "max-rodman",
+      "etiqueta": "imobiliario",
+      "tipo": "Setor",
+      "correspondeu": "Real Estate",
+      "fonte": "2026-09-14/oradores/max-rodman"
+    },
+    {
+      "pessoa": "sibilla-strupule",
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "exit",
+      "fonte": "2026-09-14/oradores/sibilla-strupule"
+    },
+    {
+      "pessoa": "mark-paul-haaksman",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "impact investing",
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman"
+    },
+    {
+      "pessoa": "satya-morarji",
+      "etiqueta": "comercio",
+      "tipo": "Setor",
+      "correspondeu": "e-commerce",
+      "fonte": "2026-09-14/oradores/satya-morarji"
+    },
+    {
+      "pessoa": "tania-tome",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "tania-tome",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "Sustainability",
+      "fonte": "2026-09-14/oradores/tania-tome"
+    },
+    {
+      "pessoa": "rita-martins-freire",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "sustainable",
+      "fonte": "2026-09-14/oradores/rita-martins-freire"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "etiqueta": "dados",
+      "tipo": "Tecnologia",
+      "correspondeu": "data infrastructure",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sebastian-horstmann",
+      "etiqueta": "plataforma",
+      "tipo": "Produto",
+      "correspondeu": "operating system for",
+      "fonte": "2026-09-14/oradores/sebastian-horstmann"
+    },
+    {
+      "pessoa": "sofia-bobrik",
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising",
+      "fonte": "2026-09-14/oradores/sofia-bobrik"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "fintech",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "etiqueta": "agentes",
+      "tipo": "Tecnologia",
+      "correspondeu": "agentic",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "daniel-grech",
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "acquired by",
+      "fonte": "2026-09-14/oradores/daniel-grech"
+    },
+    {
+      "pessoa": "slavi-slavev",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/slavi-slavev"
+    },
+    {
+      "pessoa": "wouter-heijnen",
+      "etiqueta": "saude",
+      "tipo": "Setor",
+      "correspondeu": "healthcare",
+      "fonte": "2026-09-14/oradores/wouter-heijnen"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "exit",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "lidija-krickovic",
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "sustainable",
+      "fonte": "2026-09-14/oradores/lidija-krickovic"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Fractional",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "olesia-rykova",
+      "etiqueta": "aceleracao",
+      "tipo": "Serviço",
+      "correspondeu": "accelerator",
+      "fonte": "2026-09-14/oradores/olesia-rykova"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "etiqueta": "saude",
+      "tipo": "Setor",
+      "correspondeu": "Healthcare",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "joaquim-nascimento",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/joaquim-nascimento"
+    },
+    {
+      "pessoa": "daniel-gouveia",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/daniel-gouveia"
+    },
+    {
+      "pessoa": "nataliia-komarnytska",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "FinTech",
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska"
+    },
+    {
+      "pessoa": "nataliia-komarnytska",
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "blockchain",
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska"
+    },
+    {
+      "pessoa": "brian-nogaro",
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "Acquisition",
+      "fonte": "2026-09-14/oradores/brian-nogaro"
+    },
+    {
+      "pessoa": "nina-chande",
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI",
+      "fonte": "2026-09-14/oradores/nina-chande"
+    },
+    {
+      "pessoa": "mike-sigal",
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "Fintech",
+      "fonte": "2026-09-14/oradores/mike-sigal"
+    }
+  ],
+  "indice_temas": {
+    "Leadership": [
+      "luis-gutman",
+      "hector-lv",
+      "tina-valand",
+      "vini-devnani",
+      "luiza-castro-rey",
+      "nashwa-shah",
+      "rita-figueiredo",
+      "filipa-faria",
+      "raffaella-loncao",
+      "muhammad-farooq-rathod",
+      "zoya-mesaric-mag-a-pth",
+      "alexandra-isenegger",
+      "akshay-ruparelia",
+      "dina-kondratiuk",
+      "joao-ramos",
+      "amit-grinvald",
+      "janelle-harder",
+      "kasia-szczesniak",
+      "precy-servito",
+      "irina-shurmina",
+      "lauren-mucklow",
+      "max-rodman",
+      "satya-morarji",
+      "tania-tome",
+      "angelee-sidar",
+      "rita-martins-freire",
+      "sylvie-ritt",
+      "elias-flachowsky",
+      "kristina-kutan",
+      "slavi-slavev",
+      "diogo-mendonca",
+      "lidija-krickovic",
+      "ed-chandler",
+      "cintia-costa",
+      "olesia-rykova",
+      "daniel-gouveia",
+      "brian-nogaro"
+    ],
+    "Founder journey": [
+      "karan-setiya",
+      "rita-kastrati",
+      "raffaella-loncao",
+      "muhammad-farooq-rathod",
+      "zoya-mesaric-mag-a-pth",
+      "alexandra-isenegger",
+      "viachaslau-smirnou",
+      "roman-knorr-duran",
+      "akshay-ruparelia",
+      "janelle-harder",
+      "david-graham",
+      "irina-shurmina",
+      "jorge-sebastiao",
+      "lauren-mucklow",
+      "max-rodman",
+      "mark-paul-haaksman",
+      "micael-lopes",
+      "satya-morarji",
+      "tania-tome",
+      "angelee-sidar",
+      "ben-lakoff",
+      "sylvie-ritt",
+      "daniel-grech",
+      "elias-flachowsky",
+      "kristina-kutan",
+      "slavi-slavev",
+      "wouter-heijnen",
+      "ed-chandler",
+      "cintia-costa",
+      "olivia-page",
+      "olesia-rykova",
+      "joaquim-nascimento"
+    ],
+    "AI": [
+      "luis-valente",
+      "tina-valand",
+      "luiza-castro-rey",
+      "viachaslau-smirnou",
+      "roman-knorr-duran",
+      "saachin-bhatt",
+      "kasia-szczesniak",
+      "lisa-rebecca-press",
+      "igor-nikolaiev",
+      "precy-servito",
+      "jorge-sebastiao",
+      "lauren-mucklow",
+      "micael-lopes",
+      "tania-tome",
+      "sebastian-horstmann",
+      "daniel-grech",
+      "slavi-slavev",
+      "olesia-rykova",
+      "joaquim-nascimento",
+      "daniel-gouveia",
+      "nina-chande"
+    ],
+    "Future of work": [
+      "rita-kastrati",
+      "tina-valand",
+      "vini-devnani",
+      "nashwa-shah",
+      "raffaella-loncao",
+      "zoya-mesaric-mag-a-pth",
+      "alexandra-isenegger",
+      "akshay-ruparelia",
+      "saachin-bhatt",
+      "joao-ramos",
+      "janelle-harder",
+      "kasia-szczesniak",
+      "precy-servito",
+      "jorge-sebastiao",
+      "satya-morarji",
+      "tania-tome",
+      "daniel-grech",
+      "slavi-slavev",
+      "joaquim-nascimento",
+      "daniel-gouveia"
+    ],
+    "Fundraising": [
+      "luis-valente",
+      "rita-kastrati",
+      "hector-lv",
+      "luiza-castro-rey",
+      "dina-kondratiuk",
+      "amit-grinvald",
+      "lisa-rebecca-press",
+      "david-graham",
+      "jorge-sebastiao",
+      "max-rodman",
+      "sibilla-strupule",
+      "mark-paul-haaksman",
+      "angelee-sidar",
+      "ben-lakoff",
+      "wouter-heijnen",
+      "olivia-page",
+      "mike-sigal"
+    ],
+    "European startups": [
+      "karan-setiya",
+      "luis-gutman",
+      "hector-lv",
+      "luiza-castro-rey",
+      "rita-figueiredo",
+      "alexandra-isenegger",
+      "viachaslau-smirnou",
+      "roman-knorr-duran",
+      "lisa-rebecca-press",
+      "sibilla-strupule",
+      "micael-lopes",
+      "sebastian-horstmann",
+      "daniel-grech",
+      "cintia-costa",
+      "nataliia-komarnytska",
+      "mike-sigal"
+    ],
+    "Go-to-market": [
+      "luis-valente",
+      "karan-setiya",
+      "hector-lv",
+      "tina-valand",
+      "vini-devnani",
+      "rita-figueiredo",
+      "muhammad-farooq-rathod",
+      "roman-knorr-duran",
+      "akshay-ruparelia",
+      "joao-ramos",
+      "thiago-vieira",
+      "diego-sampaio",
+      "david-graham",
+      "igor-nikolaiev",
+      "sibilla-strupule"
+    ],
+    "Scaling": [
+      "luis-gutman",
+      "rita-figueiredo",
+      "alexandra-isenegger",
+      "akshay-ruparelia",
+      "joao-ramos",
+      "thiago-vieira",
+      "lisa-rebecca-press",
+      "lauren-mucklow",
+      "mark-paul-haaksman",
+      "tania-tome",
+      "angelee-sidar",
+      "lidija-krickovic",
+      "ed-chandler",
+      "olivia-page",
+      "nina-chande"
+    ],
+    "Operations": [
+      "rita-figueiredo",
+      "muhammad-farooq-rathod",
+      "diego-sampaio",
+      "lisa-rebecca-press",
+      "precy-servito",
+      "max-rodman",
+      "satya-morarji",
+      "rita-martins-freire",
+      "kristina-kutan",
+      "diogo-mendonca",
+      "lidija-krickovic",
+      "ed-chandler",
+      "nataliia-komarnytska",
+      "nina-chande"
+    ],
+    "Product-market fit": [
+      "luis-gutman",
+      "muhammad-farooq-rathod",
+      "saachin-bhatt",
+      "david-graham",
+      "igor-nikolaiev",
+      "anisha-yadav",
+      "ben-lakoff",
+      "sebastian-horstmann",
+      "wouter-heijnen",
+      "diogo-mendonca",
+      "olesia-rykova",
+      "joaquim-nascimento"
+    ],
+    "Mental health": [
+      "vini-devnani",
+      "nashwa-shah",
+      "filipa-faria",
+      "raffaella-loncao",
+      "zoya-mesaric-mag-a-pth",
+      "max-rodman",
+      "micael-lopes",
+      "sylvie-ritt",
+      "elias-flachowsky",
+      "slavi-slavev",
+      "daniel-gouveia"
+    ],
+    "Other": [
+      "zoya-mesaric-mag-a-pth",
+      "viachaslau-smirnou",
+      "janelle-harder",
+      "igor-nikolaiev",
+      "irina-shurmina",
+      "lauren-mucklow",
+      "mark-paul-haaksman",
+      "micael-lopes",
+      "pedro-simoes",
+      "sylvie-ritt",
+      "elias-flachowsky"
+    ],
+    "Hiring": [
+      "rita-kastrati",
+      "vini-devnani",
+      "filipa-faria",
+      "raffaella-loncao",
+      "precy-servito",
+      "satya-morarji",
+      "rita-martins-freire",
+      "sylvie-ritt",
+      "lidija-krickovic",
+      "ed-chandler"
+    ],
+    "Venture capital": [
+      "luis-valente",
+      "karan-setiya",
+      "luis-gutman",
+      "viachaslau-smirnou",
+      "sibilla-strupule",
+      "ben-lakoff",
+      "kristina-kutan",
+      "diogo-mendonca",
+      "olivia-page",
+      "mike-sigal"
+    ],
+    "Sales": [
+      "rita-kastrati",
+      "nashwa-shah",
+      "dina-kondratiuk",
+      "joao-ramos",
+      "anisha-yadav",
+      "elias-flachowsky",
+      "diogo-mendonca",
+      "daniel-gouveia",
+      "brian-nogaro"
+    ],
+    "LP / investor perspective": [
+      "luis-valente",
+      "karan-setiya",
+      "david-graham",
+      "sibilla-strupule",
+      "mark-paul-haaksman",
+      "ben-lakoff",
+      "mike-sigal"
+    ],
+    "Go-": [
+      "anisha-yadav",
+      "rita-martins-freire",
+      "wouter-heijnen",
+      "olesia-rykova",
+      "joaquim-nascimento"
+    ],
+    "Deep tech": [
+      "saachin-bhatt",
+      "jorge-sebastiao",
+      "sebastian-horstmann",
+      "daniel-grech"
+    ],
+    "Regulation": [
+      "luiza-castro-rey",
+      "saachin-bhatt",
+      "thiago-vieira"
+    ],
+    "Climate tech": [
+      "sebastian-horstmann",
+      "olivia-page"
+    ],
+    "Pricing": [
+      "rita-martins-freire",
+      "nina-chande"
+    ],
+    "Exits / M&A": [
+      "lidija-krickovic"
+    ],
+    "From Zero to Funded: Angel Investment Playbook": [
+      "paulo-andrez"
+    ]
+  }
+}

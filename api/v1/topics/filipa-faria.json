@@ -1,0 +1,22 @@
+{
+  "id": "filipa-faria",
+  "fonte": "2026-09-14/oradores/filipa-faria",
+  "temas": [
+    "Hiring",
+    "Leadership",
+    "Mental health"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "banking"
+    },
+    {
+      "etiqueta": "saude",
+      "tipo": "Setor",
+      "correspondeu": "healthcare"
+    }
+  ],
+  "bio_chars": 348
+}

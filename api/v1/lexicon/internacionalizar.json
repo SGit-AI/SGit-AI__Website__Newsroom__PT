@@ -1,0 +1,8 @@
+{
+  "id": "internacionalizar",
+  "tipo": "Ideia",
+  "rotulo": "Internacionalizar",
+  "en": "Going global",
+  "corre_sobre": "en",
+  "padrao": "\\b(international expansion|go(?:ing)? global|cross.border|new markets)\\b"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "sebastian-horstmann",
+  "fonte": "2026-09-14/oradores/sebastian-horstmann",
+  "temas": [
+    "AI",
+    "Product-market fit",
+    "Climate tech",
+    "Deep tech",
+    "European startups"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "dados",
+      "tipo": "Tecnologia",
+      "correspondeu": "data infrastructure"
+    },
+    {
+      "etiqueta": "plataforma",
+      "tipo": "Produto",
+      "correspondeu": "operating system for"
+    }
+  ],
+  "bio_chars": 561
+}

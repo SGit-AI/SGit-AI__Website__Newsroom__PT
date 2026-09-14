@@ -1,0 +1,8 @@
+{
+  "id": "ciberseguranca",
+  "tipo": "Tecnologia",
+  "rotulo": "Cibersegurança",
+  "en": "Cybersecurity",
+  "corre_sobre": "en",
+  "padrao": "\\b(cyber.?security|information security|appsec|privacy engineering)\\b"
+}

@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.2.0</span></div>
+  <div><span class="ver">v0.3.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,59 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.3.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>O título passa a ser a matéria.</b> «O Ecossistema Português de IA» é a mancheta; o endereço
+passa a subtítulo. Um leitor que chega não quer saber o domínio — quer saber sobre o que é. E as
+manchetes da primeira página passam a ser LIGAÇÕES para os seus artigos: um jornal em que a
+manchete não liga para nada é um cartaz, e era o que isto era.
+<br><br>
+<b>Uma API só de leitura, em inglês, com consola.</b> <code>/api/</code> — 18 colecções, 28
+operações, 377 ficheiros. Cada caminho é um ficheiro em disco: não há servidor, e por isso não há
+verbo que não seja GET, nem corpo de pedido em lado nenhum, nem nada que possa falhar de uma forma
+que o <code>openapi.json</code> não preveja. Os caminhos são ingleses de propósito — a intenção é
+várias línguas sobre um só conjunto de dados — e as CHAVES dentro dos documentos continuam
+portuguesas, porque são o registo que esta publicação faz de si própria e traduzi-las à saída seria
+servir uma coisa que nenhum ficheiro do repositório contém. A consola faz o pedido a partir do
+navegador e mostra os bytes: uma consola que apenas descreve é um documento com passos a mais.
+<br><br>
+<b>Componentes web, segundo o contrato do conjunto.</b> Quatro, na forma que
+<a href="https://coding.sgit.ai/javascript/index.html">coding.sgit.ai</a> documenta: nativos, sem
+framework, sem passo de construção, <code>static jsUrl = import.meta.url</code> para se
+localizarem, <code>onReady()</code> em vez de <code>connectedCallback</code>, e o caminho versionado
+<code>v1/v1.0/v1.0.0/</code>. <b>Duas divergências, ambas forçadas pelas regras deste site:</b> a
+classe-base é alojada aqui em vez de vir de uma CDN de terceiros, porque uma página que precisa de
+terceiros para renderizar é uma página que terceiros podem deixar de renderizar; e o ficheiro de
+marcação do trio é <code>.tpl</code> e não <code>.html</code>, porque aqui todo o
+<code>.html</code> é uma PÁGINA para o portão do site — tem de ter canónico, bloco de agente e
+linha no sitemap — e um fragmento de componente não é nada disso. A alternativa era enfraquecer o
+portão, e o portão está na lista de recusa de propósito.
+<br><br>
+<b>Os documentos passam a ler-se sem perder o sítio.</b> Árvore à esquerda com as pastas a
+fecharem-se — <code>briefs/pack/</code> é um elemento e não trinta linhas — e o documento à
+direita, <b>em branco</b>, como um documento. As referências ao resto do conjunto ficam ao pé da
+árvore. Antes era uma lista que atirava o leitor para outra página e lhe tirava as outras.
+<br><br>
+<b>Os ficheiros de um artigo abrem num visualizador.</b> Clicar em
+<code>afirmacoes.json</code> deixa de devolver um ficheiro em bruto: os estados ganham cor, um
+identificador de fonte fica ligado ao registo, um SHA-256 é encurtado. O bruto continua a um clique.
+<br><br>
+<b>Pagar para ler, demonstrado em vez de defendido.</b> Um cêntimo por página, cinco euros na
+carteira, recarga ao chegar a zero, e o registo à vista. <b>Não cobra nada a ninguém e diz isso na
+primeira frase do painel</b> — uma barreira de pagamento que não admitisse ser uma demonstração
+seria a única coisa desonesta num site cujo argumento inteiro é proveniência. E nunca bloqueia: o
+interessante é o registo, não o cadeado.
+<br><br>
+<b>A declaração deixa de ser um bloco em cada página e passa a uma linha, com uma página por
+trás.</b> Repetido trinta vezes, um aviso deixa de ser lido — o leitor aprende a forma do bloco e
+salta-o, que é o oposto do que um aviso serve para fazer. <code>/proveniencia/</code> assume o que
+isto é: escrito por agentes de IA, de vários fornecedores, com <b>curadoria leve</b> de um editor
+humano nomeado. Dizer «leve» é mais honesto do que deixar implícita uma revisão linha a linha.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.2.0</span></td>
@@ -158,7 +211,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.2.0</span>.
+duplicados. Versão <span class="ver">v0.3.0</span>.
 </div>
 
 </div>

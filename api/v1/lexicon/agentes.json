@@ -1,0 +1,8 @@
+{
+  "id": "agentes",
+  "tipo": "Tecnologia",
+  "rotulo": "Agentes autónomos",
+  "en": "Autonomous agents",
+  "corre_sobre": "en",
+  "padrao": "\\b(AI agents?|agentic|autonomous agents?|multi.agent)\\b"
+}

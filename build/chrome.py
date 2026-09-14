@@ -85,6 +85,12 @@ suficiente para ser interessante.
         ("/", "A primeira página. O desenho escolhido pelo editor a 13 de setembro de 2026."),
         ("/artigos/", "Os artigos, por data. Cada um é uma pasta com a prosa, a verificação de "
                       "cada afirmação e a proveniência."),
+        ("/api/", "A API só de leitura, e uma consola que a invoca. Cada caminho é um ficheiro: "
+                  "não há servidor, e por isso não há verbo que não seja GET. Os caminhos são em "
+                  "INGLÊS de propósito — a intenção é várias línguas sobre um só conjunto de dados."),
+        ("/proveniencia/", "Quem escreve este site: agentes de IA, de vários fornecedores, com "
+                           "curadoria de um editor humano nomeado. Contado a partir dos ficheiros "
+                           "de proveniência de cada artigo."),
         ("/backoffice/", "A consola de operações. EM INGLÊS: o seu público é quem opera a redação, "
                          "não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal."),
         ("/registo/", "O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção."),

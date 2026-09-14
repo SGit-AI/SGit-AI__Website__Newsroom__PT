@@ -1,0 +1,8 @@
+{
+  "id": "angariar",
+  "tipo": "Ideia",
+  "rotulo": "Angariar capital",
+  "en": "Fundraising",
+  "corre_sobre": "en",
+  "padrao": "\\b(fundrais(?:e|ing)|raised? (?:a )?(?:seed|series [A-D]|round)|pitch deck)\\b"
+}

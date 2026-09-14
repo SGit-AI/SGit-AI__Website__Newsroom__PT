@@ -1,0 +1,8 @@
+{
+  "id": "imobiliario",
+  "tipo": "Setor",
+  "rotulo": "Imobiliário",
+  "en": "Real estate",
+  "corre_sobre": "en",
+  "padrao": "\\b(real estate|prop.?tech|construction tech)\\b"
+}

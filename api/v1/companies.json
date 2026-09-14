@@ -1,0 +1,550 @@
+{
+  "id": "pt-organizacoes",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "Derivadas do campo de organização de cada cartão de orador, nunca escritas à mão. O campo é texto livre na fonte, por isso valores de marcador como «Independent» chegam com o aspeto de organizações. São assinalados, não removidos: inventar um valor mais arrumado poria no grafo um facto que nenhuma fonte sustenta.",
+  "contagem": 67,
+  "marcadores": 2,
+  "com_varias_pessoas": 3,
+  "organizacoes": [
+    {
+      "id": "brdge",
+      "nome": "Brdge",
+      "pessoas": [
+        "akshay-ruparelia",
+        "saachin-bhatt"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "time-to-rise",
+      "nome": "Time to Rise",
+      "pessoas": [
+        "sylvie-ritt",
+        "elias-flachowsky"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "351-portuguese-startup-association",
+      "nome": "351 Portuguese Startup Association",
+      "pessoas": [
+        "cintia-costa"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "abn-amro-bank",
+      "nome": "ABN AMRO Bank",
+      "pessoas": [
+        "karan-setiya"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "accenture",
+      "nome": "Accenture",
+      "pessoas": [
+        "tina-valand"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "aiffin",
+      "nome": "Aiffin",
+      "pessoas": [
+        "igor-nikolaiev"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "angels-way",
+      "nome": "Angels Way",
+      "pessoas": [
+        "diogo-mendonca"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "around-pr-studio",
+      "nome": "Around PR Studio",
+      "pessoas": [
+        "viachaslau-smirnou"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "bankless-ventures",
+      "nome": "Bankless Ventures",
+      "pessoas": [
+        "ben-lakoff"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "brandulogy",
+      "nome": "BRANDULOGY",
+      "pessoas": [
+        "tania-tome"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "bsc-ai-factory",
+      "nome": "BSC AI Factory",
+      "pessoas": [
+        "andreia-gaudencio"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "business-network-albania",
+      "nome": "Business Network Albania",
+      "pessoas": [
+        "hudi-shehu"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "cosysense",
+      "nome": "Cosysense",
+      "pessoas": [
+        "sebastian-horstmann"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "creativity-matter",
+      "nome": "Creativity Matter",
+      "pessoas": [
+        "alexandre-daletchine"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "digiseg",
+      "nome": "Digiseg",
+      "pessoas": [
+        "daniel-gouveia"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "dyrectli-capital",
+      "nome": "Dyrectli Capital",
+      "pessoas": [
+        "david-graham"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "ecox-bombastic-burgh",
+      "nome": "Ecox / Bombastic Burgh",
+      "pessoas": [
+        "jorge-sebastiao"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "fast-track-ventures",
+      "nome": "Fast Track Ventures",
+      "pessoas": [
+        "joao-ramos"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "fiiys-ltd",
+      "nome": "FIIYS Ltd",
+      "pessoas": [
+        "angelee-sidar"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "fio-legal",
+      "nome": "Fio Legal",
+      "pessoas": [
+        "luiza-castro-rey"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "fio-legal-fractional-freelance-hr",
+      "nome": "Fio Legal | Fractional Freelance HR",
+      "pessoas": [
+        "filipa-faria"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "first-ten-advisory",
+      "nome": "First Ten Advisory",
+      "pessoas": [
+        "anisha-yadav"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "freedom-vas",
+      "nome": "Freedom VAs",
+      "pessoas": [
+        "satya-morarji"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "gacs-ltd-gacsym-ventures",
+      "nome": "Gacs Ltd & Gacsym Ventures",
+      "pessoas": [
+        "anmol-goel"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "globalfy",
+      "nome": "Globalfy",
+      "pessoas": [
+        "diego-sampaio"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "growth-geek-unipessoal-lda",
+      "nome": "Growth Geek Unipessoal LDA",
+      "pessoas": [
+        "lidija-krickovic"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "humannovate-consulting",
+      "nome": "Humannovate Consulting",
+      "pessoas": [
+        "janelle-harder"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "ideasoft",
+      "nome": "IdeaSoft",
+      "pessoas": [
+        "nataliia-komarnytska"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "ilof",
+      "nome": "iLoF",
+      "pessoas": [
+        "luis-valente"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "jab-holdings",
+      "nome": "JAB Holdings",
+      "pessoas": [
+        "vini-devnani"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "jci",
+      "nome": "JCI",
+      "pessoas": [
+        "pedro-simoes"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "kapisci",
+      "nome": "Kapisci",
+      "pessoas": [
+        "joaquim-nascimento"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "konnect-ai-human-strategy-execution-workspace",
+      "nome": "KONNECT - AI + Human Strategy Execution Workspace",
+      "pessoas": [
+        "precy-servito"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "ladies-who-talk",
+      "nome": "Ladies Who Talk",
+      "pessoas": [
+        "irina-shurmina"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "lexidy",
+      "nome": "LEXIDY",
+      "pessoas": [
+        "rita-figueiredo"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "lexidy-law-boutique-slp",
+      "nome": "Lexidy Law Boutique SLP",
+      "pessoas": [
+        "hector-lv"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "like-no-other",
+      "nome": "Like No Other",
+      "pessoas": [
+        "nina-chande"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "linkilaw-solicitors-cbca-group",
+      "nome": "Linkilaw Solicitors, CBCA Group",
+      "pessoas": [
+        "alexandra-isenegger"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "lisa-press-consulting",
+      "nome": "Lisa Press Consulting",
+      "pessoas": [
+        "lisa-rebecca-press"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "lisbon-business-leaders",
+      "nome": "Lisbon Business Leaders",
+      "pessoas": [
+        "kasia-szczesniak"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "many",
+      "nome": "Many",
+      "pessoas": [
+        "nashwa-shah"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "mvmt-studio",
+      "nome": "MVMT Studio",
+      "pessoas": [
+        "max-rodman"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "mykor",
+      "nome": "Mykor",
+      "pessoas": [
+        "olivia-page"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "on-this-planet",
+      "nome": "On This Planet",
+      "pessoas": [
+        "raffaella-loncao"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "ow-ventures-scr",
+      "nome": "OW Ventures SCR",
+      "pessoas": [
+        "luis-gutman"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "pactum-global",
+      "nome": "Pactum Global",
+      "pessoas": [
+        "thiago-vieira"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "pioneering-people",
+      "nome": "Pioneering People",
+      "pessoas": [
+        "rita-kastrati"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "pr-agency-techwaves",
+      "nome": "PR Agency TechWaves",
+      "pessoas": [
+        "sofia-bobrik"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "prifly-advisors",
+      "nome": "PriFly Advisors",
+      "pessoas": [
+        "ed-chandler"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "roman-knorr",
+      "nome": "Román Knörr",
+      "pessoas": [
+        "roman-knorr-duran"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "s8-aquisitions",
+      "nome": "S8 Aquisitions",
+      "pessoas": [
+        "brian-nogaro"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "sibillastrupule-com",
+      "nome": "SibillaStrupule.com",
+      "pessoas": [
+        "sibilla-strupule"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "sigal-ventures",
+      "nome": "Sigal Ventures",
+      "pessoas": [
+        "mike-sigal"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "solegency",
+      "nome": "Solegency",
+      "pessoas": [
+        "dina-kondratiuk"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "sotavento-angels-fund",
+      "nome": "Sotavento Angels Fund",
+      "pessoas": [
+        "mark-paul-haaksman"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "sotavento-invest",
+      "nome": "Sotavento Invest",
+      "pessoas": [
+        "wouter-heijnen"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "soulbranding",
+      "nome": "SOULBRANDING",
+      "pessoas": [
+        "olesia-rykova"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "startup-summit",
+      "nome": "Startup Summit",
+      "pessoas": [
+        "ricardo"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "time-space",
+      "nome": "TIME & SPACE",
+      "pessoas": [
+        "micael-lopes"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "trivevo",
+      "nome": "Trivevo",
+      "pessoas": [
+        "rita-martins-freire"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "upstride-holdings",
+      "nome": "UpStride Holdings",
+      "pessoas": [
+        "muhammad-farooq-rathod"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "vntr-capital",
+      "nome": "VNTR Capital",
+      "pessoas": [
+        "kristina-kutan"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "what-she-said-limited",
+      "nome": "What She Said Limited",
+      "pessoas": [
+        "lauren-mucklow"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "zero-risk-startup",
+      "nome": "Zero Risk Startup",
+      "pessoas": [
+        "paulo-andrez"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "zoya-mesaric-private-international-practice",
+      "nome": "Zoya Mesaric – Private International Practice",
+      "pessoas": [
+        "zoya-mesaric-mag-a-pth"
+      ],
+      "marcador": false
+    },
+    {
+      "id": "independent",
+      "nome": "Independent",
+      "pessoas": [
+        "amit-grinvald",
+        "slavi-slavev"
+      ],
+      "marcador": true
+    },
+    {
+      "id": "self-employed",
+      "nome": "Self-Employed",
+      "pessoas": [
+        "daniel-grech"
+      ],
+      "marcador": true
+    }
+  ]
+}

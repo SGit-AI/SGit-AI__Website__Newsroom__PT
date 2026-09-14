@@ -1,0 +1,185 @@
+{
+  "id": "pt-sessoes",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "fonte": "2026-09-14/agenda",
+  "nota": "O programa, lido da agenda congelada em vez de transcrito à mão. Uma transcrição é uma afirmação; ler os bytes diretamente elimina a classe de erro em vez de a verificar. Títulos verbatim, na língua em que o evento os publicou.",
+  "contagem": 15,
+  "sessoes": [
+    {
+      "id": "welcome-drinks",
+      "titulo": "Welcome Drinks",
+      "inicio": "19:00",
+      "fim": null,
+      "quando": null,
+      "dia": "Wednesday 16 September — Startup Summit Eve",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "doors-open-registration-expo",
+      "titulo": "Doors Open · Registration · Expo",
+      "inicio": "09:00",
+      "fim": null,
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "opening-keynote-welcome-to-startup-summit-2026",
+      "titulo": "Opening Keynote: Welcome to Startup Summit 2026",
+      "inicio": "09:30",
+      "fim": null,
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": "unicorn-stage",
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "ai-or-die",
+      "titulo": "AI or Die",
+      "inicio": "11:45",
+      "fim": "12:15",
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": "unicorn-stage",
+      "formato": "Panel",
+      "url": "https://startupsummit.io/agenda/ai-or-die-operators-rebuilding-stack"
+    },
+    {
+      "id": "the-lp-perspective",
+      "titulo": "The LP Perspective",
+      "inicio": "10:00",
+      "fim": "10:30",
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": "unicorn-stage",
+      "formato": "Panel",
+      "url": "https://startupsummit.io/agenda/lp-perspective-where-capital-is-moving"
+    },
+    {
+      "id": "the-fundraising-meta-game",
+      "titulo": "The Fundraising Meta-Game",
+      "inicio": "11:05",
+      "fim": "11:30",
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": "impact-stage",
+      "formato": "Keynote",
+      "url": "https://startupsummit.io/agenda/fundraising-meta-game-what-vcs-look-for"
+    },
+    {
+      "id": "lunch-beer-hall-praca-cafe-rooftop-bar",
+      "titulo": "Lunch · Beer Hall · Praça Café · Rooftop Bar",
+      "inicio": "13:00",
+      "fim": null,
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "investor-office-hours-founder-booth-investor-passes",
+      "titulo": "Investor Office Hours (Founder + Booth + Investor passes)",
+      "inicio": "14:00",
+      "fim": null,
+      "quando": null,
+      "dia": "Thursday 17 September — Day 1",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "founder-social",
+      "titulo": "Founder Social",
+      "inicio": null,
+      "fim": null,
+      "quando": "Evening",
+      "dia": "Thursday 17 September — Day 1",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "doors-open-day-2-welcome",
+      "titulo": "Doors Open · Day 2 Welcome",
+      "inicio": "09:00",
+      "fim": null,
+      "quando": null,
+      "dia": "Friday 18 September — Day 2",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "day-2-opening-portuguese-unicorn-conversation",
+      "titulo": "Day 2 Opening — Portuguese Unicorn Conversation",
+      "inicio": "09:30",
+      "fim": "10:00",
+      "quando": null,
+      "dia": "Friday 18 September — Day 2",
+      "palco": "unicorn-stage",
+      "formato": "Fireside",
+      "url": "https://startupsummit.io/agenda/portuguese-unicorn-conversation"
+    },
+    {
+      "id": "what-i-built-with-ai",
+      "titulo": "What I Built With AI",
+      "inicio": "10:10",
+      "fim": "10:35",
+      "quando": null,
+      "dia": "Friday 18 September — Day 2",
+      "palco": "impact-stage",
+      "formato": "Fireside",
+      "url": "https://startupsummit.io/agenda/what-i-built-with-ai-founders-account"
+    },
+    {
+      "id": "hardware-meets-software",
+      "titulo": "Hardware Meets Software",
+      "inicio": "11:20",
+      "fim": "11:45",
+      "quando": null,
+      "dia": "Friday 18 September — Day 2",
+      "palco": "impact-stage",
+      "formato": "Keynote",
+      "url": "https://startupsummit.io/agenda/hardware-meets-software-deep-tech"
+    },
+    {
+      "id": "speed-networking-investor-1-1s-workshops",
+      "titulo": "Speed networking · Investor 1:1s · Workshops",
+      "inicio": null,
+      "fim": null,
+      "quando": "Afternoon",
+      "dia": "Friday 18 September — Day 2",
+      "palco": null,
+      "formato": null,
+      "url": null
+    },
+    {
+      "id": "closing-celebration-vip-sunset-cruise",
+      "titulo": "Closing Celebration · VIP Sunset Cruise",
+      "inicio": null,
+      "fim": null,
+      "quando": "Evening",
+      "dia": "Friday 18 September — Day 2",
+      "palco": null,
+      "formato": "VIP-only",
+      "url": null
+    }
+  ],
+  "palcos": [
+    {
+      "id": "impact-stage",
+      "nome": "Impact Stage"
+    },
+    {
+      "id": "unicorn-stage",
+      "nome": "Unicorn Stage"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "ia-generativa",
+  "tipo": "Tecnologia",
+  "rotulo": "IA generativa",
+  "en": "Generative AI",
+  "corre_sobre": "en",
+  "padrao": "\\b(generative AI|GenAI|large language model|\\bLLM\\b|foundation model)\\b"
+}

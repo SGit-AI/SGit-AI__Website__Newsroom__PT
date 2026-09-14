@@ -1,0 +1,8 @@
+{
+  "id": "investimento-anjo",
+  "tipo": "Setor",
+  "rotulo": "Investimento anjo",
+  "en": "Angel investing",
+  "corre_sobre": "en",
+  "padrao": "\\b(angel investor|angel investing|business angel)\\b"
+}

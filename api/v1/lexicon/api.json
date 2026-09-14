@@ -1,0 +1,8 @@
+{
+  "id": "api",
+  "tipo": "Produto",
+  "rotulo": "Interface programática",
+  "en": "API",
+  "corre_sobre": "en",
+  "padrao": "\\b(API|developer tools?|SDK|infrastructure for developers)\\b"
+}

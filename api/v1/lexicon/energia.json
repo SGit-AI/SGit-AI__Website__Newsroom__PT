@@ -1,0 +1,8 @@
+{
+  "id": "energia",
+  "tipo": "Setor",
+  "rotulo": "Energia e clima",
+  "en": "Energy and climate",
+  "corre_sobre": "en",
+  "padrao": "\\b(climate.?tech|renewable|solar|energy transition|decarboni[sz])\\b"
+}

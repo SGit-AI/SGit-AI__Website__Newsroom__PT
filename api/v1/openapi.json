@@ -1,0 +1,863 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "pt.newsroom.sgit.ai",
+    "version": "0.3.0",
+    "summary": "The Portuguese AI ecosystem, as data",
+    "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
+    "contact": {
+      "name": "Dinis Cruz, editor of record",
+      "email": "dinis.cruz@owasp.org"
+    },
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pt.newsroom.sgit.ai/api/v1",
+      "description": "The site itself"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sources",
+      "description": "Every frozen source with its SHA-256, bytes and retrieval time"
+    },
+    {
+      "name": "graph",
+      "description": "Nodes and edges"
+    },
+    {
+      "name": "ontology",
+      "description": "The grammar the graph obeys"
+    },
+    {
+      "name": "people",
+      "description": "People named on a published list, in their professional capacity"
+    },
+    {
+      "name": "companies",
+      "description": "Organisations, derived from the source and never typed"
+    },
+    {
+      "name": "sessions",
+      "description": "The programme, read from the frozen agenda"
+    },
+    {
+      "name": "events",
+      "description": "The event this newsroom's first beat covers"
+    },
+    {
+      "name": "topics",
+      "description": "Topics verbatim from the source, and tags derived by the lexicon"
+    },
+    {
+      "name": "lexicon",
+      "description": "The published formula that produces the derived tags"
+    },
+    {
+      "name": "changes",
+      "description": "What moved between snapshots"
+    },
+    {
+      "name": "articles",
+      "description": "Every article, its state and where its folder is"
+    },
+    {
+      "name": "sections",
+      "description": "The eight sections and their editorial records"
+    },
+    {
+      "name": "deliveries",
+      "description": "Research deliveries, and what happened to every excerpt"
+    },
+    {
+      "name": "notice",
+      "description": "The data-protection notice, as data"
+    },
+    {
+      "name": "team",
+      "description": "The three departments and the editor of record"
+    },
+    {
+      "name": "documents",
+      "description": "Every markdown document in this repository"
+    },
+    {
+      "name": "manifest",
+      "description": "Every data file with its SHA-256"
+    },
+    {
+      "name": "excluded",
+      "description": "Sources that were attempted and did not resolve"
+    }
+  ],
+  "paths": {
+    "/sources.json": {
+      "get": {
+        "operationId": "getSources",
+        "summary": "Every frozen source with its SHA-256, bytes and retrieval time",
+        "description": "The register. This is what a claim on this site walks back to: a byte copy held in the repository, hashed, and re-verified on every build.\n\nSource file in the repository: `dados/registo.json`.",
+        "tags": [
+          "sources"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sources/{id}.json": {
+      "get": {
+        "operationId": "getSourcesById",
+        "summary": "One item from sources",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "sources"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "2026-09-14-abertas-cordis": {
+                "value": "2026-09-14-abertas-cordis"
+              },
+              "2026-09-14-agenda": {
+                "value": "2026-09-14-agenda"
+              },
+              "2026-09-14-bilhetes": {
+                "value": "2026-09-14-bilhetes"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/graph.json": {
+      "get": {
+        "operationId": "getGraph",
+        "summary": "Nodes and edges",
+        "description": "Every node names the frozen source it came from; every edge is a Portuguese verb with a distinct named inverse.\n\nSource file in the repository: `dados/grafo.json`.",
+        "tags": [
+          "graph"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ontology.json": {
+      "get": {
+        "operationId": "getOntology",
+        "summary": "The grammar the graph obeys",
+        "description": "Types, verbs with their readings and inverses, banned verbs, the taxonomy and the published formulas.\n\nSource file in the repository: `dados/ontologia.json`.",
+        "tags": [
+          "ontology"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/people.json": {
+      "get": {
+        "operationId": "getPeople",
+        "summary": "People named on a published list, in their professional capacity",
+        "description": "Name, listed role, listed organisation and links, verbatim from the frozen source. Never a biography, never a contact detail. See /notice.\n\nSource file in the repository: `dados/pessoas.json`.",
+        "tags": [
+          "people"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/people/{id}.json": {
+      "get": {
+        "operationId": "getPeopleById",
+        "summary": "One item from people",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "people"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "andreia-gaudencio": {
+                "value": "andreia-gaudencio"
+              },
+              "paulo-andrez": {
+                "value": "paulo-andrez"
+              },
+              "luis-valente": {
+                "value": "luis-valente"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/companies.json": {
+      "get": {
+        "operationId": "getCompanies",
+        "summary": "Organisations, derived from the source and never typed",
+        "description": "Derived from the organisation field of each speaker card. Placeholder values such as 'Independent' are flagged, not removed.\n\nSource file in the repository: `dados/organizacoes.json`.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companies/{id}.json": {
+      "get": {
+        "operationId": "getCompaniesById",
+        "summary": "One item from companies",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "companies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "brdge": {
+                "value": "brdge"
+              },
+              "time-to-rise": {
+                "value": "time-to-rise"
+              },
+              "351-portuguese-startup-association": {
+                "value": "351-portuguese-startup-association"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/sessions.json": {
+      "get": {
+        "operationId": "getSessions",
+        "summary": "The programme, read from the frozen agenda",
+        "description": "Titles verbatim, in whatever language the event published them.\n\nSource file in the repository: `dados/sessoes.json`.",
+        "tags": [
+          "sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{id}.json": {
+      "get": {
+        "operationId": "getSessionsById",
+        "summary": "One item from sessions",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "sessions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "welcome-drinks": {
+                "value": "welcome-drinks"
+              },
+              "doors-open-registration-expo": {
+                "value": "doors-open-registration-expo"
+              },
+              "opening-keynote-welcome-to-startup-summit-2026": {
+                "value": "opening-keynote-welcome-to-startup-summit-2026"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/events.json": {
+      "get": {
+        "operationId": "getEvents",
+        "summary": "The event this newsroom's first beat covers",
+        "description": "The event this newsroom's first beat covers\n\nSource file in the repository: `dados/evento.json`.",
+        "tags": [
+          "events"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/topics.json": {
+      "get": {
+        "operationId": "getTopics",
+        "summary": "Topics verbatim from the source, and tags derived by the lexicon",
+        "description": "Topics verbatim from the source, and tags derived by the lexicon\n\nSource file in the repository: `dados/temas.json`.",
+        "tags": [
+          "topics"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/topics/{id}.json": {
+      "get": {
+        "operationId": "getTopicsById",
+        "summary": "One item from topics",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "topics"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "andreia-gaudencio": {
+                "value": "andreia-gaudencio"
+              },
+              "paulo-andrez": {
+                "value": "paulo-andrez"
+              },
+              "luis-valente": {
+                "value": "luis-valente"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/lexicon.json": {
+      "get": {
+        "operationId": "getLexicon",
+        "summary": "The published formula that produces the derived tags",
+        "description": "A regular expression per entry, run over the frozen page. A tag says the page contains those words; it is not a characterisation of anybody.\n\nSource file in the repository: `dados/lexico.json`.",
+        "tags": [
+          "lexicon"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lexicon/{id}.json": {
+      "get": {
+        "operationId": "getLexiconById",
+        "summary": "One item from lexicon",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "lexicon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "capital-de-risco": {
+                "value": "capital-de-risco"
+              },
+              "investimento-anjo": {
+                "value": "investimento-anjo"
+              },
+              "fintech": {
+                "value": "fintech"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/changes.json": {
+      "get": {
+        "operationId": "getChanges",
+        "summary": "What moved between snapshots",
+        "description": "A name present in one snapshot and absent from the next is recorded as exactly that. The reason is left blank, never guessed.\n\nSource file in the repository: `dados/mudancas.json`.",
+        "tags": [
+          "changes"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/articles.json": {
+      "get": {
+        "operationId": "getArticles",
+        "summary": "Every article, its state and where its folder is",
+        "description": "Derived from the dated folders under /artigos/. An article is published only when the editor of record writes that line.\n\nSource file in the repository: `dados/historias.json`.",
+        "tags": [
+          "articles"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/articles/{id}.json": {
+      "get": {
+        "operationId": "getArticlesById",
+        "summary": "One item from articles",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "articles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "uma-captura-nao-mostra-movimento": {
+                "value": "uma-captura-nao-mostra-movimento"
+              },
+              "regulador-designacao-ausente": {
+                "value": "regulador-designacao-ausente"
+              },
+              "registo-nacional-nao-devolve-texto": {
+                "value": "registo-nacional-nao-devolve-texto"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/sections.json": {
+      "get": {
+        "operationId": "getSections",
+        "summary": "The eight sections and their editorial records",
+        "description": "What each section covers, what it can and cannot claim today, which sources are frozen and which did not resolve.\n\nSource file in the repository: `seccoes/*/seccao.json`.",
+        "tags": [
+          "sections"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sections/{id}.json": {
+      "get": {
+        "operationId": "getSectionsById",
+        "summary": "One item from sections",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "sections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "empresas": {
+                "value": "empresas"
+              },
+              "protagonistas": {
+                "value": "protagonistas"
+              },
+              "instituicoes": {
+                "value": "instituicoes"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/deliveries.json": {
+      "get": {
+        "operationId": "getDeliveries",
+        "summary": "Research deliveries, and what happened to every excerpt",
+        "description": "A delivery is leads with provenance, never facts. Each claim carries the result of searching the frozen bytes for the excerpt it cites.\n\nSource file in the repository: `dados/entregas.json`.",
+        "tags": [
+          "deliveries"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deliveries/{id}.json": {
+      "get": {
+        "operationId": "getDeliveriesById",
+        "summary": "One item from deliveries",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "deliveries"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "chatgpt-pt-newsroom-2026-09-14-politicas": {
+                "value": "chatgpt-pt-newsroom-2026-09-14-politicas"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/notice.json": {
+      "get": {
+        "operationId": "getNotice",
+        "summary": "The data-protection notice, as data",
+        "description": "Controller, categories held and refused, the three-limb legitimate-interests test, and the unconditional removal route.\n\nSource file in the repository: `dados/aviso.json`.",
+        "tags": [
+          "notice"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/team.json": {
+      "get": {
+        "operationId": "getTeam",
+        "summary": "The three departments and the editor of record",
+        "description": "The three departments and the editor of record\n\nSource file in the repository: `dados/equipa.json`.",
+        "tags": [
+          "team"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documents.json": {
+      "get": {
+        "operationId": "getDocuments",
+        "summary": "Every markdown document in this repository",
+        "description": "Every markdown document in this repository\n\nSource file in the repository: `dados/documentos.json`.",
+        "tags": [
+          "documents"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manifest.json": {
+      "get": {
+        "operationId": "getManifest",
+        "summary": "Every data file with its SHA-256",
+        "description": "Every data file with its SHA-256\n\nSource file in the repository: `dados/manifesto.json`.",
+        "tags": [
+          "manifest"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/excluded.json": {
+      "get": {
+        "operationId": "getExcluded",
+        "summary": "Sources that were attempted and did not resolve",
+        "description": "Not dropped in silence: a source this newsroom cannot reach is a fact about the public record.\n\nSource file in the repository: `dados/excluidas.json`.",
+        "tags": [
+          "excluded"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/index.json": {
+      "get": {
+        "operationId": "getIndex",
+        "summary": "The catalogue of every collection",
+        "tags": [
+          "index"
+        ],
+        "responses": {
+          "200": {
+            "description": "The catalogue"
+          }
+        }
+      }
+    }
+  }
+}

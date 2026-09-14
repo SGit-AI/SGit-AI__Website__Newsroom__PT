@@ -1,0 +1,251 @@
+{
+  "id": "pt-lexico",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "o_que_e": "Uma fórmula publicada. Cada entrada é uma expressão regular que corre sobre o texto congelado da página de uma pessoa ou de uma organização; quando corresponde, nasce uma aresta derivada no grafo que leva consigo as palavras que correspondeu e mais nada.",
+  "o_que_nao_e": "Uma caracterização de ninguém. Uma etiqueta diz que aquela página contém aquelas palavras. Não diz o que a pessoa é, faz, sabe ou vale. Nenhuma frase da biografia é copiada para lado nenhum: o que fica é a palavra que a expressão apanhou, cortada aos 40 caracteres.",
+  "porque_publicada": "Uma fórmula com que um leitor pode discordar vale mais do que um juízo em que tem de confiar. Está aqui em ficheiro, corre no build, e o portão 8 de build/gates.py volta a correr cada padrão sobre os bytes congelados — uma etiqueta escrita à mão falha o build, e uma etiqueta que deixou de corresponder desaparece.",
+  "a_lingua_dos_padroes": "Os rótulos são portugueses porque o leitor deste site é português. Os PADRÕES são ingleses porque a fonte é inglesa: o Startup Summit publica as suas páginas em inglês, e uma expressão regular portuguesa a correr sobre prosa inglesa não corresponderia a nada enquanto parecia estar a funcionar. Fazer o contrário seria exatamente o erro que o §6 do resumo descreve — uma ontologia numa língua por trás de uma interface noutra, errada sem parecer avariada. Quando esta redação ler uma fonte portuguesa, os padrões dessa fonte são portugueses; cada entrada diz sobre que língua corre.",
+  "entradas": [
+    {
+      "id": "capital-de-risco",
+      "tipo": "Setor",
+      "rotulo": "Capital de risco",
+      "en": "Venture capital",
+      "corre_sobre": "en",
+      "padrao": "\\b(venture capital|VC fund|early.stage fund|seed fund|limited partner|LP)\\b"
+    },
+    {
+      "id": "investimento-anjo",
+      "tipo": "Setor",
+      "rotulo": "Investimento anjo",
+      "en": "Angel investing",
+      "corre_sobre": "en",
+      "padrao": "\\b(angel investor|angel investing|business angel)\\b"
+    },
+    {
+      "id": "fintech",
+      "tipo": "Setor",
+      "rotulo": "Tecnologia financeira",
+      "en": "Fintech",
+      "corre_sobre": "en",
+      "padrao": "\\b(fintech|payments? (?:platform|infrastructure)|banking|insurtech)\\b"
+    },
+    {
+      "id": "saude",
+      "tipo": "Setor",
+      "rotulo": "Saúde",
+      "en": "Health",
+      "corre_sobre": "en",
+      "padrao": "\\b(healthcare|health.?tech|medical device|biotech|life sciences)\\b"
+    },
+    {
+      "id": "energia",
+      "tipo": "Setor",
+      "rotulo": "Energia e clima",
+      "en": "Energy and climate",
+      "corre_sobre": "en",
+      "padrao": "\\b(climate.?tech|renewable|solar|energy transition|decarboni[sz])\\b"
+    },
+    {
+      "id": "imobiliario",
+      "tipo": "Setor",
+      "rotulo": "Imobiliário",
+      "en": "Real estate",
+      "corre_sobre": "en",
+      "padrao": "\\b(real estate|prop.?tech|construction tech)\\b"
+    },
+    {
+      "id": "educacao",
+      "tipo": "Setor",
+      "rotulo": "Educação",
+      "en": "Education",
+      "corre_sobre": "en",
+      "padrao": "\\b(ed.?tech|education technology|learning platform)\\b"
+    },
+    {
+      "id": "comercio",
+      "tipo": "Setor",
+      "rotulo": "Comércio e retalho",
+      "en": "Commerce and retail",
+      "corre_sobre": "en",
+      "padrao": "\\b(e.?commerce|marketplace|retail tech|d2c|direct.to.consumer)\\b"
+    },
+    {
+      "id": "ia",
+      "tipo": "Tecnologia",
+      "rotulo": "Inteligência artificial",
+      "en": "Artificial intelligence",
+      "corre_sobre": "en",
+      "padrao": "\\b(artificial intelligence|machine learning|\\bAI\\b|\\bML\\b|deep learning)\\b"
+    },
+    {
+      "id": "ia-generativa",
+      "tipo": "Tecnologia",
+      "rotulo": "IA generativa",
+      "en": "Generative AI",
+      "corre_sobre": "en",
+      "padrao": "\\b(generative AI|GenAI|large language model|\\bLLM\\b|foundation model)\\b"
+    },
+    {
+      "id": "agentes",
+      "tipo": "Tecnologia",
+      "rotulo": "Agentes autónomos",
+      "en": "Autonomous agents",
+      "corre_sobre": "en",
+      "padrao": "\\b(AI agents?|agentic|autonomous agents?|multi.agent)\\b"
+    },
+    {
+      "id": "dados",
+      "tipo": "Tecnologia",
+      "rotulo": "Dados",
+      "en": "Data",
+      "corre_sobre": "en",
+      "padrao": "\\b(data (?:platform|infrastructure|engineering|science)|big data|analytics)\\b"
+    },
+    {
+      "id": "nuvem",
+      "tipo": "Tecnologia",
+      "rotulo": "Computação em nuvem",
+      "en": "Cloud",
+      "corre_sobre": "en",
+      "padrao": "\\b(cloud (?:platform|infrastructure|native)|SaaS|serverless|kubernetes)\\b"
+    },
+    {
+      "id": "ciberseguranca",
+      "tipo": "Tecnologia",
+      "rotulo": "Cibersegurança",
+      "en": "Cybersecurity",
+      "corre_sobre": "en",
+      "padrao": "\\b(cyber.?security|information security|appsec|privacy engineering)\\b"
+    },
+    {
+      "id": "hardware",
+      "tipo": "Tecnologia",
+      "rotulo": "Hardware",
+      "en": "Hardware",
+      "corre_sobre": "en",
+      "padrao": "\\b(hardware|robotics|semiconductor|chip design|manufacturing tech)\\b"
+    },
+    {
+      "id": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "rotulo": "Cadeia de blocos",
+      "en": "Blockchain",
+      "corre_sobre": "en",
+      "padrao": "\\b(blockchain|web3|crypto(?:currency)?|digital assets)\\b"
+    },
+    {
+      "id": "escalar",
+      "tipo": "Ideia",
+      "rotulo": "Escalar",
+      "en": "Scaling",
+      "corre_sobre": "en",
+      "padrao": "\\b(scal(?:e|ing) (?:up|a company|globally)|hypergrowth|growth stage)\\b"
+    },
+    {
+      "id": "internacionalizar",
+      "tipo": "Ideia",
+      "rotulo": "Internacionalizar",
+      "en": "Going global",
+      "corre_sobre": "en",
+      "padrao": "\\b(international expansion|go(?:ing)? global|cross.border|new markets)\\b"
+    },
+    {
+      "id": "angariar",
+      "tipo": "Ideia",
+      "rotulo": "Angariar capital",
+      "en": "Fundraising",
+      "corre_sobre": "en",
+      "padrao": "\\b(fundrais(?:e|ing)|raised? (?:a )?(?:seed|series [A-D]|round)|pitch deck)\\b"
+    },
+    {
+      "id": "saida",
+      "tipo": "Ideia",
+      "rotulo": "Saída",
+      "en": "Exit",
+      "corre_sobre": "en",
+      "padrao": "\\b(exit|acquisition|acquired by|IPO|merger)\\b"
+    },
+    {
+      "id": "produto",
+      "tipo": "Ideia",
+      "rotulo": "Construir produto",
+      "en": "Building product",
+      "corre_sobre": "en",
+      "padrao": "\\b(product.market fit|building products?|product.led|zero to one)\\b"
+    },
+    {
+      "id": "sustentabilidade",
+      "tipo": "Ideia",
+      "rotulo": "Sustentabilidade",
+      "en": "Sustainability",
+      "corre_sobre": "en",
+      "padrao": "\\b(sustainab(?:le|ility)|impact (?:investing|driven)|ESG|circular economy)\\b"
+    },
+    {
+      "id": "diaspora",
+      "tipo": "Ideia",
+      "rotulo": "Diáspora",
+      "en": "Diaspora",
+      "corre_sobre": "en",
+      "padrao": "\\b(Portuguese diaspora|returned to Portugal|Portuguese.born|from Portugal to)\\b"
+    },
+    {
+      "id": "consultoria",
+      "tipo": "Serviço",
+      "rotulo": "Consultoria",
+      "en": "Consulting",
+      "corre_sobre": "en",
+      "padrao": "\\b(consult(?:ing|ancy)|advisory (?:firm|services)|fractional)\\b"
+    },
+    {
+      "id": "juridico",
+      "tipo": "Serviço",
+      "rotulo": "Jurídico",
+      "en": "Legal",
+      "corre_sobre": "en",
+      "padrao": "\\b(law firm|legal (?:counsel|advice|services)|attorney|solicitor)\\b"
+    },
+    {
+      "id": "aceleracao",
+      "tipo": "Serviço",
+      "rotulo": "Aceleração",
+      "en": "Acceleration",
+      "corre_sobre": "en",
+      "padrao": "\\b(accelerator|incubator|venture builder|startup studio)\\b"
+    },
+    {
+      "id": "recrutamento",
+      "tipo": "Serviço",
+      "rotulo": "Recrutamento",
+      "en": "Talent",
+      "corre_sobre": "en",
+      "padrao": "\\b(talent (?:acquisition|partner)|recruit(?:ing|ment)|executive search)\\b"
+    },
+    {
+      "id": "plataforma",
+      "tipo": "Produto",
+      "rotulo": "Plataforma",
+      "en": "Platform",
+      "corre_sobre": "en",
+      "padrao": "\\b(platform for|B2B platform|operating system for)\\b"
+    },
+    {
+      "id": "aplicacao",
+      "tipo": "Produto",
+      "rotulo": "Aplicação",
+      "en": "Application",
+      "corre_sobre": "en",
+      "padrao": "\\b(mobile app|consumer app|web app)\\b"
+    },
+    {
+      "id": "api",
+      "tipo": "Produto",
+      "rotulo": "Interface programática",
+      "en": "API",
+      "corre_sobre": "en",
+      "padrao": "\\b(API|developer tools?|SDK|infrastructure for developers)\\b"
+    }
+  ]
+}

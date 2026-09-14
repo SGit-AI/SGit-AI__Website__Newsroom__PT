@@ -1,0 +1,39 @@
+{
+  "id": "jorge-sebastiao",
+  "fonte": "2026-09-14/oradores/jorge-sebastiao",
+  "temas": [
+    "AI",
+    "Deep tech",
+    "Fundraising",
+    "Founder journey",
+    "Future of work"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "ciberseguranca",
+      "tipo": "Tecnologia",
+      "correspondeu": "CyberSecurity"
+    },
+    {
+      "etiqueta": "hardware",
+      "tipo": "Tecnologia",
+      "correspondeu": "Robotics"
+    },
+    {
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "Web3"
+    },
+    {
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "Sustainability"
+    }
+  ],
+  "bio_chars": 210
+}

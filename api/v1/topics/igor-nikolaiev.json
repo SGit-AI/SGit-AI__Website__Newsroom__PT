@@ -1,0 +1,33 @@
+{
+  "id": "igor-nikolaiev",
+  "fonte": "2026-09-14/oradores/igor-nikolaiev",
+  "temas": [
+    "AI",
+    "Go-to-market",
+    "Other",
+    "Product-market fit"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "fintech"
+    },
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "nuvem",
+      "tipo": "Tecnologia",
+      "correspondeu": "SaaS"
+    },
+    {
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "Web3"
+    }
+  ],
+  "bio_chars": 790
+}

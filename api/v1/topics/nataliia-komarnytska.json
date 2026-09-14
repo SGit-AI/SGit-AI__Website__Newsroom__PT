@@ -1,0 +1,21 @@
+{
+  "id": "nataliia-komarnytska",
+  "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+  "temas": [
+    "Operations",
+    "European startups"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "FinTech"
+    },
+    {
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "blockchain"
+    }
+  ],
+  "bio_chars": 174
+}

@@ -1,0 +1,14 @@
+{
+  "id": "2026-09-14/oradores",
+  "pagina": "oradores",
+  "captura": "2026-09-14",
+  "grupo": "evento",
+  "url": "https://startupsummit.io/speakers",
+  "congelada": "fontes/congeladas/2026-09-14/oradores.snapshot",
+  "sha256": "af28ecdf1d0534439aadd4a7c64f82a1cc5b284807a4447587466ccdd85a2a2b",
+  "bytes": 198284,
+  "obtida": "2026-09-14T12:16:01Z",
+  "publicador": "Startup Summit Lisbon 2026",
+  "lingua": "en",
+  "estado": "primaria"
+}

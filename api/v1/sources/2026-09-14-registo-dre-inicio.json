@@ -1,0 +1,14 @@
+{
+  "id": "2026-09-14/registo/dre-inicio",
+  "pagina": "registo/dre-inicio",
+  "captura": "2026-09-14",
+  "grupo": "registo",
+  "url": "https://dre.pt/",
+  "congelada": "fontes/congeladas/2026-09-14/registo/dre-inicio.snapshot",
+  "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
+  "bytes": 2346,
+  "obtida": "2026-09-14T12:16:17Z",
+  "publicador": "Diário da República Eletrónico (INCM)",
+  "lingua": "pt",
+  "estado": "primaria"
+}

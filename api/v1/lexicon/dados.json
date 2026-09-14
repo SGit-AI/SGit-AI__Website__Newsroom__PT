@@ -1,0 +1,8 @@
+{
+  "id": "dados",
+  "tipo": "Tecnologia",
+  "rotulo": "Dados",
+  "en": "Data",
+  "corre_sobre": "en",
+  "padrao": "\\b(data (?:platform|infrastructure|engineering|science)|big data|analytics)\\b"
+}

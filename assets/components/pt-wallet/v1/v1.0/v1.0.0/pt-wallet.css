@@ -1,0 +1,46 @@
+/* pt-wallet — pay per read, demonstrated rather than argued.
+   The parent site's whole case is «paying the fact creator». This is that case made concrete on
+   a real publication: a price, a balance, a ledger. It charges nothing and says so in the first
+   sentence of the panel — a fake paywall that did not admit to being fake would be the single
+   dishonest thing on a site whose entire argument is provenance. */
+:host { display: inline-block; position: relative; font-family: 'IBM Plex Mono', Menlo, monospace; }
+.badge { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0;
+         cursor: pointer; font: 12px/1.4 'IBM Plex Mono', Menlo, monospace; color: #4a4d55;
+         letter-spacing: .04em; padding: 0; }
+.badge:hover { color: #0f766e; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #0f766e; display: inline-block; }
+.badge.low .dot { background: #b45309; }
+.badge.empty .dot { background: #b91c1c; }
+#bal { color: #17181c; font-weight: 500; }
+.lbl { color: #8a8d94; }
+
+.panel { position: absolute; right: 0; top: 24px; width: min(370px, 86vw); z-index: 40;
+         background: #fffdf7; border: 1px solid #17181c; padding: 14px 16px 16px;
+         box-shadow: 0 2px 0 #d9d3c3; text-align: left; }
+.head { display: flex; justify-content: space-between; align-items: center;
+        font: 13px/1.4 'IBM Plex Mono', Menlo, monospace; padding-bottom: 8px; }
+.x { background: none; border: 0; font-size: 18px; cursor: pointer; color: #8a8d94; line-height: 1; }
+.x:hover { color: #17181c; }
+.demo { font: 12px/1.5 'Newsreader', Georgia, serif; color: #4a4d55; margin: 0 0 12px;
+        border-left: 3px solid #b45309; padding-left: 10px; }
+.demo code { font-size: 11px; background: #f4f4f2; padding: 0 3px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding-bottom: 12px; }
+.grid > div { display: flex; flex-direction: column; gap: 1px; }
+.k { font: 10px/1.4 'IBM Plex Mono', Menlo, monospace; letter-spacing: .1em;
+     text-transform: uppercase; color: #8a8d94; }
+.v { font: 17px/1.2 'Newsreader', Georgia, serif; color: #17181c; }
+.acts { display: flex; gap: 8px; padding-bottom: 12px; flex-wrap: wrap; }
+.acts button { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; background: #17181c;
+               color: #f7f4ec; border: 0; padding: 6px 10px; border-radius: 2px; cursor: pointer; }
+.acts button:hover { background: #0f766e; }
+.acts .ghost { background: none; color: #6b6e76; border: 1px solid #c9c2ae; }
+.acts .ghost:hover { background: none; color: #b91c1c; border-color: #b91c1c; }
+.ledger { border-top: 1px solid #d9d3c3; padding-top: 10px; }
+#log { list-style: none; margin: 6px 0 0; padding: 0; max-height: 150px; overflow-y: auto; }
+#log li { display: flex; justify-content: space-between; gap: 10px;
+          font: 11px/1.6 'IBM Plex Mono', Menlo, monospace; color: #4a4d55; }
+#log li span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#log li .c { color: #8a8d94; flex: none; }
+.foot { font: 12px/1.5 'Newsreader', Georgia, serif; color: #4a4d55; margin: 12px 0 0;
+        border-top: 1px solid #d9d3c3; padding-top: 10px; }
+@media (max-width: 600px) { .panel { position: fixed; right: 8px; left: 8px; width: auto; top: 54px; } }

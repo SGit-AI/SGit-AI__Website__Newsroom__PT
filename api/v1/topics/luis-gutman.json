@@ -1,0 +1,19 @@
+{
+  "id": "luis-gutman",
+  "fonte": "2026-09-14/oradores/luis-gutman",
+  "temas": [
+    "Venture capital",
+    "Product-market fit",
+    "Leadership",
+    "European startups",
+    "Scaling"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "capital-de-risco",
+      "tipo": "Setor",
+      "correspondeu": "venture capital"
+    }
+  ],
+  "bio_chars": 457
+}

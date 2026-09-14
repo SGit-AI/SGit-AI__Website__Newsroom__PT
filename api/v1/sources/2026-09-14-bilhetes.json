@@ -1,0 +1,14 @@
+{
+  "id": "2026-09-14/bilhetes",
+  "pagina": "bilhetes",
+  "captura": "2026-09-14",
+  "grupo": "evento",
+  "url": "https://startupsummit.io/tickets",
+  "congelada": "fontes/congeladas/2026-09-14/bilhetes.snapshot",
+  "sha256": "39a25889d59eabf0a927e7f0827c2af08e9532559971eb887a91d14f1e19009c",
+  "bytes": 27211,
+  "obtida": "2026-09-14T12:16:03Z",
+  "publicador": "Startup Summit Lisbon 2026",
+  "lingua": "en",
+  "estado": "primaria"
+}

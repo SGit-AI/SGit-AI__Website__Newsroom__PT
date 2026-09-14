@@ -1,0 +1,8 @@
+{
+  "id": "produto",
+  "tipo": "Ideia",
+  "rotulo": "Construir produto",
+  "en": "Building product",
+  "corre_sobre": "en",
+  "padrao": "\\b(product.market fit|building products?|product.led|zero to one)\\b"
+}

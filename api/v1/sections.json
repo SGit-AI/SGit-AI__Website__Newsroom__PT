@@ -1,0 +1,186 @@
+{
+  "id": "pt-sections",
+  "count": 8,
+  "sections": [
+    {
+      "id": "empresas",
+      "rotulo": "As empresas",
+      "ordem": 1,
+      "ambito": "Organizações portuguesas que fazem, vendem ou aplicam IA, e as pessoas coletivas à volta delas: investidores, aceleradoras, consultoras.",
+      "o_que_pode_afirmar_hoje": "As organizações sob as quais o Startup Summit lista os seus oradores, derivadas dos cartões e nunca escritas à mão.",
+      "o_que_nao_pode": "Nada parecido com um censo. Não há registo comercial aberto em Portugal: o registo é por empresa, pago e com código de acesso, e o registo de beneficiários efetivos deixou de ser de acesso público em 2022.",
+      "a_afirmacao_honesta": "Estas são as organizações portuguesas que aparecem em financiamento público europeu e nacional, com montantes e datas. É um grafo mais pequeno, e cada aresta é citável.",
+      "fontes_alvo": [
+        {
+          "id": "cordis",
+          "estado": "congelada",
+          "porque": "Projetos de investigação europeus, com conjuntos de dados abertos."
+        },
+        {
+          "id": "recuperar-portugal",
+          "estado": "nao_resolve",
+          "porque": "O portal de transparência do plano de recuperação. Metade da semente aberta do dia um, e não respondeu a nenhuma tentativa."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "Qual é o número de startups ativas que vem de uma FONTE e não de um relatório?"
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "protagonistas",
+      "rotulo": "Os protagonistas",
+      "ordem": 2,
+      "ambito": "Pessoas nomeadas em listas que as próprias fontes publicam, na sua qualidade profissional.",
+      "o_que_pode_afirmar_hoje": "Nome, papel listado e organização listada, verbatim da fonte congelada, mais os tópicos que o próprio evento lhes atribui e as palavras que correspondem ao léxico publicado.",
+      "o_que_nao_pode": "Nenhuma biografia. Nenhum contacto. Nenhuma avaliação, classificação ou caracterização de ninguém. Nenhuma razão para um nome ter saído de uma lista.",
+      "a_afirmacao_honesta": "Uma etiqueta diz que a página daquela pessoa contém aquelas palavras. Não diz o que a pessoa é, faz, sabe ou vale.",
+      "fontes_alvo": [
+        {
+          "id": "oradores",
+          "estado": "congelada",
+          "porque": "A lista que o próprio evento publica, e as páginas individuais que dela partem."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "Esta secção é a que tem mais risco para pessoas reais. Qualquer alargamento das categorias detidas exige mudar o aviso PRIMEIRO."
+      ],
+      "aviso_obrigatorio": true,
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "instituicoes",
+      "rotulo": "As instituições",
+      "ordem": 3,
+      "ambito": "Organismos públicos, reguladores, unidades de investigação — e o que se consegue ou não se consegue ler do registo que publicam.",
+      "o_que_pode_afirmar_hoje": "Que três páginas do registo nacional foram obtidas numa data, e quantos caracteres visíveis cada uma devolveu a um leitor automático.",
+      "o_que_nao_pode": "Que uma instituição esconde alguma coisa. Uma página que renderiza por script é uma escolha técnica comum.",
+      "a_afirmacao_honesta": "A legibilidade do registo público é mensurável, datável e hasheável. A intenção de quem o publica não é.",
+      "fontes_alvo": [
+        {
+          "id": "gov-ia",
+          "estado": "congelada",
+          "porque": "A página do próprio Governo."
+        },
+        {
+          "id": "dre-inicio",
+          "estado": "congelada",
+          "porque": "O diário oficial. Renderiza por script; os PDF leem-se."
+        },
+        {
+          "id": "fct-unidades",
+          "estado": "nao_resolve",
+          "porque": "A lista de unidades de I&D devolveu 404 no endereço tentado."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "Onde está o ato de designação da autoridade nacional para o Regulamento de IA?"
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "politicas",
+      "rotulo": "As políticas",
+      "ordem": 4,
+      "ambito": "Políticas públicas anunciadas e, quando se consegue encontrar, o instrumento legal que as cria.",
+      "o_que_pode_afirmar_hoje": "O que está nos PDF do Diário da República que esta redação consegue ler, e o que não conseguiu ler e porquê.",
+      "o_que_nao_pode": "Que uma política não existe porque o seu instrumento não foi encontrado. São coisas diferentes e a diferença é a história.",
+      "a_afirmacao_honesta": "Um anúncio e um diploma são duas coisas. Este site liga-as quando consegue, e diz quando não consegue.",
+      "fontes_alvo": [
+        {
+          "id": "dre-inicio",
+          "estado": "congelada",
+          "porque": "O diário oficial."
+        },
+        {
+          "id": "dados-gov",
+          "estado": "congelada",
+          "porque": "O portal nacional de dados abertos."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "Como é que se ENCONTRA o endereço do PDF de um diploma no Diário da República sem o construir por adivinhação?"
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "casos-de-uso",
+      "rotulo": "Os casos de uso",
+      "ordem": 5,
+      "ambito": "O que as fontes congeladas dizem que está a ser feito com IA em Portugal: temas e etiquetas.",
+      "o_que_pode_afirmar_hoje": "Os tópicos que o evento atribui a cada orador, verbatim, e as etiquetas derivadas pelo léxico publicado.",
+      "o_que_nao_pode": "Que um caso de uso está em produção, funciona, ou vale alguma coisa. Uma etiqueta é uma correspondência de palavras.",
+      "a_afirmacao_honesta": "Uma fórmula publicada com que um leitor pode discordar vale mais do que um juízo em que tem de confiar.",
+      "fontes_alvo": [
+        {
+          "id": "oradores",
+          "estado": "congelada",
+          "porque": "As páginas individuais, lidas pelo léxico."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "O léxico corre sobre prosa inglesa porque a fonte é inglesa. Quando houver fontes portuguesas, precisa de padrões portugueses — e cada entrada já diz sobre que língua corre."
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "codigo-aberto",
+      "rotulo": "O código aberto",
+      "ordem": 6,
+      "ambito": "Projetos abertos portugueses, e o código que sai de instituições e empresas portuguesas.",
+      "o_que_pode_afirmar_hoje": "Nada. Não há uma única fonte congelada para esta secção.",
+      "o_que_nao_pode": "Tudo o resto.",
+      "a_afirmacao_honesta": "A secção está vazia e a página di-lo, em vez de ser escondida da navegação. O tamanho do que ainda não se vê faz parte do que esta publicação tem para dizer.",
+      "fontes_alvo": [],
+      "perguntas_em_aberto": [
+        "Qual é a fonte primária? Um índice de repositórios não é um registo; um registo de financiamento que nomeie software aberto talvez seja."
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "diaspora",
+      "rotulo": "A diáspora",
+      "ordem": 7,
+      "ambito": "Quem saiu, quem voltou, e quem opera a partir de fora.",
+      "o_que_pode_afirmar_hoje": "Nada. Não há uma única fonte congelada para esta secção.",
+      "o_que_nao_pode": "Tudo o resto. E esta é a secção onde é mais fácil escorregar para afirmações sobre pessoas que nenhuma fonte sustenta.",
+      "a_afirmacao_honesta": "A secção está vazia e a página di-lo.",
+      "fontes_alvo": [],
+      "perguntas_em_aberto": [
+        "Onde é que a nacionalidade ou o percurso de alguém está PUBLICADO por uma fonte primária, e não inferido? Sem resposta a isto, a secção não deve abrir."
+      ],
+      "aviso_obrigatorio": true,
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    },
+    {
+      "id": "eventos",
+      "rotulo": "Os eventos",
+      "ordem": 8,
+      "ambito": "Encontros datados e localizados que publicam um programa e uma lista de quem fala.",
+      "o_que_pode_afirmar_hoje": "O programa do Startup Summit Lisbon 2026, lido do recuo estático da agenda congelada, com títulos verbatim.",
+      "o_que_nao_pode": "Que alguém esteve presente. Um programa é um plano, e um alvo não é um resultado.",
+      "a_afirmacao_honesta": "Foi por aqui que esta redação começou, porque um evento que publica a sua própria lista é a fonte mais congelável que há. Mas um evento é uma amostra, não um recenseamento, e a matéria deste site é um país.",
+      "fontes_alvo": [
+        {
+          "id": "agenda",
+          "estado": "congelada",
+          "porque": "O programa. Renderiza por script; o conteúdo vive no recuo <noscript>."
+        },
+        {
+          "id": "oradores",
+          "estado": "congelada",
+          "porque": "A lista de quem fala."
+        },
+        {
+          "id": "patrocinadores",
+          "estado": "congelada",
+          "porque": "Discorda da agenda quanto aos nomes dos palcos."
+        }
+      ],
+      "perguntas_em_aberto": [
+        "Que outros eventos portugueses publicam programa e lista de oradores de forma congelável?"
+      ],
+      "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+    }
+  ]
+}

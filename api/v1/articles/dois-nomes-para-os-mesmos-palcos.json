@@ -1,0 +1,31 @@
+{
+  "slug": "dois-nomes-para-os-mesmos-palcos",
+  "data": "2026-09-14",
+  "seccao": "eventos",
+  "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
+  "entrada": "Em páginas diferentes do seu próprio site, congeladas no mesmo dia, o Startup Summit Lisbon 2026 chama aos palcos nomes diferentes. Ambas as páginas são dele; nenhuma está errada — estão em desacordo.",
+  "antetitulo": "Verificação",
+  "estado": "verificado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
+  "pasta": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos",
+  "issue": null,
+  "bloco_primeira_pagina": "secundaria-1",
+  "assenta_em": [
+    "2026-09-14/agenda",
+    "2026-09-14/oradores",
+    "2026-09-14/patrocinadores"
+  ],
+  "marcas_na_prosa": [
+    "2026-09-14/agenda",
+    "2026-09-14/oradores",
+    "2026-09-14/patrocinadores"
+  ],
+  "verificacao": {
+    "confirmadas": 4,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  },
+  "tem_prosa": true
+}

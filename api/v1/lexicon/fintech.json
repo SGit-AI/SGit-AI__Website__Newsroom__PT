@@ -1,0 +1,8 @@
+{
+  "id": "fintech",
+  "tipo": "Setor",
+  "rotulo": "Tecnologia financeira",
+  "en": "Fintech",
+  "corre_sobre": "en",
+  "padrao": "\\b(fintech|payments? (?:platform|infrastructure)|banking|insurtech)\\b"
+}

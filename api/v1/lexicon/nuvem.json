@@ -1,0 +1,8 @@
+{
+  "id": "nuvem",
+  "tipo": "Tecnologia",
+  "rotulo": "Computação em nuvem",
+  "en": "Cloud",
+  "corre_sobre": "en",
+  "padrao": "\\b(cloud (?:platform|infrastructure|native)|SaaS|serverless|kubernetes)\\b"
+}

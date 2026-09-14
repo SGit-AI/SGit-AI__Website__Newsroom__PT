@@ -1,0 +1,34 @@
+{
+  "id": "daniel-grech",
+  "fonte": "2026-09-14/oradores/daniel-grech",
+  "temas": [
+    "AI",
+    "Founder journey",
+    "Future of work",
+    "European startups",
+    "Deep tech"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "fintech"
+    },
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "agentes",
+      "tipo": "Tecnologia",
+      "correspondeu": "agentic"
+    },
+    {
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "acquired by"
+    }
+  ],
+  "bio_chars": 756
+}

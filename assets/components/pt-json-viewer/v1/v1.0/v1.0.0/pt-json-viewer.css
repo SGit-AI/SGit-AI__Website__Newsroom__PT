@@ -1,0 +1,42 @@
+/* pt-json-viewer — a data file, read as data rather than downloaded as a file.
+   Clicking `afirmacoes.json` used to hand you a raw document your browser did its best with.
+   What a reader wants there is to SEE the claims, their state and their hashes — so keys that
+   carry meaning on this site are rendered as what they mean. */
+:host { display: block; }
+.wrap { border: 1px solid #d9d3c3; background: #ffffff; }
+.bar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+       padding: 10px 14px; border-bottom: 1px solid #e8e4da; background: #fffdf7; flex-wrap: wrap; }
+.title { font: 12px/1.4 'IBM Plex Mono', Menlo, monospace; color: #17181c; overflow-wrap: anywhere; }
+.meta { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: #8a8d94; padding-top: 2px; }
+.acts { display: flex; gap: 10px; align-items: center; }
+button { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; background: #fffdf7; color: #4a4d55;
+         border: 1px solid #c9c2ae; border-radius: 2px; padding: 3px 8px; cursor: pointer; }
+button:hover { color: #0f766e; border-color: #0f766e; }
+.raw { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: #0f766e; text-decoration: none; }
+.raw:hover { text-decoration: underline; }
+.body { padding: 14px 16px 18px; font: 13px/1.6 'IBM Plex Mono', Menlo, monospace;
+        color: #1a1a1a; overflow-x: auto; }
+
+.row { padding-left: 14px; border-left: 1px solid #ececec; }
+.row.top { padding-left: 0; border-left: 0; }
+.k { color: #6b21a8; }
+.s { color: #17181c; }
+.n { color: #b45309; }
+.b { color: #0f766e; }
+.nul { color: #8a8d94; font-style: italic; }
+.tog { cursor: pointer; user-select: none; color: #8a8d94; display: inline-block; width: 12px; }
+.tog:hover { color: #0f766e; }
+.count { color: #8a8d94; }
+.hidden { display: none; }
+.prose { font: 14px/1.6 'Newsreader', Georgia, serif; color: #1a1a1a; max-width: 46em;
+         white-space: normal; padding: 1px 0; }
+
+/* keys this site gives meaning to */
+.chip { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; padding: 1px 7px; border-radius: 3px;
+        border: 1px solid #c9c2ae; color: #4a4d55; background: #fffdf7; display: inline-block; }
+.chip.confirmada, .chip.aprovada, .chip.publicado, .chip.congelada { color: #0f766e; border-color: #0f766e; }
+.chip.nao_encontrada, .chip.rejeitada, .chip.nao_resolve { color: #b91c1c; border-color: #b91c1c; }
+.chip.fonte_inacessivel, .chip.disputada { color: #b45309; border-color: #b45309; }
+.hash { color: #8a8d94; }
+a.src { color: #0f766e; text-decoration: none; }
+a.src:hover { text-decoration: underline; }

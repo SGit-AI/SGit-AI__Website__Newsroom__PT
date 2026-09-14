@@ -1,0 +1,14 @@
+{
+  "id": "codigo-aberto",
+  "rotulo": "O código aberto",
+  "ordem": 6,
+  "ambito": "Projetos abertos portugueses, e o código que sai de instituições e empresas portuguesas.",
+  "o_que_pode_afirmar_hoje": "Nada. Não há uma única fonte congelada para esta secção.",
+  "o_que_nao_pode": "Tudo o resto.",
+  "a_afirmacao_honesta": "A secção está vazia e a página di-lo, em vez de ser escondida da navegação. O tamanho do que ainda não se vê faz parte do que esta publicação tem para dizer.",
+  "fontes_alvo": [],
+  "perguntas_em_aberto": [
+    "Qual é a fonte primária? Um índice de repositórios não é um registo; um registo de financiamento que nomeie software aberto talvez seja."
+  ],
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

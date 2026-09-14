@@ -1,0 +1,8 @@
+{
+  "id": "cadeia-de-blocos",
+  "tipo": "Tecnologia",
+  "rotulo": "Cadeia de blocos",
+  "en": "Blockchain",
+  "corre_sobre": "en",
+  "padrao": "\\b(blockchain|web3|crypto(?:currency)?|digital assets)\\b"
+}

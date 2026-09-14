@@ -1,0 +1,27 @@
+{
+  "slug": "uma-captura-nao-mostra-movimento",
+  "data": "2026-09-14",
+  "seccao": "eventos",
+  "titulo": "Uma captura não mostra movimento; duas mostram",
+  "entrada": "Só existe uma captura da lista de oradores, com 70 nomes. Não há aqui nenhuma diferença para relatar, e dizer o contrário seria inventar uma. Este artigo existe para dizer isso, e para ficar à espera da segunda captura.",
+  "antetitulo": "A lista mexe-se",
+  "estado": "verificado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
+  "pasta": "artigos/2026/09/14/uma-captura-nao-mostra-movimento",
+  "issue": null,
+  "bloco_primeira_pagina": "secundaria-2",
+  "assenta_em": [
+    "2026-09-14/oradores"
+  ],
+  "marcas_na_prosa": [
+    "2026-09-14/oradores"
+  ],
+  "verificacao": {
+    "confirmadas": 3,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  },
+  "tem_prosa": true
+}

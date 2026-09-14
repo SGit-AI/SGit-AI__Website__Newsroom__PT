@@ -1,0 +1,8 @@
+{
+  "id": "educacao",
+  "tipo": "Setor",
+  "rotulo": "Educação",
+  "en": "Education",
+  "corre_sobre": "en",
+  "padrao": "\\b(ed.?tech|education technology|learning platform)\\b"
+}

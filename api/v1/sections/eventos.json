@@ -1,0 +1,30 @@
+{
+  "id": "eventos",
+  "rotulo": "Os eventos",
+  "ordem": 8,
+  "ambito": "Encontros datados e localizados que publicam um programa e uma lista de quem fala.",
+  "o_que_pode_afirmar_hoje": "O programa do Startup Summit Lisbon 2026, lido do recuo estático da agenda congelada, com títulos verbatim.",
+  "o_que_nao_pode": "Que alguém esteve presente. Um programa é um plano, e um alvo não é um resultado.",
+  "a_afirmacao_honesta": "Foi por aqui que esta redação começou, porque um evento que publica a sua própria lista é a fonte mais congelável que há. Mas um evento é uma amostra, não um recenseamento, e a matéria deste site é um país.",
+  "fontes_alvo": [
+    {
+      "id": "agenda",
+      "estado": "congelada",
+      "porque": "O programa. Renderiza por script; o conteúdo vive no recuo <noscript>."
+    },
+    {
+      "id": "oradores",
+      "estado": "congelada",
+      "porque": "A lista de quem fala."
+    },
+    {
+      "id": "patrocinadores",
+      "estado": "congelada",
+      "porque": "Discorda da agenda quanto aos nomes dos palcos."
+    }
+  ],
+  "perguntas_em_aberto": [
+    "Que outros eventos portugueses publicam programa e lista de oradores de forma congelável?"
+  ],
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

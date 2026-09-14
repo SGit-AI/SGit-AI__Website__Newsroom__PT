@@ -1,0 +1,28 @@
+{
+  "id": "hector-lv",
+  "fonte": "2026-09-14/oradores/hector-lv",
+  "temas": [
+    "Fundraising",
+    "Go-to-market",
+    "Leadership",
+    "European startups"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "internacionalizar",
+      "tipo": "Ideia",
+      "correspondeu": "cross-border"
+    },
+    {
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising"
+    },
+    {
+      "etiqueta": "juridico",
+      "tipo": "Serviço",
+      "correspondeu": "law firm"
+    }
+  ],
+  "bio_chars": 486
+}

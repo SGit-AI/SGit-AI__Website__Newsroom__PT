@@ -1,0 +1,23 @@
+{
+  "id": "pt-excluidas",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "Fontes que foram tentadas e não resolveram. Não são descartadas em silêncio: uma fonte que esta redação não consegue alcançar é um facto sobre o registo público, e o tamanho do que não se consegue ver pertence à página (§10 do resumo). São re-tentadas em cada execução.",
+  "contagem": 1,
+  "itens": [
+    {
+      "id": "2026-09-14/abertas/fct-unidades",
+      "url": "https://www.fct.pt/en/financiamento/programas-de-financiamento/unidades-de-id/",
+      "porque": "o corpo devolvido é um erro (Page not found) — não entra no registo e não pode ser citado"
+    }
+  ],
+  "por_resolver": [
+    {
+      "id": "recuperar-portugal",
+      "url": "https://recuperarportugal.gov.pt/",
+      "publicador": "Recuperar Portugal (PRR)",
+      "lingua": "pt",
+      "porque": "O portal de transparência do plano de recuperação: quem recebeu dinheiro público, para quê. O resumo (§10) marca-o como legível por máquina e é a segunda das duas sementes abertas do dia um."
+    }
+  ]
+}

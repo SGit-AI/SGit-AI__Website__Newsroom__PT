@@ -47,6 +47,13 @@ RODAPE = [
 # em inglês de propósito — o seu público é quem opera a redação, não quem lê o jornal.
 BASTIDORES = ("backoffice", "Back office (EN)")
 
+# O TÍTULO É A MATÉRIA, NÃO O ENDEREÇO. Até à v0.2.0 a mancheta dizia «pt.newsroom.sgit.ai», que
+# é onde o site está e não o que o site é. Um leitor que chega não quer saber o domínio: quer
+# saber sobre o que é. O endereço passa a subtítulo, onde continua a ser útil — é por ele que se
+# volta — e o nome próprio da publicação é a coisa que ela mapeia.
+TITULO = "O Ecossistema Português de IA"
+SUBTITULO = "pt.newsroom.sgit.ai"
+
 LEMA = ("O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo "
         "e grande o suficiente para ser interessante.")
 
@@ -68,9 +75,13 @@ def datalinha(hoje, dias=None):
                    f'Startup Summit Lisbon 2026</div>' if dias else
                    '<div><b>Hoje</b>: Startup Summit Lisbon 2026</div>')
     return (f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}'
-            f'<div style="display:flex;gap:18px;align-items:center">'
-            f'<a href="{{raiz}}aviso/">Aviso de proteção de dados</a>'
+            f'<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">'
+            f'<a href="{{raiz}}aviso/">Aviso</a>'
             f'<a href="{{raiz}}metodo/">Método</a>'
+            f'<a href="{{raiz}}api/">API</a>'
+            f'<a href="{{raiz}}backoffice/" title="The operations console — in English">'
+            f'Back office <span class="flag" aria-label="em inglês">EN</span></a>'
+            f'<pt-wallet site-root="{{raiz}}"></pt-wallet>'
             f'<span class="ver">{VERSAO}</span></div></div>')
 
 
@@ -97,8 +108,9 @@ def mancheta(aqui, raiz):
         cls = ' class="aqui"' if aqui == sid else ""
         ligacoes.append(f'<a href="{raiz}{sid}/"{cls}>{rot}</a>')
     return (
-        f'<div class="mast"><div class="nome">'
-        f'<a href="{raiz}">pt.newsroom<span>.sgit.ai</span></a></div>'
+        f'<div class="mast">'
+        f'<h1 class="nome"><a href="{raiz}">{e(TITULO)}</a></h1>'
+        f'<div class="sub"><a href="{raiz}">{e(SUBTITULO)}</a></div>'
         f'<div class="lema">{e(LEMA)}</div></div>'
         f'<nav class="nav">{"".join(ligacoes)}</nav>'
     )
@@ -127,17 +139,22 @@ def bloco_agente(rel, fontes_n=None, raiz=""):
 
 
 def bloco_declaracao(nomeia_pessoas=False, raiz="/"):
-    """O bloco que diz o que isto é. Em cada página, porque um leitor pode chegar a qualquer uma."""
-    aviso = (f' Esta página nomeia pessoas: o que é detido sobre elas, porquê, e como pedir a '
-             f'remoção — sem dar razão nenhuma — está no '
-             f'<a href="{raiz}aviso/">aviso de proteção de dados</a>.' if nomeia_pessoas else "")
+    """UMA LINHA, e uma página onde ela é explicada.
+
+    Até à v0.2.0 isto era um parágrafo de cinco linhas em cada página do site. Repetido trinta
+    vezes, um aviso deixa de ser lido: o leitor aprende a forma do bloco e salta-o, que é o
+    oposito do que um aviso é para fazer. Passa a ser uma linha no rodapé, com o peso certo, e a
+    explicação vive uma vez em /proveniencia/ — que é também onde está a coisa que esta publicação
+    tem de mais interessante para dizer sobre si própria, e que não cabia num bloco repetido:
+    QUE modelo escreveu o quê, de que fornecedor, e quando."""
+    aviso = (f' Esta página nomeia pessoas — '
+             f'<a href="{raiz}aviso/">o que é detido sobre elas e como sair</a>.'
+             if nomeia_pessoas else "")
     return (
-        f'<div class="aviso-bloco"><p class="sm">Esta publicação é feita por agentes e lida por '
-        f'uma pessoa nomeada antes de publicar. O editor de registo é <b>Dinis Cruz</b>, que '
-        f'responde pelo que aqui está. Nenhuma revisão jurídica foi feita e nada aqui é '
-        f'aconselhamento jurídico. Cada afirmação assenta numa cópia congelada e hasheada da '
-        f'fonte; quando uma afirmação não se consegue confirmar, a página di-lo em vez de a '
-        f'omitir.{aviso}</p></div>'
+        f'<p class="declaracao">Escrito por agentes de IA, com curadoria de um editor humano '
+        f'nomeado. Cada afirmação assenta numa cópia congelada e hasheada da sua fonte; quando '
+        f'não se consegue confirmar, a página di-lo em vez de a omitir. '
+        f'<a href="{raiz}proveniencia/">Quem fez o quê</a>.{aviso}</p>'
     )
 
 
@@ -195,6 +212,7 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 <meta name="generator" content="build/build.py {VERSAO}">
 <link rel="stylesheet" href="{raiz}assets/fonts.css">
 <link rel="stylesheet" href="{raiz}assets/site.css">
+<script type="module" src="{raiz}assets/components/pt-wallet/v1/v1.0/v1.0.0/pt-wallet.js"></script>
 {extra_head}</head>
 <body>
 <div class="folha">

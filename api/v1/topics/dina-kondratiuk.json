@@ -1,0 +1,22 @@
+{
+  "id": "dina-kondratiuk",
+  "fonte": "2026-09-14/oradores/dina-kondratiuk",
+  "temas": [
+    "Fundraising",
+    "Leadership",
+    "Sales"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising"
+    },
+    {
+      "etiqueta": "aceleracao",
+      "tipo": "Serviço",
+      "correspondeu": "accelerator"
+    }
+  ],
+  "bio_chars": 384
+}

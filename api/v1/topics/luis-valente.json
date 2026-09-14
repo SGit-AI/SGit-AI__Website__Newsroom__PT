@@ -1,0 +1,19 @@
+{
+  "id": "luis-valente",
+  "fonte": "2026-09-14/oradores/luis-valente",
+  "temas": [
+    "Fundraising",
+    "Venture capital",
+    "LP / investor perspective",
+    "AI",
+    "Go-to-market"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    }
+  ],
+  "bio_chars": 571
+}

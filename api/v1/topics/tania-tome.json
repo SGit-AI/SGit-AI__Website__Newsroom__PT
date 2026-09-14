@@ -1,0 +1,24 @@
+{
+  "id": "tania-tome",
+  "fonte": "2026-09-14/oradores/tania-tome",
+  "temas": [
+    "Leadership",
+    "Founder journey",
+    "AI",
+    "Future of work",
+    "Scaling"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "sustentabilidade",
+      "tipo": "Ideia",
+      "correspondeu": "Sustainability"
+    }
+  ],
+  "bio_chars": 724
+}

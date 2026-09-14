@@ -1,0 +1,8 @@
+{
+  "id": "hardware",
+  "tipo": "Tecnologia",
+  "rotulo": "Hardware",
+  "en": "Hardware",
+  "corre_sobre": "en",
+  "padrao": "\\b(hardware|robotics|semiconductor|chip design|manufacturing tech)\\b"
+}

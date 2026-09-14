@@ -175,53 +175,32 @@ def documentos():
 
 
 def pagina_docs(docs):
-    por_cat = {}
-    for d in docs:
-        por_cat.setdefault(d["categoria"], []).append(d)
+    """Two panes: the tree on the left, the document on the right, on white.
 
-    blocos = []
-    for pref, rot, porque in CATEGORIAS:
-        lista = por_cat.get(rot)
-        if not lista:
-            continue
-        linhas = "".join(
-            f'<tr><td><a href="viewer.html#{e(x["caminho"])}">{e(x["titulo"])}</a>'
-            f'<div class="mono xs">{e(x["caminho"])}</div></td>'
-            f'<td class="mono xs">{x["linhas"]} lines · {x["palavras"]} words</td>'
-            f'<td class="mono xs"><a href="../{e(x["caminho"])}">raw</a></td></tr>'
-            for x in sorted(lista, key=lambda y: y["caminho"]))
-        blocos.append(
-            f'<div class="rule" style="padding:22px 0 8px"><div class="sect">{e(rot)} '
-            f'<span class="mono xs">({len(lista)})</span></div></div>'
-            f'<p class="sm" style="max-width:48em;padding-bottom:10px">{e(porque)}</p>'
-            f'<div class="rolar"><table><thead><tr><th>Document</th>'
-            f'<th style="width:180px">Size</th><th style="width:70px">File</th></tr></thead>'
-            f'<tbody>{linhas}</tbody></table></div>')
-
+    The version this replaces was a list of links that threw the reader onto a separate page —
+    they scrolled to read and lost the other documents doing it. Somebody reading a document set
+    is navigating and reading at the same time, so the tree stays. All of it is `pt-doc-browser`:
+    this page is a heading and a component."""
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Documents</div></div>
 <h1 class="h-2" style="max-width:28em">Every markdown document this site was built from, readable
-in place.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 8px">{len(docs)} documents. The viewer renders
-them from the repository's own bytes — the same files the build reads, served as-is, so a document
-shown here cannot drift from the one the build used. Each row also links the raw file.</p>
+without losing your place.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 8px">{len(docs)} documents. The tree groups
+them by the directory structure that already exists — <code>briefs/pack/</code> is one element,
+not thirty rows — and the viewer reads each document's own bytes, the same file the build read, so
+what is shown cannot drift from what was built.</p>
 <p class="sm" style="max-width:46em;padding-bottom:18px">The commissioning pack is the largest
-group and the one worth reading first: it is the brief this site was built from, and it is here
-rather than summarised because a summary of a brief is how a project quietly stops doing what it
-was asked to do.</p>
-{"".join(blocos)}
-
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Elsewhere in the estate</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">Linked, not restated. Content exists
-once: the argument this site is an instance of lives on the parent site, and if the same paragraph
-were in both places the two would eventually disagree.</p>
-<div class="rolar"><table><thead><tr><th style="width:230px">Site</th><th>What is there</th>
-  </tr></thead><tbody>
-{"".join(f'<tr><td><a href="{e(u)}">{e(n)}</a></td><td class="sm">{e(w)}</td></tr>' for n, u, w in ESTATE)}
-</tbody></table></div>
+group and the one worth reading first: it is the brief this site was built from, kept whole rather
+than summarised, because a summary of a brief is how a project quietly stops doing what it was
+asked to do. References to the rest of the estate are at the foot of the tree.</p>
+<pt-doc-browser site-root="../"></pt-doc-browser>
 """
+    extra = ('<script src="../assets/vendor/marked.min.js"></script>'
+             '<script type="module" '
+             'src="../assets/components/pt-doc-browser/v1/v1.0/v1.0.0/pt-doc-browser.js"></script>')
     return pagina("backoffice/docs.html", "Documents",
-                  "Every markdown document this site was built from, with a viewer.", corpo)
+                  "Every markdown document this site was built from, in a two-pane reader.",
+                  corpo, extra_body=extra)
 
 
 VIEWER_JS = r"""

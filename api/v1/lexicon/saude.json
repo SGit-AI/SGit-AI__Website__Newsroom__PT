@@ -1,0 +1,8 @@
+{
+  "id": "saude",
+  "tipo": "Setor",
+  "rotulo": "Saúde",
+  "en": "Health",
+  "corre_sobre": "en",
+  "padrao": "\\b(healthcare|health.?tech|medical device|biotech|life sciences)\\b"
+}

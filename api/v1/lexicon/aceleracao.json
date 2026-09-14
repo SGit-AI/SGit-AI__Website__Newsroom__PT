@@ -1,0 +1,8 @@
+{
+  "id": "aceleracao",
+  "tipo": "Serviço",
+  "rotulo": "Aceleração",
+  "en": "Acceleration",
+  "corre_sobre": "en",
+  "padrao": "\\b(accelerator|incubator|venture builder|startup studio)\\b"
+}

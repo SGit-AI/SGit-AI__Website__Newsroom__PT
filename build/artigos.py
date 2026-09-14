@@ -190,19 +190,35 @@ def pagina_artigo(a, registo):
     # os ficheiros desta pasta, ligados
     d = ROOT / a["pasta"]
     ficheiros = sorted(f.name for f in d.iterdir() if f.is_file() and f.name != "index.html")
-    fich = "".join(f'<a class="chip" href="{e(f)}">{e(f)}</a>' for f in ficheiros)
+    botoes = "".join(
+        f'<button type="button" class="chip fich" data-src="{e(f)}">{e(f)}</button>'
+        if f.endswith(".json") else f'<a class="chip" href="{e(f)}">{e(f)}</a>'
+        for f in ficheiros)
+    primeiro = next((f for f in ficheiros if f.endswith(".json")), None)
     bloco_fich = (
         f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Os ficheiros deste '
         f'artigo</div></div>'
         f'<p class="sm" style="max-width:46em;padding-bottom:10px">Um artigo deste site é uma '
-        f'pasta, e a pasta está aqui inteira. Esta página é construída a partir destes ficheiros '
-        f'por <code>build/artigos.py</code>; nada nela é escrito à mão.</p>'
-        f'<div class="chips">{fich}</div>')
+        f'pasta, e a pasta está aqui inteira. Clique num ficheiro para o ler <b>como dados</b> — '
+        f'os estados ganham cor, um identificador de fonte fica ligado ao registo, um SHA-256 é '
+        f'encurtado porque ninguém lê sessenta e quatro caracteres. O ficheiro em bruto continua '
+        f'a um clique, e é o mesmo ficheiro.</p>'
+        f'<div class="chips" style="padding-bottom:14px">{botoes}</div>'
+        f'<pt-json-viewer site-root="../../../../../" '
+        f'{f"src={primeiro}" if primeiro else ""}></pt-json-viewer>'
+        f'<script>document.addEventListener("click",function(ev){{'
+        f'var b=ev.target.closest(".fich");if(!b)return;'
+        f'var v=document.querySelector("pt-json-viewer");if(v)v.load(b.dataset.src);'
+        f'document.querySelectorAll(".fich").forEach(function(x){{'
+        f'x.classList.toggle("ok",x===b)}});}});</script>')
 
     corpo = (cabeca + linha_estado + corpo_prosa + bloco_nao + bloco_af + bloco_prov + bloco_fich)
     nomeia = a["seccao"] == "protagonistas" or "pessoa" in (a.get("especie") or "")
+    extra = ('<script type="module" src="../../../../../assets/components/'
+             'pt-json-viewer/v1/v1.0/v1.0.0/pt-json-viewer.js"></script>')
     return pagina(f'{a["pasta"]}/index.html', a["titulo"], a["entrada"], corpo,
-                  aqui=a["seccao"], nomeia_pessoas=nomeia, fontes_n=len(a.get("assenta_em", [])))
+                  aqui=a["seccao"], nomeia_pessoas=nomeia, fontes_n=len(a.get("assenta_em", [])),
+                  extra_body=extra)
 
 
 def indice(artigos, registo):
@@ -276,6 +292,7 @@ def escrever_indice_de_dados(artigos):
             "estado": a["estado"], "publicado_em": a.get("publicado_em"),
             "publicado_por": a.get("publicado_por"),
             "url": a["url"], "pasta": a["pasta"], "issue": a.get("issue"),
+            "bloco_primeira_pagina": a.get("bloco_primeira_pagina"),
             "assenta_em": a.get("assenta_em", []),
             "marcas_na_prosa": marcas_de_fonte(a.get("prosa")),
             "verificacao": ver.get("resumo") or {},

@@ -1,0 +1,24 @@
+{
+  "id": "olesia-rykova",
+  "fonte": "2026-09-14/oradores/olesia-rykova",
+  "temas": [
+    "Go-",
+    "AI",
+    "Product-market fit",
+    "Founder journey",
+    "Leadership"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Fractional"
+    },
+    {
+      "etiqueta": "aceleracao",
+      "tipo": "Serviço",
+      "correspondeu": "accelerator"
+    }
+  ],
+  "bio_chars": 788
+}

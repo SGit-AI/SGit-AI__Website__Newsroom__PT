@@ -1,0 +1,19 @@
+{
+  "id": "sibilla-strupule",
+  "fonte": "2026-09-14/oradores/sibilla-strupule",
+  "temas": [
+    "Fundraising",
+    "Venture capital",
+    "LP / investor perspective",
+    "European startups",
+    "Go-to-market"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "saida",
+      "tipo": "Ideia",
+      "correspondeu": "exit"
+    }
+  ],
+  "bio_chars": 449
+}

@@ -1,0 +1,30 @@
+{
+  "id": "instituicoes",
+  "rotulo": "As instituições",
+  "ordem": 3,
+  "ambito": "Organismos públicos, reguladores, unidades de investigação — e o que se consegue ou não se consegue ler do registo que publicam.",
+  "o_que_pode_afirmar_hoje": "Que três páginas do registo nacional foram obtidas numa data, e quantos caracteres visíveis cada uma devolveu a um leitor automático.",
+  "o_que_nao_pode": "Que uma instituição esconde alguma coisa. Uma página que renderiza por script é uma escolha técnica comum.",
+  "a_afirmacao_honesta": "A legibilidade do registo público é mensurável, datável e hasheável. A intenção de quem o publica não é.",
+  "fontes_alvo": [
+    {
+      "id": "gov-ia",
+      "estado": "congelada",
+      "porque": "A página do próprio Governo."
+    },
+    {
+      "id": "dre-inicio",
+      "estado": "congelada",
+      "porque": "O diário oficial. Renderiza por script; os PDF leem-se."
+    },
+    {
+      "id": "fct-unidades",
+      "estado": "nao_resolve",
+      "porque": "A lista de unidades de I&D devolveu 404 no endereço tentado."
+    }
+  ],
+  "perguntas_em_aberto": [
+    "Onde está o ato de designação da autoridade nacional para o Regulamento de IA?"
+  ],
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

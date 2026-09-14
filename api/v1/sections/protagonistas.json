@@ -1,0 +1,21 @@
+{
+  "id": "protagonistas",
+  "rotulo": "Os protagonistas",
+  "ordem": 2,
+  "ambito": "Pessoas nomeadas em listas que as próprias fontes publicam, na sua qualidade profissional.",
+  "o_que_pode_afirmar_hoje": "Nome, papel listado e organização listada, verbatim da fonte congelada, mais os tópicos que o próprio evento lhes atribui e as palavras que correspondem ao léxico publicado.",
+  "o_que_nao_pode": "Nenhuma biografia. Nenhum contacto. Nenhuma avaliação, classificação ou caracterização de ninguém. Nenhuma razão para um nome ter saído de uma lista.",
+  "a_afirmacao_honesta": "Uma etiqueta diz que a página daquela pessoa contém aquelas palavras. Não diz o que a pessoa é, faz, sabe ou vale.",
+  "fontes_alvo": [
+    {
+      "id": "oradores",
+      "estado": "congelada",
+      "porque": "A lista que o próprio evento publica, e as páginas individuais que dela partem."
+    }
+  ],
+  "perguntas_em_aberto": [
+    "Esta secção é a que tem mais risco para pessoas reais. Qualquer alargamento das categorias detidas exige mudar o aviso PRIMEIRO."
+  ],
+  "aviso_obrigatorio": true,
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

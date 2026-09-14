@@ -1,0 +1,8 @@
+{
+  "id": "saida",
+  "tipo": "Ideia",
+  "rotulo": "Saída",
+  "en": "Exit",
+  "corre_sobre": "en",
+  "padrao": "\\b(exit|acquisition|acquired by|IPO|merger)\\b"
+}

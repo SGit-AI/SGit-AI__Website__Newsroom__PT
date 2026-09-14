@@ -1,0 +1,8 @@
+{
+  "id": "aplicacao",
+  "tipo": "Produto",
+  "rotulo": "Aplicação",
+  "en": "Application",
+  "corre_sobre": "en",
+  "padrao": "\\b(mobile app|consumer app|web app)\\b"
+}

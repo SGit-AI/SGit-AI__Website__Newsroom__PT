@@ -1,0 +1,29 @@
+{
+  "id": "lisa-rebecca-press",
+  "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+  "temas": [
+    "Fundraising",
+    "AI",
+    "Operations",
+    "Scaling",
+    "European startups"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "nuvem",
+      "tipo": "Tecnologia",
+      "correspondeu": "SaaS"
+    },
+    {
+      "etiqueta": "angariar",
+      "tipo": "Ideia",
+      "correspondeu": "fundraising"
+    },
+    {
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Consulting"
+    }
+  ],
+  "bio_chars": 534
+}

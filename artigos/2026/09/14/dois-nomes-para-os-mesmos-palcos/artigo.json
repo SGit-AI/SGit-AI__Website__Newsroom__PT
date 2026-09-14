@@ -26,5 +26,6 @@
     "pesquisa": "Congelou as páginas do evento e procurou em cada uma os nomes de palco conhecidos.",
     "redacao": "Escreveu a partir de dados/verificacoes-fonte.json (nomes_de_palco).",
     "verificacao": "Releu as três cópias congeladas e voltou a procurar cada nome."
-  }
+  },
+  "bloco_primeira_pagina": "secundaria-1"
 }

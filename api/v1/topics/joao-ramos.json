@@ -1,0 +1,19 @@
+{
+  "id": "joao-ramos",
+  "fonte": "2026-09-14/oradores/joao-ramos",
+  "temas": [
+    "Go-to-market",
+    "Leadership",
+    "Sales",
+    "Scaling",
+    "Future of work"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "investimento-anjo",
+      "tipo": "Setor",
+      "correspondeu": "angel investor"
+    }
+  ],
+  "bio_chars": 216
+}

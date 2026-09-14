@@ -1,0 +1,8 @@
+{
+  "id": "comercio",
+  "tipo": "Setor",
+  "rotulo": "Comércio e retalho",
+  "en": "Commerce and retail",
+  "corre_sobre": "en",
+  "padrao": "\\b(e.?commerce|marketplace|retail tech|d2c|direct.to.consumer)\\b"
+}

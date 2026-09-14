@@ -26,5 +26,6 @@
     "pesquisa": "Obteve e congelou as três páginas; registou bytes, caracteres visíveis e SHA-256.",
     "redacao": "Escreveu a partir de dados/verificacoes-fonte.json e de mais nada.",
     "verificacao": "Releu as três cópias congeladas e voltou a contar os caracteres visíveis."
-  }
+  },
+  "bloco_primeira_pagina": "lead"
 }

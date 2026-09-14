@@ -50,6 +50,35 @@ def primeira(d):
     em_preparacao = [h for h in hist["historias"]
                      if h["estado"] in ("procurado", "rascunho", "verificado")]
 
+    # QUE ARTIGO OCUPA QUE LUGAR DA PRIMEIRA PÁGINA é uma propriedade do ARTIGO, declarada no seu
+    # artigo.json, e não uma tabela de slugs aqui dentro. Um slug escrito neste ficheiro seria mais
+    # um sítio para esquecer no dia em que um artigo mudasse de nome.
+    #
+    # E cada bloco desta página LIGA para o seu artigo. Um jornal em que a manchete não é uma
+    # ligação não é um jornal: é um cartaz. Era o que isto era até agora.
+    slots = {h["bloco_primeira_pagina"]: h for h in hist["historias"]
+             if h.get("bloco_primeira_pagina")}
+
+    def liga(slot, texto, spec):
+        """O título de um bloco, ligado ao seu artigo quando existe um.
+
+        `spec` é «<tag> <classe>» — «h1 h-lead». Uma versão anterior usava a cadeia inteira como
+        classe E a primeira palavra como etiqueta, o que produzia `class="h1 h-lead"`: a classe
+        que dá o tamanho ao título deixava de existir, e o resultado parecia certo no HTML e
+        errado na página."""
+        tag, _, classe = spec.partition(" ")
+        h = slots.get(slot)
+        corpo = (f'<a href="{e(h["url"])}">{e(texto)}</a>' if h else e(texto))
+        return f'<{tag} class="{classe}">{corpo}</{tag}>'
+
+    def estado_do(slot):
+        """A ficha de estado do artigo por trás de um bloco — um leitor tem direito a saber que
+        o que está a ler ainda não passou pelo editor."""
+        h = slots.get(slot)
+        if not h or h["estado"] == "publicado":
+            return ""
+        return (f'<a class="chip" href="{e(h["url"])}">ler o artigo · {e(h["estado"])}</a>')
+
     # --- a história principal -------------------------------------------------
     # Não há nenhuma publicada nesta versão, e a primeira página di-lo em vez de encenar uma.
     # O que ocupa o lugar da manchete é o que esta redação PODE afirmar hoje a partir dos bytes
@@ -76,8 +105,8 @@ def primeira(d):
         tot_pt = {1: "uma", 2: "duas", 3: "três"}.get(len(leg), str(len(leg)))
         bloco_lead = (
             f'<div class="kick">O registo nacional · uma medição</div>'
-            f'<h1 class="h-lead">{n_pt} das {tot_pt} páginas do registo nacional não devolvem '
-            f'texto a um leitor automático</h1>'
+            + liga("lead", f"{n_pt} das {tot_pt} páginas do registo nacional não devolvem "
+                            f"texto a um leitor automático", "h1 h-lead") +
             f'<p class="std">Esta redação obteve e congelou hoje {tot_pt} páginas do registo '
             f'público português. {quais} {verbo} bytes e quase nenhum texto visível: renderizam '
             f'por script. É uma medição com data e hash sobre a legibilidade do registo, não uma '
@@ -107,7 +136,8 @@ def primeira(d):
         sec1 = (
             f'<div class="col sp10">'
             f'<div class="kick">Verificação</div>'
-            f'<h2 class="h-2">O mesmo evento nomeia os seus palcos de duas maneiras</h2>'
+            + liga("secundaria-1", "O mesmo evento nomeia os seus palcos de duas maneiras",
+                   "h2 h-2") +
             f'<p class="sm">Em páginas diferentes do seu próprio site, congeladas no mesmo dia, o '
             f'evento chama aos palcos nomes diferentes. Ambas as páginas são dele; nenhuma está '
             f'errada — estão em desacordo.</p>'
@@ -120,8 +150,9 @@ def primeira(d):
         sec2 = (
             f'<div class="hair col sp10" style="padding-top:22px">'
             f'<div class="kick">A lista mexe-se</div>'
-            f'<h2 class="h-2">Entraram {len(ultima_mud["entraram"])} e '
-            f'{"saiu" if len(ultima_mud["sairam"]) == 1 else "saíram"} {len(ultima_mud["sairam"])}</h2>'
+            + liga("secundaria-2", f'Entraram {len(ultima_mud["entraram"])} e '
+                   f'{"saiu" if len(ultima_mud["sairam"]) == 1 else "saíram"} '
+                   f'{len(ultima_mud["sairam"])}', "h2 h-2") +
             f'<p class="sm">Entre {e(ultima_mud["de"])} e {e(ultima_mud["para"])} a lista publicada '
             f'de oradores passou de {ultima_mud["contagem_de"]} para {ultima_mud["contagem_para"]}. '
             f'Temos as duas cópias e os dois hashes, e é só por isso que alguém o pode dizer. A '
@@ -132,7 +163,7 @@ def primeira(d):
         sec2 = (
             f'<div class="hair col sp10" style="padding-top:22px">'
             f'<div class="kick">A lista mexe-se</div>'
-            f'<h2 class="h-2">Uma captura não mostra movimento; duas mostram</h2>'
+            + liga("secundaria-2", "Uma captura não mostra movimento; duas mostram", "h2 h-2") +
             f'<p class="sm">Só existe uma captura da lista de oradores, a de {e(hoje)}, com '
             f'{pes["contagem"]} nomes. Não há aqui nenhuma diferença para relatar, e dizer o '
             f'contrário seria inventar uma. A captura seguinte torna esta afirmação possível.</p>'
@@ -208,7 +239,7 @@ def primeira(d):
 <div class="g12" style="padding:34px 0 30px">
   <div class="col sp18" style="grid-column:span 7">
     {bloco_lead}
-    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}</div>
+    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}{estado_do("lead")}</div>
     {estado_dep}
   </div>
   <div class="col sp22 borda-esq" style="grid-column:span 5;border-left:1px solid var(--filete);padding-left:40px">

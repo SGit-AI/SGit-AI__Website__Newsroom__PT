@@ -1,0 +1,8 @@
+{
+  "id": "juridico",
+  "tipo": "Serviço",
+  "rotulo": "Jurídico",
+  "en": "Legal",
+  "corre_sobre": "en",
+  "padrao": "\\b(law firm|legal (?:counsel|advice|services)|attorney|solicitor)\\b"
+}

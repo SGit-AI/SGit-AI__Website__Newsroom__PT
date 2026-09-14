@@ -1,0 +1,8 @@
+{
+  "id": "diaspora",
+  "tipo": "Ideia",
+  "rotulo": "Diáspora",
+  "en": "Diaspora",
+  "corre_sobre": "en",
+  "padrao": "\\b(Portuguese diaspora|returned to Portugal|Portuguese.born|from Portugal to)\\b"
+}

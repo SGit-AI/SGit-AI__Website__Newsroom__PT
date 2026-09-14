@@ -1,0 +1,8 @@
+{
+  "id": "plataforma",
+  "tipo": "Produto",
+  "rotulo": "Plataforma",
+  "en": "Platform",
+  "corre_sobre": "en",
+  "padrao": "\\b(platform for|B2B platform|operating system for)\\b"
+}

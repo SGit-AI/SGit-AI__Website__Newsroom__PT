@@ -1,0 +1,29 @@
+{
+  "id": "akshay-ruparelia",
+  "fonte": "2026-09-14/oradores/akshay-ruparelia",
+  "temas": [
+    "Leadership",
+    "Founder journey",
+    "Go-to-market",
+    "Scaling",
+    "Future of work"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia-generativa",
+      "tipo": "Tecnologia",
+      "correspondeu": "GenAI"
+    },
+    {
+      "etiqueta": "cadeia-de-blocos",
+      "tipo": "Tecnologia",
+      "correspondeu": "blockchain"
+    },
+    {
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "Consultancy"
+    }
+  ],
+  "bio_chars": 626
+}

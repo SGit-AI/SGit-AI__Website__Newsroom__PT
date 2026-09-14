@@ -1,0 +1,31 @@
+{
+  "slug": "registo-nacional-nao-devolve-texto",
+  "data": "2026-09-14",
+  "seccao": "politicas",
+  "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
+  "entrada": "Esta redação obteve e congelou três páginas do registo público português. O Diário da República e a página do Governo devolveram bytes e quase nenhum texto visível: renderizam por script. É uma medição com data e hash, não uma opinião sobre quem publica.",
+  "antetitulo": "O registo nacional · uma medição",
+  "estado": "verificado",
+  "publicado_em": null,
+  "publicado_por": null,
+  "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
+  "pasta": "artigos/2026/09/14/registo-nacional-nao-devolve-texto",
+  "issue": "001",
+  "bloco_primeira_pagina": "lead",
+  "assenta_em": [
+    "2026-09-14/registo/dre-inicio",
+    "2026-09-14/registo/gov-ia",
+    "2026-09-14/registo/dados-gov"
+  ],
+  "marcas_na_prosa": [
+    "2026-09-14/registo/dre-inicio",
+    "2026-09-14/registo/gov-ia",
+    "2026-09-14/registo/dados-gov"
+  ],
+  "verificacao": {
+    "confirmadas": 4,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  },
+  "tem_prosa": true
+}

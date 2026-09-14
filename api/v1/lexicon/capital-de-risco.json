@@ -1,0 +1,8 @@
+{
+  "id": "capital-de-risco",
+  "tipo": "Setor",
+  "rotulo": "Capital de risco",
+  "en": "Venture capital",
+  "corre_sobre": "en",
+  "padrao": "\\b(venture capital|VC fund|early.stage fund|seed fund|limited partner|LP)\\b"
+}

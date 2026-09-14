@@ -1,0 +1,20 @@
+{
+  "id": "casos-de-uso",
+  "rotulo": "Os casos de uso",
+  "ordem": 5,
+  "ambito": "O que as fontes congeladas dizem que está a ser feito com IA em Portugal: temas e etiquetas.",
+  "o_que_pode_afirmar_hoje": "Os tópicos que o evento atribui a cada orador, verbatim, e as etiquetas derivadas pelo léxico publicado.",
+  "o_que_nao_pode": "Que um caso de uso está em produção, funciona, ou vale alguma coisa. Uma etiqueta é uma correspondência de palavras.",
+  "a_afirmacao_honesta": "Uma fórmula publicada com que um leitor pode discordar vale mais do que um juízo em que tem de confiar.",
+  "fontes_alvo": [
+    {
+      "id": "oradores",
+      "estado": "congelada",
+      "porque": "As páginas individuais, lidas pelo léxico."
+    }
+  ],
+  "perguntas_em_aberto": [
+    "O léxico corre sobre prosa inglesa porque a fonte é inglesa. Quando houver fontes portuguesas, precisa de padrões portugueses — e cada entrada já diz sobre que língua corre."
+  ],
+  "nota": "Este ficheiro é o registo editorial da secção: o que ela cobre, o que pode e não pode afirmar HOJE, que fontes tem por congelar, e que perguntas estão em aberto. A página da secção é construída a partir daqui. Uma secção vazia diz que está vazia."
+}

@@ -1,0 +1,24 @@
+{
+  "id": "saachin-bhatt",
+  "fonte": "2026-09-14/oradores/saachin-bhatt",
+  "temas": [
+    "AI",
+    "Deep tech",
+    "Regulation",
+    "Product-market fit",
+    "Future of work"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "ia",
+      "tipo": "Tecnologia",
+      "correspondeu": "AI"
+    },
+    {
+      "etiqueta": "consultoria",
+      "tipo": "Serviço",
+      "correspondeu": "consultancy"
+    }
+  ],
+  "bio_chars": 656
+}

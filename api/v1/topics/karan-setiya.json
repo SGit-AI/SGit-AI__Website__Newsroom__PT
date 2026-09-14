@@ -1,0 +1,24 @@
+{
+  "id": "karan-setiya",
+  "fonte": "2026-09-14/oradores/karan-setiya",
+  "temas": [
+    "LP / investor perspective",
+    "Founder journey",
+    "Go-to-market",
+    "Venture capital",
+    "European startups"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "fintech",
+      "tipo": "Setor",
+      "correspondeu": "Fintech"
+    },
+    {
+      "etiqueta": "educacao",
+      "tipo": "Setor",
+      "correspondeu": "edTech"
+    }
+  ],
+  "bio_chars": 131
+}

@@ -1,0 +1,22 @@
+{
+  "id": "thiago-vieira",
+  "fonte": "2026-09-14/oradores/thiago-vieira",
+  "temas": [
+    "Scaling",
+    "Go-to-market",
+    "Regulation"
+  ],
+  "etiquetas": [
+    {
+      "etiqueta": "investimento-anjo",
+      "tipo": "Setor",
+      "correspondeu": "Angel Investor"
+    },
+    {
+      "etiqueta": "ciberseguranca",
+      "tipo": "Tecnologia",
+      "correspondeu": "Cybersecurity"
+    }
+  ],
+  "bio_chars": 108
+}

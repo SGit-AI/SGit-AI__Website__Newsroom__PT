@@ -1,0 +1,8 @@
+{
+  "id": "escalar",
+  "tipo": "Ideia",
+  "rotulo": "Escalar",
+  "en": "Scaling",
+  "corre_sobre": "en",
+  "padrao": "\\b(scal(?:e|ing) (?:up|a company|globally)|hypergrowth|growth stage)\\b"
+}
