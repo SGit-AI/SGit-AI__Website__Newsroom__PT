@@ -46,3 +46,35 @@ Duas decisões que tomei e que podem ser desfeitas:
 
 O que não consegui: ler os dois cofres que @Dinis deu. `pip install sgit-ai` foi recusado pelo
 classificador desta caixa. As chaves não entraram em ficheiro nenhum. Está como assunto bloqueado.
+
+## 2026-09-15T00:45Z — ciclo 1, continuação: as pontes, a observabilidade e o painel de conversa
+
+Integrei o `dev` a meio do ciclo, a pedido de @Dinis. O outro agente tinha construído o mapa de
+comentários por agente, as páginas de entidade, a mesa como sala e o `build/tudo.py`. Duas coisas
+passariam a existir em dobro e ficaram desfeitas: o dicionário `AGENTES` escrito à mão em
+`build/comentarios.py` passa a ler o registo, e o `build/mesa.py` — que contava o correio abrindo
+`redacao/correio/<dep>/<caixa>/*.md` e que, depois da migração, tinha passado a contar zero **sem
+falhar** — passa a contar de `dados/correio.json`. A avaria de não falhar é a pior, e foi a
+integração que a revelou: sozinho, nenhum de nós a teria visto.
+
+Três coisas construídas depois disso:
+
+- `assets/ponte.js` — o cliente da fila de acrescento, com o envelope da v0.15.0 do sgit (base64
+  sobre `{v,w,i,c}`, AES-256-GCM nova por mensagem embrulhada em RSA-OAEP). Apanha antes do pedido
+  o engano que a documentação marca como fonte viva de confusão: uma impressão digital «sha256:…»
+  colada onde vai um código de acrescento. Confirmado no navegador: recusa com a razão à vista.
+- `assets/observador.js` — a observabilidade, com quatro regras que não são opções. A primeira é a
+  que importa: **sem credenciais não faz absolutamente nada**, nem aviso nem interruptor. Confirmado
+  no navegador: a primeira página não ganhou aviso nenhum.
+- `assets/conversa.js` — «falar com este conteúdo», nos dois níveis de
+  `sgit.ai/articles/chat-on-a-static-site`. O nível 0 corre no navegador e **diz porque escolheu**;
+  o nível 1 é a chave do próprio leitor, com dezoito ferramentas que são GETs a `/api/v1/`. As
+  ferramentas são invulgarmente seguras de dar a um modelo porque a API é só ficheiros: o pior que
+  uma chamada faz é ler uma coisa que já é pública. A lista de caminhos é fechada e o `{id}` é
+  higienizado — um id com uma barra sairia de `/api/v1/`.
+
+E um achado que abri como assunto bloqueado de @Dinis, porque é dele e não meu: `dados/aviso.json`
+não fala de telemetria. Enquanto a ponte estiver desligada, isso está correto. No momento em que
+receber credenciais, o aviso fica errado por omissão — e o IP que o servidor da fila vê é a parte
+que tem de estar escrita, porque é a única que o leitor não pode verificar. A ordem é o aviso
+primeiro e as credenciais depois, que é a mesma ordem que este site já acertou uma vez.

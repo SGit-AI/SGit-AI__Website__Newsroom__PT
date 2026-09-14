@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.6.0",
+  "version": "v0.7.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -532,7 +532,7 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 36,
+      "count": 46,
       "items": null,
       "item_ids": null
     },
@@ -826,6 +826,55 @@
         "tema-pricing",
         "tema-exits-m-a",
         "tema-from-zero-to-funded-angel-investment-playbook"
+      ]
+    },
+    {
+      "path": "/api/v1/agents.json",
+      "name": "agents",
+      "portuguese_source": "dados/agentes.json",
+      "summary": "The agent roster: mission, central claim, and what each is not responsible for",
+      "description": "Each role in the shape teams.sgit.ai publishes for a ROLE.md, crossed with the shape sgraph.ai publishes for each of its own agents. The central claim is written as a failure condition so it can be disproved, and «not responsible for» is the field without which every role quietly becomes the same role. An agent has two identifiers and the correspondence is in the file: `id` is the mail address, `id_curto` is what the comment records are keyed on.",
+      "count": 5,
+      "items": "/api/v1/agents/<id>.json",
+      "item_ids": [
+        "pesquisa-pt",
+        "redacao-pt",
+        "verificacao-pt",
+        "bastidores-pt",
+        "dinis-humano"
+      ]
+    },
+    {
+      "path": "/api/v1/mail.json",
+      "name": "mail",
+      "portuguese_source": "dados/correio.json",
+      "summary": "Every message between the agents, under Email-FS-lite",
+      "description": "RFC 2822 messages in a folder. The state of a message is the folder it sits in and not a field, because a field can disagree with the folder and a folder cannot disagree with itself. Messages are immutable: never edited, never deleted, only moved.",
+      "count": 4,
+      "items": null,
+      "item_ids": null
+    },
+    {
+      "path": "/api/v1/board.json",
+      "name": "board",
+      "portuguese_source": "dados/quadro.json",
+      "summary": "What each agent has in front of it",
+      "description": "Two kinds of card, kept apart. A card under `assuntos` is work the agent opened for itself and carries its own reading of it. A paper issue arrives on a board by the published formula in agents.json and by nothing else — classification is a published formula or it does not happen.",
+      "count": null,
+      "items": null,
+      "item_ids": null
+    },
+    {
+      "path": "/api/v1/bridges.json",
+      "name": "bridges",
+      "portuguese_source": "dados/pontes.json",
+      "summary": "The append lanes between this static site and the vault",
+      "description": "What each lane sends, what it never sends, and which of its three values may be published. No credential is in this file or in any other: the vault id and the append token are handed to a browser at runtime, and the build has a key-shaped-string tripwire that fails if one ever appears.",
+      "count": 2,
+      "items": "/api/v1/bridges/<id>.json",
+      "item_ids": [
+        "editor-para-bastidores",
+        "observabilidade"
       ]
     },
     {

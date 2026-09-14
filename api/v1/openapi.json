@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "pt.newsroom.sgit.ai",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "summary": "The Portuguese AI ecosystem, as data",
     "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
     "contact": {
@@ -96,6 +96,22 @@
     {
       "name": "entities",
       "description": "Every graph node that is a thing in the world, with a page"
+    },
+    {
+      "name": "agents",
+      "description": "The agent roster: mission, central claim, and what each is not responsible for"
+    },
+    {
+      "name": "mail",
+      "description": "Every message between the agents, under Email-FS-lite"
+    },
+    {
+      "name": "board",
+      "description": "What each agent has in front of it"
+    },
+    {
+      "name": "bridges",
+      "description": "The append lanes between this static site and the vault"
     },
     {
       "name": "manifest",
@@ -945,6 +961,171 @@
               },
               "editor-digitalgov": {
                 "value": "editor-digitalgov"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/agents.json": {
+      "get": {
+        "operationId": "getAgents",
+        "summary": "The agent roster: mission, central claim, and what each is not responsible for",
+        "description": "Each role in the shape teams.sgit.ai publishes for a ROLE.md, crossed with the shape sgraph.ai publishes for each of its own agents. The central claim is written as a failure condition so it can be disproved, and «not responsible for» is the field without which every role quietly becomes the same role. An agent has two identifiers and the correspondence is in the file: `id` is the mail address, `id_curto` is what the comment records are keyed on.\n\nSource file in the repository: `dados/agentes.json`.",
+        "tags": [
+          "agents"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agents/{id}.json": {
+      "get": {
+        "operationId": "getAgentsById",
+        "summary": "One item from agents",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "agents"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "pesquisa-pt": {
+                "value": "pesquisa-pt"
+              },
+              "redacao-pt": {
+                "value": "redacao-pt"
+              },
+              "verificacao-pt": {
+                "value": "verificacao-pt"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/mail.json": {
+      "get": {
+        "operationId": "getMail",
+        "summary": "Every message between the agents, under Email-FS-lite",
+        "description": "RFC 2822 messages in a folder. The state of a message is the folder it sits in and not a field, because a field can disagree with the folder and a folder cannot disagree with itself. Messages are immutable: never edited, never deleted, only moved.\n\nSource file in the repository: `dados/correio.json`.",
+        "tags": [
+          "mail"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/board.json": {
+      "get": {
+        "operationId": "getBoard",
+        "summary": "What each agent has in front of it",
+        "description": "Two kinds of card, kept apart. A card under `assuntos` is work the agent opened for itself and carries its own reading of it. A paper issue arrives on a board by the published formula in agents.json and by nothing else — classification is a published formula or it does not happen.\n\nSource file in the repository: `dados/quadro.json`.",
+        "tags": [
+          "board"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bridges.json": {
+      "get": {
+        "operationId": "getBridges",
+        "summary": "The append lanes between this static site and the vault",
+        "description": "What each lane sends, what it never sends, and which of its three values may be published. No credential is in this file or in any other: the vault id and the append token are handed to a browser at runtime, and the build has a key-shaped-string tripwire that fails if one ever appears.\n\nSource file in the repository: `dados/pontes.json`.",
+        "tags": [
+          "bridges"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bridges/{id}.json": {
+      "get": {
+        "operationId": "getBridgesById",
+        "summary": "One item from bridges",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "bridges"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "editor-para-bastidores": {
+                "value": "editor-para-bastidores"
+              },
+              "observabilidade": {
+                "value": "observabilidade"
               }
             }
           }

@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.6.0</span></div>
+  <div><span class="ver">v0.7.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,75 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.7.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>Os agentes passam a ser um registo, e o correio entre eles passa a ser um protocolo.</b> Eram
+três parágrafos em <code>dados/equipa.json</code> e duas mensagens soltas numa pasta.
+<code>dados/agentes.json</code> passa a ser o registo, na forma que <a
+href="https://teams.sgit.ai/role-format/index.html">teams.sgit.ai publica para um
+<code>ROLE.md</code></a> cruzada com a que <a
+href="https://sgraph.ai/en-gb/library/agentic-teams/sgraph-ai-team.md">sgraph.ai publica para cada
+agente da sua equipa</a>. Cinco papéis, e o quinto — @Bastidores — não escreve uma linha do jornal.
+Cinco outros ficam nomeados como <b>não construídos</b>, com a razão, porque um registo que
+reclamasse papéis que ninguém corre estaria a reclamar uma capacidade.
+<br><br>
+<b>O campo que faz disto uma equipa é o «não responsável por».</b> Sem ele, cada papel torna-se
+silenciosamente o mesmo papel — e é por isso que ele está em cada definição, a dizer de quem é
+aquilo que não é dele. A afirmação central de cada papel está escrita como <b>condição de falha</b>,
+para poder ser desmentida em vez de admirada.
+<br><br>
+<b>Email-FS-lite, tal e qual, com a diferença dita em voz alta.</b> O correio corre pelo protocolo
+que a equipa de sgraph.ai publica e corre: escritor único por pasta, a expedição como única
+superfície partilhada, um commit por ciclo, mensagens <code>.eml</code> imutáveis que só se movem.
+O estado de uma mensagem é <b>a pasta onde ela está</b> e não um campo, porque um campo pode
+discordar da pasta e uma pasta não pode discordar de si mesma. O protocolo foi desenhado para um
+cofre, onde <code>sgit pull</code> é a notificação de caixa de entrada; aqui corre num repositório
+git, e essa diferença está escrita em <code>redacao/correio/LEIA-ME.md</code> em vez de ser
+disfarçada.
+<br><br>
+<b>Um leitor só, e um segundo leitor apanhado desatualizado.</b> <code>build/equipa.py</code> lê a
+pasta e deriva <code>dados/correio.json</code>; tudo o mais lê o derivado. A v0.3.1 foi apagar um
+segundo leitor de documentos, e a integração deste ciclo mostrou porquê:
+<code>build/mesa.py</code> contava o correio abrindo a pasta, e depois da migração contava zero
+<b>sem falhar</b>. Uma avaria que não falha é a pior espécie, e foram os dois leitores que a
+criaram. Havia também duas listas de agentes — uma escrita à mão em
+<code>build/comentarios.py</code> — e passou a haver uma.
+<br><br>
+<b>A ponte: o editor passa a poder falar com a redação a partir do navegador.</b> Este site é
+estático e não consegue escrever no repositório; uma fila de acrescento de cofre fecha essa falha
+sem lhe dar um servidor, porque divide o acesso em quatro capacidades que não se sobrepõem — quem
+tem o código <b>acrescenta e mais nada</b>, e a resposta a um acrescento é cega de propósito. Está
+construída e <b>sem credencial</b>: o identificador do cofre e o código são dados ao navegador e
+ficam em <code>localStorage</code>, porque o detetor de cadeias com forma de chave do validador
+falharia a construção se alguma entrasse num ficheiro — o que é o portão a funcionar e não uma
+regra a ser lembrada.
+<br><br>
+<b>Um achado que veio do cofre dos jogos, e que muda o desenho.</b> A telemetria dele construía
+eventos e nunca os enviava. A causa não era o código: uma aplicação de cofre corre numa moldura
+cujo CSP é <code>connect-src blob: data:</code>, e a única saída reabriria toda a saída de uma
+moldura que tem conteúdo decifrado. Este site não é uma aplicação de cofre — e por isso o que a
+telemetria dos jogos não conseguiu fazer, este site consegue. A diferença é de superfície, não de
+esforço.
+<br><br>
+<b>«Falar com este conteúdo», nos dois níveis, e o nível 0 é a omissão porque diz porque
+escolheu.</b> Um comparador determinístico que corre no navegador contra o índice que a construção
+emitiu, e que mostra as palavras que bateram e onde. O nível 1 é a chave do próprio leitor, com
+dezoito ferramentas que são <code>GET</code>s a <code>/api/v1/</code> — invulgarmente seguras de dar
+a um modelo, porque a API é só ficheiros e o pior que uma chamada faz é ler uma coisa que já é
+pública. Quatro coleções novas na API: os agentes, o correio, o quadro e as pontes.
+<br><br>
+<b>O que ficou bloqueado, e é do editor.</b> <code>dados/aviso.json</code> não fala de telemetria, e
+enquanto a ponte estiver desligada isso está correto. No momento em que ela receber credenciais o
+aviso fica errado por omissão — e o endereço IP que o servidor da fila vê tem de estar escrito,
+porque é a única parte que o leitor não pode verificar. A ordem é <b>o aviso primeiro, as
+credenciais depois</b>, que é a mesma ordem que este site já acertou uma vez, quando o aviso foi
+publicado antes da primeira página que nomeia alguém.
+</td>
+</tr>
+
 
 <tr>
 <td class="mono"><span class="vnum">v0.6.0</span></td>
@@ -333,7 +402,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.6.0</span>.
+duplicados. Versão <span class="ver">v0.7.0</span>.
 </div>
 
 </div>

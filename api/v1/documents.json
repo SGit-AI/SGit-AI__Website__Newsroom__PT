@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 36,
+  "contagem": 46,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -278,20 +278,100 @@
       "palavras": 100
     },
     {
-      "caminho": "redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md",
-      "titulo": "2026-09-14T1200__sessao-de-arranque__o-que-foi-construido",
+      "caminho": "redacao/correio/LEIA-ME.md",
+      "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 1696,
-      "linhas": 29,
-      "palavras": 274
+      "bytes": 5980,
+      "linhas": 120,
+      "palavras": 800
     },
     {
-      "caminho": "redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md",
-      "titulo": "2026-09-14T1205__editor__tres-primeiras-historias",
+      "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
+      "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
-      "bytes": 841,
-      "linhas": 20,
-      "palavras": 138
+      "bytes": 1410,
+      "linhas": 29,
+      "palavras": 221
+    },
+    {
+      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
+      "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
+      "categoria": "Newsroom files",
+      "bytes": 1470,
+      "linhas": 30,
+      "palavras": 248
+    },
+    {
+      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
+      "titulo": "003__nao-consigo-ler-os-cofres-do-jogo",
+      "categoria": "Newsroom files",
+      "bytes": 1670,
+      "linhas": 34,
+      "palavras": 258
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
+      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
+      "categoria": "Newsroom files",
+      "bytes": 839,
+      "linhas": 22,
+      "palavras": 122
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
+      "titulo": "002__decidir-os-tipos-novos-da-ontologia",
+      "categoria": "Newsroom files",
+      "bytes": 906,
+      "linhas": 23,
+      "palavras": 145
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md",
+      "titulo": "003__decidir-o-pedido-de-acesso-a-anacom",
+      "categoria": "Newsroom files",
+      "bytes": 711,
+      "linhas": 21,
+      "palavras": 105
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
+      "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
+      "categoria": "Newsroom files",
+      "bytes": 2457,
+      "linhas": 43,
+      "palavras": 413
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
+      "titulo": "001__pdf-do-diario-da-republica",
+      "categoria": "Newsroom files",
+      "bytes": 1342,
+      "linhas": 27,
+      "palavras": 219
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
+      "titulo": "002__ausencias-publicaveis-tal-como-estao",
+      "categoria": "Newsroom files",
+      "bytes": 1145,
+      "linhas": 24,
+      "palavras": 175
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
+      "titulo": "003__acesso-a-anacom",
+      "categoria": "Newsroom files",
+      "bytes": 919,
+      "linhas": 22,
+      "palavras": 139
+    },
+    {
+      "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
+      "titulo": "notas — bastidores.pt",
+      "categoria": "Newsroom files",
+      "bytes": 6056,
+      "linhas": 81,
+      "palavras": 959
     }
   ]
 }

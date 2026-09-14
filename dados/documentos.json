@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 45,
+  "contagem": 46,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -334,6 +334,14 @@
       "palavras": 105
     },
     {
+      "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
+      "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
+      "categoria": "Newsroom files",
+      "bytes": 2457,
+      "linhas": 43,
+      "palavras": 413
+    },
+    {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
       "titulo": "001__pdf-do-diario-da-republica",
       "categoria": "Newsroom files",
@@ -361,9 +369,9 @@
       "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
       "titulo": "notas — bastidores.pt",
       "categoria": "Newsroom files",
-      "bytes": 3554,
-      "linhas": 49,
-      "palavras": 554
+      "bytes": 6056,
+      "linhas": 81,
+      "palavras": 959
     }
   ]
 }
