@@ -1,0 +1,24 @@
+{
+  "no": "org:fio-legal-fractional-freelance-hr",
+  "tipo": "Organizacao",
+  "nome": "Fio Legal | Fractional Freelance HR",
+  "url": "entidades/organizacao/fio-legal-fractional-freelance-hr/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/filipa-faria",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

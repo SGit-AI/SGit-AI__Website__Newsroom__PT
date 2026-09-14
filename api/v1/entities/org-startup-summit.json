@@ -1,0 +1,64 @@
+{
+  "no": "org:startup-summit",
+  "tipo": "Organizacao",
+  "nome": "Startup Summit",
+  "url": "entidades/organizacao/startup-summit/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/faq",
+      "ocorrencias": 44
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 36
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 35
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 25
+    },
+    {
+      "fonte": "2026-09-14/oradores/ricardo",
+      "ocorrencias": 22
+    },
+    {
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "ocorrencias": 20
+    },
+    {
+      "fonte": "2026-09-14/patrocinadores",
+      "ocorrencias": 18
+    },
+    {
+      "fonte": "2026-09-14/agenda",
+      "ocorrencias": 17
+    },
+    {
+      "fonte": "2026-09-14/imprensa/scaleup-porto",
+      "ocorrencias": 15
+    },
+    {
+      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+      "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-14/imprensa/startupevents-org",
+      "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 12
+    }
+  ],
+  "ficheiros_com_o_nome": 79,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

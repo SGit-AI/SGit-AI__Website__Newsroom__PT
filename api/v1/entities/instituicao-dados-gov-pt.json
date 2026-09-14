@@ -1,0 +1,28 @@
+{
+  "no": "instituicao:dados-gov-pt",
+  "tipo": "Instituicao",
+  "nome": "dados.gov.pt",
+  "url": "entidades/instituicao/dados-gov-pt/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 1007
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 1,
+    "entrada": 1
+  }
+}

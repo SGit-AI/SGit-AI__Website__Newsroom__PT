@@ -1,0 +1,24 @@
+{
+  "no": "org:ilof",
+  "tipo": "Organizacao",
+  "nome": "iLoF",
+  "url": "entidades/organizacao/ilof/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "no": "tema:scaling",
+  "tipo": "Tema",
+  "nome": "Scaling",
+  "url": "entidades/tema/scaling/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joao-ramos",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lauren-mucklow",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lidija-krickovic",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-gutman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/mark-paul-haaksman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nina-chande",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 15,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 15
+  }
+}

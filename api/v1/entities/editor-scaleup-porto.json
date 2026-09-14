@@ -1,0 +1,20 @@
+{
+  "no": "editor:scaleup-porto",
+  "tipo": "Editor",
+  "nome": "ScaleUp Porto",
+  "url": "entidades/editor/scaleup-porto/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/imprensa/scaleup-porto",
+      "ocorrencias": 11
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

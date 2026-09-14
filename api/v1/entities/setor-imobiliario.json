@@ -1,0 +1,20 @@
+{
+  "no": "setor:imobiliario",
+  "tipo": "Setor",
+  "nome": "Imobiliário",
+  "url": "entidades/setor/imobiliario/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 8
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

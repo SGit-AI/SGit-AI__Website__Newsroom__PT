@@ -1,0 +1,56 @@
+{
+  "no": "tema:hiring",
+  "tipo": "Tema",
+  "nome": "Hiring",
+  "url": "entidades/tema/hiring/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/filipa-faria",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lidija-krickovic",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/raffaella-loncao",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-kastrati",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-martins-freire",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/satya-morarji",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sylvie-ritt",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/vini-devnani",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 10,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 10
+  }
+}

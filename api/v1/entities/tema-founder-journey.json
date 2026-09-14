@@ -1,0 +1,64 @@
+{
+  "no": "tema:founder-journey",
+  "tipo": "Tema",
+  "nome": "Founder journey",
+  "url": "entidades/tema/founder-journey/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ben-lakoff",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/cintia-costa",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/david-graham",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/irina-shurmina",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/janelle-harder",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 32,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 32
+  }
+}

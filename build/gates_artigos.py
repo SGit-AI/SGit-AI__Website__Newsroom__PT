@@ -28,7 +28,21 @@ OS PORTÕES
   20 · CADA SECÇÃO TEM UM REGISTO EDITORIAL. As oito secções do resumo, cada uma com o seu
        seccoes/<id>/seccao.json, e nenhuma a dizer que pode afirmar o que não tem fontes para
        afirmar.
+  21 · O ÍNDICE DE ENTIDADES CONCORDA COM O DISCO. Cada entidade do índice tem página, cada página
+       sob entidades/ está no índice, e o caminho de cada uma é o que a fórmula produz. Um índice
+       que promete uma página que não existe é uma ligação partida à espera de acontecer.
+  22 · CADA ENTIDADE LIGÁVEL TEM UM FUNDAMENTO, E O FUNDAMENTO É VERDADE. `bytes` se e só se o
+       nome foi encontrado numa cópia congelada; `registo` se e só se o nó é editor de um ficheiro
+       congelado. Uma entidade ligada sem fundamento é uma afirmação sem fonte.
+  23 · A FÓRMULA DE LIGAÇÃO É CUMPRIDA NAS PÁGINAS. Nenhuma página liga a mesma entidade mais do
+       que a fórmula permite, nenhuma página de entidade se liga a si própria, e o texto de cada
+       ligação é o nome verbatim da entidade — não uma abreviatura, não um apelido.
+  24 · NENHUMA PÁGINA DE PESSOA DIZ NADA SOBRE A PESSOA. Cada valor da tabela de campos de uma
+       página de Pessoa tem de ser, byte a byte, um valor que já está em dados/pessoas.json ou no
+       nó do grafo. É o §4 do resumo a ser conferido e não prometido: sem isto, uma linha de prosa
+       sobre alguém entrava na página sem ninguém dar por ela.
 """
+import html as _html
 import json
 import re
 import sys
@@ -221,6 +235,122 @@ if extra:
                  f'resumo, e acrescentar uma é uma decisão editorial, não um efeito secundário')
 
 
+# --- 21, 22, 23, 24. as entidades -----------------------------------------------
+entidades = carregar("entidades.json")
+grafo = carregar("grafo.json")
+pessoas_json = carregar("pessoas.json")
+ENTIDADES = ROOT / "entidades"
+nos_por_id = {n["id"]: n for n in grafo.get("nos", [])}
+ents = entidades.get("entidades", [])
+
+if not ents:
+    erros.append("entidades: dados/entidades.json não tem entidades — build/entidades.py não "
+                 "correu, e as páginas do site estão a ligar para um índice que não existe")
+
+# 21 · o índice e o disco dizem a mesma coisa.
+no_disco = set()
+if ENTIDADES.exists():
+    no_disco = {p.parent.relative_to(ROOT).as_posix() + "/"
+                for p in ENTIDADES.rglob("index.html")
+                if p.parent != ENTIDADES}
+no_indice = {x["url"] for x in ents}
+for falta in sorted(no_indice - no_disco):
+    erros.append(f'entidades: o índice promete {falta} e não há página nenhuma nesse caminho')
+for sobra in sorted(no_disco - no_indice):
+    erros.append(f'entidades: {sobra} existe no disco e não está no índice — uma página órfã não '
+                 f'é reconstruída nem apagada quando a entidade desaparece do grafo')
+
+# 22 · o fundamento de cada entidade ligável é verdade.
+for x in ents:
+    f = x.get("fundamento")
+    tem_bytes = bool(x.get("nos_bytes"))
+    e_editor = bool((nos_por_id.get(x["no"]) or {}).get("publica"))
+    if x.get("ligavel") and not f:
+        erros.append(f'entidades: {x["no"]} está marcada como ligável e não tem fundamento — '
+                     f'uma ligação sem fundamento é uma afirmação sem fonte')
+    if f == "bytes" and not tem_bytes:
+        erros.append(f'entidades: {x["no"]} diz que o seu fundamento são os bytes e '
+                     f'`nos_bytes` está vazio')
+    if f == "registo" and not e_editor:
+        erros.append(f'entidades: {x["no"]} diz que o seu fundamento é o registo e o nó não é '
+                     f'editor de ficheiro congelado nenhum')
+    if f == "registo" and tem_bytes:
+        erros.append(f'entidades: {x["no"]} invoca o fundamento fraco tendo o forte — quando o '
+                     f'nome está nos bytes, o fundamento é `bytes`')
+    # O fundamento e a ligabilidade são coisas diferentes: um nome curto pode estar nos bytes (e
+    # tem fundamento) e continuar a não ser ligável, que é precisamente o que a regra do
+    # comprimento existe para fazer. O portão confere a ligabilidade, não o fundamento.
+    if x.get("ligavel") and len(x["nome"]) < 6:
+        erros.append(f'entidades: {x["no"]} tem um nome de {len(x["nome"])} caracteres e está '
+                     f'ligável — a fórmula publicada exige pelo menos 6')
+
+# 23 · a fórmula é cumprida nas páginas geradas.
+MAX_POR_PAGINA = 1
+por_url = {x["url"]: x for x in ents}
+LIGACAO = re.compile(r'<a class="ent" href="([^"]+)">([^<]*)</a>')
+nomes_por_url = {x["url"]: x["nome"] for x in ents}
+for pag in sorted(ROOT.rglob("*.html")):
+    rel = pag.relative_to(ROOT).as_posix()
+    if "fontes/congeladas/" in rel or "/briefs/" in rel or "node_modules" in rel:
+        continue
+    texto = pag.read_text(encoding="utf-8")
+    achados = LIGACAO.findall(texto)
+    if not achados:
+        continue
+    contagem = {}
+    for href, rotulo in achados:
+        alvo = re.sub(r"^(\.\./)+", "", href)
+        contagem[alvo] = contagem.get(alvo, 0) + 1
+        esperado = nomes_por_url.get(alvo)
+        # O texto vem de HTML e está escapado; o nome do índice é o nome. Comparar os dois sem
+        # desfazer o escape dava um erro em cada organização com um «&» no nome, que é um bug do
+        # portão e não do site — e foi o que aconteceu quando este portão correu pela primeira vez.
+        rotulo = _html.unescape(rotulo)
+        if esperado is None:
+            erros.append(f'{rel}: liga a {alvo}, que não é o caminho de nenhuma entidade do índice')
+        elif rotulo != esperado:
+            erros.append(f'{rel}: liga a {alvo} com o texto «{rotulo}», e o nome verbatim daquela '
+                         f'entidade é «{esperado}» — a fórmula liga o nome, não uma variante')
+        if alvo + "index.html" == rel:
+            erros.append(f'{rel}: é a página de uma entidade e liga-se a si própria')
+    for alvo, n in contagem.items():
+        if n > MAX_POR_PAGINA:
+            erros.append(f'{rel}: liga {n} vezes a {alvo}; a fórmula publicada permite '
+                         f'{MAX_POR_PAGINA} por página')
+    if "<a class=\"ent\"" in texto:
+        # Uma ligação dentro de outra ligação é HTML que cada navegador desfaz à sua maneira.
+        if re.search(r'<a\b[^>]*>(?:(?!</a>).)*<a class="ent"', texto, re.S):
+            erros.append(f'{rel}: tem uma ligação de entidade dentro de outra ligação')
+
+# 24 · nenhuma página de Pessoa diz nada sobre a pessoa.
+verbatim = set()
+for pp in pessoas_json.get("pessoas", []):
+    for v in pp.values():
+        if isinstance(v, str):
+            verbatim.add(v)
+for n in grafo.get("nos", []):
+    for v in n.values():
+        if isinstance(v, str):
+            verbatim.add(v)
+# O valor da célula pode conter uma ligação de entidade — «Zero Risk Startup» na página de quem
+# o evento lista sob ela. Por isso captura-se o INTERIOR da célula e tiram-se as marcas antes de
+# comparar: um padrão que só aceitasse texto simples deixava de ver exatamente as células que
+# passaram a ter uma ligação, e um portão que deixa de ver metade do que guarda não guarda nada.
+CAMPO = re.compile(r'<tr><th style="width:230px">(.*?)</th><td class="sm">(.*?)</td></tr>', re.S)
+for x in ents:
+    if x["tipo"] != "Pessoa":
+        continue
+    f = ROOT / x["url"] / "index.html"
+    if not f.exists():
+        continue
+    for _rot, valor in CAMPO.findall(f.read_text(encoding="utf-8")):
+        cru = _html.unescape(re.sub(r"<[^>]+>", "", valor))
+        if cru not in verbatim:
+            erros.append(f'{x["url"]}: a tabela de campos traz «{cru[:60]}», que não é um valor '
+                         f'verbatim de dados/pessoas.json nem do nó do grafo — uma página de '
+                         f'Pessoa não escreve uma linha sobre a pessoa')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
     print(f"portões (artigos, secções, bastidores): {len(erros)} erro(s)")
@@ -234,4 +364,5 @@ com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
 print(f"portões (artigos, secções, bastidores): OK — {len(metas)} artigos em pastas datadas "
       f"({com_prosa} com prosa, {pub} publicados), cada caminho a concordar com a sua data e "
       f"slug, cada afirmação a andar para trás até ao registo, {len(AS_OITO)} secções com "
-      f"registo editorial, bastidores em inglês sem citar prova")
+      f"registo editorial, bastidores em inglês sem citar prova, "
+      f"{len(ents)} entidades com página e fundamento conferido")

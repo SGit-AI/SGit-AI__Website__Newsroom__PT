@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 33,
+  "contagem": 34,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -86,12 +86,20 @@
       "palavras": 504
     },
     {
+      "caminho": "briefs/memos/2026-09-14__ligar-as-entidades.md",
+      "titulo": "Ligar as entidades — o registo de uma peça de trabalho",
+      "categoria": "Repository root",
+      "bytes": 9758,
+      "linhas": 149,
+      "palavras": 1628
+    },
+    {
       "caminho": "briefs/memos/2026-09-14__o-ecossistema-portugues-de-ia.md",
       "titulo": "The Portuguese AI ecosystem — the second brief",
       "categoria": "Repository root",
-      "bytes": 11587,
-      "linhas": 188,
-      "palavras": 1925
+      "bytes": 11721,
+      "linhas": 189,
+      "palavras": 1934
     },
     {
       "caminho": "briefs/pack/00__READ-ME-FIRST.md",

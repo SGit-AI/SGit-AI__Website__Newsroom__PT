@@ -1,0 +1,24 @@
+{
+  "no": "palco:impact-stage",
+  "tipo": "Palco",
+  "nome": "Impact Stage",
+  "url": "entidades/palco/impact-stage/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/agenda",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 3
+  }
+}

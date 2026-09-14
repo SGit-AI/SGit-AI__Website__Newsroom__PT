@@ -1,0 +1,24 @@
+{
+  "no": "org:zoya-mesaric-private-international-practice",
+  "tipo": "Organizacao",
+  "nome": "Zoya Mesaric – Private International Practice",
+  "url": "entidades/organizacao/zoya-mesaric-private-international-practice/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

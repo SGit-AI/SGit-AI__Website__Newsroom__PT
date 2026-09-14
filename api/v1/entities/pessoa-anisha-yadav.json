@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:anisha-yadav",
+  "tipo": "Pessoa",
+  "nome": "Anisha Yadav",
+  "url": "entidades/pessoa/anisha-yadav/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 8,
+    "entrada": 0
+  }
+}

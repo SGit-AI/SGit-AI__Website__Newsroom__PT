@@ -1,0 +1,64 @@
+{
+  "no": "tema:venture-capital",
+  "tipo": "Tema",
+  "nome": "Venture capital",
+  "url": "entidades/tema/venture-capital/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ben-lakoff",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/karan-setiya",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/kristina-kutan",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-gutman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/mike-sigal",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sibilla-strupule",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/viachaslau-smirnou",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 13,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 10
+  }
+}

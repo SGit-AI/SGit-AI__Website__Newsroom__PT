@@ -1,0 +1,24 @@
+{
+  "no": "org:mykor",
+  "tipo": "Organizacao",
+  "nome": "Mykor",
+  "url": "entidades/organizacao/mykor/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "ocorrencias": 14
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 9
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

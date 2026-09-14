@@ -1,0 +1,60 @@
+{
+  "no": "tema:mental-health",
+  "tipo": "Tema",
+  "nome": "Mental health",
+  "url": "entidades/tema/mental-health/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/daniel-gouveia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/filipa-faria",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/max-rodman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/micael-lopes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nashwa-shah",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/raffaella-loncao",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/slavi-slavev",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sylvie-ritt",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/vini-devnani",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 11,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 11
+  }
+}

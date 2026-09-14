@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 20,
+  "contagem": 21,
   "ficheiros": [
     {
       "ficheiro": "dados/aviso.json",
@@ -14,6 +14,11 @@
       "ficheiro": "dados/documentos.json",
       "bytes": 8180,
       "sha256": "6e4663e9ae308063a2791fbf1899e77d82a5f065c44004330be8535fac68d4d2"
+    },
+    {
+      "ficheiro": "dados/entidades.json",
+      "bytes": 134424,
+      "sha256": "906dd1a06931921022d0ae71c55d56368dfa0b9b404a40023274b26635edd103"
     },
     {
       "ficheiro": "dados/entregas.json",
@@ -42,8 +47,8 @@
     },
     {
       "ficheiro": "dados/grafo.json",
-      "bytes": 325863,
-      "sha256": "62f2948ff57c240991767e4dce56a21c30f77a015b27be8902eb1800ec0fc6db"
+      "bytes": 355658,
+      "sha256": "1b4c0a580934163ff61bb52e24ecd304b60d274fb57491bf0810463b5bdf54f9"
     },
     {
       "ficheiro": "dados/historias.json",
@@ -57,8 +62,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 3272,
-      "sha256": "8860b752c896a2591b260554ff95c1ee01777eab51fbbad34318e46a8a9ee5ff"
+      "bytes": 3433,
+      "sha256": "550ec9da876f5c12b111ba5e0a344cc4b7026dfc47841e29be528e925110e67a"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -67,8 +72,8 @@
     },
     {
       "ficheiro": "dados/ontologia.json",
-      "bytes": 17345,
-      "sha256": "ef5b72188f1005ea53d176527d083ef5f08b399449b3d4f9d39bd14b9a592f22"
+      "bytes": 20018,
+      "sha256": "aa73e6f37d8663d2c66c1b53362e125b28e39ac2db6c58caeb55ce98b46354ac"
     },
     {
       "ficheiro": "dados/organizacoes.json",
@@ -97,8 +102,8 @@
     },
     {
       "ficheiro": "dados/triplos.nt",
-      "bytes": 250644,
-      "sha256": "71a344041508a9b00216d0b3fcbcfa74e3e8e2a8cec57b046995abc40a26f4e1"
+      "bytes": 272703,
+      "sha256": "36bd86ab0bcddaa5dc17f5da52023808e456ba64894bd32d0d0c31effa142c5c"
     },
     {
       "ficheiro": "dados/verificacoes-fonte.json",

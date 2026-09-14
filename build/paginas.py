@@ -33,7 +33,9 @@ SECCOES = [
     ("diaspora",      "Diáspora"),
     ("eventos",       "Eventos"),
 ]
-EXTRA = [("registo", "Registo"), ("grafo", "Grafo")]
+# «Entidades» está na mancheta e não no rodapé porque é uma forma de percorrer o jornal, e
+# não maquinaria: é a porta para os duzentos nomes de que este site já sabe alguma coisa.
+EXTRA = [("entidades", "Entidades"), ("registo", "Registo"), ("grafo", "Grafo")]
 
 # As páginas de mecânica, no rodapé e não na mancheta.
 RODAPE = [
@@ -182,11 +184,79 @@ def rodape(raiz):
     )
 
 
+# --------------------------------------------------- ligação de entidades ---
+# O índice é lido uma vez e guardado. É `dados/entidades.json`, escrito por `build/entidades.py`,
+# e traz a fórmula que decide o que é uma menção. Se não existir — a primeira construção de um
+# repositório novo, ou alguém a correr build.py isolado — o site constrói-se na mesma, sem
+# ligações. Uma passagem que se recusasse a correr sem ela seria uma dependência escondida.
+_ENTIDADES = None
+_PADRAO = None
+
+
+def _indice_entidades():
+    global _ENTIDADES, _PADRAO
+    if _ENTIDADES is None:
+        dados = carregar("entidades.json") or {}
+        _ENTIDADES = {}
+        for x in dados.get("entidades", []):
+            if x.get("ligavel_em_prosa"):
+                _ENTIDADES[e(x["nome"])] = (x["url"], x["no"])
+        if _ENTIDADES:
+            # Os nomes mais longos primeiro: senão «Startup Summit» apanhava a menção antes de
+            # «Startup Summit Lisbon 2026» e ligava ao nó errado por ser o primeiro a casar.
+            alt = "|".join(re.escape(n) for n in
+                           sorted(_ENTIDADES, key=len, reverse=True))
+            _PADRAO = re.compile(r"(?<!\w)(" + alt + r")(?!\w)")
+    return _ENTIDADES, _PADRAO
+
+
+# O que uma ligação de entidade NUNCA pode atravessar. Uma ligação dentro de outra ligação é HTML
+# inválido e o navegador desfá-la de maneiras diferentes; um nome dentro de `<code>` é um caminho
+# de ficheiro e não uma menção; e o interior de uma marca é atributo, onde um `<a>` seria texto a
+# mais dentro de aspas. O `re.split` com captura devolve texto e marcação a alternar, e só o texto
+# é tocado.
+_MARCACAO = re.compile(r"(<a\b[^>]*>.*?</a>|<code\b[^>]*>.*?</code>|<[^>]+>)", re.S | re.I)
+
+
+def ligar_entidades(corpo, raiz, excepto=None):
+    """Transforma a primeira menção de cada entidade numa ligação para a página dela.
+
+    A fórmula está publicada em `dados/entidades.json`, no campo `formula`, e esta função é a sua
+    única implementação. O que ela diz é modesto de propósito: uma ligação aqui significa «o texto
+    contém este nome, tal e qual como a fonte congelada o escreve», e não «este texto é sobre esta
+    entidade». A diferença é a mesma que existe entre uma etiqueta do léxico e uma caracterização,
+    e é a razão pela qual as duas coisas são fórmulas publicadas neste sítio.
+    """
+    indice, padrao = _indice_entidades()
+    if not padrao:
+        return corpo
+    usados = set()
+    if excepto:
+        usados.add(excepto)
+
+    def trocar(m):
+        nome = m.group(1)
+        url, no = indice[nome]
+        if no in usados:
+            return nome
+        usados.add(no)
+        return f'<a class="ent" href="{raiz}{url}">{nome}</a>'
+
+    partes = _MARCACAO.split(corpo)
+    for i in range(0, len(partes), 2):        # os índices pares são texto; os ímpares, marcação
+        if partes[i]:
+            partes[i] = padrao.sub(trocar, partes[i])
+    return "".join(partes)
+
+
 def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
-           fontes_n=None, com_declaracao=True, extra_head="", extra_body=""):
+           fontes_n=None, com_declaracao=True, extra_head="", extra_body="",
+           ligar=True, excepto=None):
     """Uma página inteira. `rel` é o caminho relativo à raiz, e decide a profundidade."""
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
+    if ligar:
+        corpo = ligar_entidades(corpo, raiz, excepto)
     canonico = f"https://{HOST}/" + (rel if rel != "index.html" else "")
     canonico = canonico.replace("/index.html", "/")
     hoje = (carregar("registo.json") or {}).get("atualizado", "2026-09-14")

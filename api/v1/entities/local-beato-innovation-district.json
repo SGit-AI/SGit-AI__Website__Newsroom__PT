@@ -1,0 +1,64 @@
+{
+  "no": "local:beato-innovation-district",
+  "tipo": "Local",
+  "nome": "Beato Innovation District",
+  "url": "entidades/local/beato-innovation-district/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/local",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/faq",
+      "ocorrencias": 6
+    },
+    {
+      "fonte": "2026-09-14/imprensa/startupevents-org",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores/alexandra-isenegger",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores/amit-grinvald",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores/andreia-gaudencio",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 78,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

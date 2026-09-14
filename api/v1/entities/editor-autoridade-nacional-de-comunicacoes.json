@@ -1,0 +1,15 @@
+{
+  "no": "editor:autoridade-nacional-de-comunicacoes",
+  "tipo": "Editor",
+  "nome": "Autoridade Nacional de Comunicações",
+  "url": "entidades/editor/autoridade-nacional-de-comunicacoes/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": "registo",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "no": "produto:plataforma",
+  "tipo": "Produto",
+  "nome": "Plataforma",
+  "url": "entidades/produto/plataforma/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "ocorrencias": 8
+    },
+    {
+      "fonte": "2026-09-14/registo/dados-gov",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

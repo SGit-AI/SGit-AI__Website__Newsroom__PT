@@ -1,0 +1,64 @@
+{
+  "no": "tema:go",
+  "tipo": "Tema",
+  "nome": "Go-",
+  "url": "entidades/tema/go/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/dina-kondratiuk",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/oradores/akshay-ruparelia",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/david-graham",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/diego-sampaio",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/hector-lv",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/igor-nikolaiev",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joao-ramos",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/joaquim-nascimento",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/karan-setiya",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 22,
+  "fundamento": "bytes",
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 5
+  }
+}

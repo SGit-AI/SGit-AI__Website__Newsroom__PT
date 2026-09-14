@@ -1,0 +1,36 @@
+{
+  "no": "pessoa:anmol-goel",
+  "tipo": "Pessoa",
+  "nome": "Anmol Goel",
+  "url": "entidades/pessoa/anmol-goel/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/anmol-goel",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/patrocinadores",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 5,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 5,
+    "entrada": 0
+  }
+}

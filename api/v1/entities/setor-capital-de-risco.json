@@ -1,0 +1,15 @@
+{
+  "no": "setor:capital-de-risco",
+  "tipo": "Setor",
+  "nome": "Capital de risco",
+  "url": "entidades/setor/capital-de-risco/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": null,
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

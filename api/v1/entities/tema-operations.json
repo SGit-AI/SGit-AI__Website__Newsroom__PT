@@ -1,0 +1,64 @@
+{
+  "no": "tema:operations",
+  "tipo": "Tema",
+  "nome": "Operations",
+  "url": "entidades/tema/operations/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/diego-sampaio",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ed-chandler",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/kristina-kutan",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lidija-krickovic",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/max-rodman",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nataliia-komarnytska",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/nina-chande",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/precy-servito",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/rita-figueiredo",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 14,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 14
+  }
+}

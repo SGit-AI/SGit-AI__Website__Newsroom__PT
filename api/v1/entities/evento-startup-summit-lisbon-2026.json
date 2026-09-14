@@ -1,0 +1,64 @@
+{
+  "no": "evento:startup-summit-lisbon-2026",
+  "tipo": "Evento",
+  "nome": "Startup Summit Lisbon 2026",
+  "url": "entidades/evento/startup-summit-lisbon-2026/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/faq",
+      "ocorrencias": 24
+    },
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 14
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-14/oradores/ricardo",
+      "ocorrencias": 12
+    },
+    {
+      "fonte": "2026-09-14/patrocinadores",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/imprensa/startupevents-org",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/agenda",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-14/imprensa/scaleup-porto",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores/anisha-yadav",
+      "ocorrencias": 7
+    },
+    {
+      "fonte": "2026-09-14/oradores/anmol-goel",
+      "ocorrencias": 7
+    }
+  ],
+  "ficheiros_com_o_nome": 78,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 2,
+    "entrada": 161
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "no": "tema:deep-tech",
+  "tipo": "Tema",
+  "nome": "Deep tech",
+  "url": "entidades/tema/deep-tech/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/jorge-sebastiao",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sebastian-horstmann",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 4,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 4
+  }
+}

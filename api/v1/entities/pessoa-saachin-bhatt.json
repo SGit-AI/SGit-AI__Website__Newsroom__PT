@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:saachin-bhatt",
+  "tipo": "Pessoa",
+  "nome": "Saachin Bhatt",
+  "url": "entidades/pessoa/saachin-bhatt/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/saachin-bhatt",
+      "ocorrencias": 16
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 12,
+    "entrada": 0
+  }
+}

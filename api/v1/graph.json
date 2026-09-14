@@ -4,10 +4,10 @@
   "atualizado": "2026-09-14",
   "nota": "Cada nó nomeia a fonte congelada de onde veio; cada aresta é um verbo português com um inverso distinto. Um caminho lê-se em voz alta em português, e se não se ler, a aresta está errada.",
   "contagens": {
-    "nos": 304,
-    "arestas": 854,
-    "tipos": 16,
-    "verbos": 14
+    "nos": 312,
+    "arestas": 946,
+    "tipos": 17,
+    "verbos": 15
   },
   "blocos": [
     {
@@ -42,7 +42,7 @@
       "id": "registo",
       "rotulo": "O registo nacional",
       "ordem": 5,
-      "nos": 3,
+      "nos": 11,
       "arestas": 0
     },
     {
@@ -64,7 +64,7 @@
       "rotulo": "A prova",
       "ordem": 8,
       "nos": 93,
-      "arestas": 249
+      "arestas": 341
     },
     {
       "id": "mudancas",
@@ -1201,7 +1201,11 @@
       "bloco": "evento",
       "datas": "17–18 de setembro de 2026",
       "url": "https://startupsummit.io",
-      "fonte": "2026-09-14/index"
+      "fonte": "2026-09-14/index",
+      "publica": 76,
+      "verbatim_no_registo": [
+        "Startup Summit Lisbon 2026"
+      ]
     },
     {
       "id": "local:beato-innovation-district",
@@ -3399,7 +3403,11 @@
       "legivel_por_maquina": false,
       "caracteres_visiveis": 348,
       "nota_legibilidade": "A página deste organismo devolveu 348 caracteres visíveis a um leitor automático a partir de 165569 bytes. É uma medição datada e hasheada sobre a legibilidade do registo público, e não uma opinião sobre o organismo.",
-      "fonte": "2026-09-14/registo/gov-ia"
+      "fonte": "2026-09-14/registo/gov-ia",
+      "publica": 3,
+      "verbatim_no_registo": [
+        "Governo de Portugal"
+      ]
     },
     {
       "id": "instituicao:diario-da-republica-eletronico",
@@ -3410,7 +3418,11 @@
       "legivel_por_maquina": false,
       "caracteres_visiveis": 22,
       "nota_legibilidade": "A página deste organismo devolveu 22 caracteres visíveis a um leitor automático a partir de 2346 bytes. É uma medição datada e hasheada sobre a legibilidade do registo público, e não uma opinião sobre o organismo.",
-      "fonte": "2026-09-14/registo/dre-inicio"
+      "fonte": "2026-09-14/registo/dre-inicio",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "Diário da República Eletrónico (INCM)"
+      ]
     },
     {
       "id": "instituicao:dados-gov-pt",
@@ -3421,7 +3433,108 @@
       "legivel_por_maquina": true,
       "caracteres_visiveis": 27406,
       "nota_legibilidade": "A página deste organismo devolveu 27406 caracteres visíveis a um leitor automático a partir de 849388 bytes. É uma medição datada e hasheada sobre a legibilidade do registo público, e não uma opinião sobre o organismo.",
-      "fonte": "2026-09-14/registo/dados-gov"
+      "fonte": "2026-09-14/registo/dados-gov",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "dados.gov.pt (AMA)"
+      ]
+    },
+    {
+      "id": "editor:aicep-portugal-global",
+      "tipo": "Editor",
+      "rotulo": "AICEP Portugal Global",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "AICEP Portugal Global"
+      ]
+    },
+    {
+      "id": "editor:autoridade-nacional-de-comunicacoes",
+      "tipo": "Editor",
+      "rotulo": "Autoridade Nacional de Comunicações",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "Autoridade Nacional de Comunicações"
+      ]
+    },
+    {
+      "id": "editor:comissao-europeia",
+      "tipo": "Editor",
+      "rotulo": "Comissão Europeia",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/abertas/cordis",
+      "publica": 2,
+      "verbatim_no_registo": [
+        "CORDIS — Comissão Europeia",
+        "Comissão Europeia"
+      ]
+    },
+    {
+      "id": "editor:diario-da-republica",
+      "tipo": "Editor",
+      "rotulo": "Diário da República",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "publica": 2,
+      "verbatim_no_registo": [
+        "Diário da República"
+      ]
+    },
+    {
+      "id": "editor:portugal-business-news",
+      "tipo": "Editor",
+      "rotulo": "Portugal Business News",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "Portugal Business News"
+      ]
+    },
+    {
+      "id": "editor:scaleup-porto",
+      "tipo": "Editor",
+      "rotulo": "ScaleUp Porto",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/imprensa/scaleup-porto",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "ScaleUp Porto"
+      ]
+    },
+    {
+      "id": "editor:startupevents-org",
+      "tipo": "Editor",
+      "rotulo": "StartupEvents.org",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/imprensa/startupevents-org",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "StartupEvents.org"
+      ]
+    },
+    {
+      "id": "editor:digitalgov",
+      "tipo": "Editor",
+      "rotulo": "digitalGOV",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "publica": 2,
+      "verbatim_no_registo": [
+        "digitalGOV"
+      ]
     },
     {
       "id": "historia:uma-captura-nao-mostra-movimento",
@@ -9535,6 +9648,650 @@
       "verbo": "consta_em",
       "origem": "instituicao:dados-gov-pt",
       "destino": "fonte:2026-09-14/registo/dados-gov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/imprensa/portugalglobal-maratona:editor:aicep-portugal-global",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/imprensa/portugalglobal-maratona",
+      "destino": "editor:aicep-portugal-global",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:editor:autoridade-nacional-de-comunicacoes",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "destino": "editor:autoridade-nacional-de-comunicacoes",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/abertas/cordis:editor:comissao-europeia",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/abertas/cordis",
+      "destino": "editor:comissao-europeia",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07:editor:comissao-europeia",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "destino": "editor:comissao-europeia",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/registo/dre-inicio:instituicao:diario-da-republica-eletronico",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/registo/dre-inicio",
+      "destino": "instituicao:diario-da-republica-eletronico",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/registo/gov-ia:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/registo/gov-ia",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/imprensa/pbn-recorde-guinness:editor:portugal-business-news",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/imprensa/pbn-recorde-guinness",
+      "destino": "editor:portugal-business-news",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/imprensa/scaleup-porto:editor:scaleup-porto",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/imprensa/scaleup-porto",
+      "destino": "editor:scaleup-porto",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/agenda:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/agenda",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/bilhetes:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/bilhetes",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/faq:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/faq",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/index:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/index",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/llms.txt:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/llms.txt",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/local:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/local",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/akshay-ruparelia:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/akshay-ruparelia",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/alexandra-isenegger:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/alexandra-isenegger",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/amit-grinvald:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/amit-grinvald",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/andreia-gaudencio:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/andreia-gaudencio",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/angelee-sidar:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/angelee-sidar",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/anisha-yadav:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/anisha-yadav",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/anmol-goel:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/anmol-goel",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/ben-lakoff:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/ben-lakoff",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/brian-nogaro:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/brian-nogaro",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/cintia-costa:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/cintia-costa",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/daniel-gouveia:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/daniel-gouveia",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/daniel-grech:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/daniel-grech",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/david-graham:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/david-graham",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/diego-sampaio:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/diego-sampaio",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/dina-kondratiuk:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/dina-kondratiuk",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/diogo-mendonca:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/diogo-mendonca",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/ed-chandler:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/ed-chandler",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/elias-flachowsky:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/elias-flachowsky",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/filipa-faria:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/filipa-faria",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/hector-lv:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/hector-lv",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/igor-nikolaiev:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/igor-nikolaiev",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/irina-shurmina:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/irina-shurmina",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/janelle-harder:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/janelle-harder",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/joao-ramos:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/joao-ramos",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/joaquim-nascimento:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/joaquim-nascimento",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/jorge-sebastiao:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/jorge-sebastiao",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/karan-setiya:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/karan-setiya",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/kasia-szczesniak:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/kasia-szczesniak",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/kristina-kutan:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/kristina-kutan",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/lauren-mucklow:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/lauren-mucklow",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/lidija-krickovic:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/lidija-krickovic",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/lisa-rebecca-press:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/lisa-rebecca-press",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/luis-gutman:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/luis-gutman",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/luis-valente:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/luis-valente",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/luiza-castro-rey:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/luiza-castro-rey",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/mark-paul-haaksman:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/mark-paul-haaksman",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/max-rodman:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/max-rodman",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/micael-lopes:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/micael-lopes",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/mike-sigal:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/mike-sigal",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/muhammad-farooq-rathod:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/muhammad-farooq-rathod",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/nashwa-shah:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/nashwa-shah",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/nataliia-komarnytska:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/nataliia-komarnytska",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/nina-chande:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/nina-chande",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/olesia-rykova:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/olesia-rykova",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/olivia-page:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/olivia-page",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/paulo-andrez:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/paulo-andrez",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/pedro-simoes:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/pedro-simoes",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/precy-servito:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/precy-servito",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/raffaella-loncao:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/raffaella-loncao",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/ricardo:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/ricardo",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/rita-figueiredo:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/rita-figueiredo",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/rita-kastrati:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/rita-kastrati",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/rita-martins-freire:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/rita-martins-freire",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/roman-knorr-duran:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/roman-knorr-duran",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/saachin-bhatt:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/saachin-bhatt",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/satya-morarji:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/satya-morarji",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/sebastian-horstmann:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/sebastian-horstmann",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/sibilla-strupule:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/sibilla-strupule",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/slavi-slavev:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/slavi-slavev",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/sofia-bobrik:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/sofia-bobrik",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/sylvie-ritt:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/sylvie-ritt",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/tania-tome:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/tania-tome",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/thiago-vieira:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/thiago-vieira",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/tina-valand:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/tina-valand",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/viachaslau-smirnou:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/viachaslau-smirnou",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/vini-devnani:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/vini-devnani",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/wouter-heijnen:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/wouter-heijnen",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores/zoya-mesaric-mag-a-pth:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/oradores:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/oradores",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/patrocinadores:evento:startup-summit-lisbon-2026",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/patrocinadores",
+      "destino": "evento:startup-summit-lisbon-2026",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/imprensa/startupevents-org:editor:startupevents-org",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/imprensa/startupevents-org",
+      "destino": "editor:startupevents-org",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/registo/dados-gov:instituicao:dados-gov-pt",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/registo/dados-gov",
+      "destino": "instituicao:dados-gov-pt",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "destino": "editor:digitalgov",
       "bloco": "prova"
     },
     {

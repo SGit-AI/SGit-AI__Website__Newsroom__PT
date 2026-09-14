@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:zoya-mesaric-mag-a-pth",
+  "tipo": "Pessoa",
+  "nome": "Zoya Mesaric",
+  "url": "entidades/pessoa/zoya-mesaric-mag-a-pth/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/zoya-mesaric-mag-a-pth",
+      "ocorrencias": 21
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 8
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 10,
+    "entrada": 0
+  }
+}

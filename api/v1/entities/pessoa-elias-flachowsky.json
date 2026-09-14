@@ -1,0 +1,24 @@
+{
+  "no": "pessoa:elias-flachowsky",
+  "tipo": "Pessoa",
+  "nome": "Elias Flachowsky",
+  "url": "entidades/pessoa/elias-flachowsky/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/elias-flachowsky",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 3
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 10,
+    "entrada": 0
+  }
+}

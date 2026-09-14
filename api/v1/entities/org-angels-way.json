@@ -1,0 +1,24 @@
+{
+  "no": "org:angels-way",
+  "tipo": "Organizacao",
+  "nome": "Angels Way",
+  "url": "entidades/organizacao/angels-way/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-14/oradores",
+      "ocorrencias": 5
+    }
+  ],
+  "ficheiros_com_o_nome": 2,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

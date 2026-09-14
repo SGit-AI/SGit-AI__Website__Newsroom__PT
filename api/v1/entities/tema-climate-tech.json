@@ -1,0 +1,36 @@
+{
+  "no": "tema:climate-tech",
+  "tipo": "Tema",
+  "nome": "Climate tech",
+  "url": "entidades/tema/climate-tech/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/bilhetes",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/index",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/olivia-page",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/sebastian-horstmann",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/patrocinadores",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 5,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}

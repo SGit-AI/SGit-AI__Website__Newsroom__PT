@@ -1,0 +1,64 @@
+{
+  "no": "tema:fundraising",
+  "tipo": "Tema",
+  "nome": "Fundraising",
+  "url": "entidades/tema/fundraising/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-14/agenda",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/imprensa/startupevents-org",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/amit-grinvald",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/angelee-sidar",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/ben-lakoff",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/david-graham",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/dina-kondratiuk",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/hector-lv",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/jorge-sebastiao",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luis-valente",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-14/oradores/luiza-castro-rey",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 19,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 17
+  }
+}

@@ -188,6 +188,14 @@
       "cor": "#c2410c",
       "seccao": "empresas",
       "definicao": "Uma espécie de produto que uma página congelada nomeia, correspondida pelo léxico publicado. Categorias, não nomes de produto."
+    },
+    {
+      "id": "Editor",
+      "rotulo": "Editor",
+      "en": "Publisher",
+      "cor": "#475569",
+      "seccao": "instituicoes",
+      "definicao": "A casa que publica uma página congelada: um organismo, um jornal, um portal, o sítio de um evento. Sai do campo de editor do registo pela fórmula `editor_de_fonte`, e diz quem PUBLICA a página — não quem a escreveu, não quem a opera. Existe como tipo à parte porque a definição de Instituição é «um organismo público, um regulador ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas: alargar aquela definição para caber aqui seria mudar o que ela promete."
     }
   ],
   "arestas": [
@@ -490,6 +498,54 @@
       },
       "leitura": "{s} é publicada em {t}",
       "leitura_inversa": "{t} publica no registo {s}"
+    },
+    {
+      "verbo": "publicada_por",
+      "inverso": "publica_pagina",
+      "dominio": "Fonte",
+      "alcance": "Editor",
+      "en": {
+        "verbo": "issued_by",
+        "inverso": "issues"
+      },
+      "leitura": "{s} é publicada por {t}",
+      "leitura_inversa": "{t} publica a página {s}"
+    },
+    {
+      "verbo": "publicada_por",
+      "inverso": "publica_pagina",
+      "dominio": "Fonte",
+      "alcance": "Instituicao",
+      "en": {
+        "verbo": "issued_by",
+        "inverso": "issues"
+      },
+      "leitura": "{s} é publicada por {t}",
+      "leitura_inversa": "{t} publica a página {s}"
+    },
+    {
+      "verbo": "publicada_por",
+      "inverso": "publica_pagina",
+      "dominio": "Fonte",
+      "alcance": "Evento",
+      "en": {
+        "verbo": "issued_by",
+        "inverso": "issues"
+      },
+      "leitura": "{s} é publicada por {t}",
+      "leitura_inversa": "{t} publica a página {s}"
+    },
+    {
+      "verbo": "publicada_por",
+      "inverso": "publica_pagina",
+      "dominio": "Fonte",
+      "alcance": "Organizacao",
+      "en": {
+        "verbo": "issued_by",
+        "inverso": "issues"
+      },
+      "leitura": "{s} é publicada por {t}",
+      "leitura_inversa": "{t} publica a página {s}"
     }
   ],
   "verbos_derivados": [
@@ -524,6 +580,7 @@
         "Pessoa",
         "Organizacao",
         "Instituicao",
+        "Editor",
         "Local"
       ]
     },
@@ -600,6 +657,16 @@
           "rotulo": "consultor, jurista ou académico, pelo título listado",
           "padrao": "\\b(advisor|adviser|counsel|professor|researcher|lawyer|legal|consultant|author|phd)\\b"
         }
+      ]
+    },
+    {
+      "id": "editor_de_fonte",
+      "o_que_faz": "Reduz o campo de editor do registo à casa que publica a página.",
+      "porque_publicada": "Faz nascer nós e arestas. Dois passos, nomeados, para que um leitor possa refazer o mesmo caminho: tirar o parêntesis final (quem opera) e ficar com o segmento depois do último travessão (a casa, e não a coleção).",
+      "nunca_diz": "Que dois nomes diferentes são a mesma casa. Se o registo diz duas coisas, o grafo diz duas coisas.",
+      "passos": [
+        "tirar o parêntesis final: «dados.gov.pt (AMA)» → «dados.gov.pt»",
+        "ficar com o segmento depois do último travessão: «CORDIS — Comissão Europeia» → «Comissão Europeia»"
       ]
     },
     {

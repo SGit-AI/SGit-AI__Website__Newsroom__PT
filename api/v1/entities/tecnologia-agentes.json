@@ -1,0 +1,15 @@
+{
+  "no": "tecnologia:agentes",
+  "tipo": "Tecnologia",
+  "nome": "Agentes autónomos",
+  "url": "entidades/tecnologia/agentes/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": null,
+  "ligavel": false,
+  "ligavel_em_prosa": false,
+  "grau": {
+    "saida": 0,
+    "entrada": 2
+  }
+}
