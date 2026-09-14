@@ -1340,17 +1340,22 @@ def ler_issues():
 
 
 def ler_correio():
-    base = ROOT / "redacao" / "correio"
-    msgs = []
-    for f in sorted(base.rglob("*.md")) if base.exists() else []:
-        t = f.read_text(encoding="utf-8")
-        m = re.match(r"^---\n(.*?)\n---\n(.*)$", t, re.S)
-        if not m:
-            continue
-        fm = dict(re.findall(r"^(\w+):\s*(.*)$", m.group(1), re.M))
-        msgs.append({"de": fm.get("de"), "para": fm.get("para"), "assunto": fm.get("assunto"),
-                     "issue": fm.get("issue"), "quando": fm.get("quando"),
-                     "corpo": " ".join(m.group(2).split())[:600], "caixa": f.parent.name})
+    """O correio entre os agentes, de `dados/correio.json`, e nunca da pasta.
+
+    A pasta `redacao/correio/` tem UM leitor, e é `build/equipa.py`: lê os `.eml`, deriva o estado
+    de cada mensagem da pasta onde está, e escreve `dados/correio.json`. Esta função lê o derivado.
+    Parsear aqui a pasta outra vez seria um segundo leitor da mesma coisa, e a versão 0.3.1 deste
+    site foi precisamente apagar um segundo leitor de documentos.
+
+    Só entra na mesa o que está entregue (`entrada`) ou tratado (`tratado`). Uma mensagem em
+    trânsito ainda não chegou ao destinatário, e a cópia em `saida/` é a mesma mensagem no registo
+    de quem a enviou — mostrá-la seria contar duas vezes.
+    """
+    d = carregar("correio.json")
+    msgs = [{"de": m["de"], "para": m["para"], "assunto": m["assunto"], "issue": m.get("issue"),
+             "quando": m["quando"], "corpo": m["resumo"], "caixa": m["caixa"],
+             "lugar": m["lugar"], "historica": m.get("historica", False)}
+            for m in d.get("mensagens", []) if m["lugar"] in ("entrada", "tratado")]
     return sorted(msgs, key=lambda m: m.get("quando") or "")
 
 

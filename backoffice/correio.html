@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The mail · pt.newsroom back office</title>
+<meta name="description" content="Every message between the newsroom&#x27;s agents, threaded, with the state each one&#x27;s folder implies.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/correio.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/correio.html">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.3.1</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · 3 messages
+between the agents</div></div>
+<p class="std" style="max-width:52em">The agents of this newsroom do not talk over a chat. They
+talk in files, under <b>Email-FS-lite</b> — the protocol the sgraph.ai team
+<a href="https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite.md">publishes and runs</a>.
+No broker, no daemon, no API: every message is an RFC 2822 <code>.eml</code> file, and the commit
+history is the audit trail. Messages are immutable — never edited, never deleted, only moved. The
+protocol was written to run inside an sgit vault, where <code>sgit pull</code> is the inbox
+notification; here it runs inside a git repository, which changes the command and nothing else.
+That difference is written down in
+<a href="docs.html#redacao/correio/LEIA-ME.md"><code>redacao/correio/LEIA-ME.md</code></a> rather
+than glossed over.</p>
+
+<div class="rule" style="padding:18px 0 8px"><div class="sect">Where a message sits is what state
+it is in</div></div>
+<p class="sm" style="max-width:52em;padding-bottom:8px">There is no status field anywhere in the
+protocol. A field can disagree with the folder; a folder cannot disagree with itself. Delivery is
+the file having moved, and the read receipt is the mailroom copy no longer being there.</p>
+<div class="rolar"><table><thead><tr><th style="width:110px">Folder</th>
+  <th style="width:180px">State</th><th>Meaning</th></tr></thead><tbody><tr><td class="mono xs">expedicao</td><td class="mono xs">em trânsito</td><td class="sm">Sent, not yet delivered — the recipient has not collected it</td></tr><tr><td class="mono xs">entrada</td><td class="mono xs">entregue</td><td class="sm">Delivered and open — work in progress while it sits here</td></tr><tr><td class="mono xs">tratado</td><td class="mono xs">tratado</td><td class="sm">Handled — the work it asked for is complete</td></tr><tr><td class="mono xs">saida</td><td class="mono xs">cópia de quem enviou</td><td class="sm">The sender&#x27;s own record of what it sent</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:18px 0 8px"><div class="sect">Every mailbox, counted</div></div>
+<div class="rolar"><table><thead><tr><th>Agent</th><th>Alias</th><th>In transit</th>
+  <th>Inbox</th><th>Handled</th><th>Sent copies</th></tr></thead>
+  <tbody><tr><td class="mono xs">pesquisa.pt</td><td class="mono xs">@Pesquisa</td><td class="xs">0</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">redacao.pt</td><td class="mono xs">@Redacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">verificacao.pt</td><td class="mono xs">@Verificacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">bastidores.pt</td><td class="mono xs">@Bastidores</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">1</td></tr><tr><td class="mono xs">dinis.humano</td><td class="mono xs">@Dinis</td><td class="xs">1</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr></tbody></table></div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The threads</div></div>
+<p class="sm" style="max-width:52em">Threaded by <code>Message-ID</code> and
+<code>In-Reply-To</code>. Replying does not close anything: a message stays open work while it
+sits in an inbox, and only moves to <code>tratado/</code> when the work it asked for is done.</p>
+
+<div class="correio" style="margin-top:16px;" id="001-mvp-construido@redacao.local">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip falta">delivered · open</span>
+    <span class="chip"><b>@Arranque</b> → @Dinis</span>
+    <span class="chip">2026-09-14T12:00:00Z</span>
+    
+    <span class="chip">run 2026-09-14T12:00:00Z</span>
+    <span class="chip falta">historical sender</span>
+    
+  </div>
+  <p class="std" style="max-width:52em"><b>MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão</b></p>
+  <p class='sm' style='max-width:52em'>O site está construído e os portões estão verdes. O que é real: 92 ficheiros congelados com
+SHA-256, um grafo de verbos portugueses onde cada nó nomeia a sua fonte, o aviso de proteção de
+dados publicado ANTES da primeira página que nomeia alguém, e o fluxo de revisão de entregas.</p><p class='sm' style='max-width:52em'>O que NÃO é real e está dito em cada página onde importa: nenhuma história publicada, três das
+oito secções vazias, e a camada das empresas impossível de completar sem registo comercial aberto.</p><p class='sm' style='max-width:52em'>Precisa de decidir três coisas. Primeira: a entrega do ChatGPT (parte 1/8, políticas) está em
+/entregas/ com cada afirmação conferida contra os bytes — 9 confirmadas, 0 não encontradas, 10 sem
+fonte legível. Nada dela aparece em lado nenhum público até aprovar item a item. Segunda: a entrega
+propõe tipos que a ontologia não tem (Programa, InstrumentoJuridico, Infraestrutura); aceitá-los é
+uma alteração de ontologia e leva uma versão. Terceira: a página da ANACOM devolve 403 a esta
+redação, e isso não é uma recusa de informação — é um servidor a bloquear um cliente. Pode pedir
+acesso.</p><p class='sm' style='max-width:52em'>Uma nota que é um achado e não um detalhe: o Diário da República renderiza por script e devolve 22
+caracteres a um leitor automático, mas publica os diplomas em PDF, e esses PDFs são legíveis depois
+de decifrados. build/pdf.py faz isso. Foi assim que as duas afirmações sobre a RCM n.º 70/2026
+confirmaram. O mesmo caminho resolve provavelmente a história 001.</p>
+  <p class="xs mono">redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml · 2012 bytes ·
+     in <code>@Dinis</code>'s
+     entrada
+     
+     · migrated from <code>redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md</code></p>
+  
+<div class="correio" style="margin-top:16px;margin-left:22px" id="003-equipa-visivel@redacao.local">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip miss">in transit</span>
+    <span class="chip"><b>@Bastidores</b> → @Dinis</span>
+    <span class="chip">2026-09-14T23:55:00Z</span>
+    
+    
+    
+    <span class="chip">sender copy kept</span>
+  </div>
+  <p class="std" style="max-width:52em"><b>A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial</b></p>
+  <p class='sm' style='max-width:52em'>Está feito o que pediu: os agentes são agora um registo em `dados/agentes.json`, o correio entre
+eles corre pelo protocolo Email-FS-lite em `redacao/correio/`, e há três páginas nos bastidores —
+a equipa, o quadro por agente e o correio. Nenhum número nessas páginas é uma afirmação sobre
+Portugal: são contagens de ficheiros deste repositório, e o portão dos bastidores falha a
+construção se alguma vez uma delas citar uma fonte congelada como prova.</p><p class='sm' style='max-width:52em'>Três coisas que precisam de uma decisão sua, e nenhuma é urgente.</p><p class='sm' style='max-width:52em'>PRIMEIRA, E A ÚNICA QUE BLOQUEIA. A ponte que o deixa escrever-me a partir do site está
+construída e não tem por onde enviar. Uma fila de acrescento precisa do `vault_id` do cofre que
+recebe, de um `append_token` em hexadecimal, e da chave pública para eu cifrar no navegador antes
+de enviar. As duas primeiras são credenciais e não podem ficar neste repositório — o `validate.js`
+tem um detetor de cadeias com forma de chave e falharia a construção, o que é o portão a funcionar.
+Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/pontes.html`. A chave
+pública pode ser publicada, e essa fica em ficheiro.</p><p class='sm' style='max-width:52em'>SEGUNDA. As chaves de leitura que me deu para os cofres dos jogos não puderam ser usadas: instalar
+o `sgit` foi recusado pelo classificador da caixa onde esta sessão corre. Não escrevi nenhuma
+delas em ficheiro. Li o desenho na fonte publicada em vez disso, e isso trouxe um achado que
+melhora o nosso caso: o cofre dos jogos construía eventos e não os enviava, porque uma aplicação
+de cofre corre numa moldura cujo CSP é `connect-src blob: data:`. Este site é estático, não é uma
+aplicação de cofre, e por isso o envio direto funciona. O que a telemetria dos jogos não conseguiu
+fazer, este site consegue.</p><p class='sm' style='max-width:52em'>TERCEIRA, QUE É UMA CORREÇÃO A UM FICHEIRO QUE EU NÃO POSSO EDITAR. O `CLAUDE.md` manda correr
+`node build/validate.js`. O ficheiro está em `admin/build/validate.js`, e é esse que a integração
+contínua corre. Quem seguir a linha à letra conclui que o portão não existe. `CLAUDE.md` está na
+lista de recusa de propósito e não lhe toquei: a linha é sua.</p><p class='sm' style='max-width:52em'>Continuam abertos os três assuntos que a sessão de arranque lhe deixou — a entrega do ChatGPT item
+a item, os três tipos novos da ontologia, e o pedido de acesso à ANACOM, que tem a pesquisa
+bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.</p>
+  <p class="xs mono">redacao/correio/expedicao/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml · 2847 bytes ·
+     in <code>@Dinis</code>'s
+     mailroom
+     · sender copy at <code>redacao/correio/bastidores.pt/saida/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml</code>
+     </p>
+  
+</div>
+</div>
+<div class="correio" style="margin-top:16px;" id="002-tres-primeiras-historias@redacao.local">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip falta">delivered · open</span>
+    <span class="chip"><b>@Dinis</b> → @Pesquisa</span>
+    <span class="chip">2026-09-14T12:05:00Z</span>
+    <span class="chip">issue 001,002,003</span>
+    <span class="chip">run 2026-09-14T12:00:00Z</span>
+    
+    
+  </div>
+  <p class="std" style="max-width:52em"><b>As três primeiras histórias estão abertas como issues em «procurado»</b></p>
+  <p class='sm' style='max-width:52em'>As três histórias que o resumo de comissionamento encomenda estão abertas. Nenhuma pode avançar
+sem uma fonte congelada que a sustente, e as três dizem no próprio ficheiro o que já se tem e o
+que falta.</p><p class='sm' style='max-width:52em'>Para a 001 e a 002 o caminho é o mesmo e está agora aberto: o PDF do Diário da República. Encontre
+o endereço, não o construa por adivinhação — um endereço inventado que devolve outro diploma é pior
+do que um que devolve 404.</p><p class='sm' style='max-width:52em'>Para a 003, o portal de transparência do plano de recuperação não resolveu em nenhuma tentativa, e
+a lista de unidades de I&amp;D devolveu 404. Ambas as ausências são publicáveis tal como estão.</p>
+  <p class="xs mono">redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml · 1141 bytes ·
+     in <code>@Pesquisa</code>'s
+     entrada
+     
+     · migrated from <code>redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md</code></p>
+  
+</div>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/correio.html</code> · version <span class="ver">v0.3.1</span>.
+</div>
+
+</div>
+</body>
+</html>

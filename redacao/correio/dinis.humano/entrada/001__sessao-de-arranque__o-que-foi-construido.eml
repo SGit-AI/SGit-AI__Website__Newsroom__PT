@@ -1,11 +1,13 @@
----
-de: sessao-de-arranque
-para: editor
-assunto: MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão
-issue: —
-run: 2026-09-14T12:00:00Z
-quando: 2026-09-14T12:00:00Z
----
+From: sessao-de-arranque <sessao-de-arranque@redacao.local>
+To: dinis.humano <dinis.humano@redacao.local>
+Date: 2026-09-14T12:00:00Z
+Subject: MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão
+Message-ID: <001-mvp-construido@redacao.local>
+X-EmailFS-From-Alias: @Arranque
+X-EmailFS-To-Alias: @Dinis
+X-Redacao-Run: 2026-09-14T12:00:00Z
+X-Redacao-Identidade-Historica: From
+X-Redacao-Migrado-De: redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md
 
 O site está construído e os portões estão verdes. O que é real: 92 ficheiros congelados com
 SHA-256, um grafo de verbos portugueses onde cada nó nomeia a sua fonte, o aviso de proteção de

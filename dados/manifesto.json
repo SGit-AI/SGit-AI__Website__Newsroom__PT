@@ -3,12 +3,22 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 20,
+  "contagem": 24,
   "ficheiros": [
+    {
+      "ficheiro": "dados/agentes.json",
+      "bytes": 18588,
+      "sha256": "e3bc0e7e48c6a8e8efd1889f6754a500e06fd86a9be522ca8724d1b90e5dd2f3"
+    },
     {
       "ficheiro": "dados/aviso.json",
       "bytes": 9981,
       "sha256": "ef18ce1043d6bc0c2e745448499841ddbd509d366eda2672481527f97c03114d"
+    },
+    {
+      "ficheiro": "dados/correio.json",
+      "bytes": 13157,
+      "sha256": "c0e6e44dde3751ec3aa8250dfce967f0b33eda3618102fe541eca85a54024835"
     },
     {
       "ficheiro": "dados/documentos.json",
@@ -57,8 +67,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 3272,
-      "sha256": "8860b752c896a2591b260554ff95c1ee01777eab51fbbad34318e46a8a9ee5ff"
+      "bytes": 3433,
+      "sha256": "c2d9a2cf765f11b1ac172fa464299e345d96716f680e6b0cdd3bd1cd303ecb9d"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -79,6 +89,16 @@
       "ficheiro": "dados/pessoas.json",
       "bytes": 20638,
       "sha256": "9c24d3b9e8836d8f3db1271e8d93be75041cfbdcce84b59c7c9557f8cf5c60a6"
+    },
+    {
+      "ficheiro": "dados/pontes.json",
+      "bytes": 9182,
+      "sha256": "35a65d8082ad650a27087c9ef985368b2630cad7201f33d3f50ed22b7e74be37"
+    },
+    {
+      "ficheiro": "dados/quadro.json",
+      "bytes": 34082,
+      "sha256": "104060fc310ec4c4328688b8d8bca09c42efe8c396f3cf758abbab25fa163127"
     },
     {
       "ficheiro": "dados/registo.json",

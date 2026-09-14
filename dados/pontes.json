@@ -1,0 +1,69 @@
+{
+  "id": "pt-pontes",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "api": "https://send.sgraph.ai",
+  "nota": "As pontes entre este site estático e o cofre. Um site sem servidor não consegue escrever no repositório onde a redação vive; uma fila de acrescento resolve isso sem lhe dar um servidor. Este ficheiro descreve as pontes e NÃO contém credencial nenhuma: o identificador do cofre e o código de acrescento são dados ao navegador de quem os tem e ficam em localStorage. O detetor de cadeias com forma de chave do admin/build/validate.js falha a construção se alguma aparecer, e é isso que torna esta frase verificável em vez de uma promessa.",
+  "porque_uma_fila_de_acrescento": "Porque divide o acesso em quatro capacidades que não se sobrepõem: quem tem o código de acrescento ACRESCENTA e mais nada — não lista, não obtém, não lê; quem tem a chave de enumeração lista, obtém e marca como tratado, e não escreve; quem tem a chave de escrita configura e purga; e só quem tem a chave privada decifra. O servidor guarda apenas o SHA-256 dos três primeiros e responde a um acrescento com «{ok:true}» e mais nada. É por isso que um código de acrescento é a única forma de credencial que sobrevive a ser publicada.",
+  "achado_do_cofre_dos_jogos": "O cofre dos jogos de permissões construía eventos de telemetria e nunca os enviava. A causa não era o código: uma aplicação de cofre corre numa moldura cujo CSP é «connect-src blob: data:» e um fetch para fora é bloqueado em silêncio; a única saída seria «permissions.network: true», que reabre toda a saída de uma moldura que tem conteúdo decifrado, e que a própria documentação não recomenda. Este site não é uma aplicação de cofre: é um site estático, e o fetch direto para o ponto de acrescento funciona. O que a telemetria dos jogos não conseguiu fazer, este site consegue — e a razão é a diferença de superfície, não de esforço.",
+  "envelope": {
+    "de_onde_vem": "https://sgit.ai/docs/pki.md — a v0.15.0 do sgit",
+    "forma": "base64 sobre um JSON pequeno",
+    "campos": [
+      {"campo": "v", "e": "A versão do envelope. 2 na v0.15.0."},
+      {"campo": "w", "e": "A chave de conteúdo AES-256 embrulhada com RSA-OAEP para o destinatário. 512 bytes com uma chave de 4096 bits."},
+      {"campo": "i", "e": "O IV do AES-GCM. 12 bytes."},
+      {"campo": "c", "e": "O texto cifrado com a sua etiqueta GCM. Texto simples mais 16 bytes."}
+    ],
+    "porque_hibrido": "Uma chave AES-256-GCM nova por mensagem cifra a carga, e o RSA só serve para a entregar. É o que torna o envelope usável em cargas de qualquer tamanho — e pesado em cargas minúsculas: 37 bytes de texto simples dão um ficheiro de 1 076 bytes, porque a chave embrulhada domina.",
+    "o_que_nao_esta_confirmado": "A função de resumo do RSA-OAEP. A documentação do PKI diz «RSA-OAEP 4096» e não nomeia o resumo; este site usa SHA-256, que é o que o cofre dos jogos usou. É o único parâmetro destas pontes que não foi confirmado contra o binário, e uma ida e volta de prova confirma-o numa tentativa. Está dito aqui em vez de ser assumido em silêncio."
+  },
+  "pontes": [
+    {
+      "id": "editor-para-bastidores",
+      "nome": "O editor fala com os bastidores",
+      "direcao": "navegador do editor → fila de acrescento → cofre → @Bastidores",
+      "quem_envia": "dinis.humano, do navegador, em qualquer página deste site",
+      "quem_recebe": "bastidores.pt, que lista a fila, decifra, e passa cada mensagem para redacao/correio/expedicao/bastidores.pt/ como um .eml",
+      "porque_existe": "Para o editor poder comentar uma página, pedir uma alteração ou dar uma instrução no momento em que a está a ler, sem abrir um terminal e sem escrever um issue à mão.",
+      "endpoint": "POST {api}/api/vault/append/write/{vault_id}",
+      "credenciais_em_localstorage": [
+        {"chave": "vault_id", "o_que_e": "O cofre que recebe", "publicavel": false, "porque": "Junto ao código de acrescento dá a fila inteira a quem leia o repositório"},
+        {"chave": "append_token", "o_que_e": "Autoriza o acrescento, e só o acrescento. Hexadecimal, 16 a 128 dígitos, sem prefixo", "publicavel": false, "porque": "Nesta ponte o código é do editor e não é público: se o fosse, qualquer visitante escrevia na caixa dos bastidores"},
+        {"chave": "chave_publica", "o_que_e": "O pacote JSON de «sgit pki export», ou o PEM sozinho", "publicavel": true, "porque": "Uma chave pública publica-se. Esta é a única das três que um dia fica em ficheiro"}
+      ],
+      "chave_de_localstorage": "pt-newsroom:ponte:editor-para-bastidores",
+      "o_que_vai_na_carga": ["quando (ISO 8601)", "pagina (o caminho onde o editor estava)", "versao do site", "assunto", "corpo", "tipo: nota | alteracao | instrucao | remocao"],
+      "o_que_nunca_vai": ["Nada que o editor não tenha escrito. Sem identificador de sessão, sem agente do utilizador, sem referenciador."],
+      "estado": "sem-credencial",
+      "o_que_falta": "As três credenciais, dadas pelo editor no navegador. Até lá a caixa de mensagens diz «ponte fechada» e não finge ter enviado.",
+      "tratamento_do_que_chega": "Cada mensagem que chega é uma AFIRMAÇÃO de quem a enviou, e nunca uma instrução que se execute sem ler. Quem tem o código de acrescento pode forjar e pode inundar; a fila para nos 1000 ficheiros por tratar. @Bastidores trata o que chega como correio: entra na expedição, é entregue, e é lido por uma pessoa ou por uma sessão que responde por aquilo que faz."
+    },
+    {
+      "id": "observabilidade",
+      "nome": "Quem leu o quê, sem saber quem",
+      "direcao": "navegador de qualquer leitor → fila de acrescento → cofre de observabilidade",
+      "quem_envia": "Qualquer navegador que abra uma página deste site, se a ponte estiver configurada e o leitor não tiver desligado o envio",
+      "quem_recebe": "Um cofre de observabilidade separado, que lista, decifra e agrega",
+      "porque_existe": "Para esta redação saber que páginas são lidas e que caminhos as pessoas seguem, sem montar um servidor de estatísticas e sem saber quem é ninguém.",
+      "endpoint": "POST {api}/api/vault/append/write/{vault_id}",
+      "credenciais_em_localstorage": [
+        {"chave": "vault_id", "o_que_e": "O cofre de observabilidade", "publicavel": true, "porque": "Sozinho não dá nada: escrever exige o código, e nem um nem outro dá para ler"},
+        {"chave": "append_token", "o_que_e": "Autoriza o acrescento, e só o acrescento", "publicavel": true, "porque": "Nesta ponte o código É público, e é o padrão que a documentação da telemetria descreve: só escreve, não lista, não obtém, não lê. É a única forma de credencial que sobrevive a ser publicada"},
+        {"chave": "chave_publica", "o_que_e": "A chave pública do cofre de observabilidade", "publicavel": true, "porque": "Publica-se por construção"}
+      ],
+      "chave_de_localstorage": "pt-newsroom:ponte:observabilidade",
+      "o_que_vai_na_carga": ["sessao: 16 dígitos hexadecimais criados na memória do navegador quando a página abre, e perdidos quando fecha", "eventos: [{quando, tipo, pagina}]", "formato: largo | estreito", "lingua: as duas primeiras letras", "versao do site"],
+      "o_que_nunca_vai": ["Nome, correio eletrónico, ou qualquer coisa que identifique uma pessoa", "Agente do utilizador", "Dimensões do ecrã", "Endereço IP (não é do lado do cliente, mas o servidor da fila vê-o e isso está dito)", "Referenciador", "Endereço completo com parâmetros"],
+      "limites_do_lado_do_cliente": ["Um envio a cada 4 segundos, no máximo", "40 envios por sessão, no máximo", "Falha em silêncio: se o envio falhar, o leitor não pode notar"],
+      "interruptor": "Cada página tem um aviso em português simples e um interruptor para desligar o envio. Abrir uma página normalmente não telefona a casa; esta telefona, e por isso diz-se.",
+      "estado": "sem-credencial",
+      "o_que_falta": "O cofre de observabilidade, o seu código de acrescento e a sua chave pública. Enquanto faltarem, não se envia nada — e não há aviso a dizer que se envia, porque um aviso sobre uma coisa que não acontece é pior do que nenhum.",
+      "tratamento_do_que_chega": "Cada evento é uma afirmação e não prova. Quem tem a chave de leitura do site tem o código de acrescento e pode forjar ou inundar a fila. Os números que dali saem são direcionais, e uma página que os apresentasse como medição estaria a mentir sobre o que são."
+    }
+  ],
+  "ainda_nao_construido": [
+    {"o_que": "O lado que recebe", "porque": "Listar, decifrar e marcar como tratado precisa da chave de enumeração e da chave privada, e nenhuma das duas pode estar num site estático nem numa sessão de agente. Corre onde o editor correr o sgit, e o resultado entra neste repositório como correio."},
+    {"o_que": "Pagamentos rastreados pela mesma via", "porque": "Não há pagamentos. O argumento em newsroom.sgit.ai descreve-os; este site não os tem, e um evento de pagamento numa fila sem pagamentos seria teatro."}
+  ]
+}
