@@ -51,6 +51,7 @@ class PtEntityGraph extends SgComponent {
             this._atualizado = grafo.atualizado || ''
             this._render()
         } catch (err) {
+            this.falhou(err.message)
             this.$('#title').textContent = 'o grafo não carregou'
             this.$('#nota').className = 'nota erro'
             this.$('#nota').textContent =
@@ -74,7 +75,7 @@ class PtEntityGraph extends SgComponent {
         const texto = n ? n.rotulo : id
         const url = forte ? null : this._url(id)
         const el = document.createElement(forte ? 'b' : (url ? 'a' : 'span'))
-        if (url) el.setAttribute('href', url)
+        if (url) { el.setAttribute('href', url); el.className = 'no' }
         el.textContent = texto
         return el
     }

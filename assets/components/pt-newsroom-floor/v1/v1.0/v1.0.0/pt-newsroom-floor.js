@@ -35,6 +35,7 @@ class PtNewsroomFloor extends SgComponent {
             })
             this._render()
         } catch (err) {
+            this.falhou(err.message)
             this.$('#nota').className = 'nota erro'
             this.$('#nota').textContent = `a mesa não carregou: ${err.message}`
         }

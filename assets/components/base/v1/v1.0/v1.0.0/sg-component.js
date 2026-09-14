@@ -78,6 +78,31 @@ export class SgComponent extends HTMLElement {
     /** Called once the shadow root is populated. Override this, never connectedCallback. */
     onReady() {}
 
+    /**
+     * Say, on the host element, that this component failed.
+     *
+     * A component that catches its own error and renders a friendly message is doing the right
+     * thing for the reader and the wrong thing for anything checking the page: no console error,
+     * no exception, a shadow root full of text — it looks healthy. This site's render check found
+     * exactly that hole, so failure became something a machine can see. `data-estado` is on the
+     * HOST, outside the shadow root, where a checker can read it without knowing the component.
+     *
+     * Call it from every catch block. It does not replace showing the reader what went wrong:
+     * that stays the component's job, because a reader cannot read an attribute.
+     */
+    falhou(porque) {
+        this.setAttribute('data-estado', 'erro')
+        this.setAttribute('data-erro', String(porque).slice(0, 300))
+        this.emit(`${this.resourceName}:erro`, { porque: String(porque) })
+    }
+
+    /** Say that this component is up. Set by the base class once onReady() has returned. */
+    pronto() {
+        if (this.getAttribute('data-estado') !== 'erro') {
+            this.setAttribute('data-estado', 'pronto')
+        }
+    }
+
     /** Resolve a path against the component's own directory. */
     resolve(relative) {
         const base = this.constructor.jsUrl
@@ -103,10 +128,16 @@ export class SgComponent extends HTMLElement {
             ])
             shadow.adoptedStyleSheets = [...shared, own]
             shadow.innerHTML = markup
-            this.onReady()
+            /* onReady may be async. Awaiting it means `data-estado` is only set once the component
+               has actually finished loading whatever it loads — which is what a checker, and a
+               reader, mean by «ready». A component whose onReady rejects lands in the catch below
+               like any other failure, instead of becoming an unhandled rejection nobody sees. */
+            await this.onReady()
+            this.pronto()
         } catch (err) {
             /* A component that fails to load says so where a reader can see it. Failing silently
                would leave an empty box, which is the one outcome that looks like a design choice. */
+            this.falhou(err.message)
             shadow.innerHTML = ''
             const p = document.createElement('p')
             p.style.cssText = 'font:13px/1.5 ui-monospace,monospace;color:#b91c1c;padding:12px'

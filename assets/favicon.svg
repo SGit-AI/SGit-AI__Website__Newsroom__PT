@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="pt.newsroom.sgit.ai">
+  <!-- O papel, a tinta e o acento do site, e mais nada. Nenhuma marca inventada: um jornal que
+       ainda não publicou uma única história não tem um logótipo para pôr aqui. -->
+  <rect width="64" height="64" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="64" height="5" fill="#0f766e"/>
+  <text x="32" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="38" fill="#17181c">pt</text>
+</svg>

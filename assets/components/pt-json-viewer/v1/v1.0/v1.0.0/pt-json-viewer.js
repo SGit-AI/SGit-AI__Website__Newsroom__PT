@@ -82,6 +82,9 @@ class PtJsonViewer extends SgComponent {
             }
             this.emit('pt:json.opened', { src })
         } catch (err) {
+            /* This is the load path — onReady calls load() with the file the page named. A
+               viewer that cannot read the file it was told to show did not come up. */
+            this.falhou(err.message)
             body.textContent = `Could not read ${src}: ${err.message}`
         }
     }

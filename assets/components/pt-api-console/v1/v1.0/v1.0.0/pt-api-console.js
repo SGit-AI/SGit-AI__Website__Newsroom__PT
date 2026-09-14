@@ -44,6 +44,7 @@ class PtApiConsole extends SgComponent {
             }
             this._ops.sort((a, b) => a.path.localeCompare(b.path))
         } catch (err) {
+            this.falhou(err.message)
             this.$('#list').textContent = `openapi.json did not load: ${err.message}`
             return
         }
@@ -200,6 +201,10 @@ class PtApiConsole extends SgComponent {
             out.appendChild(pre)
             this.emit('pt:api.called', { url: u, status: r.status })
         } catch (err) {
+            /* Um pedido que o LEITOR fez e que falhou. Não é o componente que está em baixo — numa
+               consola de API, ver um pedido falhar é metade da utilidade. Não se marca `falhou()`:
+               esse atributo quer dizer «este componente não subiu», e alargá-lo apagaria a
+               distinção que o torna útil a quem confere a página. */
             out.textContent = `Request failed: ${err.message}`
         }
     }

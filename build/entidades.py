@@ -216,14 +216,16 @@ def main():
         if n is None:
             return e(nid)
         alvo = por_no.get(nid)
+        # `class="no"`: numa página de entidade, o valor da página é poder seguir estas frases, e
+        # o estilo da casa só sublinha ao passar o rato — o que faz uma ligação parecer texto.
         if alvo:
-            return f'<a href="{raiz}{alvo["url"]}">{e(n["rotulo"])}</a>'
+            return f'<a class="no" href="{raiz}{alvo["url"]}">{e(n["rotulo"])}</a>'
         if n["tipo"] == "Fonte":
-            return f'<a href="{raiz}registo/#{e(n.get("fonte", ""))}">{e(n["rotulo"])}</a>'
+            return f'<a class="no" href="{raiz}registo/#{e(n.get("fonte", ""))}">{e(n["rotulo"])}</a>'
         if n["tipo"] == "Historia":
             h = next((h for h in hist.get("historias", []) if h["slug"] == nid.split(":", 1)[1]), None)
             if h:
-                return f'<a href="{raiz}{h["url"]}">{e(n["rotulo"])}</a>'
+                return f'<a class="no" href="{raiz}{h["url"]}">{e(n["rotulo"])}</a>'
         return e(n["rotulo"])
 
     def frase(a, eu, raiz):
