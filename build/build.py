@@ -590,6 +590,33 @@ def entregas_indice(d):
         f'<tr><td><span class="pastilha" style="background:{e(s["cor"])}"></span>'
         f'{e(s["rotulo"])}</td><td class="sm">{e(s["o_que_significa"])}</td></tr>'
         for s in ent["estados"])
+
+    # Os resumos são ligados a partir do repositório e não republicados como páginas: são o mesmo
+    # princípio que rege as cópias congeladas — este site liga, não reproduz. E o pacote diz a
+    # regra que torna isto mais do que estilo: conteúdo existe uma vez. Se o resumo estivesse aqui
+    # e em briefs/pack/, os dois acabariam por discordar.
+    RESUMOS = [
+        ("12__research-brief-for-chatgpt.md", "O resumo para o ChatGPT",
+         "Insiste em abrir cada página, copiar o excerto verbatim e entregar em partes, porque a "
+         "ferramenta estrutura bem e é mais fraca a garantir que abriu mesmo cada endereço."),
+        ("13__research-brief-for-perplexity.md", "O resumo para a Perplexity",
+         "Apoia-se nas citações e numa série de consultas por secção, porque a ferramenta cita "
+         "por omissão e pesquisa bem em português."),
+    ]
+    cartoes_b = []
+    for f, titulo, porque in RESUMOS:
+        caminho = ROOT / "briefs" / "pack" / "08__research-briefs" / f
+        if not caminho.exists():
+            continue
+        n_linhas = len(caminho.read_text(encoding="utf-8").split("\n"))
+        cartoes_b.append(
+            f'<div class="painel col sp8">'
+            f'<div class="mono xs">{e(f)} · {n_linhas} linhas</div>'
+            f'<h3 class="h-3">{e(titulo)}</h3>'
+            f'<p class="sm">{e(porque)}</p>'
+            f'<a class="mono xs ac" href="../briefs/pack/08__research-briefs/{e(f)}">Ler o resumo →</a>'
+            f'</div>')
+    briefs = "".join(cartoes_b)
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Entregas de investigação · o fluxo
 de revisão</div></div>
@@ -622,6 +649,21 @@ não pode fazer.</p></div>
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Os estados, e o que cada um significa</div></div>
 <div class="rolar"><table><thead><tr><th style="width:220px">Estado</th><th>Significado</th></tr>
   </thead><tbody>{estados}</tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">De onde vem uma entrega · os dois
+resumos de investigação</div></div>
+<p class="sm" style="max-width:48em;padding-bottom:12px">Um assistente exterior não recebe uma
+pergunta: recebe um contrato. Os dois resumos abaixo dizem o que procurar, em que forma devolver,
+e — a parte que faz a diferença — que cada endereço tem de ser aberto e cada excerto copiado da
+página, porque é contra esse excerto que esta redação vai conferir os bytes. São dois e não um
+porque as ferramentas falham de maneiras diferentes: uma cita bem por omissão e pesquisa bem em
+português, a outra estrutura melhor e é mais fraca a garantir que abriu mesmo cada página.</p>
+<div class="g2">{briefs}</div>
+<p class="xs" style="padding-top:12px">Ambos, e o esquema JSON contra o qual uma entrega é
+validada, estão no repositório em <code>briefs/pack/08__research-briefs/</code>. O esquema é a
+razão por que uma entrega pode falhar a validação sem falhar como investigação: um tipo de
+entidade que a ontologia ainda não tem é uma proposta de vocabulário, e essa é uma decisão do
+editor sobre a ontologia, não um defeito da entrega.</p>
 """
     return pagina("entregas/index.html", "Entregas de investigação",
                   "O que assistentes exteriores trouxeram, e o que aconteceu quando esta redação "
