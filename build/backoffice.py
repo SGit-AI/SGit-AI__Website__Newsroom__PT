@@ -28,7 +28,9 @@ WHAT IS HERE
 
   index.html    the console: pipeline, agents, articles, deliveries, sections, gates
   docs.html     every markdown document in this repository, indexed
-  viewer.html   a reader for any of them, rendered client-side from the repository's own bytes
+  viewer.html   a PERMALINK, kept because things linked it. It forwards to docs.html, carrying
+                the #fragment across, so the two-pane browser is the ONE reader. There is no
+                second implementation of document rendering in this repository.
 """
 import json
 import re
@@ -203,95 +205,33 @@ asked to do. References to the rest of the estate are at the foot of the tree.</
                   corpo, extra_body=extra)
 
 
-VIEWER_JS = r"""
-<script src="../assets/vendor/marked.min.js"></script>
+FORWARD_JS = """
 <script>
-/* The markdown viewer. Reads the repository's own bytes over fetch and renders them here, so a
-   document shown in the back office is the same file the build read — no copy, no drift.
-   The document is named in the URL FRAGMENT rather than a query string, deliberately: the site
-   gate walks every href and checks it resolves to a file on disk, and it strips the fragment. A
-   query string would make every link in the index look broken to the gate. */
+/* This page is kept as a PERMALINK, not as a second viewer. The document browser on docs.html
+   is the one implementation, and having a second one here would be the rule this site repeats
+   most often — content exists once — broken in its own back office. Anyone holding a
+   viewer.html#path link lands where that document is now read. */
 (function () {
-  'use strict';
-  var out = document.getElementById('doc');
-  var titulo = document.getElementById('doc-title');
-  var raw = document.getElementById('doc-raw');
-  var meta = document.getElementById('doc-meta');
-
-  function load() {
-    var path = decodeURIComponent(location.hash.replace(/^#/, ''));
-    if (!path) {
-      out.innerHTML = '<p class="sm">No document selected. Pick one from ' +
-                      '<a href="docs.html">the index</a>.</p>';
-      return;
-    }
-    /* Only ever read inside this repository, and only markdown. A viewer that accepted an
-       arbitrary path would happily render anything the server would serve. */
-    if (path.indexOf('..') !== -1 || !/\.md$/.test(path)) {
-      out.innerHTML = '<p class="sm">That is not a markdown document in this repository.</p>';
-      return;
-    }
-    titulo.textContent = path.split('/').pop();
-    raw.href = '../' + path;
-    fetch('../' + path).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.text();
-    }).then(function (t) {
-      meta.textContent = t.split('\n').length + ' lines · ' + t.split(/\s+/).length +
-                         ' words · ' + new Blob([t]).size + ' bytes';
-      out.innerHTML = marked.parse(t);
-      out.querySelectorAll('table').forEach(function (tb) {
-        var w = document.createElement('div');
-        w.className = 'rolar';
-        tb.parentNode.insertBefore(w, tb);
-        w.appendChild(tb);
-      });
-      /* A relative link inside a document points at a file relative to THAT document, not to
-         this page. Rewrite markdown links so they keep working, and send .md links back into
-         this viewer instead of downloading them. */
-      var dir = path.replace(/[^/]+$/, '');
-      out.querySelectorAll('a[href]').forEach(function (a) {
-        var h = a.getAttribute('href');
-        if (/^(https?:|mailto:|#)/.test(h)) return;
-        var alvo = new URL(dir + h, location.origin + '/x/').pathname.replace(/^\/x\//, '');
-        a.setAttribute('href', /\.md$/.test(alvo) ? '#' + alvo : '../' + alvo);
-      });
-    }).catch(function (err) {
-      /* Built with the DOM rather than an HTML string on purpose. The site gate finds links by
-         scanning the bytes of a page for a link attribute, and it does not know that a given
-         byte is inside a script: a link glued together at runtime looks to it like a link that
-         resolves to nothing, and it reports a broken link no reader could ever click.
-         Setting the attribute through the DOM keeps the pattern out of the bytes entirely.
-         (This comment was itself the second instance of that bug.) */
-      out.textContent = 'Could not read ' + path + ': ' + err.message + '. The raw file is ';
-      var a = document.createElement('a');
-      a.setAttribute('href', '../' + path);
-      a.textContent = 'here';
-      out.appendChild(a);
-    });
-  }
-  window.addEventListener('hashchange', load);
-  load();
-})();
+    var path = location.hash.replace(/^#/, '')
+    location.replace('docs.html' + (path ? '#' + path : ''))
+})()
 </script>
 """
 
 
 def pagina_viewer():
     corpo = """
-<div class="rule" style="padding:26px 0 8px;display:flex;justify-content:space-between;
-  align-items:baseline;gap:16px;flex-wrap:wrap">
-  <div class="sect">Document viewer</div>
-  <div class="mono xs"><a href="docs.html">← all documents</a> ·
-    <a id="doc-raw" href="#">raw file</a></div>
-</div>
-<h1 class="h-2" id="doc-title" style="max-width:28em">—</h1>
-<p class="mono xs" id="doc-meta" style="padding:8px 0 18px"></p>
-<div id="doc" style="max-width:46em"></div>
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Document viewer</div></div>
+<h1 class="h-2" style="max-width:28em">This page moved into the document browser.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 10px">Documents are now read in a two-pane
+browser — the tree stays while you read — and this address forwards there, keeping any link
+somebody already holds. There is one viewer, not two: a second implementation of the same thing
+is the rule this site repeats most often, content exists once, broken in its own back office.</p>
+<p class="sm"><a href="docs.html">Go to the documents →</a></p>
 """
     return pagina("backoffice/viewer.html", "Document viewer",
-                  "Reads a markdown document from this repository and renders it in place.",
-                  corpo, extra_body=VIEWER_JS)
+                  "Forwards to the document browser, which is where documents are read.",
+                  corpo, extra_body=FORWARD_JS)
 
 
 # --------------------------------------------------------------- the console ---

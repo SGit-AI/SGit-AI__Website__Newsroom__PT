@@ -614,6 +614,18 @@
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:diario-da-republica-eletronico> <http://www.w3.org/2000/01/rdf-schema#label> "Diário da República Eletrónico"@pt .
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:dados-gov-pt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Instituicao> .
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:dados-gov-pt> <http://www.w3.org/2000/01/rdf-schema#label> "dados.gov.pt"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:uma-captura-nao-mostra-movimento> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:uma-captura-nao-mostra-movimento> <http://www.w3.org/2000/01/rdf-schema#label> "Uma captura não mostra movimento; duas mostram"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:regulador-designacao-ausente> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:regulador-designacao-ausente> <http://www.w3.org/2000/01/rdf-schema#label> "O regulador foi designado e o instrumento de designação não está na página de IA do Governo"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:registo-nacional-nao-devolve-texto> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:registo-nacional-nao-devolve-texto> <http://www.w3.org/2000/01/rdf-schema#label> "Duas das três páginas do registo nacional não devolvem texto a um leitor automático"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:quantas-startups-sao-de-ia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:quantas-startups-sao-de-ia> <http://www.w3.org/2000/01/rdf-schema#label> "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:dois-nomes-para-os-mesmos-palcos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:dois-nomes-para-os-mesmos-palcos> <http://www.w3.org/2000/01/rdf-schema#label> "O mesmo evento nomeia os seus palcos de duas maneiras"@pt .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:agenda-nacional-instrumento-legal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://pt.newsroom.sgit.ai/grafo/tipo/Historia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:agenda-nacional-instrumento-legal> <http://www.w3.org/2000/01/rdf-schema#label> "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina"@pt .
 <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/abertas/cordis> <https://pt.newsroom.sgit.ai/grafo/verbo/capturado_em> <https://pt.newsroom.sgit.ai/grafo/no/captura:2026-09-14> .
 <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/agenda> <https://pt.newsroom.sgit.ai/grafo/verbo/capturado_em> <https://pt.newsroom.sgit.ai/grafo/no/captura:2026-09-14> .
 <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/bilhetes> <https://pt.newsroom.sgit.ai/grafo/verbo/capturado_em> <https://pt.newsroom.sgit.ai/grafo/no/captura:2026-09-14> .
@@ -1456,3 +1468,15 @@
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:governo-de-portugal> <https://pt.newsroom.sgit.ai/grafo/verbo/consta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/gov-ia> .
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:diario-da-republica-eletronico> <https://pt.newsroom.sgit.ai/grafo/verbo/consta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/dre-inicio> .
 <https://pt.newsroom.sgit.ai/grafo/no/instituicao:dados-gov-pt> <https://pt.newsroom.sgit.ai/grafo/verbo/consta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/dados-gov> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:uma-captura-nao-mostra-movimento> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/oradores> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:regulador-designacao-ausente> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:regulador-designacao-ausente> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:registo-nacional-nao-devolve-texto> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/dre-inicio> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:registo-nacional-nao-devolve-texto> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/gov-ia> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:registo-nacional-nao-devolve-texto> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/dados-gov> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:quantas-startups-sao-de-ia> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/abertas/cordis> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:dois-nomes-para-os-mesmos-palcos> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/agenda> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:dois-nomes-para-os-mesmos-palcos> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/oradores> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:dois-nomes-para-os-mesmos-palcos> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/patrocinadores> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:agenda-nacional-instrumento-legal> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/dre-inicio> .
+<https://pt.newsroom.sgit.ai/grafo/no/historia:agenda-nacional-instrumento-legal> <https://pt.newsroom.sgit.ai/grafo/verbo/assenta_em> <https://pt.newsroom.sgit.ai/grafo/no/fonte:2026-09-14/registo/gov-ia> .

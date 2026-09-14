@@ -3,12 +3,17 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 19,
+  "contagem": 20,
   "ficheiros": [
     {
       "ficheiro": "dados/aviso.json",
       "bytes": 9981,
       "sha256": "ef18ce1043d6bc0c2e745448499841ddbd509d366eda2672481527f97c03114d"
+    },
+    {
+      "ficheiro": "dados/documentos.json",
+      "bytes": 8180,
+      "sha256": "6e4663e9ae308063a2791fbf1899e77d82a5f065c44004330be8535fac68d4d2"
     },
     {
       "ficheiro": "dados/entregas.json",
@@ -17,8 +22,8 @@
     },
     {
       "ficheiro": "dados/equipa.json",
-      "bytes": 6133,
-      "sha256": "d26d08957c3854d655ef92547ece171817330ab9208218374876c6a0c2251f4e"
+      "bytes": 8510,
+      "sha256": "bd03219982936a3dd2458a5b815243d231563a2780578e11f8c7b70c34d4b255"
     },
     {
       "ficheiro": "dados/evento.json",
@@ -37,13 +42,13 @@
     },
     {
       "ficheiro": "dados/grafo.json",
-      "bytes": 320476,
-      "sha256": "ea2ea04dddc2250d25ddb37c9cb2bb3a73fc6f9eed5341b650531b3ad7bab9e4"
+      "bytes": 325863,
+      "sha256": "62f2948ff57c240991767e4dce56a21c30f77a015b27be8902eb1800ec0fc6db"
     },
     {
       "ficheiro": "dados/historias.json",
-      "bytes": 443,
-      "sha256": "6d67728808181ebb5b6a56253b92a974a699673b2478a17827694b37cd1fb09c"
+      "bytes": 7787,
+      "sha256": "762c26ac54e01d36e315e8c09a09dce8c81449ca2ef71b8529cb43c1fb04ae98"
     },
     {
       "ficheiro": "dados/lexico.json",
@@ -53,7 +58,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 3272,
-      "sha256": "2ce3a72eddc2e1dc74fb93ffafcfc7e1ab51b68a2f8e3c2976fa136be945957b"
+      "sha256": "8860b752c896a2591b260554ff95c1ee01777eab51fbbad34318e46a8a9ee5ff"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -92,8 +97,8 @@
     },
     {
       "ficheiro": "dados/triplos.nt",
-      "bytes": 245679,
-      "sha256": "28d77c1e4ead7ead2fa965519e8a0419c5396e09d11271f21e6824da79f43a08"
+      "bytes": 250644,
+      "sha256": "71a344041508a9b00216d0b3fcbcfa74e3e8e2a8cec57b046995abc40a26f4e1"
     },
     {
       "ficheiro": "dados/verificacoes-fonte.json",

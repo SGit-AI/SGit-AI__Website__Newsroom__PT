@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.3.0",
+  "version": "v0.3.1",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -542,7 +542,7 @@
       "portuguese_source": "dados/manifesto.json",
       "summary": "Every data file with its SHA-256",
       "description": null,
-      "count": 19,
+      "count": 20,
       "items": null,
       "item_ids": null
     },

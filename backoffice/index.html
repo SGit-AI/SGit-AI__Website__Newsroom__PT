@@ -19,7 +19,7 @@
   <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
        <a href="../backoffice/docs.html">documents</a> ·
        <a href="../admin/versions.html">versions</a></div>
-  <div><span class="ver">v0.3.0</span></div>
+  <div><span class="ver">v0.3.1</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -39,7 +39,7 @@ is allowed to do what.</h1>
 <div class="rule" style="padding:22px 0 8px"><div class="sect">The pipeline</div></div>
 <div class="rolar"><table><thead><tr><th style="width:150px">Stage</th><th style="width:130px">Now</th>
   <th>Detail</th><th style="width:100px">Owner</th><th style="width:150px">State</th></tr></thead>
-  <tbody><tr><td><b>1 · Fetch &amp; freeze</b></td><td class="mono">92 files</td><td class="sm">1 dated snapshot(s), every SHA-256 re-verified each build</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>2 · Extract</b></td><td class="mono">298 nodes</td><td class="sm">842 edges, 25 Portuguese verbs each with a reading</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>3 · Deliveries</b></td><td class="mono">9/19 excerpts</td><td class="sm">found in the frozen bytes · 0 items approved by the editor</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>4 · Write</b></td><td class="mono">3 with prose</td><td class="sm">6 article folders exist</td><td class="mono xs">redacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>5 · Verify</b></td><td class="mono">11 claims</td><td class="sm">re-read against the frozen copy and marked</td><td class="mono xs">verificacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>6 · Publish</b></td><td class="mono">0 published</td><td class="sm">the editor of record writes this line, and nothing else can</td><td class="mono xs">editor</td><td><span class="chip">waiting on a human</span></td></tr></tbody></table></div>
+  <tbody><tr><td><b>1 · Fetch &amp; freeze</b></td><td class="mono">92 files</td><td class="sm">1 dated snapshot(s), every SHA-256 re-verified each build</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>2 · Extract</b></td><td class="mono">304 nodes</td><td class="sm">854 edges, 25 Portuguese verbs each with a reading</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>3 · Deliveries</b></td><td class="mono">9/19 excerpts</td><td class="sm">found in the frozen bytes · 0 items approved by the editor</td><td class="mono xs">pesquisa</td><td><span class="chip ok">running</span></td></tr><tr><td><b>4 · Write</b></td><td class="mono">3 with prose</td><td class="sm">6 article folders exist</td><td class="mono xs">redacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>5 · Verify</b></td><td class="mono">11 claims</td><td class="sm">re-read against the frozen copy and marked</td><td class="mono xs">verificacao</td><td><span class="chip ok">running</span></td></tr><tr><td><b>6 · Publish</b></td><td class="mono">0 published</td><td class="sm">the editor of record writes this line, and nothing else can</td><td class="mono xs">editor</td><td><span class="chip">waiting on a human</span></td></tr></tbody></table></div>
 <p class="xs" style="max-width:48em;padding-top:10px">Stage 6 is the only one that cannot be moved
 by any agent. <code>estado: publicado</code> is the editor of record's line; gate 11 fails the
 build if it appears without their name and a date.</p>
@@ -88,7 +88,7 @@ never hand-edited.</p>
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Recent commits</div></div>
 <div class="rolar"><table><thead><tr><th style="width:80px">Commit</th>
   <th style="width:140px">When</th><th>Subject</th></tr></thead>
-  <tbody><tr><td class="mono xs">e97ad30</td><td class="mono xs">2026-09-14 17:51</td><td class="sm">site v0.2.0: um artigo passa a ser uma pasta datada, cada secção ganha registo editorial, e nasce um back offi</td></tr><tr><td class="mono xs">cfb2530</td><td class="mono xs">2026-09-14 13:06</td><td class="sm">site v0.1.2: a página das entregas mostra de onde uma entrega vem, ao lado do que aconteceu quando voltou</td></tr><tr><td class="mono xs">6da7dcb</td><td class="mono xs">2026-09-14 13:05</td><td class="sm">site v0.1.1: o passo da aprovação de uma entrega deixa de ser folclore — a página mostra como se faz, com os i</td></tr><tr><td class="mono xs">282def2</td><td class="mono xs">2026-09-14 13:02</td><td class="sm">site v0.1.0: o MVP — ingestão contra fontes reais, grafo em verbos portugueses, aviso antes do primeiro nome, </td></tr><tr><td class="mono xs">b98f48d</td><td class="mono xs">2026-09-14 13:03</td><td class="sm">Initial commit</td></tr></tbody></table></div>
+  <tbody><tr><td class="mono xs">dea0049</td><td class="mono xs">2026-09-14 23:07</td><td class="sm">site v0.3.0: o título é a matéria, a primeira página liga, e o site passa a ter API, componentes e carteira</td></tr><tr><td class="mono xs">e97ad30</td><td class="mono xs">2026-09-14 17:51</td><td class="sm">site v0.2.0: um artigo passa a ser uma pasta datada, cada secção ganha registo editorial, e nasce um back offi</td></tr><tr><td class="mono xs">cfb2530</td><td class="mono xs">2026-09-14 13:06</td><td class="sm">site v0.1.2: a página das entregas mostra de onde uma entrega vem, ao lado do que aconteceu quando voltou</td></tr><tr><td class="mono xs">6da7dcb</td><td class="mono xs">2026-09-14 13:05</td><td class="sm">site v0.1.1: o passo da aprovação de uma entrega deixa de ser folclore — a página mostra como se faz, com os i</td></tr><tr><td class="mono xs">282def2</td><td class="mono xs">2026-09-14 13:02</td><td class="sm">site v0.1.0: o MVP — ingestão contra fontes reais, grafo em verbos portugueses, aviso antes do primeiro nome, </td></tr><tr><td class="mono xs">b98f48d</td><td class="mono xs">2026-09-14 13:03</td><td class="sm">Initial commit</td></tr></tbody></table></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Run it yourself</div></div>
 <div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--painel);
@@ -118,7 +118,7 @@ readable at <a href="docs.html">documents</a>.</p>
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/index.html</code> · version <span class="ver">v0.3.0</span>.
+<code>backoffice/index.html</code> · version <span class="ver">v0.3.1</span>.
 </div>
 
 </div>
