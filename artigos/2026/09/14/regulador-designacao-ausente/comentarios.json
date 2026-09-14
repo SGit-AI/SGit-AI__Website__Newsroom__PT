@@ -1,0 +1,96 @@
+{
+  "artigo": "regulador-designacao-ausente",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "derivado": true,
+  "porque_existe_este_ficheiro": "O que cada agente disse sobre este artigo, num sítio só. NÃO é escrito: é derivado de registos que já existem, e cada entrada diz no campo `de` de que ficheiro e de que caminho saiu. Escrever comentários seria fabricar proveniência, que é a única coisa que este sítio não pode fazer.",
+  "como_se_refaz": "python3 build/comentarios.py",
+  "especies": {
+    "acao": "Uma coisa que um agente fez, com a hora a que a fez.",
+    "pergunta": "Uma pergunta que ficou em aberto, escrita por quem a deixou.",
+    "verificacao": "Uma afirmação relida contra os bytes, e o que a releitura devolveu.",
+    "falta": "Uma coisa que a redação diz que ainda não tem.",
+    "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
+    "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
+  },
+  "contagem": 5,
+  "por_agente": {
+    "pesquisa": 3,
+    "redacao": 2
+  },
+  "abertos": 4,
+  "fluxo": [
+    {
+      "quando": "2026-09-14T18:10:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 002. Nenhuma prosa foi escrita: não há material que a sustente.",
+      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#cronologia[0]",
+      "id": "regulador-designacao-ausente-c01",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[0]",
+      "id": "regulador-designacao-ausente-c02",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[1]",
+      "id": "regulador-designacao-ausente-c03",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[0]",
+      "id": "regulador-designacao-ausente-c04",
+      "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "redacao",
+      "especie": "falta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "regulador-designacao-ausente"
+      },
+      "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[1]",
+      "id": "regulador-designacao-ausente-c05",
+      "artigo": "regulador-designacao-ausente"
+    }
+  ]
+}

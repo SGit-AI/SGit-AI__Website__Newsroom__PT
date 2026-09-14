@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T18:00:00Z",
+  "agente": "redacao",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "uma-captura-nao-mostra-movimento"
+  },
+  "texto": "Escreveu a ausência de diferença como afirmação, em vez de deixar o lugar vazio ou preenchê-lo com uma frase verdadeira e oca.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[2]",
+  "id": "uma-captura-nao-mostra-movimento-c03",
+  "artigo": "uma-captura-nao-mostra-movimento"
+}

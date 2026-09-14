@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a3"
+  },
+  "texto": "O portal nacional de dados abertos devolveu 849 388 bytes e 27 406 caracteres, e é a única das três legível por um leitor automático.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/registo/dados-gov",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[2]",
+  "id": "registo-nacional-nao-devolve-texto-c09",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

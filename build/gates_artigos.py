@@ -37,6 +37,10 @@ OS PORTÕES
   23 · A FÓRMULA DE LIGAÇÃO É CUMPRIDA NAS PÁGINAS. Nenhuma página liga a mesma entidade mais do
        que a fórmula permite, nenhuma página de entidade se liga a si própria, e o texto de cada
        ligação é o nome verbatim da entidade — não uma abreviatura, não um apelido.
+  25 · NENHUM COMENTÁRIO DE AGENTE FOI INVENTADO. Cada entrada de um `comentarios.json` tem de
+       nomear, no campo `de`, um ficheiro e um caminho que existem e resolvem. É a regra das
+       afirmações virada para dentro: um comentário atribuído a um modelo que nunca o escreveu é
+       uma afirmação com uma fonte falsa, que é pior do que uma afirmação sem fonte nenhuma.
   24 · NENHUMA PÁGINA DE PESSOA DIZ NADA SOBRE A PESSOA. Cada valor da tabela de campos de uma
        página de Pessoa tem de ser, byte a byte, um valor que já está em dados/pessoas.json ou no
        nó do grafo. É o §4 do resumo a ser conferido e não prometido: sem isto, uma linha de prosa
@@ -351,6 +355,81 @@ for x in ents:
                          f'Pessoa não escreve uma linha sobre a pessoa')
 
 
+# --- 25. nenhum comentário de agente foi inventado -------------------------------
+# O campo `de` é «<caminho de ficheiro>#<chave>[<índice ou id>]...». O portão abre o ficheiro e
+# percorre o caminho. Se o caminho não resolver, o comentário não anda para trás até nada.
+REF = re.compile(r"^([^#]+)#(.+)$")
+PASSO = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)(?:\[([^\]]+)\])?")
+
+def resolve(caminho):
+    m = REF.match(caminho)
+    if not m:
+        return False, "não tem a forma <ficheiro>#<caminho>"
+    f = ROOT / m.group(1)
+    if not f.exists():
+        return False, f"o ficheiro {m.group(1)} não existe"
+    try:
+        no = json.loads(f.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return False, f"{m.group(1)} não é JSON legível: {exc}"
+    for chave, indice in PASSO.findall(m.group(2)):
+        if not isinstance(no, dict) or chave not in no:
+            return False, f"«{chave}» não existe em {m.group(1)}"
+        no = no[chave]
+        # `findall` devolve "" e não None para um grupo opcional que não casou. Tratar os dois
+        # como ausência é o que faz `…entregas[<id>].revisao` resolver até ao fim em vez de ir
+        # procurar um item com id "" dentro de um objeto que não é uma lista.
+        if not indice:
+            continue
+        if indice.isdigit():
+            if not isinstance(no, list) or int(indice) >= len(no):
+                return False, f"«{chave}[{indice}]» está fora do fim da lista"
+            no = no[int(indice)]
+        else:
+            achado = next((x for x in (no if isinstance(no, list) else [])
+                           if isinstance(x, dict) and x.get("id") == indice), None)
+            if achado is None:
+                return False, f"nenhum item de «{chave}» tem id «{indice}»"
+            no = achado
+    return True, ""
+
+n_comentarios = 0
+agentes_vistos = set()
+for f in sorted(ARTIGOS.rglob("comentarios.json")):
+    rel = f.relative_to(ROOT).as_posix()
+    doc = json.loads(f.read_text(encoding="utf-8"))
+    if not doc.get("derivado"):
+        erros.append(f'{rel}: não está marcado como derivado. Um ficheiro de comentários escrito '
+                     f'à mão é proveniência fabricada — este ficheiro é gerado por '
+                     f'build/comentarios.py e diz de onde vem cada entrada')
+    for c in doc.get("fluxo", []):
+        n_comentarios += 1
+        agentes_vistos.add(c.get("agente"))
+        de = c.get("de")
+        if not de:
+            erros.append(f'{rel}: a entrada {c.get("id")} não diz de onde veio')
+            continue
+        ok, porque = resolve(de)
+        if not ok:
+            erros.append(f'{rel}: a entrada {c.get("id")} diz que vem de «{de}» e {porque}')
+        if c.get("texto") is None:
+            erros.append(f'{rel}: a entrada {c.get("id")} não tem texto')
+
+# O agregado tem de concordar com a soma das pastas: uma consola que mostra mais trabalho do que
+# aconteceu é a mesma espécie de mentira que um comentário inventado, só que em números.
+agregado = carregar("comentarios.json")
+if agregado and agregado.get("contagem") != n_comentarios:
+    erros.append(f'dados/comentarios.json diz {agregado.get("contagem")} entradas e as pastas dos '
+                 f'artigos têm {n_comentarios}')
+
+# Nenhum agente aparece sem estar declarado: um nome de agente que ninguém sabe de onde vem é um
+# colaborador anónimo numa publicação cujo argumento inteiro é saber quem disse o quê.
+declarados = set((agregado or {}).get("agentes", {}))
+for a in sorted(agentes_vistos - declarados):
+    erros.append(f'comentários: o agente «{a}» aparece no fluxo e não está declarado em '
+                 f'dados/comentarios.json#agentes')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
     print(f"portões (artigos, secções, bastidores): {len(erros)} erro(s)")
@@ -365,4 +444,5 @@ print(f"portões (artigos, secções, bastidores): OK — {len(metas)} artigos e
       f"({com_prosa} com prosa, {pub} publicados), cada caminho a concordar com a sua data e "
       f"slug, cada afirmação a andar para trás até ao registo, {len(AS_OITO)} secções com "
       f"registo editorial, bastidores em inglês sem citar prova, "
-      f"{len(ents)} entidades com página e fundamento conferido")
+      f"{len(ents)} entidades com página e fundamento conferido, "
+      f"{n_comentarios} comentários de agente a andarem para trás até um ficheiro")

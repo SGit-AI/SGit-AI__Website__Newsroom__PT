@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a1"
+  },
+  "texto": "O Diário da República devolveu 2 346 bytes e 22 caracteres de texto visível.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/registo/dre-inicio",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[0]",
+  "id": "registo-nacional-nao-devolve-texto-c07",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

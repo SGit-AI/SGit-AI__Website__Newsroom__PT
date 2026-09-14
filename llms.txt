@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.4.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.5.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -73,6 +73,7 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://pt.newsroom.sgit.ai/dados/historias.json — o índice dos artigos, derivado das pastas datadas
 - https://pt.newsroom.sgit.ai/dados/documentos.json — todos os documentos markdown deste repositório
 - https://pt.newsroom.sgit.ai/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
+- https://pt.newsroom.sgit.ai/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
 
 ## As entidades, em endereços construíveis
 
@@ -95,6 +96,7 @@ Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do 
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.md         a prosa
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/afirmacoes.json   cada afirmação e o seu estado
     https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/proveniencia.json que agente, quando, porquê
+    https://pt.newsroom.sgit.ai/artigos/<aaaa>/<mm>/<dd>/<slug>/comentarios.json quem disse o quê, e de onde saiu
 
 A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
@@ -113,3 +115,7 @@ escrito pelo editor de registo, e é a única coisa que põe um artigo na primei
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
 5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
+   existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
+   escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um
+   `de` não resolver.

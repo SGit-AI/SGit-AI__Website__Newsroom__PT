@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T12:00:00Z",
+  "agente": "pesquisa",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "dois-nomes-para-os-mesmos-palcos"
+  },
+  "texto": "Congelou as oito páginas próprias do evento numa captura datada.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[0]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c01",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

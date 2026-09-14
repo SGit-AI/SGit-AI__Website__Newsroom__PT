@@ -144,6 +144,7 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://{HOST}/dados/historias.json — o índice dos artigos, derivado das pastas datadas
 - https://{HOST}/dados/documentos.json — todos os documentos markdown deste repositório
 - https://{HOST}/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
+- https://{HOST}/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
 
 ## As entidades, em endereços construíveis
 
@@ -166,6 +167,7 @@ Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do 
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/artigo.md         a prosa
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/afirmacoes.json   cada afirmação e o seu estado
     https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/proveniencia.json que agente, quando, porquê
+    https://{HOST}/artigos/<aaaa>/<mm>/<dd>/<slug>/comentarios.json quem disse o quê, e de onde saiu
 
 A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
@@ -178,6 +180,10 @@ escrito pelo editor de registo, e é a única coisa que põe um artigo na primei
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
 5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
+   existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
+   escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um
+   `de` não resolver.
 """
     (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
 

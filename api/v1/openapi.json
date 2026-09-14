@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "pt.newsroom.sgit.ai",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "summary": "The Portuguese AI ecosystem, as data",
     "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
     "contact": {
@@ -84,6 +84,10 @@
     {
       "name": "documents",
       "description": "Every markdown document in this repository"
+    },
+    {
+      "name": "agent-activity",
+      "description": "What every agent did to every article, derived not written"
     },
     {
       "name": "entities",
@@ -801,6 +805,68 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/agent-activity.json": {
+      "get": {
+        "operationId": "getAgentActivity",
+        "summary": "What every agent did to every article, derived not written",
+        "description": "One entry per recorded action, question, verification, gap, outside proposal or editorial decision. Every entry carries a `de` field naming the file and path it was derived from, and the build fails if that path does not resolve. Nothing here was authored for the record: a comment attributed to a model that never wrote it is a claim with a forged source.\n\nSource file in the repository: `dados/comentarios.json`.",
+        "tags": [
+          "agent-activity"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agent-activity/{id}.json": {
+      "get": {
+        "operationId": "getAgentActivityById",
+        "summary": "One item from agent-activity",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "agent-activity"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "agenda-nacional-instrumento-legal-c01": {
+                "value": "agenda-nacional-instrumento-legal-c01"
+              },
+              "agenda-nacional-instrumento-legal-c02": {
+                "value": "agenda-nacional-instrumento-legal-c02"
+              },
+              "agenda-nacional-instrumento-legal-c03": {
+                "value": "agenda-nacional-instrumento-legal-c03"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
           }
         }
       }

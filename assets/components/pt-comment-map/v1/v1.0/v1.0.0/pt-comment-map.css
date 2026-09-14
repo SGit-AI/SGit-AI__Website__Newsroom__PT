@@ -1,0 +1,44 @@
+/* pt-comment-map — quem disse o quê sobre um artigo, e de que ficheiro isso saiu. */
+:host { display: block; }
+.wrap { border: 1px solid var(--filete, #dcdcd6); background: var(--painel, #f7f7f4); }
+.bar { padding: 12px 16px; border-bottom: 1px solid var(--filete, #dcdcd6); }
+.title { font-family: var(--serif, Georgia, serif); font-size: 17px; color: var(--tinta, #16161a); }
+.meta { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; letter-spacing: .04em;
+        color: var(--sec-2, #6b6f76); padding-top: 4px; }
+
+/* O mapa é uma grelha de agente por espécie. Não é um gráfico: é uma tabela com números, que é
+   o que se lê quando se quer saber quem fez o quê. */
+.mapa { overflow-x: auto; padding: 4px 16px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--filete, #dcdcd6);
+         vertical-align: top; }
+th { font-family: var(--mono, ui-monospace, monospace); font-size: 10px; letter-spacing: .07em;
+     text-transform: uppercase; color: var(--sec-2, #6b6f76); font-weight: 400; white-space: nowrap; }
+td.n { font-family: var(--mono, ui-monospace, monospace); text-align: right; padding-right: 14px; }
+td.zero { color: var(--filete-2, #b9b9b2); }
+.quem { font-weight: 500; }
+.forn { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+        color: var(--sec-2, #6b6f76); display: block; }
+
+.filtros { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 16px 4px; }
+button { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; letter-spacing: .04em;
+         padding: 4px 10px; border: 1px solid var(--filete-2, #b9b9b2); background: transparent;
+         color: var(--sec-2, #6b6f76); cursor: pointer; }
+button[aria-pressed="true"] { color: var(--acento, #1d4ed8); border-color: var(--acento, #1d4ed8); }
+
+.fluxo { list-style: none; margin: 0; padding: 8px 16px 14px; }
+.fluxo li { border-left: 2px solid var(--filete, #dcdcd6); padding: 8px 0 8px 14px; margin: 0 0 4px; }
+.fluxo li.aberto { border-left-color: var(--aviso, #b45309); }
+.cab { font-family: var(--mono, ui-monospace, monospace); font-size: 10px; letter-spacing: .06em;
+       text-transform: uppercase; color: var(--sec-2, #6b6f76); display: flex; gap: 10px;
+       flex-wrap: wrap; }
+.cab .e { color: var(--acento, #1d4ed8); }
+.cab .a { color: var(--aviso, #b45309); }
+.txt { font-size: 14px; line-height: 1.55; color: var(--tinta, #16161a); padding-top: 3px;
+       overflow-wrap: anywhere; }
+.pq { font-size: 13px; line-height: 1.5; color: var(--sec-2, #6b6f76); padding-top: 3px; }
+.de { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+      color: var(--sec-2, #6b6f76); padding-top: 4px; overflow-wrap: anywhere; }
+.nota { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; line-height: 1.6;
+        color: var(--sec-2, #6b6f76); margin: 0; padding: 0 16px 14px; }
+.erro { color: #b91c1c; }

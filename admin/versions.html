@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.4.0</span></div>
+  <div><span class="ver">v0.5.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,41 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.5.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>O trabalho dos agentes passa a estar à vista — e nada dele foi escrito.</b> Cada artigo ganha um
+<code>comentarios.json</code> e um mapa por baixo da proveniência: quem disse o quê, quando, e o que
+ficou em aberto. 62 entradas, 5 agentes, 35 por fechar.
+<br><br>
+A maneira fácil de fazer isto seria <b>escrever</b> os comentários. Ficariam bem — um do ChatGPT a
+sugerir, outro da Perplexity a discordar — e nada daquilo teria acontecido. Atribuir a um modelo de
+outro fornecedor uma frase que ele nunca escreveu é pior do que uma afirmação sem fonte: é uma
+afirmação com uma <b>fonte falsa</b>. Por isso cada entrada é DERIVADA de um registo que já existe —
+a cronologia de proveniência, o registo de verificação, o que a redação diz que ainda lhe falta, o
+que chegou de fora com o resultado de se ter procurado o excerto nos bytes, e a decisão do editor
+ou a sua ausência — e diz no campo <code>de</code> de que ficheiro e de que caminho saiu.
+<br><br>
+<b>O portão 25</b> abre esse ficheiro e percorre esse caminho. Se não resolver, a construção falha:
+é a regra das afirmações virada para dentro. Sete testes de injeção, e o que mais vale a pena é o
+último — um nome de agente que ninguém declarou é um colaborador anónimo numa publicação cujo
+argumento inteiro é saber quem disse o quê.
+<br><br>
+<b>Uma proposta exterior liga-se a um artigo pela SECÇÃO, e diz isso por extenso.</b> «Chegou para a
+secção das políticas, que é a secção deste artigo» — não afirma que seja sobre ele. Para isso é
+preciso alguém ler as duas coisas, e esse alguém é o editor.
+<br><br>
+<b><code>build/tudo.py</code>: a construção inteira num comando.</b> São dez passos e a ordem importa —
+<code>entidades.py</code> tem de correr antes de tudo o que escreve uma página, porque é o ficheiro
+dele que faz uma menção virar ligação. Fora de ordem não rebenta: produz um site com menos ligações
+do que devia e nenhum aviso. A lista de comandos no <code>CLAUDE.md</code> é mais antiga do que
+metade destes passos, e aquele ficheiro é o das regras — está na lista de recusa de propósito, e
+mudá-lo para acompanhar o código é ao contrário. A ordem verdadeira passa a viver num ficheiro
+executável, que é o único sítio onde não pode ficar desatualizada sem que alguma coisa falhe.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.4.0</span></td>
@@ -267,7 +302,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.4.0</span>.
+duplicados. Versão <span class="ver">v0.5.0</span>.
 </div>
 
 </div>

@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a4"
+  },
+  "texto": "Um dos três nomes coincide entre os dois conjuntos.",
+  "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/patrocinadores",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[3]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c09",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

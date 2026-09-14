@@ -1,0 +1,335 @@
+{
+  "artigo": "registo-nacional-nao-devolve-texto",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "derivado": true,
+  "porque_existe_este_ficheiro": "O que cada agente disse sobre este artigo, num sítio só. NÃO é escrito: é derivado de registos que já existem, e cada entrada diz no campo `de` de que ficheiro e de que caminho saiu. Escrever comentários seria fabricar proveniência, que é a única coisa que este sítio não pode fazer.",
+  "como_se_refaz": "python3 build/comentarios.py",
+  "especies": {
+    "acao": "Uma coisa que um agente fez, com a hora a que a fez.",
+    "pergunta": "Uma pergunta que ficou em aberto, escrita por quem a deixou.",
+    "verificacao": "Uma afirmação relida contra os bytes, e o que a releitura devolveu.",
+    "falta": "Uma coisa que a redação diz que ainda não tem.",
+    "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
+    "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
+  },
+  "contagem": 19,
+  "por_agente": {
+    "pesquisa": 4,
+    "redacao": 1,
+    "verificacao": 5,
+    "chatgpt": 8,
+    "editor": 1
+  },
+  "abertos": 10,
+  "fluxo": [
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Obteve e congelou as três páginas do registo nacional em fontes/congeladas/2026-09-14/registo/, com SHA-256 no registo.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[0]",
+      "id": "registo-nacional-nao-devolve-texto-c01",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T12:20:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Mediu a legibilidade: bytes recebidos contra caracteres visíveis, pela mesma função que extrai texto de qualquer página congelada.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[1]",
+      "id": "registo-nacional-nao-devolve-texto-c02",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T13:40:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Implementou build/pdf.py depois de a extração de um PDF do Diário da República devolver zero caracteres — o que se veio a verificar ser cifra e tipos subconjuntados, não uma página vazia.",
+      "porque": "Sem esta distinção, este artigo teria afirmado que o registo nacional não se lê. A afirmação teria sido falsa e teria parecido sustentada.",
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[2]",
+      "id": "registo-nacional-nao-devolve-texto-c03",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T17:45:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Escreveu a prosa a partir de dados/verificacoes-fonte.json, com cada número marcado com a fonte congelada de onde vem.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[3]",
+      "id": "registo-nacional-nao-devolve-texto-c04",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14T17:50:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Refez cada medição sobre os bytes congelados e marcou as quatro afirmações. Nenhuma ficou disputada ou por encontrar.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[4]",
+      "id": "registo-nacional-nao-devolve-texto-c05",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "Um humano ainda não abriu nenhuma das três páginas num navegador para confirmar que o conteúdo ESTÁ lá para um leitor humano. A medição é sobre o que um leitor automático recebe, e o artigo diz isso — mas a confirmação humana tornaria a história mais forte.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#por_rever[0]",
+      "id": "registo-nacional-nao-devolve-texto-c06",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "O Diário da República devolveu 2 346 bytes e 22 caracteres de texto visível.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/dre-inicio",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[0]",
+      "id": "registo-nacional-nao-devolve-texto-c07",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a2"
+      },
+      "texto": "A página do Governo devolveu 165 569 bytes e 348 caracteres visíveis.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/gov-ia",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[1]",
+      "id": "registo-nacional-nao-devolve-texto-c08",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a3"
+      },
+      "texto": "O portal nacional de dados abertos devolveu 849 388 bytes e 27 406 caracteres, e é a única das três legível por um leitor automático.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/registo/dados-gov",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[2]",
+      "id": "registo-nacional-nao-devolve-texto-c09",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a4"
+      },
+      "texto": "Um diploma do Diário da República em PDF lê-se por inteiro depois de decifrado e de seguido o mapa /ToUnicode de cada tipo.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[3]",
+      "id": "registo-nacional-nao-devolve-texto-c10",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-01"
+      },
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "registo-nacional-nao-devolve-texto-c11",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "registo-nacional-nao-devolve-texto-c12",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "registo-nacional-nao-devolve-texto-c13",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "registo-nacional-nao-devolve-texto-c14",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "registo-nacional-nao-devolve-texto-c15",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "registo-nacional-nao-devolve-texto-c16",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "registo-nacional-nao-devolve-texto-c17",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "registo-nacional-nao-devolve-texto-c18",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "registo-nacional-nao-devolve-texto"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "registo-nacional-nao-devolve-texto-c19",
+      "artigo": "registo-nacional-nao-devolve-texto"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "quantas-startups-sao-de-ia"
+  },
+  "texto": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#por_rever[0]",
+  "id": "quantas-startups-sao-de-ia-c02",
+  "artigo": "quantas-startups-sao-de-ia"
+}

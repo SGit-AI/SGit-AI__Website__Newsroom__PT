@@ -1,0 +1,14 @@
+{
+  "quando": "2026-09-14",
+  "agente": "redacao",
+  "especie": "falta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "agenda-nacional-instrumento-legal"
+  },
+  "texto": "O PDF do diploma. build/pdf.py já lê os PDF do Diário da República. O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é muito pior.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json#o_que_falta[0]",
+  "id": "agenda-nacional-instrumento-legal-c04",
+  "artigo": "agenda-nacional-instrumento-legal"
+}

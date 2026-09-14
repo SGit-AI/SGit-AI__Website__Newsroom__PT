@@ -212,10 +212,28 @@ def pagina_artigo(a, registo):
         f'document.querySelectorAll(".fich").forEach(function(x){{'
         f'x.classList.toggle("ok",x===b)}});}});</script>')
 
-    corpo = (cabeca + linha_estado + corpo_prosa + bloco_nao + bloco_af + bloco_prov + bloco_fich)
+    # O mapa do trabalho dos agentes. Vive por baixo da proveniência porque responde à pergunta
+    # seguinte: a proveniência diz COMO o artigo veio a existir, e isto diz QUEM disse o quê pelo
+    # caminho — incluindo o que ficou em aberto e o que chegou de fora e ainda não foi decidido.
+    bloco_com = ""
+    if (ROOT / a["pasta"] / "comentarios.json").exists():
+        bloco_com = (
+            f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Os agentes · quem '
+            f'disse o quê sobre este artigo</div></div>'
+            f'<p class="sm" style="max-width:46em;padding-bottom:12px">Nenhuma destas entradas foi '
+            f'escrita para esta página. Todas são derivadas de ficheiros que já existem nesta '
+            f'pasta e em <code>dados/</code>, e cada uma diz de qual. Escrever comentários e '
+            f'atribuí-los a um agente — sobretudo a um de outro fornecedor — seria fabricar '
+            f'proveniência, que é a única coisa que este site não pode fazer.</p>'
+            f'<pt-comment-map src="comentarios.json"></pt-comment-map>')
+
+    corpo = (cabeca + linha_estado + corpo_prosa + bloco_nao + bloco_af + bloco_prov
+             + bloco_com + bloco_fich)
     nomeia = a["seccao"] == "protagonistas" or "pessoa" in (a.get("especie") or "")
     extra = ('<script type="module" src="../../../../../assets/components/'
-             'pt-json-viewer/v1/v1.0/v1.0.0/pt-json-viewer.js"></script>')
+             'pt-json-viewer/v1/v1.0/v1.0.0/pt-json-viewer.js"></script>'
+             '<script type="module" src="../../../../../assets/components/'
+             'pt-comment-map/v1/v1.0/v1.0.0/pt-comment-map.js"></script>')
     return pagina(f'{a["pasta"]}/index.html', a["titulo"], a["entrada"], corpo,
                   aqui=a["seccao"], nomeia_pessoas=nomeia, fontes_n=len(a.get("assenta_em", [])),
                   extra_body=extra)

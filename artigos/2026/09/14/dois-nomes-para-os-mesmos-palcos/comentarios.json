@@ -1,0 +1,167 @@
+{
+  "artigo": "dois-nomes-para-os-mesmos-palcos",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "derivado": true,
+  "porque_existe_este_ficheiro": "O que cada agente disse sobre este artigo, num sítio só. NÃO é escrito: é derivado de registos que já existem, e cada entrada diz no campo `de` de que ficheiro e de que caminho saiu. Escrever comentários seria fabricar proveniência, que é a única coisa que este sítio não pode fazer.",
+  "como_se_refaz": "python3 build/comentarios.py",
+  "especies": {
+    "acao": "Uma coisa que um agente fez, com a hora a que a fez.",
+    "pergunta": "Uma pergunta que ficou em aberto, escrita por quem a deixou.",
+    "verificacao": "Uma afirmação relida contra os bytes, e o que a releitura devolveu.",
+    "falta": "Uma coisa que a redação diz que ainda não tem.",
+    "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
+    "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
+  },
+  "contagem": 9,
+  "por_agente": {
+    "pesquisa": 3,
+    "redacao": 1,
+    "verificacao": 5
+  },
+  "abertos": 1,
+  "fluxo": [
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Congelou as oito páginas próprias do evento numa captura datada.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c01",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T12:25:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Correu nomes_de_palco() sobre cada página congelada: uma procura por uma lista fechada de nomes conhecidos, guardando em que página cada um aparece.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[1]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c02",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T17:55:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Escreveu a partir do resultado, sem acrescentar hipóteses sobre a causa.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[2]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c03",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14T17:58:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Repetiu a procura em cada cópia congelada e marcou as quatro afirmações.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[3]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c04",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": null,
+      "agente": "pesquisa",
+      "especie": "pergunta",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "dois-nomes-para-os-mesmos-palcos"
+      },
+      "texto": "Ninguém perguntou ao evento. É a pergunta óbvia e um leitor humano fá-la melhor do que esta redação; a resposta seria uma correção, e o procedimento de correção existe.",
+      "estado": "aberto",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#por_rever[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c05",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "A agenda nomeia Unicorn Stage, Impact Stage e Workshop Rooms.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/agenda",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[0]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c06",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a2"
+      },
+      "texto": "A página de oradores nomeia os mesmos três.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/oradores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[1]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c07",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a3"
+      },
+      "texto": "A página de patrocínios nomeia Main Stage, Startup Stage e Workshop Rooms.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/patrocinadores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[2]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c08",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a4"
+      },
+      "texto": "Um dos três nomes coincide entre os dois conjuntos.",
+      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/patrocinadores",
+      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[3]",
+      "id": "dois-nomes-para-os-mesmos-palcos-c09",
+      "artigo": "dois-nomes-para-os-mesmos-palcos"
+    }
+  ]
+}

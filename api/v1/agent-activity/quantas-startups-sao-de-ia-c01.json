@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T18:10:00Z",
+  "agente": "pesquisa",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "quantas-startups-sao-de-ia"
+  },
+  "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 003. Nenhuma prosa foi escrita: não há material que a sustente.",
+  "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+  "estado": "feito",
+  "de": "artigos/2026/09/14/quantas-startups-sao-de-ia/proveniencia.json#cronologia[0]",
+  "id": "quantas-startups-sao-de-ia-c01",
+  "artigo": "quantas-startups-sao-de-ia"
+}

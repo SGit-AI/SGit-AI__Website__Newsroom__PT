@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "dois-nomes-para-os-mesmos-palcos"
+  },
+  "texto": "Ninguém perguntou ao evento. É a pergunta óbvia e um leitor humano fá-la melhor do que esta redação; a resposta seria uma correção, e o procedimento de correção existe.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#por_rever[0]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c05",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

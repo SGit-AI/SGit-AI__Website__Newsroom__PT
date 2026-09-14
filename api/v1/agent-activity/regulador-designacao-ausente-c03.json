@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "regulador-designacao-ausente"
+  },
+  "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/regulador-designacao-ausente/proveniencia.json#por_rever[1]",
+  "id": "regulador-designacao-ausente-c03",
+  "artigo": "regulador-designacao-ausente"
+}

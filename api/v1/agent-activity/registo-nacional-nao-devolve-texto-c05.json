@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T17:50:00Z",
+  "agente": "verificacao",
+  "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "registo-nacional-nao-devolve-texto"
+  },
+  "texto": "Refez cada medição sobre os bytes congelados e marcou as quatro afirmações. Nenhuma ficou disputada ou por encontrar.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[4]",
+  "id": "registo-nacional-nao-devolve-texto-c05",
+  "artigo": "registo-nacional-nao-devolve-texto"
+}

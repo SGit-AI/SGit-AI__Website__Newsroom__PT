@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a1"
+  },
+  "texto": "A agenda nomeia Unicorn Stage, Impact Stage e Workshop Rooms.",
+  "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/agenda",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[0]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c06",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

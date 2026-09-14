@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a3"
+  },
+  "texto": "A página de patrocínios nomeia Main Stage, Startup Stage e Workshop Rooms.",
+  "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/patrocinadores",
+  "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[2]",
+  "id": "dois-nomes-para-os-mesmos-palcos-c08",
+  "artigo": "dois-nomes-para-os-mesmos-palcos"
+}

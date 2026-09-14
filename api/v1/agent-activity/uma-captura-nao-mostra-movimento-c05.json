@@ -1,0 +1,14 @@
+{
+  "quando": null,
+  "agente": "pesquisa",
+  "especie": "pergunta",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "uma-captura-nao-mostra-movimento"
+  },
+  "texto": "Este artigo fica desatualizado por construção assim que houver uma segunda captura, e isso é o objetivo. Quando acontecer, é substituído (superseded) a partir dessa data e não apagado.",
+  "estado": "aberto",
+  "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#por_rever[0]",
+  "id": "uma-captura-nao-mostra-movimento-c05",
+  "artigo": "uma-captura-nao-mostra-movimento"
+}
