@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-BfUTwHYg.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-y3B4dx-F.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-y3B4dx-F.css"></noscript>
+      <title>FAQ — Startup Summit Lisbon 2026 | Tickets, Venue, Agenda</title>
+    <meta name="description" content="Find answers about Startup Summit Lisbon 2026 tickets, venue, speakers, agenda, travel, booths, and event logistics." />
+    <link rel="canonical" href="https://startupsummit.io/faq" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/faq" />
+    <link rel="alternate" hreflang="pt-PT" href="https://startupsummit.io/pt/perguntas-frequentes" />
+    <link rel="alternate" hreflang="es-ES" href="https://startupsummit.io/es/preguntas-frecuentes" />
+    <link rel="alternate" hreflang="fr-FR" href="https://startupsummit.io/fr/questions-frequentes" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/faq" />
+
+    <meta property="og:title" content="FAQ — Startup Summit Lisbon 2026 | Tickets, Venue, Agenda" />
+    <meta property="og:description" content="Find answers about Startup Summit Lisbon 2026 tickets, venue, speakers, agenda, travel, booths, and event logistics." />
+    <meta property="og:image" content="https://startupsummit.io/images/og-homepage.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/faq" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FAQ — Startup Summit Lisbon 2026 | Tickets, Venue, Agenda" />
+    <meta name="twitter:description" content="Find answers about Startup Summit Lisbon 2026 tickets, venue, speakers, agenda, travel, booths, and event logistics." />
+    <meta name="twitter:image" content="https://startupsummit.io/images/og-homepage.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Faq","item":"https://startupsummit.io/faq"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"FAQ — Startup Summit Lisbon 2026 | Tickets, Venue, Agenda","url":"https://startupsummit.io/faq","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Startup Summit Lisbon 2026?","acceptedAnswer":{"@type":"Answer","text":"Startup Summit Lisbon 2026 is a founder-first European startup conference on September 17–18, 2026 at Beato Innovation District in Lisbon, Portugal. It is targeting 2,000+ founders, investors and operators, with 150+ speakers planned, 200+ startup booths planned across three stages — designed for high-signal founder-investor matchmaking rather than scale."}},{"@type":"Question","name":"When is Startup Summit Lisbon 2026?","acceptedAnswer":{"@type":"Answer","text":"September 17 and 18, 2026. Doors open at 8:30 AM each day. There is also a Welcome Drinks pre-event on Wednesday 16 September."}},{"@type":"Question","name":"Where is Startup Summit held?","acceptedAnswer":{"@type":"Answer","text":"Beato Innovation District — Av. Infante Dom Henrique 143, 1950-406 Lisbon, Portugal. A major Lisbon innovation hub, about 10 minutes from Lisbon Humberto Delgado Airport (LIS)."}},{"@type":"Question","name":"Who should attend Startup Summit?","acceptedAnswer":{"@type":"Answer","text":"Startup founders (pre-seed to Series B), angel investors, VCs, family offices, corporate innovation teams, startup operators, ecosystem builders, and university entrepreneurship students. See /why-attend for the full audience breakdown."}},{"@type":"Question","name":"What ticket types are available?","acceptedAnswer":{"@type":"Answer","text":"Five passes: General Pass (from €49), Founder Pass (from €99), Startup Booth Package (from €199), Investor Pass (from €199) and VIP Experience Pass (from €249). All passes include access to every summit talk — tiers differ by networking access, visibility and premium experiences. See /tickets for the current release."}},{"@type":"Question","name":"How does ticket pricing work?","acceptedAnswer":{"@type":"Answer","text":"Prices follow a phased release model — Super Early Bird, Early Bird, Standard and Final Release. The earlier you buy, the more you save. Each release is capped."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Tickets are non-refundable but fully transferable. You can transfer your ticket to another person by contacting info@startupsummit.io."}},{"@type":"Question","name":"Are startup booths available?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Startup Booth Package starts at €199 and includes an exhibition booth, 2 Startup Summit passes, pitching eligibility and access to the Founder Social. See /startup-booths to book a startup booth."}},{"@type":"Question","name":"Can investors attend Startup Summit?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Investor Pass is designed for angels, VCs, family offices and corporate investment teams, with access to the investor lounge, 1:1 investor office hours, founder speed networking and 200+ startup booths. See /tickets for the Investor Pass details."}},{"@type":"Question","name":"Can I sponsor Startup Summit Lisbon 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. We offer Title, Lead, Stage, Networking, Exhibitor and Media Partner tiers for brands that want visibility in front of our target audience of 2,000+ founders, investors and operators. See /sponsors or email sponsors@startupsummit.io to sponsor Startup Summit Lisbon 2026."}},{"@type":"Question","name":"Can I apply to speak at Startup Summit?","acceptedAnswer":{"@type":"Answer","text":"Yes. We accept speaker applications from founders, investors and operators with strong, original perspectives. Apply at /speaker/apply."}},{"@type":"Question","name":"Can I become a Startup Summit ambassador?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Startup Summit Ambassador Program is open to founders, operators, community leaders and ecosystem connectors. Ambassadors share a personal referral link and earn rewards on every ticket sold through that link. Apply at /ambassador."}},{"@type":"Question","name":"Do you offer visa invitation letters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Portugal is in the Schengen Area, so EU/EEA citizens travel visa-free. US, UK, Canadian, Australian and Japanese passport holders can enter visa-free for up to 90 days. If you need an official invitation letter for a Schengen visa application, email visa@startupsummit.io after purchasing your ticket."}},{"@type":"Question","name":"What networking experiences are included?","acceptedAnswer":{"@type":"Answer","text":"Depending on your pass, you'll have access to speed networking sessions, 1:1 investor office hours, the Founder Social, the Closing Celebration and the VIP Sunset Cruise. The whole agenda is designed so the right people meet the right people."}},{"@type":"Question","name":"Is food provided?","acceptedAnswer":{"@type":"Answer","text":"Yes. Full-day catering is included with all passes, with food trucks, a beer hall, the Praça Café and outdoor seating across Beato Innovation District."}},{"@type":"Question","name":"Who organises Startup Summit Lisbon 2026?","acceptedAnswer":{"@type":"Answer","text":"Startup Summit Lisbon 2026 is the flagship event of StartUp Events, which has brought founder-focused conferences to London, Madrid, Berlin and cities across Europe since 2019. Founded by Ricardo Pascual. The event is designed for founders, investors, operators, startup teams and ecosystem partners looking for practical content, useful networking and startup visibility in Lisbon."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png","sameAs":["https://instagram.com/startupsummitlx","https://www.linkedin.com/company/thestartupsummit","https://x.com/startupsummitl"]}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Frequently Asked Questions — Startup Summit Lisbon 2026</h1>
+  <p>Everything you need to know about tickets, venue, agenda, travel and logistics.</p>
+  
+  <section>
+    <h2>What is Startup Summit Lisbon 2026?</h2>
+    <p>Startup Summit Lisbon 2026 is a founder-first European startup conference on September 17–18, 2026 at Beato Innovation District in Lisbon, Portugal. It is targeting 2,000+ founders, investors and operators, with 150+ speakers planned, 200+ startup booths planned across three stages — designed for high-signal founder-investor matchmaking rather than scale.</p>
+  </section>
+
+  <section>
+    <h2>When is Startup Summit Lisbon 2026?</h2>
+    <p>September 17 and 18, 2026. Doors open at 8:30 AM each day. There is also a Welcome Drinks pre-event on Wednesday 16 September.</p>
+  </section>
+
+  <section>
+    <h2>Where is Startup Summit held?</h2>
+    <p>Beato Innovation District — Av. Infante Dom Henrique 143, 1950-406 Lisbon, Portugal. A major Lisbon innovation hub, about 10 minutes from Lisbon Humberto Delgado Airport (LIS).</p>
+  </section>
+
+  <section>
+    <h2>Who should attend Startup Summit?</h2>
+    <p>Startup founders (pre-seed to Series B), angel investors, VCs, family offices, corporate innovation teams, startup operators, ecosystem builders, and university entrepreneurship students. See /why-attend for the full audience breakdown.</p>
+  </section>
+
+  <section>
+    <h2>What ticket types are available?</h2>
+    <p>Five passes: General Pass (from €49), Founder Pass (from €99), Startup Booth Package (from €199), Investor Pass (from €199) and VIP Experience Pass (from €249). All passes include access to every summit talk — tiers differ by networking access, visibility and premium experiences. See /tickets for the current release.</p>
+  </section>
+
+  <section>
+    <h2>How does ticket pricing work?</h2>
+    <p>Prices follow a phased release model — Super Early Bird, Early Bird, Standard and Final Release. The earlier you buy, the more you save. Each release is capped.</p>
+  </section>
+
+  <section>
+    <h2>Can I get a refund?</h2>
+    <p>Tickets are non-refundable but fully transferable. You can transfer your ticket to another person by contacting info@startupsummit.io.</p>
+  </section>
+
+  <section>
+    <h2>Are startup booths available?</h2>
+    <p>Yes. The Startup Booth Package starts at €199 and includes an exhibition booth, 2 Startup Summit passes, pitching eligibility and access to the Founder Social. See /startup-booths to book a startup booth.</p>
+  </section>
+
+  <section>
+    <h2>Can investors attend Startup Summit?</h2>
+    <p>Yes. The Investor Pass is designed for angels, VCs, family offices and corporate investment teams, with access to the investor lounge, 1:1 investor office hours, founder speed networking and 200+ startup booths. See /tickets for the Investor Pass details.</p>
+  </section>
+
+  <section>
+    <h2>Can I sponsor Startup Summit Lisbon 2026?</h2>
+    <p>Yes. We offer Title, Lead, Stage, Networking, Exhibitor and Media Partner tiers for brands that want visibility in front of our target audience of 2,000+ founders, investors and operators. See /sponsors or email sponsors@startupsummit.io to sponsor Startup Summit Lisbon 2026.</p>
+  </section>
+
+  <section>
+    <h2>Can I apply to speak at Startup Summit?</h2>
+    <p>Yes. We accept speaker applications from founders, investors and operators with strong, original perspectives. Apply at /speaker/apply.</p>
+  </section>
+
+  <section>
+    <h2>Can I become a Startup Summit ambassador?</h2>
+    <p>Yes. The Startup Summit Ambassador Program is open to founders, operators, community leaders and ecosystem connectors. Ambassadors share a personal referral link and earn rewards on every ticket sold through that link. Apply at /ambassador.</p>
+  </section>
+
+  <section>
+    <h2>Do you offer visa invitation letters?</h2>
+    <p>Yes. Portugal is in the Schengen Area, so EU/EEA citizens travel visa-free. US, UK, Canadian, Australian and Japanese passport holders can enter visa-free for up to 90 days. If you need an official invitation letter for a Schengen visa application, email visa@startupsummit.io after purchasing your ticket.</p>
+  </section>
+
+  <section>
+    <h2>What networking experiences are included?</h2>
+    <p>Depending on your pass, you'll have access to speed networking sessions, 1:1 investor office hours, the Founder Social, the Closing Celebration and the VIP Sunset Cruise. The whole agenda is designed so the right people meet the right people.</p>
+  </section>
+
+  <section>
+    <h2>Is food provided?</h2>
+    <p>Yes. Full-day catering is included with all passes, with food trucks, a beer hall, the Praça Café and outdoor seating across Beato Innovation District.</p>
+  </section>
+
+  <section>
+    <h2>Who organises Startup Summit Lisbon 2026?</h2>
+    <p>Startup Summit Lisbon 2026 is the flagship event of StartUp Events, which has brought founder-focused conferences to London, Madrid, Berlin and cities across Europe since 2019. Founded by Ricardo Pascual. The event is designed for founders, investors, operators, startup teams and ecosystem partners looking for practical content, useful networking and startup visibility in Lisbon.</p>
+  </section>
+  <p>Still have questions? <a href="/contact">Contact the Startup Summit team</a> or
+  <a href="/tickets">buy Startup Summit Lisbon 2026 tickets</a> ·
+  <a href="/startup-booths">book a startup booth</a> ·
+  <a href="/sponsors">sponsor Startup Summit Lisbon 2026</a> ·
+  <a href="/ambassador">apply to become a Startup Summit ambassador</a>.</p>
+
+      </div>
+    </noscript>
+  </body>
+</html>

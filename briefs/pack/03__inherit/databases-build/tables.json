@@ -1,0 +1,521 @@
+{
+  "id": "nsdb-tables",
+  "version": "v0.3.4",
+  "note": "The loader spec the SQL console and the build share. Each table names the JSON file and the array inside it; each column names the field (dotted). Arrays and objects are stored as JSON text, booleans as 1/0, missing fields as NULL.",
+  "base": "../portugal/data/",
+  "tables": [
+    {
+      "name": "nodes",
+      "file": "graph.json",
+      "path": "nodes",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "type",
+          "from": "type"
+        },
+        {
+          "name": "label",
+          "from": "label"
+        },
+        {
+          "name": "pack",
+          "from": "pack"
+        },
+        {
+          "name": "source",
+          "from": "source"
+        },
+        {
+          "name": "role",
+          "from": "role"
+        },
+        {
+          "name": "role_class",
+          "from": "role_class"
+        },
+        {
+          "name": "org",
+          "from": "org"
+        },
+        {
+          "name": "day",
+          "from": "day"
+        },
+        {
+          "name": "time",
+          "from": "time"
+        },
+        {
+          "name": "kind",
+          "from": "kind"
+        },
+        {
+          "name": "publisher",
+          "from": "publisher"
+        },
+        {
+          "name": "published",
+          "from": "published"
+        },
+        {
+          "name": "date",
+          "from": "date"
+        },
+        {
+          "name": "url",
+          "from": "url"
+        },
+        {
+          "name": "page",
+          "from": "page"
+        },
+        {
+          "name": "no_longer_listed",
+          "from": "no_longer_listed"
+        }
+      ]
+    },
+    {
+      "name": "edges",
+      "file": "graph.json",
+      "path": "edges",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "verb",
+          "from": "verb"
+        },
+        {
+          "name": "source",
+          "from": "source"
+        },
+        {
+          "name": "target",
+          "from": "target"
+        },
+        {
+          "name": "pack",
+          "from": "pack"
+        }
+      ]
+    },
+    {
+      "name": "verbs",
+      "file": "ontology.json",
+      "path": "edges",
+      "columns": [
+        {
+          "name": "verb",
+          "from": "verb"
+        },
+        {
+          "name": "inverse",
+          "from": "inverse"
+        },
+        {
+          "name": "domain",
+          "from": "domain"
+        },
+        {
+          "name": "range",
+          "from": "range"
+        },
+        {
+          "name": "pt_verb",
+          "from": "pt.verb"
+        },
+        {
+          "name": "pt_inverse",
+          "from": "pt.inverse"
+        },
+        {
+          "name": "reads",
+          "from": "reads"
+        },
+        {
+          "name": "origin",
+          "from": "origin"
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "file": "ontology.json",
+      "path": "node_types",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "pt",
+          "from": "pt"
+        },
+        {
+          "name": "colour",
+          "from": "colour"
+        },
+        {
+          "name": "definition",
+          "from": "definition"
+        }
+      ]
+    },
+    {
+      "name": "people",
+      "file": "people.json",
+      "path": "people",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "name",
+          "from": "name"
+        },
+        {
+          "name": "role",
+          "from": "role"
+        },
+        {
+          "name": "org",
+          "from": "org"
+        },
+        {
+          "name": "page",
+          "from": "page"
+        },
+        {
+          "name": "linkedin",
+          "from": "linkedin"
+        }
+      ]
+    },
+    {
+      "name": "orgs",
+      "file": "orgs.json",
+      "path": "orgs",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "name",
+          "from": "name"
+        },
+        {
+          "name": "people",
+          "from": "people"
+        },
+        {
+          "name": "placeholder",
+          "from": "placeholder"
+        }
+      ]
+    },
+    {
+      "name": "sessions",
+      "file": "sessions.json",
+      "path": "sessions",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "title",
+          "from": "title"
+        },
+        {
+          "name": "day",
+          "from": "day"
+        },
+        {
+          "name": "time",
+          "from": "time"
+        },
+        {
+          "name": "kind",
+          "from": "kind"
+        },
+        {
+          "name": "stage",
+          "from": "stage"
+        }
+      ]
+    },
+    {
+      "name": "stages",
+      "file": "sessions.json",
+      "path": "stages",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "label",
+          "from": "label"
+        },
+        {
+          "name": "pt",
+          "from": "pt"
+        },
+        {
+          "name": "also_called",
+          "from": "also_called"
+        }
+      ]
+    },
+    {
+      "name": "sources",
+      "file": "sources.json",
+      "path": "sources",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "snapshot",
+          "from": "snapshot"
+        },
+        {
+          "name": "page",
+          "from": "page"
+        },
+        {
+          "name": "publisher",
+          "from": "publisher"
+        },
+        {
+          "name": "url",
+          "from": "url"
+        },
+        {
+          "name": "frozen",
+          "from": "frozen"
+        },
+        {
+          "name": "bytes",
+          "from": "bytes"
+        },
+        {
+          "name": "sha256",
+          "from": "sha256"
+        },
+        {
+          "name": "retrieved",
+          "from": "retrieved"
+        },
+        {
+          "name": "state",
+          "from": "state"
+        }
+      ]
+    },
+    {
+      "name": "coverage",
+      "file": "coverage.json",
+      "path": "items",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "publisher",
+          "from": "publisher"
+        },
+        {
+          "name": "kind",
+          "from": "kind"
+        },
+        {
+          "name": "published",
+          "from": "published"
+        },
+        {
+          "name": "title",
+          "from": "title"
+        },
+        {
+          "name": "url",
+          "from": "url"
+        },
+        {
+          "name": "source",
+          "from": "source"
+        },
+        {
+          "name": "bytes",
+          "from": "bytes"
+        },
+        {
+          "name": "sha256",
+          "from": "sha256"
+        },
+        {
+          "name": "what_it_says",
+          "from": "what_it_says"
+        }
+      ]
+    },
+    {
+      "name": "stories",
+      "file": "stories.json",
+      "path": "stories",
+      "columns": [
+        {
+          "name": "slug",
+          "from": "slug"
+        },
+        {
+          "name": "kicker",
+          "from": "kicker"
+        },
+        {
+          "name": "title",
+          "from": "title"
+        },
+        {
+          "name": "standfirst",
+          "from": "standfirst"
+        },
+        {
+          "name": "published",
+          "from": "published"
+        },
+        {
+          "name": "byline",
+          "from": "byline"
+        },
+        {
+          "name": "stands_on",
+          "from": "stands_on"
+        }
+      ]
+    },
+    {
+      "name": "changes",
+      "file": "changes.json",
+      "path": "changes",
+      "columns": [
+        {
+          "name": "from_snapshot",
+          "from": "from"
+        },
+        {
+          "name": "to_snapshot",
+          "from": "to"
+        },
+        {
+          "name": "count_from",
+          "from": "count_from"
+        },
+        {
+          "name": "count_to",
+          "from": "count_to"
+        },
+        {
+          "name": "added",
+          "from": "added"
+        },
+        {
+          "name": "removed",
+          "from": "removed"
+        },
+        {
+          "name": "changed",
+          "from": "changed"
+        },
+        {
+          "name": "reason_known",
+          "from": "reason_known"
+        }
+      ]
+    },
+    {
+      "name": "person_topics",
+      "file": "topics.json",
+      "path": "person_topics",
+      "columns": [
+        {
+          "name": "person",
+          "from": "person"
+        },
+        {
+          "name": "topic",
+          "from": "topic"
+        },
+        {
+          "name": "source",
+          "from": "source"
+        }
+      ]
+    },
+    {
+      "name": "person_tags",
+      "file": "topics.json",
+      "path": "person_tags",
+      "columns": [
+        {
+          "name": "person",
+          "from": "person"
+        },
+        {
+          "name": "tag",
+          "from": "tag"
+        },
+        {
+          "name": "type",
+          "from": "type"
+        },
+        {
+          "name": "matched",
+          "from": "matched"
+        },
+        {
+          "name": "source",
+          "from": "source"
+        }
+      ]
+    },
+    {
+      "name": "lexicon",
+      "file": "lexicon.json",
+      "path": "entries",
+      "columns": [
+        {
+          "name": "id",
+          "from": "id"
+        },
+        {
+          "name": "type",
+          "from": "type"
+        },
+        {
+          "name": "label",
+          "from": "label"
+        },
+        {
+          "name": "pt",
+          "from": "pt"
+        },
+        {
+          "name": "pattern",
+          "from": "pattern"
+        }
+      ]
+    }
+  ]
+}

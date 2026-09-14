@@ -1,0 +1,48 @@
+{
+  "id": "pt-verificacoes-fonte",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "O que a releitura das cópias congeladas estabelece. Observações sobre artefactos publicados, não alegações sobre quem quer que seja.",
+  "oradores": {
+    "cartoes": 70,
+    "declarado_na_pagina": 70,
+    "concordam": true
+  },
+  "nomes_de_palco": {
+    "agenda": [
+      "Impact Stage",
+      "Unicorn Stage",
+      "Workshop Rooms"
+    ],
+    "oradores": [
+      "Impact Stage",
+      "Unicorn Stage",
+      "Workshop Rooms"
+    ],
+    "patrocinadores": [
+      "Main Stage",
+      "Startup Stage",
+      "Workshop Rooms"
+    ]
+  },
+  "legibilidade": {
+    "dados-gov": {
+      "bytes": 849388,
+      "caracteres_visiveis": 27406,
+      "legivel_por_maquina": true,
+      "nota": "Uma página que devolve bytes mas quase nenhum texto visível a um leitor automático renderiza por script. Registado como medição, com data e hash."
+    },
+    "dre-inicio": {
+      "bytes": 2346,
+      "caracteres_visiveis": 22,
+      "legivel_por_maquina": false,
+      "nota": "Uma página que devolve bytes mas quase nenhum texto visível a um leitor automático renderiza por script. Registado como medição, com data e hash."
+    },
+    "gov-ia": {
+      "bytes": 165569,
+      "caracteres_visiveis": 348,
+      "legivel_por_maquina": false,
+      "nota": "Uma página que devolve bytes mas quase nenhum texto visível a um leitor automático renderiza por script. Registado como medição, com data e hash."
+    }
+  }
+}

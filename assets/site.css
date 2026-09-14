@@ -1,0 +1,189 @@
+/* pt.newsroom.sgit.ai — o sistema de desenho, tal como o editor de registo o escolheu a 13 de
+   setembro de 2026 de entre quatro direções (a direção A, o jornal em folha larga).
+
+   UMA DECISÃO REGISTADA AQUI. O pacote de comissionamento diz que a primeira página usa a folha
+   de estilos do próprio desenho e que as páginas interiores podem usar a folha do conjunto,
+   «restilizada com o papel, a tinta e as faces do desenho para que o site se leia como um só».
+   Este site tem UMA folha, esta, e a primeira página usa-a como todas as outras. A razão é a
+   regra que o pacote dá a seguir: conteúdo existe uma vez. Duas folhas com o mesmo papel e a
+   mesma tinta divergiriam — não hoje, mas na terceira vez que alguém mudasse uma cor — e a
+   primeira página deixaria de ser do mesmo jornal que as interiores sem que nada parecesse
+   avariado.
+
+   Papel e tinta. Fundo #f7f4ec, tinta #17181c, texto secundário #4a4d55 e #6b6e76, filetes
+   #d9d3c3, painéis #fffdf7. Um acento, o verde do conjunto #0f766e, para antetítulos, ligações
+   e fontes que confirmaram; #b45309 para uma fonte que não confirmou; #b91c1c para «não
+   encontrado»; #a16207 para «disputado».
+
+   Filetes, não caixas. Sem cantos redondos, sem sombras, sem gradientes. */
+
+:root {
+  --papel:   #f7f4ec;
+  --tinta:   #17181c;
+  --tinta-2: #2b2d33;
+  --sec:     #4a4d55;
+  --sec-2:   #6b6e76;
+  --filete:  #d9d3c3;
+  --filete-2:#c9c2ae;
+  --painel:  #fffdf7;
+  --acento:  #0f766e;
+  --acento-claro: #a7f3d0;
+  --aviso:   #b45309;
+  --falta:   #b91c1c;
+  --disputa: #a16207;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono:  "IBM Plex Mono", Menlo, Consolas, monospace;
+  --goteira: 56px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.folha { max-width: 1440px; margin: 0 auto; padding: 0 var(--goteira) 56px; }
+
+a { color: var(--tinta); text-decoration: none; }
+a:hover { color: var(--acento); text-decoration: underline; }
+a.ac { color: var(--acento); }
+
+/* --- tipografia ------------------------------------------------------------ */
+.mono { font-family: var(--mono); }
+.kick { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); }
+.sect { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta); }
+.h-lead { font-size: 54px; line-height: 1.02; font-weight: 500; letter-spacing: -.02em; margin: 0; }
+.h-2 { font-size: 27px; line-height: 1.1; font-weight: 500; letter-spacing: -.015em; margin: 0; }
+.h-3 { font-size: 21px; line-height: 1.15; font-weight: 500; margin: 0; }
+.std { font-size: 18px; line-height: 1.45; margin: 0; color: var(--tinta-2); }
+.sm  { font-size: 15px; line-height: 1.45; margin: 0; color: var(--sec); }
+.xs  { font-size: 13px; line-height: 1.45; margin: 0; color: var(--sec-2); }
+.it { font-style: italic; }
+
+/* --- filetes --------------------------------------------------------------- */
+.rule { border-top: 1px solid var(--tinta); }
+.hair { border-top: 1px solid var(--filete); }
+.dbl  { border-top: 3px double var(--tinta); }
+
+/* --- cabeçalho ------------------------------------------------------------- */
+.datalinha { display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  flex-wrap: wrap; padding: 18px 0 10px; border-bottom: 1px solid var(--filete);
+  font-family: var(--mono); font-size: 12px; color: var(--sec); letter-spacing: .04em; }
+.datalinha b { color: var(--tinta); }
+.mast { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 26px 0 18px; text-align: center; }
+.mast .nome { font-size: 76px; line-height: 1; font-weight: 600; letter-spacing: -.035em; }
+.mast .nome span { color: #8a8d94; font-weight: 400; }
+.mast .lema { font-size: 17px; font-style: italic; color: var(--sec); max-width: 46em; }
+.nav { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 12px 0;
+  border-top: 1px solid var(--tinta); border-bottom: 3px double var(--tinta); }
+.nav a { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+.nav a.aqui { color: var(--acento); }
+.nav .sep { color: var(--filete-2); }
+
+/* --- fichas ---------------------------------------------------------------- */
+.chip { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 3px 8px;
+  border: 1px solid var(--filete-2); border-radius: 3px; color: var(--sec);
+  background: var(--painel); display: inline-block; white-space: nowrap; }
+.chip.ok      { color: var(--acento); border-color: var(--acento); }
+.chip.miss    { color: var(--aviso);  border-color: var(--aviso); }
+.chip.falta   { color: var(--falta);  border-color: var(--falta); }
+.chip.disputa { color: var(--disputa);border-color: var(--disputa); }
+.chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* --- grelha ---------------------------------------------------------------- */
+.g12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px; }
+.g3  { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.g2  { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.g4  { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.col { display: flex; flex-direction: column; }
+
+/* Um filho de grelha tem `min-width: auto` por omissão, o que o impede de encolher abaixo do seu
+   conteúdo mais estreito — e uma ficha com `white-space: nowrap` ou um SHA-256 sem espaços torna
+   esse mínimo maior do que um telemóvel. O resultado é a página inteira a deslizar na horizontal,
+   que é a única coisa que a folha de estilos deste site proíbe expressamente. `min-width: 0` é o
+   que devolve ao filho a capacidade de encolher. */
+.g12 > *, .g3 > *, .g2 > *, .g4 > *, .col > * { min-width: 0; }
+.sp6 { gap: 6px; } .sp8 { gap: 8px; } .sp10 { gap: 10px; } .sp12 { gap: 12px; }
+.sp18 { gap: 18px; } .sp22 { gap: 22px; }
+
+/* --- tabelas --------------------------------------------------------------- */
+table { border-collapse: collapse; width: 100%; }
+td, th { font-family: var(--serif); font-size: 15px; padding: 9px 10px 9px 0;
+  border-top: 1px solid var(--filete); text-align: left; vertical-align: top; }
+th { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--sec-2); border-top: 0; font-weight: 500; }
+td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
+
+/* Tabelas, diagramas e blocos de código são as únicas coisas que podem ser mais largas do que o
+   ecrã, e cada uma dentro do seu próprio contentor que desliza. O corpo da página nunca desliza. */
+.rolar { overflow-x: auto; max-width: 100%; }
+
+/* Um SHA-256, um identificador de fonte, uma consulta de pesquisa ou uma expressão regular de um
+   erro de esquema não têm espaços onde partir. Sem isto, uma cadeia dessas define a largura mínima
+   da página — e foi uma delas, num erro de esquema de uma entrega, que fez a página de revisão
+   deslizar na horizontal num telemóvel. */
+.mono, code, .xs, td.mono, li { overflow-wrap: anywhere; }
+
+/* --- painéis --------------------------------------------------------------- */
+.painel { background: var(--painel); border: 1px solid var(--filete); padding: 18px 20px; }
+.escuro { background: var(--tinta); color: var(--papel); padding: 22px 24px; }
+.escuro .sect { color: var(--acento-claro); }
+.escuro .sm { color: var(--filete-2); }
+.escuro a { color: var(--acento-claro); }
+
+/* --- blocos de casa -------------------------------------------------------- */
+.aviso-bloco { border-left: 3px solid var(--aviso); padding: 12px 0 12px 16px; margin: 22px 0; }
+.agent { border-top: 1px solid var(--filete); margin-top: 40px; padding-top: 14px;
+  font-family: var(--mono); font-size: 12px; color: var(--sec-2); line-height: 1.6; }
+.agent b { color: var(--tinta); font-weight: 500; }
+.ver { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
+.rodape { border-top: 3px double var(--tinta); padding-top: 16px; margin-top: 40px; }
+
+/* --- estados --------------------------------------------------------------- */
+.e-confirmada, .e-aprovada { color: var(--acento); }
+.e-nao_encontrada, .e-rejeitada { color: var(--falta); }
+.e-fonte_inacessivel { color: var(--aviso); }
+.e-disputada { color: var(--disputa); }
+.e-por_verificar, .e-por_rever { color: var(--sec-2); }
+.pastilha { display: inline-block; width: 10px; height: 10px; vertical-align: middle; margin-right: 6px; }
+
+/* --- o quadro da redação --------------------------------------------------- */
+.quadro { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.coluna { border-top: 2px solid var(--tinta); padding-top: 8px; }
+.cartao { border: 1px solid var(--filete); background: var(--painel); padding: 10px; margin-top: 8px; font-size: 14px; }
+.correio { border-left: 2px solid var(--filete); padding-left: 16px; }
+.msg { margin-bottom: 18px; }
+
+/* --- o grafo --------------------------------------------------------------- */
+#cy { width: 100%; height: 620px; background: var(--painel); border: 1px solid var(--filete); }
+.caminho { font-size: 19px; line-height: 1.5; margin: 0; }
+.caminho .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
+
+/* --- telemóvel: a mesma hierarquia numa coluna ----------------------------- */
+@media (max-width: 900px) {
+  :root { --goteira: 18px; }
+  .folha { padding-bottom: 32px; }
+  .g12, .g3, .g2, .g4 { grid-template-columns: 1fr; gap: 22px; }
+  .g12 > *, .g3 > *, .g2 > * { grid-column: auto !important; }
+  .g12 > .borda-esq { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--filete); padding-top: 22px; }
+  .mast .nome { font-size: 38px; letter-spacing: -.03em; }
+  .mast .lema { font-size: 13px; }
+  .h-lead { font-size: 34px; line-height: 1.05; }
+  .h-2 { font-size: 22px; }
+  .h-3 { font-size: 19px; }
+  .std { font-size: 16px; }
+  .sm { font-size: 14px; }
+  .nav { gap: 18px; justify-content: flex-start; overflow-x: auto; padding: 10px 0; }
+  .nav a { white-space: nowrap; font-size: 14px; }
+  .datalinha { font-size: 11px; gap: 10px; }
+  #cy { height: 420px; }
+  .chip { white-space: normal; }     /* uma ficha longa parte-se em vez de alargar a linha */
+  ul[style*="columns"] { columns: 1 !important; }
+  .quadro { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,555 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://newsroom.sgit.ai/briefs/pt-newsroom-pack/08__research-briefs/research-schema.json",
+  "title": "pt.newsroom.sgit.ai research delivery",
+  "description": "What an outside research assistant (ChatGPT, Perplexity, or any other) hands to the Claude agent that runs pt.newsroom.sgit.ai. Everything in it is a LEAD, not a fact: the newsroom fetches and freezes every URL itself, re-finds every excerpt in the frozen bytes, and only then may cite. Every item therefore names its sources, every claim names one source and carries a short verbatim excerpt that must be findable on that page, and every person is reduced to what a primary source lists. Own-words fields are European Portuguese. Since v2 of the briefs a delivery is distributed as an sgit vault: delivery.vault names the vault id and commit, and may carry the read key or share token, never the vault key.",
+  "type": "object",
+  "required": [
+    "delivery",
+    "sources",
+    "items"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "delivery": {
+      "type": "object",
+      "required": [
+        "id",
+        "tool",
+        "model",
+        "date",
+        "brief",
+        "language",
+        "sections_covered",
+        "queries",
+        "notes",
+        "vault"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "e.g. perplexity-2026-09-14-politicas-1"
+        },
+        "tool": {
+          "type": "string",
+          "enum": [
+            "chatgpt",
+            "perplexity",
+            "other"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "description": "The model and mode used, as the tool names them"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "brief": {
+          "type": "string",
+          "description": "The brief this answers, e.g. 13__research-brief-for-perplexity.md v1"
+        },
+        "language": {
+          "type": "string",
+          "const": "pt-PT"
+        },
+        "sections_covered": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/section"
+          },
+          "minItems": 1
+        },
+        "queries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The search queries actually run, verbatim, so the search can be repeated"
+        },
+        "part": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$",
+          "description": "If delivered in parts: 1/3, 2/3, 3/3"
+        },
+        "notes": {
+          "type": "string",
+          "description": "What could not be found, what was paywalled or script-rendered, what you are unsure of. Portuguese."
+        },
+        "vault": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "How the delivery is distributed: an sgit vault (see section F of the briefs). The read key or the share token may be given here; the vault key (write access) never may.",
+          "required": [
+            "vault_id",
+            "commit"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "vault_id": {
+              "type": "string",
+              "description": "The vault id (the part after the colon in a key)"
+            },
+            "commit": {
+              "type": "string",
+              "description": "The commit id of this part, from sgit history log --json"
+            },
+            "read_key": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$",
+              "description": "The 64-hex read key, derived one-way; read-only; may be shared with the newsroom"
+            },
+            "share_token": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "A Simple Token from sgit share, if the delivery was handed over as a snapshot"
+            },
+            "remote": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri",
+              "description": "The SG/Send server the vault is pushed to"
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "publisher",
+          "publisher_kind",
+          "title",
+          "language",
+          "published",
+          "retrieved",
+          "access"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The exact page. Never a search page, never a homepage when a deeper page carries the fact, never a URL you did not open"
+          },
+          "publisher": {
+            "type": "string",
+            "description": "As the page names itself"
+          },
+          "publisher_kind": {
+            "type": "string",
+            "enum": [
+              "official",
+              "primary",
+              "dataset",
+              "academic",
+              "press",
+              "company",
+              "other"
+            ],
+            "description": "official = government/regulator/EU; primary = the organisation the fact is about; dataset = open data portal or register; press = a news outlet; company = a company about another"
+          },
+          "title": {
+            "type": "string",
+            "description": "Verbatim, with accents"
+          },
+          "language": {
+            "type": "string",
+            "description": "BCP 47, e.g. pt-PT, en"
+          },
+          "published": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ISO date if the page states one, else null. Never guess"
+          },
+          "retrieved": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "open",
+              "paywalled",
+              "login",
+              "script-rendered",
+              "pdf",
+              "blocked"
+            ],
+            "description": "script-rendered = the body only appears with JavaScript; the newsroom's fetcher may see nothing"
+          },
+          "locator": {
+            "type": "string",
+            "description": "Where on the page: a heading, an anchor, a page number in a PDF, a row in a table"
+          },
+          "excerpt": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "Verbatim, ≤ 200 characters, to prove the page says what you say it says. Optional at source level; required at claim level"
+          },
+          "archived_copy": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "description": "A web.archive.org or archive.today URL if you took one; the newsroom still freezes its own"
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "section",
+          "kind",
+          "headline",
+          "what_the_sources_say",
+          "claims",
+          "entities",
+          "edges",
+          "why_it_matters",
+          "personal_data_check"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^item-[a-z0-9-]+$"
+          },
+          "section": {
+            "$ref": "#/$defs/section"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "lead",
+              "fact",
+              "entity",
+              "event",
+              "dataset",
+              "policy-instrument",
+              "funding",
+              "correction-candidate"
+            ]
+          },
+          "headline": {
+            "type": "string",
+            "maxLength": 140,
+            "description": "Portuguese. The record, not the verdict; no adjective about a named party"
+          },
+          "what_the_sources_say": {
+            "type": "string",
+            "maxLength": 900,
+            "description": "Portuguese, your own words, never a pasted paragraph"
+          },
+          "dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "date",
+                "what",
+                "source"
+              ],
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "what": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "pattern": "^src-"
+                }
+              }
+            }
+          },
+          "claims": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "source",
+                "excerpt",
+                "confidence",
+                "status"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "maxLength": 300,
+                  "description": "One checkable sentence, Portuguese"
+                },
+                "source": {
+                  "type": "string",
+                  "pattern": "^src-"
+                },
+                "locator": {
+                  "type": "string"
+                },
+                "excerpt": {
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 160,
+                  "description": "Verbatim from the source, ≤ 25 words, in the source's language. The newsroom will search the frozen bytes for exactly this string"
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "alta",
+                    "média",
+                    "baixa"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "const": "por_verificar",
+                  "description": "Always. Only the newsroom's verification changes it"
+                },
+                "note": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "name",
+                "source"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Organização",
+                    "Instituição",
+                    "Pessoa",
+                    "Política",
+                    "CasoDeUso",
+                    "Projeto",
+                    "Dataset",
+                    "Modelo",
+                    "Evento",
+                    "Local",
+                    "Programa"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Verbatim as the source writes it, accents included"
+                },
+                "source": {
+                  "type": "string",
+                  "pattern": "^src-"
+                },
+                "attributes": {
+                  "type": "object",
+                  "description": "For a Pessoa ONLY these keys are allowed: cargo_listado, organizacao_listada, pagina_fonte. Nothing else about a person — no biography, nationality, age, contact, opinion.",
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "Pessoa"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "attributes": {
+                    "propertyNames": {
+                      "enum": [
+                        "cargo_listado",
+                        "organizacao_listada",
+                        "pagina_fonte"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "edges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "subject",
+                "verb",
+                "inverse",
+                "object",
+                "source",
+                "excerpt"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": "string"
+                },
+                "verb": {
+                  "type": "string",
+                  "description": "A Portuguese verb from the vocabulary in the brief, or a proposed one; never relacionado_com, associado_a, menciona, trabalha_em"
+                },
+                "inverse": {
+                  "type": "string"
+                },
+                "object": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "pattern": "^src-"
+                },
+                "excerpt": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "attributes": {
+                  "type": "object",
+                  "description": "e.g. montante, moeda, data, programa — with the source that gives each",
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "why_it_matters": {
+            "type": "string",
+            "maxLength": 400,
+            "description": "Portuguese. For the editor, not for publication"
+          },
+          "suggested_story": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "personal_data_check": {
+            "type": "object",
+            "required": [
+              "contains_contact_details",
+              "contains_characterisation",
+              "persons_named"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "contains_contact_details": {
+                "type": "boolean",
+                "const": false
+              },
+              "contains_characterisation": {
+                "type": "boolean",
+                "const": false
+              },
+              "persons_named": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Every natural person named anywhere in this item, so the editor can count them"
+              }
+            }
+          }
+        }
+      }
+    },
+    "vocabulary_proposals": {
+      "type": "array",
+      "description": "Verbs you needed that the brief's vocabulary lacks. Portuguese, with a distinct inverse, and one sentence showing a path reading aloud.",
+      "items": {
+        "type": "object",
+        "required": [
+          "verb",
+          "inverse",
+          "domain",
+          "range",
+          "reads"
+        ],
+        "properties": {
+          "verb": {
+            "type": "string"
+          },
+          "inverse": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "range": {
+            "type": "string"
+          },
+          "reads": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "string",
+      "enum": [
+        "empresas",
+        "protagonistas",
+        "instituicoes",
+        "politicas",
+        "casos-de-uso",
+        "codigo-aberto",
+        "diaspora",
+        "eventos"
+      ]
+    }
+  }
+}

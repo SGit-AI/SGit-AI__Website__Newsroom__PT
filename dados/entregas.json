@@ -1,0 +1,1035 @@
+{
+  "id": "pt-entregas",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "o_que_e": "Entregas de investigação de assistentes exteriores, com o estado de cada afirmação depois de esta redação ter congelado a fonte e procurado nos bytes o excerto que o assistente diz ter lido.",
+  "a_regra": "Uma entrega é uma lista de pistas com proveniência, nunca factos. Nada daqui aparece na primeira página nem num artigo enquanto o editor de registo não aprovar a afirmação, uma a uma, ao lado da sua fonte congelada. O portão 13 de build/gates.py falha a construção se isso for contornado.",
+  "estados": [
+    {
+      "id": "por_verificar",
+      "rotulo": "Por verificar",
+      "cor": "#6b6e76",
+      "o_que_significa": "Tal como chegou do assistente. Nenhum byte foi congelado ainda."
+    },
+    {
+      "id": "confirmada",
+      "rotulo": "Excerto encontrado",
+      "cor": "#0f766e",
+      "o_que_significa": "O excerto que o assistente diz ter lido está nos bytes que congelámos. A afirmação pode passar a uma história."
+    },
+    {
+      "id": "nao_encontrada",
+      "rotulo": "Excerto não encontrado",
+      "cor": "#b91c1c",
+      "o_que_significa": "Congelámos a página e o excerto não está lá. A afirmação não passa. Pode ser uma página que mudou, uma que renderiza por script, ou um excerto que nunca existiu — o registo não adivinha qual."
+    },
+    {
+      "id": "fonte_inacessivel",
+      "rotulo": "Fonte inacessível",
+      "cor": "#b45309",
+      "o_que_significa": "A página não devolveu um corpo utilizável (403, 404, ou um invólucro sem texto). Nada se pode conferir contra ela."
+    },
+    {
+      "id": "aprovada",
+      "rotulo": "Aprovada pelo editor",
+      "cor": "#0f766e",
+      "o_que_significa": "O editor de registo leu a afirmação ao lado da sua fonte congelada e aprovou-a para publicação. É a única transição que uma execução automática não pode fazer."
+    },
+    {
+      "id": "rejeitada",
+      "rotulo": "Rejeitada pelo editor",
+      "cor": "#b91c1c",
+      "o_que_significa": "O editor leu-a e não a quer. A razão fica no ficheiro de revisão."
+    }
+  ],
+  "contagem": 1,
+  "entregas": [
+    {
+      "id": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "ficheiro": "redacao/entregas/chatgpt/chatgpt-pt-newsroom-2026-09-14-politicas.json",
+      "ferramenta": "chatgpt",
+      "modelo": "gpt-6-astra",
+      "data": "2026-09-14",
+      "parte": "1/8",
+      "resumo_brief": "12__research-brief-for-chatgpt.md v2",
+      "seccoes": [
+        "politicas"
+      ],
+      "consultas": [
+        "site:gov.pt \"Agenda Nacional de Inteligência Artificial\" Resolução Conselho Ministros",
+        "site:diariodarepublica.pt inteligência artificial agenda nacional Portugal Resolução do Conselho de Ministros",
+        "site:gov.pt AI Act Portugal autoridade fiscalização mercado autoridade notificadora inteligência artificial",
+        "site:diariodarepublica.pt Regulamento (UE) 2024/1689 autoridade fiscalização mercado Portugal",
+        "Portugal Agenda Nacional Inteligência Artificial ANI 2030 resolução 2025 governo",
+        "site:portugal.gov.pt inteligência artificial agenda nacional 2025",
+        "site:ama.gov.pt estratégia inteligência artificial Portugal 2025",
+        "site:diariodarepublica.pt \"inteligência artificial\" \"Conselho de Ministros\" Portugal",
+        "\"Resolução do Conselho de Ministros n.º 2/2026\"",
+        "site:diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros/2-2026",
+        "site:digital.gov.pt \"Agenda Nacional de Inteligência Artificial\" \"RCM\"",
+        "site:digital.gov.pt inteligência artificial autoridades nacionais competentes AI Act Portugal",
+        "site:digital.gov.pt/pt/documentos \"Resolução do Conselho de Ministros n.º 2/2026\"",
+        "site:digital.gov.pt/pt/documentos \"Agenda Nacional de Inteligência Artificial\"",
+        "site:files.diariodarepublica.pt 2/2026 Agenda Nacional Inteligência Artificial PDF",
+        "\"Aprova a Agenda Nacional de Inteligência Artificial e o respetivo modelo de governação\"",
+        "site:digital.gov.pt \"autoridades nacionais competentes\" \"Regulamento de IA\"",
+        "site:portugal.gov.pt \"Regulamento Europeu de Inteligência Artificial\" autoridade Portugal",
+        "site:diariodarepublica.pt \"Regulamento (UE) 2024/1689\" Portugal autoridade",
+        "site:eur-lex.europa.eu Portugal AI Act market surveillance authority notifying authority",
+        "Portugal AI Act competent authorities 2026 ANACOM CNPD ASAE",
+        "\"Portugal\" \"market surveillance authority\" \"AI Act\"",
+        "\"autoridade de fiscalização do mercado\" \"inteligência artificial\" Portugal",
+        "\"autoridade notificadora\" \"Regulamento da Inteligência Artificial\" Portugal",
+        "site:diariodarepublica.pt ANACOM \"19 de setembro de 2025\" inteligência artificial",
+        "site:diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros ANACOM inteligência artificial 2025",
+        "\"19 de setembro de 2025\" ANACOM \"autoridade\" inteligência artificial",
+        "site:anacom.pt \"autoridade de fiscalização do mercado\" inteligência artificial",
+        "site:portugal.gov.pt/gc25 setembro 2025 ANACOM inteligência artificial fiscalização",
+        "site:anacom.pt setembro 2025 designada Regulamento Inteligência Artificial ANACOM",
+        "ANACOM 19 setembro 2025 designada autoridade AI Act comunicado Governo",
+        "\"14 autoridades\" ANACOM IGF GNS ERC IGDN IGSJ PJ IGAI IGEC ERS ASAE",
+        "site:portugal.gov.pt AI Factory Portugal 2025 2026",
+        "site:ec.europa.eu EuroHPC Portugal AI Factory 2025",
+        "site:recuperarportugal.gov.pt inteligência artificial investimento PRR Portugal",
+        "site:digital.gov.pt estratégia nacional dados Portugal 2025 2026",
+        "site:cnpd.pt inteligência artificial deliberação 2025 2026",
+        "site:cnpd.pt \"inteligência artificial\" orientação",
+        "site:cnpd.pt IA generativa 2025",
+        "site:cnpd.pt reconhecimento facial inteligência artificial decisão",
+        "site:diariodarepublica.pt \"Gigafábricas de Inteligência Artificial\" Portugal",
+        "site:diariodarepublica.pt \"200 milhões\" \"capacidade computacional\" 2026",
+        "site:portugal.gov.pt gigafábrica inteligência artificial Portugal julho 2026 Resolução",
+        "site:eurohpc-ju.europa.eu Portugal AI Factory"
+      ],
+      "notas_do_assistente": "Foi confirmado o instrumento jurídico da ANIA: Resolução do Conselho de Ministros n.º 2/2026, publicada em 8 de janeiro. A página oficial da ANACOM localizada pelo motor de pesquisa afirma que a entidade foi escolhida pelo Governo para a regulação nacional da IA, mas devolveu HTTP 403 ao ser aberta; não foi localizado no Diário da República um instrumento de designação da ANACOM nem das autoridades setoriais. A página oficial de IA do Governo consultada também não identifica nominalmente as autoridades competentes. O IPQ declara atuar como autoridade notificadora numa página localizada por pesquisa, mas a página específica não pôde ser aberta; a informação não foi convertida em alegação. Não foram encontradas decisões ou orientações da CNPD sobre IA, datadas desde 1 de janeiro de 2025. O portal da CNPD foi encontrado, mas os resultados não revelaram uma publicação de IA adequada. Não foi localizada uma página oficial do PRR que individualize linhas de IA com documentação e montantes além dos investimentos descritos na ANIA. O schema e o exemplo em newsroom.sgit.ai não estavam acessíveis nesta sessão; a estrutura segue o resumo contratual do brief. O vault será criado apenas depois das oito partes, conforme pedido.",
+      "cofre": {
+        "vault_id": null,
+        "commit": null,
+        "read_key": null,
+        "share_token": null,
+        "remote": null
+      },
+      "esquema_valido": false,
+      "erros_de_esquema": [
+        "delivery/vault/commit: None is not of type 'string'",
+        "delivery/vault/vault_id: None is not of type 'string'",
+        "items/0/dates/0: '2026-01-08' is not of type 'object'",
+        "items/0/entities/1/id: 'instrumento:rcm-2-2026' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
+        "items/0/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/0/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/0/kind: 'instrumento_juridico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/1/dates/0: '2026-01-08' is not of type 'object'",
+        "items/1/dates/1: '2026-2030' is not of type 'object'",
+        "items/1/kind: 'agenda_nacional' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/2/claims/0/confidence: 'media' is not one of ['alta', 'média', 'baixa']",
+        "items/2/dates/0: '2025-09-22' is not of type 'object'",
+        "items/2/dates/1: '2026-08-07' is not of type 'object'",
+        "items/2/entities/0/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/2/entities/1/id: 'regulamento:ue-2024-1689' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
+        "items/2/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/2/kind: 'regulacao' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/3/dates/0: '2025-H2' is not of type 'object'",
+        "items/3/dates/1: '2026-01-08' is not of type 'object'",
+        "items/3/entities/1/id: 'infraestrutura:deucalion' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
+        "items/3/entities/1/type: 'Infraestrutura' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/3/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/3/kind: 'infraestrutura_publica' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/4/dates/0: '2026-06-25' is not of type 'object'",
+        "items/4/dates/1: '2026-06-26' is not of type 'object'",
+        "items/4/entities/1/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/4/kind: 'investimento_publico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/5/dates/0: '2026-H1' is not of type 'object'",
+        "items/5/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/5/entities/3/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/5/kind: 'politica_de_dados' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/6/dates/0: '2026-01-08' is not of type 'object'",
+        "items/6/entities/1/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/6/kind: 'programa_setor_publico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "items/7/dates/0: '2026-04-13' is not of type 'object'",
+        "items/7/entities/1/id: 'instrumento:rcm-70-2026' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
+        "items/7/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
+        "items/7/kind: 'infraestrutura_publica' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
+        "sources/0/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/1/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/2/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/3/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/4/access: 'search-snippet; abertura devolveu HTTP 403' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/5/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
+        "sources/6/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']"
+      ],
+      "congelada_em": "2026-09-14",
+      "fontes": [
+        {
+          "id": "src-pol-01",
+          "url": "https://diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros/2-2026-1000882016",
+          "publicador": "Diário da República",
+          "titulo": "Resolução do Conselho de Ministros n.º 2/2026, de 8 de janeiro",
+          "lingua": "pt",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
+          "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
+          "bytes": 2346,
+          "caracteres_visiveis": 22,
+          "formato": "html",
+          "legivel": false,
+          "porque": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script"
+        },
+        {
+          "id": "src-pol-02",
+          "url": "https://digital.gov.pt/pt/documentos/resolucao-do-conselho-de-ministros-2-2026",
+          "publicador": "digitalGOV",
+          "titulo": "Resolução do Conselho de Ministros n.º 2/2026",
+          "lingua": "pt",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
+          "sha256": "7f2737c3725e222f4a8c512d814b1d8cd32bd7ba9590b5e92e8555e9b0c05f71",
+          "bytes": 156325,
+          "caracteres_visiveis": 2738,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        },
+        {
+          "id": "src-pol-03",
+          "url": "https://portugal.gov.pt/gc25/comunicacao/comunicados/agenda-nacional-de-inteligencia-artificial-ania-",
+          "publicador": "Governo de Portugal",
+          "titulo": "Agenda Nacional de Inteligência Artificial (ANIA)",
+          "lingua": "pt",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
+          "sha256": "d767992a4c7d33928da6f61b97aff1691f075f6f8a11594d637262bc8c2d4473",
+          "bytes": 181336,
+          "caracteres_visiveis": 4262,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        },
+        {
+          "id": "src-pol-04",
+          "url": "https://portugal.gov.pt/gc25/governo/comunicados-do-conselho-de-ministros/comunicado-do-conselho-de-ministros-de-25-de-junho-de-2026",
+          "publicador": "Governo de Portugal",
+          "titulo": "Comunicado do Conselho de Ministros de 25 de junho de 2026",
+          "lingua": "pt",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
+          "sha256": "d722fd938380aa948dc2c1ae190f35fa9dbf13689ee540a9c595ecb592c90e4c",
+          "bytes": 224915,
+          "caracteres_visiveis": 6492,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        },
+        {
+          "id": "src-pol-05",
+          "url": "https://www.anacom.pt/render.jsp?contentId=1817086",
+          "publicador": "Autoridade Nacional de Comunicações",
+          "titulo": "Conferência ANACOM 2025 termina com compromisso de avançar na regulação da inteligência artificial",
+          "lingua": "pt",
+          "acesso": "search-snippet; abertura devolveu HTTP 403",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
+          "sha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+          "bytes": 239,
+          "caracteres_visiveis": 74,
+          "formato": "html",
+          "legivel": false,
+          "porque": "a página devolveu 403 — o editor pode pedir acesso, mas nada se confere contra isto"
+        },
+        {
+          "id": "src-pol-06",
+          "url": "https://digital.gov.pt/pt/inteligencia-artificial",
+          "publicador": "digitalGOV",
+          "titulo": "Inteligência Artificial",
+          "lingua": "pt",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
+          "sha256": "4ed3abc5594f6bcb1a57f7135ff68d9cbeccb121a937bf1bb27a87963b1e423e",
+          "bytes": 193738,
+          "caracteres_visiveis": 4590,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        },
+        {
+          "id": "src-pol-07",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+          "publicador": "Comissão Europeia",
+          "titulo": "Governance and enforcement of the AI Act",
+          "lingua": "en",
+          "acesso": "html",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
+          "sha256": "40a2c1b02cf04d50d0b446aeeb52b6eef3631ccaa862719d097586783e2827e1",
+          "bytes": 54695,
+          "caracteres_visiveis": 5128,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        },
+        {
+          "id": "src-pol-08",
+          "url": "https://files.diariodarepublica.pt/1s/2026/04/07100/0004500052.pdf",
+          "publicador": "Diário da República",
+          "titulo": "Resolução do Conselho de Ministros n.º 70/2026",
+          "lingua": "pt",
+          "acesso": "pdf",
+          "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
+          "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
+          "bytes": 228725,
+          "caracteres_visiveis": 30808,
+          "formato": "pdf",
+          "legivel": true,
+          "porque": null
+        }
+      ],
+      "itens": [
+        {
+          "id": "item-pol-01",
+          "seccao": "politicas",
+          "especie": "instrumento_juridico",
+          "titulo": "RCM n.º 2/2026 confirma juridicamente a Agenda Nacional de Inteligência Artificial",
+          "o_que_dizem_as_fontes": "O Diário da República identifica a Resolução do Conselho de Ministros n.º 2/2026, de 8 de janeiro, como o ato que aprova a ANIA e o respetivo modelo de governação. A publicação ocorreu no Diário da República n.º 5/2026, Série I.",
+          "porque_importa": "Corrige diretamente a ausência de confirmação automatizada referida no primeiro artigo da redação e fornece o URL oficial, o número, a data, o diário e o emitente.",
+          "historia_sugerida": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+          "afirmacoes": [
+            {
+              "id": "item-pol-01-c1",
+              "texto": "A Agenda Nacional de Inteligência Artificial foi aprovada pela Resolução do Conselho de Ministros n.º 2/2026.",
+              "fonte": "src-pol-01",
+              "localizador": "Sumário",
+              "excerto": "Aprova a Agenda Nacional de Inteligência Artificial e o respetivo modelo de governação.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-01-c2",
+              "texto": "O ato foi publicado em 8 de janeiro de 2026 no Diário da República n.º 5/2026, Série I.",
+              "fonte": "src-pol-01",
+              "localizador": "Informação da publicação",
+              "excerto": "Publicação:Diário da República n.º 5/2026, Série I de 2026-01-08",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-01-c3",
+              "texto": "A Presidência do Conselho de Ministros é o emitente indicado no registo oficial.",
+              "fonte": "src-pol-01",
+              "localizador": "Informações gerais",
+              "excerto": "Emitente: Presidência do Conselho de Ministros",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:ania",
+              "type": "Programa",
+              "name": "Agenda Nacional de Inteligência Artificial",
+              "source": "src-pol-01",
+              "attributes": {
+                "sigla": "ANIA"
+              }
+            },
+            {
+              "id": "instrumento:rcm-2-2026",
+              "type": "InstrumentoJuridico",
+              "name": "Resolução do Conselho de Ministros n.º 2/2026",
+              "source": "src-pol-01",
+              "attributes": {
+                "data_publicacao": "2026-01-08",
+                "diario": "Diário da República n.º 5/2026, Série I"
+              }
+            },
+            {
+              "id": "org:presidencia-conselho-ministros",
+              "type": "Organizacao",
+              "name": "Presidência do Conselho de Ministros",
+              "source": "src-pol-01",
+              "attributes": {}
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "programa:ania",
+              "verb": "instituida_por",
+              "inverse": "institui",
+              "object": "instrumento:rcm-2-2026",
+              "source": "src-pol-01",
+              "excerpt": "Aprova a Agenda Nacional de Inteligência Artificial e o respetivo modelo de governação.",
+              "attributes": {
+                "data": "2026-01-08"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 0,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 3
+          }
+        },
+        {
+          "id": "item-pol-02",
+          "seccao": "politicas",
+          "especie": "agenda_nacional",
+          "titulo": "A ANIA contém 32 iniciativas e quatro eixos de atuação",
+          "o_que_dizem_as_fontes": "A página oficial digitalGOV descreve a ANIA como o principal instrumento de operacionalização da ambição nacional de IA. O texto legal organiza 32 iniciativas nos eixos Infraestrutura e Dados, Inovação e Adoção, Talento e Competências, e Responsabilidade e Ética.",
+          "porque_importa": "Fornece a estrutura oficial que pode organizar a cobertura futura e associar programas, entidades executoras e calendários a cada eixo.",
+          "historia_sugerida": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+          "afirmacoes": [
+            {
+              "id": "item-pol-02-c1",
+              "texto": "A ANIA integra 32 iniciativas.",
+              "fonte": "src-pol-02",
+              "localizador": "Em detalhe",
+              "excerto": "A sua implementação envolve 32 iniciativas que mobilizam universidades, centros de investigação, empresas e Administração Pública",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-02-c2",
+              "texto": "As iniciativas estão organizadas em quatro eixos de atuação.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II",
+              "excerto": "A Agenda Nacional de Inteligência Artificial contempla 32 iniciativas, ao longo de 4 eixos de atuação",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:ania",
+              "type": "Programa",
+              "name": "Agenda Nacional de Inteligência Artificial",
+              "source": "src-pol-01",
+              "attributes": {
+                "periodo": "2026-2030",
+                "numero_iniciativas": 32
+              }
+            }
+          ],
+          "arestas_propostas": [],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 1,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 1
+          }
+        },
+        {
+          "id": "item-pol-03",
+          "seccao": "politicas",
+          "especie": "regulacao",
+          "titulo": "A página localizada da ANACOM confirma um papel nacional, mas o instrumento de designação continua por localizar",
+          "o_que_dizem_as_fontes": "Um resultado oficial da ANACOM, publicado após a conferência de setembro de 2025, apresenta a entidade como responsável nacional pela aplicação do AI Act. A página devolveu HTTP 403 nesta sessão e o excerto disponível não identifica o ato jurídico. A página oficial de IA do Governo descreve o Regulamento, mas não nomeia as autoridades nacionais.",
+          "porque_importa": "A existência de uma declaração institucional não resolve a pergunta documental sobre a autoridade de fiscalização do mercado, a autoridade notificadora, as autoridades setoriais e o ato que lhes confere competências.",
+          "historia_sugerida": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+          "afirmacoes": [
+            {
+              "id": "item-pol-03-c1",
+              "texto": "A página oficial localizada da ANACOM apresenta-a como autoridade nacional no âmbito da aplicação do AI Act.",
+              "fonte": "src-pol-05",
+              "localizador": "Excerto do resultado de pesquisa; página bloqueada por HTTP 403",
+              "excerto": "assumindo o papel de autoridade nacional no âmbito da aplicação do AI Act",
+              "confianca_declarada": "media",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu 403 — o editor pode pedir acesso, mas nada se confere contra isto",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-03-c2",
+              "texto": "A Comissão Europeia indica que as autoridades nacionais competentes deveriam ter sido designadas até 2 de agosto de 2025.",
+              "fonte": "src-pol-07",
+              "localizador": "National competent authorities",
+              "excerto": "Each Member State should have designated and empowered national competent authorities until 2 August 2025.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-03-c3",
+              "texto": "A página temática oficial portuguesa consultada descreve o Regulamento de IA sem identificar nominalmente a autoridade nacional.",
+              "fonte": "src-pol-06",
+              "localizador": "Iniciativas — Regulamento Europeu de IA",
+              "excerto": "Estabelece o primeiro quadro jurídico horizontal para o desenvolvimento, colocação no mercado e utilização de sistemas de IA na União Europeia.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "org:anacom",
+              "type": "Organizacao",
+              "name": "Autoridade Nacional de Comunicações",
+              "source": "src-pol-05",
+              "attributes": {
+                "sigla": "ANACOM"
+              }
+            },
+            {
+              "id": "regulamento:ue-2024-1689",
+              "type": "InstrumentoJuridico",
+              "name": "Regulamento (UE) 2024/1689",
+              "source": "src-pol-07",
+              "attributes": {
+                "nome_curto": "Regulamento da Inteligência Artificial"
+              }
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "regulamento:ue-2024-1689",
+              "verb": "regulada_por",
+              "inverse": "regula",
+              "object": "org:anacom",
+              "source": "src-pol-05",
+              "excerpt": "assumindo o papel de autoridade nacional no âmbito da aplicação do AI Act",
+              "attributes": {
+                "qualificacao": "alegação da página institucional; instrumento jurídico não localizado"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 2,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 1
+          }
+        },
+        {
+          "id": "item-pol-04",
+          "seccao": "politicas",
+          "especie": "infraestrutura_publica",
+          "titulo": "A ANIA atribui a Fábrica de IA e o reforço do Deucalion à FCT",
+          "o_que_dizem_as_fontes": "O Plano de Ação da ANIA inclui uma iniciativa de computação avançada e Fábrica de IA ligada à EuroHPC, com expansão da supercomputação nacional e reforço do Deucalion. A entidade indicada é a Fundação para a Ciência e a Tecnologia.",
+          "porque_importa": "Identifica a participação portuguesa na infraestrutura europeia, a infraestrutura nacional associada, o calendário formal e a entidade executora indicada.",
+          "historia_sugerida": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+          "afirmacoes": [
+            {
+              "id": "item-pol-04-c1",
+              "texto": "A iniciativa I.1 prevê expandir a supercomputação nacional, reforçar o Deucalion e alinhar Portugal com a EuroHPC.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II, iniciativa I.1",
+              "excerto": "Expansão da capacidade nacional de supercomputação, reforçando o Deucalion e alinhando Portugal com a rede EuroHPC",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-04-c2",
+              "texto": "A Fundação para a Ciência e a Tecnologia é a entidade indicada para a iniciativa I.1.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II, iniciativa I.1, coluna Entidades",
+              "excerto": "Fundação para a Tecnologia e Ciência (FCT)",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:fabrica-ia-eurohpc",
+              "type": "Programa",
+              "name": "Computação avançada e Fábrica de IA (Inteligência Artificial) - European High Performance Computing Joint Undertaking (EuroHPC)",
+              "source": "src-pol-01",
+              "attributes": {
+                "inicio": "2.º Semestre 2025"
+              }
+            },
+            {
+              "id": "infraestrutura:deucalion",
+              "type": "Infraestrutura",
+              "name": "Deucalion",
+              "source": "src-pol-01",
+              "attributes": {}
+            },
+            {
+              "id": "org:fct",
+              "type": "Organizacao",
+              "name": "Fundação para a Tecnologia e Ciência (FCT)",
+              "source": "src-pol-01",
+              "attributes": {}
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "org:fct",
+              "verb": "implementa",
+              "inverse": "implementado_por",
+              "object": "programa:fabrica-ia-eurohpc",
+              "source": "src-pol-01",
+              "excerpt": "Fundação para a Tecnologia e Ciência (FCT)",
+              "attributes": {
+                "inicio": "2.º Semestre 2025"
+              }
+            },
+            {
+              "subject": "programa:fabrica-ia-eurohpc",
+              "verb": "desenvolve",
+              "inverse": "desenvolvido_por",
+              "object": "infraestrutura:deucalion",
+              "source": "src-pol-01",
+              "excerpt": "Expansão da capacidade nacional de supercomputação, reforçando o Deucalion e alinhando Portugal com a rede EuroHPC",
+              "attributes": {
+                "acao": "reforço"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 0,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 2
+          }
+        },
+        {
+          "id": "item-pol-05",
+          "seccao": "politicas",
+          "especie": "investimento_publico",
+          "titulo": "Governo aprovou participação em projeto europeu de Gigafábricas de IA com investimento até 200 milhões de euros",
+          "o_que_dizem_as_fontes": "O comunicado do Conselho de Ministros de 25 de junho de 2026 regista a aprovação de uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial. O comunicado prevê investimento estatal até 200 milhões de euros para aquisição de capacidade computacional.",
+          "porque_importa": "É um compromisso público quantificado e posterior à aprovação da ANIA, mas o comunicado não dá o número nem a ligação para a resolução aprovada.",
+          "historia_sugerida": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+          "afirmacoes": [
+            {
+              "id": "item-pol-05-c1",
+              "texto": "O Conselho de Ministros aprovou uma resolução para Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+              "fonte": "src-pol-04",
+              "localizador": "Ponto 2",
+              "excerto": "permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-05-c2",
+              "texto": "O investimento anunciado pode atingir 200 milhões de euros para aquisição de capacidade computacional.",
+              "fonte": "src-pol-04",
+              "localizador": "Ponto 2",
+              "excerto": "através de um investimento até 200 milhões de euros para aquisição de capacidade computacional.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:gigafabricas-ia-europeias",
+              "type": "Programa",
+              "name": "projeto europeu de Gigafábricas de Inteligência Artificial",
+              "source": "src-pol-04",
+              "attributes": {}
+            },
+            {
+              "id": "org:estado-portugues",
+              "type": "Organizacao",
+              "name": "Estado Português",
+              "source": "src-pol-04",
+              "attributes": {}
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "org:estado-portugues",
+              "verb": "participa_em",
+              "inverse": "tem_participante",
+              "object": "programa:gigafabricas-ia-europeias",
+              "source": "src-pol-04",
+              "excerpt": "permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+              "attributes": {
+                "montante_maximo": 200000000,
+                "moeda": "EUR",
+                "finalidade": "aquisição de capacidade computacional"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 2,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 0
+          }
+        },
+        {
+          "id": "item-pol-06",
+          "seccao": "politicas",
+          "especie": "politica_de_dados",
+          "titulo": "A ANIA liga espaços de dados setoriais à futura Política Nacional de Dados",
+          "o_que_dizem_as_fontes": "A iniciativa I.3 da ANIA prevê espaços de dados em áreas críticas, com interoperabilidade entre os setores público e privado e aplicação em saúde, educação, indústria e Administração Pública. O texto manda valorizar esses espaços através da Política Nacional de Dados.",
+          "porque_importa": "A Política Nacional de Dados surge no diploma como dependência operacional da IA, mas não foi localizada uma página oficial que confirme a sua aprovação autónoma ou estado de execução.",
+          "historia_sugerida": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+          "afirmacoes": [
+            {
+              "id": "item-pol-06-c1",
+              "texto": "A iniciativa I.3 prevê espaços de dados para saúde, educação, indústria e Administração Pública.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II, iniciativa I.3",
+              "excerto": "permitindo treinar e testar soluções de IA adaptadas a desafios concretos (na saúde, educação, indústria e administração pública)",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-06-c2",
+              "texto": "A ANIA determina que os espaços de dados sejam valorizados através da Política Nacional de Dados.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II, iniciativa I.3",
+              "excerto": "Assegurar a valorização destes espaços de dados através da Política Nacional de Dados.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            },
+            {
+              "id": "item-pol-06-c3",
+              "texto": "A ARTE, entidades públicas das áreas críticas e a ANI são indicadas para a iniciativa.",
+              "fonte": "src-pol-01",
+              "localizador": "Anexo II, iniciativa I.3, coluna Entidades",
+              "excerto": "ARTE, I. P. (Agência para a Modernização Administrativa, I. P.) | Entidades da Administração Pública",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "fonte_inacessivel",
+              "nota": "a página devolveu bytes mas quase nenhum texto visível: renderiza por script",
+              "correspondencia": null,
+              "trocos": 0
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:espacos-dados-areas-criticas",
+              "type": "Programa",
+              "name": "Criação de espaços de dados em áreas críticas",
+              "source": "src-pol-01",
+              "attributes": {
+                "inicio": "1.º Semestre 2026"
+              }
+            },
+            {
+              "id": "programa:politica-nacional-dados",
+              "type": "Programa",
+              "name": "Política Nacional de Dados",
+              "source": "src-pol-01",
+              "attributes": {}
+            },
+            {
+              "id": "org:arte",
+              "type": "Organizacao",
+              "name": "ARTE, I. P. (Agência para a Modernização Administrativa, I. P.)",
+              "source": "src-pol-01",
+              "attributes": {}
+            },
+            {
+              "id": "org:ani",
+              "type": "Organizacao",
+              "name": "ANI (Agência Nacional de Inovação)",
+              "source": "src-pol-01",
+              "attributes": {}
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "programa:espacos-dados-areas-criticas",
+              "verb": "parte_de",
+              "inverse": "contém",
+              "object": "programa:ania",
+              "source": "src-pol-01",
+              "excerpt": "I.3 Criação de espaços de dados em áreas críticas",
+              "attributes": {
+                "inicio": "1.º Semestre 2026"
+              }
+            },
+            {
+              "subject": "org:arte",
+              "verb": "implementa",
+              "inverse": "implementado_por",
+              "object": "programa:espacos-dados-areas-criticas",
+              "source": "src-pol-01",
+              "excerpt": "ARTE, I. P. (Agência para a Modernização Administrativa, I. P.)",
+              "attributes": {}
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 0,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 3
+          }
+        },
+        {
+          "id": "item-pol-07",
+          "seccao": "politicas",
+          "especie": "programa_setor_publico",
+          "titulo": "Governo anuncia 25 milhões de euros para adoção de IA na Administração Pública",
+          "o_que_dizem_as_fontes": "O comunicado oficial da ANIA anuncia 25 milhões de euros para adoção de IA na Administração Pública e refere agentes de apoio à contratação pública e automatização de faturas como casos em desenvolvimento.",
+          "porque_importa": "Oferece uma linha quantificada e dois casos concretos, mas o comunicado não identifica aviso, contrato, beneficiário, calendário financeiro ou documento de execução.",
+          "historia_sugerida": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+          "afirmacoes": [
+            {
+              "id": "item-pol-07-c1",
+              "texto": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública.",
+              "fonte": "src-pol-03",
+              "localizador": "Comunicado, destaque",
+              "excerto": "Investimento de 25 milhões para adoção de IA na Administração Pública",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-07-c2",
+              "texto": "O comunicado refere agentes de apoio à contratação pública e automatização de faturas como casos em desenvolvimento.",
+              "fonte": "src-pol-03",
+              "localizador": "Comunicado, parágrafo 2",
+              "excerto": "desde agentes de apoio à contratação pública até à automatização de faturas.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:adocao-ia-administracao-publica",
+              "type": "Programa",
+              "name": "adoção de IA na Administração Pública",
+              "source": "src-pol-03",
+              "attributes": {
+                "montante": 25000000,
+                "moeda": "EUR"
+              }
+            },
+            {
+              "id": "org:governo-portugal",
+              "type": "Organizacao",
+              "name": "Governo de Portugal",
+              "source": "src-pol-03",
+              "attributes": {}
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "programa:adocao-ia-administracao-publica",
+              "verb": "financiada_por",
+              "inverse": "financia",
+              "object": "org:governo-portugal",
+              "source": "src-pol-03",
+              "excerpt": "O Governo está a investir 25 milhões de euros para a adoção de IA na Administração Pública",
+              "attributes": {
+                "montante": 25000000,
+                "moeda": "EUR",
+                "data": "2026-01-08",
+                "programa": "Agenda Nacional de Inteligência Artificial"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 2,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 0
+          }
+        },
+        {
+          "id": "item-pol-08",
+          "seccao": "politicas",
+          "especie": "infraestrutura_publica",
+          "titulo": "RCM n.º 70/2026 aprova o Plano Nacional de Centros de Dados",
+          "o_que_dizem_as_fontes": "A Resolução do Conselho de Ministros n.º 70/2026 aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação. O preâmbulo liga expressamente o plano à ANIA e ao objetivo de capacidade computacional e soberania digital.",
+          "porque_importa": "É um instrumento publicado que concretiza uma das iniciativas de infraestrutura previstas na ANIA e fornece uma base documental para acompanhar execução, financiamento e licenciamento.",
+          "historia_sugerida": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+          "afirmacoes": [
+            {
+              "id": "item-pol-08-c1",
+              "texto": "A RCM n.º 70/2026 aprovou o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
+              "fonte": "src-pol-08",
+              "localizador": "p. 1, sumário",
+              "excerto": "Aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-08-c2",
+              "texto": "O diploma identifica os centros de dados como suporte de tecnologias como IA, computação em nuvem e tratamento massivo de dados.",
+              "fonte": "src-pol-08",
+              "localizador": "p. 2, anexo I, ponto 1.1",
+              "excerto": "viabilizam o desenvolvimento e a adoção de tecnologias como a inteligência artificial (IA), a computação em nuvem e o tratamento massivo de dados.",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": "o excerto está na cópia congelada por inteiro e pela ordem certa, mas partido em 2 troços: alguma coisa o interrompe no documento — tipicamente um cabeçalho corrente numa quebra de página. O leitor desta redação não faz paginação, por isso a interrupção é dele e não de quem entregou a pista.",
+              "correspondencia": "fragmentada",
+              "trocos": 2
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "programa:plano-nacional-centros-dados",
+              "type": "Programa",
+              "name": "Plano Nacional de Centros de Dados",
+              "source": "src-pol-08",
+              "attributes": {
+                "sigla": "PNCD"
+              }
+            },
+            {
+              "id": "instrumento:rcm-70-2026",
+              "type": "InstrumentoJuridico",
+              "name": "Resolução do Conselho de Ministros n.º 70/2026",
+              "source": "src-pol-08",
+              "attributes": {
+                "data_publicacao": "2026-04-13"
+              }
+            }
+          ],
+          "arestas_propostas": [
+            {
+              "subject": "programa:plano-nacional-centros-dados",
+              "verb": "instituida_por",
+              "inverse": "institui",
+              "object": "instrumento:rcm-70-2026",
+              "source": "src-pol-08",
+              "excerpt": "Aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
+              "attributes": {
+                "data": "2026-04-13"
+              }
+            }
+          ],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 2,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 0
+          }
+        }
+      ],
+      "propostas_de_vocabulario": [],
+      "contagens": {
+        "fontes": 8,
+        "fontes_legiveis": 6,
+        "itens": 8,
+        "afirmacoes": 19,
+        "confirmadas": 9,
+        "nao_encontradas": 0,
+        "fonte_inacessivel": 10
+      },
+      "revisao": {
+        "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+        "estado": "por_rever",
+        "decidido_por": null,
+        "decidido_em": null,
+        "como_se_usa": "Este ficheiro é a decisão do editor de registo, e é escrito por uma pessoa. Para aprovar um item, ponha-o em `itens` com estado `aprovada` e um comentário. Para rejeitar, `rejeitada` com a razão. Enquanto um item não tiver decisão, nada dele aparece na primeira página nem num artigo — o portão 13 falha a construção se aparecer. Uma execução automática nunca escreve aqui.",
+        "itens": {},
+        "comentarios": [
+          {
+            "quem": "sessao-de-arranque",
+            "quando": "2026-09-14T12:10:00Z",
+            "sobre": null,
+            "texto": "Entrega recebida e passada pelo caminho de ingestão. As oito fontes que nomeia foram congeladas e hasheadas; seis são legíveis por máquina. Das 19 afirmações, 9 têm o excerto nos bytes, nenhuma falhou a busca, e 10 citam fontes que não devolveram texto conferível — três por a página do Diário da República renderizar por script, uma por 403 da ANACOM. Nenhuma afirmação foi tratada como facto."
+          },
+          {
+            "quem": "sessao-de-arranque",
+            "quando": "2026-09-14T12:11:00Z",
+            "sobre": "item-pol-01",
+            "texto": "Este é o item que mais importa e é o que está pior sustentado. A entrega diz nas suas próprias notas «Foi confirmado o instrumento jurídico da ANIA». A conferência contra os bytes não o confirma: as três afirmações citam diariodarepublica.pt, que devolveu 2 346 bytes e 22 caracteres visíveis. Não é um erro do assistente — é a mesma parede que a história 001 descreve. O caminho existe: o Diário da República publica o diploma em PDF e build/pdf.py lê esses PDFs. Falta encontrar o endereço."
+          },
+          {
+            "quem": "sessao-de-arranque",
+            "quando": "2026-09-14T12:12:00Z",
+            "sobre": "item-pol-08",
+            "texto": "As duas afirmações confirmaram contra o PDF da RCM n.º 70/2026, lido na íntegra. A segunda confirmou em dois troços: a frase atravessa uma quebra de página e o cabeçalho corrente fica no meio dela. A interrupção é do leitor desta redação, que não faz paginação, e não de quem entregou a pista."
+          },
+          {
+            "quem": "sessao-de-arranque",
+            "quando": "2026-09-14T12:13:00Z",
+            "sobre": null,
+            "texto": "A entrega não valida contra o esquema publicado: 45 erros, todos de forma. Os mais substantivos são propostas de vocabulário — Programa, InstrumentoJuridico, Infraestrutura — que a ontologia deste site ainda não tem. Aceitá-las é uma alteração de ontologia e leva uma versão, por isso fica para o editor e não para uma execução."
+          }
+        ]
+      }
+    }
+  ]
+}

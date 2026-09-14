@@ -1,0 +1,63 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Bash(python3 *)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git pull*)",
+      "Bash(git fetch*)",
+      "Bash(git push origin dev)",
+      "Bash(git tag*)",
+      "Bash(curl *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(sha256sum *)",
+      "Bash(mkdir *)",
+      "Bash(python3 build/*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git rebase*)",
+      "Bash(rm -rf *)",
+      "Read(.env*)",
+      "Read(~/.ssh/*)",
+      "Edit(CLAUDE.md)",
+      "Edit(build/gates.py)",
+      "Edit(admin/build/validate.js)",
+      "Edit(build/entregas.py)",
+      "Edit(build/pdf.py)",
+      "Edit(dados/aviso.json)",
+      "Edit(redacao/revisoes/*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c 'import pyoxigraph' 2>/dev/null || pip install -q pyoxigraph; node --version; python3 --version",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

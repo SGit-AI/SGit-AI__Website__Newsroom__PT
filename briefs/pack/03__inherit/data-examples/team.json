@@ -1,0 +1,63 @@
+{
+  "id": "portugal-agentic-team",
+  "version": "0.1.0",
+  "updated": "2026-09-13",
+  "posture": "agentic-with-named-editor",
+  "human_in_the_loop": true,
+  "editor_of_record": {
+    "name": "Dinis Cruz",
+    "what": "Reviews every page before it publishes, and is the named human answerable for what this publication says.",
+    "answers": "Open question 5 of the 12 May 2026 newsroom brief — who is the editor of record, and who carries legal responsibility for published content — which that brief left open and which this site called the one it should be most uncomfortable about.",
+    "limit": "A named editor of record is a person taking responsibility. It is not a legal opinion, and no legal review has been done. The publication reports what other organisations have published and links to it."
+  },
+  "note": "Seven agent roles and one named human. The posture differs deliberately from The Governance Wire, which is fully agentic with nobody reviewing before publication: this beat is about named people and named companies in a small ecosystem, where being wrong in public costs somebody other than us.",
+  "inherits_from": {
+    "brief": "The 12 May 2026 Portuguese Newsroom Workflow brief, which specified eleven roles",
+    "page": "https://newsroom.sgit.ai/mvps/portugal.html",
+    "what": "The role split and the humans-are-the-bar doctrine. Four of the eleven are not built here and are listed as absent rather than quietly dropped."
+  },
+  "roles": [
+    { "id": "researcher", "name": "Researcher", "gravity": "No claim without bytes we hold.",
+      "owns": "The ingestion path: fetch, freeze to a dated snapshot, hash, record retrieval time.",
+      "refuses": "Reading a source over the network at publish time; citing a page nobody froze.",
+      "wrong_when": "A claim cannot be walked back to a SHA-256 in the register.",
+      "state": "running" },
+    { "id": "extractor", "name": "Extractor", "gravity": "The graph says what the frozen copy says, and nothing more.",
+      "owns": "Typed entities from frozen bytes; the speaker and organisation nodes.",
+      "refuses": "Extracting from the live site; tidying a messy source value into a cleaner one.",
+      "wrong_when": "A node disagrees with the frozen page it names.",
+      "state": "running" },
+    { "id": "cartographer", "name": "Cartographer", "gravity": "The map is closeable, or it is not a map.",
+      "owns": "Coverage: which entities on this beat are known, and which are known to be missing.",
+      "refuses": "Reporting a count as complete when the source is still changing.",
+      "wrong_when": "The map implies completeness the snapshots do not support.",
+      "state": "running" },
+    { "id": "diffwatch", "name": "Diff Watch", "gravity": "What changed is the story.",
+      "owns": "Comparison between snapshots: added, removed, edited, and the hashes on both sides.",
+      "refuses": "Explaining a removal. The diff is published; the reason is left blank unless a source states it.",
+      "wrong_when": "A change is reported with a motive attached to it.",
+      "state": "running" },
+    { "id": "writer", "name": "Writer", "gravity": "Every sentence traces to a node.",
+      "owns": "Story markdown and the node ids each story stands on.",
+      "refuses": "A claim with no backing node; adjectives about people.",
+      "wrong_when": "The prose is more certain than the snapshots are.",
+      "state": "running" },
+    { "id": "editor", "name": "Editor", "gravity": "The publication's voice, and the things it will not say.",
+      "owns": "The refusal list and the disclaimers.",
+      "refuses": "Any adverse characterisation of a named person or company; any inference about why somebody left a list.",
+      "wrong_when": "Something published would embarrass a named individual on evidence this thin.",
+      "state": "running" },
+    { "id": "publisher", "name": "Publisher", "gravity": "Versions are promises, and a beta says so on its face.",
+      "owns": "The section version, the release note, the beta notice, the gates.",
+      "refuses": "Shipping without the beta notice or without the editor of record having read it.",
+      "wrong_when": "A reader takes the publication for more finished than it is.",
+      "state": "running" }
+  ],
+  "not_built": [
+    { "role": "Deep-research agent", "why": "Multi-day investigative work. Nothing on this beat has needed it yet, and claiming it would be claiming a capability." },
+    { "role": "Translator agents", "why": "Portuguese is structurally supported and not yet published. See the language note on the about page." },
+    { "role": "Visual agent", "why": "No infographics are generated. The only images on this site are screenshots of its own interfaces." },
+    { "role": "Briefing / personalisation agents", "why": "The per-reader projection layer in the original brief. Not built, and not needed before an audience exists." },
+    { "role": "Community agent", "why": "No audience to monitor yet. Building a response loop before there are responses would be theatre." }
+  ]
+}

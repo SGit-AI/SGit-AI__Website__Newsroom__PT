@@ -1,0 +1,20 @@
+{
+  "id": "001",
+  "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+  "seccao": "politicas",
+  "estado": "procurado",
+  "aberto_em": "2026-09-14",
+  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "enquadramento": "O diário oficial renderiza por script e devolveu um corpo praticamente vazio a um leitor automático. Uma história sobre a legibilidade do registo nacional, contada por uma redação que bateu na parede — e que tem uma resolução humana óbvia, que passa a ser o mecanismo de correção a funcionar no primeiro dia.",
+  "de_onde_vem": "§11 do resumo de comissionamento, primeira das três primeiras histórias.",
+  "o_que_ja_se_tem": [
+    "dre.pt congelado a 2026-09-14: 2 346 bytes, 22 caracteres visíveis. Medição com hash no registo.",
+    "portugal.gov.pt congelado a 2026-09-14: 165 569 bytes, 348 caracteres visíveis.",
+    "Uma entrega do ChatGPT nomeia a RCM n.º 2/2026 como o ato que aprova a ANIA, e as três afirmações que a sustentam ficaram SEM FONTE LEGÍVEL: a página do Diário da República que cita é a que renderiza por script."
+  ],
+  "o_que_falta": [
+    "O PDF do diploma. O Diário da República publica o texto integral em PDF num endereço construível, e build/pdf.py já lê esses PDFs (decifra o manipulador de segurança padrão e segue o mapa /ToUnicode). O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é pior.",
+    "Uma segunda fonte independente para a data e o número."
+  ],
+  "recusa": "Não se publica que o instrumento «não existe». O que é verificável é que não foi possível confirmá-lo a partir do registo público por um leitor automático, nesta data, com estes hashes."
+}

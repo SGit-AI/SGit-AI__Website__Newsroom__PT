@@ -1,0 +1,32 @@
+{
+  "id": "summit-sessions",
+  "version": "0.1.0",
+  "updated": "2026-09-13",
+  "note": "The programme as the event's own agenda page lists it, transcribed from the frozen 2026-09-13 copy. The page calls itself 'a summarised view' and says more sessions and exact timings are announced weekly, so this is the programme as published on that date and nothing more. Every title below must appear verbatim in the frozen agenda; the gate checks that. No session is joined to a speaker, because the source joins none.",
+  "source": "2026-09-13/agenda",
+  "stages": [
+    { "id": "unicorn-stage", "label": "Unicorn Stage", "pt": "Palco Unicorn", "also_called": "Main Stage (on the AI-summary and sponsors pages)" },
+    { "id": "impact-stage", "label": "Impact Stage", "pt": "Palco Impact", "also_called": "Startup Stage (on the AI-summary and sponsors pages)" },
+    { "id": "workshop-rooms", "label": "Workshop Rooms", "pt": "Salas de workshop", "also_called": null }
+  ],
+  "sessions": [
+    { "id": "welcome-drinks", "title": "Welcome Drinks", "day": "2026-09-16", "time": "19:00", "kind": "social", "stage": null },
+    { "id": "morning-run", "title": "Morning Run", "day": "2026-09-17", "time": "07:30", "kind": "social", "stage": null },
+    { "id": "doors-open-d1", "title": "Doors Open", "day": "2026-09-17", "time": "09:00", "kind": "logistics", "stage": null },
+    { "id": "opening-keynote", "title": "Opening Keynote: Welcome to Startup Summit 2026", "day": "2026-09-17", "time": "09:30", "kind": "keynote", "stage": "unicorn-stage" },
+    { "id": "lp-perspective", "title": "The LP Perspective", "day": "2026-09-17", "time": "10:00–10:30", "kind": "panel", "stage": "unicorn-stage" },
+    { "id": "fundraising-meta-game", "title": "The Fundraising Meta-Game", "day": "2026-09-17", "time": "11:05–11:30", "kind": "keynote", "stage": "impact-stage" },
+    { "id": "ai-or-die", "title": "AI or Die", "day": "2026-09-17", "time": "11:45–12:15", "kind": "panel", "stage": "unicorn-stage" },
+    { "id": "lunch-d1", "title": "Lunch", "day": "2026-09-17", "time": "13:00", "kind": "logistics", "stage": null },
+    { "id": "investor-office-hours", "title": "Investor Office Hours", "day": "2026-09-17", "time": "14:00", "kind": "networking", "stage": null },
+    { "id": "founder-social", "title": "Founder Social", "day": "2026-09-17", "time": "evening", "kind": "social", "stage": null },
+    { "id": "day-2-welcome", "title": "Day 2 Welcome", "day": "2026-09-18", "time": "09:00", "kind": "logistics", "stage": null },
+    { "id": "portuguese-unicorn-conversation", "title": "Day 2 Opening — Portuguese Unicorn Conversation", "day": "2026-09-18", "time": "09:30–10:00", "kind": "fireside", "stage": "unicorn-stage" },
+    { "id": "what-i-built-with-ai", "title": "What I Built With AI", "day": "2026-09-18", "time": "10:10–10:35", "kind": "fireside", "stage": "impact-stage" },
+    { "id": "hardware-meets-software", "title": "Hardware Meets Software", "day": "2026-09-18", "time": "11:20–11:45", "kind": "keynote", "stage": "impact-stage" },
+    { "id": "speed-networking", "title": "Speed networking", "day": "2026-09-18", "time": "afternoon", "kind": "networking", "stage": null },
+    { "id": "closing-celebration", "title": "Closing Celebration", "day": "2026-09-18", "time": "evening", "kind": "social", "stage": null }
+  ],
+  "ai_sessions_by_title": ["ai-or-die", "what-i-built-with-ai"],
+  "ai_note": "Two session titles name AI. That is a fact about titles, not about content: the agenda publishes no description, and this publication does not know what either session will say."
+}

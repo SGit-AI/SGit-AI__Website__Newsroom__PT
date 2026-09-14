@@ -9,6 +9,12 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+# ...but NOT this repository's own build tooling. A bare `build/` rule matches at every
+# level and silently dropped the generators on two sibling sites for three releases each
+# (see validate.js check 10: a generated page whose generator is not in the repository
+# cannot be rebuilt by anyone who clones it). Re-included by name, root-anchored.
+!/build/
+!/admin/build/
 develop-eggs/
 dist/
 downloads/

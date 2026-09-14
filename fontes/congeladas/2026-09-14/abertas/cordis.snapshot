@@ -1,0 +1,756 @@
+	<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CORDIS | European Commission</title>
+		<base href="/">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<meta content="IE=edge" http-equiv="X-UA-Compatible">
+		<meta name="DCSext.w_error_type" content="application">
+		<meta name="DCSext.w_error_status_code" content="404"> 
+					<link rel="stylesheet" href="/build/main.90cb8f75.css">
+				<script defer src="https://webtools.europa.eu/load.js"></script>
+	</head>
+	<body>
+		<div id="globan-here"></div>
+		<div id="survey"></div>
+		<div id="banners"></div>
+
+						<header
+	class="ecl-site-header ecl-site-header-with-logo-l ecl-site-header--has-menu c-header d-print-none"
+	data-ecl-auto-init="SiteHeader"
+	lang="en"
+>
+	<div class="ecl-site-header__inner">
+		<div class="ecl-site-header__background">
+			<div class="ecl-site-header__header">
+				<div class="ecl-site-header__container container container-full">
+					<div class="ecl-site-header__top" data-ecl-site-header-top>
+						<a href="https://commission.europa.eu/index_en" class="ecl-link ecl-link--standalone ecl-site-header__logo-link" target="_blank" rel="noopener">
+							<picture class="ecl-picture ecl-site-header__picture">
+								<source
+									srcset="/build/images/preset-ec/logo/positive/logo-ec--en.svg"
+									media="(min-width: 996px)"
+								>
+								<img
+									class="ecl-site-header__logo-image ecl-site-header__logo-image--l"
+									src="/build/images/preset-ec/logo/logo-ec--mute.svg"
+									alt="Go to the home page of the European Commission"
+								/>
+							</picture>
+							<span class="sr-only">(opens in new window)</span>
+						</a>
+						<div class="ecl-site-header__action">
+							<div class="ecl-site-header__login-container">
+								<!-- UPDATED CUSTOM SIGN IN MENU -->
+								<div class="ecl-site-header__account">
+																																																																				<a class="ecl-button ecl-button--ghost ecl-site-header__login-toggle c-login c-login--base" href="https://cordis.europa.eu/login?extUrl=https://cordis.europa.eu%2Fprojects%2Fpt">
+										<svg class="ecl-icon ecl-icon--s ecl-site-header__icon" aria-hidden="false" role="img">
+											<title>Log in</title>
+											<use xlink:href="/build/images/preset-ec/icons/icons.svg#log-in"></use>
+										</svg>
+										Log in
+									</a>
+								</div>
+								<!-- END CUSTOM SIGN IN MENU -->
+							</div>
+							<div class="ecl-site-header__language">
+								<a
+									class="ecl-button ecl-button--tertiary ecl-site-header__language-selector etransNo"
+									href="/assets/preset-ec/icons/icon#ahl85"
+									data-ecl-language-selector
+									role="button"
+									aria-label="Change language, current language is English"
+									aria-controls="language-list-overlay"
+								>
+									<span class="ecl-site-header__language-icon">
+										<svg class="ecl-icon ecl-icon--s ecl-site-header__icon" aria-hidden="false" role="img">
+											<title>English</title>
+											<use xlink:href="/build/images/preset-ec/icons/icons.svg#global"></use>
+										</svg>
+									</span>
+									<span id="lang_name">en</span>
+								</a>
+								<div class="ecl-site-header__language-container" id="language-list-overlay" hidden data-ecl-language-list-overlay aria-labelledby="ecl-site-header__language-title" role="dialog">
+									<div class="ecl-site-header__language-header">
+										<div class="ecl-site-header__language-title" id="ecl-site-header__language-title">
+											Select your language
+										</div>
+										<button class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only" type="submit" data-ecl-language-list-close>
+											<span class="ecl-button__container">
+												<span class="ecl-button__label sr-only" data-ecl-label="true">Close</span>
+												<svg class="ecl-icon ecl-icon--m ecl-button__icon" aria-hidden="true" data-ecl-icon>
+													<use xlink:href="/build/images/preset-ec/icons/icons.svg#close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+									<div
+										class="ecl-site-header__language-content">
+																				<div class="ecl-site-header__language-category ecl-site-header__language-category--2-col" data-ecl-language-list-eu>
+											<div class="ecl-site-header__language-category-title">CORDIS languages:</div>
+											<ul class="ecl-site-header__language-list etransNo">
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/es" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link " lang="es" hreflang="es" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">es</span>
+															<span class="ecl-site-header__language-link-label">español</span>
+														</a>
+													</li>
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/de" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link " lang="de" hreflang="de" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">de</span>
+															<span class="ecl-site-header__language-link-label">Deutsch</span>
+														</a>
+													</li>
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/en" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active" lang="en" hreflang="en" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">en</span>
+															<span class="ecl-site-header__language-link-label">English</span>
+														</a>
+													</li>
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/fr" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link " lang="fr" hreflang="fr" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">fr</span>
+															<span class="ecl-site-header__language-link-label">français</span>
+														</a>
+													</li>
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/it" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link " lang="it" hreflang="it" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">it</span>
+															<span class="ecl-site-header__language-link-label">italiano</span>
+														</a>
+													</li>
+																																																																	<li class="ecl-site-header__language-item">
+														<a href="/projects/pt/pl" class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link " lang="pl" hreflang="pl" data-se="lang_change_button">
+															<span class="ecl-site-header__language-link-code">pl</span>
+															<span class="ecl-site-header__language-link-label">polski</span>
+														</a>
+													</li>
+																							</ul>
+										</div>
+																				<div class="ecl-site-header__language-category" data-ecl-language-list-non-eu="">
+											<div class="ecl-site-header__language-category-title">Machine translation:</div>
+											<p>This is a machine translation provided by the European Commission’s eTranslation service to help you understand this page. <a href="https://ec.europa.eu/info/use-machine-translation-europa-exclusion-liability_en" class="link--external" target="_blank" rel="noopener" aria-label="(opens in new window)">Please read the conditions of use</a>.</p>
+											<div class="c-header__machine-container etransNo">
+												<select name="machine-lang-options" id="machine-lang-options" class="o-select">
+																											<option value="bg">български</option>
+																											<option value="es">español</option>
+																											<option value="cs">čeština</option>
+																											<option value="da">dansk</option>
+																											<option value="de">Deutsch</option>
+																											<option value="et">eesti</option>
+																											<option value="el">ελληνικά</option>
+																											<option value="fr">français</option>
+																											<option value="ga">Gaeilge</option>
+																											<option value="hr">hrvatski</option>
+																											<option value="it">italiano</option>
+																											<option value="lv">latviešu</option>
+																											<option value="lt">lietuvių</option>
+																											<option value="hu">magyar</option>
+																											<option value="mt">Malti</option>
+																											<option value="nl">Nederlands</option>
+																											<option value="pl">polski</option>
+																											<option value="pt">português</option>
+																											<option value="ro">română</option>
+																											<option value="sk">slovenčina</option>
+																											<option value="sl">slovenščina</option>
+																											<option value="fi">suomi</option>
+																											<option value="sv">svenska</option>
+																											<option value="ru">русский</option>
+																											<option value="uk">Українська</option>
+																									</select>
+												<button class="o-btn" id="trigger-etrans">Translate</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="ecl-site-header__search-container" role="search" aria-label="Search">
+								<a class="ecl-button ecl-button--ghost ecl-site-header__search-toggle" href="#" data-ecl-search-toggle="true" aria-controls="search-form-id" aria-expanded="false">
+									<svg class="ecl-icon ecl-icon--s ecl-site-header__icon" aria-hidden="false" role="img">
+										<title>Search</title>
+										<use xlink:href="/build/images/preset-ec/icons/icons.svg#search"></use>
+									</svg>
+									Search
+								</a>
+								<form class="ecl-search-form ecl-site-header__search" role="search" aria-label="Search on CORDIS" data-ecl-search-form action="/search" id="search-form-id" aria-label="Search">
+									<div class="ecl-form-group">
+										<label for="search-input-id" id="search-input-id-label" class="ecl-form-label ecl-search-form__label">Search</label>
+										<input id="search-input-id" class="ecl-text-input ecl-text-input--m ecl-search-form__text-input" type="search" name="query"/>
+									</div>
+									<button class="ecl-button ecl-button--ghost ecl-search-form__button ppas-oss_launch-search3" type="submit" data-se="header_searchform_button">
+										<span class="ecl-button__container" data-se="header_searchform_text">
+											<svg class="ecl-icon ecl-icon--xs ecl-button__icon" aria-hidden="true" data-ecl-icon>
+												<use xlink:href="/build/images/preset-ec/icons/icons.svg#search"></use>
+											</svg>
+											<span class="ecl-button__label" style="margin: 0" data-ecl-label="true">Search</span>
+										</span>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ecl-site-header__message">
+				<div class="ecl-container">
+										<div id="custom-etrans">
+    <div id="etrans-here"></div>
+    <div id="customReceiver"></div>
+</div>
+
+<script type="application/json">
+{
+    "service": "etrans",
+    "renderTo": "#etrans-here",
+    "languages": {
+        "exclude": [
+            "en"
+        ]
+    },
+    "renderAs": {
+        "icon": false,
+        "link": false,
+        "button": false
+    },
+    "config": {
+       "targets": {
+            "receiver": "#customReceiver"
+        },
+        "mode": "lc2023"
+    },
+    "hidden": false,
+    "lang": "en"
+}
+</script>
+				</div>
+			</div>
+		</div>
+		<div class="ecl-site-header__banner">
+			<div class="container container-full">
+																								<div class="ecl-site-header__site-name c-site-name  " data-env="" data-iid="cordis_title">CORDIS - EU research results</div>
+				<div class="ecl-site-header__site-name c-site-name--short   " data-env="" data-se="cordis_title-short">CORDIS</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ADVERT -->
+	
+	<div class="c-cordis-advert__container c-cordis-advert__en">
+		<div class="ecl-container container container-full c-cordis-advert__inner">
+							<a
+          href="https://data.europa.eu/dashboard/competition/cordis-sdg"
+          class="c-cordis-advert__link"
+           target="_blank" rel="noopener noreferrer"                   >
+            <img
+    class="c-cordis-advert__img-lg c-cordis-advert__img-lg--en"
+    src="/ad-banner/advert-banner_LG.png"
+    alt="Mapping CORDIS projects to SDGs"
+  />
+
+  <img
+    class="c-cordis-advert__img-sm c-cordis-advert__img-sm--en"
+    src="/ad-banner/advert-banner_SM.png"
+    alt="Mapping CORDIS projects to SDGs"
+  />
+
+				</a>
+					</div>
+	</div>
+
+  <!-- END ADVERT -->
+
+	<nav
+		class="ecl-menu ecl-menu--transition"
+    data-ecl-menu=""
+    data-ecl-menu-max-lines="2"
+    data-ecl-auto-init="Menu"
+    data-ecl-menu-label-open="Menu"
+    data-ecl-menu-label-close="Close"
+    aria-expanded="false"
+	>
+		<div class="ecl-menu__overlay"></div>
+		<div class="ecl-menu__container container container-full">
+			<button
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
+        type="button"
+        data-ecl-menu-open
+        aria-expanded="false"
+      >
+        <span class="ecl-button__container"><svg
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            aria-hidden="true"
+            data-ecl-icon
+          >
+            <use xlink:href="/build/images/preset-ec/icons/icons.svg#hamburger"></use>
+          </svg><svg
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            aria-hidden="true"
+            data-ecl-icon
+          >
+            <use xlink:href="/build/images/preset-ec/icons/icons.svg#close"></use>
+          </svg><span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >Menu</span></span>
+      </button>
+			<section
+				class="ecl-menu__inner"
+				data-ecl-menu-inner
+				role="application"
+				aria-label="Menu"
+			>
+				<div class="ecl-menu__inner-header">
+					<button
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
+            type="submit"
+            data-ecl-menu-close
+          >
+						<span class="ecl-button__container">
+              <span
+                class="ecl-button__label sr-only"
+                data-ecl-label="true"
+              >Close</span>
+              <svg
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                aria-hidden="true"
+                data-ecl-icon
+              >
+                <use xlink:href="/build/images/preset-ec/icons/icons.svg#close"></use>
+              </svg></span>
+					</button>
+					<div class="ecl-menu__title">
+						Menu
+					</div>
+					<button class="ecl-button ecl-button--ghost ecl-menu__back" type="submit" data-ecl-menu-back>
+						<span class="ecl-button__container">
+							<svg class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon" aria-hidden="true" data-ecl-icon>
+								<use xlink:href="/build/images/preset-ec/icons/icons.svg#corner-arrow"></use>
+							</svg>
+							<span class="ecl-button__label" data-ecl-label="true">Back</span>
+						</span>
+					</button>
+				</div>
+				<button class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous ecl-button--icon-only" type="button" data-ecl-menu-items-previous tabindex="-1">
+					<span class="ecl-button__container">
+						<svg class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon" aria-hidden="true" data-ecl-icon>
+							<use xlink:href="/build/images/preset-ec/icons/icons.svg#corner-arrow"></use>
+						</svg>
+						<span class="ecl-button__label" data-ecl-label="true">Previous
+							              items</span>
+					</span>
+				</button>
+				<button class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next ecl-button--icon-only" type="button" data-ecl-menu-items-next tabindex="-1">
+					<span class="ecl-button__container">
+						<svg class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon" aria-hidden="true" data-ecl-icon>
+							<use xlink:href="/build/images/preset-ec/icons/icons.svg#corner-arrow"></use>
+						</svg>
+						<span class="ecl-button__label" data-ecl-label="true">Next
+							              items</span>
+					</span>
+				</button>
+
+				<ul
+					class="ecl-menu__list"
+					data-ecl-menu-list
+					style="left: 0px;"
+				>
+															<li	class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-0">
+						<a href="/" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="home">
+							Home
+						</a>
+					</li>
+															<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-1">
+						<a href="/thematic-packs" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="packs">
+							Thematic Packs
+						</a>
+					</li>
+															<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-2">
+						<a href="/projects" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="projects-results">
+							Projects &amp; Results
+						</a>
+					</li>
+															<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-3">
+						<a href="/videos-podcasts" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="videos-podcasts">
+							Videos &amp; Podcasts
+						</a>
+					</li>
+															<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-4">
+						<a href="/news" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="news">
+							News
+						</a>
+					</li>
+															<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-5">
+						<a href="/datalab" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="datalab">
+							Datalab
+						</a>
+					</li>
+										<li class="ecl-menu__item " data-ecl-menu-item id="ecl-menu-item-demo-6">
+						<a href="/search" class="ecl-link ecl-link--standalone ecl-menu__link"  data-se="main-menu-link" data-ecl-menu-link data-seid="search">
+							Search
+						</a>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</nav>
+</header>
+
+
+		<div
+			class="o-wrapper o-wrapper--webux">
+						<div class="c-error container">
+				<div id="metaLoaded"></div>
+
+									<h1 class="sr-only">Error [404]: Page not available</h1>
+				
+				<div class="row">
+					<div class="col-12 col-lg-8 offset-lg-2">
+													<p class="o-title o-title--h2 t-text-align-left">Who seeks will find... but not always. <br/>Sorry, we couldn't find what you are looking for...</p>
+											</div>
+											<div class="col-12 col-lg-8 offset-lg-2">
+							<img class="c-error__image" src="/images/error/error-404.svg" alt="" aria-hidden="true"/>
+						</div>
+																					<div class="col-12 col-lg-8 offset-lg-2">
+							<div class="c-error__suggestions">
+								<span>Please, don't give up:</span><ul class="c-error__suggestions-list c-error__suggestions-list--circle"><li>Visit the <a href="/">CORDIS homepage</a>,</li><li>Try our <a href="/search">internal search</a>, or</li><li>Contact our <a href="mailto:cordis@publications.europa.eu">helpdesk</a>, where we´ll be happy to help you.</li></ul>
+							</div>
+						</div>
+														</div>
+			</div>
+		</div>
+
+		<footer class="ecl-site-footer c-footer" lang="en">
+  <div class="c-footer__in container-full">
+    <div class="ecl-site-footer__row">
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section ecl-site-footer__section--site-info">
+          <h2 class="ecl-site-footer__title t-margin-bottom-20">
+            CORDIS - EU research results
+          </h2>
+          <div class="ecl-site-footer__description">This website is managed by the <a class="link--underlined link--external" href="https://op.europa.eu/" target="_blank" rel="noopener" aria-label="(opens in new window)">Publications Office of the European Union</a></div>
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item"><a href="/about/accessibility"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link">Accessibility</a></li>
+            <li class="ecl-site-footer__list-item"><a href="/about/explainability"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link">Semi-Automatic Project Classification - Explainability Notice</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section">
+          <h2 class="ecl-site-footer__title ecl-site-footer__title--separator">Contact us</h2>
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item">
+              <span class="ecl-site-footer__description"><a href="/contact">Contact our Help Desk</a></span>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <span class="ecl-site-footer__description"><a href="/about/faq">Frequently Asked Questions</a> (and their answers)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="ecl-site-footer__section">
+          <h2 class="ecl-site-footer__title ecl-site-footer__title--separator">Follow us</h2>
+          <ul class="ecl-site-footer__list ecl-site-footer__list--inline">
+
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://ec.social-network.europa.eu/@EUCommission"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons-social-media.svg#mastodon-negative">
+                  </use>
+                  </svg><span class="ecl-link__label">Mastodon</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://www.linkedin.com/company/publications-office-of-the-european-union/"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons-social-media.svg#linkedin-negative">
+                  </use>
+                  </svg><span class="ecl-link__label">LinkedIn</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://bsky.app/profile/scienceinnovation.ec.europa.eu"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons-social-media.svg#bluesky-negative">
+                  </use>
+                  </svg><span class="ecl-link__label">Bluesky</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://www.facebook.com/EUScienceInnov"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons-social-media.svg#facebook-negative">
+                  </use>
+                  </svg><span class="ecl-link__label">Facebook</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://www.youtube.com/user/CORDISdotEU"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons-social-media.svg#youtube-negative">
+                  </use>
+                  </svg><span class="ecl-link__label">YouTube</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://european-union.europa.eu/contact-eu/social-media-channels_en"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-link--icon-before ecl-site-footer__link"
+                target="_blank"
+              >
+                <svg class="ecl-icon ecl-icon--xs ecl-link__icon" aria-hidden="true">
+                  <use xlink:href="/build/images/preset-ec/icons/icons.svg#chain">
+                  </use>
+                  </svg><span class="ecl-link__label">Full list of EC social media presence</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section">
+          <h2 class="ecl-site-footer__title ecl-site-footer__title--separator">About us</h2>
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="/about"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"><span>Who we are</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="/about/services"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"><span>CORDIS services</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://ec.europa.eu/newsroom/cordis/user-subscriptions/4149/create"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link link--external"
+                target="_blank"><span>Newsletter</span><span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="ecl-site-footer__section">
+          <h2 class="ecl-site-footer__title ecl-site-footer__title--separator">Related links</h2>
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://research-and-innovation.ec.europa.eu/"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link link--external"
+                target="_blank"><span>Research and innovation</span>
+                <span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link link--external"
+                target="_blank"><span>Funding &amp; tenders portal</span>
+                <span class="sr-only">(opens in new window)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ecl-site-footer__row">
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section">
+          <a
+            href="https://commission.europa.eu/index_en"
+            class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <picture class="ecl-picture ecl-site-footer__picture">
+              <source srcSet="/build/images/preset-ec/logo/negative/logo-ec--en.svg"
+                media="(min-width: 996px)" /><img class="ecl-site-footer__logo-image"
+                src="/build//images/preset-ec/logo/negative/logo-ec--en.svg" alt="Go to the home page of the European Commission" />
+            </picture>
+            <span class="sr-only">(opens in new window)</span>
+          </a>
+        </div>
+      </div>
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section ecl-site-footer__section--split-list">
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="https://commission.europa.eu/about-european-commission/contact_en"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link link--external"
+                target="_blank"><span>Contact the European Commission</span><span class="sr-only">(opens in new window)</span></a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a href="https://commission.europa.eu/resources-partners_en"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link link--external"
+                target="_blank"><span>Resources for partners</span><span class="sr-only">(opens in new window)</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ecl-site-footer__column">
+        <div class="ecl-site-footer__section ecl-site-footer__section--split-list">
+          <ul class="ecl-site-footer__list">
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="/about/legal#cookies"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"><span>Cookies</span></a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="/about/legal#privacy-statement-on-the-protection-of-personal-data"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"><span>Privacy policy</span></a>
+            </li>
+            <li class="ecl-site-footer__list-item">
+              <a
+                href="/about/legal"
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"><span>Legal Notice</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+		<div
+    role="dialog"
+    aria-live="polite"
+    aria-describedby="cookieconsent:desc"
+    class="co-cookie-consent container-fluid"
+    id="cookieConsentBanner"
+>
+    <div class="co-cookie-consent__in row">
+        <span id="cookieconsent:desc" class="co-cookie-consent__message col-12 col-lg-6">
+            <a 
+                href="/about/legal"
+                aria-label="Learn more about cookies"
+                class="co-cookie-consent__link t-focus--second"
+            >This site uses cookies </a>
+            to offer you a better browsing experience. 
+        </span>
+        <div class="co-cookie-consent__button-container col-12 col-lg-6">
+            <button
+                class="o-btn o-btn--large o-btn--light co-cookie-consent__button co-cookie-consent__button--allow"
+                id="cookieAccept"
+            >
+               I accept cookies.
+            </button>
+            <button
+                class="o-btn o-btn--large  co-cookie-consent__button co-cookie-consent__button--decline"
+                id="cookieDeclined"
+            >
+                I refuse cookies.
+            </button>
+        </div>
+    </div>
+    
+</div>
+		<div class="c-modal" id="det-completion-modal-success">
+	<div class="c-modal__overlay">
+		<div class="c-modal__dialog" role="dialog" aria-labelledby="det-completion-modal-success-dialog-header">
+			<div class="c-modal__dialog-header">
+				<div class="c-modal__dialog-header-buttons">
+					<button class="c-modal__dialog-header-button c-modal__dialog-header-button--close" aria-label="Close">
+						<span aria-hidden="true" class="fa-solid fa-xmark"></span>
+					</button>
+				</div>
+			</div>
+			<div class="c-modal__dialog-body">
+				<h2 id="det-completion-modal-success-dialog-header">Your data extraction is available</h2>
+				<p>Your data extraction with Task ID
+					<strong class="det-completion-modal-success-taskId">TASK_ID_PLACEHOLDER</strong>
+					is available for download.</p>
+				<div class="container">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-12 col-sm-5 t-margin-bottom-30 t-text-align-center t-align-h">
+							<button class="o-btn o-btn--large c-btn-survey c-modal__dialog-btn-ok">Go to my data extractions</button>
+						</div>
+						<div class="col-12 col-sm-4 t-margin-bottom-30 t-text-align-center t-align-h">
+							<button class="o-btn o-btn--large o-btn--light c-btn-survey c-modal__dialog-btn-cancel">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="c-modal" id="det-completion-modal-error">
+  <div class="c-modal__overlay">
+    <div class="c-modal__dialog" role="dialog">
+      <div class="c-modal__dialog-header">
+                <div class="c-modal__dialog-header-buttons">
+          <button class="c-modal__dialog-header-button c-modal__dialog-header-button--close" aria-label="Close"><span aria-hidden="true" class="fa-solid fa-xmark"></span></button>
+        </div>
+      </div>
+      <div class="c-modal__dialog-body">
+        DET Modal body ...
+      </div>
+    </div>
+  </div> 
+</div>
+
+				<div id="envUrl" data-env="https://cordis.europa.eu"></div>
+		<div id="uiLanguage" data-lang=en></div>
+		<div id="surveyDoCheck" data-survey-do-check="false"></div>
+		<div id="surveyYear" data-survey-year="2025"></div>
+
+		<div class="p-element p-toaster">
+    <div class="p-toast p-component p-toast-bottom-center">
+        <div class="p-element">
+            <div class="p-toast-message" style="transform: translateY(0px); opacity: 1;">
+                <div role="alert" aria-live="assertive" aria-atomic="true" class="p-toast-message-content">
+                    <div class="p-toast-message-text">
+                        <div class="p-toast-summary" data-cookies="Your cookie preference has been updated."></div>
+                        <div class="p-toast-detail"></div>
+                    </div>
+                    <span class="p-toaster-icon"></span>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+		
+					<script src="/assets/libs/op_piwik_pro_production.js"></script>
+		
+			<script type="application/json">{
+				"utility": "globan",
+				"renderTo": "#globan-here",
+				"lang": "en",
+				"theme": "dark",
+				"logo": true,
+				"link": true,
+				"mode": false,
+				"zindex" : 40
+			}</script>
+							<script src="/build/libs/ecl-ec.js"></script>
+				<script>ECL.autoInit();</script>
+				<script src="/build/runtime.af34f85f.js" defer></script><script src="/build/518.abcfe7aa.js" defer></script><script src="/build/319.af92d9aa.js" defer></script><script src="/build/304.9451f1ba.js" defer></script><script src="/build/577.01ac1910.js" defer></script><script src="/build/69.d0085699.js" defer></script><script src="/build/main.516dcc0d.js" defer></script>
+				</body>
+</html>

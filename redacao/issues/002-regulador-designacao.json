@@ -1,0 +1,20 @@
+{
+  "id": "002",
+  "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+  "seccao": "instituicoes",
+  "estado": "procurado",
+  "aberto_em": "2026-09-14",
+  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "enquadramento": "Dois factos, duas citações, e uma pergunta em vez de uma resposta. Publica-se o registo, nunca o veredicto, e nenhum adjetivo sobre uma parte nomeada.",
+  "de_onde_vem": "§11 do resumo de comissionamento, segunda das três primeiras histórias.",
+  "o_que_ja_se_tem": [
+    "Uma entrega do ChatGPT cita uma página da ANACOM que a apresenta como autoridade nacional no âmbito do AI Act. Essa página devolveu 403 a esta redação: nada se pode conferir contra ela.",
+    "A mesma entrega cita a página da Comissão Europeia que diz que os Estados-Membros deveriam ter designado autoridades competentes até 2 de agosto de 2025 — e ESSA afirmação foi confirmada nos bytes congelados.",
+    "A página temática oficial portuguesa foi congelada e confirmada: descreve o Regulamento sem identificar nominalmente a autoridade nacional."
+  ],
+  "o_que_falta": [
+    "O ato de designação, no Diário da República. Enquanto não for encontrado, a história é sobre a ausência no registo, não sobre a ausência de designação.",
+    "Acesso à página da ANACOM. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. O editor pode pedir acesso."
+  ],
+  "recusa": "Não se afirma que nenhuma autoridade foi designada. Afirma-se o que está e o que não está no registo público, com datas e hashes."
+}

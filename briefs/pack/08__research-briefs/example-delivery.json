@@ -1,0 +1,96 @@
+{
+  "delivery": {
+    "id": "example-2026-09-14-politicas-1",
+    "tool": "other",
+    "model": "example, written by hand",
+    "date": "2026-09-14",
+    "brief": "13__research-brief-for-perplexity.md v2",
+    "language": "pt-PT",
+    "sections_covered": [
+      "politicas"
+    ],
+    "queries": [
+      "\"Agenda Nacional\" \"inteligência artificial\" Diário da República 2025"
+    ],
+    "part": "1/1",
+    "notes": "Exemplo. As URLs abaixo são as da própria redação-mãe, usadas só para mostrar a forma; uma entrega real cita a fonte primária. A página do diário oficial renderiza por script: assinalado em access.",
+    "vault": {
+      "vault_id": "vault-exemplo",
+      "commit": "obj-cas-imm-000000000000",
+      "read_key": null,
+      "share_token": "exemplo-nao-usar-0000",
+      "remote": "https://send.sgraph.ai"
+    }
+  },
+  "sources": [
+    {
+      "id": "src-newsroom-brief-11",
+      "url": "https://newsroom.sgit.ai/documents/pt-newsroom.html",
+      "publisher": "newsroom.sgit.ai",
+      "publisher_kind": "other",
+      "title": "Commissioning brief: pt.newsroom.sgit.ai",
+      "language": "en",
+      "published": "2026-09-13",
+      "retrieved": "2026-09-14T09:00:00Z",
+      "access": "open",
+      "locator": "§11 The first three articles",
+      "excerpt": "The national AI agenda exists and its legal instrument could not be confirmed from the public record.",
+      "archived_copy": null
+    }
+  ],
+  "items": [
+    {
+      "id": "item-agenda-nacional-instrumento",
+      "section": "politicas",
+      "kind": "policy-instrument",
+      "headline": "A agenda nacional de IA existe; o instrumento legal não foi confirmado no registo público",
+      "what_the_sources_say": "O brief que comissiona a redação regista que a agenda nacional de IA existe e que o seu instrumento legal não pôde ser confirmado a partir do registo público, porque a página do diário oficial devolve um corpo vazio a um leitor automático. Uma entrega real substitui esta fonte pela página oficial da agenda e pela entrada do diário oficial, com o número do diploma e a data.",
+      "dates": [
+        {
+          "date": "2026-09-13",
+          "what": "data do brief",
+          "source": "src-newsroom-brief-11"
+        }
+      ],
+      "claims": [
+        {
+          "text": "O instrumento legal da agenda nacional de IA não pôde ser confirmado no registo público por um leitor automático.",
+          "source": "src-newsroom-brief-11",
+          "locator": "§11, item 1",
+          "excerpt": "its legal instrument could not be confirmed from the public record",
+          "confidence": "alta",
+          "status": "por_verificar",
+          "note": "A afirmação é sobre a legibilidade do registo, não sobre a existência do diploma."
+        }
+      ],
+      "entities": [
+        {
+          "id": "politica:agenda-nacional-ia",
+          "type": "Política",
+          "name": "agenda nacional de IA",
+          "source": "src-newsroom-brief-11",
+          "attributes": {
+            "estado": "instrumento legal por confirmar"
+          }
+        }
+      ],
+      "edges": [],
+      "why_it_matters": "É o primeiro artigo do brief: uma redação de agentes que bate na parede da legibilidade do registo nacional e o diz.",
+      "suggested_story": "O registo que não se deixa ler: a agenda nacional de IA e o diploma que a máquina não encontra",
+      "personal_data_check": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      }
+    }
+  ],
+  "vocabulary_proposals": [
+    {
+      "verb": "instituida_por",
+      "inverse": "institui",
+      "domain": "Política",
+      "range": "Política",
+      "reads": "A agenda nacional de IA é instituída por [diploma]; [diploma] institui a agenda nacional de IA."
+    }
+  ]
+}

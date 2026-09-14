@@ -1,0 +1,20 @@
+{
+  "id": "003",
+  "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+  "seccao": "empresas",
+  "estado": "procurado",
+  "aberto_em": "2026-09-14",
+  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "enquadramento": "Publica-se o mínimo verificável, nomeia-se o método e diz-se o tamanho do que não se consegue ver — na página, não numa nota de rodapé.",
+  "de_onde_vem": "§11 do resumo de comissionamento, terceira das três primeiras histórias.",
+  "o_que_ja_se_tem": [
+    "O facto estrutural: não há registo comercial aberto em Portugal. O registo é por empresa, pago e com código de acesso; o registo de beneficiários efetivos deixou de ser de acesso público em 2022.",
+    "Duas sementes legíveis por máquina que permitem uma afirmação diferente e melhor: as organizações portuguesas que aparecem em financiamento europeu (CORDIS) e em financiamento nacional de recuperação, com montantes e datas."
+  ],
+  "o_que_falta": [
+    "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+    "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+    "O número de startups ativas tem de vir de uma fonte congelada, e não do relatório de ecossistema que o resumo marca como não sendo um conjunto de dados."
+  ],
+  "recusa": "Não se cita um número de um relatório como se fosse um conjunto de dados, e não se reclama a lista subjacente a partir da figura publicada."
+}

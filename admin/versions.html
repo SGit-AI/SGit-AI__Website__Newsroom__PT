@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Versões · pt.newsroom.sgit.ai</title>
+<meta name="description" content="O que mudou em cada versão deste site, e porquê.">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/admin/versions.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/admin/versions.html">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · administração</div>
+  <div><a href="../">Voltar ao jornal</a></div>
+  <div><span class="ver">v0.1.0</span></div>
+</div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
+<h1 class="h-2" style="max-width:26em">Cada empurrão para o ramo de lançamento é uma versão menor,
+e leva uma linha aqui a dizer o que mudou e porquê.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 18px">O número vive em
+<code>admin/build/version.txt</code> e é incrementado exatamente uma vez por lançamento. O assunto
+do commit repete-o (<code>site vX.Y.Z: …</code>), o distintivo aparece em cada página, e a
+integração contínua confere que os três concordam antes de etiquetar e publicar. Uma validação
+vermelha não é lançamento.</p>
+
+<div class="rolar">
+<table>
+<thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
+<tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.1.0</span></td>
+<td class="mono">2026-09-14</td>
+<td class="sm">
+<b>O MVP.</b> O caminho de ingestão a correr contra fontes reais (obter, congelar, hashear,
+extrair, comparar), o grafo com verbos portugueses, o aviso de proteção de dados, a primeira
+página tal como o desenho a fixa, a mesa da redação e o fluxo de revisão das entregas de
+investigação.
+<br><br>
+<b>Três decisões que ficam registadas em vez de implícitas.</b>
+(1) O ramo de lançamento é <code>dev</code>, que é também o ramo por omissão deste repositório — o
+pacote exige que o ramo de lançamento SEJA o ramo por omissão, porque uma execução agendada clona
+o ramo por omissão, e chamava-lhe <code>main</code> por ter sido escrito antes de este repositório
+existir.
+(2) Há uma só folha de estilos, e a primeira página usa-a como todas as outras: o pacote permite
+duas, e duas divergiriam.
+(3) As leituras do grafo que tocam numa pessoa são invariáveis em género, porque este site não
+sabe o género de ninguém e deduzi-lo de um nome seria uma inferência sobre uma pessoa nomeada.
+<br><br>
+<b>O que esta versão NÃO é.</b> Nenhuma história publicada — as três primeiras estão como issues
+em «procurado», e publicar é a linha do editor de registo. Três das oito secções sem um único nó,
+e a dizê-lo na própria página. Nenhum nível de agente além do A testado. Nada de nenhuma entrega
+de investigação aparece numa página de leitura: o portão 13 falha a construção se aparecer.
+<br><br>
+<b>Uma capacidade que valeu a pena construir.</b> O Diário da República renderiza por script e
+devolve 22 caracteres visíveis a um leitor automático — mas publica os diplomas em PDF, cifrados
+com o manipulador de segurança padrão e com tipos subconjuntados, o que faz uma biblioteca
+genérica devolver zero caracteres em silêncio. <code>build/pdf.py</code> decifra-os e lê o mapa
+<code>/ToUnicode</code> de cada tipo. Sem isso, esta redação teria publicado «não se consegue ler o
+registo nacional» quando a verdade era «não implementámos o decifrador».
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="agent">
+<b>Para um agente.</b> Esta página é escrita à mão, ao contrário das do jornal, porque é um
+registo de decisões e não uma projeção de dados. O número de versão em
+<code>admin/build/version.txt</code> é a fonte da verdade e
+<code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
+duplicados. Versão <span class="ver">v0.1.0</span>.
+</div>
+
+</div>
+</body>
+</html>

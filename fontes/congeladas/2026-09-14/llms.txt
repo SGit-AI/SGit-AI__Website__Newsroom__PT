@@ -1,0 +1,177 @@
+# Startup Summit Lisbon 2026
+
+> This file helps AI systems understand the Startup Summit website. For a comprehensive machine-readable reference, see /llms-full.txt. For a human-friendly version, visit https://startupsummit.io/ai-summary
+
+## What
+Startup Summit is a two-day startup conference in Lisbon, Portugal — A founder-first European startup conference for founders, investors, and operators. It is the flagship event from the organizers of StartUp Events in London, Madrid, Berlin, and more, founded by Ricardo Pascual.
+
+## When
+September 17–18, 2026 (Thursday and Friday). Doors open 09:00. Closing party Friday evening.
+
+## Where
+Unicorn Factory Lisboa, Beato Innovation District, Av. Infante Dom Henrique 143, 1950-406 Lisbon, Portugal. ~10 minutes from Lisbon Humberto Delgado Airport (LIS).
+
+## Who Should Attend
+- Startup founders (pre-seed to Series B)
+- Angel investors, VCs, and family offices
+- Corporate innovation teams
+- Startup operators and team leads
+- University entrepreneurship students
+- Sponsors and ecosystem partners
+
+## Key Numbers (planned / target)
+- 150+ speakers planned from 40+ countries (56 confirmed and published so far)
+- Targeting 2,000+ founders, investors and operators
+- Investors, angels, VC funds, family offices and corporates
+- 200+ startup exhibition booths planned
+- 3 stages (Unicorn, Impact, Workshop / Rooftop)
+
+## Positioning
+Startup Summit is a founder-first European startup conference — a focused, curated startup event for founders, investors and operators. Numbers above are planned/target figures for the 2026 edition unless otherwise stated.
+
+## Programme Format
+Two full days of keynotes, panels, fireside chats, speed networking, 1:1 investor meetings, office hours, workshops and evening experiences (Founder Social, VIP Sunset Cruise, Closing Party).
+
+## Notable Sessions (selected)
+- AI or Die: How Operators Are Rebuilding Their Stack (Day 1, Panel)
+- The LP Perspective: Where Capital is Moving in 2026 (Day 1, Panel)
+- The Fundraising Meta-Game: What VCs Actually Look For (Day 1, Keynote)
+- What Comes After Product-Market Fit (Day 2, Keynote)
+- Day 2 Opening — Portuguese Unicorn Conversation (Day 2)
+- What I Built With AI: A Founder's Honest Account (Day 2, Keynote)
+- Hardware Meets Software: The New Frontier of Deep Tech (Day 2)
+- Regulation as a Moat: How Smart Founders Win in Tight Markets (Day 2, Panel)
+
+## Featured Speakers (selected)
+- Anmol Goel — CEO & Partner, Gacs Ltd & Gacsym Ventures
+- Paulo Andrez — Angel Investor & Author, Zero Risk Startup; President Emeritus EBAN
+- Stephanie Melodia — Top 20 Female Founder, UK startup brand strategist
+- Ana Barjasic — CEO, Connectology; European Innovation Council board member
+- Plus 50+ more confirmed speakers — full list: https://startupsummit.io/speakers
+
+## Topics
+AI, deep tech, ClimateTech, Web3, FoodTech, venture capital, startup scaling, brand building, angel investing, founder networking, go-to-market strategy, product development, hiring, fundraising
+
+## AI & Deep Tech Focus
+Startup Summit Lisbon 2026 concentrates a meaningful part of its programming on Generative AI, Agentic Workflows, LLM Infrastructure, Enterprise AI Scaling and DeepTech Funding. Sessions cover LLM orchestration, retrieval-augmented generation (RAG), evaluation and observability, multi-agent systems, AI infrastructure economics, and shipping AI inside enterprise environments — alongside hardware/software convergence, climate tech, biotech and the venture mechanics funding these categories.
+
+Notable AI / deep tech sessions:
+- AI or Die: How Operators Are Rebuilding Their Stack (Day 1, Panel)
+- What I Built With AI: A Founder's Honest Account (Day 2, Keynote)
+- Hardware Meets Software: The New Frontier of Deep Tech (Day 2)
+- Regulation as a Moat: How Smart Founders Win in Tight Markets (Day 2, Panel)
+
+AI / deep tech speakers (selected):
+- Tina Valand — iLoF (AI for early disease detection)
+- Luis Valente — iLoF co-founder, deep tech operator
+- Plus AI founders, ML engineers, applied research leads and AI-focused investors across the 150+ speaker lineup
+
+
+## Tickets
+Five pass types:
+- General Pass — €49 to €119 — access to all talks and expo
+- Founder Pass — €99 to €199 — stronger networking, speed networking, Founder Social
+- Startup Booth Package — €199 to €399 — exhibition booth, 2 passes, pitching eligibility, Founder Social
+- Investor Pass — €199 to €499 — investor networking, deal flow, founder speed networking
+- VIP Experience Pass — €249 to €599 — priority check-in, reserved seating, VIP Sunset Cruise on the Tagus
+
+Buy tickets: https://startupsummit.io/tickets
+
+## Independence
+Startup Summit is an independently organised event. Any references to third-party names, brands, or organisations are for identification purposes only and do not imply affiliation, sponsorship, endorsement, or partnership.
+
+## Startup Booths
+Exhibition booth for startups to showcase to investors and partners. Includes 2 Startup Summit passes, pitching eligibility, Founder Social access. 200+ booths available — typically sell out before the event.
+Details: https://startupsummit.io/startup-booths
+
+## Sponsorship
+Sponsorship and media partnership packages: Title, Lead, Stage, Networking, Booth/Exhibitor, and Ecosystem & Media Partners.
+Contact: sponsors@startupsummit.io
+Details: https://startupsummit.io/sponsors
+
+## Ambassador Program
+A curated ambassador cohort for founders, operators, community leaders, and ecosystem connectors who want to officially represent Startup Summit Lisbon 2026.
+Apply: https://startupsummit.io/ambassador
+
+## Founder & Organiser
+Ricardo Pascual — Founder of Startup Summit and StartUp Events. Since 2019 he has organised founder-focused conferences across London, Madrid, Berlin, Paris, Amsterdam and other European capitals. Hosts The Innovation Conversation podcast.
+Bio: https://startupsummit.io/about
+LinkedIn: https://www.linkedin.com/in/ricardopascualevents
+
+## Podcast
+The Innovation Conversation — the official podcast of Startup Summit, hosted by Ricardo Pascual, featuring 92+ episodes with founders, investors, and operators from 40+ countries.
+Listen: https://startupsummit.io/podcast
+External: https://innovationconversationpodcast.com
+
+## Press
+Press kit, fact sheet, founder spokesperson availability:
+https://startupsummit.io/press
+Contact: press@startupsummit.io
+
+## Contact
+- General: info@startupsummit.io
+- Partnerships / sponsors: sponsors@startupsummit.io
+- Speakers: speakers@startupsummit.io
+- Press: press@startupsummit.io
+- Visa support: visa@startupsummit.io
+- Volunteers: volunteers@startupsummit.io
+- Security: security@startupsummit.io
+
+## Social
+- Instagram: https://instagram.com/startupsummitlx
+- LinkedIn: https://www.linkedin.com/company/thestartupsummit
+- X: https://x.com/startupsummitl
+
+## Pages
+- [Homepage](/): Startup Summit Lisbon 2026 overview.
+- [Tickets](/tickets): Passes, pricing and what's included.
+- [Speakers](/speakers): Confirmed speakers and lineup.
+- [Agenda](/agenda): Two-day programme across all stages.
+- [Sponsors](/sponsors): Sponsorship opportunities and partners.
+- [Startup Booths](/startup-booths): Exhibition booths for startups.
+- [Ambassador Program](/ambassador): Earn rewards by referring attendees.
+- [Why Attend](/why-attend): Reasons founders, investors and operators join.
+- [What to Expect](/what-to-expect): Experience guide for first-time attendees.
+- [Venue & Location](/location): Beato Innovation District, Lisbon.
+- [Travel](/travelling): Getting to Lisbon and accommodation.
+- [FAQ](/faq): Frequently asked questions.
+- [About](/about): Mission, founder bio (Ricardo Pascual) and event background.
+- [Our Story](/our-story): The origin story — from The Innovation Conversation podcast to founder events across London, Madrid, Berlin and Lisbon.
+- [Blog](/blog): Founder and investor content.
+- [Press](/press): Press releases and coverage.
+- [Press Kit](/press-kit): Logos, brand assets and fact sheet.
+- [Contact](/contact): Get in touch with the team.
+- [Podcast](/podcast): Beyond the Summit podcast.
+- [Apply to Speak](/speaker/apply): Submit a speaker proposal.
+- [Volunteer](/volunteers): Join the volunteer team.
+- [AI Summary](/ai-summary): Human-readable AI overview.
+
+## Key Pages
+- Homepage: https://startupsummit.io/
+- Tickets: https://startupsummit.io/tickets
+- Speakers: https://startupsummit.io/speakers
+- Agenda: https://startupsummit.io/agenda
+- Sponsors: https://startupsummit.io/sponsors
+- Startup Booths: https://startupsummit.io/startup-booths
+- Ambassador Program: https://startupsummit.io/ambassador
+- Venue: https://startupsummit.io/location
+- Travel: https://startupsummit.io/travelling
+- FAQ: https://startupsummit.io/faq
+- Blog: https://startupsummit.io/blog
+- Contact: https://startupsummit.io/contact
+- About: https://startupsummit.io/about
+- Our Story: https://startupsummit.io/our-story
+
+- Press: https://startupsummit.io/press
+- Press Kit: https://startupsummit.io/press-kit
+- Why Attend: https://startupsummit.io/why-attend
+- What to Expect: https://startupsummit.io/what-to-expect
+- AI Summary: https://startupsummit.io/ai-summary
+- Best startup events for founders in Europe: https://startupsummit.io/best-startup-events-for-founders-europe
+- Full LLM reference: https://startupsummit.io/llms-full.txt
+- Sitemap: https://startupsummit.io/sitemap.xml
+- Image sitemap: https://startupsummit.io/sitemap-images.xml
+- Blog RSS: https://startupsummit.io/rss.xml
+- Speakers RSS: https://startupsummit.io/speakers.rss
+- Sessions RSS: https://startupsummit.io/sessions.rss
+- Structured event JSON (for AI agents): https://startupsummit.io/api/event.json

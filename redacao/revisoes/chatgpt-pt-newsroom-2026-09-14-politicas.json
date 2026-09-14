@@ -1,0 +1,34 @@
+{
+  "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+  "estado": "por_rever",
+  "decidido_por": null,
+  "decidido_em": null,
+  "como_se_usa": "Este ficheiro é a decisão do editor de registo, e é escrito por uma pessoa. Para aprovar um item, ponha-o em `itens` com estado `aprovada` e um comentário. Para rejeitar, `rejeitada` com a razão. Enquanto um item não tiver decisão, nada dele aparece na primeira página nem num artigo — o portão 13 falha a construção se aparecer. Uma execução automática nunca escreve aqui.",
+  "itens": {},
+  "comentarios": [
+    {
+      "quem": "sessao-de-arranque",
+      "quando": "2026-09-14T12:10:00Z",
+      "sobre": null,
+      "texto": "Entrega recebida e passada pelo caminho de ingestão. As oito fontes que nomeia foram congeladas e hasheadas; seis são legíveis por máquina. Das 19 afirmações, 9 têm o excerto nos bytes, nenhuma falhou a busca, e 10 citam fontes que não devolveram texto conferível — três por a página do Diário da República renderizar por script, uma por 403 da ANACOM. Nenhuma afirmação foi tratada como facto."
+    },
+    {
+      "quem": "sessao-de-arranque",
+      "quando": "2026-09-14T12:11:00Z",
+      "sobre": "item-pol-01",
+      "texto": "Este é o item que mais importa e é o que está pior sustentado. A entrega diz nas suas próprias notas «Foi confirmado o instrumento jurídico da ANIA». A conferência contra os bytes não o confirma: as três afirmações citam diariodarepublica.pt, que devolveu 2 346 bytes e 22 caracteres visíveis. Não é um erro do assistente — é a mesma parede que a história 001 descreve. O caminho existe: o Diário da República publica o diploma em PDF e build/pdf.py lê esses PDFs. Falta encontrar o endereço."
+    },
+    {
+      "quem": "sessao-de-arranque",
+      "quando": "2026-09-14T12:12:00Z",
+      "sobre": "item-pol-08",
+      "texto": "As duas afirmações confirmaram contra o PDF da RCM n.º 70/2026, lido na íntegra. A segunda confirmou em dois troços: a frase atravessa uma quebra de página e o cabeçalho corrente fica no meio dela. A interrupção é do leitor desta redação, que não faz paginação, e não de quem entregou a pista."
+    },
+    {
+      "quem": "sessao-de-arranque",
+      "quando": "2026-09-14T12:13:00Z",
+      "sobre": null,
+      "texto": "A entrega não valida contra o esquema publicado: 45 erros, todos de forma. Os mais substantivos são propostas de vocabulário — Programa, InstrumentoJuridico, Infraestrutura — que a ontologia deste site ainda não tem. Aceitá-las é uma alteração de ontologia e leva uma versão, por isso fica para o editor e não para uma execução."
+    }
+  ]
+}

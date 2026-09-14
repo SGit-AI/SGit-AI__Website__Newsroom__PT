@@ -1,0 +1,104 @@
+{
+  "id": "pt-manifesto",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
+  "contagem": 19,
+  "ficheiros": [
+    {
+      "ficheiro": "dados/aviso.json",
+      "bytes": 9981,
+      "sha256": "ef18ce1043d6bc0c2e745448499841ddbd509d366eda2672481527f97c03114d"
+    },
+    {
+      "ficheiro": "dados/entregas.json",
+      "bytes": 56725,
+      "sha256": "9b22d6efcdae695f82bcf8c4352e5a10ee69db1cb1b420e434732765f70c8dc6"
+    },
+    {
+      "ficheiro": "dados/equipa.json",
+      "bytes": 6133,
+      "sha256": "d26d08957c3854d655ef92547ece171817330ab9208218374876c6a0c2251f4e"
+    },
+    {
+      "ficheiro": "dados/evento.json",
+      "bytes": 2141,
+      "sha256": "457333f29220391e97d0bf91618b3c18906f62e3f4f0fb263504213ff4f03860"
+    },
+    {
+      "ficheiro": "dados/excluidas.json",
+      "bytes": 1089,
+      "sha256": "09bcd5ac47dc934d492ca3e0af7c91c2fc20331d663fb0c12b36a66c51c5b924"
+    },
+    {
+      "ficheiro": "dados/fontes-alvo.json",
+      "bytes": 5610,
+      "sha256": "52569a14c0ed308991687d1501ba322f755a55dc3ac69f00d69b59135070d8ee"
+    },
+    {
+      "ficheiro": "dados/grafo.json",
+      "bytes": 320476,
+      "sha256": "ea2ea04dddc2250d25ddb37c9cb2bb3a73fc6f9eed5341b650531b3ad7bab9e4"
+    },
+    {
+      "ficheiro": "dados/historias.json",
+      "bytes": 443,
+      "sha256": "6d67728808181ebb5b6a56253b92a974a699673b2478a17827694b37cd1fb09c"
+    },
+    {
+      "ficheiro": "dados/lexico.json",
+      "bytes": 7721,
+      "sha256": "34d5113b7daf6e98ebb90ae671d01a9d3f82cdd1b6108b1fe658c14b73f404c8"
+    },
+    {
+      "ficheiro": "dados/manifesto.json",
+      "bytes": 3272,
+      "sha256": "2ce3a72eddc2e1dc74fb93ffafcfc7e1ab51b68a2f8e3c2976fa136be945957b"
+    },
+    {
+      "ficheiro": "dados/mudancas.json",
+      "bytes": 369,
+      "sha256": "68220adc25c9c8d64210256cae06cf772508e9bed378146172e982916e55589d"
+    },
+    {
+      "ficheiro": "dados/ontologia.json",
+      "bytes": 17345,
+      "sha256": "ef5b72188f1005ea53d176527d083ef5f08b399449b3d4f9d39bd14b9a592f22"
+    },
+    {
+      "ficheiro": "dados/organizacoes.json",
+      "bytes": 10940,
+      "sha256": "1b465dc5d05f93624cfbf1501f2b3c7bc1f5c0ec6bbc1501d8720c600bf9cd80"
+    },
+    {
+      "ficheiro": "dados/pessoas.json",
+      "bytes": 20638,
+      "sha256": "9c24d3b9e8836d8f3db1271e8d93be75041cfbdcce84b59c7c9557f8cf5c60a6"
+    },
+    {
+      "ficheiro": "dados/registo.json",
+      "bytes": 52329,
+      "sha256": "90642853ce77ff9fa0223dea253940b1b31ea45a4df5a2e827ab765119174fa7"
+    },
+    {
+      "ficheiro": "dados/sessoes.json",
+      "bytes": 5364,
+      "sha256": "7df061338ae084e0ac0c7a76e0422d8bdcf2e5d89bc8b6e8b55004822f78740a"
+    },
+    {
+      "ficheiro": "dados/temas.json",
+      "bytes": 88346,
+      "sha256": "63f4d1a3660c4964d1e6bf833da30906dcc3058ebdeef25b3e97cc0fe54221be"
+    },
+    {
+      "ficheiro": "dados/triplos.nt",
+      "bytes": 245679,
+      "sha256": "28d77c1e4ead7ead2fa965519e8a0419c5396e09d11271f21e6824da79f43a08"
+    },
+    {
+      "ficheiro": "dados/verificacoes-fonte.json",
+      "bytes": 1517,
+      "sha256": "8c8e9474b127bf6600d542261eb8fb3e95821a37c4b0d2e71b54687a7ca1a5bd"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "pt-historias",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "O registo das histórias. Nenhuma está publicada na v0.1.0, e a primeira página di-lo em vez de encenar uma manchete. O estado «publicado» é escrito pelo editor de registo e por mais ninguém: uma execução automática que o escrevesse falharia o portão 11.",
+  "estados": ["rascunho", "verificado", "publicado", "superseded"],
+  "historias": []
+}

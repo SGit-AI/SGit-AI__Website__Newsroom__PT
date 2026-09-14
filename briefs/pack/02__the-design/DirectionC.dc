@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <style>
+    body { margin: 0; background: #0f1216; }
+    a { color: #f2efe6; text-decoration: none; } a:hover { color: #ff8a5b; text-decoration: underline; }
+    .C { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; color: #f2efe6; }
+    .ser { font-family: "Newsreader", Georgia, serif; }
+    .lbl { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3ad; font-weight: 500; }
+    .verb { font-size: 11px; letter-spacing: .06em; color: #ff8a5b; font-weight: 500; }
+    .h0 { font-family: "Newsreader", Georgia, serif; font-size: 58px; line-height: 1.02; font-weight: 400; letter-spacing: -.02em; margin: 0; }
+    .h2 { font-family: "Newsreader", Georgia, serif; font-size: 26px; line-height: 1.12; font-weight: 500; letter-spacing: -.01em; margin: 0; }
+    .p { font-size: 15px; line-height: 1.5; margin: 0; color: #c8cdd3; }
+    .card { display: flex; flex-direction: column; gap: 10px; padding: 22px 22px; border: 1px solid #262b33; background: #13171c; }
+    .pill { font-size: 11px; letter-spacing: .04em; padding: 4px 9px; border-radius: 999px; border: 1px solid #3a414b; color: #c8cdd3; }
+    .ok { border-color: #2f9e6e; color: #7fe0b1; }
+    .miss { border-color: #ff8a5b; color: #ff8a5b; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  </style>
+</helmet>
+<div class="C" style="width: 1440px; min-height: 1660px; background: #0f1216; display: flex; flex-direction: column;">
+
+  <!-- nav -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 48px; border-bottom: 1px solid #262b33;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <div style="font-weight: 700; font-size: 20px; letter-spacing: -.02em;">pt.newsroom<span style="color: #6b737d; font-weight: 400;">.sgit.ai</span></div>
+      </div>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Empresas</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Protagonistas</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Instituições</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Políticas</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Casos de uso</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Código aberto</a>
+      <a href="#" style="font-size: 14px; font-weight: 500; white-space: nowrap;">Diáspora</a>
+      <a href="#" style="font-size: 14px; font-weight: 600; color: #ff8a5b;">Eventos</a>
+      <a href="#" style="font-size: 13px; padding: 8px 14px; border: 1px solid #3a414b; border-radius: 999px; white-space: nowrap;">Abrir o grafo</a>
+    </div>
+  </div>
+
+  <!-- hero: graph left, lead story right -->
+  <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 0;">
+    <div style="position: relative; border-right: 1px solid #262b33; min-height: 640px;">
+      <svg width="100%" height="640" viewBox="0 0 840 640" style="display: block;">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff8a5b" stop-opacity=".22"></stop><stop offset="100%" stop-color="#ff8a5b" stop-opacity="0"></stop></radialGradient>
+        </defs>
+        <circle cx="400" cy="330" r="230" fill="url(#glow)"></circle>
+        <g stroke="#3a414b" stroke-width="1" fill="none">
+          <path d="M400 330 L180 150"></path><path d="M400 330 L150 380"></path><path d="M400 330 L250 540"></path>
+          <path d="M400 330 L620 130"></path><path d="M400 330 L700 330"></path><path d="M400 330 L600 540"></path>
+          <path d="M180 150 L80 90"></path><path d="M180 150 L260 60"></path><path d="M150 380 L60 470"></path>
+          <path d="M620 130 L760 60"></path><path d="M700 330 L800 250"></path><path d="M700 330 L800 420"></path>
+          <path d="M600 540 L720 600"></path><path d="M600 540 L480 610"></path><path d="M250 540 L120 600"></path>
+          <path d="M620 130 L520 40"></path>
+        </g>
+        <g font-family="Space Grotesk, Arial, sans-serif" font-size="10" fill="#ff8a5b" letter-spacing=".06em">
+          <text x="270" y="232">PARTE DE</text><text x="250" y="345">DECORRE EM</text><text x="300" y="450">ORGANIZADO POR</text>
+          <text x="490" y="222">COBERTO POR</text><text x="520" y="322">PRESENTE EM</text><text x="480" y="450">RELATADO POR</text>
+          <text x="96" y="150">NO PALCO</text><text x="205" y="98">ATESTADO POR</text><text x="740" y="300">CAPTURA</text>
+          <text x="640" y="580">ASSENTA EM</text><text x="650" y="90">PUBLICADO POR</text>
+        </g>
+        <g>
+          <circle cx="400" cy="330" r="30" fill="#f2efe6"></circle>
+          <circle cx="180" cy="150" r="14" fill="#ff8a5b"></circle>
+          <circle cx="80" cy="90" r="9" fill="#9aa3ad"></circle>
+          <circle cx="260" cy="60" r="9" fill="#9aa3ad"></circle>
+          <circle cx="150" cy="380" r="14" fill="#e6c25a"></circle>
+          <circle cx="60" cy="470" r="9" fill="#9aa3ad"></circle>
+          <circle cx="250" cy="540" r="14" fill="#7fb5ff"></circle>
+          <circle cx="120" cy="600" r="9" fill="#9aa3ad"></circle>
+          <circle cx="620" cy="130" r="14" fill="#c98bff"></circle>
+          <circle cx="520" cy="40" r="9" fill="#9aa3ad"></circle>
+          <circle cx="760" cy="60" r="11" fill="#7fb5ff"></circle>
+          <circle cx="700" cy="330" r="14" fill="#9aa3ad"></circle>
+          <circle cx="800" cy="250" r="9" fill="#6b737d"></circle>
+          <circle cx="800" cy="420" r="9" fill="#6b737d"></circle>
+          <circle cx="600" cy="540" r="16" fill="#ff8a5b"></circle>
+          <circle cx="720" cy="600" r="9" fill="#c98bff"></circle>
+          <circle cx="480" cy="610" r="9" fill="#9aa3ad"></circle>
+        </g>
+        <g font-family="Newsreader, Georgia, serif" font-size="14" fill="#f2efe6">
+          <text x="400" y="384" text-anchor="middle" font-weight="500">Startup Summit Lisbon 2026</text>
+          <text x="180" y="185" text-anchor="middle">AI or Die</text>
+          <text x="80" y="75" text-anchor="middle" font-size="11" fill="#9aa3ad">Unicorn Stage</text>
+          <text x="280" y="55" text-anchor="start" font-size="11" fill="#9aa3ad">agenda · 13 set</text>
+          <text x="150" y="410" text-anchor="middle">Unicorn Factory Lisboa</text>
+          <text x="60" y="495" text-anchor="middle" font-size="11" fill="#9aa3ad">Beato</text>
+          <text x="250" y="570" text-anchor="middle">StartUp Events</text>
+          <text x="150" y="603" text-anchor="start" font-size="11" fill="#9aa3ad">index · 13 set</text>
+          <text x="620" y="110" text-anchor="middle">AICEP Portugal Global</text>
+          <text x="540" y="30" text-anchor="start" font-size="11" fill="#9aa3ad">coverage · 29 jul</text>
+          <text x="760" y="44" text-anchor="middle" font-size="12">Portugal Business News</text>
+          <text x="700" y="362" text-anchor="middle">speakers · 13 set</text>
+          <text x="800" y="238" text-anchor="middle" font-size="11" fill="#9aa3ad">64 oradores</text>
+          <text x="800" y="445" text-anchor="middle" font-size="11" fill="#9aa3ad">61 organizações</text>
+          <text x="600" y="520" text-anchor="middle" font-size="13">Uma tentativa de recorde…</text>
+        </g>
+        <g font-family="Space Grotesk, Arial, sans-serif" font-size="11" fill="#6b737d" letter-spacing=".08em">
+          <text x="24" y="624">GRAFO · 192 NÓS · 298 ARESTAS · CADA NÓ NOMEIA UMA FONTE CONGELADA</text>
+        </g>
+      </svg>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 44px 48px 40px 44px; justify-content: center;">
+      <div style="display: flex; gap: 10px; align-items: center;"><span class="lbl" style="color: #ff8a5b;">Eventos · Startup Summit Lisbon 2026</span><span class="lbl">faltam 4 dias</span></div>
+      <h1 class="h0">Uma tentativa de recorde que a agenda não menciona</h1>
+      <p class="p" style="font-size: 17px; color: #d9dde2;">Dois órgãos portugueses dizem que uma maratona de pitches de 48 horas, candidata ao Guinness, decorre em paralelo à cimeira a 16 e 17 de setembro. A agenda do próprio evento, a quatro dias das portas, não a lista. Ambas as páginas estão congeladas; nenhuma está errada, ainda.</p>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span class="pill ok">AICEP · 29 jul · confirmada</span>
+        <span class="pill ok">Portugal Business News · 29 jul · confirmada</span>
+        <span class="pill miss">agenda · 13 set · não encontrada</span>
+      </div>
+      <div style="display: flex; gap: 22px; align-items: baseline; border-top: 1px solid #262b33; padding-top: 16px;">
+        <a href="#" style="font-size: 14px; font-weight: 600; color: #ff8a5b;">Ler a história →</a>
+        <a href="#" style="font-size: 14px; color: #c8cdd3;">Ver os 3 nós no grafo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- scoping sentence -->
+  <div style="border-top: 1px solid #262b33; border-bottom: 1px solid #262b33; padding: 34px 48px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center;">
+    <p class="ser" style="font-size: 30px; line-height: 1.22; margin: 0; font-style: italic; color: #f2efe6;">O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o suficiente para ser interessante.</p>
+    <p class="p">Cada aresta é um verbo português com o seu inverso. Se um caminho não se lê em voz alta como uma frase, a aresta está errada e o build falha. <span class="verb">PARTE DE</span> · <span class="verb">DECORRE EM</span> · <span class="verb">COBERTO POR</span> · <span class="verb">ASSENTA EM</span> · <span class="verb">JÁ NÃO LISTADO</span></p>
+  </div>
+
+  <!-- stories as nodes -->
+  <div style="padding: 36px 48px; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;"><span class="lbl">Histórias · cada uma assenta em nós do grafo</span><span class="lbl">confirmado <span class="dot" style="background: #2f9e6e;"></span> &nbsp; não encontrado <span class="dot" style="background: #ff8a5b;"></span></span></div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between;"><span class="lbl" style="color: #ff8a5b;">Eventos</span><span class="lbl">2 nós · 2 fontes</span></div>
+        <h2 class="h2">Chegaram cinco nomes e saiu um</h2>
+        <p class="p">Entre 8 e 13 de setembro, a lista publicada de oradores passou de 60 para 64. Temos as duas cópias e os dois hashes, e é só por isso que alguém o pode agora dizer.</p>
+        <div style="display: flex; gap: 6px; align-items: center;"><span class="dot" style="background: #2f9e6e;"></span><span class="dot" style="background: #2f9e6e;"></span><span class="p" style="font-size: 12px;">speakers 08 set · speakers 13 set</span></div>
+      </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between;"><span class="lbl" style="color: #ff8a5b;">Eventos</span><span class="lbl">3 nós · 2 fontes</span></div>
+        <h2 class="h2">Dois nomes para três palcos</h2>
+        <p class="p">A agenda chama-lhes Unicorn Stage e Impact Stage. A página de resumo por IA chama-lhes Main Stage e Startup Stage. Ambas publicadas pelo mesmo evento, no mesmo site, hoje.</p>
+        <div style="display: flex; gap: 6px; align-items: center;"><span class="dot" style="background: #2f9e6e;"></span><span class="dot" style="background: #2f9e6e;"></span><span class="p" style="font-size: 12px;">agenda 13 set · ai-summary 13 set</span></div>
+      </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between;"><span class="lbl" style="color: #ff8a5b;">Políticas · em preparação</span><span class="lbl">1 fonte não encontrada</span></div>
+        <h2 class="h2">A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público</h2>
+        <p class="p">O diário oficial renderiza por script e devolveu um corpo vazio a um leitor automático.</p>
+        <div style="display: flex; gap: 6px; align-items: center;"><span class="dot" style="background: #2f9e6e;"></span><span class="dot" style="background: #ff8a5b;"></span><span class="p" style="font-size: 12px;">página do Governo · diário oficial</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sections as node types + how it is made -->
+  <div style="padding: 10px 48px 44px 48px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px;">
+    <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 14px;">
+      <span class="lbl">Oito secções · oito tipos de nó</span>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;">
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #7fb5ff;"></span><span style="font-weight: 600;">Empresas</span><span class="p" style="font-size: 12px;">61 organizações listadas</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #e6c25a;"></span><span style="font-weight: 600;">Protagonistas</span><span class="p" style="font-size: 12px;">64 oradores · 1 já não listado</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #c98bff;"></span><span style="font-weight: 600;">Instituições</span><span class="p" style="font-size: 12px;">em preparação</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #7fe0b1;"></span><span style="font-weight: 600;">Políticas</span><span class="p" style="font-size: 12px;">em preparação</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #9aa3ad;"></span><span style="font-weight: 600;">Casos de uso</span><span class="p" style="font-size: 12px;">—</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #9aa3ad;"></span><span style="font-weight: 600;">Código aberto</span><span class="p" style="font-size: 12px;">—</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px;"><span class="dot" style="background: #9aa3ad;"></span><span style="font-weight: 600;">Diáspora</span><span class="p" style="font-size: 12px;">—</span></a>
+        <a href="#" class="card" style="gap: 6px; padding: 16px; border-color: #ff8a5b;"><span class="dot" style="background: #ff8a5b;"></span><span style="font-weight: 600;">Eventos</span><span class="p" style="font-size: 12px;">Startup Summit Lisbon 2026 · 16 sessões</span></a>
+      </div>
+    </div>
+    <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 14px;">
+      <span class="lbl">Como se faz</span>
+      <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid #262b33;"><span style="font-weight: 600;">Pesquisa</span><span class="p">encontra a fonte primária; regista endereço, data e hash</span></div>
+        <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid #262b33;"><span style="font-weight: 600;">Redação</span><span class="p">escreve a partir do que a pesquisa registou, e de mais nada</span></div>
+        <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid #262b33;"><span style="font-weight: 600;">Verificação</span><span class="p">relê cada fonte; marca cada afirmação confirmada, disputada ou não encontrada</span></div>
+        <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid #262b33; border-bottom: 1px solid #262b33;"><span style="font-weight: 600;">Publicação</span><span class="p">um passo de build; o arquivo é o git; editor de registo: Dinis Cruz</span></div>
+      </div>
+      <p class="p" style="font-size: 13px;">Os agentes seguem políticas de comportamento publicadas. <a href="#" style="color: #ff8a5b;">Ler as políticas →</a></p>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="border-top: 1px solid #262b33; padding: 18px 48px; display: flex; justify-content: space-between; align-items: baseline;">
+    <span class="p" style="font-size: 12px;">Proteção de dados · responsável: Dinis Cruz · base: interesses legítimos · remoção incondicional, motivo nunca publicado</span>
+    <span class="p" style="font-size: 12px;">Método · Fontes · Grafo · newsroom.sgit.ai</span>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

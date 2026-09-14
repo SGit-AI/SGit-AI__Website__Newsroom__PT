@@ -1,0 +1,571 @@
+{
+  "id": "pt-pessoas",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "captura": "2026-09-14",
+  "nota": "Oradores tal como a página do próprio evento os lista, extraídos de uma cópia congelada e hasheada e não da rede. Nome, papel, organização e ligações — as biografias são o texto de quem as escreveu, são ligadas e nunca reproduzidas. Nenhum contacto de pessoa singular entra neste ficheiro: a recusa corre no ponto de leitura (build/extract.py, sem_contactos), não no template.",
+  "contagem": 70,
+  "com_linkedin": 66,
+  "pessoas": [
+    {
+      "id": "andreia-gaudencio",
+      "nome": "Andreia Gaudêncio",
+      "papel": "CNCA Project Internal Leader",
+      "organizacao": "BSC AI Factory",
+      "pagina": "https://startupsummit.io/speakers/andreia-gaudencio",
+      "linkedin": null
+    },
+    {
+      "id": "paulo-andrez",
+      "nome": "Paulo Andrez",
+      "papel": "Angel Investor & Author",
+      "organizacao": "Zero Risk Startup",
+      "pagina": "https://startupsummit.io/speakers/paulo-andrez",
+      "linkedin": "https://linkedin.com/in/pauloandrez"
+    },
+    {
+      "id": "luis-valente",
+      "nome": "Luis Valente",
+      "papel": "CEO & Co-Founder",
+      "organizacao": "iLoF",
+      "pagina": "https://startupsummit.io/speakers/luis-valente",
+      "linkedin": "https://www.linkedin.com/in/luisvalente28/"
+    },
+    {
+      "id": "anmol-goel",
+      "nome": "Anmol Goel",
+      "papel": "CEO & Partner",
+      "organizacao": "Gacs Ltd & Gacsym Ventures",
+      "pagina": "https://startupsummit.io/speakers/anmol-goel",
+      "linkedin": "https://www.linkedin.com/in/anmol-g-215a96a9/"
+    },
+    {
+      "id": "karan-setiya",
+      "nome": "Karan Setiya",
+      "papel": "Fintech Venturing Manager",
+      "organizacao": "ABN AMRO Bank",
+      "pagina": "https://startupsummit.io/speakers/karan-setiya",
+      "linkedin": "https://www.linkedin.com/in/karansetiya/"
+    },
+    {
+      "id": "rita-kastrati",
+      "nome": "Rita Kastrati",
+      "papel": "CEO and Founder",
+      "organizacao": "Pioneering People",
+      "pagina": "https://startupsummit.io/speakers/rita-kastrati",
+      "linkedin": "https://www.linkedin.com/in/rita-kastrati99/"
+    },
+    {
+      "id": "luis-gutman",
+      "nome": "Luis Gutman",
+      "papel": "Managing Partner",
+      "organizacao": "OW Ventures SCR",
+      "pagina": "https://startupsummit.io/speakers/luis-gutman",
+      "linkedin": "https://www.linkedin.com/in/luisgutman/"
+    },
+    {
+      "id": "hector-lv",
+      "nome": "Héctor LV",
+      "papel": "Head of Corporate & Legal Counsel",
+      "organizacao": "Lexidy Law Boutique SLP",
+      "pagina": "https://startupsummit.io/speakers/hector-lv",
+      "linkedin": "https://www.linkedin.com/in/hector-lopez-vzqz/"
+    },
+    {
+      "id": "tina-valand",
+      "nome": "Tina Valand",
+      "papel": "Generative AI Director",
+      "organizacao": "Accenture",
+      "pagina": "https://startupsummit.io/speakers/tina-valand",
+      "linkedin": "https://uk.linkedin.com/in/tina-valand-b191a42"
+    },
+    {
+      "id": "vini-devnani",
+      "nome": "Vini Devnani",
+      "papel": "Fractional Head of People",
+      "organizacao": "JAB Holdings",
+      "pagina": "https://startupsummit.io/speakers/vini-devnani",
+      "linkedin": "https://www.linkedin.com/in/vini-d-445a771b/"
+    },
+    {
+      "id": "luiza-castro-rey",
+      "nome": "Luiza Castro Rey",
+      "papel": "Partner & Co-Founder & Head of Corporate and Web3",
+      "organizacao": "Fio Legal",
+      "pagina": "https://startupsummit.io/speakers/luiza-castro-rey",
+      "linkedin": "https://www.linkedin.com/in/luiza-reycastro/"
+    },
+    {
+      "id": "nashwa-shah",
+      "nome": "Nashwa Shah",
+      "papel": "Founder, philanthropist and motivational speaker",
+      "organizacao": "Many",
+      "pagina": "https://startupsummit.io/speakers/nashwa-shah",
+      "linkedin": "https://www.linkedin.com/in/nashwa-shah-1322251b0?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+    },
+    {
+      "id": "rita-figueiredo",
+      "nome": "Rita Figueiredo",
+      "papel": "HEAD OF PORTUGAL",
+      "organizacao": "LEXIDY",
+      "pagina": "https://startupsummit.io/speakers/rita-figueiredo",
+      "linkedin": "https://www.linkedin.com/in/rita-figueiredo/"
+    },
+    {
+      "id": "filipa-faria",
+      "nome": "Filipa Faria",
+      "papel": "People & Culture Transformation Leader",
+      "organizacao": "Fio Legal | Fractional Freelance HR",
+      "pagina": "https://startupsummit.io/speakers/filipa-faria",
+      "linkedin": "https://www.linkedin.com/in/filipaffaria/"
+    },
+    {
+      "id": "ricardo",
+      "nome": "Ricardo",
+      "papel": "Speaker",
+      "organizacao": "Startup Summit",
+      "pagina": "https://startupsummit.io/speakers/ricardo",
+      "linkedin": "https://www.linkedin.com/in/ricardopascual84/"
+    },
+    {
+      "id": "raffaella-loncao",
+      "nome": "Raffaella Loncao",
+      "papel": "Founder & Managing Director",
+      "organizacao": "On This Planet",
+      "pagina": "https://startupsummit.io/speakers/raffaella-loncao",
+      "linkedin": "https://www.linkedin.com/in/raffaellaloncao/"
+    },
+    {
+      "id": "muhammad-farooq-rathod",
+      "nome": "Muhammad Farooq Rathod",
+      "papel": "CEO & Founder",
+      "organizacao": "UpStride Holdings",
+      "pagina": "https://startupsummit.io/speakers/muhammad-farooq-rathod",
+      "linkedin": "https://www.linkedin.com/in/muhammad-farooq-rathod-3158001b/"
+    },
+    {
+      "id": "zoya-mesaric-mag-a-pth",
+      "nome": "Zoya Mesaric",
+      "papel": "Executive Coach, Psychoanalyst & Trauma Specialist",
+      "organizacao": "Zoya Mesaric – Private International Practice",
+      "pagina": "https://startupsummit.io/speakers/zoya-mesaric-mag-a-pth",
+      "linkedin": "https://www.linkedin.com/in/zoya-mesaric-mag-a-pth-461259242?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+    },
+    {
+      "id": "alexandra-isenegger",
+      "nome": "Alexandra Isenegger",
+      "papel": "Founder & Managing Director",
+      "organizacao": "Linkilaw Solicitors, CBCA Group",
+      "pagina": "https://startupsummit.io/speakers/alexandra-isenegger",
+      "linkedin": "https://www.linkedin.com/in/alexandraisenegger/"
+    },
+    {
+      "id": "viachaslau-smirnou",
+      "nome": "Viachaslau Smirnou",
+      "papel": "CEO & Co-founder",
+      "organizacao": "Around PR Studio",
+      "pagina": "https://startupsummit.io/speakers/viachaslau-smirnou",
+      "linkedin": "https://www.linkedin.com/in/viachaslau-smirnou-b173068a?originalSubdomain=pl"
+    },
+    {
+      "id": "roman-knorr-duran",
+      "nome": "Román Knörr Durán",
+      "papel": "Marketing & Brand Strategist",
+      "organizacao": "Román Knörr",
+      "pagina": "https://startupsummit.io/speakers/roman-knorr-duran",
+      "linkedin": "https://www.linkedin.com/in/román-knörr-durán-42147b235"
+    },
+    {
+      "id": "akshay-ruparelia",
+      "nome": "Akshay Ruparelia",
+      "papel": "CEO & Co-Founder",
+      "organizacao": "Brdge",
+      "pagina": "https://startupsummit.io/speakers/akshay-ruparelia",
+      "linkedin": "https://www.linkedin.com/in/akshay-ruparelia/"
+    },
+    {
+      "id": "saachin-bhatt",
+      "nome": "Saachin Bhatt",
+      "papel": "CIO & Co-founder",
+      "organizacao": "Brdge",
+      "pagina": "https://startupsummit.io/speakers/saachin-bhatt",
+      "linkedin": "https://www.linkedin.com/in/saachinbhatt/"
+    },
+    {
+      "id": "dina-kondratiuk",
+      "nome": "Dina Kondratiuk",
+      "papel": "CEO & founder",
+      "organizacao": "Solegency",
+      "pagina": "https://startupsummit.io/speakers/dina-kondratiuk",
+      "linkedin": "https://www.linkedin.com/in/dinadea/"
+    },
+    {
+      "id": "joao-ramos",
+      "nome": "João Ramos",
+      "papel": "Innovation Orchestrator",
+      "organizacao": "Fast Track Ventures",
+      "pagina": "https://startupsummit.io/speakers/joao-ramos",
+      "linkedin": "https://www.linkedin.com/in/joaofmramos/"
+    },
+    {
+      "id": "thiago-vieira",
+      "nome": "Thiago Vieira",
+      "papel": "Chief Legal Officer",
+      "organizacao": "Pactum Global",
+      "pagina": "https://startupsummit.io/speakers/thiago-vieira",
+      "linkedin": null
+    },
+    {
+      "id": "diego-sampaio",
+      "nome": "Diego Sampaio",
+      "papel": "CEO",
+      "organizacao": "Globalfy",
+      "pagina": "https://startupsummit.io/speakers/diego-sampaio",
+      "linkedin": "https://www.linkedin.com/in/diegosampaio/"
+    },
+    {
+      "id": "amit-grinvald",
+      "nome": "Amit Grinvald",
+      "papel": "Communication Strategist & Public Speaking Coach",
+      "organizacao": "Independent",
+      "pagina": "https://startupsummit.io/speakers/amit-grinvald",
+      "linkedin": "https://www.linkedin.com/in/amit-grinvald-0655066a/"
+    },
+    {
+      "id": "janelle-harder",
+      "nome": "Janelle Harder",
+      "papel": "CEO & Founder",
+      "organizacao": "Humannovate Consulting",
+      "pagina": "https://startupsummit.io/speakers/janelle-harder",
+      "linkedin": "https://www.linkedin.com/in/janelleharder"
+    },
+    {
+      "id": "kasia-szczesniak",
+      "nome": "Kasia Szczesniak",
+      "papel": "Founder",
+      "organizacao": "Lisbon Business Leaders",
+      "pagina": "https://startupsummit.io/speakers/kasia-szczesniak",
+      "linkedin": "https://www.linkedin.com/in/kasiaszczesniak/"
+    },
+    {
+      "id": "lisa-rebecca-press",
+      "nome": "Lisa Rebecca Press",
+      "papel": "Founder",
+      "organizacao": "Lisa Press Consulting",
+      "pagina": "https://startupsummit.io/speakers/lisa-rebecca-press",
+      "linkedin": "https://www.linkedin.com/in/lisa-press-cpa-fmva/"
+    },
+    {
+      "id": "david-graham",
+      "nome": "David Graham",
+      "papel": "Managing Partner",
+      "organizacao": "Dyrectli Capital",
+      "pagina": "https://startupsummit.io/speakers/david-graham",
+      "linkedin": "https://www.linkedin.com/in/dguk/"
+    },
+    {
+      "id": "igor-nikolaiev",
+      "nome": "Igor Nikolaiev",
+      "papel": "Co-founder and Chief Product & Technology Officer",
+      "organizacao": "Aiffin",
+      "pagina": "https://startupsummit.io/speakers/igor-nikolaiev",
+      "linkedin": "https://www.linkedin.com/in/igornikolaiev/"
+    },
+    {
+      "id": "precy-servito",
+      "nome": "Precy Servito",
+      "papel": "Founder",
+      "organizacao": "KONNECT - AI + Human Strategy Execution Workspace",
+      "pagina": "https://startupsummit.io/speakers/precy-servito",
+      "linkedin": "https://www.linkedin.com/in/precyservito"
+    },
+    {
+      "id": "irina-shurmina",
+      "nome": "Irina Shurmina",
+      "papel": "Founder",
+      "organizacao": "Ladies Who Talk",
+      "pagina": "https://startupsummit.io/speakers/irina-shurmina",
+      "linkedin": "https://www.linkedin.com/in/irina-shurmina/"
+    },
+    {
+      "id": "jorge-sebastiao",
+      "nome": "Jorge Sebastiao",
+      "papel": "CEO and Co-founder",
+      "organizacao": "Ecox / Bombastic Burgh",
+      "pagina": "https://startupsummit.io/speakers/jorge-sebastiao",
+      "linkedin": "https://www.linkedin.com/in/sebastiao"
+    },
+    {
+      "id": "anisha-yadav",
+      "nome": "Anisha Yadav",
+      "papel": "Founder",
+      "organizacao": "First Ten Advisory",
+      "pagina": "https://startupsummit.io/speakers/anisha-yadav",
+      "linkedin": "https://www.linkedin.com/in/anishayadav/"
+    },
+    {
+      "id": "lauren-mucklow",
+      "nome": "Lauren Mucklow",
+      "papel": "Co-Founder",
+      "organizacao": "What She Said Limited",
+      "pagina": "https://startupsummit.io/speakers/lauren-mucklow",
+      "linkedin": "https://www.linkedin.com/in/laurenmucklow/"
+    },
+    {
+      "id": "max-rodman",
+      "nome": "Max Rodman",
+      "papel": "Co-founder",
+      "organizacao": "MVMT Studio",
+      "pagina": "https://startupsummit.io/speakers/max-rodman",
+      "linkedin": "https://www.linkedin.com/in/maxrodman/"
+    },
+    {
+      "id": "sibilla-strupule",
+      "nome": "Sibilla Strupule",
+      "papel": "CEO & Founder",
+      "organizacao": "SibillaStrupule.com",
+      "pagina": "https://startupsummit.io/speakers/sibilla-strupule",
+      "linkedin": "https://www.linkedin.com/in/sibillastrupule/"
+    },
+    {
+      "id": "mark-paul-haaksman",
+      "nome": "Mark Paul Haaksman",
+      "papel": "Co-Founder/ Fundraiser",
+      "organizacao": "Sotavento Angels Fund",
+      "pagina": "https://startupsummit.io/speakers/mark-paul-haaksman",
+      "linkedin": "https://www.linkedin.com/in/mark-p-haaksman-765121/"
+    },
+    {
+      "id": "micael-lopes",
+      "nome": "Micael Lopes",
+      "papel": "CEO & Founder",
+      "organizacao": "TIME & SPACE",
+      "pagina": "https://startupsummit.io/speakers/micael-lopes",
+      "linkedin": "https://www.linkedin.com/in/micaelopes/"
+    },
+    {
+      "id": "satya-morarji",
+      "nome": "Satya Morarji",
+      "papel": "Founder",
+      "organizacao": "Freedom VAs",
+      "pagina": "https://startupsummit.io/speakers/satya-morarji",
+      "linkedin": "https://www.linkedin.com/in/satya-morarji/"
+    },
+    {
+      "id": "tania-tome",
+      "nome": "Tania Tome",
+      "papel": "American Business Awards® Judge, Global KeynoteSpeaker, Advisor, Innovation Catalyst & Author",
+      "organizacao": "BRANDULOGY",
+      "pagina": "https://startupsummit.io/speakers/tania-tome",
+      "linkedin": "https://www.linkedin.com/in/taniatome/"
+    },
+    {
+      "id": "angelee-sidar",
+      "nome": "Angelee SIDAR",
+      "papel": "Founder",
+      "organizacao": "FIIYS Ltd",
+      "pagina": "https://startupsummit.io/speakers/angelee-sidar",
+      "linkedin": "https://www.linkedin.com/in/angelee-sidar-605a1a70/"
+    },
+    {
+      "id": "ben-lakoff",
+      "nome": "Ben Lakoff",
+      "papel": "Managing Partner",
+      "organizacao": "Bankless Ventures",
+      "pagina": "https://startupsummit.io/speakers/ben-lakoff",
+      "linkedin": "https://www.linkedin.com/in/benlakoff"
+    },
+    {
+      "id": "rita-martins-freire",
+      "nome": "Rita Martins Freire",
+      "papel": "Marketing, CX & Growth Transformation Leader",
+      "organizacao": "Trivevo",
+      "pagina": "https://startupsummit.io/speakers/rita-martins-freire",
+      "linkedin": "https://www.linkedin.com/in/ritamartinsfreire"
+    },
+    {
+      "id": "sebastian-horstmann",
+      "nome": "Sebastian Horstmann",
+      "papel": "CTO & Co-Founder",
+      "organizacao": "Cosysense",
+      "pagina": "https://startupsummit.io/speakers/sebastian-horstmann",
+      "linkedin": "https://www.linkedin.com/in/s-horstmann/"
+    },
+    {
+      "id": "sofia-bobrik",
+      "nome": "Sofia Bobrik",
+      "papel": "Founder & CEO",
+      "organizacao": "PR Agency TechWaves",
+      "pagina": "https://startupsummit.io/speakers/sofia-bobrik",
+      "linkedin": "https://www.linkedin.com/in/sofia-bobrik/"
+    },
+    {
+      "id": "pedro-simoes",
+      "nome": "Pedro Simões",
+      "papel": "Entrepreneur",
+      "organizacao": "JCI",
+      "pagina": "https://startupsummit.io/speakers/pedro-simoes",
+      "linkedin": "https://www.linkedin.com/in/opedrosimoes?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+    },
+    {
+      "id": "sylvie-ritt",
+      "nome": "Sylvie Ritt",
+      "papel": "Co-Founder",
+      "organizacao": "Time to Rise",
+      "pagina": "https://startupsummit.io/speakers/sylvie-ritt",
+      "linkedin": null
+    },
+    {
+      "id": "daniel-grech",
+      "nome": "Daniel Grech",
+      "papel": "AI Enablement Consultant",
+      "organizacao": "Self-Employed",
+      "pagina": "https://startupsummit.io/speakers/daniel-grech",
+      "linkedin": "https://www.linkedin.com/in/daniel-grech-8bb32a24/"
+    },
+    {
+      "id": "elias-flachowsky",
+      "nome": "Elias Flachowsky",
+      "papel": "Co-Founder",
+      "organizacao": "Time to Rise",
+      "pagina": "https://startupsummit.io/speakers/elias-flachowsky",
+      "linkedin": "https://www.linkedin.com/in/elias-flachowsky-bb090542b"
+    },
+    {
+      "id": "kristina-kutan",
+      "nome": "Kristina Kutan",
+      "papel": "COO",
+      "organizacao": "VNTR Capital",
+      "pagina": "https://startupsummit.io/speakers/kristina-kutan",
+      "linkedin": "https://www.linkedin.com/in/kristinakutan/"
+    },
+    {
+      "id": "hudi-shehu",
+      "nome": "Hudi Shehu",
+      "papel": "Founding Chairman",
+      "organizacao": "Business Network Albania",
+      "pagina": "https://startupsummit.io/speakers/hudi-shehu",
+      "linkedin": "https://linkedin.com/in/hudishehu"
+    },
+    {
+      "id": "alexandre-daletchine",
+      "nome": "Alexandre Daletchine",
+      "papel": "CEO & Foudner",
+      "organizacao": "Creativity Matter",
+      "pagina": "https://startupsummit.io/speakers/alexandre-daletchine",
+      "linkedin": "https://www.linkedin.com/in/alexandre-daletchine-91185213/"
+    },
+    {
+      "id": "slavi-slavev",
+      "nome": "Slavi Slavev",
+      "papel": "Founder, AI Lead",
+      "organizacao": "Independent",
+      "pagina": "https://startupsummit.io/speakers/slavi-slavev",
+      "linkedin": "https://www.linkedin.com/in/sslavev/"
+    },
+    {
+      "id": "wouter-heijnen",
+      "nome": "Wouter Heijnen",
+      "papel": "co-Founder and Startup Scout",
+      "organizacao": "Sotavento Invest",
+      "pagina": "https://startupsummit.io/speakers/wouter-heijnen",
+      "linkedin": "https://www.linkedin.com/in/wtrhnn"
+    },
+    {
+      "id": "diogo-mendonca",
+      "nome": "Diogo Mendonça",
+      "papel": "Investor - Tech Exec",
+      "organizacao": "Angels Way",
+      "pagina": "https://startupsummit.io/speakers/diogo-mendonca",
+      "linkedin": "https://www.linkedin.com/in/dimend/"
+    },
+    {
+      "id": "lidija-krickovic",
+      "nome": "Lidija Krickovic",
+      "papel": "CEO & Founder",
+      "organizacao": "Growth Geek Unipessoal LDA",
+      "pagina": "https://startupsummit.io/speakers/lidija-krickovic",
+      "linkedin": "https://www.linkedin.com/in/lidijakrickovic/"
+    },
+    {
+      "id": "ed-chandler",
+      "nome": "Ed Chandler",
+      "papel": "Founder & Principal Advisor",
+      "organizacao": "PriFly Advisors",
+      "pagina": "https://startupsummit.io/speakers/ed-chandler",
+      "linkedin": "https://www.linkedin.com/in/edchandler96/"
+    },
+    {
+      "id": "cintia-costa",
+      "nome": "Cíntia Costa",
+      "papel": "President",
+      "organizacao": "351 Portuguese Startup Association",
+      "pagina": "https://startupsummit.io/speakers/cintia-costa",
+      "linkedin": "https://www.linkedin.com/in/cintiatcosta/"
+    },
+    {
+      "id": "olivia-page",
+      "nome": "Olivia Page",
+      "papel": "CEO & Co-founder",
+      "organizacao": "Mykor",
+      "pagina": "https://startupsummit.io/speakers/olivia-page",
+      "linkedin": "https://www.linkedin.com/in/olivia-page-09961299/"
+    },
+    {
+      "id": "olesia-rykova",
+      "nome": "Olesia Rykova",
+      "papel": "CEO & Co-founder",
+      "organizacao": "SOULBRANDING",
+      "pagina": "https://startupsummit.io/speakers/olesia-rykova",
+      "linkedin": "https://www.linkedin.com/in/olesia-rykova/"
+    },
+    {
+      "id": "joaquim-nascimento",
+      "nome": "Joaquim Nascimento",
+      "papel": "CEO & Co-founder",
+      "organizacao": "Kapisci",
+      "pagina": "https://startupsummit.io/speakers/joaquim-nascimento",
+      "linkedin": "https://www.linkedin.com/in/joaquimnascimento"
+    },
+    {
+      "id": "daniel-gouveia",
+      "nome": "Daniel Gouveia",
+      "papel": "Business Developer Lead",
+      "organizacao": "Digiseg",
+      "pagina": "https://startupsummit.io/speakers/daniel-gouveia",
+      "linkedin": "https://www.linkedin.com/in/danielgouveia/"
+    },
+    {
+      "id": "nataliia-komarnytska",
+      "nome": "Nataliia Komarnytska",
+      "papel": "Head of Global PR",
+      "organizacao": "IdeaSoft",
+      "pagina": "https://startupsummit.io/speakers/nataliia-komarnytska",
+      "linkedin": "https://www.linkedin.com/in/natalykoma/"
+    },
+    {
+      "id": "brian-nogaro",
+      "nome": "Brian Nogaro",
+      "papel": "Director, Investor Relations",
+      "organizacao": "S8 Aquisitions",
+      "pagina": "https://startupsummit.io/speakers/brian-nogaro",
+      "linkedin": "https://www.linkedin.com/in/brian-nogaro-29b18162/"
+    },
+    {
+      "id": "nina-chande",
+      "nome": "Nina Chandé",
+      "papel": "Founder",
+      "organizacao": "Like No Other",
+      "pagina": "https://startupsummit.io/speakers/nina-chande",
+      "linkedin": "https://www.linkedin.com/in/ninachande/"
+    },
+    {
+      "id": "mike-sigal",
+      "nome": "Mike Sigal",
+      "papel": "Founder",
+      "organizacao": "Sigal Ventures",
+      "pagina": "https://startupsummit.io/speakers/mike-sigal",
+      "linkedin": null
+    }
+  ]
+}

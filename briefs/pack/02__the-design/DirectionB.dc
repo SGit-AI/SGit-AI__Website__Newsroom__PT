@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; background: #eef0f2; }
+    a { color: #111418; text-decoration: none; } a:hover { color: #0b5d8a; text-decoration: underline; }
+    .B { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; color: #111418; }
+    .m { font-family: "JetBrains Mono", Menlo, Consolas, monospace; }
+    .lbl { font-family: "JetBrains Mono", Menlo, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #5b6470; }
+    .st { font-family: "JetBrains Mono", Menlo, monospace; font-size: 11px; letter-spacing: .04em; padding: 2px 6px; border-radius: 2px; font-weight: 600; }
+    .st-ok { background: #d9f2e6; color: #0b6b43; }
+    .st-miss { background: #fde3c3; color: #8a4b00; }
+    .st-new { background: #dbe9f7; color: #0b5d8a; }
+    .st-gone { background: #f6d9d9; color: #9b1c1c; }
+    .h1 { font-size: 34px; line-height: 1.08; font-weight: 700; letter-spacing: -.02em; margin: 0; }
+    .h2 { font-size: 20px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+    .p { font-size: 14px; line-height: 1.5; margin: 0; color: #2c323a; }
+    .row { display: grid; grid-template-columns: 92px 110px minmax(0, 1fr) 150px 120px; gap: 16px; align-items: baseline; padding: 11px 0; border-top: 1px solid #d5d9de; }
+    .side { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; background: #ffffff; border: 1px solid #d5d9de; }
+    .ln { font-size: 14px; padding: 7px 0; border-top: 1px solid #e3e6ea; display: flex; justify-content: space-between; }
+  </style>
+</helmet>
+<div class="B" style="width: 1440px; min-height: 1720px; background: #eef0f2; display: flex; flex-direction: column;">
+
+  <!-- top bar -->
+  <div style="background: #111418; color: #eef0f2; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 48px;">
+    <div style="display: flex; align-items: center; gap: 22px;">
+      <div style="font-weight: 700; font-size: 17px; letter-spacing: -.02em;">pt.newsroom<span style="color: #8a93a0; font-weight: 400;">.sgit.ai</span></div>
+      <div class="m" style="font-size: 12px; color: #a9b1bb;">registo · grafo · método · aviso</div>
+    </div>
+    <div class="m" style="font-size: 12px; color: #a9b1bb;">2026-09-13 · Lisboa · T−4d para Startup Summit Lisbon 2026 · build ok · 15 portas verificadas</div>
+  </div>
+
+  <!-- ticker -->
+  <div style="background: #ffffff; border-bottom: 1px solid #d5d9de; display: flex; gap: 28px; align-items: center; padding: 9px 32px; overflow: hidden;">
+    <span class="lbl">Últimas alterações</span>
+    <span class="m" style="font-size: 12px; white-space: nowrap;"><span class="st st-new">+5</span> oradores · 08 set → 13 set</span>
+    <span class="m" style="font-size: 12px; white-space: nowrap;"><span class="st st-gone">−1</span> orador · já não listado</span>
+    <span class="m" style="font-size: 12px; white-space: nowrap;"><span class="st st-miss">≠</span> nomes dos palcos · agenda vs ai-summary</span>
+    <span class="m" style="font-size: 12px; white-space: nowrap;"><span class="st st-ok">7</span> páginas de imprensa congeladas · 1 excluída</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr) 320px; gap: 24px; padding: 24px 32px;">
+
+    <!-- sections rail -->
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <div class="lbl" style="padding: 0 0 8px 0;">Secções</div>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Empresas</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Protagonistas</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Instituições</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Políticas</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Casos de uso</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Código aberto</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 500;">Diáspora</a>
+      <a href="#" style="padding: 7px 10px; font-size: 14px; font-weight: 600; background: #ffffff; border-left: 2px solid #111418;">Eventos</a>
+      <div class="lbl" style="padding: 22px 0 8px 0;">Estado</div>
+      <div class="side">
+        <div class="ln"><span>nós</span><span class="m">192</span></div>
+        <div class="ln"><span>arestas</span><span class="m">298</span></div>
+        <div class="ln"><span>instantâneos</span><span class="m">24</span></div>
+        <div class="ln"><span>hashes falhados</span><span class="m">0</span></div>
+        <div class="ln"><span>contactos no registo</span><span class="m">0</span></div>
+      </div>
+    </div>
+
+    <!-- feed -->
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="background: #ffffff; border: 1px solid #d5d9de; padding: 24px 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 10px; align-items: center;"><span class="lbl">Eventos · Startup Summit Lisbon 2026</span><span class="st st-miss">1 afirmação não encontrada</span></div>
+        <h1 class="h1">Uma tentativa de recorde que a agenda não menciona</h1>
+        <p class="p" style="font-size: 16px;">Dois órgãos portugueses dizem que uma maratona de pitches de 48 horas, candidata ao Guinness, decorre em paralelo à cimeira a 16 e 17 de setembro. A agenda do próprio evento, a quatro dias das portas, não a lista. Ambas as páginas estão congeladas; nenhuma está errada, ainda.</p>
+        <div style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 210px 110px; gap: 12px; align-items: baseline; border-top: 1px solid #d5d9de; padding-top: 10px;">
+          <span class="lbl">#</span><span class="lbl">afirmação</span><span class="lbl">fonte · hash</span><span class="lbl">estado</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 210px 110px; gap: 12px; align-items: baseline;">
+          <span class="m" style="font-size: 12px; color: #5b6470;">1</span><span class="p">Há uma maratona de pitches de 48 horas em paralelo à cimeira.</span><span class="m" style="font-size: 12px;">AICEP · 29 jul · hash no registo</span><span class="st st-ok">confirmada</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 210px 110px; gap: 12px; align-items: baseline;">
+          <span class="m" style="font-size: 12px; color: #5b6470;">2</span><span class="p">A maratona é uma tentativa de recorde Guinness.</span><span class="m" style="font-size: 12px;">PBN · 29 jul · hash no registo</span><span class="st st-ok">confirmada</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 210px 110px; gap: 12px; align-items: baseline;">
+          <span class="m" style="font-size: 12px; color: #5b6470;">3</span><span class="p">A agenda do evento lista a maratona.</span><span class="m" style="font-size: 12px;">agenda · 13 set · hash no registo</span><span class="st st-miss">não encontrada</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px;"><span class="lbl">Registo · por ordem de captura</span><span class="m" style="font-size: 12px; color: #5b6470;">24 instantâneos · 3 histórias · a mostrar 8</span></div>
+        <div class="row" style="border-top: 2px solid #111418;"><span class="lbl">capturado</span><span class="lbl">secção</span><span class="lbl">entrada</span><span class="lbl">fonte</span><span class="lbl">estado</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">13 set 21:40</span><span class="p">Eventos</span><a href="#" class="h2">Chegaram cinco nomes e saiu um</a><span class="m" style="font-size: 12px;">speakers ×2</span><span class="st st-ok">2 confirmadas</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">13 set 21:12</span><span class="p">Eventos</span><a href="#" class="h2">Dois nomes para três palcos</a><span class="m" style="font-size: 12px;">agenda · ai-summary</span><span class="st st-miss">disputada</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">13 set 20:05</span><span class="p">Eventos</span><span class="p">Sete páginas de imprensa sobre o evento congeladas; a listagem de abril na Eventbrite devolveu 404 e ficou fora.</span><span class="m" style="font-size: 12px;">coverage ×7</span><span class="st st-ok">no registo</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">13 set 18:30</span><span class="p">Eventos</span><span class="p">Agenda transcrita: 16 sessões, 3 palcos, cada título verificado palavra a palavra contra a cópia congelada.</span><span class="m" style="font-size: 12px;">agenda · 13 set</span><span class="st st-ok">verificada</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">em preparação</span><span class="p">Políticas</span><a href="#" class="h2">A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público</a><span class="m" style="font-size: 12px;">diário oficial</span><span class="st st-miss">não encontrada</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">em preparação</span><span class="p">Instituições</span><a href="#" class="h2">O regulador foi designado há um ano e o instrumento de designação não está na página de IA do Governo</a><span class="m" style="font-size: 12px;">página do Governo</span><span class="st st-miss">não encontrada</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">em preparação</span><span class="p">Empresas</span><a href="#" class="h2">Quantas das 5.091 startups ativas são empresas de IA, e porque nenhum conjunto de dados público o diz</a><span class="m" style="font-size: 12px;">método publicado</span><span class="st st-ok">mínimo</span></div>
+        <div class="row"><span class="m" style="font-size: 12px;">08 set 09:12</span><span class="p">Eventos</span><span class="p">Primeiro instantâneo da lista de oradores: 60 nomes, 60 hashes.</span><span class="m" style="font-size: 12px;">speakers · 08 set</span><span class="st st-ok">congelado</span></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+        <div style="background: #ffffff; border: 1px solid #d5d9de; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+          <span class="lbl">Esta semana em Lisboa</span>
+          <div class="ln"><span>16 set · 19:00 · Welcome Drinks</span><span class="m" style="color: #5b6470;">—</span></div>
+          <div class="ln"><span>17 set · 09:30 · Opening Keynote</span><span class="m" style="color: #5b6470;">Unicorn</span></div>
+          <div class="ln"><span>17 set · 11:45 · AI or Die</span><span class="m" style="color: #5b6470;">Unicorn</span></div>
+          <div class="ln"><span>18 set · 09:30 · Portuguese Unicorn Conversation</span><span class="m" style="color: #5b6470;">Unicorn</span></div>
+          <div class="ln"><span>18 set · 10:10 · What I Built With AI</span><span class="m" style="color: #5b6470;">Impact</span></div>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #d5d9de; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+          <span class="lbl">Imprensa · páginas congeladas</span>
+          <div class="ln"><span>AICEP Portugal Global · notícia</span><span class="m" style="color: #5b6470;">29 jul</span></div>
+          <div class="ln"><span>Portugal Business News · notícia</span><span class="m" style="color: #5b6470;">29 jul</span></div>
+          <div class="ln"><span>ScaleUp Porto · listagem</span><span class="m" style="color: #5b6470;">07 jul</span></div>
+          <div class="ln"><span>StartupEvents.org · listagem</span><span class="m" style="color: #5b6470;">s/ data</span></div>
+          <div class="ln"><span>Startup Map Hub · guia</span><span class="m" style="color: #5b6470;">s/ data</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right panel -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="side">
+        <span class="lbl">Redação · agora</span>
+        <div class="ln"><span>Pesquisa</span><span class="st st-ok">a congelar</span></div>
+        <div class="ln"><span>Redação</span><span class="st st-new">a escrever</span></div>
+        <div class="ln"><span>Verificação</span><span class="st st-miss">1 pendente</span></div>
+        <div class="ln"><span>Publicação</span><span class="m" style="color: #5b6470;">build · git</span></div>
+        <p class="p" style="font-size: 12px; color: #5b6470; padding-top: 6px;">Cada departamento é uma pasta, um agente, uma página e um revisor. Editor de registo: Dinis Cruz.</p>
+      </div>
+      <div class="side">
+        <span class="lbl">Um caminho no grafo</span>
+        <p class="p" style="font-size: 15px; line-height: 1.55;">«AI or Die» <span class="m" style="font-size: 11px; color: #0b5d8a;">parte de</span> Startup Summit Lisbon 2026 <span class="m" style="font-size: 11px; color: #0b5d8a;">decorre em</span> Unicorn Factory Lisboa <span class="m" style="font-size: 11px; color: #0b5d8a;">coberto por</span> AICEP Portugal Global.</p>
+        <a href="#" class="m" style="font-size: 12px; color: #0b5d8a;">abrir o grafo →</a>
+      </div>
+      <div class="side">
+        <span class="lbl">Instantâneos · 13 set · hashes ilustrativos</span>
+        <div class="ln"><span class="m" style="font-size: 12px;">index</span><span class="m" style="font-size: 12px; color: #5b6470;">e4a1…0c</span></div>
+        <div class="ln"><span class="m" style="font-size: 12px;">agenda</span><span class="m" style="font-size: 12px; color: #5b6470;">d02f…71</span></div>
+        <div class="ln"><span class="m" style="font-size: 12px;">speakers</span><span class="m" style="font-size: 12px; color: #5b6470;">91b7…3e</span></div>
+        <div class="ln"><span class="m" style="font-size: 12px;">sponsors</span><span class="m" style="font-size: 12px; color: #5b6470;">44c8…aa</span></div>
+        <div class="ln"><span class="m" style="font-size: 12px;">ai-summary</span><span class="m" style="font-size: 12px; color: #5b6470;">0f39…d5</span></div>
+        <div class="ln"><span class="m" style="font-size: 12px;">llms.txt</span><span class="m" style="font-size: 12px; color: #5b6470;">b6e0…17</span></div>
+        <p class="p" style="font-size: 12px; color: #5b6470; padding-top: 6px;">Os hashes reais estão no registo de fontes.</p>
+      </div>
+      <div class="side" style="background: #111418; border-color: #111418; color: #eef0f2;">
+        <span class="lbl" style="color: #a9b1bb;">Para redações</span>
+        <p class="p" style="color: #eef0f2; font-size: 14px;">Os agentes desta redação seguem políticas de comportamento publicadas: o que podem escrever e o que têm de registar antes.</p>
+        <a href="#" class="m" style="font-size: 12px; color: #9ed0f5;">ler as políticas →</a>
+      </div>
+      <div class="side">
+        <span class="lbl">Proteção de dados</span>
+        <p class="p" style="font-size: 12px;">Responsável: Dinis Cruz. Base: interesses legítimos. Remoção incondicional; o motivo nunca é publicado.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

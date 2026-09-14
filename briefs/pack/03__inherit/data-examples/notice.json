@@ -1,0 +1,71 @@
+{
+  "id": "portugal-data-protection-notice",
+  "version": "0.1.0",
+  "updated": "2026-09-13",
+  "note": "Published because this section carries personal data about named individuals it did not obtain from them. Written to the reading set out in the 13 September 2026 dev brief: the journalistic route in Article 24 of Lei 58/2019 is conditioned on the national rules governing access to and exercise of the profession, which this publication does not satisfy, so the basis is legitimate interests and a public notice is required rather than optional.",
+  "not_legal_advice": "This notice is what a publication owes the people it names, written by the people publishing it. It is not legal advice and no lawyer has reviewed it. The statutory article it rests on was returned truncated when the brief's author read it and must be re-read in full. If you are relying on this as a model, get your own advice.",
+  "controller": {
+    "who": "Dinis Cruz, personally",
+    "why_personal": "No entity exists for this publication. Naming a person rather than a project is the honest version and it is also the cheap one — it means the objection route below reaches somebody who can act on it rather than a form.",
+    "contact": "dinis.cruz@owasp.org"
+  },
+  "subjects": "People named on the event's own published speaker list, in their professional capacity: name, the role they are listed under, the organisation they are listed under, the links the event published for them, the topics the event lists on their own page, and the words on that page that match a published lexicon.",
+  "categories_held": [
+    "Name, as published by the event",
+    "Professional role, as published by the event",
+    "Organisation, as published by the event",
+    "The URL of that person's own page on the event's site",
+    "A LinkedIn profile URL where the event published one",
+    "The topics the event lists on that person's own page, verbatim (since v0.3.4)",
+    "The words on that person's own page that match a published lexicon of industries, technologies, ideas, services and products — the matched words only, never the sentence (since v0.3.4)"
+  ],
+  "categories_refused": [
+    "Postal addresses of any natural person",
+    "Email addresses of any natural person",
+    "Telephone numbers of any natural person",
+    "Any special category data",
+    "Biographies as text: the speaker's or organiser's own writing, linked rather than reproduced. A published lexicon reads them for matching words and keeps only the words",
+    "Any assessment, ranking, score or characterisation of any named person. A derived tag says the page contains certain words; the connections page works at organisation level and names nobody"
+  ],
+  "refusal_enforced_by": "Gate check 11 of portugal/build/gates.py, which fails the build if an email address, telephone number or personal postal address appears anywhere in the section's data; gate 10, which fails it if any field is long enough to be a reproduced biography; and gate 17, which re-runs every lexicon pattern against the frozen page so a derived tag can never be typed in by hand. They run at extraction time rather than at rendering time.",
+  "source": "Two kinds of source, both fetched and frozen to dated snapshots in this repository: the event's own website, and third-party pages about the event. The data held about any person comes only from the event's speaker list and from that person's own page on the event's site. Every source is listed with its SHA-256 in the register.",
+  "purpose": "Reporting on a public professional event and the ecosystem around it, and demonstrating a method in which every published claim can be walked back to a hashed copy of the source it came from.",
+  "lawful_basis": {
+    "basis": "Legitimate interests",
+    "not_journalism": "The journalistic derogation is not claimed. Article 24(3) of Lei 58/2019 conditions processing for journalistic purposes on the national legislation governing access to and exercise of the profession. This publication is not accredited under it and does not meet that condition, so it does not rely on it.",
+    "test": [
+      {
+        "limb": "The interest",
+        "we_say": "Reporting what a public event has published about itself, and demonstrating a verification method on it. Both are matters of public interest and neither is commercial — the section carries no price, no advertising and no tracking."
+      },
+      {
+        "limb": "Necessity",
+        "we_say": "The reporting cannot be done without the names, because the subject IS who is speaking. The data held is the minimum: the four published professional fields and nothing else. No biography is stored, no contact detail is stored, and no inference about anybody is made or published."
+      },
+      {
+        "limb": "The balance",
+        "we_say": "Every datum was published by the event itself for the express purpose of announcing these people as speakers, in their professional capacity, and carries no private-life content. Against that: being listed on a third-party site is not something anybody consented to, which is why the objection route below is unconditional rather than assessed. We also record that data having been made public does not by itself mean it may be processed on this basis — it is a factor in the balance, not an answer to it."
+      }
+    ],
+    "guidance": "The three limbs follow the European Data Protection Board's guidelines on legitimate interests adopted 8 October 2024."
+  },
+  "why_public_notice": {
+    "rule": "Where personal data is not obtained from the person it concerns, Article 14 of the GDPR requires that they be told. Article 14(5)(b) exempts a controller where individual notification would involve disproportionate effort — but that exemption is conditional, and one of the measures it expressly requires is making the information publicly available.",
+    "so": "This page is that measure. It exists so the exemption is earned rather than assumed, and it was published before this section's first update following the discovery that it was missing.",
+    "honest_note": "It should have been published at the same time as the pages naming these people, not after. It was not. That is recorded here rather than quietly fixed, and the release note says the same."
+  },
+  "retention": "The frozen source snapshots are permanent, because they are the evidence that makes every claim checkable and deleting them would break the method. The derived entity data is rebuilt from them on every run. If a person objects, their entry is removed from the derived data and from every rendered page; the frozen snapshot is not altered, because it is a copy of what somebody else published on a date, not our record of them.",
+  "rights": [
+    "Ask what is held about you, and get a copy",
+    "Have anything inaccurate corrected",
+    "Object to being included, and be removed",
+    "Have the removal propagate to every page on the next build, which runs on request rather than on a schedule",
+    "Complain to the Comissão Nacional de Proteção de Dados, or to the supervisory authority where you live"
+  ],
+  "objection": {
+    "how": "Email the controller above. Say who you are and that you want your entry removed.",
+    "promise": "No reason is required and none will be asked for. Removal is not assessed, argued with or delayed pending a balancing exercise.",
+    "and_then": "The entry is removed from the derived data, the section is rebuilt, and the person's name no longer appears on any page. Because removal changes what the snapshot diff would otherwise show, the changes page records that an entry was removed at the subject's request, with no name — which is the only way to keep the diff honest without re-publishing the name it was asked to remove."
+  },
+  "no_reason_rule": "Where a name has left the event's own published list between two of our snapshots, this publication records the change and states no reason. Withdrawal, a scheduling clash, a duplicate record and an editing error are indistinguishable from outside, and attaching a motive to a named person on that evidence is the most harmful thing this section could do."
+}

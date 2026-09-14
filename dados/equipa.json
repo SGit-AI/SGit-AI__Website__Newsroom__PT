@@ -1,0 +1,81 @@
+{
+  "id": "pt-redacao",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "postura": "agentes-com-editor-nomeado",
+  "humano_no_circuito": true,
+
+  "editor_de_registo": {
+    "nome": "Dinis Cruz",
+    "o_que_faz": "Lê cada página antes de ela ir para o ar, e é a pessoa nomeada que responde pelo que esta publicação diz.",
+    "e_tambem": "O responsável pelo tratamento nomeado no aviso de proteção de dados. A via de oposição chega a ele e não a um formulário.",
+    "limite": "Um editor de registo nomeado é uma pessoa a assumir responsabilidade. Não é um parecer jurídico, e nenhuma revisão jurídica foi feita. A publicação relata o que outras organizações publicaram, e liga para isso.",
+    "so_ele_pode": [
+      "Pôr uma história em «publicado». Nenhuma execução automática o pode fazer.",
+      "Decidir uma remoção ao abrigo do aviso.",
+      "Limpar um item que ficou «parado»."
+    ]
+  },
+
+  "nota": "Três departamentos e um humano nomeado. O resumo de comissionamento cortou quinze departamentos para três, pela razão de que quinze departamentos — cada um simultaneamente uma pasta, um agente, uma página, um fluxo e um revisor — seriam setenta e cinco objetos antes de existir um único artigo. Publicação não é um departamento: é um passo de construção. O arquivo é o git. Correções não são um departamento enquanto não houver nada para corrigir. Tradução não existe, porque este site é nativamente português e não uma tradução de coisa nenhuma.",
+
+  "departamentos": [
+    {
+      "id": "pesquisa",
+      "nome": "Pesquisa",
+      "gravidade": "Nenhuma afirmação sem bytes que tenhamos em mãos.",
+      "escreve_em": ["fontes/congeladas/<data>/", "dados/registo.json", "dados/*.json extraídos das fontes"],
+      "faz": "Encontra a fonte primária. Obtém-na, congela-a numa captura datada, hasheia-a, regista-a, extrai dela e compara com a captura anterior.",
+      "recusa": "Ler uma fonte pela rede no momento de publicar; citar uma página que ninguém congelou; arrumar um valor confuso da fonte para um mais limpo.",
+      "errado_quando": "Uma afirmação não pode ser percorrida para trás até um SHA-256 do registo.",
+      "estado": "a-correr"
+    },
+    {
+      "id": "redacao",
+      "nome": "Redação",
+      "gravidade": "Cada frase assenta numa fonte registada.",
+      "escreve_em": ["conteudo/*.md"],
+      "faz": "Escreve a partir do que a pesquisa registou, e de mais nada. Cada afirmação leva o identificador da fonte congelada em que assenta.",
+      "recusa": "Uma afirmação sem fonte; um adjetivo sobre uma parte nomeada; prosa mais certa do que as capturas são.",
+      "errado_quando": "Uma afirmação no texto não tem marca de fonte, ou tem uma que o registo não conhece.",
+      "estado": "a-correr"
+    },
+    {
+      "id": "verificacao",
+      "nome": "Verificação",
+      "gravidade": "Publica-se o registo, nunca o veredicto.",
+      "escreve_em": ["dados/verificacoes/*.json"],
+      "faz": "Relê cada fonte citada na cópia congelada. Marca cada afirmação: confirmada, disputada ou não encontrada.",
+      "recusa": "Editar a história. Marcar como confirmada uma afirmação que não releu.",
+      "errado_quando": "Uma história chega ao editor com afirmações que ninguém voltou a abrir.",
+      "estado": "a-correr"
+    }
+  ],
+
+  "publicacao": {
+    "nome": "Publicação",
+    "o_que_e": "Um passo de construção, não um departamento.",
+    "faz": "build/ constrói as páginas a partir de dados/ e conteudo/; os portões falham a construção; a integração contínua publica o que passou.",
+    "estado": "a-correr"
+  },
+
+  "quem_escreve_onde": "Um departamento só pode alterar ficheiros na sua própria pasta. O registo de execução (redacao/runs/<datahora>.json) lista o que mudou, por pasta, e o portão 12 falha a construção se a diferença de uma execução mostrar a pesquisa a escrever prosa ou a redação a tocar numa fonte. É o que faz disto uma redação e não um script.",
+
+  "nao_construido": [
+    { "papel": "Correções", "porque": "Não é um departamento enquanto não houver nada para corrigir. O procedimento existe (briefs/pack/04__the-newsroom/prompts/30-correction.md) e a primeira correção cria-o." },
+    { "papel": "Tradução", "porque": "Este site é nativamente português. Não há para onde traduzir, e é essa a simplificação que torna o desenho tratável." },
+    { "papel": "Agente de investigação profunda", "porque": "Trabalho de vários dias. Nada nesta matéria precisou dele ainda, e reclamá-lo seria reclamar uma capacidade." },
+    { "papel": "Agente visual", "porque": "Não se geram infografias. A única imagem deste site é o grafo, que é desenhado a partir dos dados." },
+    { "papel": "Agente de comunidade", "porque": "Não há público para monitorizar. Construir um ciclo de resposta antes de haver respostas seria teatro." }
+  ],
+
+  "camadas_de_agente": {
+    "nota": "O resumo (§8) divide os agentes por aquilo que conseguem escrever, e diz para testar o nível B primeiro e tratar o resultado como um achado em qualquer dos sentidos. Não foi testado nesta versão e é a primeira coisa por fazer.",
+    "niveis": [
+      { "nivel": "A", "pode": "Ler e escrever ficheiros, correr comandos, fazer commit", "participa": "Faz o envio, a entrega e a conclusão por si próprio", "estado": "é o que constrói este site" },
+      { "nivel": "B", "pode": "Conduzir um navegador autenticado; não corre código nem toca num sistema de ficheiros", "participa": "Faz commit de uma mensagem através do editor web do alojamento de código", "estado": "por testar — ninguém no conjunto o tentou" },
+      { "nivel": "C", "pode": "Obter páginas e produzir texto; não consegue entregar", "participa": "Escreve o corpo; um agente de nível A faz o commit e regista que o fez", "estado": "por testar" },
+      { "nivel": "D", "pode": "Gerar uma aplicação e sincronizá-la com o seu próprio repositório", "participa": "Produz uma apresentação; escreve apenas no seu próprio projeto", "estado": "por testar" }
+    ]
+  }
+}

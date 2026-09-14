@@ -1,0 +1,47 @@
+# .github/workflows/newsroom-run.yml — the scheduled newsroom run (Option B in
+# briefs/pack/05__schedule/README.md). One pass of the loop, daily at 06:30 UTC (07:30
+# Lisbon), plus on demand. The instruction is the repository skill .claude/skills/newsroom-run;
+# this file only fires it. Requires the repository secret ANTHROPIC_API_KEY (or swap the
+# anthropic_api_key input for claude_code_oauth_token). The concurrency group is shared with
+# deploy-pages.yml so a run and a deploy never overlap.
+name: newsroom-run
+on:
+  schedule:
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pyoxigraph
+      - name: Git identity for the run's commits
+        run: |
+          git config user.name  "newsroom-run"
+          git config user.email "newsroom-run@users.noreply.github.com"
+      - name: One pass of the newsroom loop
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Run /newsroom-run. Today is ${{ github.run_started_at }} (convert to Europe/Lisbon).
+            Work on dev; push only with every gate green; never set estado: publicado; when
+            blocked, write to the editor's inbox and stop. End with the run record written to
+            redacao/runs/ and one message in the editor's inbox.
+          claude_args: "--max-turns 120"

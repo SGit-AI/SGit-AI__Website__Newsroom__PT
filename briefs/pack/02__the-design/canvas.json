@@ -1,0 +1,105 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "A · Diário (escolhida)",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2440,
+      "page": "page-1"
+    },
+    {
+      "file": "MainPhone.dc.html",
+      "title": "A · Diário · telemóvel",
+      "x": 1560,
+      "y": 0,
+      "w": 390,
+      "h": 1900,
+      "page": "page-1"
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "B · Fio (registo denso)",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1720,
+      "page": "page-2"
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "C · Grafo (escuro, grafo primeiro)",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 1660,
+      "page": "page-2"
+    },
+    {
+      "file": "DirectionD.dc.html",
+      "title": "D · Boletim (revista, afirmações sublinhadas)",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 1940,
+      "page": "page-2"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-a",
+      "x": 0,
+      "y": -230,
+      "w": 560,
+      "text": "A · Diário — escolhida a 13 de setembro de 2026.\nJornal clássico em papel quente: Newsreader (títulos e texto) + IBM Plex Mono (datas, chips, secções), uma cor de destaque (verde #0f766e), sem anúncios, sem imagens sem fonte.\nEstrutura: cabeçalho com data e contagem para o evento · cabeçalho tipográfico + frase-âmbito · oito secções · notícia principal com fontes em chips · duas secundárias · «Nesta edição» · registo nacional em preparação · o grafo com um caminho lido em voz alta · programa da semana · o que diz a imprensa · como se faz · «Para redações» · ficha técnica.",
+      "page": "page-1"
+    },
+    {
+      "id": "note-phone",
+      "x": 1560,
+      "y": -160,
+      "w": 400,
+      "text": "A no telemóvel (390px). A mesma hierarquia em coluna única; a navegação de secções corre na horizontal.",
+      "page": "page-1"
+    },
+    {
+      "id": "note-b",
+      "x": 0,
+      "y": -230,
+      "w": 560,
+      "text": "B · Fio — a primeira página é o próprio registo: um feed por ordem de captura, cada afirmação com fonte, hash e estado; ticker de alterações; painel de estado da redação.\nPorquê: mostra o processo, que é o ponto do projeto.\nContrapartida: lê-se como uma ferramenta, não como um jornal; hashes na mockup são ilustrativos.",
+      "page": "page-2"
+    },
+    {
+      "id": "note-c",
+      "x": 1560,
+      "y": -230,
+      "w": 560,
+      "text": "C · Grafo — fundo escuro, o grafo é a imagem de capa e os verbos portugueses são o ornamento; histórias como legendas de nós.\nPorquê: é o argumento do site tornado visível; a frase-âmbito em destaque.\nContrapartida: menos denso em notícias por ecrã; um tema escuro pede mais cuidado com legibilidade e impressão.",
+      "page": "page-2"
+    },
+    {
+      "id": "note-d",
+      "x": 3120,
+      "y": -230,
+      "w": 560,
+      "text": "D · Boletim — revista com trilho vertical de secções, Bodoni Moda + Karla, e a assinatura: as afirmações sublinhadas no próprio texto (confirmado / disputado / não encontrado).\nPorquê: a verificação torna-se legível dentro da frase, o que nenhuma outra direção faz.\nContrapartida: o trilho gasta 240px; o espaço para fotografia fica visivelmente vazio até haver imagens com fonte.",
+      "page": "page-2"
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Diário — a direção escolhida"
+    },
+    {
+      "id": "page-2",
+      "name": "Alternativas B, C, D"
+    }
+  ]
+}

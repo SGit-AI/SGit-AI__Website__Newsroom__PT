@@ -1,0 +1,21 @@
+{
+  "id": "004",
+  "titulo": "Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível",
+  "seccao": "politicas",
+  "estado": "congelado",
+  "aberto_em": "2026-09-14",
+  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "enquadramento": "A primeira entrega de um assistente exterior a passar pelo caminho de ingestão desta redação. Oito fontes nomeadas, todas congeladas e hasheadas; seis legíveis por máquina. Das 19 afirmações, 9 tinham o excerto nos bytes, 0 não tinham, e 10 citam fontes que não devolveram texto conferível.",
+  "de_onde_vem": "redacao/entregas/chatgpt/chatgpt-pt-newsroom-2026-09-14-politicas.json",
+  "o_que_ja_se_tem": [
+    "As oito fontes congeladas em fontes/congeladas/2026-09-14/entregas/, com SHA-256 no registo de entregas.",
+    "O PDF da RCM n.º 70/2026 lido na íntegra (30 808 caracteres) — as duas afirmações que assentam nele confirmaram.",
+    "A entrega não valida contra o esquema publicado: 45 erros, de forma e não de facto. Vários são propostas de vocabulário (Programa, InstrumentoJuridico, Infraestrutura) que a ontologia ainda não tem."
+  ],
+  "o_que_falta": [
+    "Decisão do editor sobre cada item. Nada desta entrega aparece na primeira página nem num artigo até lá.",
+    "Decisão do editor sobre as propostas de vocabulário: um verbo ou um tipo novo é uma alteração de ontologia e leva uma versão.",
+    "Encontrar o PDF do Diário da República para a RCM n.º 2/2026, que tornaria conferíveis as três afirmações de item-pol-01."
+  ],
+  "recusa": "Nenhuma afirmação desta entrega é citada como facto enquanto o excerto não estiver nos bytes E o editor não a aprovar. Uma entrega é uma lista de pistas com proveniência."
+}

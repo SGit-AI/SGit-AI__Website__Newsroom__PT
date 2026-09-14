@@ -1,0 +1,528 @@
+/* newsroom.sgit.ai — shared stylesheet. Same design language as sgit.ai, nhi.sgit.ai,
+   pki.sgit.ai, graphs.sgit.ai and issues-fs.sgit.ai (light theme), ported with its
+   rules intact rather than redrawn: the proof strip, the agent block that closes
+   every page, the path-as-a-sentence, the maturity pills, the card and table
+   treatments. Unused selectors from the sibling this was carried over from are left
+   in place rather than pruned — a smaller diff against the shared original is worth
+   more than a smaller file. */
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --panel2:#f2f0e9; --line:#e5e1d5; --line2:#d5d0c2;
+  --fg:#1c1d21; --dim:#5c5f66; --dim2:#8a8d94;
+  --accent:#0f766e; --accent-dk:#115e59; --yellow:#a16207; --warm:#b45309; --red:#b91c1c;
+  --term-bg:#0d1117; --term-green:#3fb950; --term-red:#f85149; --term-cyan:#58a6ff;
+  --term-yellow:#d29922; --term-dim:#8b949e;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:ui-serif,Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --measure:960px; --wide:1560px; /* 1360 until v0.3.6; the eight-group nav needs the room, and the footer follows it */
+  --shadow:0 1px 2px rgba(28,29,33,.05),0 4px 14px rgba(28,29,33,.04);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65}
+a{color:var(--accent-dk);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.2;letter-spacing:-.015em}
+code,pre,kbd{font-family:var(--mono)}
+/* No image appeared anywhere on this site until v0.2.8, so nothing had ever constrained
+   one. The first four (screenshots in the newsroom-floor debrief) rendered at their natural
+   1832px and pushed the page to a 2054px scrollWidth. Base rule, not a per-page patch. */
+img{max-width:100%;height:auto}
+/* headings were missing from this list until v0.3.1, so a hostname in an h1 — e.g. the
+   pt.newsroom.sgit.ai commissioning brief — pushed the page 23px wider than a phone */
+p code,li code,td code,h1 code,h2 code,h3 code,h4 code,.note code{overflow-wrap:anywhere;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.84em;color:#24343f}
+.inner{max-width:var(--measure);margin:0 auto;padding:0 1.1rem}
+.dim{color:var(--dim)} .small{font-size:.85rem}
+
+/* ---------- top nav ---------- */
+nav.site{position:sticky;top:0;z-index:50;background:rgba(250,249,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.site .row{max-width:var(--wide);margin:0 auto;display:flex;align-items:center;gap:1.1rem;padding:.7rem 1.1rem;flex-wrap:wrap}
+nav.site .brand{font-weight:800;font-size:1.05rem;color:var(--fg);letter-spacing:-.02em;white-space:nowrap}
+nav.site .brand span{color:var(--accent)}
+nav.site a.nl{color:var(--dim);font-size:.85rem}
+nav.site a.nl.here{color:var(--fg);font-weight:600}
+nav.site a.nl:hover{color:var(--fg);text-decoration:none}
+nav.site .parent{border:1px solid var(--accent);border-radius:6px;padding:.28rem .7rem;
+  color:var(--accent-dk);font-size:.78rem;white-space:nowrap;background:var(--panel);font-weight:500}
+nav.site .parent b{font-weight:800}
+nav.site .parent:hover{background:var(--accent);color:#fff;border-color:var(--accent);text-decoration:none}
+nav.site .gh{border:1px solid var(--line2);border-radius:6px;padding:.28rem .7rem;color:var(--fg);font-size:.78rem;white-space:nowrap;background:var(--panel)}
+nav.site .gh:hover{border-color:var(--accent);text-decoration:none}
+/* Two-level nav, the same component sgit.ai runs. The flat one here reached twelve
+   items and wrapped to two rows on a laptop and four on a phone. Opening is :hover for
+   a mouse and :focus-within for a keyboard — no JS needed for either — plus a click
+   toggle (nav.js) for touch, where hover does not exist. Every group label is itself a
+   link to that section's own page, so nothing is reachable only by opening a menu: the
+   submenu is a shortcut, never the only door. */
+nav.site .ni{position:relative}
+nav.site .ni-has > .nl{display:inline-flex;align-items:center;gap:.25rem}
+nav.site .caret{font-size:.55em;opacity:.55;transition:transform .15s ease}
+nav.site .sub{position:absolute;left:-.7rem;top:100%;min-width:12rem;z-index:60;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 6px 24px rgba(28,29,33,.13);padding:.4rem;
+  display:none;flex-direction:column;gap:.05rem}
+nav.site .ni-has:hover > .sub,
+nav.site .ni-has:focus-within > .sub,
+nav.site .ni-has.open > .sub{display:flex}
+nav.site .ni-has:hover .caret,
+nav.site .ni-has.open .caret{transform:rotate(180deg)}
+nav.site .sub a.sl{display:block;padding:.36rem .6rem;border-radius:6px;
+  font-size:.83rem;color:var(--dim);white-space:nowrap}
+nav.site .sub a.sl:hover{background:var(--panel2);color:var(--fg);text-decoration:none}
+nav.site .sub a.sl.here{color:var(--accent-dk);font-weight:600}
+/* Between the full-width bar and the phone menu there was a dead zone. The row is
+   `flex-wrap:wrap`, so once its contents outgrow the viewport ★ GitHub silently drops
+   onto a second line and the bar doubles in height — no overflow, no warning, just a
+   ragged two-row header. The sibling sites have the same latent gap and only escape it
+   because their nav rows are narrower; this site carries five groups, a stage pill and
+   a version badge, and hit it at ~1400px. So: tighten the row on the way down, and
+   collapse to the phone menu before the tightening runs out. Measured, not guessed —
+   the breakpoints below are where a full sweep of widths stops fitting on one line. */
+/* v0.3.6 added three groups (the things that run), and the sweep was done again: eight
+   groups plus the pill and the badge fit one row at 1440 with the parent link, and at 1280
+   only without it, so the parent link — which the footer's network line carries too — now
+   drops at 1500 rather than 1180, and the phone menu takes over at 1200 rather than 1000. */
+nav.site .row{gap:.6rem}
+nav.site a.nl{font-size:.8rem}
+@media (max-width:1500px){
+  nav.site .row{gap:.6rem}
+  nav.site a.nl{font-size:.8rem}
+  nav.site .parent{display:none}
+}
+@media (max-width:1280px){
+  nav.site .row{gap:.5rem}
+  nav.site a.nl{font-size:.78rem}
+}
+
+/* Phone: the whole thing collapses behind one button, so the bar stays a single row and
+   opening it gives a vertical list with each group's children indented under it. */
+.nav-items{display:contents}
+.nav-toggle{display:none}
+@media (max-width:1200px){
+  nav.site .row{position:relative;gap:.6rem}
+  .nav-toggle{display:block;margin-left:auto;order:3;background:var(--panel);
+    border:1px solid var(--line2);border-radius:6px;padding:.3rem .7rem;
+    font:600 .78rem/1 var(--sans);color:var(--fg);cursor:pointer}
+  .nav-toggle:hover{border-color:var(--accent)}
+  nav.site .parent{order:2}
+  nav.site .gh{order:4;margin-left:0}
+  .nav-items{display:none;order:5;width:100%;flex-direction:column;gap:.1rem;
+    padding:.5rem 0 .3rem;border-top:1px solid var(--line);margin-top:.4rem}
+  nav.site.open .nav-items{display:flex}
+  nav.site .ni{width:100%}
+  nav.site .ni > .nl{display:block;padding:.42rem .2rem;font-size:.95rem}
+  nav.site .caret{display:none}
+  nav.site .sub{position:static;display:flex;flex-direction:column;border:0;
+    box-shadow:none;background:none;padding:0 0 .3rem .9rem;min-width:0;gap:0}
+  nav.site .sub a.sl{padding:.3rem .2rem;font-size:.86rem}
+}
+.stage-pill{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warm);
+  border:1px solid rgba(180,83,9,.35);background:rgba(180,83,9,.07);border-radius:99px;padding:.15rem .55rem;white-space:nowrap}
+a.ver{font-family:var(--mono);font-size:.68rem;color:var(--dim2);border:1px solid var(--line);border-radius:99px;padding:.14rem .55rem;white-space:nowrap}
+a.ver:hover{color:var(--accent-dk);border-color:var(--accent);text-decoration:none}
+
+/* ---------- hero ---------- */
+header.hero{text-align:center;padding:4.2rem 1.2rem 2.6rem;max-width:1000px;margin:0 auto}
+.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+header.hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.1rem);margin:.9rem 0;color:#101114}
+header.hero .sub{color:var(--dim);font-size:1.05rem;max-width:680px;margin:0 auto 1.7rem;line-height:1.6}
+.ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;align-items:center}
+.cta1{background:var(--accent-dk);color:#fff;border-radius:8px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600}
+.cta1:hover{background:var(--accent);text-decoration:none}
+.cta2{color:var(--accent-dk);font-size:.9rem;font-weight:600}
+
+/* ---------- sections ---------- */
+/* The band carries a horizontal gutter so that NOTHING inside one can touch the viewport
+   edge, whatever column rule it does or does not have. Without it .blurb — whose 660
+   column stops constraining anything once the viewport is narrower than 660 — put its
+   text 2px from the edge on a phone. Wide screens are unaffected: every centred child is
+   still centred, just inside a 2.2rem-narrower content box. */
+section.band{padding:3rem 1.1rem;scroll-margin-top:64px}
+section.band.alt{background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section.band h2{font-family:var(--serif);font-size:1.9rem;color:#101114;text-align:center;margin:0 0 .6rem}
+section.band .blurb{color:var(--dim);text-align:center;max-width:660px;margin:0 auto 1.8rem;font-size:.95rem}
+
+/* ---------- cards ---------- */
+.cards{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1160px;margin:0 auto;padding:0 1.1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.05rem 1.15rem;display:block;color:var(--fg);box-shadow:var(--shadow)}
+a.card:hover{border-color:var(--accent);text-decoration:none}
+.card .tag{font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--warm)}
+.card h3,.card h4{margin:.25rem 0 .45rem;font-size:.95rem;color:#101114;font-family:var(--sans)}
+.card p{margin:0;font-size:.8rem;color:var(--dim);line-height:1.55}
+.card .go{display:inline-block;margin-top:.55rem;font-size:.75rem;color:var(--accent-dk);font-weight:600}
+
+/* ---------- two-populations split table ---------- */
+.split{max-width:1000px;margin:0 auto;padding:0 1.1rem}
+.split table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.split th{background:var(--panel2);text-align:left;padding:.6rem .9rem;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
+.split th.run{color:var(--accent-dk)} .split th.rent{color:var(--warm)}
+.split td{padding:.6rem .9rem;border-top:1px solid var(--line);vertical-align:top;line-height:1.5;color:#34363c}
+.split td b.no{color:var(--red)} .split td b.yes{color:var(--accent-dk)}
+.split .cap{font-size:.78rem;color:var(--dim);text-align:center;margin-top:.9rem;line-height:1.6}
+
+/* ---------- terminal-style figure ---------- */
+pre.shell{background:var(--term-bg);border-radius:10px;padding:.9rem 1.1rem;
+  font-size:.79rem;line-height:1.65;overflow-x:auto;margin:1.1rem 0;color:#c9d1d9;box-shadow:var(--shadow)}
+pre.shell .g{color:var(--term-green)} pre.shell .r{color:var(--term-red)} pre.shell .cy{color:var(--term-cyan)}
+pre.shell .y{color:var(--term-yellow)} pre.shell .d{color:var(--term-dim)}
+
+/* ---------- docs & content pages ---------- */
+main.doc{max-width:var(--measure);margin:0 auto;padding:2.4rem 1.4rem 3.5rem}
+main.doc .crumb{font-size:.75rem;color:var(--dim2);margin-bottom:1rem}
+main.doc .crumb a{color:var(--dim)}
+main.doc h1{font-family:var(--serif);font-size:2.1rem;color:#101114;margin:.2rem 0 .9rem}
+main.doc h2{font-family:var(--serif);font-size:1.4rem;color:#101114;margin:2.2rem 0 .7rem;scroll-margin-top:70px}
+main.doc h3{font-size:1.02rem;color:#101114;margin:1.7rem 0 .5rem}
+main.doc .lead{color:#34363c;font-size:1.12rem}
+main.doc p, main.doc li{color:#34363c;font-size:.98rem}
+main.doc ul,main.doc ol{padding-left:1.3rem}
+main.doc li{margin:.3rem 0}
+main.doc table{width:100%;border-collapse:collapse;font-size:.88rem;margin:1.1rem 0;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+main.doc th{background:var(--panel2);text-align:left;padding:.55rem .8rem;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
+main.doc td{padding:.55rem .8rem;border-top:1px solid var(--line);vertical-align:top;line-height:1.5;color:#34363c}
+.tablewrap{overflow-x:auto}
+.note{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--panel);border-radius:0 10px 10px 0;
+  padding:.8rem 1rem;font-size:.85rem;color:#34363c;margin:1.2rem 0;box-shadow:var(--shadow)}
+.warnbox{border:1px solid var(--line);border-left:3px solid var(--yellow);background:var(--panel);border-radius:0 10px 10px 0;
+  padding:.8rem 1rem;font-size:.85rem;color:#34363c;margin:1.2rem 0;box-shadow:var(--shadow)}
+.note b,.warnbox b{color:#101114}
+blockquote.challenge{margin:1.6rem 0;padding:1.1rem 1.3rem;border-left:4px solid var(--warm);
+  background:var(--panel);border-radius:0 10px 10px 0;font-size:1rem;font-style:italic;color:#34363c;
+  box-shadow:var(--shadow);line-height:1.7}
+.pagenav{display:flex;justify-content:space-between;gap:1rem;margin-top:2.8rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.85rem}
+
+/* evidence status boxes */
+.evbox{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;
+  background:var(--panel);padding:1rem 1.15rem;box-shadow:var(--shadow);margin:.9rem 0 1.4rem}
+.evbox.ev-warn{border-left-color:var(--warm)}
+.evbox p:first-of-type{margin-top:.5rem}
+.evbox p:last-child{margin-bottom:0}
+.evtag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:#fff;background:var(--accent);border-radius:99px;padding:.16rem .6rem}
+.evbox.ev-warn .evtag{background:var(--warm)}
+
+/* option assessment pages */
+.opt-verdict{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;
+  border-radius:99px;padding:.14rem .6rem;white-space:nowrap;vertical-align:middle}
+.opt-yes{color:#0f766e;border:1px solid rgba(15,118,110,.35);background:rgba(15,118,110,.08)}
+.opt-no{color:#b91c1c;border:1px solid rgba(185,28,28,.35);background:rgba(185,28,28,.08)}
+.opt-part{color:#b45309;border:1px solid rgba(180,83,9,.35);background:rgba(180,83,9,.08)}
+
+/* task board */
+.tstat{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;border-radius:99px;padding:.1rem .5rem;white-space:nowrap}
+.t-done{color:#0f766e;border:1px solid rgba(15,118,110,.35);background:rgba(15,118,110,.08)}
+.t-doing{color:#1d4ed8;border:1px solid rgba(29,78,216,.3);background:rgba(29,78,216,.07)}
+.t-open{color:#b45309;border:1px solid rgba(180,83,9,.35);background:rgba(180,83,9,.08)}
+.t-need{color:#b91c1c;border:1px solid rgba(185,28,28,.35);background:rgba(185,28,28,.08)}
+
+/* versions table */
+table.vers td.vnum{font-family:var(--mono);font-weight:700;color:var(--accent-dk);white-space:nowrap}
+
+/* the hope ladder */
+.hopeladder{display:flex;flex-direction:column;gap:.9rem;margin:1.4rem 0 2rem}
+.hopeladder .cap{position:relative;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:10px;padding:1.1rem 1.3rem 1.1rem 3.4rem;box-shadow:var(--shadow)}
+.hopeladder .capnum{position:absolute;left:1.15rem;top:1.15rem;font-family:var(--mono);font-size:.78rem;
+  font-weight:700;color:var(--accent);letter-spacing:-.03em}
+.hopeladder .cap h3{margin:0 0 .5rem;font-size:1.05rem;color:#101114;letter-spacing:-.015em}
+.hopeladder .cap p{margin:.5rem 0;font-size:.92rem;line-height:1.65;color:#34363c}
+@media (max-width:560px){.hopeladder .cap{padding:2.4rem 1rem 1rem}.hopeladder .capnum{top:.85rem;left:1rem}}
+
+/* ---------- footer ---------- */
+footer.site{border-top:1px solid var(--line);margin-top:3.5rem;padding:2.2rem 0 3rem;background:var(--panel2)}
+/* six columns since v0.3.6: the brand column plus five link columns, the fifth being "What runs" */
+footer.site .cols{max-width:var(--wide);margin:0 auto;padding:0 1.1rem;display:grid;gap:1.4rem;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr}
+@media (max-width:1080px){footer.site .cols{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:940px){footer.site .cols{grid-template-columns:1fr 1fr}}
+footer.site h4{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin:0 0 .6rem}
+footer.site a{display:block;color:var(--dim);font-size:.82rem;padding:.15rem 0}
+footer.site .brandline{font-weight:800;color:var(--fg)}
+footer.site .brandline span{color:var(--accent)}
+footer.site p{color:var(--dim);font-size:.76rem;line-height:1.65;max-width:420px}
+footer.site .netline{color:var(--dim);font-size:.78rem;line-height:1.8;max-width:420px;
+  border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:.55rem 0;margin:.9rem 0}
+footer.site .netline a{display:inline;padding:0;color:var(--accent-dk)}
+footer.site .netline a b{font-weight:800}
+footer.site .partnote{color:var(--warm);opacity:.95}
+footer.site .verline{font-family:var(--mono);font-size:.72rem;color:var(--dim2);margin-top:.6rem}
+footer.site .verline a{display:inline;color:var(--accent-dk);padding:0}
+@media (max-width:700px){footer.site .cols{grid-template-columns:1fr}}
+
+/* print */
+@page{margin:14mm}
+@media print{
+  html{print-color-adjust:exact;-webkit-print-color-adjust:exact;background:#fff}
+  body{background:#fff;font-size:10pt;line-height:1.5}
+  nav.site{position:static;background:none;backdrop-filter:none}
+  nav.site a.nl,nav.site .gh,nav.site .parent,.nav-items,.nav-toggle{display:none}
+  .note,pre,table,blockquote{break-inside:avoid}
+  h1,h2,h3,h4{break-after:avoid}
+  p,li{orphans:3;widows:3}
+}
+
+/* ---------- in-page markdown reader (documents/*) ---------- */
+.mdread-label{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;background:var(--panel2);
+  border:1px solid var(--line2);border-bottom:1px dashed var(--line2);border-radius:10px 10px 0 0;
+  padding:.5rem 1rem;margin:1.4rem 0 0;font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.03em}
+.mdread-label a{color:var(--accent-dk)}
+.mdread{border:1px solid var(--line2);border-top:none;border-radius:0 0 10px 10px;background:#fff;
+  padding:2rem 2.4rem;margin:0 0 1.6rem;
+  box-shadow:0 2px 6px rgba(28,29,33,.08),0 14px 32px rgba(28,29,33,.08)}
+@media (max-width:560px){.mdread{padding:1.3rem 1rem}}
+.mdread h1{font-family:var(--serif);font-size:1.7rem;color:#101114;margin:.2rem 0 .8rem}
+.mdread h2{font-family:var(--serif);font-size:1.25rem;color:#101114;margin:1.8rem 0 .6rem}
+.mdread h3{font-size:1rem;color:#101114;margin:1.4rem 0 .4rem}
+.mdread p,.mdread li{color:#34363c;font-size:.94rem;line-height:1.65}
+/* A screenshot in a document is a figure: framed, spaced, and captioned by the paragraph
+   under it. The alt text carries the description for anyone not seeing it. */
+/* no width declaration here on purpose: author CSS outranks the HTML width attribute, so
+   setting one would stop a high-density capture declaring its true display size */
+.mdread img{display:block;max-width:100%;height:auto;margin:1.3rem 0 .4rem;border:1px solid var(--line);
+  border-radius:10px;box-shadow:var(--shadow);background:var(--panel2)}
+.mdread table{display:block;overflow-x:auto;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+.mdread th{background:var(--panel2);text-align:left;padding:.5rem .7rem;font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line)}
+.mdread td{padding:.5rem .7rem;border:1px solid var(--line);color:#34363c;vertical-align:top}
+.mdread blockquote{margin:1.2rem 0;padding:.8rem 1.1rem;border-left:4px solid var(--warm);
+  background:var(--panel2);border-radius:0 8px 8px 0;color:#34363c}
+.mdread pre{background:var(--term-bg);color:#c9d1d9;border-radius:8px;padding:.8rem 1rem;
+  font-size:.78rem;overflow-x:auto;line-height:1.6}
+.mdread hr{border:none;border-top:1px solid var(--line);margin:1.6rem 0}
+.mdread a{overflow-wrap:anywhere}
+.docmeta{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;box-shadow:var(--shadow);
+  font-size:.86rem;margin:1rem 0 1.4rem}
+.docmeta .k{color:var(--dim);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;padding-top:.15rem}
+.docmeta .v{color:#34363c}
+
+/* mermaid diagrams (concept pages + rendered inside .mdread) */
+pre.mermaid{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1rem;
+  margin:1.2rem 0;box-shadow:var(--shadow);text-align:center;overflow-x:auto;font-size:.8rem}
+
+/* ---------- carried over from graphs.sgit.ai ---------- */
+/* the rules ladder — same component as nhi.sgit.ai's .hopeladder, named for what
+   it holds here. Both selectors are kept so the stylesheet stays portable. */
+.ladder{display:flex;flex-direction:column;gap:.9rem;margin:1.4rem 0 2rem}
+.ladder .cap{position:relative;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:10px;padding:1.1rem 1.3rem 1.1rem 3.4rem;box-shadow:var(--shadow)}
+.ladder .capnum{position:absolute;left:1.15rem;top:1.15rem;font-family:var(--mono);font-size:.78rem;
+  font-weight:700;color:var(--accent);letter-spacing:-.03em}
+.ladder .cap h3{margin:0 0 .5rem;font-size:1.05rem;color:#101114;letter-spacing:-.015em}
+.ladder .cap p{margin:.5rem 0;font-size:.92rem;line-height:1.65;color:#34363c}
+.ladder .cap .from{display:block;margin-top:.6rem;font-size:.76rem;color:var(--dim);
+  border-top:1px dashed var(--line);padding-top:.5rem}
+.ladder .cap .from b{color:var(--warm)}
+@media (max-width:560px){.ladder .cap{padding:2.4rem 1rem 1rem}.ladder .capnum{top:.85rem;left:1rem}}
+
+/* the split table's two verdict columns, in this site's terms */
+.split th.safe{color:var(--accent-dk)} .split th.fatal{color:var(--red)}
+
+/* dated timeline — the 2019 failure, in order */
+.timeline{list-style:none;margin:1.4rem 0 2rem;padding:0 0 0 1.1rem;border-left:2px solid var(--line2)}
+.timeline li{position:relative;padding:0 0 1.1rem 1.2rem}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-1.62rem;top:.42rem;width:.62rem;height:.62rem;
+  border-radius:99px;background:var(--panel);border:2px solid var(--accent)}
+.timeline li.bad::before{border-color:var(--red)}
+.timeline .when{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--dim2)}
+.timeline .what{color:#34363c;font-size:.95rem;line-height:1.6}
+
+/* a stated rule, quoted as a claim the reader may check */
+.claim{font-family:var(--serif);font-size:1.12rem;line-height:1.6;color:#101114;
+  background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1.3rem 0;box-shadow:var(--shadow)}
+
+/* mermaid on hand-written concept pages (the reader styles pre.mermaid already) */
+.mermaid{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1rem;
+  margin:1.2rem 0;box-shadow:var(--shadow);text-align:center;overflow-x:auto}
+
+/* the pack download — a real affordance rather than a link in a paragraph */
+.dl{display:flex;gap:1.4rem;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:12px;padding:1.1rem 1.3rem;margin:1.6rem 0;box-shadow:var(--shadow)}
+.dl > div{flex:1 1 22rem}
+.dl p{margin:.45rem 0 0;font-size:.88rem;color:#34363c;line-height:1.6}
+.dlbtn{display:flex;flex-direction:column;align-items:center;gap:.15rem;white-space:nowrap;
+  background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:10px;
+  padding:.75rem 1.3rem;font-weight:700;font-size:.9rem}
+.dlbtn span{font-family:var(--mono);font-size:.68rem;font-weight:400;opacity:.85;letter-spacing:.04em}
+.dlbtn:hover{background:var(--accent-dk);border-color:var(--accent-dk);text-decoration:none}
+
+
+/* ---------- the three altitudes: the front page's doors, and the site's spine ----------
+   The IA is the thesis: "this is just a question of altitude — from a very high altitude
+   you see the city walls, and as you zoom in, roads and buildings, and eventually people
+   and cars." Each door states the altitude, not just the section name. */
+.altitudes{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  max-width:1160px;margin:0 auto;padding:0 1.1rem}
+.alt{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+  border-radius:12px;padding:1.15rem 1.25rem;display:block;color:var(--fg);box-shadow:var(--shadow)}
+a.alt:hover{border-color:var(--accent);text-decoration:none}
+.alt .num{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.alt h3{margin:.3rem 0 .5rem;font-size:1.05rem;color:#101114;font-family:var(--sans)}
+.alt p{margin:0;font-size:.85rem;color:var(--dim);line-height:1.6}
+.alt .go{display:inline-block;margin-top:.6rem;font-size:.75rem;color:var(--accent-dk);font-weight:600}
+.alt.a2{border-top-color:var(--warm)} .alt.a2 .num{color:var(--warm)} .alt.a2 .go{color:var(--warm)}
+.alt.a3{border-top-color:var(--yellow)} .alt.a3 .num{color:var(--yellow)} .alt.a3 .go{color:var(--yellow)}
+
+/* ---------- proof strip: real numbers, each one sourced ---------- */
+.proof{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  max-width:1100px;margin:1.6rem auto 0;padding:0 1.1rem}
+.proof .n{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.8rem .9rem;text-align:center;box-shadow:var(--shadow)}
+.proof .n b{display:block;font-size:1.15rem;color:var(--accent-dk);letter-spacing:-.02em}
+.proof .n span{display:block;font-size:.72rem;color:var(--dim);line-height:1.45;margin-top:.2rem}
+.proof .n em{display:block;font-style:normal;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dim2);margin-top:.3rem}
+
+/* ---------- the "for an agent" block ----------
+   Every section serves three readers, and the third is the one everyone omits: an agent
+   that will carry the rule into another session. One sentence, pasteable, no chrome. */
+.agent{border:1px solid var(--line2);border-left:3px solid var(--fg);background:var(--panel2);
+  border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:1.6rem 0;box-shadow:var(--shadow)}
+.agent h4{margin:0 0 .4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim)}
+.agent p{margin:0;font-size:.9rem;color:#101114;line-height:1.6}
+.agent code{background:var(--panel);border:1px solid var(--line)}
+
+/* ---------- a path rendered as a sentence ----------
+   "If your path doesn't read as a sentence in the reader's own words, your edges are
+   wrong." So the site renders paths as sentences, not as arrows in a box. */
+.pathline{font-family:var(--mono);font-size:.82rem;line-height:2.1;color:#34363c;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.9rem 1.1rem;margin:1.1rem 0;overflow-x:auto;box-shadow:var(--shadow)}
+.pathline .nd{background:var(--panel2);border:1px solid var(--line2);border-radius:5px;
+  padding:.1em .4em;color:#101114;font-weight:600;white-space:nowrap}
+.pathline .ed{color:var(--accent-dk);padding:0 .25em;white-space:nowrap}
+.pathline .ed::before{content:"—"} .pathline .ed::after{content:"→"}
+.pathline .ed.back::before{content:"←"} .pathline .ed.back::after{content:"—"}
+.pathline .say{display:block;font-family:var(--sans);font-size:.86rem;color:var(--dim);
+  line-height:1.6;margin-top:.5rem;border-top:1px dashed var(--line);padding-top:.5rem}
+
+/* ---------- semantic edge palette ----------
+   From the live Risk Graph Explorer: amber = exposure, green = assurance,
+   ghosted = unanswered. Ghosted-for-unanswered is a direct visual expression of
+   "absence of evidence is evidence" — the same colour rule on every rendered graph. */
+.epal{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;font-size:.8rem;
+  color:var(--dim);margin:1rem 0}
+.epal span{display:inline-flex;align-items:center;gap:.4rem}
+.epal i{width:1.6rem;height:0;border-top:3px solid var(--dim2);display:inline-block}
+.epal i.exposure{border-color:var(--warm)}
+.epal i.assurance{border-color:var(--accent)}
+.epal i.unanswered{border-top-style:dashed;border-color:var(--dim2);opacity:.55}
+.g-exposure{color:var(--warm);font-weight:600}
+.g-assurance{color:var(--accent-dk);font-weight:600}
+.g-unanswered{color:var(--dim2);font-style:italic}
+
+/* ---------- glossary ---------- */
+table.gloss td:first-child{white-space:nowrap;font-weight:600;color:#101114}
+table.gloss td.plain{color:var(--accent-dk)}
+.gloss-note{font-size:.8rem;color:var(--dim);margin-top:-.6rem}
+
+/* ---------- status pills reused for maturity / publish state ---------- */
+.pill{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;
+  border-radius:99px;padding:.1rem .5rem;white-space:nowrap}
+.p-ships{color:#0f766e;border:1px solid rgba(15,118,110,.35);background:rgba(15,118,110,.08)}
+.p-argued{color:#b45309;border:1px solid rgba(180,83,9,.35);background:rgba(180,83,9,.08)}
+.p-absent{color:#b91c1c;border:1px solid rgba(185,28,28,.35);background:rgba(185,28,28,.08)}
+.p-live{color:#1d4ed8;border:1px solid rgba(29,78,216,.3);background:rgba(29,78,216,.07)}
+
+
+/* ---------- issues-fs additions ---------- */
+
+/* the package table's verdict column. Four packages are on PyPI, two of those are
+   empty wheels, four are not published at all — and the whole point of the page is
+   that a reader can see which is which without reading a paragraph. */
+.verdict{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;
+  border-radius:99px;padding:.12rem .55rem;white-space:nowrap;font-weight:600}
+.v-real{color:#0f766e;border:1px solid rgba(15,118,110,.35);background:rgba(15,118,110,.08)}
+.v-empty{color:#b45309;border:1px solid rgba(180,83,9,.4);background:rgba(180,83,9,.09)}
+.v-absent{color:#b91c1c;border:1px solid rgba(185,28,28,.32);background:rgba(185,28,28,.07)}
+.v-spec{color:#1d4ed8;border:1px solid rgba(29,78,216,.3);background:rgba(29,78,216,.07)}
+table.pkgs td:first-child{font-family:var(--mono);font-size:.84rem;white-space:nowrap}
+table.pkgs td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+
+/* the three agent-operable surfaces — the site's most distinctive claim, and no
+   document in the corpus makes it. Numbered, because the numbering is the claim. */
+.surfaces{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:1.5rem 0}
+.surface{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+  border-radius:12px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);display:block;color:var(--fg)}
+a.surface:hover{border-color:var(--accent);text-decoration:none}
+.surface .num{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.surface h3{margin:.3rem 0 .5rem;font-size:1.02rem;color:#101114;font-family:var(--sans)}
+.surface p{margin:0;font-size:.85rem;color:var(--dim);line-height:1.6}
+.surface .st{display:inline-block;margin-top:.6rem;font-size:.72rem;font-family:var(--mono)}
+.surface.s2{border-top-color:var(--warm)} .surface.s2 .num{color:var(--warm)}
+.surface.s3{border-top-color:var(--yellow)} .surface.s3 .num{color:var(--yellow)}
+
+/* the four operations — lite's whole protocol is four mv commands, and it reads
+   better as four labelled rows than as a paragraph */
+.ops{display:flex;flex-direction:column;gap:.7rem;margin:1.3rem 0}
+.ops .op{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;padding:.85rem 1.1rem;box-shadow:var(--shadow)}
+.ops .op b{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--accent-dk);
+  display:block;margin-bottom:.3rem}
+.ops .op p{margin:0;font-size:.9rem;line-height:1.6;color:#34363c}
+.ops .op code{font-size:.82rem}
+
+/* a directory tree, shown as one. The layout IS the data model here, so the tree is
+   content rather than decoration. */
+pre.tree{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.95rem 1.1rem;margin:1.1rem 0;font-family:var(--mono);font-size:.8rem;line-height:1.65;
+  color:#34363c;overflow-x:auto;box-shadow:var(--shadow)}
+pre.tree b{color:var(--accent-dk);font-weight:600}
+pre.tree i{color:var(--dim2);font-style:normal}
+
+/* a claim shown beside what was measured. Used all over /shipped/corrections.html */
+table.corr td:first-child{font-weight:600;color:#101114}
+table.corr td.was{color:var(--red)}
+table.corr td.is{color:var(--accent-dk)}
+
+/* command and code listings. The sibling sites use pre.shell — a dark terminal — and
+   that stays available where a real transcript is the point. This site carries far more
+   schema, config and file listings than transcripts, so its default listing panel is
+   light and matches pre.tree. */
+pre.term{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.9rem 1.1rem;margin:1.1rem 0;font-family:var(--mono);font-size:.79rem;
+  line-height:1.65;color:#34363c;overflow-x:auto;box-shadow:var(--shadow)}
+pre.term b{color:var(--accent-dk);font-weight:600}
+pre.term em{font-style:normal;color:var(--dim2)}
+
+/* tables and listings inside a front-page band. The shared stylesheet scopes both to
+   main.doc, because on the sibling sites a table always lives on a document page. Here
+   the package table is the front page's most valuable single element and sits above the
+   fold, so the same treatment has to reach into a band. */
+.band .tablewrap,.band pre.term{max-width:1100px;margin-left:auto;margin-right:auto}
+.band table{width:100%;border-collapse:collapse;font-size:.86rem;margin:1.1rem 0;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--shadow)}
+.band th{background:var(--panel2);text-align:left;padding:.55rem .8rem;font-size:.7rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
+.band td{padding:.55rem .8rem;border-top:1px solid var(--line);vertical-align:top;
+  line-height:1.5;color:#34363c}
+.band .note{max-width:1100px;margin-left:auto;margin-right:auto;text-align:left}
+
+/* A band is full-bleed and has NO horizontal padding, so every component inside one
+   carries its own centred column: .blurb 660, .note and .proof 1100, .cards 1160,
+   .split 1000. Anything without such a rule therefore renders edge-to-edge starting at
+   x=0 — which is not obviously "broken" (no overflow, no console warning) but reads as a
+   misalignment against the very components it sits between. A bare <p> after a .note
+   started its text at 1px where the note's text starts at 109px.
+   Give the remaining block children the same 1100 column. Scoped to DIRECT children so
+   the identical elements nested inside .note, .cards and main.doc are untouched, and
+   .blurb is excluded because its narrower 660 column is deliberate.
+   The shared stylesheet has this gap on the sibling sites too. */
+section.band > p:not(.blurb),
+section.band > ul,
+section.band > ol,
+section.band > .agent{max-width:1100px;margin-left:auto;margin-right:auto}
+section.band > p:not(.blurb),
+section.band > ul,
+section.band > ol{padding-left:1.1rem;padding-right:1.1rem}
+
+/* the two version columns are adjacent and both right-aligned, which runs "0.7.0" into
+   "v0.7.1" at narrow widths */
+table.pkgs td.num,table.pkgs th{padding-left:1rem}
+table.pkgs td.num:first-of-type{padding-right:.9rem}

@@ -1,0 +1,75 @@
+# pt.newsroom.sgit.ai
+
+> Uma redação nativamente portuguesa que mapeia o ecossistema português de inteligência
+> artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
+> fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
+
+Versão v0.1.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
+
+O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
+suficiente para ser interessante.
+
+## O que é real hoje, em números que vêm de ficheiros
+
+- 92 ficheiros congelados de 1 captura(s), cada um com SHA-256, todos reverificados em cada construção
+- 298 nós e 842 arestas; cada aresta é um verbo português com um inverso distinto
+- 70 pessoas e 67 organizações, derivadas das fontes, nunca escritas à mão
+- 15 sessões lidas do recuo estático da agenda congelada
+- 19 afirmações entregues por assistentes exteriores; 9 com o excerto encontrado nos bytes; 0 publicadas
+
+## O que NÃO é real, dito aqui e em cada página onde importa
+
+- Nenhuma história está publicada. As três primeiras estão como issues em estado «procurado».
+- Três das oito secções não têm um único nó, porque nenhuma fonte congelada as alimenta.
+- A camada das empresas não pode ser completa: não há registo comercial aberto em Portugal.
+- Nada de uma entrega de investigação é facto enquanto o editor de registo não a aprovar.
+
+## Os concentradores
+
+- [/](https://pt.newsroom.sgit.ai/index.html): A primeira página. O desenho escolhido pelo editor a 13 de setembro de 2026.
+- [/registo/](https://pt.newsroom.sgit.ai/registo/index.html): O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção.
+- [/grafo/](https://pt.newsroom.sgit.ai/grafo/index.html): A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso.
+- [/ficheiros/](https://pt.newsroom.sgit.ai/ficheiros/index.html): O manifesto: cada ficheiro de dados com o seu SHA-256.
+- [/metodo/](https://pt.newsroom.sgit.ai/metodo/index.html): Obter, congelar, hashear, extrair, comparar — e onde cada recusa corre.
+- [/equipa/](https://pt.newsroom.sgit.ai/equipa/index.html): Três departamentos, o editor de registo, e o que não está construído.
+- [/aviso/](https://pt.newsroom.sgit.ai/aviso/index.html): O aviso de proteção de dados. Interesses legítimos; remoção incondicional.
+- [/sobre/](https://pt.newsroom.sgit.ai/sobre/index.html): O que é real, o que não é, e os limites.
+- [/redacao/](https://pt.newsroom.sgit.ai/redacao/index.html): A mesa: o quadro de issues, o correio entre departamentos, as execuções.
+- [/entregas/](https://pt.newsroom.sgit.ai/entregas/index.html): As entregas de investigação e o seu fluxo de revisão.
+- [/empresas/](https://pt.newsroom.sgit.ai/empresas/index.html): As empresas.
+- [/protagonistas/](https://pt.newsroom.sgit.ai/protagonistas/index.html): Os protagonistas.
+- [/instituicoes/](https://pt.newsroom.sgit.ai/instituicoes/index.html): As instituições.
+- [/politicas/](https://pt.newsroom.sgit.ai/politicas/index.html): As políticas.
+- [/casos-de-uso/](https://pt.newsroom.sgit.ai/casos-de-uso/index.html): Os casos de uso.
+- [/codigo-aberto/](https://pt.newsroom.sgit.ai/codigo-aberto/index.html): O código aberto (vazia).
+- [/diaspora/](https://pt.newsroom.sgit.ai/diaspora/index.html): A diáspora (vazia).
+- [/eventos/](https://pt.newsroom.sgit.ai/eventos/index.html): Os eventos.
+
+## Os dados, em endereços construíveis
+
+Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos tal como estão.
+
+- https://pt.newsroom.sgit.ai/dados/registo.json — o registo das fontes congeladas, com hashes
+- https://pt.newsroom.sgit.ai/dados/grafo.json — os nós e as arestas
+- https://pt.newsroom.sgit.ai/dados/ontologia.json — os tipos, os verbos, as leituras, os proibidos
+- https://pt.newsroom.sgit.ai/dados/triplos.nt — o grafo em N-Triples, com owl:inverseOf declarado
+- https://pt.newsroom.sgit.ai/dados/manifesto.json — cada ficheiro de dados com o seu SHA-256
+- https://pt.newsroom.sgit.ai/dados/pessoas.json — pessoas, sem biografias e sem contactos
+- https://pt.newsroom.sgit.ai/dados/organizacoes.json — organizações derivadas dos cartões
+- https://pt.newsroom.sgit.ai/dados/sessoes.json — o programa, lido da agenda congelada
+- https://pt.newsroom.sgit.ai/dados/temas.json — temas verbatim e etiquetas derivadas pelo léxico
+- https://pt.newsroom.sgit.ai/dados/lexico.json — a fórmula publicada que produz as etiquetas
+- https://pt.newsroom.sgit.ai/dados/mudancas.json — o que mexeu entre capturas
+- https://pt.newsroom.sgit.ai/dados/entregas.json — as entregas e o estado de cada afirmação
+- https://pt.newsroom.sgit.ai/dados/aviso.json — o aviso de proteção de dados, como dados
+- https://pt.newsroom.sgit.ai/dados/equipa.json — os departamentos e o editor de registo
+- https://pt.newsroom.sgit.ai/dados/excluidas.json — as fontes que foram tentadas e não resolveram
+
+## Como ler este site sem o interpretar mal
+
+1. Uma afirmação sem fonte congelada não é uma afirmação deste site. Confirme no registo.
+2. Um alvo não é um resultado. O evento declara «150+ speakers»; este site conta cartões.
+3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
+4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
+5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.

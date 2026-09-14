@@ -1,0 +1,868 @@
+{
+  "id": "portugal-ontology",
+  "version": "0.1.0",
+  "updated": "2026-09-13",
+  "inherits_from": {
+    "site": "graphs.sgit.ai",
+    "page": "https://graphs.sgit.ai/v1/grammar/edge-set.html",
+    "what": "Every edge a verb with a distinct named inverse; symmetric edges banned; a path must read as a sentence in the reader's language."
+  },
+  "language_rule": "Every type and every verb carries `pt`. This section is English; the rule is that the vocabulary is bilingual from day one so a Portuguese edition is a switch, and so that a Portuguese reader can already read a path aloud.",
+  "node_types": [
+    {
+      "id": "Event",
+      "label": "Event",
+      "pt": "Evento",
+      "colour": "#0f766e",
+      "definition": "A dated, located gathering that publishes a programme and a list of who is speaking."
+    },
+    {
+      "id": "Session",
+      "label": "Session",
+      "pt": "Sessão",
+      "colour": "#115e59",
+      "definition": "One item on an event's published programme, with a day, a time and usually a stage."
+    },
+    {
+      "id": "Stage",
+      "label": "Stage",
+      "pt": "Palco",
+      "colour": "#0e7490",
+      "definition": "A named room or stage that sessions are scheduled on. This event names its stages two ways on two pages."
+    },
+    {
+      "id": "Person",
+      "label": "Person",
+      "pt": "Pessoa",
+      "colour": "#b45309",
+      "definition": "A named individual on the event's published speaker list, in their professional capacity. Name, listed role, listed organisation, links, the event's own topic tags for them, and the words on their page that match a published lexicon. Never a biography, never a contact detail."
+    },
+    {
+      "id": "Organisation",
+      "label": "Organisation",
+      "pt": "Organização",
+      "colour": "#1d4ed8",
+      "definition": "An organisation a person is LISTED UNDER on their speaker card. Derived from the cards, never typed by hand; placeholders such as 'Independent' are flagged, not removed."
+    },
+    {
+      "id": "Place",
+      "label": "Place",
+      "pt": "Local",
+      "colour": "#4a5b6a",
+      "definition": "A venue. Not a person, so its address may be held."
+    },
+    {
+      "id": "Snapshot",
+      "label": "Snapshot",
+      "pt": "Captura",
+      "colour": "#5c5f66",
+      "definition": "A dated capture of the source site: every page fetched, frozen to bytes in this repository, and hashed."
+    },
+    {
+      "id": "Source",
+      "label": "Source",
+      "pt": "Fonte",
+      "colour": "#8a8d94",
+      "definition": "One frozen page from one snapshot, with its SHA-256. The thing a claim walks back to."
+    },
+    {
+      "id": "Coverage",
+      "label": "Coverage",
+      "pt": "Cobertura",
+      "colour": "#a16207",
+      "definition": "A third party's published page about the event, fetched, frozen and hashed like any other source. Linked to, never reproduced."
+    },
+    {
+      "id": "Story",
+      "label": "Story",
+      "pt": "Notícia",
+      "colour": "#b91c1c",
+      "definition": "A piece this publication wrote, standing on named frozen sources and reviewed by the editor of record before publication."
+    },
+    {
+      "id": "Topic",
+      "label": "Topic",
+      "pt": "Tema",
+      "colour": "#7c3aed",
+      "definition": "A topic the event lists on a speaker's own page, verbatim. Read from the frozen page, never derived; the event's vocabulary, not ours."
+    },
+    {
+      "id": "Industry",
+      "label": "Industry",
+      "pt": "Setor",
+      "colour": "#0e7490",
+      "definition": "A sector named by the published lexicon (data/lexicon.json) and matched on a speaker's own page. The edge to it carries the matched words. It says the page contains those words; nothing more."
+    },
+    {
+      "id": "Technology",
+      "label": "Technology",
+      "pt": "Tecnologia",
+      "colour": "#0369a1",
+      "definition": "A technology named by the published lexicon and matched on a speaker's own page. Derived by formula; the edge carries the matched words."
+    },
+    {
+      "id": "Idea",
+      "label": "Idea",
+      "pt": "Ideia",
+      "colour": "#9333ea",
+      "definition": "A recurring idea of the founder conversation, named by the published lexicon and matched on a speaker's own page. Derived by formula; the edge carries the matched words."
+    },
+    {
+      "id": "Service",
+      "label": "Service",
+      "pt": "Serviço",
+      "colour": "#be185d",
+      "definition": "A kind of service a speaker's own page says they or their organisation provide, as matched by the published lexicon. Derived by formula; the edge carries the matched words."
+    },
+    {
+      "id": "Product",
+      "label": "Product",
+      "pt": "Produto",
+      "colour": "#c2410c",
+      "definition": "A kind of product a speaker's own page names, as matched by the published lexicon. Derived by formula; the edge carries the matched words. Categories, not product names."
+    }
+  ],
+  "edges": [
+    {
+      "verb": "speaks_at",
+      "inverse": "hosts",
+      "domain": "Person",
+      "range": "Event",
+      "pt": {
+        "verb": "fala_em",
+        "inverse": "recebe"
+      },
+      "reads": "{s} speaks at {t}",
+      "origin": "inherited"
+    },
+    {
+      "verb": "listed_under",
+      "inverse": "lists",
+      "domain": "Person",
+      "range": "Organisation",
+      "pt": {
+        "verb": "listado_em",
+        "inverse": "lista"
+      },
+      "reads": "{s} is listed under {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "takes_place_at",
+      "inverse": "venue_of",
+      "domain": "Event",
+      "range": "Place",
+      "pt": {
+        "verb": "decorre_em",
+        "inverse": "é_local_de"
+      },
+      "reads": "{s} takes place at {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "organised_by",
+      "inverse": "organises",
+      "domain": "Event",
+      "range": "Organisation",
+      "pt": {
+        "verb": "organizado_por",
+        "inverse": "organiza"
+      },
+      "reads": "{s} is organised by {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "part_of",
+      "inverse": "contains",
+      "domain": "Session",
+      "range": "Event",
+      "pt": {
+        "verb": "parte_de",
+        "inverse": "contém"
+      },
+      "reads": "{s} is part of {t}",
+      "origin": "inherited"
+    },
+    {
+      "verb": "on_stage",
+      "inverse": "stages",
+      "domain": "Session",
+      "range": "Stage",
+      "pt": {
+        "verb": "no_palco",
+        "inverse": "acolhe"
+      },
+      "reads": "{s} is on {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "captured_in",
+      "inverse": "captures",
+      "domain": "Source",
+      "range": "Snapshot",
+      "pt": {
+        "verb": "capturado_em",
+        "inverse": "captura"
+      },
+      "reads": "{s} was captured in {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "attested_by",
+      "inverse": "attests",
+      "domain": "Person",
+      "range": "Source",
+      "pt": {
+        "verb": "atestado_por",
+        "inverse": "atesta"
+      },
+      "reads": "{s} is attested by {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "attested_by",
+      "inverse": "attests",
+      "domain": "Session",
+      "range": "Source",
+      "pt": {
+        "verb": "atestado_por",
+        "inverse": "atesta"
+      },
+      "reads": "{s} is attested by {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "attested_by",
+      "inverse": "attests",
+      "domain": "Event",
+      "range": "Source",
+      "pt": {
+        "verb": "atestado_por",
+        "inverse": "atesta"
+      },
+      "reads": "{s} is attested by {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "present_in",
+      "inverse": "includes",
+      "domain": "Person",
+      "range": "Snapshot",
+      "pt": {
+        "verb": "presente_em",
+        "inverse": "inclui"
+      },
+      "reads": "{s} is present in {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "absent_from",
+      "inverse": "lacks",
+      "domain": "Person",
+      "range": "Snapshot",
+      "pt": {
+        "verb": "ausente_de",
+        "inverse": "não_inclui"
+      },
+      "reads": "{s} is absent from {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "covers",
+      "inverse": "covered_by",
+      "domain": "Coverage",
+      "range": "Event",
+      "pt": {
+        "verb": "cobre",
+        "inverse": "coberto_por"
+      },
+      "reads": "{s} covers {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "published_by",
+      "inverse": "publishes",
+      "domain": "Coverage",
+      "range": "Organisation",
+      "pt": {
+        "verb": "publicado_por",
+        "inverse": "publica"
+      },
+      "reads": "{s} is published by {t}",
+      "origin": "inherited"
+    },
+    {
+      "verb": "stands_on",
+      "inverse": "supports",
+      "domain": "Story",
+      "range": "Source",
+      "pt": {
+        "verb": "assenta_em",
+        "inverse": "sustenta"
+      },
+      "reads": "{s} stands on {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "reports",
+      "inverse": "reported_by",
+      "domain": "Story",
+      "range": "Event",
+      "pt": {
+        "verb": "relata",
+        "inverse": "relatado_por"
+      },
+      "reads": "{s} reports {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "reports",
+      "inverse": "reported_by",
+      "domain": "Story",
+      "range": "Snapshot",
+      "pt": {
+        "verb": "relata",
+        "inverse": "relatado_por"
+      },
+      "reads": "{s} reports {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "speaks_on",
+      "inverse": "spoken_on_by",
+      "domain": "Person",
+      "range": "Topic",
+      "pt": {
+        "verb": "fala_sobre",
+        "inverse": "falado_por"
+      },
+      "reads": "{s} speaks on {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "active_in",
+      "inverse": "practised_by",
+      "domain": "Person",
+      "range": "Industry",
+      "pt": {
+        "verb": "atua_em",
+        "inverse": "praticado_por"
+      },
+      "reads": "{s} is active in {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "uses",
+      "inverse": "used_by",
+      "domain": "Person",
+      "range": "Technology",
+      "pt": {
+        "verb": "usa",
+        "inverse": "usado_por"
+      },
+      "reads": "{s} uses {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "advocates",
+      "inverse": "advocated_by",
+      "domain": "Person",
+      "range": "Idea",
+      "pt": {
+        "verb": "defende",
+        "inverse": "defendido_por"
+      },
+      "reads": "{s} advocates {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "offers",
+      "inverse": "offered_by",
+      "domain": "Person",
+      "range": "Service",
+      "pt": {
+        "verb": "oferece",
+        "inverse": "oferecido_por"
+      },
+      "reads": "{s} offers {t}",
+      "origin": "proposed"
+    },
+    {
+      "verb": "offers",
+      "inverse": "offered_by",
+      "domain": "Person",
+      "range": "Product",
+      "pt": {
+        "verb": "oferece",
+        "inverse": "oferecido_por"
+      },
+      "reads": "{s} offers {t}",
+      "origin": "proposed"
+    }
+  ],
+  "banned": [
+    {
+      "verb": "related_to",
+      "why": "Symmetric, so it would be its own inverse, and it says nothing a reader could walk."
+    },
+    {
+      "verb": "mentions",
+      "why": "Every edge in a graph built from text 'mentions' something. It is the absence of a verb."
+    },
+    {
+      "verb": "associated_with",
+      "why": "The verb people reach for when they do not know the relationship. Find out, or leave the edge out."
+    },
+    {
+      "verb": "works_at",
+      "why": "Not what the source says. A speaker card lists an organisation; it does not assert employment. The edge is listed_under."
+    }
+  ],
+  "taxonomy": [
+    {
+      "id": "entity",
+      "label": "Entities",
+      "pt": "Entidades",
+      "broader": null,
+      "types": [
+        "Person",
+        "Organisation",
+        "Place"
+      ]
+    },
+    {
+      "id": "programme",
+      "label": "Programme",
+      "pt": "Programa",
+      "broader": null,
+      "types": [
+        "Event",
+        "Session",
+        "Stage"
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence",
+      "pt": "Evidência",
+      "broader": null,
+      "types": [
+        "Snapshot",
+        "Source",
+        "Coverage"
+      ]
+    },
+    {
+      "id": "output",
+      "label": "Our output",
+      "pt": "O nosso trabalho",
+      "broader": null,
+      "types": [
+        "Story"
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes",
+      "pt": "Temas",
+      "broader": null,
+      "types": [
+        "Topic"
+      ]
+    },
+    {
+      "id": "derived",
+      "label": "Derived by formula",
+      "pt": "Derivado por fórmula",
+      "broader": null,
+      "types": [
+        "Industry",
+        "Technology",
+        "Idea",
+        "Service",
+        "Product"
+      ]
+    }
+  ],
+  "derived_verbs": [
+    "active_in",
+    "advocates",
+    "offers",
+    "uses"
+  ],
+  "formulas": [
+    {
+      "id": "role_class",
+      "on": "Person",
+      "note": "One of two classifications this graph makes rather than reads. Matched against the LISTED role title, first match wins, and every value carries 'by listed title'.",
+      "rules": [
+        {
+          "class": "investor",
+          "label": "investor-side, by listed title",
+          "pattern": "\\b(investor|partner|ventures?|vc|angel|capital|fund|lp)\\b"
+        },
+        {
+          "class": "founder",
+          "label": "founder or operator, by listed title",
+          "pattern": "\\b(founder|co-founder|ceo|cto|coo|cpo|chief|head of|director|managing)\\b"
+        },
+        {
+          "class": "advisor",
+          "label": "advisor, counsel or academic, by listed title",
+          "pattern": "\\b(advisor|adviser|counsel|professor|researcher|lawyer|legal|consultant|author)\\b"
+        }
+      ]
+    },
+    {
+      "id": "tags",
+      "on": "Person",
+      "note": "The other. Each lexicon entry is a case-insensitive regular expression run over the Bio prose of the speaker's own frozen page; a match makes one edge (active_in, uses, advocates or offers) carrying the matched words. Re-run on every build by gate 17. The full lexicon, with Portuguese labels, is data/lexicon.json.",
+      "lexicon": "data/lexicon.json",
+      "entries": 57,
+      "rules": [
+        {
+          "class": "fintech",
+          "type": "Industry",
+          "label": "Finance & fintech",
+          "pattern": "\\bfintech\\b|\\bpayments?\\b|\\bbanking\\b|\\bfinancial services\\b|\\binsurtech\\b|\\bwealth\\b"
+        },
+        {
+          "class": "health",
+          "type": "Industry",
+          "label": "Health",
+          "pattern": "\\bhealth(?:care|tech)?\\b|\\bmedical\\b|\\bbiomedical\\b|\\bpharma\\w*|\\bclinic\\w*"
+        },
+        {
+          "class": "legal",
+          "type": "Industry",
+          "label": "Legal",
+          "pattern": "\\blaw firm\\b|\\bsolicitors?\\b|\\blegal\\b|\\blawyers?\\b|\\bjurisdictions?\\b"
+        },
+        {
+          "class": "property",
+          "type": "Industry",
+          "label": "Property",
+          "pattern": "\\bproptech\\b|\\bproperty\\b|\\breal estate\\b|\\bestate agency\\b"
+        },
+        {
+          "class": "energy-climate",
+          "type": "Industry",
+          "label": "Energy & climate",
+          "pattern": "\\bclimate\\b|\\benergy\\b|\\bcleantech\\b|\\bsustainab\\w+|\\bESG\\b|\\bcarbon\\b"
+        },
+        {
+          "class": "education",
+          "type": "Industry",
+          "label": "Education",
+          "pattern": "\\bedtech\\b|\\beducation\\b|\\bschools?\\b|\\buniversit\\w+|\\bacadem\\w+"
+        },
+        {
+          "class": "media-marketing",
+          "type": "Industry",
+          "label": "Media & marketing",
+          "pattern": "\\bmarketing\\b|\\bmedia\\b|\\bPR\\b|\\bcommunications?\\b|\\bbrand(?:ing|s)?\\b|\\badvertis\\w+"
+        },
+        {
+          "class": "hr-talent",
+          "type": "Industry",
+          "label": "HR & talent",
+          "pattern": "\\brecruit\\w*|\\bhiring\\b|\\btalent\\b|\\bHR\\b|\\bhuman resources\\b|\\bworkforce\\b"
+        },
+        {
+          "class": "retail-commerce",
+          "type": "Industry",
+          "label": "Retail & commerce",
+          "pattern": "\\be-?commerce\\b|\\bretail\\b|\\bmarketplace\\b|\\bconsumer\\b"
+        },
+        {
+          "class": "mobility-logistics",
+          "type": "Industry",
+          "label": "Mobility & logistics",
+          "pattern": "\\bmobility\\b|\\blogistics\\b|\\bautomotive\\b|\\btransport\\w*|\\bsupply chain\\b"
+        },
+        {
+          "class": "gaming-entertainment",
+          "type": "Industry",
+          "label": "Games, sport & entertainment",
+          "pattern": "\\bgam(?:ing|es)\\b|\\bentertainment\\b|\\bmusic\\b|\\bsports?\\b"
+        },
+        {
+          "class": "public-sector",
+          "type": "Industry",
+          "label": "Public sector & policy",
+          "pattern": "\\bgovernment\\b|\\bpublic sector\\b|\\bpolicy\\b|\\bregulat\\w+"
+        },
+        {
+          "class": "hospitality-tourism",
+          "type": "Industry",
+          "label": "Tourism & hospitality",
+          "pattern": "\\btourism\\b|\\bhospitality\\b|\\btravel\\b|\\bhotel\\w*"
+        },
+        {
+          "class": "art-culture",
+          "type": "Industry",
+          "label": "Art & culture",
+          "pattern": "\\bart\\b|\\bartists?\\b|\\bcultural\\b|\\bcreative industr\\w+"
+        },
+        {
+          "class": "food-agri",
+          "type": "Industry",
+          "label": "Food & agriculture",
+          "pattern": "\\bfood\\b|\\bagri\\w*|\\bfarming\\b"
+        },
+        {
+          "class": "security",
+          "type": "Industry",
+          "label": "Security & privacy",
+          "pattern": "\\bcyber\\w*|\\bsecurity\\b|\\bprivacy\\b"
+        },
+        {
+          "class": "ai",
+          "type": "Technology",
+          "label": "AI & machine learning",
+          "pattern": "\\bAI\\b|\\bartificial intelligence\\b|\\bmachine learning\\b|\\bGenAI\\b|\\bgenerative AI\\b|\\bLLMs?\\b|\\bdeep learning\\b"
+        },
+        {
+          "class": "data",
+          "type": "Technology",
+          "label": "Data & analytics",
+          "pattern": "\\bdata\\b|\\banalytics\\b"
+        },
+        {
+          "class": "blockchain-web3",
+          "type": "Technology",
+          "label": "Blockchain & web3",
+          "pattern": "\\bblockchain\\b|\\bweb3\\b|\\bcrypto\\w*|\\btokeni\\w+|\\bDeFi\\b"
+        },
+        {
+          "class": "cloud-infra",
+          "type": "Technology",
+          "label": "Cloud & infrastructure",
+          "pattern": "\\bcloud\\b|\\binfrastructure\\b|\\bDevOps\\b"
+        },
+        {
+          "class": "hpc",
+          "type": "Technology",
+          "label": "HPC & compute",
+          "pattern": "\\bHPC\\b|\\bhigh-performance computing\\b|\\bsupercomput\\w+|\\bcomputational\\b|\\bGPUs?\\b"
+        },
+        {
+          "class": "robotics-hardware",
+          "type": "Technology",
+          "label": "Robotics, hardware & IoT",
+          "pattern": "\\brobot\\w*|\\bhardware\\b|\\bIoT\\b|\\bsensors?\\b|\\bdeep tech\\b"
+        },
+        {
+          "class": "software",
+          "type": "Technology",
+          "label": "Software & SaaS",
+          "pattern": "\\bSaaS\\b|\\bsoftware\\b|\\bAPIs?\\b|\\bapps?\\b|\\bmobile\\b"
+        },
+        {
+          "class": "automation",
+          "type": "Technology",
+          "label": "Automation & agents",
+          "pattern": "\\bautomation\\b|\\bagents?\\b|\\bworkflows?\\b|\\bno-code\\b|\\blow-code\\b"
+        },
+        {
+          "class": "digital",
+          "type": "Technology",
+          "label": "Digital transformation",
+          "pattern": "\\bdigital transformation\\b|\\bdigital\\b"
+        },
+        {
+          "class": "xr",
+          "type": "Technology",
+          "label": "AR, VR & spatial",
+          "pattern": "\\bAR\\b|\\bVR\\b|\\bXR\\b|\\bmetaverse\\b|\\bvirtual reality\\b|\\baugmented\\b"
+        },
+        {
+          "class": "founder-journey",
+          "type": "Idea",
+          "label": "The founder journey",
+          "pattern": "\\bfounder journey\\b|\\bserial entrepreneur\\b|\\bbootstrapp\\w+|\\bco-?founded\\b|\\bfounded\\b"
+        },
+        {
+          "class": "product-market-fit",
+          "type": "Idea",
+          "label": "Product-market fit",
+          "pattern": "\\bproduct-market fit\\b|\\bPMF\\b"
+        },
+        {
+          "class": "go-to-market",
+          "type": "Idea",
+          "label": "Go-to-market & growth",
+          "pattern": "\\bgo-to-market\\b|\\bGTM\\b|\\bsales\\b|\\brevenue\\b|\\bgrowth\\b"
+        },
+        {
+          "class": "fundraising",
+          "type": "Idea",
+          "label": "Fundraising",
+          "pattern": "\\bfundrais\\w+|\\braising\\b|\\bpitch\\w*|\\bterm sheets?\\b"
+        },
+        {
+          "class": "scaling",
+          "type": "Idea",
+          "label": "Scaling",
+          "pattern": "\\bscal(?:e|ing|ed)\\b|\\bscale-?ups?\\b|\\bhypergrowth\\b"
+        },
+        {
+          "class": "leadership",
+          "type": "Idea",
+          "label": "Leadership & culture",
+          "pattern": "\\bleadership\\b|\\bculture\\b|\\bleaders?\\b"
+        },
+        {
+          "class": "impact-purpose",
+          "type": "Idea",
+          "label": "Impact & purpose",
+          "pattern": "\\bimpact\\b|\\bsocial (?:purpose|enterprise)\\b|\\bpurpose\\b|\\bmission\\b|\\bcharit\\w+|\\bnon-?profit\\b"
+        },
+        {
+          "class": "diversity-inclusion",
+          "type": "Idea",
+          "label": "Diversity & inclusion",
+          "pattern": "\\bdiversity\\b|\\binclusion\\b|\\bwomen\\b|\\bunderrepresented\\b|\\bdisadvantaged\\b"
+        },
+        {
+          "class": "future-of-work",
+          "type": "Idea",
+          "label": "The future of work",
+          "pattern": "\\bfuture of work\\b|\\bremote\\b|\\bhybrid work\\b|\\bworkplace\\b"
+        },
+        {
+          "class": "exits",
+          "type": "Idea",
+          "label": "Exits & M&A",
+          "pattern": "\\bexit(?:s|ed)?\\b|\\bM&A\\b|\\bacqui\\w+|\\bIPO\\b"
+        },
+        {
+          "class": "international",
+          "type": "Idea",
+          "label": "International expansion",
+          "pattern": "\\binternational\\w*|\\bcross-border\\b|\\bglobal\\w*|\\bexpansion\\b"
+        },
+        {
+          "class": "ecosystem",
+          "type": "Idea",
+          "label": "Ecosystem & community",
+          "pattern": "\\becosystem\\b|\\bcommunit(?:y|ies)\\b|\\bnetwork\\w*"
+        },
+        {
+          "class": "strategy",
+          "type": "Idea",
+          "label": "Strategy & decisions",
+          "pattern": "\\bstrateg\\w+|\\bdecision\\w*|\\bclarity\\b|\\boperations?\\b|\\boperational\\b"
+        },
+        {
+          "class": "innovation",
+          "type": "Idea",
+          "label": "Innovation & creativity",
+          "pattern": "\\binnovation\\b|\\bcreativ\\w+"
+        },
+        {
+          "class": "wellbeing",
+          "type": "Idea",
+          "label": "Mental health & resilience",
+          "pattern": "\\bmental health\\b|\\bburnout\\b|\\bwellbeing\\b|\\bresilien\\w+"
+        },
+        {
+          "class": "investment",
+          "type": "Service",
+          "label": "Investment",
+          "pattern": "\\bventure capital\\b|\\bVC\\b|\\binvest\\w+|\\bfunds?\\b|\\bangel\\w*|\\bfamily offices?\\b"
+        },
+        {
+          "class": "legal-services",
+          "type": "Service",
+          "label": "Legal services",
+          "pattern": "\\blegal (?:services|advice|support)\\b|\\blaw firm\\b|\\bsolicitors?\\b|\\bcounsel\\b"
+        },
+        {
+          "class": "advisory",
+          "type": "Service",
+          "label": "Advisory & consulting",
+          "pattern": "\\badvis\\w+|\\bconsult\\w+|\\bfractional\\b"
+        },
+        {
+          "class": "pr-marketing",
+          "type": "Service",
+          "label": "PR, marketing & brand",
+          "pattern": "\\bPR\\b|\\bpublic relations\\b|\\bagency\\b|\\bbranding\\b|\\bstudio\\b"
+        },
+        {
+          "class": "recruitment",
+          "type": "Service",
+          "label": "Recruitment & HR",
+          "pattern": "\\brecruit\\w+|\\bheadhunt\\w+|\\btalent acquisition\\b|\\bHR\\b"
+        },
+        {
+          "class": "incubation",
+          "type": "Service",
+          "label": "Incubation & acceleration",
+          "pattern": "\\bincubat\\w+|\\baccelerat\\w+|\\bventure studio\\b"
+        },
+        {
+          "class": "compute-support",
+          "type": "Service",
+          "label": "Compute & technical support",
+          "pattern": "\\bcomputational resources\\b|\\btechnical support\\b|\\bsupercomputers?\\b"
+        },
+        {
+          "class": "coaching",
+          "type": "Service",
+          "label": "Coaching, training & speaking",
+          "pattern": "\\bcoach\\w+|\\btraining\\b|\\bworkshops?\\b|\\bcourses?\\b|\\bkeynote\\w*|\\bmentor\\w*"
+        },
+        {
+          "class": "finance-services",
+          "type": "Service",
+          "label": "Banking, finance & tax",
+          "pattern": "\\bbank\\w*|\\baccounting\\b|\\btax\\b|\\bpayroll\\b"
+        },
+        {
+          "class": "events",
+          "type": "Service",
+          "label": "Events & community",
+          "pattern": "\\bevents?\\b|\\bconferences?\\b|\\bsummits?\\b"
+        },
+        {
+          "class": "platform",
+          "type": "Product",
+          "label": "A platform",
+          "pattern": "\\bplatforms?\\b"
+        },
+        {
+          "class": "app",
+          "type": "Product",
+          "label": "An app",
+          "pattern": "\\bapps?\\b|\\bmobile app\\b"
+        },
+        {
+          "class": "marketplace",
+          "type": "Product",
+          "label": "A marketplace",
+          "pattern": "\\bmarketplace\\b"
+        },
+        {
+          "class": "tool",
+          "type": "Product",
+          "label": "A tool or API",
+          "pattern": "\\bAPIs?\\b|\\btools?\\b|\\bSaaS\\b"
+        },
+        {
+          "class": "method",
+          "type": "Product",
+          "label": "A method, book or framework",
+          "pattern": "\\bmethod\\b|\\bframework\\b|\\bdiagnostic\\b|\\bplaybook\\b|\\bbooks?\\b|\\bauthor\\b"
+        },
+        {
+          "class": "device",
+          "type": "Product",
+          "label": "A device",
+          "pattern": "\\bdevices?\\b|\\bhardware\\b|\\bwearable\\w*"
+        }
+      ]
+    }
+  ]
+}

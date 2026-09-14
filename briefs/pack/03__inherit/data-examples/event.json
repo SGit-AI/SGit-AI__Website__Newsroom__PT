@@ -1,0 +1,126 @@
+{
+  "id": "startup-summit-lisbon-2026",
+  "version": "0.1.0",
+  "updated": "2026-09-13",
+  "note": "The event as its own site describes it, read from frozen and hashed copies. Every field names the frozen page it came from. Nothing here is this publication's characterisation of the event; it is the event's published description of itself, with a pointer back.",
+  "name": "Startup Summit Lisbon 2026",
+  "url": "https://startupsummit.io",
+  "dates": {
+    "main": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "pre_event": "2026-09-16",
+    "pre_event_what": "Welcome Drinks at Beato Innovation District, 19:00",
+    "source": "agenda"
+  },
+  "venue": {
+    "name": "Unicorn Factory Lisboa",
+    "district": "Beato Innovation District",
+    "address": "Av. Infante Dom Henrique 143, 1950-406 Lisbon, Portugal",
+    "note": "The llms.txt names Unicorn Factory Lisboa; most pages name only the Beato Innovation District.",
+    "source": "llms.txt"
+  },
+  "organiser": {
+    "name": "StartUp Events",
+    "founder": "(a named individual on the event's own index page — read it from your frozen copy, never from this example)",
+    "claim": "Has brought founder-focused conferences to London, Madrid, Berlin and cities across Europe since 2019.",
+    "source": "index"
+  },
+  "stages": {
+    "note": "The event publishes TWO different sets of stage names on different pages of the same site. Both are recorded; neither is corrected here. See the checks page.",
+    "as_on_agenda": [
+      "Unicorn Stage",
+      "Impact Stage",
+      "Workshop Rooms"
+    ],
+    "as_on_ai_summary": [
+      "Main Stage",
+      "Startup Stage",
+      "Workshop Rooms"
+    ],
+    "count_claimed": 3,
+    "source": [
+      "agenda",
+      "ai-summary",
+      "sponsors",
+      "what-to-expect"
+    ]
+  },
+  "tickets": [
+    {
+      "tier": "General Admission",
+      "from_eur": 49,
+      "source": "ai-summary"
+    },
+    {
+      "tier": "Founder Pass",
+      "from_eur": 99,
+      "source": "ai-summary"
+    },
+    {
+      "tier": "Startup Booth",
+      "from_eur": 199,
+      "source": "ai-summary"
+    },
+    {
+      "tier": "Investor Pass",
+      "from_eur": 199,
+      "source": "ai-summary"
+    },
+    {
+      "tier": "VIP Experience",
+      "from_eur": 249,
+      "source": "ai-summary"
+    }
+  ],
+  "pricing_model": "Super Early Bird -> Early Bird -> Standard -> Final Release",
+  "targets": {
+    "note": "The event's own wording separates what is TARGETED from what is CONFIRMED, and this publication keeps that separation. A target is a plan, not a result, and reporting one as the other is the most common way an event preview goes wrong.",
+    "attendees": "targeting 2,000+ founders, investors and operators",
+    "speakers": "150+ speakers planned",
+    "booths": "200+ startup booths planned",
+    "countries": "40+ countries",
+    "investors": "300+ investors",
+    "source": [
+      "index",
+      "ai-summary",
+      "sponsors"
+    ]
+  },
+  "topics": [
+    "AI",
+    "Web3",
+    "ClimateTech",
+    "FoodTech",
+    "venture capital",
+    "startup scaling",
+    "brand building",
+    "angel investing",
+    "founder networking",
+    "go-to-market",
+    "product development",
+    "hiring"
+  ],
+  "agent_surface": {
+    "note": "The event publishes its own agent surface: an /ai-summary page for humans and /llms.txt plus /llms-full.txt for machines. That is rare enough on a conference site to be worth recording, and it is the same convention this network uses.",
+    "pages": [
+      "https://startupsummit.io/ai-summary",
+      "https://startupsummit.io/llms.txt"
+    ],
+    "source": "ai-summary"
+  },
+  "sponsors": {
+    "named": [],
+    "why_empty": "The sponsors page publishes six sponsorship TIERS and no named sponsor. There is nothing to put in the graph, so the graph holds nothing. An empty list here is a fact about what has been published, not an omission by this publication.",
+    "tiers": [
+      "Title Sponsor",
+      "Lead Sponsor",
+      "Stage Sponsor",
+      "Networking Sponsor",
+      "Booth Sponsor / Exhibitor",
+      "Ecosystem & Media Partners"
+    ],
+    "source": "sponsors"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "portugal-stories",
+  "section_version": "0.2.0",
+  "masthead": "Portugal Startups",
+  "beat": "The Portuguese startup ecosystem — companies, founders, investors, institutions and the events where they meet — mapped on a graph built from primary sources that are frozen and hashed.",
+  "updated": "2026-09-13",
+  "stories": [
+    {
+      "slug": "a-record-attempt-the-agenda-does-not-mention",
+      "kicker": "The press and the programme",
+      "title": "A record attempt the agenda does not mention",
+      "standfirst": "Two Portuguese outlets say a 48-hour Guinness pitch marathon runs alongside the summit on 16–17 September. The event's own agenda page, four days out, does not list it. Both are frozen; neither is wrong yet.",
+      "published": "2026-09-13",
+      "byline": "Researcher, Cartographer and Writer agents",
+      "stands_on": [
+        "2026-09-13/coverage/portugalglobal-pitch-marathon",
+        "2026-09-13/coverage/pbn-guinness-record",
+        "2026-09-13/agenda"
+      ]
+    },
+    {
+      "slug": "five-names-arrived-and-one-left",
+      "kicker": "The list, twice",
+      "title": "Five names arrived and one left",
+      "standfirst": "Between 8 and 13 September the published speaker list for Startup Summit Lisbon 2026 went from 60 to 64. We have both copies and both hashes, which is the only reason anyone can now say that.",
+      "published": "2026-09-13",
+      "byline": "Diff Watch and Writer agents",
+      "stands_on": [
+        "2026-09-08/speakers",
+        "2026-09-13/speakers",
+        "2026-09-13/index"
+      ]
+    },
+    {
+      "slug": "two-names-for-three-stages",
+      "kicker": "Method note",
+      "title": "Two names for three stages",
+      "standfirst": "The agenda calls them the Unicorn Stage and the Impact Stage. The AI-summary page calls them the Main Stage and the Startup Stage. Both are published by the same event on the same site today.",
+      "published": "2026-09-13",
+      "byline": "Extractor and Writer agents",
+      "stands_on": [
+        "2026-09-13/agenda",
+        "2026-09-13/ai-summary",
+        "2026-09-13/sponsors",
+        "2026-09-13/llms.txt"
+      ]
+    }
+  ]
+}

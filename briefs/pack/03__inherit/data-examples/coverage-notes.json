@@ -1,0 +1,24 @@
+{
+  "id": "summit-coverage-notes",
+  "note": "Hand-curated notes about each third-party page that covers the event: who published it, what kind of page it is, and what it says in this publication's words. The URL, hash, bytes and retrieval time are NOT typed here — extract.py fills them from the frozen copy, so a note cannot exist for a page that was not frozen. 'what_it_says' is a summary written by this publication after reading the frozen copy; nothing is quoted.",
+  "items": [
+    { "id": "portugalglobal-pitch-marathon", "publisher": "AICEP Portugal Global", "kind": "news", "published": "2026-07-29",
+      "what_it_says": "Announces applications for a 48-hour non-stop startup pitch marathon run alongside the summit on 16–17 September 2026, as an official Guinness World Records attempt, with almost a thousand founders taking part remotely or in person at Unicorn Factory Lisboa's Beato Innovation District." },
+    { "id": "pbn-guinness-record", "publisher": "Portugal Business News", "kind": "news", "published": "2026-07-29",
+      "what_it_says": "Reports the same Guinness World Records attempt: a 48-hour pitch marathon with almost 1,000 startups pitching, founders participating remotely or in person. Its summary line dates the marathon to 17 September and its body to 16–17 September; both are on the same page." },
+    { "id": "scaleup-porto", "publisher": "ScaleUp Porto", "kind": "listing", "published": "2026-07-07",
+      "what_it_says": "An event listing by the Porto scale-up body: dates 17–18 September, venue Beato Innovation District with the street address, and a description of the summit as a large-scale founder, investor and corporate conference." },
+    { "id": "startupevents-org", "publisher": "StartupEvents.org", "kind": "listing", "published": null,
+      "what_it_says": "A calendar listing carrying the event's own framing — 2,000+ target attendees, 150+ speakers, 200+ booths — with start and end times (17 September 07:30 to 18 September 17:45) and a calendar export." },
+    { "id": "startupmaphub", "publisher": "Startup Map Hub", "kind": "guide", "published": null,
+      "what_it_says": "A dates-venue-guide page: 17–18 September 2026 at Unicorn Factory, Beato Innovation District, with the street address." },
+    { "id": "eventbrite-sept", "publisher": "Eventbrite", "kind": "ticketing", "published": null,
+      "what_it_says": "The ticketing listing: 17–18 September, 09:30 to midnight, Unicorn Factory Lisboa. Its agenda widget carries tabs for 16, 17, 18 AND 19 September, with the Welcome Drinks on the 16th from 19:00 to 22:00. The event's own site names no 19 September activity." },
+    { "id": "summit-lisbon-tech-events", "publisher": "Startup Summit (the event itself)", "kind": "event's own", "published": null,
+      "what_it_says": "The event's own guide to Lisbon tech events in 2026, positioning the summit among them: 17–18 September at Beato, 200+ booths." }
+  ],
+  "excluded": [
+    { "id": "eventbrite-april", "url": "https://www.eventbrite.pt/e/startup-summit-lisbon-2026-founders-investors-innovators-16th-17th-apr-tickets-1470702313209",
+      "why": "Returned HTTP 404 ('Ocorreu algo de errado') when fetched on 2026-09-13. A search engine still returns it, titled as a 16–17 April 2026 edition. It cannot enter the register because it did not resolve, and this publication does not know whether an April edition happened. Recorded as excluded rather than silently dropped." }
+  ]
+}

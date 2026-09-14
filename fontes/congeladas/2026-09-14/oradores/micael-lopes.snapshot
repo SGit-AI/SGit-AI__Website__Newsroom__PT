@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-BfUTwHYg.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-y3B4dx-F.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-y3B4dx-F.css"></noscript>
+      <title>Micael Lopes — CEO & Founder | Startup Summit Lisbon 2026</title>
+    <meta name="description" content="Micael Lopes (CEO &amp; Founder at TIME &amp; SPACE) — Founder of TIME &amp; SPACE. On a mission to enable more presence and connection to people at events." />
+    <link rel="canonical" href="https://startupsummit.io/speakers/micael-lopes" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/speakers/micael-lopes" />
+    <link rel="alternate" hreflang="pt-PT" href="https://startupsummit.io/pt/oradores/micael-lopes" />
+    <link rel="alternate" hreflang="es-ES" href="https://startupsummit.io/es/ponentes/micael-lopes" />
+    <link rel="alternate" hreflang="fr-FR" href="https://startupsummit.io/fr/intervenants/micael-lopes" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/speakers/micael-lopes" />
+
+    <meta property="og:title" content="Micael Lopes — CEO &amp; Founder | Startup Summit Lisbon 2026" />
+    <meta property="og:description" content="Micael Lopes (CEO &amp; Founder at TIME &amp; SPACE) — Founder of TIME &amp; SPACE. On a mission to enable more presence and connection to people at events." />
+    <meta property="og:image" content="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/fa66e6be-f3f6-453b-871b-ec311b0145b9.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/speakers/micael-lopes" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Micael Lopes — CEO &amp; Founder | Startup Summit Lisbon 2026" />
+    <meta name="twitter:description" content="Micael Lopes (CEO &amp; Founder at TIME &amp; SPACE) — Founder of TIME &amp; SPACE. On a mission to enable more presence and connection to people at events." />
+    <meta name="twitter:image" content="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/fa66e6be-f3f6-453b-871b-ec311b0145b9.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Speakers","item":"https://startupsummit.io/speakers"},{"@type":"ListItem","position":3,"name":"Micael Lopes","item":"https://startupsummit.io/speakers/micael-lopes"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Micael Lopes — CEO & Founder | Startup Summit Lisbon 2026","url":"https://startupsummit.io/speakers/micael-lopes","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micael Lopes","jobTitle":"CEO & Founder","description":"Founder of TIME & SPACE. On a mission to enable more presence and connection to people at events.","url":"https://startupsummit.io/speakers/micael-lopes","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/fa66e6be-f3f6-453b-871b-ec311b0145b9.jpg","worksFor":{"@type":"Organization","name":"TIME & SPACE"},"sameAs":["https://www.linkedin.com/in/micaelopes/"],"performerIn":{"@type":"BusinessEvent","name":"Startup Summit Lisbon 2026","startDate":"2026-09-17","endDate":"2026-09-18","location":{"@type":"Place","name":"Unicorn Factory Lisboa, Beato Innovation District, Lisbon"}}}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Micael Lopes</h1>
+  <p><strong>CEO & Founder</strong> · TIME & SPACE</p>
+  <p><strong>Speaking at:</strong> Startup Summit Lisbon 2026 · September 17–18, 2026 · Beato Innovation District, Lisbon</p>
+
+  <h2>Bio</h2>
+  <p>Founder of TIME & SPACE. On a mission to enable more presence and connection to people at events.</p>
+
+  <h2>Topics</h2>
+  <ul>
+    <li>AI</li>
+    <li>Founder journey</li>
+    <li>European startups</li>
+    <li>Mental health</li>
+    <li>Other</li>
+  </ul>
+
+  <p><a href="https://www.linkedin.com/in/micaelopes/">LinkedIn profile</a></p>
+
+  <h2>About Startup Summit</h2>
+  <p>Micael Lopes is speaking at Startup Summit Lisbon 2026, a founder-first European startup conference bringing together founders, operators, startup teams, angels, VC funds and ecosystem partners at the Beato Innovation District on 17–18 September 2026.
+  <a href="/tickets">Tickets from €49</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/speakers">All speakers</a></li>
+    <li><a href="/agenda">Two-day agenda</a></li>
+    <li><a href="/tickets">Get tickets</a></li>
+    <li><a href="/about">About Startup Summit</a></li>
+    <li><a href="/why-attend">Why attend</a></li>
+  </ul>
+  
+      </div>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "id": "startup-summit-lisbon-2026",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nome": "Startup Summit Lisbon 2026",
+  "url": "https://startupsummit.io",
+  "datas": { "principais": "17–18 de setembro de 2026", "vespera": "16 de setembro de 2026" },
+  "local": { "nome": "Beato Innovation District", "concelho": "Lisboa" },
+
+  "nota": "A primeira matéria desta redação. É um evento e não o ecossistema: uma amostra, não um recenseamento. O que lhe dá valor aqui é ser sobre a fonte mais congelável que existe — uma organização que publica a sua própria lista de quem vai falar e a vai mudando à medida que a semana se aproxima.",
+
+  "porque_esta_materia": "O resumo de comissionamento manda começar por aqui porque o evento é esta semana e porque o caminho de ingestão precisa de uma fonte que se mexa para provar que funciona. A matéria desta publicação, porém, é um país, e não este evento.",
+
+  "alvos_vs_resultados": {
+    "regra": "Um alvo é um plano. Publicar um alvo como resultado é a maneira mais comum de uma antevisão de evento correr mal, e é uma recusa de toda a publicação, imposta pelo portão 4 de build/gates.py.",
+    "o_que_o_evento_declara": "A página de oradores do evento declara «150+ speakers from 40+ countries» e, separadamente, que há um certo número de oradores confirmados listados abaixo. O primeiro número é um alvo. O segundo é uma contagem, e é o único que este site relata.",
+    "contagem_e_de_dados": "O número de oradores que aparece em qualquer página deste site é contado a partir dos cartões da cópia congelada, e comparado com o número que a própria página declara. Quando os dois discordam, isso é uma observação publicável sobre um artefacto publicado; quando concordam, é isso que se diz."
+  },
+
+  "o_que_nao_se_pode_verificar": [
+    {
+      "afirmacao": "Oradores e participantes de mais de 40 países.",
+      "porque_nao": "Nenhum cartão de orador tem país. Esta publicação não pode confirmar nem contestar a afirmação a partir da fonte. Fica registada como não verificável aqui, e não como duvidada."
+    }
+  ]
+}

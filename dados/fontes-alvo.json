@@ -1,0 +1,171 @@
+{
+  "id": "pt-fontes-alvo",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "A lista que a execução diária volta a buscar. Pública em vez de enterrada no código: um leitor pode ver o que esta redação olha e o que não olha.",
+  "contagem": 18,
+  "alvos": [
+    {
+      "id": "index",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "agenda",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/agenda",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "oradores",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/speakers",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "patrocinadores",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/sponsors",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "bilhetes",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/tickets",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "local",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/location",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "faq",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/faq",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "resumo-ia",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/ai-summary",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": false
+    },
+    {
+      "id": "llms.txt",
+      "grupo": "evento",
+      "url": "https://startupsummit.io/llms.txt",
+      "publicador": "Startup Summit Lisbon 2026",
+      "lingua": "en",
+      "texto": true
+    },
+    {
+      "id": "gov-ia",
+      "grupo": "registo",
+      "url": "https://www.portugal.gov.pt/pt/gc24/governo/programa-do-governo",
+      "publicador": "Governo de Portugal",
+      "lingua": "pt",
+      "texto": false,
+      "porque": "A página do próprio Governo. O ponto de partida para saber o que o registo público contém sobre a política de IA."
+    },
+    {
+      "id": "dre-inicio",
+      "grupo": "registo",
+      "url": "https://dre.pt/",
+      "publicador": "Diário da República Eletrónico (INCM)",
+      "lingua": "pt",
+      "texto": false,
+      "porque": "O diário oficial. Se o instrumento legal de uma política existe, está aqui — e se um leitor automático não o consegue ler, isso é uma afirmação verificável sobre a legibilidade do registo nacional."
+    },
+    {
+      "id": "dados-gov",
+      "grupo": "registo",
+      "url": "https://dados.gov.pt/pt/datasets/",
+      "publicador": "dados.gov.pt (AMA)",
+      "lingua": "pt",
+      "texto": false,
+      "porque": "O portal nacional de dados abertos. Uma varredura por qualquer conjunto de dados adjacente a IA (§10 do resumo)."
+    },
+    {
+      "id": "cordis",
+      "grupo": "abertas",
+      "url": "https://cordis.europa.eu/projects/pt",
+      "publicador": "CORDIS — Comissão Europeia",
+      "lingua": "en",
+      "texto": false,
+      "porque": "A base de dados dos projetos de investigação europeus, com conjuntos de dados abertos. A melhor semente para investigação, financiamento e ligações institucionais."
+    },
+    {
+      "id": "fct-unidades",
+      "grupo": "abertas",
+      "url": "https://www.fct.pt/en/financiamento/programas-de-financiamento/unidades-de-id/",
+      "publicador": "Fundação para a Ciência e a Tecnologia",
+      "lingua": "pt",
+      "texto": false,
+      "porque": "A lista de unidades de I&D financiadas. A resposta citável para as instituições, em vez de adivinhar."
+    },
+    {
+      "id": "portugalglobal-maratona",
+      "grupo": "imprensa",
+      "url": "https://portugalglobal.pt/en/news/2026/julho/startup-summit-lisbon-opens-applications-for-48hr-pitch-marathon/",
+      "publicador": "AICEP Portugal Global",
+      "lingua": "en",
+      "texto": false,
+      "tipo": "notícia"
+    },
+    {
+      "id": "pbn-recorde-guinness",
+      "grupo": "imprensa",
+      "url": "https://www.portugalbusinessesnews.com/post/startup-summit-lisbon-will-officially-attempt-to-set-a-guinness-world-record",
+      "publicador": "Portugal Business News",
+      "lingua": "en",
+      "texto": false,
+      "tipo": "notícia"
+    },
+    {
+      "id": "scaleup-porto",
+      "grupo": "imprensa",
+      "url": "https://scaleupporto.pt/event/startup-summit-lisbon-2026/",
+      "publicador": "ScaleUp Porto",
+      "lingua": "pt",
+      "texto": false,
+      "tipo": "listagem"
+    },
+    {
+      "id": "startupevents-org",
+      "grupo": "imprensa",
+      "url": "https://startupevents.org/startup-events-calendar/startup-summit-lisbon-2026",
+      "publicador": "StartupEvents.org",
+      "lingua": "en",
+      "texto": false,
+      "tipo": "listagem"
+    }
+  ],
+  "por_resolver": [
+    {
+      "id": "recuperar-portugal",
+      "url": "https://recuperarportugal.gov.pt/",
+      "publicador": "Recuperar Portugal (PRR)",
+      "lingua": "pt",
+      "porque": "O portal de transparência do plano de recuperação: quem recebeu dinheiro público, para quê. O resumo (§10) marca-o como legível por máquina e é a segunda das duas sementes abertas do dia um."
+    }
+  ]
+}

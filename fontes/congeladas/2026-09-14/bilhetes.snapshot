@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-BfUTwHYg.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-y3B4dx-F.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-y3B4dx-F.css"></noscript>
+      <title>Tickets & Pricing — Startup Summit Lisbon 2026 | From €49</title>
+    <meta name="description" content="2 days, 3 stages, 2,000+ founders. Startup Summit Lisbon 2026 passes from €49 — General, Founder, Investor, VIP and Startup Booth. September 17–18." />
+    <link rel="canonical" href="https://startupsummit.io/tickets" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/tickets" />
+    <link rel="alternate" hreflang="pt-PT" href="https://startupsummit.io/pt/bilhetes" />
+    <link rel="alternate" hreflang="es-ES" href="https://startupsummit.io/es/entradas" />
+    <link rel="alternate" hreflang="fr-FR" href="https://startupsummit.io/fr/billets" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/tickets" />
+
+    <meta property="og:title" content="Tickets &amp; Pricing — Startup Summit Lisbon 2026 | From €49" />
+    <meta property="og:description" content="2 days, 3 stages, 2,000+ founders. Startup Summit Lisbon 2026 passes from €49 — General, Founder, Investor, VIP and Startup Booth. September 17–18." />
+    <meta property="og:image" content="https://startupsummit.io/images/og-tickets.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/tickets" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tickets &amp; Pricing — Startup Summit Lisbon 2026 | From €49" />
+    <meta name="twitter:description" content="2 days, 3 stages, 2,000+ founders. Startup Summit Lisbon 2026 passes from €49 — General, Founder, Investor, VIP and Startup Booth. September 17–18." />
+    <meta name="twitter:image" content="https://startupsummit.io/images/og-tickets.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Tickets","item":"https://startupsummit.io/tickets"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tickets & Pricing — Startup Summit Lisbon 2026 | From €49","url":"https://startupsummit.io/tickets","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"General Pass — Startup Summit Lisbon 2026","description":"Access to all Startup Summit talks, the expo, the startup showcase areas and public networking. Best for anyone attending the summit — founders, operators, marketers, students, and tech enthusiasts.","brand":{"@type":"Organization","name":"Startup Summit"},"category":"Event ticket","url":"https://startupsummit.io/tickets#general-pass","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"49","highPrice":"119","availability":"https://schema.org/InStock","url":"https://startupsummit.io/tickets#general-pass","validFrom":"2026-01-01"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Founder Pass — Startup Summit Lisbon 2026","description":"Everything in General Pass plus founder-focused networking, speed networking and access to the Founder Social. Built for founders who want deeper community access beyond the main stage.","brand":{"@type":"Organization","name":"Startup Summit"},"category":"Event ticket","url":"https://startupsummit.io/tickets#founder-pass","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"99","highPrice":"199","availability":"https://schema.org/InStock","url":"https://startupsummit.io/tickets#founder-pass","validFrom":"2026-01-01"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Startup Booth Package — Startup Summit Lisbon 2026","description":"A startup exhibition booth, 2 Startup Summit passes, pitching eligibility and visibility in front of investors and partners. For startups that want to exhibit and generate deal flow.","brand":{"@type":"Organization","name":"Startup Summit"},"category":"Event ticket","url":"https://startupsummit.io/tickets#startup-booth","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"199","highPrice":"399","availability":"https://schema.org/InStock","url":"https://startupsummit.io/tickets#startup-booth","validFrom":"2026-01-01"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Investor Pass — Startup Summit Lisbon 2026","description":"For angels, VCs, family offices, and corporate investors. Investor-only networking, founder speed networking and curated startup deal flow exposure.","brand":{"@type":"Organization","name":"Startup Summit"},"category":"Event ticket","url":"https://startupsummit.io/tickets#investor-pass","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"199","highPrice":"499","availability":"https://schema.org/InStock","url":"https://startupsummit.io/tickets#investor-pass","validFrom":"2026-01-01"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"VIP Experience Pass — Startup Summit Lisbon 2026","description":"The premium summit experience: priority check-in, reserved seating for selected moments, premium networking and the VIP Sunset Cruise on the Tagus.","brand":{"@type":"Organization","name":"Startup Summit"},"category":"Event ticket","url":"https://startupsummit.io/tickets#vip-pass","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"249","highPrice":"599","availability":"https://schema.org/InStock","url":"https://startupsummit.io/tickets#vip-pass","validFrom":"2026-01-01"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does every pass include?","acceptedAnswer":{"@type":"Answer","text":"All passes include access to summit talks and the core event experience. Higher tiers add stronger networking, startup visibility, or premium experiences."}},{"@type":"Question","name":"What is the difference between General Pass and Founder Pass?","acceptedAnswer":{"@type":"Answer","text":"Founder Pass includes everything in General Pass plus stronger founder networking, speed networking, and access to the Founder Social."}},{"@type":"Question","name":"What is included in the Startup Booth Package?","acceptedAnswer":{"@type":"Answer","text":"A startup exhibition booth, 2 Startup Summit passes, startup visibility, pitching eligibility, and access to the Founder Social."}},{"@type":"Question","name":"Do prices increase over time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Prices increase in phases from Super Early Bird to Final Release."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png","sameAs":["https://instagram.com/startupsummitlx","https://www.linkedin.com/company/thestartupsummit","https://x.com/startupsummitl"],"contactPoint":[{"@type":"ContactPoint","email":"info@startupsummit.io","contactType":"customer service"},{"@type":"ContactPoint","email":"sponsors@startupsummit.io","contactType":"sales"},{"@type":"ContactPoint","email":"press@startupsummit.io","contactType":"public relations"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to attend Startup Summit Lisbon 2026","description":"Step-by-step guide to attending Startup Summit Lisbon on September 17–18, 2026.","step":[{"@type":"HowToStep","position":1,"name":"Choose your pass","text":"Pick from General (€49+), Founder (€99+), Startup Booth (€199+), Investor (€199+) or VIP (€249+)."},{"@type":"HowToStep","position":2,"name":"Book your ticket","text":"Buy at startupsummit.io/tickets — prices rise in phases."},{"@type":"HowToStep","position":3,"name":"Plan your travel","text":"Fly into Lisbon Humberto Delgado Airport (LIS), ~10 minutes from the venue."},{"@type":"HowToStep","position":4,"name":"Pre-book networking","text":"Use the event app to book speed networking and investor office hour slots."},{"@type":"HowToStep","position":5,"name":"Attend September 17–18","text":"Doors open 09:00 at Beato Innovation District, Lisbon."}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusinessEvent","@id":"https://startupsummit.io/#event","name":"Startup Summit Lisbon 2026","description":"Startup Summit Lisbon 2026 is a European startup conference bringing together founders, investors, operators, and ecosystem leaders for two days of networking, practical talks, startup booths, and founder-focused opportunities in Lisbon.","startDate":"2026-09-17T09:00:00+01:00","endDate":"2026-09-18T18:00:00+01:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","url":"https://startupsummit.io/","image":["https://startupsummit.io/images/og-homepage.jpg"],"inLanguage":"en","maximumAttendeeCapacity":2000,"about":[{"@type":"Thing","name":"Startups","sameAs":"https://www.wikidata.org/wiki/Q4117810"},{"@type":"Thing","name":"Venture capital","sameAs":"https://www.wikidata.org/wiki/Q860394"},{"@type":"Thing","name":"Entrepreneurship","sameAs":"https://www.wikidata.org/wiki/Q3908516"},{"@type":"Thing","name":"Artificial intelligence","sameAs":"https://www.wikidata.org/wiki/Q11660"}],"mentions":[{"@type":"Place","name":"Lisbon","sameAs":"https://www.wikidata.org/wiki/Q597"},{"@type":"Place","name":"Portugal","sameAs":"https://www.wikidata.org/wiki/Q45"},{"@type":"Place","name":"Beato Innovation District","sameAs":"https://www.wikidata.org/wiki/Q132213987"},{"@type":"Thing","name":"Climate technology","sameAs":"https://www.wikidata.org/wiki/Q11042820"}],"location":{"@type":"Place","name":"Unicorn Factory Lisboa, Beato Innovation District","address":{"@type":"PostalAddress","streetAddress":"Av. Infante Dom Henrique 143","addressLocality":"Lisbon","postalCode":"1950-406","addressRegion":"Lisboa","addressCountry":"PT"},"geo":{"@type":"GeoCoordinates","latitude":38.7432,"longitude":-9.1037}},"organizer":{"@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png"},"performer":[{"@type":"Person","name":"Anmol Goel","jobTitle":"CEO & Partner","image":"https://startupsummit.io/images/speakers/anmol-goel.webp","worksFor":{"@type":"Organization","name":"Gacs Ltd & Gacsym Ventures"},"sameAs":["https://www.linkedin.com/in/anmol-g-215a96a9/"]},{"@type":"Person","name":"Paulo Andrez","jobTitle":"Angel Investor & Author","image":"https://img1.wsimg.com/isteam/ip/6685a3b4-9cd6-4f4a-9967-066ceb7c6eda/NEF_6456.jpg","worksFor":{"@type":"Organization","name":"Zero Risk Startup"},"sameAs":["https://linkedin.com/in/pauloandrez"]},{"@type":"Person","name":"Stephanie Melodia","jobTitle":"Startup Brand Strategist","image":"https://static.wixstatic.com/media/567df4_be8b8b854b1e44d696259f6941b6584b~mv2.jpg","worksFor":{"@type":"Organization","name":"Keynote Speaker"},"sameAs":["https://www.linkedin.com/in/stephmelodia-keynotespeaker"]},{"@type":"Person","name":"Ana Barjasic","jobTitle":"CEO & EU Innovation Advisor","image":"https://images.ctfassets.net/l7h59hfnlxjx/6wKhGODP41eESs1w9nHHaU/93b9a0c77b6247ad516947d367fb51a3/Ana_Barjasic_Profile_Pic.png","worksFor":{"@type":"Organization","name":"Connectology"},"sameAs":["https://linkedin.com/in/ana-barjasic"]}],"offers":[{"@type":"AggregateOffer","name":"General Pass","url":"https://startupsummit.io/tickets#general-pass","priceCurrency":"EUR","lowPrice":"49","highPrice":"119","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Founder Pass","url":"https://startupsummit.io/tickets#founder-pass","priceCurrency":"EUR","lowPrice":"99","highPrice":"199","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Startup Booth Package","url":"https://startupsummit.io/tickets#startup-booth","priceCurrency":"EUR","lowPrice":"199","highPrice":"399","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Investor Pass","url":"https://startupsummit.io/tickets#investor-pass","priceCurrency":"EUR","lowPrice":"199","highPrice":"499","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"VIP Experience Pass","url":"https://startupsummit.io/tickets#vip-pass","priceCurrency":"EUR","lowPrice":"249","highPrice":"599","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}]}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Tickets — Startup Summit Lisbon 2026</h1>
+  <p><strong>September 17–18, 2026 · Beato Innovation District, Lisbon, Portugal</strong></p>
+  <p>Five pass types. Pricing rises in phases from Super Early Bird to Final Release.</p>
+
+  
+  <section id="general-pass">
+    <h2>General Pass — from €49</h2>
+    <p>Access to all Startup Summit talks, the expo, the startup showcase areas and public networking. Best for anyone attending the summit — founders, operators, marketers, students, and tech enthusiasts.</p>
+    <p><strong>Pricing range:</strong> €49 (Super Early Bird) → €119 (Final Release)</p>
+    <h3>Includes</h3>
+    <ul>
+      <li>Access to all Startup Summit talks</li>
+      <li>Expo and startup showcase access</li>
+      <li>Public networking areas</li>
+      <li>Full main summit experience</li>
+    </ul>
+    <p><a href="/tickets#general-pass">Buy General Pass</a></p>
+  </section>
+
+  <section id="founder-pass">
+    <h2>Founder Pass — from €99</h2>
+    <p>Everything in General Pass plus founder-focused networking, speed networking and access to the Founder Social. Built for founders who want deeper community access beyond the main stage.</p>
+    <p><strong>Pricing range:</strong> €99 (Super Early Bird) → €199 (Final Release)</p>
+    <h3>Includes</h3>
+    <ul>
+      <li>Everything in General Pass</li>
+      <li>Founder-focused networking moments</li>
+      <li>Speed networking</li>
+      <li>Founder Social access</li>
+    </ul>
+    <p><a href="/tickets#founder-pass">Buy Founder Pass</a></p>
+  </section>
+
+  <section id="startup-booth">
+    <h2>Startup Booth Package — from €199</h2>
+    <p>A startup exhibition booth, 2 Startup Summit passes, pitching eligibility and visibility in front of investors and partners. For startups that want to exhibit and generate deal flow.</p>
+    <p><strong>Pricing range:</strong> €199 (Super Early Bird) → €399 (Final Release)</p>
+    <h3>Includes</h3>
+    <ul>
+      <li>Startup exhibition booth</li>
+      <li>2 Startup Summit passes</li>
+      <li>Pitching eligibility</li>
+      <li>Startup visibility at the event</li>
+      <li>Founder Social access</li>
+    </ul>
+    <p><a href="/tickets#startup-booth">Buy Startup Booth Package</a></p>
+  </section>
+
+  <section id="investor-pass">
+    <h2>Investor Pass — from €199</h2>
+    <p>For angels, VCs, family offices, and corporate investors. Investor-only networking, founder speed networking and curated startup deal flow exposure.</p>
+    <p><strong>Pricing range:</strong> €199 (Super Early Bird) → €499 (Final Release)</p>
+    <h3>Includes</h3>
+    <ul>
+      <li>Access to all Startup Summit talks</li>
+      <li>Investor-focused networking</li>
+      <li>Speed networking with founders</li>
+      <li>Startup deal flow exposure</li>
+      <li>Founder Social access</li>
+    </ul>
+    <p><a href="/tickets#investor-pass">Buy Investor Pass</a></p>
+  </section>
+
+  <section id="vip-pass">
+    <h2>VIP Experience Pass — from €249</h2>
+    <p>The premium summit experience: priority check-in, reserved seating for selected moments, premium networking and the VIP Sunset Cruise on the Tagus.</p>
+    <p><strong>Pricing range:</strong> €249 (Super Early Bird) → €599 (Final Release)</p>
+    <h3>Includes</h3>
+    <ul>
+      <li>All summit talks</li>
+      <li>Priority check-in</li>
+      <li>Reserved seating for selected moments</li>
+      <li>Premium networking access</li>
+      <li>VIP Sunset Cruise (Thursday evening)</li>
+    </ul>
+    <p><a href="/tickets#vip-pass">Buy VIP Experience Pass</a></p>
+  </section>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What does every pass include?</h3>
+  <p>All passes include access to summit talks and the core event experience. Higher tiers add stronger networking, startup visibility, or premium experiences.</p>
+  <h3>Do prices increase over time?</h3>
+  <p>Yes. Prices increase in phases from Super Early Bird to Final Release.</p>
+  <h3>Can I upgrade later?</h3>
+  <p>Yes, subject to availability.</p>
+
+  <p><a href="/">Back to homepage</a> · <a href="/startup-booths">Startup Booths</a> · <a href="/sponsors">Sponsorship</a></p>
+
+      </div>
+    </noscript>
+  </body>
+</html>
