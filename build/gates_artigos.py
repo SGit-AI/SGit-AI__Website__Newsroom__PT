@@ -37,6 +37,11 @@ OS PORTÕES
   23 · A FÓRMULA DE LIGAÇÃO É CUMPRIDA NAS PÁGINAS. Nenhuma página liga a mesma entidade mais do
        que a fórmula permite, nenhuma página de entidade se liga a si própria, e o texto de cada
        ligação é o nome verbatim da entidade — não uma abreviatura, não um apelido.
+  26 · «CONSTRUÇÃO» NÃO É A PALAVRA QUE SE ESCREVE PARA ESCAPAR À FRONTEIRA. O portão 12 isenta
+       uma execução que não declara departamento, porque a sessão de arranque cria tudo. Uma
+       execução de construção usa essa isenção, e por isso tem de a merecer: não congela uma
+       fonte, não move um issue, não põe nada em publicado, e declara-se como tal. Sem isto, a
+       fronteira entre departamentos tinha uma porta com o nome escrito ao lado.
   25 · NENHUM COMENTÁRIO DE AGENTE FOI INVENTADO. Cada entrada de um `comentarios.json` tem de
        nomear, no campo `de`, um ficheiro e um caminho que existem e resolvem. É a regra das
        afirmações virada para dentro: um comentário atribuído a um modelo que nunca o escreveu é
@@ -430,6 +435,39 @@ for a in sorted(agentes_vistos - declarados):
                  f'dados/comentarios.json#agentes')
 
 
+# --- 26. uma execução de construção tem de merecer a isenção que usa ------------
+RUNS = ROOT / "redacao" / "runs"
+n_runs = 0
+for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
+    r = json.loads(f.read_text(encoding="utf-8"))
+    n_runs += 1
+    if r.get("departamento"):
+        continue                       # essa é conferida pelo portão 12, em build/gates.py
+    especie = r.get("especie")
+    if not especie:
+        erros.append(f'runs: {f.name} não declara departamento nem espécie. A isenção do portão '
+                     f'12 existe para a sessão de arranque; uma execução que a usa tem de dizer '
+                     f'porquê')
+        continue
+    if especie != "construcao":
+        continue
+    for pasta in r.get("pastas_alteradas", []):
+        if pasta.startswith("fontes/congeladas"):
+            erros.append(f'runs: {f.name} declara-se de construção e mexeu em «{pasta}». Congelar '
+                         f'uma fonte é trabalho da pesquisa, e uma execução que o faz declara-se '
+                         f'como tal ou não o faz')
+    if r.get("issues_movidos"):
+        erros.append(f'runs: {f.name} declara-se de construção e moveu '
+                     f'{len(r["issues_movidos"])} issue(s). Mover um cartão é trabalho de um '
+                     f'departamento, e cada coluna tem o seu')
+    for m in r.get("issues_movidos", []):
+        if m.get("para") == "publicado":
+            erros.append(f'runs: {f.name} pôs um issue em «publicado». Essa linha é do editor de '
+                         f'registo e de mais ninguém')
+    if r.get("portoes") is not True:
+        erros.append(f'runs: {f.name} registou uma versão sem dizer que os portões ficaram verdes')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
     print(f"portões (artigos, secções, bastidores): {len(erros)} erro(s)")
@@ -445,4 +483,5 @@ print(f"portões (artigos, secções, bastidores): OK — {len(metas)} artigos e
       f"slug, cada afirmação a andar para trás até ao registo, {len(AS_OITO)} secções com "
       f"registo editorial, bastidores em inglês sem citar prova, "
       f"{len(ents)} entidades com página e fundamento conferido, "
-      f"{n_comentarios} comentários de agente a andarem para trás até um ficheiro")
+      f"{n_comentarios} comentários de agente a andarem para trás até um ficheiro, "
+      f"{n_runs} execuções registadas com a sua fronteira conferida")

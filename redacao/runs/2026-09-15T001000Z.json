@@ -1,0 +1,32 @@
+{
+  "quando": "2026-09-15T00:10:00Z",
+  "especie": "construcao",
+  "prompt": "A mesa como uma sala: o quadro Kanban, as bancadas e a carga de cada uma.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "briefs/",
+    "build/",
+    "dados/",
+    "redacao/",
+    "backoffice/",
+    "entidades/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.6.0",
+  "o_que_fez": [
+    "dados/redacao.json: a mesa como estado — bancadas, carga de cada uma, o quadro, o correio e as execuções, tudo contado de ficheiros que já existem.",
+    "<pt-newsroom-floor> em /redacao/: clica-se numa bancada e a sala responde. Não há maneira de mover um cartão daqui, e a ausência é deliberada.",
+    "Um defeito apanhado na própria construção: a primeira versão do quadro assumiu um artigo por issue e deixou um artigo fora do quadro. Um quadro que esconde trabalho é pior do que não haver quadro, porque parece completo.",
+    "Registos de execução para as versões desta sessão, e o portão 26 para que «construção» não seja a palavra que se escreve para escapar à fronteira entre departamentos."
+  ],
+  "nota": "Uma execução de CONSTRUÇÃO e não de redação: não congelou uma fonte, não escreveu uma afirmação, não moveu um issue e não pôs nada em publicado. Mexeu em redacao/ para escrever estes próprios registos, que o portão 12 permite explicitamente."
+}

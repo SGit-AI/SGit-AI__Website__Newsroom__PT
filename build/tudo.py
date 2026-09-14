@@ -5,7 +5,7 @@
     python3 build/tudo.py --fetch      # o mesmo, mas a ir buscar as fontes primeiro
     python3 build/tudo.py --so-portoes # só os portões, sem reconstruir
 
-PORQUE É QUE ISTO EXISTE. A sequência tem dez passos e **a ordem importa**: `entidades.py` lê o
+PORQUE É QUE ISTO EXISTE. A sequência tem onze passos e **a ordem importa**: `entidades.py` lê o
 grafo que `graph.py` escreve, `artigos.py` lê os comentários que `comentarios.py` deriva, e a
 passagem que transforma uma menção em ligação lê o `dados/entidades.json` que só existe depois de
 `entidades.py` correr. Correr os passos por outra ordem não rebenta — produz um site com menos
@@ -36,6 +36,8 @@ PASSOS = [
      "páginas, porque é este ficheiro que faz uma menção virar ligação", False),
     (["python3", "build/comentarios.py"],
      "o trabalho dos agentes sobre cada artigo, derivado dos registos — antes de artigos.py", False),
+    (["python3", "build/mesa.py"],
+     "dados/redacao.json — o estado da mesa, contado dos ficheiros que já existem", False),
     (["python3", "build/artigos.py"],
      "as pastas datadas viram páginas, e dados/historias.json nasce delas", False),
     (["python3", "build/build.py"],
@@ -51,7 +53,7 @@ PASSOS = [
     (["python3", "build/gates.py"],
      "os portões do núcleo (1-15)", True),
     (["python3", "build/gates_artigos.py"],
-     "os portões dos artigos, secções, bastidores, entidades e comentários (16-25)", True),
+     "artigos, secções, bastidores, entidades, comentários e execuções (16-26)", True),
     (["node", "admin/build/validate.js"],
      "o portão do site: estrutura, ligações, versão, canónicos, fuga de chaves", True),
 ]

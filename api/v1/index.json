@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.5.0",
+  "version": "v0.6.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -532,7 +532,17 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 34,
+      "count": 35,
+      "items": null,
+      "item_ids": null
+    },
+    {
+      "path": "/api/v1/desk.json",
+      "name": "desk",
+      "portuguese_source": "dados/redacao.json",
+      "summary": "The newsroom floor: benches, their load, and the board",
+      "description": "Counted from files that already exist — the issue board, the mail between departments, the run records, and the per-agent work. Nothing here moves anything: a story's state lives in the files of its own folder, and the «publicado» column is the named editor's line and nobody else's.",
+      "count": null,
       "items": null,
       "item_ids": null
     },
@@ -824,7 +834,7 @@
       "portuguese_source": "dados/manifesto.json",
       "summary": "Every data file with its SHA-256",
       "description": null,
-      "count": 22,
+      "count": 23,
       "items": null,
       "item_ids": null
     },

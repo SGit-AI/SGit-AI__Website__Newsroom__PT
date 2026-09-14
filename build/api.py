@@ -128,6 +128,12 @@ COLECCOES = [
      "pt": "equipa", "summary": "The three departments and the editor of record"},
     {"path": "documents", "ficheiro": "documentos.json", "lista": "documentos", "chave": None,
      "pt": "documentos", "summary": "Every markdown document in this repository"},
+    {"path": "desk", "ficheiro": "redacao.json", "lista": None, "chave": None,
+     "pt": "redacao", "summary": "The newsroom floor: benches, their load, and the board",
+     "description": "Counted from files that already exist — the issue board, the mail between "
+                    "departments, the run records, and the per-agent work. Nothing here moves "
+                    "anything: a story's state lives in the files of its own folder, and the "
+                    "«publicado» column is the named editor's line and nobody else's."},
     {"path": "agent-activity", "ficheiro": "comentarios.json", "lista": "fluxo", "chave": "id",
      "pt": "comentarios", "summary": "What every agent did to every article, derived not written",
      "description": "One entry per recorded action, question, verification, gap, outside proposal "

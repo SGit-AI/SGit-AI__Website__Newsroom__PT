@@ -16,7 +16,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.5.0</span></div>
+  <div><span class="ver">v0.6.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -32,6 +32,37 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.6.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>A mesa passa a ser uma sala.</b> <code>/redacao/</code> abre com quatro bancadas — Pesquisa,
+Redação, Verificação, o editor de registo — cada uma a mostrar quantos cartões estão à espera dela e
+quanto do seu trabalho está por fechar. Clica-se numa e a sala responde: o que faz, o que
+<b>recusa</b> fazer, em que pastas escreve. Uma tabela mostra linhas; uma sala mostra carga, e é a
+segunda a pergunta que se faz a uma redação às cinco da tarde.
+<br><br>
+<b>Não há maneira de mover um cartão, e a ausência é o desenho.</b> O estado de uma história vive
+nos ficheiros da pasta dela, e quem o muda é quem tem direito de escrita nessa pasta. Uma sala que
+deixasse arrastar um cartão para «publicado» estaria a oferecer, num clique e a quem quer que
+abrisse a página, exatamente o gesto que esta publicação reserva a um humano nomeado. E o quadro em
+tabela fica por baixo, sem JavaScript: metade dos leitores deste site são máquinas, e uma redação
+que só se deixasse ler por uma delas seria a ironia errada.
+<br><br>
+<b>Um defeito apanhado na própria construção.</b> A primeira versão do quadro assumiu um artigo por
+issue e escondeu um artigo — o issue 001 encomendou duas histórias, e o quadro mostrava seis
+cartões e parecia completo. Um quadro que esconde trabalho é pior do que não haver quadro,
+precisamente por parecer completo. O cartão passa a ser o ARTIGO, que é a coisa que tem ficheiros.
+<br><br>
+<b>O portão 26: «construção» não é a palavra que se escreve para escapar à fronteira.</b> O portão
+12 isenta uma execução que não declara departamento, porque a sessão de arranque cria tudo. As
+sessões desta semana são de construção e usam essa isenção — então passam a ter de a merecer: não
+congelar uma fonte, não mover um cartão, não pôr nada em publicado, não registar uma versão com os
+portões vermelhos. Cinco testes de injeção. Uma isenção que qualquer execução invoca escrevendo a
+palavra certa não é uma fronteira — é uma porta com o nome ao lado.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.5.0</span></td>
@@ -302,7 +333,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.5.0</span>.
+duplicados. Versão <span class="ver">v0.6.0</span>.
 </div>
 
 </div>

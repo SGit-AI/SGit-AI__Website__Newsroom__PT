@@ -145,6 +145,7 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://{HOST}/dados/documentos.json — todos os documentos markdown deste repositório
 - https://{HOST}/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
 - https://{HOST}/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
+- https://{HOST}/dados/redacao.json — a mesa: as bancadas, a carga de cada uma, e o quadro
 
 ## As entidades, em endereços construíveis
 

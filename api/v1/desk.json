@@ -1,0 +1,406 @@
+{
+  "id": "pt-mesa",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-14",
+  "nota": "A mesa como estado, não como narrativa. Cada número é uma contagem de ficheiros ou de entradas que já existem noutro lado deste repositório; nada aqui é escrito. Nenhuma coluna se move a partir desta página: mostra onde as coisas estão, e quem as move é quem tem direito de escrita naquela pasta.",
+  "colunas": [
+    {
+      "id": "procurado",
+      "rotulo": "Procurado",
+      "o_que_significa": "A história está encomendada e o material ainda não a sustenta.",
+      "quem_move": "pesquisa"
+    },
+    {
+      "id": "congelado",
+      "rotulo": "Congelado",
+      "o_que_significa": "As fontes estão congeladas e hasheadas; falta escrever ou verificar.",
+      "quem_move": "pesquisa"
+    },
+    {
+      "id": "rascunho",
+      "rotulo": "Rascunho",
+      "o_que_significa": "Há prosa, e cada afirmação já aponta para uma fonte congelada.",
+      "quem_move": "redacao"
+    },
+    {
+      "id": "verificado",
+      "rotulo": "Verificado",
+      "o_que_significa": "Cada afirmação foi relida contra os bytes e tem um veredito registado.",
+      "quem_move": "verificacao"
+    },
+    {
+      "id": "publicado",
+      "rotulo": "Publicado",
+      "o_que_significa": "Está no ar. É a única coluna para onde nenhuma execução automática pode empurrar um cartão: a linha é do editor de registo, e é isso que torna esta publicação responsabilidade de uma pessoa nomeada.",
+      "quem_move": "editor"
+    }
+  ],
+  "bancadas": [
+    {
+      "id": "pesquisa",
+      "nome": "Pesquisa",
+      "especie": "departamento",
+      "gravidade": "Nenhuma afirmação sem bytes que tenhamos em mãos.",
+      "faz": "Encontra a fonte primária. Obtém-na, congela-a numa captura datada, hasheia-a, regista-a, extrai dela e compara com a captura anterior.",
+      "recusa": "Ler uma fonte pela rede no momento de publicar; citar uma página que ninguém congelou; arrumar um valor confuso da fonte para um mais limpo.",
+      "escreve_em": [
+        "fontes/congeladas/<data>/",
+        "dados/registo.json",
+        "dados/*.json extraídos das fontes"
+      ],
+      "carga": {
+        "entradas": 20,
+        "abertas": 10,
+        "por_especie": {
+          "acao": 10,
+          "pergunta": 10
+        },
+        "cartoes_a_espera": 4
+      },
+      "cartoes": [
+        "regulador-designacao-ausente",
+        "quantas-startups-sao-de-ia",
+        "agenda-nacional-instrumento-legal",
+        "004"
+      ],
+      "correio": {
+        "entrada": 1,
+        "saida": 0
+      },
+      "execucoes": 4
+    },
+    {
+      "id": "redacao",
+      "nome": "Redação",
+      "especie": "departamento",
+      "gravidade": "Cada frase assenta numa fonte registada.",
+      "faz": "Escreve a partir do que a pesquisa registou, e de mais nada. Cada afirmação leva o identificador da fonte congelada em que assenta.",
+      "recusa": "Uma afirmação sem fonte; um adjetivo sobre uma parte nomeada; prosa mais certa do que as capturas são.",
+      "escreve_em": [
+        "conteudo/*.md"
+      ],
+      "carga": {
+        "entradas": 10,
+        "abertas": 7,
+        "por_especie": {
+          "falta": 7,
+          "acao": 3
+        },
+        "cartoes_a_espera": 0
+      },
+      "cartoes": [],
+      "correio": {
+        "entrada": 0,
+        "saida": 0
+      },
+      "execucoes": 0
+    },
+    {
+      "id": "verificacao",
+      "nome": "Verificação",
+      "especie": "departamento",
+      "gravidade": "Publica-se o registo, nunca o veredicto.",
+      "faz": "Relê cada fonte citada na cópia congelada. Marca cada afirmação: confirmada, disputada ou não encontrada.",
+      "recusa": "Editar a história. Marcar como confirmada uma afirmação que não releu.",
+      "escreve_em": [
+        "dados/verificacoes/*.json"
+      ],
+      "carga": {
+        "entradas": 14,
+        "abertas": 0,
+        "por_especie": {
+          "acao": 3,
+          "verificacao": 11
+        },
+        "cartoes_a_espera": 3
+      },
+      "cartoes": [
+        "uma-captura-nao-mostra-movimento",
+        "registo-nacional-nao-devolve-texto",
+        "dois-nomes-para-os-mesmos-palcos"
+      ],
+      "correio": {
+        "entrada": 0,
+        "saida": 0
+      },
+      "execucoes": 4
+    },
+    {
+      "id": "editor",
+      "nome": "Dinis Cruz",
+      "especie": "editor de registo",
+      "gravidade": "A linha que nenhuma execução automática pode escrever.",
+      "faz": "Lê cada página antes de ela ir para o ar, e é a pessoa nomeada que responde pelo que esta publicação diz.",
+      "recusa": null,
+      "escreve_em": [
+        "Pôr uma história em «publicado». Nenhuma execução automática o pode fazer.",
+        "Decidir uma remoção ao abrigo do aviso.",
+        "Limpar um item que ficou «parado»."
+      ],
+      "carga": {
+        "entradas": 2,
+        "abertas": 2,
+        "por_especie": {
+          "decisao": 2
+        },
+        "cartoes_a_espera": 3,
+        "entregas_por_rever": 1
+      },
+      "cartoes": [
+        "uma-captura-nao-mostra-movimento",
+        "registo-nacional-nao-devolve-texto",
+        "dois-nomes-para-os-mesmos-palcos"
+      ],
+      "correio": {
+        "entrada": 1,
+        "saida": 0
+      },
+      "execucoes": 0
+    }
+  ],
+  "quadro": {
+    "procurado": [
+      {
+        "id": "regulador-designacao-ausente",
+        "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+        "seccao": "instituicoes",
+        "estado": "procurado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/regulador-designacao-ausente/",
+        "issue": "002",
+        "irmaos": 0,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[regulador-designacao-ausente]"
+      },
+      {
+        "id": "quantas-startups-sao-de-ia",
+        "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+        "seccao": "empresas",
+        "estado": "procurado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/quantas-startups-sao-de-ia/",
+        "issue": "003",
+        "irmaos": 0,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[quantas-startups-sao-de-ia]"
+      },
+      {
+        "id": "agenda-nacional-instrumento-legal",
+        "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+        "seccao": "politicas",
+        "estado": "procurado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
+        "issue": "001",
+        "irmaos": 1,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[agenda-nacional-instrumento-legal]"
+      }
+    ],
+    "congelado": [
+      {
+        "id": "004",
+        "titulo": "Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível",
+        "seccao": "politicas",
+        "estado": "congelado",
+        "especie": "issue",
+        "url": null,
+        "issue": "004",
+        "irmaos": 0,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "redacao/issues/004"
+      }
+    ],
+    "rascunho": [],
+    "verificado": [
+      {
+        "id": "uma-captura-nao-mostra-movimento",
+        "titulo": "Uma captura não mostra movimento; duas mostram",
+        "seccao": "eventos",
+        "estado": "verificado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
+        "issue": null,
+        "irmaos": 0,
+        "ultimo_toque": {},
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[uma-captura-nao-mostra-movimento]"
+      },
+      {
+        "id": "registo-nacional-nao-devolve-texto",
+        "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
+        "seccao": "politicas",
+        "estado": "verificado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
+        "issue": "001",
+        "irmaos": 1,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[registo-nacional-nao-devolve-texto]"
+      },
+      {
+        "id": "dois-nomes-para-os-mesmos-palcos",
+        "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
+        "seccao": "eventos",
+        "estado": "verificado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
+        "issue": null,
+        "irmaos": 0,
+        "ultimo_toque": {},
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[dois-nomes-para-os-mesmos-palcos]"
+      }
+    ],
+    "publicado": []
+  },
+  "fora_do_quadro": [],
+  "execucoes": [
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "versao": "v0.1.0",
+      "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+      "portoes": true,
+      "pastas": [
+        "build/",
+        "dados/",
+        "fontes/congeladas/",
+        "redacao/",
+        "assets/",
+        "admin/",
+        ".github/"
+      ],
+      "movidos": 4
+    },
+    {
+      "quando": "2026-09-14T23:07:00Z",
+      "versao": "v0.4.0",
+      "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "assets/",
+        "aviso/",
+        "backoffice/",
+        "briefs/",
+        "build/",
+        "casos-de-uso/",
+        "codigo-aberto/",
+        "dados/",
+        "diaspora/",
+        "empresas/",
+        "entidades/",
+        "entregas/",
+        "equipa/",
+        "eventos/",
+        "ficheiros/",
+        "grafo/",
+        "index.html",
+        "index.md",
+        "instituicoes/",
+        "llms.txt",
+        "metodo/",
+        "politicas/",
+        "protagonistas/",
+        "proveniencia/",
+        "redacao/",
+        "registo/",
+        "sitemap.xml",
+        "sobre/"
+      ],
+      "movidos": 0
+    },
+    {
+      "quando": "2026-09-14T23:30:00Z",
+      "versao": "v0.5.0",
+      "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "assets/",
+        "aviso/",
+        "backoffice/",
+        "briefs/",
+        "build/",
+        "casos-de-uso/",
+        "codigo-aberto/",
+        "dados/",
+        "diaspora/",
+        "empresas/",
+        "entidades/",
+        "entregas/",
+        "equipa/",
+        "eventos/",
+        "ficheiros/",
+        "grafo/",
+        "index.html",
+        "index.md",
+        "instituicoes/",
+        "llms.txt",
+        "metodo/",
+        "politicas/",
+        "protagonistas/",
+        "proveniencia/",
+        "redacao/",
+        "registo/",
+        "sitemap.xml",
+        "sobre/"
+      ],
+      "movidos": 0
+    },
+    {
+      "quando": "2026-09-15T00:10:00Z",
+      "versao": "v0.6.0",
+      "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "assets/",
+        "briefs/",
+        "build/",
+        "dados/",
+        "redacao/",
+        "backoffice/",
+        "entidades/",
+        "index.html",
+        "llms.txt",
+        "sitemap.xml",
+        "index.md"
+      ],
+      "movidos": 0
+    }
+  ],
+  "contagens": {
+    "cartoes": 7,
+    "bancadas": 4,
+    "execucoes": 4,
+    "publicados": 0,
+    "a_espera_do_editor": 4
+  }
+}
