@@ -13,6 +13,14 @@
       "ocorrencias": 4
     },
     {
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "ocorrencias": 4
+    },
+    {
       "fonte": "2026-09-14/registo/gov-ia",
       "ocorrencias": 3
     },
@@ -21,7 +29,7 @@
       "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 4,
+  "ficheiros_com_o_nome": 6,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

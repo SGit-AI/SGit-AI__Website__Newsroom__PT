@@ -13,15 +13,15 @@
     "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
     "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
   },
-  "contagem": 17,
+  "contagem": 21,
   "por_agente": {
-    "chatgpt": 9,
+    "chatgpt": 12,
     "pesquisa": 1,
-    "editor": 3,
+    "editor": 4,
     "redacao": 1,
     "verificacao": 3
   },
-  "abertos": 8,
+  "abertos": 12,
   "fluxo": [
     {
       "quando": "2026-09-14T11:30:00Z",
@@ -152,6 +152,71 @@
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "plano-nacional-centros-de-dados-c09",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "plano-nacional-centros-de-dados-c10",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "plano-nacional-centros-de-dados-c11",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "plano-nacional-centros-de-dados-c12",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -165,7 +230,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "plano-nacional-centros-de-dados-c09",
+      "id": "plano-nacional-centros-de-dados-c13",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -182,7 +247,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "plano-nacional-centros-de-dados-c10",
+      "id": "plano-nacional-centros-de-dados-c14",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -199,7 +264,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "plano-nacional-centros-de-dados-c11",
+      "id": "plano-nacional-centros-de-dados-c15",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -216,7 +281,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "plano-nacional-centros-de-dados-c12",
+      "id": "plano-nacional-centros-de-dados-c16",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -233,7 +298,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "plano-nacional-centros-de-dados-c13",
+      "id": "plano-nacional-centros-de-dados-c17",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -250,7 +315,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "plano-nacional-centros-de-dados-c14",
+      "id": "plano-nacional-centros-de-dados-c18",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -267,7 +332,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "plano-nacional-centros-de-dados-c15",
+      "id": "plano-nacional-centros-de-dados-c19",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -284,7 +349,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "plano-nacional-centros-de-dados-c16",
+      "id": "plano-nacional-centros-de-dados-c20",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -298,7 +363,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "plano-nacional-centros-de-dados-c17",
+      "id": "plano-nacional-centros-de-dados-c21",
       "artigo": "plano-nacional-centros-de-dados"
     }
   ]

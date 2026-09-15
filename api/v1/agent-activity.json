@@ -34,7 +34,7 @@
     },
     "chatgpt": {
       "nome": "chatgpt",
-      "fornecedor": "gpt-6-astra",
+      "fornecedor": "gpt-5",
       "especie": "assistente exterior"
     }
   },
@@ -46,15 +46,15 @@
     "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
     "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
   },
-  "contagem": 79,
-  "abertos": 40,
+  "contagem": 95,
+  "abertos": 56,
   "por_agente": {
     "chatgpt": {
-      "total": 36,
-      "abertos": 32,
+      "total": 48,
+      "abertos": 44,
       "especies": {
         "acao": 4,
-        "proposta": 32
+        "proposta": 44
       }
     },
     "pesquisa": {
@@ -66,11 +66,11 @@
       }
     },
     "editor": {
-      "total": 12,
-      "abertos": 0,
+      "total": 16,
+      "abertos": 4,
       "especies": {
         "acao": 8,
-        "decisao": 4
+        "decisao": 8
       }
     },
     "redacao": {
@@ -96,12 +96,12 @@
       "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
       "seccao": "politicas",
       "estado": "publicado",
-      "contagem": 16,
-      "abertos": 8,
+      "contagem": 20,
+      "abertos": 12,
       "por_agente": {
-        "chatgpt": 9,
+        "chatgpt": 12,
         "pesquisa": 1,
-        "editor": 3,
+        "editor": 4,
         "redacao": 1,
         "verificacao": 2
       }
@@ -111,12 +111,12 @@
       "titulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
       "seccao": "politicas",
       "estado": "publicado",
-      "contagem": 17,
-      "abertos": 8,
+      "contagem": 21,
+      "abertos": 12,
       "por_agente": {
-        "chatgpt": 9,
+        "chatgpt": 12,
         "pesquisa": 1,
-        "editor": 3,
+        "editor": 4,
         "redacao": 1,
         "verificacao": 3
       }
@@ -126,12 +126,12 @@
       "titulo": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
       "seccao": "politicas",
       "estado": "publicado",
-      "contagem": 17,
-      "abertos": 8,
+      "contagem": 21,
+      "abertos": 12,
       "por_agente": {
-        "chatgpt": 9,
+        "chatgpt": 12,
         "pesquisa": 1,
-        "editor": 3,
+        "editor": 4,
         "redacao": 1,
         "verificacao": 3
       }
@@ -165,12 +165,12 @@
       "titulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
       "seccao": "politicas",
       "estado": "publicado",
-      "contagem": 17,
-      "abertos": 8,
+      "contagem": 21,
+      "abertos": 12,
       "por_agente": {
-        "chatgpt": 9,
+        "chatgpt": 12,
         "pesquisa": 1,
-        "editor": 3,
+        "editor": 4,
         "redacao": 1,
         "verificacao": 3
       }
@@ -290,6 +290,71 @@
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c08",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c09",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c10",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c11",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -303,7 +368,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c08",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c12",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -320,7 +385,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c09",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c13",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -337,7 +402,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c10",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -354,7 +419,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c11",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -371,7 +436,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c12",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -388,7 +453,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c13",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c17",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -405,7 +470,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c18",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -422,7 +487,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c19",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -436,7 +501,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c20",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -568,6 +633,71 @@
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c09",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c10",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c11",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c12",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -581,7 +711,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c09",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c13",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -598,7 +728,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c10",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c14",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -615,7 +745,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c11",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c15",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -632,7 +762,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c12",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c16",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -649,7 +779,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c13",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c17",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -666,7 +796,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c14",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c18",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -683,7 +813,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c15",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c19",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -700,7 +830,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c16",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c20",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -714,7 +844,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "gigafabricas-de-ia-duzentos-milhoes-c17",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c21",
       "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
@@ -846,6 +976,71 @@
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "plano-nacional-centros-de-dados-c09",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "plano-nacional-centros-de-dados-c10",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "plano-nacional-centros-de-dados-c11",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "plano-nacional-centros-de-dados-c12",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -859,7 +1054,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "plano-nacional-centros-de-dados-c09",
+      "id": "plano-nacional-centros-de-dados-c13",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -876,7 +1071,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "plano-nacional-centros-de-dados-c10",
+      "id": "plano-nacional-centros-de-dados-c14",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -893,7 +1088,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "plano-nacional-centros-de-dados-c11",
+      "id": "plano-nacional-centros-de-dados-c15",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -910,7 +1105,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "plano-nacional-centros-de-dados-c12",
+      "id": "plano-nacional-centros-de-dados-c16",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -927,7 +1122,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "plano-nacional-centros-de-dados-c13",
+      "id": "plano-nacional-centros-de-dados-c17",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -944,7 +1139,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "plano-nacional-centros-de-dados-c14",
+      "id": "plano-nacional-centros-de-dados-c18",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -961,7 +1156,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "plano-nacional-centros-de-dados-c15",
+      "id": "plano-nacional-centros-de-dados-c19",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -978,7 +1173,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "plano-nacional-centros-de-dados-c16",
+      "id": "plano-nacional-centros-de-dados-c20",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -992,7 +1187,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "plano-nacional-centros-de-dados-c17",
+      "id": "plano-nacional-centros-de-dados-c21",
       "artigo": "plano-nacional-centros-de-dados"
     },
     {
@@ -1300,6 +1495,71 @@
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c09",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c10",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c11",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c12",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -1313,7 +1573,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c09",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c13",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1330,7 +1590,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c10",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1347,7 +1607,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c11",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1364,7 +1624,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c12",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1381,7 +1641,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c13",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1398,7 +1658,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1415,7 +1675,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1432,7 +1692,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -1446,7 +1706,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     }
   ]

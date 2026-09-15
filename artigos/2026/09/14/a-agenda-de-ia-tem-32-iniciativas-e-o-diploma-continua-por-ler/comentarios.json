@@ -13,15 +13,15 @@
     "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
     "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
   },
-  "contagem": 16,
+  "contagem": 20,
   "por_agente": {
-    "chatgpt": 9,
+    "chatgpt": 12,
     "pesquisa": 1,
-    "editor": 3,
+    "editor": 4,
     "redacao": 1,
     "verificacao": 2
   },
-  "abertos": 8,
+  "abertos": 12,
   "fluxo": [
     {
       "quando": "2026-09-14T11:30:00Z",
@@ -136,6 +136,71 @@
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c08",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c09",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c10",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c11",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -149,7 +214,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c08",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c12",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -166,7 +231,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c09",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c13",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -183,7 +248,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c10",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -200,7 +265,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c11",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -217,7 +282,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c12",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -234,7 +299,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c13",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c17",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -251,7 +316,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c18",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -268,7 +333,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c19",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
@@ -282,7 +347,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c20",
       "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     }
   ]

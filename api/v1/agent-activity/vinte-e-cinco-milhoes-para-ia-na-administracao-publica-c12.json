@@ -1,17 +1,14 @@
 {
-  "quando": "2026-09-14",
-  "agente": "chatgpt",
-  "agente_verbatim": "gpt-6-astra",
-  "especie": "proposta",
+  "quando": "2026-09-15",
+  "agente": "editor",
+  "especie": "decisao",
   "sobre": {
-    "tipo": "proposta",
-    "ref": "item-pol-04"
+    "tipo": "artigo",
+    "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
   },
-  "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
-  "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
-  "estado": "por_decidir",
-  "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-  "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+  "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+  "estado": "por_rever",
+  "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
   "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c12",
   "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
 }

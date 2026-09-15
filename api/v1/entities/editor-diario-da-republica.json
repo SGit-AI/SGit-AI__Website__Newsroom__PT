@@ -3,9 +3,14 @@
   "tipo": "Editor",
   "nome": "Diário da República",
   "url": "entidades/editor/diario-da-republica/",
-  "nos_bytes": [],
-  "ficheiros_com_o_nome": 0,
-  "fundamento": "registo",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,
   "grau": {

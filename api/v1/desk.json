@@ -55,10 +55,11 @@
           "acao": 6,
           "pergunta": 5
         },
-        "cartoes_a_espera": 1
+        "cartoes_a_espera": 2
       },
       "cartoes": [
-        "quantas-startups-sao-de-ia"
+        "quantas-startups-sao-de-ia",
+        "007"
       ],
       "correio": {
         "entrada": 1,
@@ -137,14 +138,14 @@
         "Limpar um item que ficou «parado»."
       ],
       "carga": {
-        "entradas": 12,
-        "abertas": 0,
+        "entradas": 16,
+        "abertas": 4,
         "por_especie": {
           "acao": 8,
-          "decisao": 4
+          "decisao": 8
         },
         "cartoes_a_espera": 0,
-        "entregas_por_rever": 0
+        "entregas_por_rever": 1
       },
       "cartoes": [],
       "correio": {
@@ -175,7 +176,24 @@
         "de": "dados/historias.json#historias[quantas-startups-sao-de-ia]"
       }
     ],
-    "congelado": [],
+    "congelado": [
+      {
+        "id": "007",
+        "titulo": "Entrega ChatGPT 1/8 (políticas, 2.ª passagem): valida contra o esquema, 3 de 4 afirmações com excerto nos bytes",
+        "seccao": "politicas",
+        "estado": "congelado",
+        "especie": "issue",
+        "url": null,
+        "issue": "007",
+        "irmaos": 0,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-15"
+        },
+        "aberto_em": "2026-09-15",
+        "de": "redacao/issues/007"
+      }
+    ],
     "rascunho": [],
     "verificado": [],
     "publicado": [
@@ -676,10 +694,10 @@
     }
   ],
   "contagens": {
-    "cartoes": 9,
+    "cartoes": 10,
     "bancadas": 4,
     "execucoes": 15,
     "publicados": 5,
-    "a_espera_do_editor": 0
+    "a_espera_do_editor": 1
   }
 }

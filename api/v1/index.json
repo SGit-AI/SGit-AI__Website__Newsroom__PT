@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.17.0",
+  "version": "v0.18.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -500,9 +500,10 @@
       "portuguese_source": "dados/entregas.json",
       "summary": "Research deliveries, and what happened to every excerpt",
       "description": "A delivery is leads with provenance, never facts. Each claim carries the result of searching the frozen bytes for the excerpt it cites.",
-      "count": 1,
+      "count": 2,
       "items": "/api/v1/deliveries/<id>.json",
       "item_ids": [
+        "chatgpt-2026-09-15-politicas-2",
         "chatgpt-pt-newsroom-2026-09-14-politicas"
       ]
     },
@@ -532,7 +533,7 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 88,
+      "count": 92,
       "items": null,
       "item_ids": null
     },
@@ -574,7 +575,7 @@
       "portuguese_source": "dados/comentarios.json",
       "summary": "What every agent did to every article, derived not written",
       "description": "One entry per recorded action, question, verification, gap, outside proposal or editorial decision. Every entry carries a `de` field naming the file and path it was derived from, and the build fails if that path does not resolve. Nothing here was authored for the record: a comment attributed to a model that never wrote it is a claim with a forged source.",
-      "count": 79,
+      "count": 95,
       "items": "/api/v1/agent-activity/<id>.json",
       "item_ids": [
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c01",
@@ -593,6 +594,10 @@
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c17",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c18",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c19",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c20",
         "gigafabricas-de-ia-duzentos-milhoes-c01",
         "gigafabricas-de-ia-duzentos-milhoes-c02",
         "gigafabricas-de-ia-duzentos-milhoes-c03",
@@ -610,6 +615,10 @@
         "gigafabricas-de-ia-duzentos-milhoes-c15",
         "gigafabricas-de-ia-duzentos-milhoes-c16",
         "gigafabricas-de-ia-duzentos-milhoes-c17",
+        "gigafabricas-de-ia-duzentos-milhoes-c18",
+        "gigafabricas-de-ia-duzentos-milhoes-c19",
+        "gigafabricas-de-ia-duzentos-milhoes-c20",
+        "gigafabricas-de-ia-duzentos-milhoes-c21",
         "plano-nacional-centros-de-dados-c01",
         "plano-nacional-centros-de-dados-c02",
         "plano-nacional-centros-de-dados-c03",
@@ -627,6 +636,10 @@
         "plano-nacional-centros-de-dados-c15",
         "plano-nacional-centros-de-dados-c16",
         "plano-nacional-centros-de-dados-c17",
+        "plano-nacional-centros-de-dados-c18",
+        "plano-nacional-centros-de-dados-c19",
+        "plano-nacional-centros-de-dados-c20",
+        "plano-nacional-centros-de-dados-c21",
         "quantas-startups-sao-de-ia-c01",
         "quantas-startups-sao-de-ia-c02",
         "quantas-startups-sao-de-ia-c03",
@@ -655,7 +668,11 @@
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
-        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17"
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21"
       ]
     },
     {

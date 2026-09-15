@@ -990,6 +990,49 @@ def entrega_pagina(x, d):
             "comentario": "nenhuma afirmação tem fonte legível; abrir issue de pesquisa"}
     exemplo_decisao = json.dumps(decisao, indent=2, ensure_ascii=False)
 
+    # THE CONTENTS. A delivery page is long — four stat tiles, a notes panel, a source table, an
+    # item per lead with every claim under it, then the queries. Without an index the only way to
+    # find the one item you care about is to scroll, and the one thing a reader of THIS page wants
+    # to know first is which items survived the byte check. So the index carries that verdict in
+    # its own column and jumps straight to the item.
+    linhas_indice = []
+    for it in x["itens"]:
+        dec = (rev.get("itens") or {}).get(it["id"], {})
+        n_ok = sum(1 for a in it["afirmacoes"] if a["estado"] == "confirmada")
+        n_tot = len(it["afirmacoes"])
+        cor = "ok" if n_ok == n_tot and n_tot else ("miss" if n_ok == 0 else "")
+        ficha_dec_i = (ficha_estado(dec["estado"]) if dec.get("estado")
+                       else '<span class="chip">por rever</span>')
+        linhas_indice.append(
+            f'<tr><td class="mono xs"><a href="#{e(it["id"])}">{e(it["id"])}</a></td>'
+            f'<td><a href="#{e(it["id"])}">{e(it["titulo"])}</a></td>'
+            f'<td class="sm">{e(it["especie"])}</td>'
+            f'<td><span class="chip {cor}">{n_ok} de {n_tot} nos bytes</span></td>'
+            f'<td>{ficha_dec_i}</td></tr>')
+    indice = (
+        f'<div class="rule" style="padding:22px 0 8px"><div class="sect">O que vem nesta entrega'
+        f'</div></div>'
+        f'<div class="rolar"><table><thead><tr><th style="width:110px">Item</th><th>Pista</th>'
+        f'<th style="width:130px">Espécie</th><th style="width:150px">Excertos</th>'
+        f'<th style="width:150px">Decisão</th></tr></thead>'
+        f'<tbody>{"".join(linhas_indice)}</tbody></table></div>'
+        f'<div class="chips" style="padding:12px 0 0">'
+        f'<a class="chip" href="#as-fontes">As {c["fontes"]} fontes congeladas</a>'
+        f'<a class="chip" href="#as-consultas">As {len(x["consultas"])} consultas</a>'
+        f'<a class="chip" href="#as-decisoes">Comentários e decisões</a></div>')
+
+    # Sibling deliveries: a part is one of eight, and a reader landing here should be able to reach
+    # the others without going back to the index first.
+    irmas = [y for y in d["entregas"]["entregas"] if y["id"] != x["id"]]
+    nav_irmas = ""
+    if irmas:
+        nav_irmas = (
+            '<div class="chips" style="padding:0 0 18px">'
+            '<span class="mono xs" style="color:var(--sec-2)">Outras entregas</span>'
+            + "".join(f'<a class="chip" href="{e(y["id"])}.html">{e(y["ferramenta"])} · '
+                      f'{e(y["data"])} · {e(", ".join(y["seccoes"]))}</a>' for y in irmas)
+            + '<a class="chip" href="./">Todas as entregas</a></div>')
+
     consultas = "".join(f'<li class="xs mono">{e(q)}</li>' for q in x["consultas"])
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px">
@@ -1019,14 +1062,17 @@ def entrega_pagina(x, d):
     <p class="xs">nada se pode conferir contra elas</p></div>
 </div>
 
+{nav_irmas}
+{indice}
+
 {erros}
 
 <div class="painel" style="margin-bottom:22px">
   <div class="sect">O que o assistente disse sobre o seu próprio trabalho</div>
   <p class="sm" style="padding-top:8px">{e(x["notas_do_assistente"])}</p></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">As fontes que a entrega nomeia,
-depois de congeladas por esta redação</div></div>
+<div class="rule" id="as-fontes" style="padding:22px 0 8px"><div class="sect">As fontes que a
+entrega nomeia, depois de congeladas por esta redação</div></div>
 <div class="rolar"><table><thead><tr><th style="width:110px">Id</th><th>Publicador</th>
   <th style="width:180px">Cópia congelada</th><th style="width:250px">Legível?</th>
   <th style="width:150px">SHA-256</th></tr></thead><tbody>{fontes}</tbody></table></div>
@@ -1035,7 +1081,8 @@ depois de congeladas por esta redação</div></div>
 conferida contra os bytes</div></div>
 {"".join(itens)}
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Comentários e decisões</div></div>
+<div class="rule" id="as-decisoes" style="padding:22px 0 8px"><div class="sect">Comentários e
+decisões</div></div>
 <div class="correio">{comentarios}</div>
 
 <div class="painel" style="margin-top:22px">
@@ -1058,7 +1105,7 @@ ler, e não baixar a barra.</p>
 admin/build/validate.js</code>. Os dois portões têm de imprimir OK antes de a versão subir.</p>
 </div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">As consultas que o assistente diz
+<div class="rule" id="as-consultas" style="padding:22px 0 8px"><div class="sect">As consultas que o assistente diz
 ter feito · {len(x["consultas"])}</div></div>
 <ul style="columns:2;column-gap:40px">{consultas}</ul>
 """

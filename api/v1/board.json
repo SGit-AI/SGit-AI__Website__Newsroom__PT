@@ -33,8 +33,8 @@
     "fechados"
   ],
   "contagens": {
-    "cartoes": 16,
-    "issues_do_jornal": 2,
+    "cartoes": 17,
+    "issues_do_jornal": 3,
     "agentes": 5
   },
   "por_agente": {
@@ -403,6 +403,21 @@
             "origem": "sessão a-linha-de-publicacao — encontrado ao pôr build/entregas.py no caminho de construção",
             "corpo": "## O que há para fazer\nCorrigir `build/pdf.py` para que a falta de `pycryptodome` no caminho AESV2 fique registada como\nfalta de dependência e não como um juízo sobre o documento. Hoje `_aes_cbc` devolve `None`, a\n`Cifra` fica com `ok=True` e `porque=None`, e o leitor conclui «é provavelmente um PDF\ndigitalizado, que precisaria de reconhecimento ótico». O diploma não é digitalizado.\n\n## Porque é que isto importa mais do que parece\nO mesmo ficheiro, com o mesmo SHA-256 reverificado pelo portão 1, leu **30 808 caracteres** a 14 de\nsetembro e **0** a 15 de setembro. Os bytes não mudaram — mudou a máquina. Durante essa passagem,\nas duas afirmações da RCM n.º 70/2026 caíram de `confirmada` para `fonte_inacessivel` **com a\nconstrução verde**. Uma prova que depende de quem a lê não é uma prova, e este site é inteiro\nconstruído sobre a promessa contrária.\n\nO caminho do AES-256 já faz isto bem: diz «AES-256 precisa de pycryptodome, que não está\ninstalado». O do AESV2 cala-se. É uma linha de diferença.\n\n## Como se faz\n`build/pdf.py` é seu. Ficam feitas as duas metades que um agente pode fazer:\n`requirements.txt` nomeia as duas dependências com a razão de cada uma, e o CI instala-as antes dos\nportões. Fica por fazer a que está atrás da lista de recusa — e vale a pena pensar num portão que\nleia um PDF conhecido e falhe se ele deixar de dar texto.\n\n## Critério de aceitação\n- Sem a dependência, `Cifra.ok` é `False` e a razão nomeia `pycryptodome`.\n- Nenhuma afirmação é marcada `fonte_inacessivel` com uma explicação que seja um juízo sobre o\n  documento de outra pessoa.",
             "resumo": "Corrigir `build/pdf.py` para que a falta de `pycryptodome` no caminho AESV2 fique registada como falta de dependência e não como um juízo sobre o documento. Hoje `_aes_cbc` devolve `None`, a `Cifra` fica com `ok=True` e `porque=None`, e o leitor conclui «é provavelmente um PDF digitalizado, que prec"
+          },
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/011__decidir-a-segunda-entrega-de-politicas.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir a segunda entrega do ChatGPT sobre políticas, item a item",
+            "aberto": "2026-09-15T11:50:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "007",
+            "origem": "entrega chatgpt-2026-09-15-politicas-2, ingerida na sessão a-linha-de-publicacao",
+            "corpo": "## O que há para fazer\nDecidir os três itens da segunda entrega de políticas. Três afirmações têm o excerto nos bytes\ncongelados; uma não se pôde conferir porque o EUR-Lex respondeu 202 e não devolveu corpo.\n\nEstá em `/entregas/chatgpt-2026-09-15-politicas-2.html`, que agora abre com um índice: cada item\ncom o seu veredicto de bytes e um salto para a afirmação.\n\n## O que mudou desde a primeira entrega\n**A entrega valida contra o esquema.** A primeira falhou em 45 pontos porque o resumo mandava\nbuscar o contrato a um endereço que não existe. Corrigido o endereço na v0.17.0, esta passagem\nvalidou à primeira e não reenviou nenhuma das oito páginas que a redação já tinha.\n\nO assistente também encontrou um erro **meu**: a v0.17.0 mandava omitir `delivery.vault` antes de\no cofre existir, e o esquema exige a chave. Ele disse-o nas notas e usou `null`, que é o que o\nesquema aceita. O resumo está corrigido.\n\n## Critério de aceitação\n- Cada um dos três itens com uma decisão registada em `redacao/revisoes/`.\n- Nenhum item aprovado sem o excerto ter sido lido nos bytes congelados.",
+            "resumo": "Decidir os três itens da segunda entrega de políticas. Três afirmações têm o excerto nos bytes congelados; uma não se pôde conferir porque o EUR-Lex respondeu 202 e não devolveu corpo. Está em `/entregas/chatgpt-2026-09-15-politicas-2.html`, que agora abre com um índice: cada item com o seu veredict"
           }
         ],
         "bloqueados": [
@@ -456,6 +471,23 @@
             "Decisão do editor sobre cada item. Nada desta entrega aparece na primeira página nem num artigo até lá.",
             "Decisão do editor sobre as propostas de vocabulário: um verbo ou um tipo novo é uma alteração de ontologia e leva uma versão.",
             "Encontrar o PDF do Diário da República para a RCM n.º 2/2026, que tornaria conferíveis as três afirmações de item-pol-01."
+          ]
+        },
+        {
+          "ficheiro": "redacao/issues/007-entrega-chatgpt-politicas-2.json",
+          "agente": "dinis.humano",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "007",
+          "titulo": "Entrega ChatGPT 1/8 (políticas, 2.ª passagem): valida contra o esquema, 3 de 4 afirmações com excerto nos bytes",
+          "estado": "congelado",
+          "seccao": "politicas",
+          "aberto": "2026-09-15",
+          "porque_aqui": "É uma entrega exterior à espera de aprovação item a item, que só o editor dá.",
+          "o_que_falta": [
+            "Decisão do editor sobre cada um dos três itens. Nada desta entrega aparece na primeira página nem num artigo até lá.",
+            "Uma via legível para o Regulamento (UE) 2026/1744. O EUR-Lex respondeu 202 a esta redação; há outras formas de chegar ao mesmo ato no Jornal Oficial e vale a pena procurá-las antes de dar o item por perdido.",
+            "O PDF da Série I da RCM n.º 2/2026 continua por encontrar — o assistente procurou-o em quinze consultas e não o construiu por adivinhação, que é o comportamento certo. Ver o issue 006."
           ]
         }
       ],
@@ -529,10 +561,10 @@
         }
       ],
       "contagens": {
-        "abertos": 8,
+        "abertos": 9,
         "bloqueados": 1,
         "fechados": 1,
-        "issues_do_jornal": 1,
+        "issues_do_jornal": 2,
         "por_tratar": 1,
         "em_transito": 2
       }

@@ -20,6 +20,7 @@ something failing.
 **A red gate stops everything.** Nothing runs after a failure, and the exit code is the failing
 step's. Never release on a red gate.
 """
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -28,22 +29,29 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def data_do_congelamento():
-    """The capture date the deliveries were frozen under.
+    """The capture date the research deliveries were frozen under, read FROM DISK.
 
-    `build/entregas.py --date` defaults to TODAY, and it re-checks each excerpt against
+    `build/entregas.py --date` defaults to TODAY and re-checks each excerpt against
     `fontes/congeladas/<date>/entregas/…`. Run on any day after the freeze, that directory does not
-    exist, every source reads as unreadable, and a delivery that had nine confirmed claims silently
-    reports zero — the build stays green while the record under it changes meaning. So the date
-    comes from the register's newest capture, which is where the bytes actually are, and never from
-    the clock. `entregas.py` is deny-listed and cannot be fixed from inside itself; this is the
-    nearest honest place.
+    exist, every source reads as unreadable, and a delivery that had nine confirmed claims reports
+    zero — with the build still green. So the date must come from where the bytes actually are.
+
+    It is read from the FROZEN DIRECTORIES and not from `dados/registo.json`, which was the first
+    attempt and was wrong twice over: the register is rewritten by `build/extract.py`, which this
+    script SKIPS unless `--fetch` was asked for, so it can be days stale; and even on a `--fetch`
+    run it is rewritten after this value would have been read. A freshly frozen delivery was
+    therefore checked against the previous capture's directory, found nothing, and reported 0 of 4
+    sources readable while every gate stayed green.
+
+    Called at the moment the step runs, never at import, for the same reason.
     """
-    import json
-    reg = json.loads((ROOT / "dados" / "registo.json").read_text(encoding="utf-8"))
-    return sorted(reg["capturas"])[-1] if reg.get("capturas") else None
-
-
-_DATA = data_do_congelamento()
+    base = ROOT / "fontes" / "congeladas"
+    if not base.exists():
+        return None
+    datas = sorted(d.name for d in base.iterdir()
+                   if d.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d.name)
+                   and (d / "entregas").is_dir())
+    return datas[-1] if datas else None
 
 # (command, what it does, is-a-gate). The order is the order.
 PASSOS = [
@@ -51,7 +59,7 @@ PASSOS = [
      "fetch, freeze, hash, register, extract, diff", False),
     (["python3", "build/transferencias.py"],
      "evidence transferred from a sibling publication — verified, kept as ITS evidence", False),
-    (["python3", "build/entregas.py"] + (["--date", _DATA] if _DATA else []),
+    (["python3", "build/entregas.py", "--date", "@DATA@"],
      "research deliveries: validate, re-check every excerpt against the frozen bytes, and fold in "
      "the editor's decisions from redacao/revisoes/ — MUST run before anything that reads "
      "dados/entregas.json, which is build.py (the /entregas/ pages) and gate 13 (the quarantine). "
@@ -201,6 +209,12 @@ def main(argv):
         srv, base = servidor_local()
         comando, o_que, e_portao = RENDER
         passos = passos + [(comando + [base], o_que, e_portao)]
+
+    # Resolved HERE, after extract.py has had its chance to run, and from the frozen directories
+    # rather than from a file that a skipped step would have written.
+    data = data_do_congelamento()
+    passos = [([data if x == "@DATA@" else x for x in c], d, g) for c, d, g in passos]
+    passos = [(c, d, g) for c, d, g in passos if "@DATA@" not in c and None not in c]
 
     largura = max(len(" ".join(c)) for c, _, _ in passos)
     for comando, o_que, e_portao in passos:

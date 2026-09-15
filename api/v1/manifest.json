@@ -17,8 +17,8 @@
     },
     {
       "ficheiro": "dados/comentarios.json",
-      "bytes": 67268,
-      "sha256": "75dc2b9fa1b282e3fcc222bb4fb562730b826d04f6bc8e2495939ab2180f9049"
+      "bytes": 79548,
+      "sha256": "e8791b2fbf54fa0480038ee7e3087f49472a88c9fcf8201ca9ffeeec66c5fe4e"
     },
     {
       "ficheiro": "dados/correio.json",
@@ -32,18 +32,18 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 20366,
-      "sha256": "c56206d4fc8a8093a43cc2ff56db923d1a9d265566eee0d8d5296e344042469b"
+      "bytes": 21354,
+      "sha256": "cad01895c7303c28fe836174df545bde787af0d46434283b38e708082cdc1d42"
     },
     {
       "ficheiro": "dados/entidades.json",
-      "bytes": 134424,
-      "sha256": "906dd1a06931921022d0ae71c55d56368dfa0b9b404a40023274b26635edd103"
+      "bytes": 139219,
+      "sha256": "e45c9fd4d11debf7e30cc67047b5a8dd2fb8608428eb264367257c7c399758b4"
     },
     {
       "ficheiro": "dados/entregas.json",
-      "bytes": 61229,
-      "sha256": "c9e11122e03242023562110766a493346a3f8304b7c8dc361183271160f332a9"
+      "bytes": 76790,
+      "sha256": "12bb0975abdfd9c8a36937fa5004f14775fd9632c9331fdd37ca110821ae340d"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -83,7 +83,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 4867,
-      "sha256": "f583565c35a5191297cfeeb645a1d722adab5620ee394556bd126ef736f68637"
+      "sha256": "86dd4529fad0e1b1e9af2c8d04584c67e84451127630c4e46323edf01c6c6533"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -118,7 +118,7 @@
     {
       "ficheiro": "dados/redacao.json",
       "bytes": 18323,
-      "sha256": "954800deab50334af901e77af5b48a463c2d715951000f4e59b4cc1dbcc78c51"
+      "sha256": "dfebec8256823fb7048abf247f83b0f0b4ba58ba71682ce56701024ea04ea6e5"
     },
     {
       "ficheiro": "dados/registo.json",

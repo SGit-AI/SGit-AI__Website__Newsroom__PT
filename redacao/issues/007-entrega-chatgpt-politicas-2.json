@@ -1,0 +1,24 @@
+{
+  "id": "007",
+  "titulo": "Entrega ChatGPT 1/8 (políticas, 2.ª passagem): valida contra o esquema, 3 de 4 afirmações com excerto nos bytes",
+  "seccao": "politicas",
+  "estado": "congelado",
+  "aberto_em": "2026-09-15",
+  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-15" },
+  "enquadramento": "A segunda passagem do ChatGPT sobre políticas, já com o resumo de investigação corrigido na v0.17.0. Quatro fontes nomeadas, todas congeladas e hasheadas; três legíveis. Das 4 afirmações, 3 têm o excerto nos bytes e 1 cita uma fonte que não devolveu corpo utilizável.",
+  "de_onde_vem": "redacao/entregas/chatgpt/chatgpt-2026-09-15-politicas-2.json",
+  "o_que_ja_se_tem": [
+    "A entrega VALIDA contra o esquema publicado. A primeira falhou em 45 pontos, todos de forma, por não conseguir buscar o contrato no endereço que o resumo indicava. O endereço foi corrigido na v0.17.0 e esta passagem validou à primeira.",
+    "Nenhuma das oito páginas já detidas foi reenviada — a tabela do que a redação já tem, acrescentada ao resumo na v0.17.0, fez o seu trabalho.",
+    "CONFIRMADA: o digitalGOV diz que o Regulamento Europeu de IA é diretamente aplicável em Portugal, sem transposição.",
+    "CONFIRMADA: o digitalGOV descreve um período de transição para sistemas disponíveis no mercado antes de 2 de agosto de 2026.",
+    "CONFIRMADA: o Centro de Excelência em IA na Administração Pública declara três funções nucleares — estratégica, operacional e de capacitação.",
+    "SEM FONTE LEGÍVEL: o PDF do Jornal Oficial da União Europeia (Regulamento (UE) 2026/1744) respondeu HTTP 202 e não devolveu corpo. A afirmação sobre o artigo 113.º e a data de 2 de dezembro de 2027 não se pôde conferir."
+  ],
+  "o_que_falta": [
+    "Decisão do editor sobre cada um dos três itens. Nada desta entrega aparece na primeira página nem num artigo até lá.",
+    "Uma via legível para o Regulamento (UE) 2026/1744. O EUR-Lex respondeu 202 a esta redação; há outras formas de chegar ao mesmo ato no Jornal Oficial e vale a pena procurá-las antes de dar o item por perdido.",
+    "O PDF da Série I da RCM n.º 2/2026 continua por encontrar — o assistente procurou-o em quinze consultas e não o construiu por adivinhação, que é o comportamento certo. Ver o issue 006."
+  ],
+  "recusa": "Nenhuma afirmação desta entrega é citada como facto enquanto o excerto não estiver nos bytes E o editor não a aprovar."
+}

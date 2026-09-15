@@ -224,8 +224,12 @@ the whole part aside.
   `source`, `excerpt`, `confidence`, `status`. Required on every source: `id`, `url`, `publisher`,
   `publisher_kind`, `title`, `language`, `published`, `retrieved`, `access` — `published` may be
   `null`, but the key must be there.
-- `delivery.vault`: if you have not created the vault, **omit the `vault` object entirely**. Do not
-  send it with `null` values — `vault_id` and `commit` must be strings when the object is present.
+- `delivery.vault` is **required and nullable**, which is not what an earlier revision of this
+  brief said. Until the vault exists, send `"vault": null` — the whole key, set to null. Do NOT
+  omit it (the schema lists it in `delivery.required`, so the part fails validation), and do not
+  send it as an object full of nulls (`vault_id` and `commit` must be strings when the object is
+  there). This was corrected after a delivery followed the wrong instruction, said so in its own
+  notes, and validated anyway by ignoring it.
 
 **Edges are Portuguese verbs with a distinct inverse.** Use these where they fit:
 `sediada_em / sede_de`, `financiada_por / financia` (with `montante`, `moeda`, `data`, `programa`),

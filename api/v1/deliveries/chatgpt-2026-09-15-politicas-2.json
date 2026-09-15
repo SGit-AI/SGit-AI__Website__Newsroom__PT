@@ -1,0 +1,296 @@
+{
+  "id": "chatgpt-2026-09-15-politicas-2",
+  "ficheiro": "redacao/entregas/chatgpt/chatgpt-2026-09-15-politicas-2.json",
+  "ferramenta": "chatgpt",
+  "modelo": "gpt-5",
+  "data": "2026-09-15",
+  "parte": "1/8",
+  "resumo_brief": "12__research-brief-for-chatgpt.md v2",
+  "seccoes": [
+    "politicas"
+  ],
+  "consultas": [
+    "site:files.diariodarepublica.pt/1s/2026/01/ 00005 Resolução do Conselho de Ministros n.º 2/2026 PDF",
+    "\"Resolução do Conselho de Ministros n.º 2/2026\" PDF",
+    "site:files.diariodarepublica.pt \"Agenda Nacional de Inteligência Artificial\"",
+    "site:diariodarepublica.pt \"Resolução do Conselho de Ministros n.º 2/2026\"",
+    "\"Agenda Nacional de Inteligência Artificial contempla 32 iniciativas\" pdf",
+    "\"Resolução do Conselho de Ministros n.º 2/2026\" \"1/\"",
+    "\"RCM n.º 2/2026\" \"files.diariodarepublica.pt/1s/2026/01/00500\"",
+    "\"Aprova a Agenda Nacional de Inteligência Artificial\" filetype:pdf",
+    "site:files.diariodarepublica.pt/1s/2026/01/00500/",
+    "\"N.º 5\" \"Resolução do Conselho de Ministros n.º 2/2026\"",
+    "\"Resolução do Conselho de Ministros n.º 2/2026\" \"08-01-2026\"",
+    "\"Agenda Nacional de Inteligência Artificial\" \"08-01-2026\" PDF",
+    "\"1000882016\" PDF",
+    "\"1000882016\" \"files.diariodarepublica.pt\"",
+    "\"Resolução do Conselho de Ministros n.º 2/2026\" download",
+    "\"Plano de Ação da Agenda Nacional\" filetype:pdf 2026",
+    "\"Resolução do Conselho de Ministros n.º 1/2026\" PDF",
+    "\"Resolução da Assembleia da República n.º 3/2026\" PDF",
+    "\"Declaração n.º 2/2026/1\" PDF \"08-01-2026\"",
+    "\"Diário da República n.º 5/2026\" PDF",
+    "site:diariodarepublica.pt 2026 \"Regulamento (UE) 2024/1689\" ANACOM IPQ",
+    "site:files.diariodarepublica.pt/1s/2026 \"Regulamento (UE) 2024/1689\"",
+    "site:digital.gov.pt 2026 \"autoridades competentes\" inteligência artificial Portugal",
+    "site:ipq.pt 2026 \"Regulamento da Inteligência Artificial\" autoridade notificadora",
+    "site:digital.gov.pt/pt/noticias setembro 2026 Regulamento Europeu Inteligência Artificial revisto novos prazos",
+    "site:cnpd.pt inteligência artificial 2025 2026 orientação decisão IA",
+    "site:cnpd.pt \"inteligência artificial\" 2026",
+    "site:recuperarportugal.gov.pt inteligência artificial 2025 2026 investimento aviso",
+    "site:digital.gov.pt/pt/noticias \"Regulamento Europeu de Inteligência Artificial revisto\"",
+    "site:ipq.pt \"autoridade notificadora\" \"inteligência artificial\" Portugal",
+    "site:fct.pt \"Fábrica de IA\" Portugal 2026",
+    "site:eurohpc-ju.europa.eu Portugal AI Factory 2025 2026",
+    "Portugal \"autoridade notificadora\" \"Regulamento da Inteligência Artificial\"",
+    "Portugal \"autoridade de fiscalização do mercado\" \"Regulamento de IA\"",
+    "ANACOM IPQ AI Act Portugal autoridade notificadora 2026",
+    "site:gov.pt ANACOM IPQ inteligência artificial autoridade 2026",
+    "\"Regulamento Europeu de Inteligência Artificial revisto: novos prazos e novas regras\"",
+    "site:storagewebsiteipq.blob.core.windows.net \"Grupo das Autoridades Notificadoras\"",
+    "site:storagewebsiteipq.blob.core.windows.net \"enquanto autoridade notificadora\" IA",
+    "site:ipq.pt \"Grupo das Autoridades Notificadoras\"",
+    "site:ipq.pt \"Regulamento da Inteligência Artificial\""
+  ],
+  "notas_do_assistente": "Não foi localizado, sem adivinhar o endereço, o PDF da Série I da RCM n.º 2/2026; por isso, o instrumento da ANIA não é entregue novamente. Também não foi localizado um ato publicado que designe a autoridade nacional de fiscalização do mercado ou a autoridade notificadora. As pesquisas na CNPD, no PRR, na FCT e na EuroHPC não produziram nesta passagem uma página oficial nova e aberta que satisfizesse o teste do excerto. Uma página da ANACOM e um PDF do IPQ apareceram em resultados, mas não abriram de forma utilizável e foram excluídos. Nenhuma das oito páginas já detidas pela redação foi reenviada. O esquema vivo exige a chave delivery.vault, embora o brief mande omiti-la antes da criação do cofre; foi usado null para validar contra o esquema vivo. O cofre será criado apenas depois das oito partes.",
+  "cofre": null,
+  "esquema_valido": true,
+  "erros_de_esquema": [],
+  "congelada_em": "2026-09-15",
+  "fontes": [
+    {
+      "id": "src-pol-09",
+      "url": "https://eur-lex.europa.eu/legal-content/PT/TXT/PDF/?uri=OJ:L_202601744",
+      "publicador": "Jornal Oficial da União Europeia",
+      "titulo": "Regulamento (UE) 2026/1744 do Parlamento Europeu e do Conselho",
+      "lingua": "pt-PT",
+      "acesso": "pdf",
+      "congelada": null,
+      "sha256": null,
+      "bytes": 0,
+      "legivel": false,
+      "porque": "nenhum corpo foi devolvido"
+    },
+    {
+      "id": "src-pol-10",
+      "url": "https://digital.gov.pt/pt/noticias/regulamento-europeu-de-inteligencia-artificial-novos-prazos-e-novas-regras",
+      "publicador": "digitalGOV",
+      "titulo": "Regulamento Europeu de Inteligência Artificial revisto: novos prazos e novas regras",
+      "lingua": "pt-PT",
+      "acesso": "open",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
+      "sha256": "7dbf1a67eb5dd11feffbb8a88c1591f9ce4835abb86145825d291923e81832f8",
+      "bytes": 265049,
+      "caracteres_visiveis": 8199,
+      "formato": "html",
+      "legivel": true,
+      "porque": null
+    },
+    {
+      "id": "src-pol-11",
+      "url": "https://digital.gov.pt/pt/noticias/novas-regras-de-transparencia-ia",
+      "publicador": "digitalGOV",
+      "titulo": "Novas regras de transparência para a Inteligência Artificial",
+      "lingua": "pt-PT",
+      "acesso": "open",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
+      "sha256": "28c465242bd8b91d3b3cf1a3ddb8f03c24297fe8204c3ceb0a0c7b52110e9eaa",
+      "bytes": 267411,
+      "caracteres_visiveis": 7244,
+      "formato": "html",
+      "legivel": true,
+      "porque": null
+    },
+    {
+      "id": "src-pol-12",
+      "url": "https://digital.gov.pt/pt/noticias/centro-excelencia-ia-motor-administracao-publica",
+      "publicador": "digitalGOV",
+      "titulo": "Centro de Excelência em IA: o novo motor da adoção de IA na Administração Pública",
+      "lingua": "pt-PT",
+      "acesso": "open",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
+      "sha256": "c4527b9c777643392a1a6b25e30b2a6709bede3ea78887b3a4c753e243b9a5ad",
+      "bytes": 256074,
+      "caracteres_visiveis": 8764,
+      "formato": "html",
+      "legivel": true,
+      "porque": null
+    }
+  ],
+  "itens": [
+    {
+      "id": "item-pol-09",
+      "seccao": "politicas",
+      "especie": "policy-instrument",
+      "titulo": "Regulamento (UE) 2026/1744 altera o calendário de aplicação das regras europeias de IA",
+      "o_que_dizem_as_fontes": "O regulamento europeu de 2026 altera o Regulamento (UE) 2024/1689. A redação do artigo 113.º passa a fixar 2 de dezembro de 2027 para a aplicação de regras a uma categoria de sistemas de IA de risco elevado. O portal oficial português assinala que o regulamento europeu é diretamente aplicável em Portugal.",
+      "porque_importa": "É uma alteração oficial e posterior às páginas já congeladas pela redação; muda datas operacionais que afetam entidades públicas e privadas em Portugal.",
+      "historia_sugerida": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "afirmacoes": [
+        {
+          "id": "item-pol-09-c1",
+          "texto": "A redação alterada do artigo 113.º fixa 2 de dezembro de 2027 para a aplicação indicada a sistemas de IA classificados como de risco elevado.",
+          "fonte": "src-pol-09",
+          "localizador": "p. 34, artigo 113.º, alínea c), subalínea i)",
+          "excerto": "i) 2 de dezembro de 2027, no que diz respeito aos sistemas de IA classificados como sendo de risco elevado",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "fonte_inacessivel",
+          "nota": "nenhum corpo foi devolvido",
+          "correspondencia": null,
+          "trocos": 0
+        },
+        {
+          "id": "item-pol-09-c2",
+          "texto": "O portal digitalGOV afirma que o Regulamento Europeu de Inteligência Artificial é diretamente aplicável em Portugal.",
+          "fonte": "src-pol-10",
+          "localizador": "O que significa para as organizações?",
+          "excerto": "Em Portugal, o Regulamento Europeu de Inteligência Artificial é diretamente aplicável, não sendo necessária a sua transposição para a legislação nacional.",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "confirmada",
+          "nota": null,
+          "correspondencia": "exacta",
+          "trocos": 1
+        }
+      ],
+      "entidades_propostas": [
+        {
+          "id": "politica:regulamento-ue-2026-1744",
+          "type": "Política",
+          "name": "Regulamento (UE) 2026/1744",
+          "source": "src-pol-09",
+          "attributes": {
+            "data": "2026-07-08"
+          }
+        },
+        {
+          "id": "politica:regulamento-ue-2024-1689",
+          "type": "Política",
+          "name": "Regulamento Europeu de Inteligência Artificial",
+          "source": "src-pol-10",
+          "attributes": {}
+        }
+      ],
+      "arestas_propostas": [],
+      "verificacao_dados_pessoais": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      },
+      "resumo": {
+        "confirmada": 1,
+        "nao_encontrada": 0,
+        "fonte_inacessivel": 1
+      }
+    },
+    {
+      "id": "item-pol-10",
+      "seccao": "politicas",
+      "especie": "fact",
+      "titulo": "Sistemas de geração de conteúdos anteriores a agosto de 2026 têm regra transitória de marcação",
+      "o_que_dizem_as_fontes": "O portal oficial digitalGOV descreve um período transitório para sistemas já disponíveis no mercado antes de 2 de agosto de 2026; a mesma página indica que a marcação legível passa a aplicar-se em 2 de dezembro de 2026.",
+      "porque_importa": "A data de 2 de dezembro de 2026 é imediata para fornecedores com sistemas anteriores à aplicação das regras e pode orientar uma explicação prática para organizações portuguesas.",
+      "historia_sugerida": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "afirmacoes": [
+        {
+          "id": "item-pol-10-c1",
+          "texto": "O digitalGOV identifica um período de transição para sistemas disponíveis no mercado antes de 2 de agosto de 2026.",
+          "fonte": "src-pol-11",
+          "localizador": "Obrigações a ter a partir de agora",
+          "excerto": "Para os sistemas disponíveis no mercado antes de 2 de agosto de 2026, existe um período de transição.",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "confirmada",
+          "nota": null,
+          "correspondencia": "exacta",
+          "trocos": 1
+        }
+      ],
+      "entidades_propostas": [
+        {
+          "id": "politica:artigo-50-ai-act",
+          "type": "Política",
+          "name": "artigo 50.º do Regulamento Europeu de Inteligência Artificial",
+          "source": "src-pol-11",
+          "attributes": {}
+        }
+      ],
+      "arestas_propostas": [],
+      "verificacao_dados_pessoais": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      },
+      "resumo": {
+        "confirmada": 1,
+        "nao_encontrada": 0,
+        "fonte_inacessivel": 0
+      }
+    },
+    {
+      "id": "item-pol-11",
+      "seccao": "politicas",
+      "especie": "lead",
+      "titulo": "Centro de Excelência em IA define funções para a adoção de IA na Administração Pública",
+      "o_que_dizem_as_fontes": "O portal digitalGOV apresenta o Centro de Excelência em Inteligência Artificial na Administração Pública e enumera três funções nucleares: estratégica, operacional e de capacitação.",
+      "porque_importa": "É uma estrutura operacional de política pública com funções descritas numa página oficial nova; permite seguir projetos, padrões e apoio técnico à Administração Pública.",
+      "historia_sugerida": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "afirmacoes": [
+        {
+          "id": "item-pol-11-c1",
+          "texto": "O Centro de Excelência em IA declara três funções nucleares: estratégica, operacional e de capacitação.",
+          "fonte": "src-pol-12",
+          "localizador": "Funções nucleares",
+          "excerto": "O CoE IA assume três funções nucleares: estratégica, operacional e de capacitação.",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "confirmada",
+          "nota": null,
+          "correspondencia": "exacta",
+          "trocos": 1
+        }
+      ],
+      "entidades_propostas": [
+        {
+          "id": "programa:coe-ia",
+          "type": "Programa",
+          "name": "Centro de Excelência em Inteligência Artificial na Administração Pública",
+          "source": "src-pol-12",
+          "attributes": {
+            "sigla": "CoE IA"
+          }
+        }
+      ],
+      "arestas_propostas": [],
+      "verificacao_dados_pessoais": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      },
+      "resumo": {
+        "confirmada": 1,
+        "nao_encontrada": 0,
+        "fonte_inacessivel": 0
+      }
+    }
+  ],
+  "propostas_de_vocabulario": [],
+  "contagens": {
+    "fontes": 4,
+    "fontes_legiveis": 3,
+    "itens": 3,
+    "afirmacoes": 4,
+    "confirmadas": 3,
+    "nao_encontradas": 0,
+    "fonte_inacessivel": 1
+  },
+  "revisao": {
+    "entrega": "chatgpt-2026-09-15-politicas-2",
+    "estado": "por_rever",
+    "decidido_por": null,
+    "decidido_em": null,
+    "itens": {},
+    "comentarios": []
+  }
+}
