@@ -173,19 +173,26 @@ def primeira(d):
     # --- «Nesta edição»: counts, every one of them from a file -----------------
     n_ent = sum(x["contagens"]["afirmacoes"] for x in ent["entregas"]) if ent else 0
     n_conf = sum(x["contagens"]["confirmadas"] for x in ent["entregas"]) if ent else 0
+    # THE NUMBERS LEAD, AND THE SENTENCE QUALIFIES THEM. This was five rows of label + sentence,
+    # with the counts — the thing a reader's eye goes looking for — buried mid-prose. A stat strip
+    # puts them at 22px above their label, and the sentences that qualify them follow underneath.
+    # Nothing is removed: every count still carries the file it came from in the line below it.
     nesta = (
         f'<div class="hair col sp8" style="padding-top:22px">'
         f'<div class="sect">Nesta edição</div>'
-        + linha_conta("Oradores", f'{pes["contagem"]} listados · {org["contagem"]} organizações · '
-                                  f'{org["marcadores"]} valores de marcador assinalados')
-        + linha_conta("Fontes", f'{reg["contagem"]} ficheiros congelados de '
-                                f'{len(reg["capturas"])} captura(s) · todos com hash')
-        + linha_conta("Grafo", f'{graf["contagens"]["nos"]} nós · {graf["contagens"]["arestas"]} '
-                               f'arestas · cada aresta um verbo português')
+        + P.tira_de_numeros([
+            ("Oradores", str(pes["contagem"])),
+            ("Organizações", str(org["contagem"])),
+            ("Fontes", str(reg["contagem"])),
+            ("Grafo", f'{graf["contagens"]["nos"]} · {graf["contagens"]["arestas"]}'),
+        ])
         + linha_conta("Programa", f'{ses["contagem"]} sessões lidas da agenda congelada · '
                                   f'{len(ses["palcos"])} palcos')
         + linha_conta("Entregas", f'{n_ent} afirmações entregues · {n_conf} com o excerto '
                                   f'encontrado nos bytes · nenhuma publicada')
+        + linha_conta("O que sustenta", f'{len(reg["capturas"])} captura(s), todas com hash · '
+                                        f'{org["marcadores"]} valores de marcador assinalados · '
+                                        f'cada aresta do grafo é um verbo português')
         + '</div>')
 
     # --- «Em preparação» ------------------------------------------------------
@@ -242,23 +249,45 @@ def primeira(d):
                      f'({e(i0["id"].split("/")[-1])}) devolveu um erro e ficou fora do registo: '
                      f'não pode ser citada.</p>')
 
-    corpo = f"""
-<div class="g12" style="padding:34px 0 30px">
+    # THE PROVENANCE, DEMOTED. The sentence is built from the same counts the chips carry, so the
+    # two cannot disagree: the number of frozen pages and the number that returned no text are
+    # derived here, not typed. The chips stay, one click behind, with the byte counts intact.
+    n_lead = len(leg)
+    sem_texto = sum(1 for v in leg.values() if not v["legivel_por_maquina"])
+    frase_prov = (f'Assenta em {n_lead} página{"s" if n_lead != 1 else ""} congelada'
+                  f'{"s" if n_lead != 1 else ""} hoje')
+    if sem_texto:
+        frase_prov += f' · {sem_texto} não devolvera{"m" if sem_texto != 1 else ""} texto'
+    proveniencia_lead = P.proveniencia(fichas_lead + estado_do("lead"), frase_prov)
+
+    # The one major opener on this page, with the legend riding at its far end. The stylesheet's
+    # note says to reach for this weight three or four times at most; the front page uses it once.
+    abertura_preparacao = P.abertura(
+        "Em preparação", numero="02",
+        nota="as três primeiras histórias do registo nacional", fim=legenda, maior=True)
+
+    # THE BAND RHYTHM ON THIS PAGE: base (the lead), recessed («Em preparação»), base (the rest).
+    # Three grounds and not six — the stylesheet's own note is that a page alternating every block
+    # is as flat as one alternating none.
+    banda_lead = P.banda(f"""
+<div class="g12">
   <div class="col sp18" style="grid-column:span 7">
     {bloco_lead}
-    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}{estado_do("lead")}</div>
+    {proveniencia_lead}
     {estado_dep}
+    {nesta}
   </div>
   <div class="col sp22 borda-esq" style="grid-column:span 5;border-left:1px solid var(--filete);padding-left:40px">
-    {sec1}{sec2}{nesta}
+    {sec1}{sec2}
   </div>
 </div>
+""")
+    banda_preparacao = P.banda(f"""
+{abertura_preparacao}
+<div class="g3">{cartoes}</div>
+""", "sunk")
 
-<div class="rule" style="padding:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
-  <div class="sect">Em preparação · as três primeiras histórias do registo nacional</div>
-  {legenda}
-</div>
-<div class="g3" style="padding:10px 0 34px">{cartoes}</div>
+    corpo = banda_lead + banda_preparacao + P.banda(f"""
 
 <div class="rule g12" style="padding:22px 0 34px">
   <div class="col sp12" style="grid-column:span 4">
@@ -319,12 +348,13 @@ def primeira(d):
     <a href="metodo/" class="mono" style="font-size:12px;letter-spacing:.04em">Ler as políticas →</a>
   </div>
 </div>
-"""
+""")
     return pagina("index.html", "Um mapa do ecossistema português de IA",
                   "Uma redação nativamente portuguesa que mapeia o ecossistema português de "
                   "inteligência artificial como um grafo. Cada afirmação anda para trás até uma "
                   "cópia congelada e hasheada da sua fonte.",
-                  corpo, aqui=None, nomeia_pessoas=False, fontes_n=reg["contagem"])
+                  corpo, aqui=None, nomeia_pessoas=False, fontes_n=reg["contagem"],
+                  corpo_em_bandas=True)
 
 
 def linha_conta(rot, val):
