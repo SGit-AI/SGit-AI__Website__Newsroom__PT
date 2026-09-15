@@ -179,6 +179,23 @@ A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` 
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
 {lista_artigos}
 
+## Se vai MUDAR este site, e não apenas lê-lo
+
+Esta secção está em inglês, ao contrário do resto deste ficheiro, e a razão é a regra da língua
+deste repositório: o que um leitor do jornal vê é português; o que quem opera a redação lê é
+inglês. Quem chega aqui para mudar o site está do segundo lado.
+
+    https://{HOST}/backoffice/guidance/index.html                start here: the reading order
+    https://{HOST}/backoffice/guidance/language.html             the one test that decides naming
+    https://{HOST}/backoffice/guidance/principles.html           nine principles, each with its gate
+    https://{HOST}/backoffice/guidance/before-you-change.html    the checklist
+    https://{HOST}/backoffice/guidance/concurrent-sessions.html  two or three sessions work here at once
+
+The markdown these are rendered from is `docs/guidance/*.md` in the repository, and
+`.claude/ONBOARDING.md` is the short form a Claude Code session is given on startup. `CLAUDE.md` at
+the repository root is the constitution and outranks all of it. Nothing on this site is published
+without a named human editor of record, and no automated run may set `estado: publicado`.
+
 ## Como ler este site sem o interpretar mal
 
 1. Uma afirmação sem fonte congelada não é uma afirmação deste site. Confirme no registo.

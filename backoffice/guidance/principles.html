@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The principles, and the gate that enforces each one · pt.newsroom back office</title>
+<meta name="description" content="The principles, and the gate that enforces each one — guidance for anyone changing pt.newsroom.sgit.ai.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.15.0" title="O que mudou em v0.15.0, e porquê">v0.15.0</a></div>
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+</div>
+
+<nav class="nav nav--consola"><a href="../../backoffice/">console</a><a href="../../backoffice/equipa.html">team</a><a href="../../backoffice/quadro.html">board</a><a href="../../backoffice/correio.html">mail</a><a href="../../backoffice/pontes.html">bridges</a><a href="../../backoffice/desenho.html">design</a><a href="../../backoffice/docs.html">documents</a><a href="../../backoffice/agents.html">agents</a><a href="../../backoffice/guidance.html">guidance</a><a href="../../admin/versions.html">versions</a></nav>
+
+<div class="consola-corpo">
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 3 of 5</div></div>
+<h2 class="h-lead">The principles, and the gate that enforces each one</h2>
+<p class="std">A rule without a gate is decoration. <code>coding.sgit.ai</code> measured its own estate and found a guard that had never matched anything — a guard that passes because it <i>cannot</i> fail. So every principle below names the thing that stops the build when it is broken, and where a principle has no gate, it says so in those words rather than pretending.</p>
+<p class="std">The seven rules in <a href="../../CLAUDE.md"><code>CLAUDE.md</code></a> outrank this page. These are the working principles that follow from them.</p>
+<p class="std">---</p>
+<h3 class="h-2">1. Everything except what a visitor reads is in English</h3>
+<p class="std">One test, in <a href="language.html"><code>language.md</code></a>: would a visitor read this string on the site?</p>
+<p class="std"><b>Gate 34</b> (<code>build/gates_artigos.py</code>) reads every comment and docstring in <code>build/</code>, <code>admin/build/</code> and <code>assets/components/</code> and fails on Portuguese. Two honest exceptions are declared in <code>language.md</code> and encoded in the gate, not hidden in it.</p>
+<h3 class="h-2">2. Every claim walks back to bytes</h3>
+<p class="std">A source is fetched, frozen to <code>fontes/congeladas/&lt;date&gt;/&lt;page&gt;.snapshot</code>, hashed with SHA-256 and registered <b>before</b> any claim stands on it. A claim with no source is a build failure.</p>
+<p class="std"><b>Gate 1</b> re-verifies every hash on every build. <b>Gate 17</b> checks every <code>[[fonte:…]]</code> mark and every cited source resolves in the register. <b>Gate 2</b> fails if a frozen copy is ever served as a page of this site — that is why the extension is <code>.snapshot</code> and not <code>.html</code>.</p>
+<h3 class="h-2">3. A name is verbatim, and accents come from the source</h3>
+<p class="std">Names of people and organisations are copied from the frozen bytes, with the accents the source gave them. Not from a typed list, not normalised, not corrected.</p>
+<p class="std"><b>Gate 9</b> checks every name against the frozen bytes and reports which direction the drift went. It runs <i>inverse</i> to the estate&#x27;s ASCII convention, and this repository says so out loud.</p>
+<h3 class="h-2">4. Nothing is attributed to anyone who did not say it</h3>
+<p class="std">This is the one failure mode that does not look broken. A comment attributed to a model that never wrote it is a claim with a <b>forged</b> source, which is worse than a claim with none — you cannot tell it from a real one without leaving the site.</p>
+<p class="std">So agent activity is <b>derived, never authored</b>: every entry in a <code>comentarios.json</code> names the file and path it came from. <b>Gate 25</b> opens that file and walks that path.</p>
+<h3 class="h-2">5. Only the named human editor publishes</h3>
+<p class="std"><code>estado: publicado</code> is one person&#x27;s line. No automated run may write it, and the newsroom floor has no control that moves a card into that column — the absence is the design.</p>
+<p class="std"><b>Gate 11</b> fails any story in <code>publicado</code> that the editor did not sign. <b>Gate 26</b> fails a construction run that moved a card at all.</p>
+<h3 class="h-2">6. A department only writes in its own folder</h3>
+<p class="std">Research freezes sources. The newsroom writes prose. Verification writes verdicts. The run record lists the diff by folder.</p>
+<p class="std"><b>Gate 12</b> fails a run that crossed a line. <b>Gate 26</b> closes the exemption: a run that declares no department must declare its <code>especie</code>, and a <code>construcao</code> run that froze a source, moved a card or published anything fails. An exemption any run can claim by typing the right word is not a boundary — it is a door with the name written beside it.</p>
+<h3 class="h-2">7. The graph reads aloud in Portuguese</h3>
+<p class="std">Every edge is a Portuguese verb with a distinct named inverse. Symmetric verbs are banned. A path that does not read as a sentence is a wrong edge.</p>
+<p class="std"><b>Gate 10</b> reads every verb aloud and fails a reading that is not a sentence — and fails any reading touching a <code>Pessoa</code> that agrees a participle in gender, because the source does not publish anyone&#x27;s gender and inferring it from a name is a refused inference.</p>
+<h3 class="h-2">8. Classification is a published formula or it does not happen</h3>
+<p class="std">Deciding that a string is an entity, that a page is about a sector, or that a publisher is one house rather than two is classification. Each one is published as data — <code>dados/lexico.json</code>, <code>dados/entidades.json#formula</code>, <code>ontologia.formulas</code> — so a reader can disagree with the formula rather than with the result.</p>
+<p class="std"><b>Gate 8</b> re-runs each lexicon pattern over the bytes. <b>Gates 22 and 23</b> check every entity link against its published formula and its stated ground.</p>
+<h3 class="h-2">9. Version everything, and show the version</h3>
+<p class="std"><code>admin/build/version.txt</code> is bumped once per release, the commit subject repeats it, the badge is on every page, and <code>admin/versions.html</code> gets a row saying what changed and why.</p>
+<p class="std"><b>The site gate</b> (<code>admin/build/validate.js</code>) checks all four agree, with no duplicate rows. CI validates, tags and deploys; a red validate is not a release.</p>
+<p class="std">---</p>
+<h3 class="h-2">The principle with no gate</h3>
+<p class="std"><b>Read the brief before changing what the brief asked for.</b> Nothing enforces this and nothing can. It is the reason <code>briefs/pack/</code> is kept whole in this repository rather than summarised: a summary of a brief is how a project quietly stops doing what it was asked to do.</p>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Next</div></div>
+<p class="sm"><a href="language.html">← The language rule</a> · <a href="before-you-change.html">Before you change anything →</a></p>
+<p class="xs" style="padding-top:12px">This page is rendered from
+<a href="../../docs/guidance/principles.md"><code>docs/guidance/principles.md</code></a> by <code>build/guia.py</code>. The
+markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/guidance/principles.html</code> · version <span class="ver">v0.15.0</span>.
+</div>
+
+</div>
+</div>
+</body>
+</html>

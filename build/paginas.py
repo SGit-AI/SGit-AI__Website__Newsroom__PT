@@ -513,9 +513,41 @@ def md_para_html(md, raiz=""):
 
 
 def inline(t, raiz=""):
+    """Bold, code spans, links and source marks — in that order, and the order is the point.
+
+    CODE SPANS ARE LIFTED OUT FIRST AND PUT BACK LAST. Two things were wrong here and each hid the
+    other. Backticks were not handled at all, so every `like this` reached the page as literal
+    backticks — invisible on an article, which rarely uses them, and all over the guidance, which
+    is mostly file names. And because nothing protected a code span, a `[[fonte:…]]` written
+    INSIDE one — the syntax being discussed rather than a citation — was turned into a live chip
+    pointing into the register at an id that does not exist. A page explaining how a citation works
+    was making one.
+
+    That is the shape of mistake this site exists to avoid, so it is fixed in the renderer rather
+    than worked around by whoever writes the prose: a mark inside a code span is a mark being
+    quoted, and quoting a citation is not making one."""
     t = e(t)
+
+    guardados = []
+
+    def guardar(m):
+        guardados.append(m.group(1))
+        # \x00 cannot appear in the escaped text, and no rule below matches it, so a code span is
+        # invisible to bold, to links and to the source mark until it is put back.
+        return f"\x00{len(guardados) - 1}\x00"
+
+    t = re.sub(r"`([^`]+)`", guardar, t)
     t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+    # Italics AFTER bold, so `**x**` is already gone and cannot be read as two single marks. The
+    # guards either side keep a literal asterisk literal: `2 * 3` and a footnote star are not
+    # emphasis, and a rule that turned them into emphasis would be worse than no rule.
+    # `(?!\s)` and `(?<!\s)`: the emphasised text may not begin or end with a space. Without
+    # those two, `2 * 3 * 4` became `2 <i> 3 </i> 4` — caught by trying it rather than by reading
+    # the pattern, which is the only way this kind of mistake is ever caught.
+    t = re.sub(r"(?<![\w*])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", t)
+    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', t)
     t = re.sub(r"\[\[fonte:([^\]]+)\]\]",
                lambda m: f'<a class="chip ok" href="{raiz}registo/#{e(m.group(1))}">'
                          f'{e(m.group(1))}</a>', t)
+    t = re.sub(r"\x00(\d+)\x00", lambda m: f"<code>{guardados[int(m.group(1))]}</code>", t)
     return t

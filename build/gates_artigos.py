@@ -207,7 +207,13 @@ if BASTIDORES.exists():
     for p in sorted(BASTIDORES.rglob("*.html")):
         t = p.read_text(encoding="utf-8")
         rel = p.relative_to(ROOT).as_posix()
-        if "[[fonte:" in t:
+        # A mark inside <code> is the syntax being QUOTED, not a citation being made: the
+        # guidance page that explains how `[[fonte:…]]` works has to be able to write it down.
+        # Everything else about this gate is unchanged, and the check below — a link into the
+        # register — is the one that catches a back-office page actually standing a claim on
+        # evidence, quoted or not.
+        sem_codigo = re.sub(r"<code\b[^>]*>.*?</code>", " ", t, flags=re.S | re.I)
+        if "[[fonte:" in sem_codigo:
             erros.append(f"{rel}: carries a source mark. The back office reports on the "
                          f"newsroom, not on the world")
         # a link to a register anchor is a citation of evidence
@@ -795,9 +801,61 @@ if IDX.exists():
                          f'this one first, so take the next free one')
 
 
+#  39 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
+#       docs/guidance/ is rendered to a page of its own, and everything .claude/ONBOARDING.md
+#       points at exists. For most of this site's life the guidance was reachable only as
+#       `/backoffice/docs.html#docs/guidance/language.md` — a fragment, which is not an address: it
+#       cannot be cited, it is not in the sitemap, and anything fetching it gets the shell of a
+#       document browser rather than the document. llms.txt, the file this site tells machines to
+#       read first, mentioned the guidance zero times. A briefing whose links have rotted is worse
+#       than no briefing, because it reads as current.
+GUIA_MD = ROOT / "docs" / "guidance"
+GUIA_HTML = ROOT / "backoffice" / "guidance"
+n_guia = 0
+if GUIA_MD.exists():
+    for md in sorted(GUIA_MD.glob("*.md")):
+        n_guia += 1
+        alvo = GUIA_HTML / f"{md.stem}.html"
+        if not alvo.exists():
+            erros.append(f'docs/guidance/{md.name}: has no page at '
+                         f'backoffice/guidance/{md.stem}.html. Run build/guia.py — a guidance '
+                         f'document reachable only as a file path cannot be cited by anything')
+    if n_guia and "backoffice/guidance/index.html" not in (ROOT / "llms.txt").read_text(
+            encoding="utf-8"):
+        erros.append('llms.txt: does not point at the guidance. It is the file this site tells a '
+                     'machine to read first, and an agent arriving to CHANGE the site finds no '
+                     'route to the rules it is about to break')
+
+ONBOARD = ROOT / ".claude" / "ONBOARDING.md"
+n_ligacoes = 0
+if ONBOARD.exists():
+    texto = ONBOARD.read_text(encoding="utf-8")
+    for url in re.findall(r"https://pt\.newsroom\.sgit\.ai(/[\w./-]+)", texto):
+        n_ligacoes += 1
+        alvo = ROOT / url.lstrip("/")
+        if not alvo.exists() and not (alvo / "index.html").exists():
+            erros.append(f'.claude/ONBOARDING.md: links to {url}, which this build does not '
+                         f'produce. The briefing is the first thing a session reads')
+    # A template is not a path: the briefing tells a session to write `admin/versions/<version>.md`
+    # and there is no such file, correctly. The angle brackets are the site's own convention for a
+    # placeholder — the same one llms.txt uses for `artigos/<yyyy>/<mm>/<dd>/<slug>/` — so they are
+    # what this skips, rather than a list of names that would go stale.
+    for caminho in re.findall(r"`([\w./<>-]+\.(?:md|py|json|js))`", texto):
+        if "<" in caminho or ">" in caminho:
+            continue
+        if "/" not in caminho and caminho != "CLAUDE.md":
+            continue
+        n_ligacoes += 1
+        if not (ROOT / caminho).exists():
+            erros.append(f'.claude/ONBOARDING.md: names `{caminho}`, which does not exist')
+else:
+    erros.append('.claude/ONBOARDING.md is missing. It is what a session is pointed at on startup '
+                 'by the SessionStart hook, and the hook would be telling it to read nothing')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-38: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-39: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -805,7 +863,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-38: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-39: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "
@@ -818,4 +876,5 @@ print(f"gates 16-26, 34-38: OK — {len(metas)} articles in dated folders "
       f"{len(registados)} named agents with a written mandate, "
       f"{len(reclamado)} gate numbers each claimed once (next free: {proximo_portao}), "
       f"{acoplamentos} document-level class(es) set by a component, each with a rule, "
-      f"{n_notas} releases each addressable once, at {versao_actual}")
+      f"{n_notas} releases each addressable once, at {versao_actual}, "
+      f"{n_guia} guidance pages with an address and {n_ligacoes} briefing links that resolve")

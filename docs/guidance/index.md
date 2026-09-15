@@ -3,7 +3,7 @@
 **The first page to read before changing anything in this repository — human or agent.** It is
 short on purpose and made mostly of edges: the rules that get broken most, and a route to the file
 that actually answers each question. If you are an agent and you fetch one thing, fetch
-[`llms.txt`](llms.txt), which is this page in the form you prefer.
+[`llms.txt`](../../llms.txt), which is this page in the form you prefer.
 
 ## The one-minute version
 

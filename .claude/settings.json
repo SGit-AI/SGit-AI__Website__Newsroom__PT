@@ -53,7 +53,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -c 'import pyoxigraph' 2>/dev/null || pip install -q pyoxigraph; node --version; python3 --version",
+            "command": "python3 -c 'import pyoxigraph' 2>/dev/null || pip install -q pyoxigraph; node --version; python3 --version; python3 build/briefing.py",
             "timeout": 120
           }
         ]

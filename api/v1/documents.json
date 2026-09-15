@@ -3,8 +3,16 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 86,
+  "contagem": 88,
   "documentos": [
+    {
+      "caminho": ".claude/ONBOARDING.md",
+      "titulo": "Start here — pt.newsroom.sgit.ai",
+      "categoria": "Repository root",
+      "bytes": 4841,
+      "linhas": 90,
+      "palavras": 749
+    },
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
       "titulo": "SKILL",
@@ -116,6 +124,14 @@
       "bytes": 4309,
       "linhas": 56,
       "palavras": 719
+    },
+    {
+      "caminho": "admin/versions/v0.15.0.md",
+      "titulo": "v0.15.0",
+      "categoria": "Repository root",
+      "bytes": 4106,
+      "linhas": 54,
+      "palavras": 705
     },
     {
       "caminho": "admin/versions/v0.2.0.md",

@@ -313,15 +313,19 @@ GUIA = [
 def pagina_guidance():
     """The guidance landing page, in the back office because that is where an operator looks.
 
-    The markdown under docs/guidance/ is the source of truth; this page is a route into it, and the
-    document browser renders it from the same bytes the build read. Restating the rules here would
-    give this repository two copies of them, and two copies diverge — which is the first thing
-    `index.md` tells you not to do."""
+    The markdown under docs/guidance/ is the source of truth; this page is a route into it, and
+    build/guia.py renders each document to a page of its own at backoffice/guidance/<name>.html.
+    Restating the rules here would give this repository two copies of them, and two copies diverge
+    — which is the first thing `index.md` tells you not to do.
+
+    The cards used to link to `docs.html#docs/guidance/<name>.md`, a fragment on the document
+    browser. That is not an address: it cannot be cited, it is not in the sitemap, and anything
+    fetching it gets the browser's shell rather than the document."""
     cartoes = "".join(
         f'<div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px">'
         f'<div class="mono xs">{i + 1:02d}</div>'
         f'<h3 class="h-3" style="padding:2px 0 4px">'
-        f'<a href="docs.html#docs/guidance/{e(f)}">{e(t)}</a></h3>'
+        f'<a href="guidance/{e(f).replace(".md", ".html")}">{e(t)}</a></h3>'
         f'<p class="sm">{e(d)}</p></div>'
         for i, (f, t, d) in enumerate(GUIA))
 

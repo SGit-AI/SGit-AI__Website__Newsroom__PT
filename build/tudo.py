@@ -55,6 +55,9 @@ PASSOS = [
      "api/v1/ — every path is a file, which is why openapi.json is honest", False),
     (["python3", "build/backoffice.py"],
      "the operations console, in English", False),
+    (["python3", "build/guia.py"],
+     "docs/guidance/*.md becomes a page with an address — after backoffice.py, whose page "
+     "scaffolding it uses, and before chrome.py, which puts the pages in the sitemap", False),
     (["python3", "build/mandatos.py"],
      "agents/<id>/ROLE.md and MANDATE.md, rendered from the register — never hand-written", False),
     (["python3", "build/desenho.py"],

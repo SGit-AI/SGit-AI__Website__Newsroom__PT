@@ -112,6 +112,23 @@ escrito pelo editor de registo, e é a única coisa que põe um artigo na primei
 - https://pt.newsroom.sgit.ai/artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/ — O mesmo evento nomeia os seus palcos de duas maneiras (verificado)
 - https://pt.newsroom.sgit.ai/artigos/2026/09/14/agenda-nacional-instrumento-legal/ — A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina (procurado)
 
+## Se vai MUDAR este site, e não apenas lê-lo
+
+Esta secção está em inglês, ao contrário do resto deste ficheiro, e a razão é a regra da língua
+deste repositório: o que um leitor do jornal vê é português; o que quem opera a redação lê é
+inglês. Quem chega aqui para mudar o site está do segundo lado.
+
+    https://pt.newsroom.sgit.ai/backoffice/guidance/index.html                start here: the reading order
+    https://pt.newsroom.sgit.ai/backoffice/guidance/language.html             the one test that decides naming
+    https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html           nine principles, each with its gate
+    https://pt.newsroom.sgit.ai/backoffice/guidance/before-you-change.html    the checklist
+    https://pt.newsroom.sgit.ai/backoffice/guidance/concurrent-sessions.html  two or three sessions work here at once
+
+The markdown these are rendered from is `docs/guidance/*.md` in the repository, and
+`.claude/ONBOARDING.md` is the short form a Claude Code session is given on startup. `CLAUDE.md` at
+the repository root is the constitution and outranks all of it. Nothing on this site is published
+without a named human editor of record, and no automated run may set `estado: publicado`.
+
 ## Como ler este site sem o interpretar mal
 
 1. Uma afirmação sem fonte congelada não é uma afirmação deste site. Confirme no registo.

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The language rule · pt.newsroom back office</title>
+<meta name="description" content="The language rule — guidance for anyone changing pt.newsroom.sgit.ai.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/guidance/language.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/guidance/language.html">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.15.0" title="O que mudou em v0.15.0, e porquê">v0.15.0</a></div>
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+</div>
+
+<nav class="nav nav--consola"><a href="../../backoffice/">console</a><a href="../../backoffice/equipa.html">team</a><a href="../../backoffice/quadro.html">board</a><a href="../../backoffice/correio.html">mail</a><a href="../../backoffice/pontes.html">bridges</a><a href="../../backoffice/desenho.html">design</a><a href="../../backoffice/docs.html">documents</a><a href="../../backoffice/agents.html">agents</a><a href="../../backoffice/guidance.html">guidance</a><a href="../../admin/versions.html">versions</a></nav>
+
+<div class="consola-corpo">
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 2 of 5</div></div>
+<h2 class="h-lead">The language rule</h2>
+<p class="std">This repository is bilingual by design, and the line between the two languages is not a matter of taste. It is a rule with one test, and getting it wrong is the most common mistake made here — including by the agent that wrote most of this pipeline, which put Portuguese comments in seventeen Python files while <code>CLAUDE.md</code> said, the whole time, that comments are in English.</p>
+<h3 class="h-2">The test</h3>
+<div class="aviso-bloco"><p class="sm"><b>Would a visitor to pt.newsroom.sgit.ai read this string on the site?</b></p></div>
+<p class="std"><b>Yes → European Portuguese, under AO90.</b> No → <b>English</b>. There is no third answer, and &quot;it felt more natural in Portuguese&quot; is not one.</p>
+<h3 class="h-2">Portuguese, because a visitor reads it</h3>
+<ul>
+<li class="sm">Article prose, headlines, standfirsts, section names, the dateline, the footer, the notice.</li>
+<li class="sm">Entity labels — the names of people, organisations, institutions, publishers, places. These are <b>verbatim from the frozen source</b>, in whatever language the source used, and a transcription is a claim (see principle 2).</li>
+<li class="sm">The <b>ontology</b>: every edge verb, its named inverse, and its reading. <code>{s} fala em {t}</code> is content — it is the sentence a reader hears when they walk the graph. The <code>en</code> field beside it is an annotation, not a translation of the site.</li>
+<li class="sm">Tag labels, theme labels, section descriptions, gate messages <b>that appear on a page</b>.</li>
+<li class="sm">Everything under <code>conteudo/</code>, <code>artigos/**/artigo.md</code>, and the prose fields of <code>seccoes/*/</code>.</li>
+</ul>
+<h3 class="h-2">English, because a visitor never reads it</h3>
+<ul>
+<li class="sm"><b>All code.</b> Every <code>.py</code>, <code>.js</code>, <code>.mjs</code>, <code>.css</code>: identifiers, comments, docstrings, error strings, log output. Enforced by <b>gate 34</b>.</li>
+<li class="sm"><b>The back office</b> (<code>/backoffice/</code>), <b>admin pages</b> (<code>/admin/</code>), including <code>admin/versions.html</code>. Its audience is whoever operates the newsroom.</li>
+<li class="sm"><b>This guidance</b>, every <code>ROLE.md</code> and <code>MANDATE.md</code>, every memo in <code>briefs/memos/</code>.</li>
+<li class="sm"><b>Commit messages, branch names, run-record free text, mail between departments.</b></li>
+<li class="sm"><b>API paths</b> (<code>/api/v1/companies</code>, not <code>/empresas</code>) — the intent is several languages over one set of data, and an English path is the one that does not privilege the first language.</li>
+<li class="sm"><b>Browser-side state</b>: <code>localStorage</code> keys, event names, CSS class names, <code>data-</code> attributes, custom element tag names.</li>
+<li class="sm"><b>File and folder names of code.</b> Note the exceptions below.</li>
+</ul>
+<h3 class="h-2">The two honest exceptions, and why they stay</h3>
+<p class="std"><b>1. The keys inside <code>dados/*.json</code> are Portuguese.</b> <code>nome</code>, <code>fonte</code>, <code>estado</code>, <code>afirmacoes</code>. So are several folder names that predate this rule: <code>dados/</code>, <code>fontes/congeladas/</code>, <code>redacao/</code>, <code>artigos/</code>, <code>seccoes/</code>.</p>
+<p class="std">They stay, for now, and the reason is not inertia. The keys are the vocabulary of a Portuguese ontology, and <code>estado: confirmada</code> reads as one thing in a way <code>state: confirmada</code> does not. Renaming 374 distinct keys would touch every builder, every gate, the API and every component in one change — the kind of change that is right only when it is the only thing in the release. <b>It is scheduled, not skipped</b>, and until it happens the API is explicit about it: paths are English, keys are Portuguese, and <code>/api/</code> says so on the page.</p>
+<p class="std">If you are the agent who does that migration: do it alone, in one release, with a key map published as data, and a gate that fails on any Portuguese key outside the map.</p>
+<p class="std"><b>2. Evidence keeps the shape it arrived in.</b> A frozen <code>.snapshot</code> is another organisation&#x27;s bytes and is never touched. A transfer manifest from a sibling publication (<code>fontes/transferidas/**</code>) keeps <b>its own</b> field names, in its own language, because rewriting a manifest to our taste would mean the hash we verify no longer matches the file we quote. Our own records <i>about</i> it are English.</p>
+<h3 class="h-2">What this rule is not</h3>
+<p class="std">It is not a claim that Portuguese is for the front and English is for the back. It is a claim about <b>audience</b>. The reader of this publication reads Portuguese. The operator of this newsroom — and every agent working in it — reads English. A file serves one of them, and it is almost never both.</p>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Next</div></div>
+<p class="sm"><a href="index.html">← Working on pt.newsroom.sgit.ai: start here</a> · <a href="principles.html">The principles, and the gate that enforces each one →</a></p>
+<p class="xs" style="padding-top:12px">This page is rendered from
+<a href="../../docs/guidance/language.md"><code>docs/guidance/language.md</code></a> by <code>build/guia.py</code>. The
+markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/guidance/language.html</code> · version <span class="ver">v0.15.0</span>.
+</div>
+
+</div>
+</div>
+</body>
+</html>
