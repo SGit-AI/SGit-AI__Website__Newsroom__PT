@@ -637,15 +637,84 @@ def seccao(sid, d):
 
 
 # ===================================================================== registo ===
+def o_que_assenta_nas_fontes(d):
+    """Reverse index: a frozen source id -> everything on this site that stands on it.
+
+    The register was the end of the road. Its own subtitle says a claim on this site walks BACK to
+    here, and that was true in one direction only: you could land on a frozen file, see its hash,
+    and have nowhere to go. The evidence is the foundation of everything this publication says, and
+    from the foundation you could not reach the building.
+
+    Four kinds of thing rest on a frozen file, and all four are derivable from files that already
+    exist — no new state, nothing to keep in sync:
+
+      · the RESEARCH DELIVERY that named it, when it arrived in one (the register id carries the
+        delivery in its own path: <capture>/entregas/<delivery-id>/<source-id>)
+      · the ARTICLES whose `assenta_em` lists it
+      · the ENTITIES whose name was found in those bytes, with the number of occurrences
+      · the GRAPH NODE grounded on it
+    """
+    idx = {}
+
+    def por(sid):
+        return idx.setdefault(sid, {"entrega": None, "artigos": [], "entidades": [], "nos": []})
+
+    # A delivery source's register id IS <capture>/entregas/<delivery-id>/<source-id>, so the
+    # delivery is read straight out of the id. The first version of this mapped through the
+    # delivery's `congelada` path instead, and lost the link the moment a delivery was re-frozen
+    # under a later capture: the path said 2026-09-15 while the register id still said 2026-09-14.
+    # The id is the stable thing.
+    ids_de_entrega = {x["id"] for x in (d["entregas"] or {}).get("entregas", [])}
+
+    for h in d["historias"]["historias"]:
+        for sid in h.get("assenta_em", []):
+            por(sid)["artigos"].append(h)
+
+    ents = carregar("entidades.json") or {}
+    for en in (ents.get("entidades") if isinstance(ents, dict) else ents) or []:
+        for nb in en.get("nos_bytes", []):
+            por(nb["fonte"])["entidades"].append((en, nb.get("ocorrencias", 0)))
+
+    for no in (d["grafo"] or {}).get("nos", []):
+        if no.get("fonte"):
+            por(no["fonte"])["nos"].append(no)
+    return idx, ids_de_entrega
+
+
 def registo(d):
     reg, excl = d["registo"], carregar("excluidas.json")
+    assenta, ids_de_entrega = o_que_assenta_nas_fontes(d)
+
+    def adiante(sid):
+        """The forward links for one frozen file — the other half of the provenance path."""
+        a = assenta.get(sid) or {"artigos": [], "entidades": [], "nos": []}
+        fichas = []
+        m = re.fullmatch(r"[^/]+/entregas/([^/]+)/(.+)", sid)
+        if m and m.group(1) in ids_de_entrega:
+            fichas.append(f'<a class="chip" href="../entregas/{e(m.group(1))}.html#{e(m.group(2))}">'
+                          f'a entrega · {e(m.group(2))}</a>')
+        for h in a["artigos"]:
+            fichas.append(f'<a class="chip ok" href="../{e(h["url"])}">'
+                          f'artigo · {e(h["titulo"][:38])}…</a>')
+        for en, oc in sorted(a["entidades"], key=lambda p: -p[1])[:4]:
+            fichas.append(f'<a class="chip" href="../{e(en["url"])}">{e(en["nome"][:26])} · '
+                          f'{oc}×</a>')
+        resto = len(a["entidades"]) - 4
+        if resto > 0:
+            fichas.append(f'<a class="chip" href="../entidades/">mais {resto} '
+                          f'entidade{"s" if resto != 1 else ""}</a>')
+        if not fichas:
+            return '<span class="xs">nada assenta nesta fonte</span>'
+        return f'<div class="chips">{"".join(fichas)}</div>'
+
     linhas = "".join(
         f'<tr id="{e(s["id"])}"><td class="mono">{e(s["id"])}</td>'
         f'<td><a href="{e(s["url"])}" rel="nofollow noopener">{e(s["publicador"])}</a></td>'
         f'<td class="sm">{e(s["grupo"])}</td>'
         f'<td class="mono">{s["bytes"]}</td>'
-        f'<td class="mono xs">{e(s["sha256"])}</td>'
-        f'<td class="mono xs">{e(s["obtida"])}</td></tr>'
+        f'<td class="mono xs">{e(s["sha256"][:16])}</td>'
+        f'<td class="mono xs">{e(s["obtida"])}</td>'
+        f'<td>{adiante(s["id"])}</td></tr>'
         for s in reg["fontes"])
     excluidas = ""
     if excl and (excl["itens"] or excl["por_resolver"]):
@@ -665,8 +734,17 @@ def registo(d):
   <span class="chip ok">{reg["contagem"]} ficheiros</span>
   <span class="chip">{len(reg["capturas"])} captura(s): {e(", ".join(reg["capturas"]))}</span>
   <span class="chip">SHA-256 reverificado em cada construção</span></div>
-<div class="rolar"><table><thead><tr><th>Identificador</th><th>Publicador</th><th>Grupo</th>
-  <th>Bytes</th><th>SHA-256</th><th>Obtida</th></tr></thead><tbody>{linhas}</tbody></table></div>
+<p class="std" style="padding-bottom:18px">A última coluna é o caminho ao contrário. Uma
+afirmação deste site anda para trás até um destes ficheiros; daqui anda para a frente até
+<b>tudo o que assenta nele</b> — a entrega de investigação que o nomeou, os artigos que o citam,
+e as entidades cujo nome foi encontrado nestes bytes, com quantas vezes. Nenhuma dessas ligações
+é escrita à mão: são derivadas dos mesmos ficheiros que fazem as páginas, e por isso não podem
+discordar delas.</p>
+<div class="rolar"><table><thead><tr><th style="width:290px">Identificador</th>
+  <th style="width:150px">Publicador</th><th style="width:90px">Grupo</th>
+  <th style="width:80px">Bytes</th><th style="width:140px">SHA-256</th>
+  <th style="width:150px">Obtida</th><th style="width:360px">O que assenta nisto</th></tr></thead>
+  <tbody>{linhas}</tbody></table></div>
 {excluidas}
 <div class="hair" style="margin-top:26px;padding-top:14px">
 <p class="sm">As cópias congeladas têm a extensão <code>.snapshot</code> e não são servidas como
@@ -677,7 +755,8 @@ alguma vez for servida como página.</p></div>
 """
     return pagina("registo/index.html", "O registo",
                   "Cada página obtida, congelada byte a byte e hasheada. É até aqui que uma "
-                  "afirmação deste site anda para trás.",
+                  "afirmação deste site anda para trás — e daqui para a frente, até tudo o que "
+                  "assenta em cada ficheiro.",
                   corpo, aqui="registo", fontes_n=reg["contagem"])
 
 

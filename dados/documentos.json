@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 94,
+  "contagem": 95,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -148,6 +148,14 @@
       "bytes": 2989,
       "linhas": 36,
       "palavras": 509
+    },
+    {
+      "caminho": "admin/versions/v0.19.0.md",
+      "titulo": "v0.19.0",
+      "categoria": "Repository root",
+      "bytes": 2203,
+      "linhas": 32,
+      "palavras": 365
     },
     {
       "caminho": "admin/versions/v0.2.0.md",
