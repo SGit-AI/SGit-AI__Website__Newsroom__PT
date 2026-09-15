@@ -1,4 +1,5 @@
 ---
+titulo: Decidir os três tipos novos da ontologia
 aberto: 2026-09-14T12:00:00Z
 origem: redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml
 issue: 004

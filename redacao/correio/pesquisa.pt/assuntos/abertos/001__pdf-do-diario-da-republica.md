@@ -1,4 +1,5 @@
 ---
+titulo: O PDF do Diário da República, para a agenda e para a designação
 aberto: 2026-09-14T12:10:00Z
 origem: redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml
 issue: 001,002

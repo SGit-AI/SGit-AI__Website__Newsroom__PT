@@ -1,4 +1,4 @@
-<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 28 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
+<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
 # The agents
 
@@ -23,7 +23,7 @@ rendered from it by `build/mandatos.py`. Do not edit them: edit the register, or
 Read the `ROLE.md` and the `MANDATE.md` of the identity whose work you have been asked to do. Name
 it in your run record, and declare the `departamento` or `especie`. Gate 12 then holds you to that
 department's folders; gate 26 holds a construction run to having frozen nothing, moved nothing and
-published nothing; gate 28 fails a run naming an agent the register does not have.
+published nothing; gate 35 fails a run naming an agent the register does not have.
 
 **If no identity fits the work, that is a message to the editor, not a licence to invent one.** A
 new agent is an editorial decision: a new mandate, a new write scope, and a gate that knows about

@@ -1,0 +1,39 @@
+{
+  "quando": "2026-09-15T03:20:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "Language rule with a gate, guidance, agent mandates from the register, the release history as markdown, and the sibling transfer.",
+  "modelo": "Claude Opus 5 (Claude Code, remote session)",
+  "pastas_alteradas": [
+    ".claude/",
+    "admin/",
+    "agents/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "backoffice/",
+    "briefs/",
+    "build/",
+    "dados/",
+    "docs/",
+    "entidades/",
+    "fontes/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.10.0",
+  "o_que_fez": [
+    "Gate 34: code and comments in English. ~950 Portuguese comment lines across 25 files, including the other agent's new gates_desenho.py; 3 deny-listed files exempt by name.",
+    "Gate 35: every agent named in the register, with ROLE.md and MANDATE.md RENDERED from it by build/mandatos.py, plus a drift check between file and register.",
+    "docs/guidance/ and /backoffice/guidance.html.",
+    "admin/versions.html becomes generated: 14 notes as markdown in admin/versions/, indexed by admin/versions.json, rendered by build/versoes.py. Text no longer lives inside HTML.",
+    "fontes/transferidas/: 14 files from newsroom.sgit.ai, every hash re-verified, kept as THEIR captures.",
+    "Two merges with origin/dev, resolving a duplicate agent register and a gate-number collision; my 27-28 moved to 34-35 because their 27-33 shipped first."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. It wrote in fontes/transferidas/, which holds another publication's evidence and is not this newsroom's register."
+}

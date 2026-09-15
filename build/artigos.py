@@ -85,7 +85,7 @@ def pagina_artigo(a, registo):
         f'<div class="mono xs">{e(data_pt(a["data"], False))} · '
         f'<span style="color:{cor}">{e(rot)}</span></div></div>'
         f'<h1 class="h-lead" style="max-width:19em">{e(a["titulo"])}</h1>'
-        f'<p class="std" style="max-width:42em;padding:16px 0 0">{e(a["entrada"])}</p>')
+        f'<p class="std" style="padding:16px 0 0">{e(a["entrada"])}</p>')
 
     # the state, said on the page itself and not only in the index
     if publicado:
@@ -123,7 +123,7 @@ def pagina_artigo(a, registo):
     bloco_nao = (
         f'<div class="rule" style="padding:22px 0 8px"><div class="sect">O que este artigo não '
         f'afirma</div></div><ul style="max-width:46em">{nao}</ul>'
-        f'<p class="xs" style="max-width:46em;padding-top:8px">Esta lista está aqui porque a '
+        f'<p class="xs" style="padding-top:8px">Esta lista está aqui porque a '
         f'diferença entre o que uma fonte sustenta e o que um leitor pode concluir é onde uma '
         f'publicação como esta faz dano sem dizer nada falso.</p>' if nao else "")
 
@@ -151,7 +151,7 @@ def pagina_artigo(a, registo):
         bloco_af = (
             f'<div class="rule" style="padding:22px 0 8px"><div class="sect">As afirmações, e como '
             f'foram verificadas</div></div>'
-            f'<p class="sm" style="max-width:46em;padding-bottom:12px">{e(ver.get("como", ""))}</p>'
+            f'<p class="sm" style="padding-bottom:12px">{e(ver.get("como", ""))}</p>'
             f'<div class="rolar"><table><thead><tr><th style="width:110px">Estado</th>'
             f'<th>Afirmação</th><th style="width:210px">Fonte congelada</th>'
             f'<th style="width:200px">Refeita</th></tr></thead><tbody>{"".join(linhas_af)}</tbody>'
@@ -174,7 +174,7 @@ def pagina_artigo(a, registo):
     por_rever = "".join(f'<li class="sm">{e(x)}</li>' for x in prov.get("por_rever", []))
     bloco_prov = ""
     if passos:
-        aviso_cron = (f'<p class="sm it" style="max-width:46em;padding-top:12px">'
+        aviso_cron = (f'<p class="sm it" style="padding-top:12px">'
                       f'{e(prov["aviso_sobre_esta_cronologia"])}</p>'
                       if prov.get("aviso_sobre_esta_cronologia") else "")
         b_rever = (f'<div class="sect" style="padding-top:16px">Por rever</div>'
@@ -182,7 +182,7 @@ def pagina_artigo(a, registo):
         bloco_prov = (
             f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Proveniência · como '
             f'este artigo veio a existir</div></div>'
-            f'<p class="sm" style="max-width:46em;padding-bottom:12px">'
+            f'<p class="sm" style="padding-bottom:12px">'
             f'{e(prov.get("porque_existe_este_ficheiro", ""))}</p>'
             f'<div class="rolar"><table><thead><tr><th style="width:150px">Quando</th>'
             f'<th style="width:100px">Quem</th><th>O que fez</th>'
@@ -200,7 +200,7 @@ def pagina_artigo(a, registo):
     bloco_fich = (
         f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Os ficheiros deste '
         f'artigo</div></div>'
-        f'<p class="sm" style="max-width:46em;padding-bottom:10px">Um artigo deste site é uma '
+        f'<p class="sm" style="padding-bottom:10px">Um artigo deste site é uma '
         f'pasta, e a pasta está aqui inteira. Clique num ficheiro para o ler <b>como dados</b> — '
         f'os estados ganham cor, um identificador de fonte fica ligado ao registo, um SHA-256 é '
         f'encurtado porque ninguém lê sessenta e quatro caracteres. O ficheiro em bruto continua '
@@ -223,7 +223,7 @@ def pagina_artigo(a, registo):
         bloco_com = (
             f'<div class="rule" style="padding:22px 0 8px"><div class="sect">Os agentes · quem '
             f'disse o quê sobre este artigo</div></div>'
-            f'<p class="sm" style="max-width:46em;padding-bottom:12px">Nenhuma destas entradas foi '
+            f'<p class="sm" style="padding-bottom:12px">Nenhuma destas entradas foi '
             f'escrita para esta página. Todas são derivadas de ficheiros que já existem nesta '
             f'pasta e em <code>dados/</code>, e cada uma diz de qual. Escrever comentários e '
             f'atribuí-los a um agente — sobretudo a um de outro fornecedor — seria fabricar '
@@ -282,7 +282,7 @@ def indice(artigos, registo):
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Os artigos</div></div>
 <h1 class="h-2" style="max-width:26em">Um artigo é uma pasta datada, e a pasta é o artigo.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 12px">Cada artigo vive em
+<p class="std" style="padding:14px 0 12px">Cada artigo vive em
 <code>artigos/&lt;aaaa&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> com a prosa, o registo de
 verificação de cada afirmação, e a proveniência — que execução de que agente o produziu, e por que
 ordem. A data no caminho é a data do <b>material</b>, não a da publicação: um artigo só chega à
@@ -292,7 +292,7 @@ primeira página quando o editor de registo escreve a linha.</p>
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Os estados</div></div>
 <div class="rolar"><table><thead><tr><th style="width:160px">Estado</th><th>O que significa</th>
   </tr></thead><tbody>{legenda}</tbody></table></div>
-<p class="xs" style="max-width:46em;padding-top:12px">O portão 11 falha a construção se um artigo
+<p class="xs" style="padding-top:12px">O portão 11 falha a construção se um artigo
 estiver em «publicado» sem o nome do editor de registo e a data. Uma execução agendada que
 escrevesse essa linha seria apanhada: é a única salvaguarda que separa esta publicação de um
 gerador de texto.</p>

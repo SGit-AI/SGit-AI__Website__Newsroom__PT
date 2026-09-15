@@ -1,4 +1,4 @@
-<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 28 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
+<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
 # Pesquisa — mandate
 
@@ -112,7 +112,7 @@ Belongs to: @Bastidores
   build.
 - **Gate 26** — a run that declares no department has to declare its `especie`, and a
   `construcao` run that froze a source, moved a card or published anything fails.
-- **Gate 28** — a run naming an agent that is not in the register fails, and so does a registered
+- **Gate 35** — a run naming an agent that is not in the register fails, and so does a registered
   agent whose mandate file has drifted from the register.
 - **Gate 11** — only the editor of record puts a story into `publicado`. No automated run may
   write that line, and the newsroom floor has no control that moves a card there.

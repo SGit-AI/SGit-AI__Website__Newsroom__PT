@@ -30,7 +30,7 @@ DADOS = ROOT / "dados"
 AGENTS = ROOT / "agents"
 
 CABECA = ("<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by "
-          "build/mandatos.py; gate 28 fails the build when this file and the register disagree. "
+          "build/mandatos.py; gate 35 fails the build when this file and the register disagree. "
           "Field values are quoted verbatim from the register, in Portuguese, because that is what "
           "the register holds. -->\n\n")
 
@@ -134,7 +134,7 @@ silently becomes the same role, so each entry says whose the work actually is.
   build.
 - **Gate 26** — a run that declares no department has to declare its `especie`, and a
   `construcao` run that froze a source, moved a card or published anything fails.
-- **Gate 28** — a run naming an agent that is not in the register fails, and so does a registered
+- **Gate 35** — a run naming an agent that is not in the register fails, and so does a registered
   agent whose mandate file has drifted from the register.
 - **Gate 11** — only the editor of record puts a story into `publicado`. No automated run may
   write that line, and the newsroom floor has no control that moves a card there.
@@ -185,7 +185,7 @@ rendered from it by `build/mandatos.py`. Do not edit them: edit the register, or
 Read the `ROLE.md` and the `MANDATE.md` of the identity whose work you have been asked to do. Name
 it in your run record, and declare the `departamento` or `especie`. Gate 12 then holds you to that
 department's folders; gate 26 holds a construction run to having frozen nothing, moved nothing and
-published nothing; gate 28 fails a run naming an agent the register does not have.
+published nothing; gate 35 fails a run naming an agent the register does not have.
 
 **If no identity fits the work, that is a message to the editor, not a licence to invent one.** A
 new agent is an editorial decision: a new mandate, a new write scope, and a gate that knows about

@@ -84,7 +84,16 @@ def datalinha(hoje, dias=None):
             f'<a href="{{raiz}}backoffice/" title="The operations console — in English">'
             f'Back office <span class="flag" aria-label="em inglês">EN</span></a>'
             f'<pt-wallet site-root="{{raiz}}"></pt-wallet>'
-            f'<span class="ver">{VERSAO}</span></div></div>')
+            # THE VERSION BADGE IS A LINK. The sgit.ai guidance asks for both things — show the
+            # version in the chrome AND link it to that version's detail — and until v0.9.0 only
+            # the first half was done: it was a `<span>`, and the only route to the detail was the
+            # last item of an eleven-item list in the footer. On a site whose entire proposition is
+            # traceability, it was the one place the site did not trace itself.
+            # The anchor goes to this version's number in `admin/versions.html`, where what changed
+            # and why is written; the `title` says where it goes, because a version number on its
+            # own does not.
+            f'<a class="ver" href="{{raiz}}admin/versions.html#{VERSAO}" '
+            f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div></div>')
 
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -134,7 +143,10 @@ def bloco_agente(rel, fontes_n=None, raiz=""):
         f'O índice legível por máquina está em <a href="{raiz}llms.txt">llms.txt</a> e o manifesto '
         f'com o hash de cada ficheiro de dados em '
         f'<a href="{raiz}ficheiros/">ficheiros/</a>.{extra} '
-        f'Versão <span class="ver">{VERSAO}</span> · fonte: '
+        # The same link as the dateline badge, and for the same reason: the "for an agent" block
+        # is where a machine reads which version this page is, and a number with no route to what
+        # changed in it makes whoever reads it guess where to look.
+        f'Versão <a class="ver" href="{raiz}admin/versions.html#{VERSAO}">{VERSAO}</a> · fonte: '
         f'<a href="{GH}">{GH.split("//")[1]}</a> · ficheiro: <code>{e(rel)}</code>.</div>'
     )
 

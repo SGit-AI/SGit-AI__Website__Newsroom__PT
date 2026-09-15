@@ -6,11 +6,11 @@
     python3 build/tudo.py --so-portoes # gates only, no rebuild
     python3 build/tudo.py --render     # plus the browser gate (needs playwright)
 
-WHY THIS EXISTS. The sequence has fourteen steps and **the order is load-bearing**: `entidades.py`
-reads the graph `graph.py` writes, `artigos.py` reads the comments `comentarios.py` derives, and
-the pass that turns a mention into a link reads the `dados/entidades.json` that only exists after
-`entidades.py` has run. Running the steps in another order does not break — it produces a site with
-fewer links than it should have and no warning at all, which is worse.
+WHY THIS EXISTS. The sequence is long and **the order is load-bearing**: `entidades.py` reads the
+graph `graph.py` writes, `artigos.py` reads the comments `comentarios.py` derives, and the pass that
+turns a mention into a link reads the `dados/entidades.json` that only exists after `entidades.py`
+has run. Running the steps in another order does not break — it produces a site with fewer links
+than it should have and no warning at all, which is worse.
 
 The command list in `CLAUDE.md` is older than half these steps, and `CLAUDE.md` is the rules file:
 it is deny-listed on purpose, and editing it to match the code is backwards. So the real order
@@ -57,14 +57,23 @@ PASSOS = [
      "the operations console, in English", False),
     (["python3", "build/mandatos.py"],
      "agents/<id>/ROLE.md and MANDATE.md, rendered from the register — never hand-written", False),
+    (["python3", "build/desenho.py"],
+     "the design-review page: each item, and whether it is done, deferred or the editor's", False),
     (["python3", "build/pontes.py"],
      "the bridges page: how the editor reaches the back office from the browser", False),
+    (["python3", "build/versoes.py"],
+     "admin/versions.html, rendered from admin/versions/*.md — text does not live inside HTML",
+     False),
     (["python3", "build/chrome.py"],
      "llms.txt, sitemap.xml, index.md — the surface a machine reads", False),
     (["python3", "build/gates.py"],
      "the core gates (1-15), in the deny-listed file", True),
     (["python3", "build/gates_artigos.py"],
-     "articles, sections, back office, entities, comments, runs and language (16-28)", True),
+     "articles, sections, back office, entities, comments, runs, language, agents (16-26, 34-35)",
+     True),
+    (["python3", "build/gates_desenho.py"],
+     "the design gates (27-33): contrast, measure, leading, the mono face, focus, empty columns, "
+     "the accents of the state vocabulary — the numbers the design review measured", True),
     (["node", "admin/build/validate.js"],
      "the site gate: structure, links, version, canonicals, key-leak tripwire", True),
 ]
@@ -139,7 +148,12 @@ def main(argv):
 
     if srv:
         srv.shutdown()
-    quantos = "four gates" if com_render else "three gates"
+    # Counted, not written: a number typed into this line goes wrong on the day somebody adds a
+    # gate, and that is the day the line is read most.
+    n = sum(1 for _, _, g in passos if g)
+    NOMES = {1: "one gate", 2: "two gates", 3: "three gates", 4: "four gates",
+             5: "five gates", 6: "six gates"}
+    quantos = NOMES.get(n, f"{n} gates")
     print(f"\n\033[32mtudo: OK\033[0m — built and checked by the {quantos}.")
     if not com_render:
         print("Without `--render`, no component was opened in a browser. If this change touched "

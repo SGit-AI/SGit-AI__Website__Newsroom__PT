@@ -14,7 +14,7 @@ principles that follow from them.
 
 One test, in [`language.md`](language.md): would a visitor read this string on the site?
 
-**Gate 27** (`build/gates_artigos.py`) reads every comment and docstring in `build/`,
+**Gate 34** (`build/gates_artigos.py`) reads every comment and docstring in `build/`,
 `admin/build/` and `assets/components/` and fails on Portuguese. Two honest exceptions are declared
 in `language.md` and encoded in the gate, not hidden in it.
 

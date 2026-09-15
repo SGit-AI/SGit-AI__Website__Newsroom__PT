@@ -1,4 +1,4 @@
-<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 28 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
+<!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
 # Pesquisa — @Pesquisa
 

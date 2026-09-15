@@ -1,4 +1,5 @@
 ---
+titulo: O aviso tem de falar da telemetria antes de ela ligar
 aberto: 2026-09-15T00:40:00Z
 origem: pedido de @Dinis, nesta sessão
 issue: —

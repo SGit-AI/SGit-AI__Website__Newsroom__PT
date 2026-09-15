@@ -40,7 +40,7 @@ def api():
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">A API</div></div>
 <h1 class="h-2" style="max-width:26em">Tudo o que este site mostra, também se lê como dados.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 10px">Cada caminho abaixo é um ficheiro JSON
+<p class="std" style="padding:14px 0 10px">Cada caminho abaixo é um ficheiro JSON
 em disco. Não há servidor nenhum: um GET é uma leitura de ficheiro. É por isso que um documento
 OpenAPI para isto é honesto de uma maneira que a maior parte não é — não há aqui um verbo que não
 seja GET, não há corpo de pedido em lado nenhum, e não há nada que possa falhar de uma forma que o
@@ -61,7 +61,7 @@ documento não preveja.</p>
 <div class="rule" style="padding:22px 0 12px"><div class="sect">A consola · escolha uma operação
 e faça o pedido</div></div>
 <pt-api-console site-root="../"></pt-api-console>
-<p class="xs" style="padding-top:10px;max-width:48em">A consola faz o pedido a partir do seu
+<p class="xs" style="padding-top:10px">A consola faz o pedido a partir do seu
 navegador e mostra os bytes que voltaram. Uma consola que apenas DESCREVE uma API é um documento
 com passos a mais — e a afirmação que está a ser feita aqui, a de que cada página deste site é
 também dados, só vale se um leitor a puder conferir sem sair da página.</p>
@@ -73,8 +73,8 @@ também dados, só vale se um leitor a puder conferir sem sair da página.</p>
   <tbody>{linhas}</tbody></table></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Reutilizar isto</div></div>
-<p class="sm" style="max-width:48em">{e(idx["licence"])}</p>
-<p class="sm" style="max-width:48em;padding-top:8px">As pessoas que aparecem aqui estão na sua
+<p class="sm">{e(idx["licence"])}</p>
+<p class="sm" style="padding-top:8px">As pessoas que aparecem aqui estão na sua
 qualidade profissional, a partir de listas que as próprias fontes publicaram. Nenhum contacto,
 nenhuma biografia, nenhuma caracterização de ninguém. <b>Reutilizar estes dados não transfere o
 fundamento de licitude para os tratar</b>: quem os reutiliza passa a ser responsável pelo seu
@@ -122,7 +122,7 @@ def proveniencia():
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Proveniência</div></div>
 <h1 class="h-lead" style="max-width:15em">Este site é escrito por agentes de IA, com curadoria de
 uma pessoa.</h1>
-<p class="std" style="max-width:44em;padding:18px 0 0">E vale a pena dizê-lo uma vez, com todas as
+<p class="std" style="padding:18px 0 0">E vale a pena dizê-lo uma vez, com todas as
 letras, em vez de o repetir em rodapé em cada página até ninguém o ler.</p>
 
 <div class="g2" style="padding:26px 0">
@@ -152,13 +152,13 @@ ir para o ar e decidir se vai.</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Quem fez o quê, contado dos
 ficheiros</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">Cada artigo deste site tem uma
+<p class="sm" style="padding-bottom:12px">Cada artigo deste site tem uma
 <code>proveniencia.json</code> na sua pasta, com a cronologia de quem fez cada passo e quando.
 Esta tabela é a soma desses ficheiros — não é uma lista escrita à mão, e muda quando eles
 mudarem.</p>
 <div class="rolar"><table><thead><tr><th>Agente</th><th style="width:100px">Passos</th>
   <th style="width:100px">Artigos</th></tr></thead><tbody>{linhas_f}</tbody></table></div>
-<p class="xs" style="max-width:48em;padding-top:10px"><b>Um limite desta tabela, hoje.</b> Quase
+<p class="xs" style="padding-top:10px"><b>Um limite desta tabela, hoje.</b> Quase
 tudo o que este site tem foi feito numa sessão de arranque, por um modelo só. Numa operação
 normal os departamentos são passagens separadas, com registos de execução separados, e esta
 tabela teria linhas a sério. Dizer o contrário agora seria encenar uma diversidade que ainda não
@@ -184,7 +184,7 @@ pessoa.</p></div>
   <a class="chip" href="../ficheiros/">o manifesto, com o hash de cada ficheiro</a>
   <a class="chip" href="../api/">a API</a>
 </div>
-<p class="sm" style="max-width:48em;padding-top:14px">Nenhuma revisão jurídica foi feita e nada
+<p class="sm" style="padding-top:14px">Nenhuma revisão jurídica foi feita e nada
 neste site é aconselhamento jurídico.</p>
 """
     return pagina("proveniencia/index.html", "Proveniência",

@@ -255,7 +255,7 @@ def main():
             f'<div class="rule" style="padding:26px 0 8px"><div class="sect">'
             f'{e(tipo.get("rotulo", n["tipo"]))} · uma entidade do grafo</div></div>',
             f'<h1 class="h-lead" style="max-width:20em">{e(x["nome"])}</h1>',
-            f'<p class="std" style="max-width:46em;padding:10px 0 4px">{e(tipo.get("definicao", ""))}</p>',
+            f'<p class="std" style="padding:10px 0 4px">{e(tipo.get("definicao", ""))}</p>',
         ]
 
         # The verbatim fields. For a Pessoa there are exactly three, and none of them is a
@@ -314,7 +314,7 @@ def main():
             bytes_bloco = (
                 f'<div class="rule" style="padding:26px 0 8px"><div class="sect">'
                 f'Onde este nome está nos bytes</div></div>'
-                f'<p class="std" style="max-width:46em;padding:8px 0 12px">O nome, tal e qual como '
+                f'<p class="std" style="padding:8px 0 12px">O nome, tal e qual como '
                 f'está escrito acima, foi procurado em cada cópia congelada. Isto é uma contagem '
                 f'de ocorrências da sequência de caracteres — não é uma afirmação de que a página '
                 f'seja sobre esta entidade.</p>'
@@ -325,12 +325,12 @@ def main():
             bytes_bloco = (
                 f'<div class="rule" style="padding:26px 0 8px"><div class="sect">'
                 f'Onde este nome está nos bytes</div></div>'
-                f'<p class="std" style="max-width:46em;padding:8px 0 0">Em lado nenhum, tal e qual. '
+                f'<p class="std" style="padding:8px 0 0">Em lado nenhum, tal e qual. '
                 f'Este nó existe no grafo porque foi derivado de um campo de uma fonte, e não '
                 f'porque a sequência de caracteres acima apareça numa página congelada — pode '
                 f'estar escrita de outra maneira, ou partida por marcas, ou a página pode não '
                 f'devolver texto nenhum a um leitor automático.</p>'
-                + (f'<p class="std" style="max-width:46em;padding:12px 0 0">O que sustenta este '
+                + (f'<p class="std" style="padding:12px 0 0">O que sustenta este '
                    f'nome é então o <b>nosso registo</b>, e não os bytes de ninguém: é assim que '
                    f'<code>dados/registo.json</code> nomeia o editor de {n.get("publica")} '
                    f'ficheiro(s) congelado(s). É um fundamento mais fraco do que o outro e está '
@@ -338,7 +338,7 @@ def main():
                    f'(<code>fundamento: "registo"</code>) — um facto sobre o que nós escrevemos '
                    f'quando obtivemos a página, não sobre o que a página diz.</p>'
                    if n.get("publica") else
-                   f'<p class="std" style="max-width:46em;padding:12px 0 0">Por isso esta entidade '
+                   f'<p class="std" style="padding:12px 0 0">Por isso esta entidade '
                    f'<b>não é ligada automaticamente em prosa</b>: a fórmula de ligação exige um '
                    f'dos dois fundamentos, e esta não tem nenhum.</p>'))
 
@@ -380,7 +380,7 @@ def main():
         grupos.append(
             f'<div class="rule" style="padding:26px 0 8px"><div class="sect">'
             f'{e(td.get("rotulo", t))} · {len(do_tipo)}</div></div>'
-            f'<p class="std" style="max-width:46em;padding:8px 0 12px">{e(td.get("definicao", ""))}</p>'
+            f'<p class="std" style="padding:8px 0 12px">{e(td.get("definicao", ""))}</p>'
             f'<ul class="colunas">{itens}</ul>')
 
     n_lig = indice["ligaveis"]
@@ -389,7 +389,7 @@ def main():
         f'<div class="rule" style="padding:26px 0 8px"><div class="sect">Entidades</div></div>'
         f'<h1 class="h-lead" style="max-width:24em">Cada nó do grafo que é uma coisa do mundo tem '
         f'uma página, e a página é a lista das frases em que ele entra.</h1>'
-        f'<p class="std" style="max-width:46em;padding:14px 0 6px">São {len(ents)}, e '
+        f'<p class="std" style="padding:14px 0 6px">São {len(ents)}, e '
         f'{n_lig} delas podem ser ligadas: {fund["bytes"]} porque o nome está nos bytes de uma '
         f'cópia congelada, {fund["registo"]} porque é assim que o nosso próprio registo nomeia o '
         f'editor de um ficheiro congelado — um fundamento mais fraco, marcado como tal, e dito '
@@ -399,7 +399,7 @@ def main():
         f'menos {MIN_NOME} caracteres, limites de palavra, a primeira menção de cada página e '
         f'mais nenhuma, nunca dentro de uma ligação, e só os tipos que nomeiam uma coisa '
         f'própria.</p>'
-        f'<p class="std" style="max-width:46em;padding:0 0 6px">Uma página de entidade não tem uma '
+        f'<p class="std" style="padding:0 0 6px">Uma página de entidade não tem uma '
         f'linha escrita sobre ela. Tem os campos verbatim da fonte, as arestas lidas em voz alta '
         f'pela leitura publicada na ontologia, e a contagem de onde o nome aparece nos bytes. '
         f'Nenhum adjetivo sobre ninguém — é o §4 do resumo, e é uma recusa, não um estilo.</p>'

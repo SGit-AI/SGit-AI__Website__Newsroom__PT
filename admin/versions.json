@@ -1,0 +1,92 @@
+{
+  "id": "pt-versoes",
+  "versao": "1.0.0",
+  "nota": "The release history as data. Each release's prose lives in its own markdown file under admin/versions/, and admin/versions.html is RENDERED from the two by build/versoes.py. Text does not live inside HTML here: a release note is a document, and a document that can only be read as markup is a document with extra steps.",
+  "contagem": 14,
+  "versoes": [
+    {
+      "versao": "v0.10.0",
+      "data": "2026-09-15",
+      "titulo": "The language rule gets a test, a gate, and an apology",
+      "ficheiro": "admin/versions/v0.10.0.md"
+    },
+    {
+      "versao": "v0.9.0",
+      "data": "2026-09-15",
+      "titulo": "The design review, implemented — and what it measured becomes a gate",
+      "ficheiro": "admin/versions/v0.9.0.md"
+    },
+    {
+      "versao": "v0.8.0",
+      "data": "2026-09-15",
+      "titulo": "The agents become a register, and the mail between them becomes a protocol",
+      "ficheiro": "admin/versions/v0.8.0.md"
+    },
+    {
+      "versao": "v0.7.1",
+      "data": "2026-09-15",
+      "titulo": "The skill a scheduled run follows was telling it to do impossible things",
+      "ficheiro": "admin/versions/v0.7.1.md"
+    },
+    {
+      "versao": "v0.7.0",
+      "data": "2026-09-15",
+      "titulo": "The fourth gate: open the pages in a real browser",
+      "ficheiro": "admin/versions/v0.7.0.md"
+    },
+    {
+      "versao": "v0.6.0",
+      "data": "2026-09-15",
+      "titulo": "The desk becomes a room",
+      "ficheiro": "admin/versions/v0.6.0.md"
+    },
+    {
+      "versao": "v0.5.0",
+      "data": "2026-09-14",
+      "titulo": "The agents' work goes on display — and none of it was written",
+      "ficheiro": "admin/versions/v0.5.0.md"
+    },
+    {
+      "versao": "v0.4.0",
+      "data": "2026-09-14",
+      "titulo": "Names get addresses",
+      "ficheiro": "admin/versions/v0.4.0.md"
+    },
+    {
+      "versao": "v0.3.1",
+      "data": "2026-09-14",
+      "titulo": "There were two document readers, and a site that says content exists once cannot have two",
+      "ficheiro": "admin/versions/v0.3.1.md"
+    },
+    {
+      "versao": "v0.3.0",
+      "data": "2026-09-14",
+      "titulo": "The title becomes the subject",
+      "ficheiro": "admin/versions/v0.3.0.md"
+    },
+    {
+      "versao": "v0.2.0",
+      "data": "2026-09-14",
+      "titulo": "An article becomes a dated folder",
+      "ficheiro": "admin/versions/v0.2.0.md"
+    },
+    {
+      "versao": "v0.1.2",
+      "data": "2026-09-14",
+      "titulo": "The loop closes in view",
+      "ficheiro": "admin/versions/v0.1.2.md"
+    },
+    {
+      "versao": "v0.1.1",
+      "data": "2026-09-14",
+      "titulo": "The approval step stops being folklore",
+      "ficheiro": "admin/versions/v0.1.1.md"
+    },
+    {
+      "versao": "v0.1.0",
+      "data": "2026-09-14",
+      "titulo": "The MVP",
+      "ficheiro": "admin/versions/v0.1.0.md"
+    }
+  ]
+}

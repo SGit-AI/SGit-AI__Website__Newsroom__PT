@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the gates for the newer structures: articles, sections, back office,
-entities, agent activity, run records, and the language rule.
+entities, agent activity, run records, the language rule and the agent register.
+
+Gates 16-26 and 34-35 live here. 27-33 are the design gates, in build/gates_desenho.py — the
+numbers are one namespace across the gate files, and a range that has already shipped keeps it.
 
     python3 build/gates_artigos.py
 
@@ -50,12 +53,12 @@ THE GATES
        uses that exemption, so it has to earn it: it freezes no source, moves no card, publishes
        nothing, and declares itself as such. Without this, the boundary between departments would
        have a door with the name written beside it.
-  27 · CODE IS IN ENGLISH. Every comment and docstring under build/, admin/build/ and
+  34 · CODE IS IN ENGLISH. Every comment and docstring under build/, admin/build/ and
        assets/components/ is read for Portuguese function words. CLAUDE.md has said "code and
        comments are in English" since the first commit, and seventeen files ignored it because the
        code already there was Portuguese — an existing convention is not the rule. The two honest
        exceptions are declared in docs/guidance/language.md and encoded here, not hidden here.
-  28 · EVERY AGENT THAT TOUCHES THIS SITE IS NAMED. A run record names an `agente` that exists in
+  35 · EVERY AGENT THAT TOUCHES THIS SITE IS NAMED. A run record names an `agente` that exists in
        dados/agentes.json, and every registered agent has a ROLE.md and a MANDATE.md. An agent
        nobody can name is an anonymous contributor to a publication whose argument is knowing who
        said what.
@@ -481,7 +484,7 @@ for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
         erros.append(f'runs: {f.name} registou uma versão sem dizer que os portões ficaram verdes')
 
 
-# --- 27. code is in English -----------------------------------------------------
+# --- 34. code is in English -----------------------------------------------------
 # Portuguese function words that essentially never appear in English prose. Matching on function
 # words rather than on accents is deliberate: a comment can be entirely Portuguese without a single
 # accented character, and an English comment may legitimately quote an accented Portuguese name.
@@ -609,7 +612,7 @@ for f in CODIGO:
                      f'docs/guidance/language.md')
 
 
-# --- 28. every agent that touches this site is named ---------------------------
+# --- 35. every agent that touches this site is named ---------------------------
 agentes = carregar("agentes.json")
 AGENTES_DIR = ROOT / "agents"
 # The register is dados/agentes.json, written by build/equipa.py. The mandate files under agents/
@@ -658,7 +661,7 @@ for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
 
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-28: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-35: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -666,7 +669,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-28: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-35: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "

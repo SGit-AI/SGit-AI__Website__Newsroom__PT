@@ -189,14 +189,21 @@ def primeira(d):
         + '</div>')
 
     # --- «Em preparação» ------------------------------------------------------
-    # The design says to list the draft and verified stories here, BY TITLE only. They are
-    # now real articles, each with its dated folder and its final address: the title links
-    # there. What does NOT link from here is the body — an unpublished article has no place
-    # on the front page, and it is the editor of record who changes that.
+    # The design says to list the draft and verified stories here, BY TITLE only. They are now
+    # real articles, each with its dated folder and its final address: the title links there. What
+    # does NOT link from here is the body — an unpublished article has no place on the front page,
+    # and it is the editor of record who changes that.
+    #
+    # THE DATE ON EACH CARD. The design review caught its absence: a card on a news site needs a
+    # date, because the date is what tells the reader whether they are looking at today.
+    # /empresas/ already had one, in a column of its own; the front page did not. The date is the
+    # article FOLDER's, which is the date it was opened, and the only one this site knows about
+    # it.
     cartoes = "".join(
         f'<div class="col sp10"><div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
         f'<h3 class="h-3"><a href="{e(h["url"])}">{e(h["titulo"])}</a></h3>'
-        f'<div class="chips"><span class="chip">{e(h["estado"])}</span>'
+        f'<div class="chips"><span class="chip mono">{e(h.get("data", ""))}</span>'
+        f'<span class="chip">{e(h["estado"])}</span>'
         f'{ficha_estado("confirmada", str(h["verificacao"]["confirmadas"]) + " confirmadas") if h.get("verificacao", {}).get("confirmadas") else ""}'
         f'</div></div>'
         for h in em_preparacao[:6])
@@ -445,6 +452,36 @@ DESCRICAO_SECCAO = {
 }
 
 
+# THE STATE VOCABULARY, WITH ACCENTS, BECAUSE AN IDENTIFIER IS NOT A WORD.
+#
+# A target source's state is `nao_resolve` in the file, and rightly so: it is an identifier, and
+# this repository's identifiers are ASCII on purpose. What was wrong was what the generator did
+# with it — `estado.replace("_", " ")` — which put «nao resolve» on the page. An unaccented
+# word in the STATE VOCABULARY of a natively Portuguese publication, which is precisely the part
+# meant to be authoritative — and whose footer says, in Portuguese, that this site is natively
+# Portuguese and is not a translation of anything.
+#
+# The design review caught the missing character and said the right thing next: that it suggests
+# the strings are being written somewhere that only accepts ASCII, and that this is worth a check
+# rather than a fix in one place. It was: the audit of `dados/` found the same pattern in the
+# board cards' titles, derived from the file name, which is also a slug.
+#
+# From here on a state has a written label, and a state with no label keeps the
+# identificador tal e qual — visível e estranho — em vez de um identificador maquilhado de palavra.
+ROTULOS_DE_ESTADO = {
+    "congelada": "congelada",
+    "nao_resolve": "não resolve",
+    "nao_congelada": "não congelada",
+    "por_congelar": "por congelar",
+    "inacessivel": "inacessível",
+    "parcial": "parcial",
+}
+
+
+def rotulo_de_estado(estado):
+    return ROTULOS_DE_ESTADO.get(estado, estado)
+
+
 def seccao(sid, d):
     """A section is a folder: seccoes/<id>/seccao.json is its editorial record, and this page is built
     from it. What the section covers, what it can and cannot claim TODAY, which sources it has yet
@@ -459,14 +496,14 @@ def seccao(sid, d):
     artigos_sec = [h for h in d["historias"]["historias"] if h["seccao"] == sid]
 
     corpo = [f'<div class="rule" style="padding:26px 0 8px"><div class="sect">{e(rot)}</div></div>',
-             f'<p class="std" style="max-width:44em;padding-bottom:18px">{e(desc)}</p>']
+             f'<p class="std" style="padding-bottom:18px">{e(desc)}</p>']
 
     # the editorial record: what the section can and cannot claim today
     if s:
         alvos = "".join(
             f'<tr><td class="mono xs">{e(t["id"])}</td>'
             f'<td><span class="chip {"ok" if t["estado"] == "congelada" else "miss"}">'
-            f'{e(t["estado"].replace("_", " "))}</span></td>'
+            f'{e(rotulo_de_estado(t["estado"]))}</span></td>'
             f'<td class="sm">{e(t["porque"])}</td></tr>' for t in s.get("fontes_alvo", []))
         perguntas = "".join(f'<li class="sm">{e(x)}</li>' for x in s.get("perguntas_em_aberto", []))
         corpo.append(
@@ -476,7 +513,7 @@ def seccao(sid, d):
             f'<div class="painel col sp8" style="border-left:3px solid var(--aviso)">'
             f'<div class="sect">O que não pode</div>'
             f'<p class="sm">{e(s.get("o_que_nao_pode", ""))}</p></div></div>'
-            f'<p class="std it" style="max-width:46em;padding-bottom:18px">'
+            f'<p class="std it" style="padding-bottom:18px">'
             f'{e(s.get("a_afirmacao_honesta", ""))}</p>')
         if alvos:
             corpo.append(
@@ -514,18 +551,36 @@ def seccao(sid, d):
             por_tipo.setdefault(n["tipo"], []).append(n)
         for tipo, lista in sorted(por_tipo.items(), key=lambda kv: -len(kv[1])):
             defn = next(t for t in d["ontologia"]["tipos"] if t["id"] == tipo)
+            visiveis = sorted(lista, key=lambda x: x["rotulo"].lower())[:400]
+
+            def descricao(n):
+                return e(n.get("papel") or n.get("definicao") or n.get("dia") or "")[:90]
+
+            # A COLUMN EMPTY ON EVERY ROW IS NOT SHIPPED. Until v0.9.0 this table had
+            # sempre três colunas, e em /empresas/ a do meio estava vazia em 67 das 67 linhas — uma
+            # coluna em branco em produção, e pior para quem lê: essa coluna vazia empurrava «Fonte
+            # congelada» about 1100px away from the name it belongs to, at 1440px wide, and the
+            # eye had to cross the whole screen to pair a name with its source.
+            #
+            # The decision is per TABLE and not per row: if any node of this type has a description, the
+            # column stays (and rows without one keep an empty cell, which is honest — the source
+            # does not describe that node). If none has one, the column does not exist, and the source sits
+            # next to the name. Gate 33 counts the cells and fails if an entirely empty column returns.
+            tem_descricao = any(descricao(n) for n in visiveis)
+            cabeca = ('<th>Nome</th><th>Como a fonte o descreve</th>'
+                      '<th style="width:230px">Fonte congelada</th>' if tem_descricao else
+                      '<th>Nome</th><th style="width:230px">Fonte congelada</th>')
             linhas = "".join(
                 f'<tr><td>{e(n["rotulo"])}</td>'
-                f'<td class="sm">{e(n.get("papel") or n.get("definicao") or n.get("dia") or "")[:90]}</td>'
-                f'<td class="mono"><a href="../registo/#{e(n.get("fonte", ""))}">'
-                f'{e(n.get("fonte", "—"))}</a></td></tr>'
-                for n in sorted(lista, key=lambda x: x["rotulo"].lower())[:400])
+                + (f'<td class="sm">{descricao(n)}</td>' if tem_descricao else "")
+                + f'<td class="mono"><a href="../registo/#{e(n.get("fonte", ""))}">'
+                  f'{e(n.get("fonte", "—"))}</a></td></tr>'
+                for n in visiveis)
             corpo.append(
                 f'<div class="hair" style="padding:18px 0"><h2 class="h-3">{e(defn["rotulo"])} '
                 f'<span class="mono xs">({len(lista)})</span></h2>'
-                f'<p class="sm" style="max-width:48em;padding:6px 0 10px">{e(defn["definicao"])}</p>'
-                f'<div class="rolar"><table><thead><tr><th>Nome</th><th>Como a fonte o descreve</th>'
-                f'<th style="width:230px">Fonte congelada</th></tr></thead>'
+                f'<p class="sm" style="padding:6px 0 10px">{e(defn["definicao"])}</p>'
+                f'<div class="rolar"><table><thead><tr>{cabeca}</tr></thead>'
                 f'<tbody>{linhas}</tbody></table></div></div>')
 
     nomeia = "Pessoa" in tipos
@@ -552,12 +607,12 @@ def registo(d):
                      f'{e(x.get("porque", ""))}</td></tr>' for x in excl["por_resolver"])
         excluidas = (
             f'<div class="rule" style="padding:26px 0 8px"><div class="sect">Fora do registo</div></div>'
-            f'<p class="sm" style="max-width:48em;padding-bottom:12px">{e(excl["nota"])}</p>'
+            f'<p class="sm" style="padding-bottom:12px">{e(excl["nota"])}</p>'
             f'<div class="rolar"><table><thead><tr><th style="width:340px">Identificador</th>'
             f'<th>Porquê</th></tr></thead><tbody>{it}{pr}</tbody></table></div>')
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">O registo · cada ficheiro congelado, com o seu hash</div></div>
-<p class="std" style="max-width:46em;padding-bottom:18px">{e(reg["nota"])}</p>
+<p class="std" style="padding-bottom:18px">{e(reg["nota"])}</p>
 <div class="chips" style="padding-bottom:18px">
   <span class="chip ok">{reg["contagem"]} ficheiros</span>
   <span class="chip">{len(reg["capturas"])} captura(s): {e(", ".join(reg["capturas"]))}</span>
@@ -601,7 +656,7 @@ def grafo(d):
 <div class="rule" style="padding:26px 0 8px"><div class="sect">O grafo</div></div>
 <h1 class="h-2" style="max-width:22em">Cada aresta é um verbo português com um inverso distinto.
 Se o caminho não se lê em voz alta, a aresta está errada.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 18px">{e(o["nota"])}</p>
+<p class="std" style="padding:14px 0 18px">{e(o["nota"])}</p>
 <div class="chips" style="padding-bottom:18px">
   <span class="chip ok">{g["contagens"]["nos"]} nós</span>
   <span class="chip ok">{g["contagens"]["arestas"]} arestas</span>
@@ -615,7 +670,7 @@ o destacar; clique em dois com <b>shift</b> para ler o caminho entre eles em voz
 {blocos}</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Os verbos, e como se leem</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">O verbo é português e o campo
+<p class="sm" style="padding-bottom:12px">O verbo é português e o campo
 <code>en</code> é uma anotação — é a inversão que o resumo de comissionamento manda fazer, e a
 única que não é cosmética. Uma leitura que toca numa Pessoa é invariável em género: esta
 publicação não sabe o género de ninguém, a fonte não o publica, e deduzi-lo de um nome seria uma
@@ -705,8 +760,8 @@ def entregas_indice(d):
 de revisão</div></div>
 <h1 class="h-2" style="max-width:24em">Uma entrega é uma lista de pistas com proveniência, nunca
 factos.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 8px">{e(ent["o_que_e"])}</p>
-<p class="std" style="max-width:46em;padding-bottom:18px"><b>{e(ent["a_regra"])}</b></p>
+<p class="std" style="padding:14px 0 8px">{e(ent["o_que_e"])}</p>
+<p class="std" style="padding-bottom:18px"><b>{e(ent["a_regra"])}</b></p>
 
 <div class="painel" style="margin-bottom:26px">
 <div class="sect" style="padding-bottom:8px">O que acontece a uma entrega, por esta ordem</div>
@@ -735,7 +790,7 @@ não pode fazer.</p></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">De onde vem uma entrega · os dois
 resumos de investigação</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">Um assistente exterior não recebe uma
+<p class="sm" style="padding-bottom:12px">Um assistente exterior não recebe uma
 pergunta: recebe um contrato. Os dois resumos abaixo dizem o que procurar, em que forma devolver,
 e — a parte que faz a diferença — que cada endereço tem de ser aberto e cada excerto copiado da
 página, porque é contra esse excerto que esta redação vai conferir os bytes. São dois e não um
@@ -1013,7 +1068,7 @@ def mesa(d):
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">A mesa · o quadro, o correio e as
 execuções</div></div>
-<p class="std" style="max-width:48em;padding-bottom:18px">Nada nesta página é desenhado à mão. A
+<p class="std" style="padding-bottom:18px">Nada nesta página é desenhado à mão. A
 sala é feita de <code>dados/redacao.json</code>, que por sua vez é contado a partir dos ficheiros
 em <code>redacao/issues/</code>, <code>redacao/correio/</code>, <code>redacao/runs/</code> e do
 trabalho por agente em <code>dados/comentarios.json</code>. Clique numa bancada para ver o que ela
@@ -1029,7 +1084,7 @@ disto uma redação e não um script.</p>
 
 <div class="rule" style="padding:34px 0 8px"><div class="sect">O mesmo quadro, sem
 JavaScript</div></div>
-<p class="xs" style="max-width:48em;padding-bottom:12px">A sala acima precisa de um navegador que
+<p class="xs" style="padding-bottom:12px">A sala acima precisa de um navegador que
 corra módulos. Esta versão não, e por isso fica: metade dos leitores deste site são máquinas, e
 uma redação que só se deixasse ler por uma delas seria a ironia errada. As duas saem dos mesmos
 ficheiros.</p>
@@ -1069,7 +1124,7 @@ def metodo(d):
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Método · o que esta redação faz,
 por esta ordem</div></div>
 <h1 class="h-2" style="max-width:24em">Obter · congelar · hashear · extrair · comparar</h1>
-<p class="std" style="max-width:46em;padding:14px 0 18px">É o caminho que a secção
+<p class="std" style="padding:14px 0 18px">É o caminho que a secção
 <a href="https://newsroom.sgit.ai/portugal/index.html">/portugal/</a> de newsroom.sgit.ai já corre,
 copiado antes de se escrever aqui seja o que for, porque é a única parte deste método com prova de
 funcionar. Quatro das suas propriedades sustentam tudo o resto.</p>
@@ -1091,7 +1146,7 @@ suporte e a construção tem de parar. Hoje: {reg["contagem"]} ficheiros, todos 
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">O que esta redação recusa, e onde a
 recusa corre</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">As recusas correm no ponto de LEITURA, não
+<p class="sm" style="padding-bottom:12px">As recusas correm no ponto de LEITURA, não
 no de apresentação. Um contacto que chega aos dados e é apenas escondido por um template está a um
 ciclo distraído de ser publicado.</p>
 <div class="rolar"><table><thead><tr><th style="width:280px">A recusa</th><th>Onde corre</th></tr></thead>
@@ -1114,14 +1169,14 @@ ciclo distraído de ser publicado.</p>
 </tbody></table></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">O léxico · uma fórmula publicada</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:8px">{e(lex["o_que_e"])}</p>
-<p class="sm" style="max-width:48em;padding-bottom:8px"><b>{e(lex["o_que_nao_e"])}</b></p>
-<p class="sm" style="max-width:48em;padding-bottom:12px">{e(lex["a_lingua_dos_padroes"])}</p>
+<p class="sm" style="padding-bottom:8px">{e(lex["o_que_e"])}</p>
+<p class="sm" style="padding-bottom:8px"><b>{e(lex["o_que_nao_e"])}</b></p>
+<p class="sm" style="padding-bottom:12px">{e(lex["a_lingua_dos_padroes"])}</p>
 <div class="rolar"><table><thead><tr><th>Etiqueta</th><th>Tipo</th><th>Padrão</th>
   <th>Corre sobre</th></tr></thead><tbody>{entradas}</tbody></table></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Ler o registo oficial</div></div>
-<p class="sm" style="max-width:48em">O Diário da República renderiza por script: obtido por HTTP,
+<p class="sm">O Diário da República renderiza por script: obtido por HTTP,
 devolve poucos bytes e quase nenhum texto. Mas publica o diploma integral em PDF, e esse PDF chega
 cifrado com o manipulador de segurança padrão e com tipos subconjuntados — o que faz uma
 biblioteca genérica devolver zero caracteres, e devolvê-los em silêncio. Um zero devolvido por uma
@@ -1161,7 +1216,7 @@ def equipa(d):
 <div class="rule" style="padding:26px 0 8px"><div class="sect">A redação</div></div>
 <h1 class="h-2" style="max-width:24em">Três departamentos, um humano nomeado, e a publicação é um
 passo de construção.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 18px">{e(eq["nota"])}</p>
+<p class="std" style="padding:14px 0 18px">{e(eq["nota"])}</p>
 
 <div class="painel" style="margin-bottom:26px">
   <div class="sect">Editor de registo</div>
@@ -1176,10 +1231,10 @@ passo de construção.</h1>
 {"".join(deps)}
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Quem escreve onde</div></div>
-<p class="sm" style="max-width:48em">{e(eq["quem_escreve_onde"])}</p>
+<p class="sm">{e(eq["quem_escreve_onde"])}</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">As camadas de agente</div></div>
-<p class="sm" style="max-width:48em;padding-bottom:12px">{e(eq["camadas_de_agente"]["nota"])}</p>
+<p class="sm" style="padding-bottom:12px">{e(eq["camadas_de_agente"]["nota"])}</p>
 <div class="rolar"><table><thead><tr><th style="width:60px">Nível</th><th>Pode</th>
   <th>Participa</th><th>Estado</th></tr></thead><tbody>{niveis}</tbody></table></div>
 
@@ -1235,13 +1290,13 @@ e como pedir para sair — sem dar razão nenhuma.</h1>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Fundamento de licitude ·
 {e(a["fundamento"]["base"])}</div></div>
-<p class="sm" style="max-width:48em"><b>{e(a["fundamento"]["nao_e_jornalismo"])}</b></p>
+<p class="sm"><b>{e(a["fundamento"]["nao_e_jornalismo"])}</b></p>
 <div class="g3">{teste}</div>
 <p class="xs">{e(a["fundamento"]["orientacao"])}</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Porquê um aviso público</div></div>
-<p class="sm" style="max-width:48em">{e(a["porque_um_aviso_publico"]["regra"])}</p>
-<p class="sm" style="max-width:48em;padding-top:8px">{e(a["porque_um_aviso_publico"]["portanto"])}
+<p class="sm">{e(a["porque_um_aviso_publico"]["regra"])}</p>
+<p class="sm" style="padding-top:8px">{e(a["porque_um_aviso_publico"]["portanto"])}
 {e(a["porque_um_aviso_publico"]["e_a_ordem_certa"])}</p>
 
 <div class="rule g2" style="padding:22px 0">
@@ -1253,13 +1308,13 @@ e como pedir para sair — sem dar razão nenhuma.</h1>
 </div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Quando um nome sai de uma lista</div></div>
-<p class="sm" style="max-width:48em">{e(a["regra_sem_razao"])}</p>
+<p class="sm">{e(a["regra_sem_razao"])}</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">O que este site não faz</div></div>
 <ul style="max-width:48em">{nunca}</ul>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Conservação</div></div>
-<p class="sm" style="max-width:48em">{e(a["conservacao"])}</p>
+<p class="sm">{e(a["conservacao"])}</p>
 """
     return pagina("aviso/index.html", "Aviso de proteção de dados",
                   "O que esta publicação detém sobre pessoas nomeadas, com que fundamento, e como "
@@ -1305,7 +1360,7 @@ a prova, depois a afirmação.</h1>
 </div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">A língua</div></div>
-<p class="sm" style="max-width:48em">Este site é nativamente português e não é uma tradução de
+<p class="sm">Este site é nativamente português e não é uma tradução de
 nada. Os verbos do grafo são portugueses e o inglês é uma anotação — não o contrário, que é a
 forma mais provável de um site assim estar discretamente errado, porque nada nele parece avariado.
 Os títulos de sessões e os nomes de organizações e de pessoas ficam <b>verbatim</b>, na língua em
@@ -1314,7 +1369,7 @@ onde este método vem impõe ASCII puro; aqui o portão corre ao contrário e as
 estão presentes e vieram da fonte, e não de uma lista que alguém escreveu.</p>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Parte de</div></div>
-<p class="sm" style="max-width:48em">Uma instância do argumento publicado em
+<p class="sm">Uma instância do argumento publicado em
 <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a>. O resumo de comissionamento deste site
 vive lá e não aqui, porque conteúdo existe uma vez: se o mesmo parágrafo estivesse nos dois
 sítios, os dois acabariam por discordar. O método vem de
@@ -1335,7 +1390,7 @@ def ficheiros(d):
         for x in man["ficheiros"])
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Os ficheiros</div></div>
-<p class="std" style="max-width:46em;padding-bottom:18px">{e(man["nota"])} Cada página deste site
+<p class="std" style="padding-bottom:18px">{e(man["nota"])} Cada página deste site
 diz de que ficheiro foi construída; esta diz o hash de cada um deles. É o que torna «a um clique
 dos bytes» verificável em vez de uma promessa.</p>
 <div class="chips" style="padding-bottom:18px"><span class="chip ok">{man["contagem"]} ficheiros de dados</span></div>

@@ -1,4 +1,5 @@
 ---
+titulo: A fila de acrescento não tem credenciais
 aberto: 2026-09-14T23:30:00Z
 origem: pedido de @Dinis, nesta sessão
 issue: —

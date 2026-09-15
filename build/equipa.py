@@ -155,9 +155,26 @@ def ler_cartoes():
                 m = re.match(r"^---\n(.*?)\n---\n(.*)$", t, re.S)
                 fm = dict(re.findall(r"^([\w_]+):\s*(.*)$", m.group(1), re.M)) if m else {}
                 corpo = (m.group(2) if m else t).strip()
-                # The card's own title is its first `## ` heading's section, but the name a human
-                # reads is the filename after the ordinal: `001__a-vista-dos-agentes.md`.
-                titulo = re.sub(r"^\d+__", "", f.stem).replace("-", " ")
+                # THE TITLE COMES FROM THE CARD, NOT FROM ITS FILENAME.
+                #
+                # This used to de-slug the filename — `001__a-fila-nao-tem-credenciais.md` became
+                # "A fila nao tem credenciais" — and a filename is ASCII, so every accent was
+                # lost on the way to the page. The design review found the same fault in the
+                # section pages (`nao resolve`) and said the right thing about it: a missing
+                # accent in a vocabulary suggests the strings are being written somewhere
+                # ASCII-only, and that is worth auditing rather than fixing in one place. The
+                # audit of `dados/` found this, in the board this very session had just built.
+                #
+                # So the card names itself: a `titulo:` in the front matter, else its first `# `
+                # heading, and only then the de-slugged filename — which is now a last resort
+                # that the accent gate in `build/gates.py` would notice.
+                titulo = (fm.get("titulo") or "").strip()
+                if not titulo:
+                    h = re.search(r"^#\s+(.+)$", corpo, re.M)
+                    titulo = h.group(1).strip() if h else ""
+                if not titulo:
+                    titulo = re.sub(r"^\d+__", "", f.stem).replace("-", " ")
+                    titulo = titulo[:1].upper() + titulo[1:]
                 cartoes.append({
                     "ficheiro": f.relative_to(ROOT).as_posix(),
                     "agente": agente, "coluna": coluna, "origem_tipo": "assunto",

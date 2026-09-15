@@ -1,4 +1,5 @@
 ---
+titulo: Duas ausências publicáveis tal como estão
 aberto: 2026-09-14T12:10:00Z
 origem: redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml
 issue: 003
