@@ -45,6 +45,7 @@ DESTINO = "backoffice/guidance"
 # these, so a new document appears on the site the moment it is written rather than when somebody
 # remembers to add it here.
 ORDEM = ["index.md", "language.md", "principles.md", "before-you-change.md",
+         "releasing.md",
          "concurrent-sessions.md"]
 
 

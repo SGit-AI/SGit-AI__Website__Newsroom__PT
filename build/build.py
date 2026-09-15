@@ -762,64 +762,77 @@ alguma vez for servida como página.</p></div>
 
 # ================================================================ entrevistas ===
 def entrevistas(d):
-    """The interview method, with the prompts on the page rather than one click away.
+    """The two interviews, with the prompts on the page rather than one click away.
 
     A prompt is copied, not read: by a person about to paste it into ChatGPT, often on a phone.
     Sending them to a raw markdown file to select-all is how you lose them. So the prompts are here,
-    each with a copy button — a second VIEW of one copy, rendered from
-    `briefs/pack/09__entrevistas/` on every build and marked derived, never a second copy.
+    rendered from `briefs/pack/09__entrevistas/` and `briefs/pack/10__entrevista-ao-editor/` on
+    every build and marked derived — a second VIEW of one copy, never a second copy. Gate 42 fails
+    the build if the page and the markdown ever disagree.
     """
     ent = d.get("entrevistas")
     if not ent:
         return None
 
-    blocos = []
-    for p in ent["pecas"]:
-        blocos.append(
-            f'<div class="rule" id="{e(p["ficheiro"].split("__")[0])}" '
-            f'style="padding:26px 0 8px">'
-            f'<div class="sect">{e(p["titulo"])} · para {e(p["para_quem"])}</div></div>'
-            f'<p class="sm" style="padding-bottom:10px">{e(p["porque"])}</p>'
-            f'<div class="chips" style="padding-bottom:10px">'
-            f'<span class="chip">{e(p["lingua"])}</span>'
-            f'<span class="chip">{p["linhas"]} linhas</span>'
-            f'<span class="chip mono xs">{e(p["sha256"][:12])}</span>'
-            f'<a class="chip" href="../../{e(p["caminho"])}">o ficheiro em bruto</a></div>'
-            f'<div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;'
-            f'background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap">'
-            f'{e(p["texto"])}</pre></div>')
+    secoes = []
+    for g in ent["grupos"]:
+        blocos = []
+        for p in g["pecas"]:
+            blocos.append(
+                f'<div class="hair" id="{e(g["id"])}-{e(p["ficheiro"].split("__")[0])}" '
+                f'style="padding:20px 0 8px">'
+                f'<div class="sect">{e(p["titulo"])} · para {e(p["para_quem"])}</div></div>'
+                f'<p class="sm" style="padding-bottom:10px">{e(p["porque"])}</p>'
+                f'<div class="chips" style="padding-bottom:10px">'
+                f'<span class="chip">{e(p["lingua"])}</span>'
+                f'<span class="chip">{p["linhas"]} linhas</span>'
+                f'<span class="chip mono xs">{e(p["sha256"][:12])}</span>'
+                f'<a class="chip" href="../../{e(p["caminho"])}">o ficheiro em bruto</a></div>'
+                f'<div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;'
+                f'background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap">'
+                f'{e(p["texto"])}</pre></div>')
+        secoes.append(
+            f'<div class="rule" id="{e(g["id"])}" style="padding:30px 0 8px">'
+            f'<div class="sect">{e(g["titulo"])}</div></div>'
+            f'<p class="std" style="padding-bottom:14px">{e(g["porque"])}</p>'
+            f'<div class="chips" style="padding-bottom:6px">'
+            f'<a class="chip" href="../../briefs/pack/{e(g["pasta"])}/README.md">'
+            f'o método, por extenso</a></div>'
+            + "".join(blocos))
+
+    indice = "".join(
+        f'<a class="chip" href="#{e(g["id"])}">{e(g["titulo"])} · {len(g["pecas"])} peças</a>'
+        for g in ent["grupos"])
 
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">As entrevistas · o método e os
 prompts</div></div>
-<h1 class="h-2" style="max-width:26em">Uma pessoa ocupada não escreve duas páginas sobre o seu
-trabalho. Fala vinte minutos sobre ele.</h1>
+<h1 class="h-2" style="max-width:26em">Duas entrevistas, uma só mecânica, e as direções
+opostas.</h1>
 <p class="std" style="padding:14px 0 12px">{e(ent["o_que_e"])}</p>
+<div class="chips" style="padding-bottom:18px">{indice}</div>
 
 <div class="painel" style="margin-bottom:22px">
   <div class="sect">A regra que governa o que sai daqui</div>
   <p class="sm" style="padding-top:8px">{e(ent["a_regra"])} Uma entrevista não abre exceção a
   nenhuma das regras desta casa: três campos por pessoa — cargo listado, organização listada,
   página que o lista — nenhum dado de contacto em ficheiro nenhum, e a remoção a pedido é
-  incondicional e não leva motivo. <a href="../../aviso/">O aviso</a> diz como.</p></div>
+  incondicional e não leva motivo. <a href="../../aviso/">O aviso</a> diz como. E nada do que for
+  dito em voz alta põe uma história em publicado: isso é uma linha que o editor escreve num
+  ficheiro.</p></div>
 
-<div class="hair" style="padding:16px 0 20px">
-{md_para_html(ent["readme"].split("## Porque é por voz", 1)[1].rsplit("## As regras", 1)[0]
-              if "## Porque é por voz" in ent["readme"] else ent["readme"])}
-</div>
-
-{"".join(blocos)}
+{"".join(secoes)}
 
 <div class="painel" style="margin-top:26px">
   <div class="sect">Este texto é derivado</div>
   <p class="sm" style="padding-top:8px">Os prompts acima são renderizados de
   <code>{e(ent["derivado_de"])}</code> em cada construção, e nunca escritos aqui à mão. O conteúdo
-  existe uma vez: se esta página e o markdown pudessem discordar, um deles estaria errado e ninguém
-  saberia qual.</p></div>
+  existe uma vez, e o portão 42 falha a construção se esta página e o markdown discordarem — um
+  ficheiro derivado sem portão é uma segunda cópia com outro nome.</p></div>
 """
     return pagina("redacao/entrevistas/index.html", "As entrevistas",
-                  "O método das entrevistas por voz desta redação, e os prompts que as fazem — "
-                  "prontos a copiar.",
+                  "Entrevistar alguém para escrever, e entrevistar o editor para saber o que "
+                  "fazer. Os prompts, prontos a copiar.",
                   corpo, aqui="redacao")
 
 

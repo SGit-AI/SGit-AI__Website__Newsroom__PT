@@ -3,15 +3,15 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 105,
+  "contagem": 112,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
       "titulo": "Start here — pt.newsroom.sgit.ai",
       "categoria": "Repository root",
-      "bytes": 4841,
-      "linhas": 90,
-      "palavras": 749
+      "bytes": 5961,
+      "linhas": 103,
+      "palavras": 916
     },
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -204,6 +204,14 @@
       "bytes": 2940,
       "linhas": 44,
       "palavras": 481
+    },
+    {
+      "caminho": "admin/versions/v0.23.1.md",
+      "titulo": "v0.23.1",
+      "categoria": "Repository root",
+      "bytes": 4734,
+      "linhas": 60,
+      "palavras": 827
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -630,6 +638,46 @@
       "palavras": 491
     },
     {
+      "caminho": "briefs/pack/10__entrevista-ao-editor/01__prompt-de-preparacao.md",
+      "titulo": "O prompt de preparação — o agente lê-se a si próprio",
+      "categoria": "Commissioning pack",
+      "bytes": 3267,
+      "linhas": 73,
+      "palavras": 578
+    },
+    {
+      "caminho": "briefs/pack/10__entrevista-ao-editor/02__prompt-da-entrevista.pt.md",
+      "titulo": "O prompt da entrevista ao editor — português",
+      "categoria": "Commissioning pack",
+      "bytes": 4440,
+      "linhas": 87,
+      "palavras": 776
+    },
+    {
+      "caminho": "briefs/pack/10__entrevista-ao-editor/03__the-interview-prompt.en.md",
+      "titulo": "The editor interview prompt — English",
+      "categoria": "Commissioning pack",
+      "bytes": 4155,
+      "linhas": 88,
+      "palavras": 750
+    },
+    {
+      "caminho": "briefs/pack/10__entrevista-ao-editor/04__o-que-volta.md",
+      "titulo": "O que volta, e o que o agente faz com ele",
+      "categoria": "Commissioning pack",
+      "bytes": 2868,
+      "linhas": 49,
+      "palavras": 514
+    },
+    {
+      "caminho": "briefs/pack/10__entrevista-ao-editor/README.md",
+      "titulo": "10 — A entrevista ao editor",
+      "categoria": "Commissioning pack",
+      "bytes": 3768,
+      "linhas": 60,
+      "palavras": 667
+    },
+    {
       "caminho": "briefs/pack/LICENSE.md",
       "titulo": "Licences in this pack",
       "categoria": "Commissioning pack",
@@ -657,9 +705,9 @@
       "caminho": "docs/guidance/index.md",
       "titulo": "Working on pt.newsroom.sgit.ai: start here",
       "categoria": "Guidance — read first",
-      "bytes": 4786,
-      "linhas": 77,
-      "palavras": 738
+      "bytes": 4954,
+      "linhas": 78,
+      "palavras": 765
     },
     {
       "caminho": "docs/guidance/language.md",
@@ -676,6 +724,14 @@
       "bytes": 4909,
       "linhas": 99,
       "palavras": 832
+    },
+    {
+      "caminho": "docs/guidance/releasing.md",
+      "titulo": "Releasing, and the four things that go quiet",
+      "categoria": "Guidance — read first",
+      "bytes": 6469,
+      "linhas": 120,
+      "palavras": 1052
     },
     {
       "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/LEIA-ME.md",

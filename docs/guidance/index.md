@@ -26,6 +26,7 @@ editor publishes.** Nothing you do may set `estado: publicado`.
 | 3 | [`../../CLAUDE.md`](../../CLAUDE.md) | The seven rules. It is the constitution; it outranks everything here, including this page |
 | 4 | [`before-you-change.md`](before-you-change.md) | The checklist. What to read, what to run, what to record, in order |
 | 5 | [`concurrent-sessions.md`](concurrent-sessions.md) | Three sessions work here at once. What collides, what is gated, and the order that avoids most of it |
+| 6 | [`releasing.md`](releasing.md) | Which component is the minor, the packages the build needs, the browser gate, and the merge commands that delete work silently |
 | 6 | [`../../agents/README.md`](../../agents/README.md) | Who you are. Every agent working here claims a named identity with a `ROLE.md` and a `MANDATE.md` |
 | 7 | [`../../briefs/pack/01__the-brief.md`](../../briefs/pack/01__the-brief.md) | What this publication is for. Read it once; it is the reason the gates are shaped this way |
 

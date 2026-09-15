@@ -142,6 +142,13 @@
     {
       "especie": "versao",
       "quando": "2026-09-15",
+      "versao": "v0.23.2",
+      "o_que": "The release rules stop living in one session's head, and the editor gets interviewed too",
+      "url": "../../admin/versions.html#v0.23.2"
+    },
+    {
+      "especie": "versao",
+      "quando": "2026-09-15",
       "versao": "v0.23.1",
       "o_que": "The editor gets a page that asks him the questions, and the interview method arrives",
       "url": "../../admin/versions.html#v0.23.1"
@@ -187,13 +194,6 @@
       "versao": "v0.18.0",
       "o_que": "A second delivery arrives, validates, and the delivery page becomes navigable",
       "url": "../../admin/versions.html#v0.18.0"
-    },
-    {
-      "especie": "versao",
-      "quando": "2026-09-15",
-      "versao": "v0.17.0",
-      "o_que": "The first five articles are published, and the front page stops being about itself",
-      "url": "../../admin/versions.html#v0.17.0"
     },
     {
       "especie": "artigo",

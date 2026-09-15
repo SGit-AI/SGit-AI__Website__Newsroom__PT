@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 24212,
-      "sha256": "edadad7820283020fb548d3f5591ca2565826bd2a348fc588a0714367b3eabfe"
+      "bytes": 25938,
+      "sha256": "0bb14cf76b92b2291e949ff255cf7b8d9a13d4eeeedd720b2ca585ada0b82f83"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -52,8 +52,8 @@
     },
     {
       "ficheiro": "dados/entrevistas.json",
-      "bytes": 19663,
-      "sha256": "f2f6f5a8f102d9f11b27ad7ab777a8388fc89a957093b9f37a407ed79b0f672b"
+      "bytes": 74979,
+      "sha256": "1c93e9ede181e91126be20cf0ff6e2c00d5f02b576d468240cbb74c1c4089710"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -93,7 +93,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 5350,
-      "sha256": "49d54e11f69c82883d9188d536545f96cc1287187449d19d0ec4c862c76bf317"
+      "sha256": "1316bf56892e47499b62efb01c7dc129270acd3a3020146c080d912caf019969"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -137,8 +137,8 @@
     },
     {
       "ficheiro": "dados/revisao.json",
-      "bytes": 11564,
-      "sha256": "a00d921863ae9c74b31a6332045c739befd7bb4b8c138a75f8cf0ab309625e13"
+      "bytes": 11590,
+      "sha256": "08ff142f7db74cf6da837b52ffccc0055fa11e559a6d74302a4ffac4420160d8"
     },
     {
       "ficheiro": "dados/sessoes.json",

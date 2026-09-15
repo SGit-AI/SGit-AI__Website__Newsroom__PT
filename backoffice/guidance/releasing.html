@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Releasing, and the four things that go quiet · pt.newsroom back office</title>
+<meta name="description" content="Releasing, and the four things that go quiet — guidance for anyone changing pt.newsroom.sgit.ai.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/console.css">
+</head>
+<body>
+
+<div class="folha bo-strip">
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.2" title="O que mudou em v0.23.2, e porquê">v0.23.2</a></div>
+</div>
+
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../backoffice/"><b>pt.newsroom</b><span>back office · v0.23.2</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../backoffice/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../backoffice/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../backoffice/board.html">Board<span class="count">17</span></a><a class="nav" href="../../backoffice/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../backoffice/team.html">Team</a><a class="nav" href="../../backoffice/agents.html">Agent activity</a><a class="nav" href="../../backoffice/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../backoffice/guidance.html">Guidance</a><a class="nav" href="../../backoffice/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
+<main class="main">
+
+<div class="page-head"><div><h1>Releasing, and the four things that go quiet</h1></div></div>
+
+
+<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 5 of 6</div></div>
+<h2 class="h-lead">Releasing, and the four things that go quiet</h2>
+<p class="std">Everything here was learned by getting it wrong in one session, on this repository, in one day. None of it is hypothetical, and each item names what it cost.</p>
+<h3 class="h-2">The version number: which component is the minor</h3>
+<p class="std">The version is <code>v&lt;release&gt;.&lt;major&gt;.&lt;minor&gt;</code> — and <b>the minor is the third component.</b> <code>CLAUDE.md</code> says every push to <code>dev</code> is a minor release, so a normal push goes <code>v0.23.0 → v0.23.1</code>, not <code>v0.23.0 → v0.24.0</code>. The second component moves only for a deliberate major.</p>
+<p class="std">CI agrees and is the authority: the tag job in <code>.github/workflows/deploy-pages.yml</code> computes</p>
+<pre class="bloco-codigo"><code>NEXT_MINOR = v0.23.1     # third component + 1   ← this is the normal one
+NEXT_MAJOR = v0.24.0     # second component + 1</code></pre>
+<p class="std">and <b>rejects anything that is neither</b>. A release numbered by guesswork is a push that fails after you have written the note.</p>
+<div class="aviso-bloco"><p class="sm"><b><code>build/before_push.py</code> gives the wrong advice here.</b> Faced with <code>v0.23.0</code> on <code>dev</code> it says</p></div>
+<div class="aviso-bloco"><p class="sm"><i>&quot;Take v0.24.0&quot;</i> — the major. Use that tool for what it is reliable at: whether a number is</p></div>
+<div class="aviso-bloco"><p class="sm">already taken, what the other sessions rewrote, and how far ahead or behind you are. Do not take</p></div>
+<div class="aviso-bloco"><p class="sm">its suggested number without checking it against the rule above. This is a known disagreement</p></div>
+<div class="aviso-bloco"><p class="sm">between the tool, <code>CLAUDE.md</code> and CI; whoever owns that file should settle it in the file.</p></div>
+<p class="std">And take the number <b>last</b>, after the gates are green — a number claimed at the start of an hour&#x27;s work is claimed while somebody else is finishing.</p>
+<h3 class="h-2">Install <code>requirements.txt</code> first, or the build lies quietly</h3>
+<p class="std">A fresh container does not have them, and <code>build/tudo.py</code> does not check. Both failures are silent and both leave every gate green:</p>
+<pre class="bloco-codigo"><code>python3 -m pip install -r requirements.txt</code></pre>
+<div class="rolar"><table><thead><tr><th>Missing</th><th>What breaks</th><th>What you see</th></tr></thead><tbody><tr><td class="sm"><code>pycryptodomex</code></td><td class="sm"><code>build/pdf.py</code> cannot decrypt an AES-encrypted PDF. Every stream decrypts to zero bytes</td><td class="sm">The reader reports <b>«provavelmente um PDF digitalizado»</b> — a false statement about somebody else&#x27;s document — and every claim resting on that PDF turns to <code>fonte_inacessivel</code></td></tr><tr><td class="sm"><code>jsonschema</code></td><td class="sm"><code>build/entregas.py</code> cannot validate a research delivery</td><td class="sm"><code>esquema_valido</code> becomes meaningless and the errors read <i>&quot;jsonschema não está instalado&quot;</i></td></tr></tbody></table></div>
+<p class="std">The first one is the expensive one. The same frozen PDF, with the same SHA-256 re-verified by gate 1, read <b>30 808 characters on one machine and 0 on another</b>. The bytes had not changed; the machine had. <b>Evidence that depends on which machine reads it is not evidence.</b> CI installs these before the gates; your container is your own problem.</p>
+<h3 class="h-2">The browser gate, in a container that has no Playwright</h3>
+<p class="std">Required whenever you touch <code>assets/components/</code>. Three things are true at once here: the npm package is not installed, installing it <i>into the repository</i> turns <code>admin/build/validate.js</code> red (it scans gitignored build tooling), and the Playwright build it wants is not the Chromium that is installed. So install it outside the repository and borrow it for the run:</p>
+<pre class="bloco-codigo"><code>PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install --prefix /tmp/pw playwright
+ln -s /tmp/pw/node_modules node_modules          # borrow it
+python3 -m http.server 8777 &amp;
+CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
+  node admin/build/render.mjs http://127.0.0.1:8777
+rm node_modules                                   # give it back BEFORE validate.js runs</code></pre>
+<p class="std"><code>render.mjs</code> reads <code>CHROME_PATH</code>, which is what makes the pre-installed browser usable. Add your new page and its components to the <code>PAGINAS</code> list in that file — a component the gate does not open is a component nothing tested.</p>
+<p class="std"><b>It earns its place.</b> It caught a bug no other gate could: the entity linker rewrote names inside a page&#x27;s inline <code>&lt;script type=&quot;application/json&quot;&gt;</code>, producing valid HTML and corrupt JSON. The page was well-formed, the damage was inside a string, and only a browser showed it.</p>
+<h3 class="h-2">Where a freeze date comes from</h3>
+<p class="std"><code>build/entregas.py --date</code> defaults to <b>today</b> and re-checks every excerpt against <code>fontes/congeladas/&lt;date&gt;/entregas/</code>. Point it at the wrong day and every source reads as unreadable — a delivery that had nine confirmed claims reports zero, with the build green.</p>
+<p class="std"><code>build/tudo.py</code> resolves it from <b>the frozen directories on disk, at the moment the step runs.</b> Not from <code>dados/registo.json</code>, which was the first fix and was wrong twice over: that file is written by <code>build/extract.py</code>, which <code>tudo.py</code> <b>skips unless <code>--fetch</code> was asked for</b>, so it can be days stale; and it was read at import, before that step could have run anyway. Ground truth is where the bytes are.</p>
+<h3 class="h-2">Merging: two traps, both of which delete work silently</h3>
+<p class="std"><b>Stage your source resolutions before you bulk-resolve the generated ones.</b> The usual move after a big merge is</p>
+<pre class="bloco-codigo"><code>git checkout --theirs $(git diff --name-only --diff-filter=U)</code></pre>
+<p class="std">and it will <b>overwrite a resolution you have already written to disk but not <code>git add</code>ed</b>. A carefully merged <code>build/build.py</code> went back to the other session&#x27;s version that way, and the only sign was a page that had quietly lost its rewrite. Resolve and <code>git add</code> the source files first, then bulk-resolve what is left, then rebuild.</p>
+<p class="std"><b>A clean merge is not evidence that your work survived.</b> After every merge, grep your own changes back — by name, one at a time. In one merge here, of six changes, one was silently reverted by an auto-merge with no conflict, and a second was destroyed by the command above. Both looked fine; all gates stayed green.</p>
+<h3 class="h-2">The shape of the failure to watch for</h3>
+<p class="std">Three separate incidents in one day, and they are the same incident:</p>
+<ul>
+<li class="sm">a frozen PDF that read 30 808 characters yesterday and 0 today,</li>
+<li class="sm">a freshly frozen delivery reporting 0 of 4 sources readable,</li>
+<li class="sm">a register row whose link to its delivery vanished while its other three links rendered.</li>
+</ul>
+<p class="std">In every case <b>the build was green and the record underneath it had changed meaning.</b> The gates check structure — files exist, links resolve, hashes match, pages are well-formed — and all of that was true. The damage was in a <i>value</i>: a count, a state, a missing chip.</p>
+<p class="std">So when you add a gate, ask what it would say if the structure were perfect and the content were wrong. And when a number in a build summary changes and you did not mean to change it, stop and find out why. <b>A row that is partly right looks exactly like a row that is right.</b></p>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Next</div></div>
+<p class="sm"><a href="before-you-change.html">← Before you change anything</a> · <a href="concurrent-sessions.html">More than one session at a time →</a></p>
+<p class="xs" style="padding-top:12px">This page is rendered from
+<a href="../../docs/guidance/releasing.md"><code>docs/guidance/releasing.md</code></a> by <code>build/guia.py</code>. The
+markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/guidance/releasing.html</code> · version <span class="ver">v0.23.2</span>.
+</div>
+
+</main>
+</div>
+</body>
+</html>

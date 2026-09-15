@@ -40,6 +40,7 @@ Published, with real addresses — link to these, not to a file path:
 | 3 | https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html | Nine principles, each naming the gate that enforces it |
 | 4 | https://pt.newsroom.sgit.ai/backoffice/guidance/before-you-change.html | The checklist |
 | 5 | https://pt.newsroom.sgit.ai/backoffice/guidance/concurrent-sessions.html | What collides between sessions, and what is gated |
+| 6 | https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html | **Which component is the minor**, the two packages the build needs, how to run the browser gate here, and the two merge commands that delete work silently |
 
 In the repository, the same documents are `docs/guidance/*.md` — the markdown is the source and the
 pages are rendered from it by `build/guia.py`. Then read **`CLAUDE.md`** at the root: it is the
@@ -61,6 +62,18 @@ python3 build/before_push.py        # again — NOW take the version number it s
 claimed while somebody else is finishing. Then write `admin/versions/<version>.md`, add it to
 `admin/versions.json`, bump `admin/build/version.txt`, re-run `build/tudo.py`, commit with the
 subject `site vX.Y.Z: <one sentence>`, and push.
+
+**The minor is the THIRD component.** Every push to `dev` is a minor release, so a normal one goes
+`v0.23.0 → v0.23.1`. The second component moves only for a deliberate major, and CI rejects a tag
+that is neither. `build/before_push.py` suggests the major here and is wrong about it — trust it for
+whether a number is *taken*, not for which to take. Full reasoning, and the three other things that
+fail silently — the two packages in `requirements.txt`, the browser gate, and the two merge commands
+that delete work without a conflict — are in
+[`releasing.md`](https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html).
+
+**Install `requirements.txt` before your first build.** Without `pycryptodomex` an encrypted PDF
+reads as zero characters and is reported as a scanned document; without `jsonschema` a research
+delivery is not validated at all. Both leave every gate green.
 
 **Never push on a red gate. Never force-push, rebase a shared branch, or rewrite history** — with
 three sessions, a force-push is somebody else's work deleted. **Never disable a test to get green.**
