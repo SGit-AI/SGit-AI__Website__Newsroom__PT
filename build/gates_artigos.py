@@ -227,7 +227,7 @@ if BASTIDORES.exists():
             erros.append(f"{rel}: the notice saying this is not the publication is missing. The "
                          f"exception to the language rule holds only while it is visible to a "
                          f"reader who lands here")
-    for obrigatoria in ("backoffice/index.html", "backoffice/docs.html", "backoffice/viewer.html"):
+    for obrigatoria in ("backoffice/index.html", "backoffice/docs.html"):
         if not (ROOT / obrigatoria).exists():
             erros.append(f"{obrigatoria}: was not generated")
 
@@ -643,7 +643,7 @@ for f in CODIGO:
 # --- 35. every agent that touches this site is named ---------------------------
 agentes = carregar("agentes.json")
 AGENTES_DIR = ROOT / "agents"
-# The register is dados/agentes.json, written by build/equipa.py. The mandate files under agents/
+# The register is dados/agentes.json, written by build/backoffice_team.py. The mandate files under agents/
 # are RENDERED from it by build/mandatos.py. Two sessions answered the same ask on the same
 # afternoon — one by writing the files, one by building the register — and two copies of a mandate
 # diverge on the day somebody edits one. The register won; this gate holds the rendering to it.

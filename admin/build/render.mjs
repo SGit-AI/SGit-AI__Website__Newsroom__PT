@@ -42,6 +42,25 @@ const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright')
 
 const BASE = process.argv[2] || 'http://127.0.0.1:8777'
 
+/* THE ARTICLE IS FOUND, NOT NAMED. This gate used to hardcode one article's URL, in two places,
+   and the next release retitled every article on the site — so the gate asked for a slug that no
+   longer existed, got a 404, and reported the article's three components as "not on the page".
+   Nothing was wrong with the page; the gate was wrong about which page.
+   Third time this repository has learned the same thing: gate 36 could not see the two gates
+   living in JavaScript, gate 39's ratchet held a hand-written list of generators that were
+   renamed under it, and this. A check that names its inputs by hand is a check a rename disarms.
+   So the article comes from the index the build itself writes. Any article is equally deep —
+   artigos/<yyyy>/<mm>/<dd>/<slug>/ — and depth is the whole point: that is where the chat's path
+   arithmetic broke. Preferring one with prose keeps the page representative of what a reader
+   opens. */
+const { readFileSync } = await import('node:fs')
+const ARTIGO = (() => {
+    const hs = JSON.parse(readFileSync('dados/historias.json', 'utf8')).historias || []
+    const h = hs.find(x => x.tem_prosa) || hs[0]
+    if (!h) throw new Error('dados/historias.json has no article for the browser gate to open')
+    return '/' + h.url.replace(/^\/+/, '')
+})()
+
 /* One page per component, plus the pages that combine them. Not the whole site: 232 pages in a
    browser is slow and repetitive, and what is being checked is the code that runs, not the HTML. */
 const PAGINAS = [
@@ -55,8 +74,7 @@ const PAGINAS = [
     ['/entidades/', ['pt-chat']],
     ['/entidades/editor/comissao-europeia/', ['pt-entity-graph', 'pt-chat']],
     ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph', 'pt-chat']],
-    ['/artigos/2026/09/14/quantas-startups-sao-de-ia/',
-     ['pt-json-viewer', 'pt-comment-map', 'pt-chat']],
+    [ARTIGO, ['pt-json-viewer', 'pt-comment-map', 'pt-chat']],
     ['/backoffice/agents.html', ['pt-comment-map']],
     ['/backoffice/docs.html', ['pt-doc-browser']],
     ['/api/', ['pt-api-console', 'pt-chat']],
@@ -68,11 +86,11 @@ const PAGINAS = [
        that is what this gate checks. Being out by default is precisely the kind of exemption gate
        26 says you should not be able to claim by writing the right word. */
     ['/backoffice/guidance.html', []],
-    ['/backoffice/equipa.html', []],
-    ['/backoffice/quadro.html', []],
-    ['/backoffice/correio.html', []],
-    ['/backoffice/pontes.html', []],
-    ['/backoffice/desenho.html', []],
+    ['/backoffice/team.html', []],
+    ['/backoffice/board.html', []],
+    ['/backoffice/mail.html', []],
+    ['/backoffice/bridges.html', []],
+    ['/backoffice/design.html', []],
     /* The console carries `pt-queue`, and it is the one component whose whole job is to count:
        the number in its heading and the number in the rail both come from the list it was given,
        so a page where it silently failed would show a queue of nothing and a rail badge of three.
@@ -98,7 +116,7 @@ const PAGINAS = [
  * It also reads one id tool with an id taken from the listing, because a `{id}` path is a second
  * kind of claim — that the id the listing hands out is the id the reader tool accepts. */
 const FERRAMENTAS_EM = [
-    '/artigos/2026/09/14/quantas-startups-sao-de-ia/',
+    ARTIGO,
     '/',
 ]
 

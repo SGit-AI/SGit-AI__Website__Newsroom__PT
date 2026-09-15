@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 97,
+  "contagem": 98,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -137,7 +137,7 @@
       "caminho": "admin/versions/v0.16.0.md",
       "titulo": "v0.16.0",
       "categoria": "Repository root",
-      "bytes": 10122,
+      "bytes": 10120,
       "linhas": 119,
       "palavras": 1784
     },
@@ -177,9 +177,17 @@
       "caminho": "admin/versions/v0.20.0.md",
       "titulo": "v0.20.0",
       "categoria": "Repository root",
-      "bytes": 4073,
-      "linhas": 54,
-      "palavras": 673
+      "bytes": 3628,
+      "linhas": 55,
+      "palavras": 567
+    },
+    {
+      "caminho": "admin/versions/v0.21.0.md",
+      "titulo": "v0.21.0",
+      "categoria": "Repository root",
+      "bytes": 5807,
+      "linhas": 80,
+      "palavras": 966
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -257,7 +265,7 @@
       "caminho": "agents/README.md",
       "titulo": "The agents",
       "categoria": "Agent mandates",
-      "bytes": 3546,
+      "bytes": 3555,
       "linhas": 50,
       "palavras": 530
     },
@@ -273,7 +281,7 @@
       "caminho": "agents/bastidores.pt/ROLE.md",
       "titulo": "Bastidores — @Bastidores",
       "categoria": "Agent mandates",
-      "bytes": 3117,
+      "bytes": 3126,
       "linhas": 343,
       "palavras": 815
     },
@@ -633,7 +641,7 @@
       "caminho": "redacao/correio/LEIA-ME.md",
       "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 5980,
+      "bytes": 5981,
       "linhas": 120,
       "palavras": 800
     },
@@ -641,7 +649,7 @@
       "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
       "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
-      "bytes": 1472,
+      "bytes": 1481,
       "linhas": 30,
       "palavras": 234
     },
@@ -649,7 +657,7 @@
       "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
       "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
       "categoria": "Newsroom files",
-      "bytes": 1520,
+      "bytes": 1521,
       "linhas": 31,
       "palavras": 256
     },
@@ -777,7 +785,7 @@
       "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
       "titulo": "notas — bastidores.pt",
       "categoria": "Newsroom files",
-      "bytes": 6056,
+      "bytes": 6065,
       "linhas": 81,
       "palavras": 959
     }

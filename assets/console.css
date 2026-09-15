@@ -560,6 +560,13 @@ a.chip.ok::before { content: none; }
    console uses it for the same job, one size down. */
 .stats { display: flex; flex-wrap: wrap; gap: var(--bo-2) var(--bo-4); align-items: baseline; }
 
+/* A MAIL THREAD, AND WHY THE INDENT IS PADDING. A reply used to carry
+   `margin-left: 22px` inline, which moves a full-width box rather than
+   narrowing it: the thread hung off the right of a 390px screen. Padding on the
+   thread, plus the rule that marks it, indents without ever widening. */
+.correio { border-left: 2px solid var(--bo-line-2); padding-left: var(--bo-4); margin-top: var(--bo-4); }
+.correio--resposta { margin-left: 0; padding-left: var(--bo-5); }
+
 /* The route a message travels, which is the mail protocol's whole model. */
 .rota { display: flex; flex-wrap: wrap; align-items: center; gap: var(--bo-2);
         font-family: var(--bo-mono); font-size: 12.5px; }
@@ -590,6 +597,15 @@ a.chip.ok::before { content: none; }
    which came out as `verificacao.p` / `t`. The console breaks a path, because a
    path has nowhere else to go, and leaves an identifier whole. */
 .main td.mono, .main th.mono { overflow-wrap: normal; }
+
+/* CONSOLE PROSE HOLDS PATHS. A mail body, a card's summary, a blocker's reason
+   — each is a paragraph that routinely contains
+   `redacao/correio/dinis.humano/assuntos/bloqueados/004__…md`, and a 57-
+   character unbreakable token in a 340px column simply hangs out of it. It was
+   19px off the right of a 390px screen, which is invisible in a screenshot and
+   red in the gate. `break-word` breaks only what will not otherwise fit, so
+   ordinary words are untouched. */
+.std, .sm, .note, .queue__why, .correio p { overflow-wrap: break-word; }
 
 /* Odds and ends the paper's stylesheet provided and these pages still use. */
 code, .mono-sm { font-family: var(--bo-mono); font-size: 12.5px; }

@@ -356,12 +356,20 @@ LEGADO = ['class="chip', 'class="cartao', 'class="sect', 'class="painel', 'class
           'class="sm"', 'class="xs', 'class="rolar', 'class="g2', 'class="g3']
 # The modules that write into backoffice/. The paper's own generators are not in scope: the paper
 # IS the design these classes belong to.
-GERADORES_DOS_BASTIDORES = ["backoffice.py", "equipa.py", "pontes.py", "desenho.py"]
-legados = []
-for nome in GERADORES_DOS_BASTIDORES:
-    f = ROOT / "build" / nome
-    if f.exists() and any(k in f.read_text(encoding="utf-8") for k in LEGADO):
-        legados.append(nome)
+# DISCOVERED, NOT LISTED. This was a hand-written list of four filenames, and the very next commit
+# renamed three of them — so the gate went looking for build/equipa.py, found nothing, and reported
+# 1 of 4 instead of 4 of 4. It was under-reporting in silence, which is the one way a ratchet fails
+# completely: it would have let the count climb back to four without a word. A gate that names its
+# inputs by hand is a gate that a rename disarms, so the files are found by what they are.
+GERADORES_DOS_BASTIDORES = sorted(
+    f for f in (ROOT / "build").glob("*.py")
+    if f.name == "backoffice.py" or f.name.startswith("backoffice_"))
+if not GERADORES_DOS_BASTIDORES:
+    erros.append("desenho: nenhum gerador dos bastidores encontrado em build/ — o portão 39 "
+                 "estava a medir uma lista escrita à mão e um mudar de nome desarmou-o uma vez; "
+                 "se os ficheiros mudaram de forma outra vez, é aqui que se diz")
+legados = [f.name for f in GERADORES_DOS_BASTIDORES
+           if any(k in f.read_text(encoding="utf-8") for k in LEGADO)]
 if len(legados) > TETO_DE_GERADORES_LEGADOS:
     erros.append(
         f"desenho: {len(legados)} geradores dos bastidores ainda emitem as classes do jornal, "
@@ -375,7 +383,7 @@ if erros:
     for e in erros:
         print(f"  ✗ {e}")
     print(f"\n{len(erros)} problema(s). A revisão de desenho está no cofre e o plano dela está em "
-          f"/backoffice/desenho.html.")
+          f"/backoffice/design.html.")
     sys.exit(1)
 
 print("portões do desenho: OK — " + ", ".join(notas[:6]) +

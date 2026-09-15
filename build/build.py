@@ -1586,7 +1586,7 @@ def ler_issues():
 def ler_correio():
     """O correio entre os agentes, de `dados/correio.json`, e nunca da pasta.
 
-    `redacao/correio/` has ONE reader, and it is `build/equipa.py`: it reads the `.eml` files,
+    `redacao/correio/` has ONE reader, and it is `build/backoffice_team.py`: it reads the `.eml` files,
     derives each message's state from the folder it sits in, and writes `dados/correio.json`. This
     function reads the derived file. Parsing the folder again here would be a second reader of the
     same thing, and v0.3.1 of this site was precisely the deletion of a second document reader.

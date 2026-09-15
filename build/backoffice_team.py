@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the agent team, the board and the mail. One reader, three pages.
 
-    python3 build/equipa.py
+    python3 build/backoffice_team.py
 
 WHAT THIS IS
 
@@ -13,9 +13,9 @@ renders three back-office pages from the derived data:
     dados/correio.json    every message, with the state its location implies
     dados/quadro.json     every board card: the agent's own, and the paper's issues by formula
 
-    backoffice/equipa.html    who the agents are — the roster, in the ROLE.md shape
-    backoffice/quadro.html    what each one has in front of it — the board
-    backoffice/correio.html   what passed between them — the mail, threaded
+    backoffice/team.html    who the agents are — the roster, in the ROLE.md shape
+    backoffice/board.html    what each one has in front of it — the board
+    backoffice/mail.html   what passed between them — the mail, threaded
 
 WHY ONE READER, SAID OUT LOUD
 
@@ -327,8 +327,8 @@ def pagina_equipa(ag, q):
         {ficha("", f'{c.get("issues_do_jornal", 0)} paper issues')}
         {ficha("falta", f'{c.get("por_tratar", 0)} unread') if c.get("por_tratar") else ""}
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#{e(a["id"])}">its board →</a> ·
-         <a href="correio.html#{e(a["id"])}">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#{e(a["id"])}">its board →</a> ·
+         <a href="mail.html#{e(a["id"])}">its mail →</a></p>
     </div>
   </div>
 </div>""")
@@ -382,7 +382,7 @@ shown as historical, rather than failing the reader on a name it does not know.<
 <div class="rolar"><table><thead><tr><th style="width:20%">Identity</th><th>What it was</th></tr>
 </thead><tbody>{historicas}</tbody></table></div>
 """
-    return pagina("backoffice/equipa.html", "The team",
+    return pagina("backoffice/team.html", "The team",
                   "The newsroom's agents: mission, central claim, what each is not responsible "
                   "for, and what each has on its plate.", corpo)
 
@@ -429,11 +429,24 @@ def pagina_quadro(ag, q):
             for x in cartoes:
                 bloqueado = x.get("bloqueado_por") and x["bloqueado_por"] != "\u2014"
                 no_editor = bloqueado and x["bloqueado_por"] == editor
+                # `bloqueado_por` CARRIES TWO DIFFERENT THINGS and only one of them fits in a
+                # badge. Usually it is an agent id, `dinis.humano`. But a card may instead put the
+                # whole reason there — one on the board today is a 66-character sentence naming a
+                # deny-listed file and saying no agent may edit it. A rank badge is two words and
+                # refuses to wrap, so a sentence in one pushed this page 193px past a 390px
+                # viewport. An id goes in the badge; anything with a space in it makes the badge
+                # say only «blocked» and the reason reads beside it, which is where a sentence
+                # belongs anyway.
+                porque_bloqueado = ""
                 if no_editor:
                     estado = ('<span class="st st--1">needs you'
                               f'<span class="who">· {e(a["alias"])} cannot move it</span></span>')
-                elif bloqueado:
+                elif bloqueado and " " not in x["bloqueado_por"]:
                     estado = f'<span class="st st--2">blocked on {e(x["bloqueado_por"])}</span>'
+                elif bloqueado:
+                    estado = '<span class="st st--2">blocked</span>'
+                    porque_bloqueado = (f'<p class="note" style="margin:0 0 8px">'
+                                        f'{e(x["bloqueado_por"])}</p>')
                 elif coluna == "fechados":
                     estado = '<span class="st st--4">closed</span>'
                 else:
@@ -450,6 +463,7 @@ def pagina_quadro(ag, q):
   <div class="queue__meta" style="margin:0 0 6px">{estado}
     {f'<span class="path">{meta}</span>' if meta else ""}</div>
   <h3 style="font-size:14.5px">{e(x["titulo"])}</h3>
+  {porque_bloqueado}
   <p class="note" style="margin:0 0 8px">{e(x["resumo"])}\u2026</p>
   <p class="path" style="margin:0"><a href="docs.html#{e(x["ficheiro"])}">{e(x["ficheiro"])}</a></p>
 </div>""")
@@ -466,7 +480,7 @@ def pagina_quadro(ag, q):
             f'<span class="path">from {e(m["de_alias"])}</span></div>'
             f'<p class="note" style="margin:0 0 6px;color:var(--bo-ink)">{e(m["assunto"])}</p>'
             f'<p class="path" style="margin:0">'
-            f'<a href="correio.html#{e(m["id"])}">{e(m["ficheiro"])}</a></p></div>'
+            f'<a href="mail.html#{e(m["id"])}">{e(m["ficheiro"])}</a></p></div>'
             for m in v.get("entrada", []))
         transito = "".join(
             f'<div class="board__card">'
@@ -492,7 +506,7 @@ def pagina_quadro(ag, q):
 <div class="queue__meta" style="margin:0 0 12px">
   {nao_lida}
   <span class="path">{e(a["id"])} \u00b7 {contagens}</span>
-  <a href="equipa.html#{e(a["id"])}">its definition \u2192</a>
+  <a href="team.html#{e(a["id"])}">its definition \u2192</a>
 </div>
 <div class="board">{"".join(cols)}</div>
 {f'<div class="sect">Mail on its plate</div><div class="board">'
@@ -529,7 +543,7 @@ used</h2>
 
 {"".join(blocos)}
 """
-    return pagina("backoffice/quadro.html", "The board",
+    return pagina("backoffice/board.html", "The board",
                   "Every agent's board: what it opened for itself, what the paper's issues put on "
                   "it by formula, and what mail is still unread.", corpo)
 
@@ -558,7 +572,7 @@ def pagina_correio(ag, msgs):
                              for par in re.split(r"\n\s*\n", m["corpo"]) if par.strip())
         filho_html = "".join(render(x, nivel + 1) for x in filhos.get(m["id"], []))
         return f"""
-<div class="correio" style="margin-top:16px;{'margin-left:22px' if nivel else ''}" id="{e(m["id"])}">
+<div class="correio{' correio--resposta' if nivel else ''}" id="{e(m["id"])}">
   <div class="chips" style="padding-bottom:6px">
     <span class="chip {chip[0]}">{chip[1]}</span>
     <span class="chip"><b>{e(m["de_alias"])}</b> → {e(m["para_alias"])}</span>
@@ -657,7 +671,7 @@ it is in</h2>
 sits in an inbox, and only moves to <code>tratado/</code> when the work it asked for is done.</p>
 {fios or '<p class="sm">No mail yet.</p>'}
 """
-    return pagina("backoffice/correio.html", "The mail",
+    return pagina("backoffice/mail.html", "The mail",
                   "Every message between the newsroom's agents, threaded, with the state each "
                   "one's folder implies.", corpo)
 
@@ -666,7 +680,7 @@ sits in an inbox, and only moves to <code>tratado/</code> when the work it asked
 def main():
     ag = carregar("agentes.json")
     if not ag:
-        print("equipa: dados/agentes.json não existe — nada a fazer")
+        print("team: dados/agentes.json does not exist — nothing to do")
         return []
     ids = {a["id"] for a in ag.get("agentes", [])}
     msgs = ler_correio(ids)
@@ -678,7 +692,7 @@ def main():
         "id": "pt-correio", "versao": "0.1.0", "atualizado": time.strftime("%Y-%m-%d"),
         "protocolo": ag.get("protocolo"), "protocolo_versao": ag.get("protocolo_versao"),
         "nota": ("Cada mensagem entre os agentes desta redação, lida de redacao/correio/ por "
-                 "build/equipa.py. O estado de uma mensagem é a pasta onde está e não um campo: "
+                 "build/backoffice_team.py. O estado de uma mensagem é a pasta onde está e não um campo: "
                  "um campo pode discordar da pasta, uma pasta não pode discordar de si mesma. "
                  "Este é o ficheiro que as páginas leem — a pasta tem um leitor só."),
         "lugares": [{"pasta": p, "estado": n, "significa": d} for p, n, d in LUGARES],
@@ -698,16 +712,16 @@ def main():
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     feitas = [
-        escrever("backoffice/equipa.html", pagina_equipa(ag, q)),
-        escrever("backoffice/quadro.html", pagina_quadro(ag, q)),
-        escrever("backoffice/correio.html", pagina_correio(ag, msgs)),
+        escrever("backoffice/team.html", pagina_equipa(ag, q)),
+        escrever("backoffice/board.html", pagina_quadro(ag, q)),
+        escrever("backoffice/mail.html", pagina_correio(ag, msgs)),
     ]
     desconhecidos = sorted({x for m in msgs for x in m["desconhecido"]}
                            - {h["id"] for h in ag.get("identidades_historicas", [])})
     if desconhecidos:
-        print(f"equipa: AVISO — endereços que não estão no registo nem declarados como "
-              f"históricos: {', '.join(desconhecidos)}")
-    print(f"equipa: {len(feitas)} pages, {len(ag.get('agentes', []))} agents, {len(msgs)} "
+        print(f"team: WARNING — addresses that are neither in the register nor declared "
+              f"historical: {', '.join(desconhecidos)}")
+    print(f"team: {len(feitas)} pages, {len(ag.get('agentes', []))} agents, {len(msgs)} "
           f"messages, {len(cartoes)} board cards, {len(issues)} paper issues placed by formula")
     return feitas
 
