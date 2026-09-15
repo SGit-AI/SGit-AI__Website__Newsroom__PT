@@ -65,51 +65,7 @@
   },
   "esquema_valido": false,
   "erros_de_esquema": [
-    "delivery/vault/commit: None is not of type 'string'",
-    "delivery/vault/vault_id: None is not of type 'string'",
-    "items/0/dates/0: '2026-01-08' is not of type 'object'",
-    "items/0/entities/1/id: 'instrumento:rcm-2-2026' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
-    "items/0/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/0/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/0/kind: 'instrumento_juridico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/1/dates/0: '2026-01-08' is not of type 'object'",
-    "items/1/dates/1: '2026-2030' is not of type 'object'",
-    "items/1/kind: 'agenda_nacional' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/2/claims/0/confidence: 'media' is not one of ['alta', 'média', 'baixa']",
-    "items/2/dates/0: '2025-09-22' is not of type 'object'",
-    "items/2/dates/1: '2026-08-07' is not of type 'object'",
-    "items/2/entities/0/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/2/entities/1/id: 'regulamento:ue-2024-1689' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
-    "items/2/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/2/kind: 'regulacao' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/3/dates/0: '2025-H2' is not of type 'object'",
-    "items/3/dates/1: '2026-01-08' is not of type 'object'",
-    "items/3/entities/1/id: 'infraestrutura:deucalion' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
-    "items/3/entities/1/type: 'Infraestrutura' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/3/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/3/kind: 'infraestrutura_publica' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/4/dates/0: '2026-06-25' is not of type 'object'",
-    "items/4/dates/1: '2026-06-26' is not of type 'object'",
-    "items/4/entities/1/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/4/kind: 'investimento_publico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/5/dates/0: '2026-H1' is not of type 'object'",
-    "items/5/entities/2/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/5/entities/3/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/5/kind: 'politica_de_dados' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/6/dates/0: '2026-01-08' is not of type 'object'",
-    "items/6/entities/1/type: 'Organizacao' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/6/kind: 'programa_setor_publico' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "items/7/dates/0: '2026-04-13' is not of type 'object'",
-    "items/7/entities/1/id: 'instrumento:rcm-70-2026' does not match '^(org|inst|pessoa|politica|caso|projeto|dataset|modelo|evento|local|programa):[a-z0-9-]+$'",
-    "items/7/entities/1/type: 'InstrumentoJuridico' is not one of ['Organização', 'Instituição', 'Pessoa', 'Política', 'CasoDeUso', 'Projeto', 'Dataset', 'Modelo', 'Evento', 'Local', 'Programa']",
-    "items/7/kind: 'infraestrutura_publica' is not one of ['lead', 'fact', 'entity', 'event', 'dataset', 'policy-instrument', 'funding', 'correction-candidate']",
-    "sources/0/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/1/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/2/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/3/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/4/access: 'search-snippet; abertura devolveu HTTP 403' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/5/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
-    "sources/6/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']"
+    "jsonschema não está instalado — a entrega não foi validada (pip install jsonschema)"
   ],
   "congelada_em": "2026-09-15",
   "fontes": [
@@ -228,10 +184,10 @@
       "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
       "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
       "bytes": 228725,
-      "caracteres_visiveis": 30808,
+      "caracteres_visiveis": 0,
       "formato": "pdf",
-      "legivel": true,
-      "porque": null
+      "legivel": false,
+      "porque": "a cópia congelada é um PDF que este leitor não conseguiu ler (nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado, que precisaria de reconhecimento ótico). É uma limitação deste leitor, não uma afirmação sobre o documento"
     }
   ],
   "itens": [
@@ -876,10 +832,10 @@
           "excerto": "Aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
           "confianca_declarada": "alta",
           "estado_entregue": "por_verificar",
-          "estado": "confirmada",
-          "nota": null,
-          "correspondencia": "exacta",
-          "trocos": 1
+          "estado": "fonte_inacessivel",
+          "nota": "a cópia congelada é um PDF que este leitor não conseguiu ler (nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado, que precisaria de reconhecimento ótico). É uma limitação deste leitor, não uma afirmação sobre o documento",
+          "correspondencia": null,
+          "trocos": 0
         },
         {
           "id": "item-pol-08-c2",
@@ -889,10 +845,10 @@
           "excerto": "viabilizam o desenvolvimento e a adoção de tecnologias como a inteligência artificial (IA), a computação em nuvem e o tratamento massivo de dados.",
           "confianca_declarada": "alta",
           "estado_entregue": "por_verificar",
-          "estado": "confirmada",
-          "nota": "o excerto está na cópia congelada por inteiro e pela ordem certa, mas partido em 2 troços: alguma coisa o interrompe no documento — tipicamente um cabeçalho corrente numa quebra de página. O leitor desta redação não faz paginação, por isso a interrupção é dele e não de quem entregou a pista.",
-          "correspondencia": "fragmentada",
-          "trocos": 2
+          "estado": "fonte_inacessivel",
+          "nota": "a cópia congelada é um PDF que este leitor não conseguiu ler (nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado, que precisaria de reconhecimento ótico). É uma limitação deste leitor, não uma afirmação sobre o documento",
+          "correspondencia": null,
+          "trocos": 0
         }
       ],
       "entidades_propostas": [
@@ -934,21 +890,21 @@
         "persons_named": []
       },
       "resumo": {
-        "confirmada": 2,
+        "confirmada": 0,
         "nao_encontrada": 0,
-        "fonte_inacessivel": 0
+        "fonte_inacessivel": 2
       }
     }
   ],
   "propostas_de_vocabulario": [],
   "contagens": {
     "fontes": 8,
-    "fontes_legiveis": 6,
+    "fontes_legiveis": 5,
     "itens": 8,
     "afirmacoes": 19,
-    "confirmadas": 9,
+    "confirmadas": 7,
     "nao_encontradas": 0,
-    "fonte_inacessivel": 10
+    "fonte_inacessivel": 12
   },
   "revisao": {
     "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",

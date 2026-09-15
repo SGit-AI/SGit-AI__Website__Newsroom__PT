@@ -29,9 +29,9 @@
   "o_que_fez": [
     "dados/agentes.json: o registo dos agentes, no formato de teams.sgit.ai cruzado com o de sgraph.ai. Cinco papéis, cinco declarados como não construídos com a razão.",
     "redacao/correio/: o protocolo Email-FS-lite v0.6, adotado tal e qual. As duas mensagens que já existiam migradas para .eml com o corpo intacto, e o remetente que já não existe declarado como identidade histórica.",
-    "build/equipa.py: UM leitor da pasta do correio, que deriva dados/correio.json e dados/quadro.json. build/build.py e build/mesa.py passam a ler o derivado.",
+    "build/backoffice_team.py: UM leitor da pasta do correio, que deriva dados/correio.json e dados/quadro.json. build/build.py e build/mesa.py passam a ler o derivado.",
     "Três páginas de bastidores: a equipa, o quadro por agente, e o correio enfiado por Message-ID.",
-    "assets/ponte.js, build/pontes.py, dados/pontes.json: a ponte para a fila de acrescento, com o envelope da v0.15.0 do sgit. Construída e sem credencial, porque nenhuma credencial pode entrar num ficheiro deste repositório.",
+    "assets/ponte.js, build/backoffice_bridges.py, dados/pontes.json: a ponte para a fila de acrescento, com o envelope da v0.15.0 do sgit. Construída e sem credencial, porque nenhuma credencial pode entrar num ficheiro deste repositório.",
     "assets/observador.js: a observabilidade. Sem credenciais não faz absolutamente nada — nem envia, nem mostra aviso, nem põe interruptor.",
     "assets/conversa.js: «falar com este conteúdo» nos dois níveis, com dezoito ferramentas que são GETs a /api/v1/.",
     "Quatro coleções novas na API: agents, mail, board, bridges.",

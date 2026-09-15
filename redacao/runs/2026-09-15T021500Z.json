@@ -32,7 +32,7 @@
     "§2.6 além do pedido: o cabeçalho de tabela e a prosa do bloco «para um agente» também saíram do mono, pela mesma regra — o mono quer dizer um facto de máquina.",
     "§4.2 — as correções de gerador: a coluna de tabela vazia em todas as linhas deixa de ser enviada; «nao resolve» ganha o seu acento por vocabulário escrito e não por troca de underscore; o distintivo de versão passa a ligar para o que mudou nessa versão, e as doze linhas de admin/versions.html ganham a âncora do seu número; cada cartão da primeira página ganha a data; 54 max-width em linha retirados das classes de corpo; e o flex-wrap que faltava para a regra da navegação no telemóvel fazer alguma coisa.",
     "§4.4 — build/gates_desenho.py, os portões 27 a 33, ligado ao build/tudo.py. Assere o contraste de cada filete e de cada cor de estado, a medida e a entrelinha, que nenhum gerador emite max-width em linha numa classe de corpo, que o mono só aparece onde a folha quer dizer um facto de máquina, que o anel de foco existe, que nenhuma tabela envia uma coluna vazia, que nenhuma ficha de estado perdeu o acento, e que o distintivo de versão liga.",
-    "/backoffice/desenho.html — os 30 itens da revisão, um a um, com o estado de cada um e o portão que o segura quando há um.",
+    "/backoffice/design.html — os 30 itens da revisão, um a um, com o estado de cada um e o portão que o segura quando há um.",
     "As cinco decisões da §4.5 no quadro do editor, com as opções e com o que fica bloqueado por cada uma. Nenhuma foi tomada."
   ],
   "correcoes_a_revisao": [
@@ -53,7 +53,7 @@
   },
   "nao_feito": [
     "§3.9, que a revisão chama o blocker e com razão: o sistema de desenho vive em atributos style= em linha nos geradores. Retirados os 54 que cancelavam a correção da medida, e o portão 30 impede que voltem; o resto é uma versão própria.",
-    "§2.10 a escala de espaçamento, §2.11 o buraco na grelha, §2.12 a divisão da tira do cabeçalho, §2.13 o modelo das páginas de entidade, §2.14 os rótulos legíveis — todos bloqueados na §3.9 ou numa decisão do editor, e cada um com o bloqueio nomeado em /backoffice/desenho.html.",
+    "§2.10 a escala de espaçamento, §2.11 o buraco na grelha, §2.12 a divisão da tira do cabeçalho, §2.13 o modelo das páginas de entidade, §2.14 os rótulos legíveis — todos bloqueados na §3.9 ou numa decisão do editor, e cada um com o bloqueio nomeado em /backoffice/design.html.",
     "§3.2 a deduplicação dos cartões e §2.8 a posição das fichas de proveniência: as duas estão prontas de um lado técnico e são decisões 5 e 2 do editor. A revisão diz expressamente «agentes: não escolham isto por vocês»."
   ],
   "nota": "Uma execução de CONSTRUÇÃO e não de redação: não obteve nem congelou uma fonte, não escreveu uma afirmação sobre Portugal, não moveu um issue e não pôs nada em publicado. Mexeu em redacao/ para escrever o correio, os cartões de decisão e este registo, que o portão 12 permite explicitamente. Leu um cofre exterior, que é a fonte do trabalho e não uma fonte do jornal: nada dele entrou numa página que o leitor lê."

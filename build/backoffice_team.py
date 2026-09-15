@@ -644,6 +644,16 @@ notification; here it runs inside a git repository, which changes the command an
 That difference is written down in
 <a href="docs.html#redacao/correio/LEIA-ME.md"><code>redacao/correio/LEIA-ME.md</code></a> rather
 than glossed over.</p>
+<p class="note" style="max-width:78ch">And immutability here is a <b>discipline, not a
+mechanism</b>: nothing in a git repository stops a write. So the protocol note carries the one
+exception and the record of every use of it — the editor of record may authorise a
+<b>sweep</b>, a mechanical change applied identically to every message that does not alter what
+any of them asserts, such as a path that has been renamed. Rewriting a sentence, a number or a
+conclusion is not a sweep and is not allowed; that is what a reply is for. Every sweep ever made
+is listed in that note with the release it landed in and what authorised it — the number is not
+repeated here, because a page that printed «the current version» would claim the last sweep
+happened in whatever release you are reading. A rule the commit history quietly contradicts is
+worse than no rule.</p>
 
 <h2>Where a message sits is what state
 it is in</h2>

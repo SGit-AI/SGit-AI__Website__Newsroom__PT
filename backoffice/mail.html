@@ -16,11 +16,11 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.22.0" title="O que mudou em v0.22.0, e porquê">v0.22.0</a></div>
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.0" title="O que mudou em v0.23.0, e porquê">v0.23.0</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.22.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../backoffice/mail.html" aria-current="page">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/board.html">Board<span class="count">17</span></a><a class="nav" href="../backoffice/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/team.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.23.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../backoffice/mail.html" aria-current="page">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/board.html">Board<span class="count">17</span></a><a class="nav" href="../backoffice/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/team.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>The mail</h1></div></div>
@@ -38,6 +38,16 @@ notification; here it runs inside a git repository, which changes the command an
 That difference is written down in
 <a href="docs.html#redacao/correio/LEIA-ME.md"><code>redacao/correio/LEIA-ME.md</code></a> rather
 than glossed over.</p>
+<p class="note" style="max-width:78ch">And immutability here is a <b>discipline, not a
+mechanism</b>: nothing in a git repository stops a write. So the protocol note carries the one
+exception and the record of every use of it — the editor of record may authorise a
+<b>sweep</b>, a mechanical change applied identically to every message that does not alter what
+any of them asserts, such as a path that has been renamed. Rewriting a sentence, a number or a
+conclusion is not a sweep and is not allowed; that is what a reply is for. Every sweep ever made
+is listed in that note with the release it landed in and what authorised it — the number is not
+repeated here, because a page that printed «the current version» would claim the last sweep
+happened in whatever release you are reading. A rule the commit history quietly contradicts is
+worse than no rule.</p>
 
 <h2>Where a message sits is what state
 it is in</h2>
@@ -114,7 +124,7 @@ construída e não tem por onde enviar. Uma fila de acrescento precisa do `vault
 recebe, de um `append_token` em hexadecimal, e da chave pública para eu cifrar no navegador antes
 de enviar. As duas primeiras são credenciais e não podem ficar neste repositório — o `validate.js`
 tem um detetor de cadeias com forma de chave e falharia a construção, o que é o portão a funcionar.
-Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/pontes.html`. A chave
+Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/bridges.html`. A chave
 pública pode ser publicada, e essa fica em ficheiro.</p><p class='sm' style='max-width:52em'>SEGUNDA. As chaves de leitura que me deu para os cofres dos jogos não puderam ser usadas: instalar
 o `sgit` foi recusado pelo classificador da caixa onde esta sessão corre. Não escrevi nenhuma
 delas em ficheiro. Li o desenho na fonte publicada em vez disso, e isso trouxe um achado que
@@ -126,7 +136,7 @@ fazer, este site consegue.</p><p class='sm' style='max-width:52em'>TERCEIRA, QUE
 contínua corre. Quem seguir a linha à letra conclui que o portão não existe. `CLAUDE.md` está na
 lista de recusa de propósito e não lhe toquei: a linha é sua.</p><p class='sm' style='max-width:52em'>Continuam abertos os três assuntos que a sessão de arranque lhe deixou — a entrega do ChatGPT item
 a item, os três tipos novos da ontologia, e o pedido de acesso à ANACOM, que tem a pesquisa
-bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.</p>
+bloqueada à espera. Estão agora no seu quadro, em `/backoffice/board.html`.</p>
   <p class="xs mono">redacao/correio/expedicao/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml · 2847 bytes ·
      in <code>@Dinis</code>'s
      mailroom
@@ -146,7 +156,7 @@ bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.</
   <p class="std" style="max-width:52em"><b>A revisão de desenho está implementada até onde um agente a pode implementar; cinco decisões são suas</b></p>
   <p class='sm' style='max-width:52em'>Clonei o cofre `e54hfntq`, li a revisão inteira, e implementei-a. Dezoito itens feitos, três
 parciais, seis adiados com o bloqueio nomeado, e três que são decisões suas e que não tomei. Cada
-um está em /backoffice/desenho.html, com o portão que o segura quando há um.</p><p class='sm' style='max-width:52em'>O QUE MUDOU, EM MEDIDAS E NÃO EM ADJETIVOS</p><p class='sm' style='max-width:52em'>A coluna do texto passou de 88 caracteres por linha — medidos por mim, 104, e volto a isso — para
+um está em /backoffice/design.html, com o portão que o segura quando há um.</p><p class='sm' style='max-width:52em'>O QUE MUDOU, EM MEDIDAS E NÃO EM ADJETIVOS</p><p class='sm' style='max-width:52em'>A coluna do texto passou de 88 caracteres por linha — medidos por mim, 104, e volto a isso — para
 71. A entrelinha passou de 26.1px para 29.16px. Os filetes passaram de 1.36:1 contra o papel, onde
 não se veem, para 2.65:1. A cor de «disputado» passou de 4.48:1, que FALHA o AA, para 5.81:1. O
 antetítulo, o rótulo de secção, o cabeçalho de tabela e o bloco «para um agente» saíram da face
@@ -168,7 +178,7 @@ terceira. E a auditoria aos acentos que a §3.4 mandou fazer («isto sugere que 
 ser escritas em algum sítio só ASCII, e vale uma verificação») encontrou o mesmo defeito nos
 títulos dos cartões do quadro, que fui EU que introduzi há poucas horas, a derivar o título do nome
 do ficheiro. A revisão apanhou-me a mim.</p><p class='sm' style='max-width:52em'>AS CINCO DECISÕES, E NÃO TOMEI NENHUMA</p><p class='sm' style='max-width:52em'>A §4.5 diz «agentes: não escolham isto por vocês». Estão as cinco no seu quadro, em
-/backoffice/quadro.html, cada uma com as opções e com o que fica bloqueado por ela:</p><p class='sm' style='max-width:52em'>1. O grafo como linguagem visual do site. É a única coisa que dá identidade visual a este site sem
+/backoffice/board.html, cada uma com as opções e com o que fica bloqueado por ela:</p><p class='sm' style='max-width:52em'>1. O grafo como linguagem visual do site. É a única coisa que dá identidade visual a este site sem
    importar uma imagem que não se consegue verificar — e é uma construção grande que muda o que a
    primeira página é.
 2. Onde ficam as fichas de proveniência. As três opções guardam a informação toda; o que muda é a
@@ -186,7 +196,7 @@ direita, para os blocos — é uma versão própria, porque não tem resultado v
 cinco geradores. Não a enfiei numa esquina desta.</p><p class='sm' style='max-width:52em'>Continua aberto o que lhe deixei antes: a entrega do ChatGPT item a item, os três tipos novos da
 ontologia, o pedido de acesso à ANACOM que tem a pesquisa bloqueada, e o aviso ter de falar de
 telemetria antes de a ponte da observabilidade receber credenciais.</p>
-  <p class="xs mono">redacao/correio/expedicao/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml · 5236 bytes ·
+  <p class="xs mono">redacao/correio/expedicao/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml · 5234 bytes ·
      in <code>@Dinis</code>'s
      mailroom
      · sender copy at <code>redacao/correio/bastidores.pt/saida/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml</code>
@@ -267,7 +277,7 @@ legível.</p><p class='sm' style='max-width:52em'>— Dinis</p>
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/mail.html</code> · version <span class="ver">v0.22.0</span>.
+<code>backoffice/mail.html</code> · version <span class="ver">v0.23.0</span>.
 </div>
 
 </main>

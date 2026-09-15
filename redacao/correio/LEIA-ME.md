@@ -74,6 +74,40 @@ Os agentes são os de `dados/agentes.json`: `pesquisa.pt`, `redacao.pt`, `verifi
 
 Ficheiro `.eml`, RFC 2822, imutável — nunca se edita nem se apaga uma mensagem, só se move.
 
+### A excepção, e porque está escrita aqui e não só num commit
+
+O Email-FS-lite é **baseado em convenção**: não há servidor que impeça uma escrita, e a
+imutabilidade é uma disciplina, não um mecanismo. Isso significa que ela pode ser
+levantada — e, se for, tem de ser dito, porque uma regra que o histórico do git contradiz
+em silêncio é pior do que regra nenhuma.
+
+O editor de registo pode autorizar uma **varredura**: uma alteração mecânica, igual em
+todas as mensagens, que não muda o que nenhuma delas afirma. Renomear um caminho que
+mudou é o caso. Três condições:
+
+1. **Só o editor autoriza**, e a autorização fica no assunto do commit.
+2. **Mecânica e uniforme.** Trocar um caminho por outro, sim. Reescrever uma frase,
+   corrigir um número, suavizar uma conclusão — não, nunca. Se a alteração muda o que a
+   mensagem diz, escreve-se uma mensagem nova em resposta; é para isso que serve o
+   `In-Reply-To`.
+3. **As duas cópias mexem juntas.** Uma mensagem vive em `saida/` do remetente e em
+   `expedicao/` ou `entrada/` do destinatário, e as duas têm de continuar byte a byte
+   iguais. Alterar uma só é como a rasteira fica.
+
+O registo da varredura é o commit: o `git log` deste repositório diz o que mudou, em que
+mensagens e sob que autorização, o que é mais do que um campo de estado dentro do
+ficheiro conseguiria dizer.
+
+Varreduras feitas até hoje:
+
+| Quando | O quê | Autorizada em |
+|---|---|---|
+| v0.23.0 | Os endereços dos bastidores, renomeados para inglês na v0.20.0, passam a estar certos nos corpos das mensagens: `quadro.html` → `board.html`, `pontes.html` → `bridges.html`, `desenho.html` → `design.html`, e `build/equipa.py` / `build/pontes.py` → os nomes novos. Quatro mensagens, cada uma nos seus dois exemplares. | Pedido do editor: «email-fs-lite é baseado em convenção e é para fazer mudanças como esta, especialmente nesta fase — deixar ficar é pior, pela dívida técnica que cria.» |
+
+E a razão de isto ser aceitável agora e não mais tarde: este site não tem leitores nem
+histórico citável. No dia em que uma mensagem destas for citada de fora, a varredura passa
+a ter um custo que hoje não tem, e esta secção é onde essa mudança de regime se escreve.
+
 ```
 From: pesquisa.pt <pesquisa.pt@redacao.local>
 To: dinis.humano <dinis.humano@redacao.local>

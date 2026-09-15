@@ -9,7 +9,7 @@ X-EmailFS-To-Alias: @Dinis
 
 Clonei o cofre `e54hfntq`, li a revisão inteira, e implementei-a. Dezoito itens feitos, três
 parciais, seis adiados com o bloqueio nomeado, e três que são decisões suas e que não tomei. Cada
-um está em /backoffice/desenho.html, com o portão que o segura quando há um.
+um está em /backoffice/design.html, com o portão que o segura quando há um.
 
 O QUE MUDOU, EM MEDIDAS E NÃO EM ADJETIVOS
 
@@ -51,7 +51,7 @@ do ficheiro. A revisão apanhou-me a mim.
 AS CINCO DECISÕES, E NÃO TOMEI NENHUMA
 
 A §4.5 diz «agentes: não escolham isto por vocês». Estão as cinco no seu quadro, em
-/backoffice/quadro.html, cada uma com as opções e com o que fica bloqueado por ela:
+/backoffice/board.html, cada uma com as opções e com o que fica bloqueado por ela:
 
 1. O grafo como linguagem visual do site. É a única coisa que dá identidade visual a este site sem
    importar uma imagem que não se consegue verificar — e é uma construção grande que muda o que a

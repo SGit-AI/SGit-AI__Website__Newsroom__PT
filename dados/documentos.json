@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 99,
+  "contagem": 100,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -196,6 +196,14 @@
       "bytes": 3997,
       "linhas": 59,
       "palavras": 618
+    },
+    {
+      "caminho": "admin/versions/v0.23.0.md",
+      "titulo": "v0.23.0",
+      "categoria": "Repository root",
+      "bytes": 2940,
+      "linhas": 44,
+      "palavras": 481
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -649,9 +657,9 @@
       "caminho": "redacao/correio/LEIA-ME.md",
       "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 5981,
-      "linhas": 120,
-      "palavras": 800
+      "bytes": 8251,
+      "linhas": 154,
+      "palavras": 1176
     },
     {
       "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",

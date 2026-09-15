@@ -20,7 +20,7 @@ construída e não tem por onde enviar. Uma fila de acrescento precisa do `vault
 recebe, de um `append_token` em hexadecimal, e da chave pública para eu cifrar no navegador antes
 de enviar. As duas primeiras são credenciais e não podem ficar neste repositório — o `validate.js`
 tem um detetor de cadeias com forma de chave e falharia a construção, o que é o portão a funcionar.
-Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/pontes.html`. A chave
+Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/bridges.html`. A chave
 pública pode ser publicada, e essa fica em ficheiro.
 
 SEGUNDA. As chaves de leitura que me deu para os cofres dos jogos não puderam ser usadas: instalar
@@ -38,4 +38,4 @@ lista de recusa de propósito e não lhe toquei: a linha é sua.
 
 Continuam abertos os três assuntos que a sessão de arranque lhe deixou — a entrega do ChatGPT item
 a item, os três tipos novos da ontologia, e o pedido de acesso à ANACOM, que tem a pesquisa
-bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.
+bloqueada à espera. Estão agora no seu quadro, em `/backoffice/board.html`.

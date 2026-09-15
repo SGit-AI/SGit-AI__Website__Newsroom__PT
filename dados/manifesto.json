@@ -22,8 +22,8 @@
     },
     {
       "ficheiro": "dados/correio.json",
-      "bytes": 33449,
-      "sha256": "228b9bbd2695431030620674300b60b9a22e58ca82aa47d7ffcec5b8053e7c95"
+      "bytes": 33445,
+      "sha256": "605d9753f874240cad3bd16a53db65cb29b66e57a29f5bb1dd7b28af7e9f2ff3"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 22602,
-      "sha256": "6ff7a66fc4e599dce108bfeb59c0979a3b4448106c9262ce26f81f2a96729a52"
+      "bytes": 22789,
+      "sha256": "9cfc5cd3da155e6847f762bd6b306101ca825628561c6cae17fa2feba59f789c"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -47,8 +47,8 @@
     },
     {
       "ficheiro": "dados/entregas.json",
-      "bytes": 76790,
-      "sha256": "12bb0975abdfd9c8a36937fa5004f14775fd9632c9331fdd37ca110821ae340d"
+      "bytes": 71424,
+      "sha256": "3f35d03e715b1e907189e43e9d70f8f198ec713ffebbb6410875da3953b393a9"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -88,7 +88,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 5030,
-      "sha256": "babfb69082a6a008f68ccc944ce57cdadf046a8794acdcccaa76bc1d59bb21d5"
+      "sha256": "85ff5fa3aa3a080b0e866b3fb9f4ed39859b3706c56a0e9e336ef5629f4c188a"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -117,13 +117,13 @@
     },
     {
       "ficheiro": "dados/quadro.json",
-      "bytes": 63737,
-      "sha256": "0f285f5d5ece05cbd81b0a497519450a04874375a184ae2f9f2493db75445ce3"
+      "bytes": 63735,
+      "sha256": "11092d5d0c2d600a029b0af3b59dfbbc85d46575c8301ced36088dbcd3c3b52f"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 19335,
-      "sha256": "7fe8de8835d45c0b6b06ed18ea5b4412e2e894dd7cfc86775a471096c5ffa290"
+      "bytes": 19787,
+      "sha256": "179ed7ddb6154000c8d6a9e574c0be68f5a9ce3fc2807175da3158a1c8438461"
     },
     {
       "ficheiro": "dados/registo.json",
