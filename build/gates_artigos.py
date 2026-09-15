@@ -612,16 +612,36 @@ for f in CODIGO:
 # --- 28. every agent that touches this site is named ---------------------------
 agentes = carregar("agentes.json")
 AGENTES_DIR = ROOT / "agents"
-registados = {a["id"] for a in agentes.get("agents", [])}
+# The register is dados/agentes.json, written by build/equipa.py. The mandate files under agents/
+# are RENDERED from it by build/mandatos.py. Two sessions answered the same ask on the same
+# afternoon — one by writing the files, one by building the register — and two copies of a mandate
+# diverge on the day somebody edits one. The register won; this gate holds the rendering to it.
+registados = {a["id"] for a in agentes.get("agentes", [])}
+curtos = {a.get("id_curto") for a in agentes.get("agentes", [])} | registados
 if not registados:
     erros.append("agents: dados/agentes.json registers nobody. Every agent that may change this "
-                 "site is named there, with a ROLE.md and a MANDATE.md")
-for a in agentes.get("agents", []):
+                 "site is named there, and its mandate is rendered from that entry")
+for a in agentes.get("agentes", []):
     for ficheiro in ("ROLE.md", "MANDATE.md"):
-        if not (AGENTES_DIR / a["id"] / ficheiro).exists():
+        alvo = AGENTES_DIR / a["id"] / ficheiro
+        if not alvo.exists():
             erros.append(f'agents/{a["id"]}: registered in dados/agentes.json and has no '
-                         f'{ficheiro}. A named agent without a written mandate is a name, not a '
-                         f'boundary')
+                         f'{ficheiro}. Run build/mandatos.py — a named agent without a written '
+                         f'mandate is a name, not a boundary')
+            continue
+        texto = alvo.read_text(encoding="utf-8")
+        if "DERIVED FILE" not in texto:
+            erros.append(f'agents/{a["id"]}/{ficheiro}: is not marked as derived. These files are '
+                         f'rendered from the register; a hand-written one is a second copy of a '
+                         f'mandate, and two copies diverge')
+        # The drift check that makes this worth having: a mandate that no longer says what the
+        # register says reads as authoritative while being wrong.
+        for campo in ("dominio", "missao", "afirmacao_central"):
+            valor = (a.get(campo) or "").strip()
+            if ficheiro == "ROLE.md" and valor and valor not in texto:
+                erros.append(f'agents/{a["id"]}/ROLE.md: has drifted from the register — '
+                             f'`{campo}` no longer matches. Re-run build/mandatos.py')
+                break
 if AGENTES_DIR.exists():
     for d in sorted(p for p in AGENTES_DIR.iterdir() if p.is_dir()):
         if d.name not in registados:
@@ -629,10 +649,11 @@ if AGENTES_DIR.exists():
                          f'unregistered mandate is one no gate can check')
 for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
     r = json.loads(f.read_text(encoding="utf-8"))
-    quem = r.get("agente")
-    if quem and quem not in registados:
-        erros.append(f'runs: {f.name} names the agent «{quem}», which is not in '
-                     f'dados/agentes.json')
+    for campo in ("agente", "departamento"):
+        quem = r.get(campo)
+        if quem and quem not in curtos and campo == "agente":
+            erros.append(f'runs: {f.name} names the agent «{quem}», which is not in '
+                         f'dados/agentes.json')
 
 
 # --- relatório -----------------------------------------------------------------

@@ -52,6 +52,16 @@ const PAGINAS = [
     ['/api/', ['pt-api-console']],
     ['/grafo/', []],
     ['/protagonistas/', []],
+    /* The team, board and mail pages have no components, and the bridges page has the largest
+       script block on this site — the unlock and the message box. None of them uses a custom
+       element, so none would be caught by a list made of components; but it is code that runs, and
+       that is what this gate checks. Being out by default is precisely the kind of exemption gate
+       26 says you should not be able to claim by writing the right word. */
+    ['/backoffice/guidance.html', []],
+    ['/backoffice/equipa.html', []],
+    ['/backoffice/quadro.html', []],
+    ['/backoffice/correio.html', []],
+    ['/backoffice/pontes.html', []],
 ]
 
 /* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
@@ -135,6 +145,6 @@ if (falhas) {
     console.log(`\nrender: ${falhas} página(s) com problemas`)
     process.exit(1)
 }
-console.log(`\nrender: OK — ${PAGINAS.length} páginas abertas num navegador, ` +
-            `nenhum erro de consola, nenhum pedido falhado, cada componente em «pronto», ` +
-            `nenhuma a transbordar a 390px`)
+console.log(`\nrender: OK — ${PAGINAS.length} pages opened in a browser, ` +
+            `no console errors, no failed requests, every component at "pronto", ` +
+            `none overflowing at 390px`)

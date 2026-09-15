@@ -1,0 +1,54 @@
+{
+  "id": "observabilidade",
+  "nome": "Quem leu o quê, sem saber quem",
+  "direcao": "navegador de qualquer leitor → fila de acrescento → cofre de observabilidade",
+  "quem_envia": "Qualquer navegador que abra uma página deste site, se a ponte estiver configurada e o leitor não tiver desligado o envio",
+  "quem_recebe": "Um cofre de observabilidade separado, que lista, decifra e agrega",
+  "porque_existe": "Para esta redação saber que páginas são lidas e que caminhos as pessoas seguem, sem montar um servidor de estatísticas e sem saber quem é ninguém.",
+  "endpoint": "POST {api}/api/vault/append/write/{vault_id}",
+  "credenciais_em_localstorage": [
+    {
+      "chave": "vault_id",
+      "o_que_e": "O cofre de observabilidade",
+      "publicavel": true,
+      "porque": "Sozinho não dá nada: escrever exige o código, e nem um nem outro dá para ler"
+    },
+    {
+      "chave": "append_token",
+      "o_que_e": "Autoriza o acrescento, e só o acrescento",
+      "publicavel": true,
+      "porque": "Nesta ponte o código É público, e é o padrão que a documentação da telemetria descreve: só escreve, não lista, não obtém, não lê. É a única forma de credencial que sobrevive a ser publicada"
+    },
+    {
+      "chave": "chave_publica",
+      "o_que_e": "A chave pública do cofre de observabilidade",
+      "publicavel": true,
+      "porque": "Publica-se por construção"
+    }
+  ],
+  "chave_de_localstorage": "pt-newsroom:ponte:observabilidade",
+  "o_que_vai_na_carga": [
+    "sessao: 16 dígitos hexadecimais criados na memória do navegador quando a página abre, e perdidos quando fecha",
+    "eventos: [{quando, tipo, pagina}]",
+    "formato: largo | estreito",
+    "lingua: as duas primeiras letras",
+    "versao do site"
+  ],
+  "o_que_nunca_vai": [
+    "Nome, correio eletrónico, ou qualquer coisa que identifique uma pessoa",
+    "Agente do utilizador",
+    "Dimensões do ecrã",
+    "Endereço IP (não é do lado do cliente, mas o servidor da fila vê-o e isso está dito)",
+    "Referenciador",
+    "Endereço completo com parâmetros"
+  ],
+  "limites_do_lado_do_cliente": [
+    "Um envio a cada 4 segundos, no máximo",
+    "40 envios por sessão, no máximo",
+    "Falha em silêncio: se o envio falhar, o leitor não pode notar"
+  ],
+  "interruptor": "Cada página tem um aviso em português simples e um interruptor para desligar o envio. Abrir uma página normalmente não telefona a casa; esta telefona, e por isso diz-se.",
+  "estado": "sem-credencial",
+  "o_que_falta": "O cofre de observabilidade, o seu código de acrescento e a sua chave pública. Enquanto faltarem, não se envia nada — e não há aviso a dizer que se envia, porque um aviso sobre uma coisa que não acontece é pior do que nenhum.",
+  "tratamento_do_que_chega": "Cada evento é uma afirmação e não prova. Quem tem a chave de leitura do site tem o código de acrescento e pode forjar ou inundar a fila. Os números que dali saem são direcionais, e uma página que os apresentasse como medição estaria a mentir sobre o que são."
+}

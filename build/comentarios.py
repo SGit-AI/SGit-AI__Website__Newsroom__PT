@@ -45,15 +45,27 @@ ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 ARTIGOS = ROOT / "artigos"
 
-# The agents, as this repository knows them. A department is an agent with a write scope; the
-# editor is a named person; an outside assistant is a tool and a model, written exactly as the
-# delivery declared them. The full register, with a mandate each, is in agents/.
-AGENTES = {
-    "pesquisa":    {"nome": "Pesquisa", "fornecedor": "esta redação", "especie": "departamento"},
-    "redacao":     {"nome": "Redação", "fornecedor": "esta redação", "especie": "departamento"},
-    "verificacao": {"nome": "Verificação", "fornecedor": "esta redação", "especie": "departamento"},
-    "editor":      {"nome": "Dinis Cruz", "fornecedor": "humano", "especie": "editor de registo"},
-}
+# The agents of this newsroom come from `dados/agentes.json`, which is the register, and not from a
+# list in here. There were two lists — this one and the register — and two lists of agents would
+# eventually disagree on the day somebody added a role to one and not the other. The key stays the
+# `id_curto`, because that is what the comment entries on each article carry, and those are
+# evidence.
+def _agentes_do_registo():
+    reg = carregar(DADOS / "agentes.json")
+    if not reg:
+        return {}
+    especies = {"departamento": "departamento", "humano": "editor de registo"}
+    return {
+        a["id_curto"]: {
+            "nome": a["nome"],
+            "fornecedor": "humano" if a.get("papel") == "humano" else "esta redação",
+            "especie": especies.get(a.get("papel"), a.get("papel", "departamento")),
+            # The same agent's mail address, so whoever reads the comment map can go from what it
+            # did to what it has in front of it.
+            "id_correio": a["id"], "alias": a.get("alias"),
+        }
+        for a in reg.get("agentes", [])
+    }
 
 ESPECIES = {
     "acao":        "Uma coisa que um agente fez, com a hora a que a fez.",
@@ -78,7 +90,7 @@ def main():
 
     # Outside assistants, read from the deliveries rather than from a hand-written list: if a
     # delivery from another tool turns up, it enters here on its own.
-    agentes = dict(AGENTES)
+    agentes = _agentes_do_registo()
     for ent in entregas.get("entregas", []):
         aid = ent.get("ferramenta") or "desconhecido"
         agentes.setdefault(aid, {

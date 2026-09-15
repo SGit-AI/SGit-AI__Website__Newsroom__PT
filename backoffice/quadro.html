@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The board · pt.newsroom back office</title>
+<meta name="description" content="Every agent&#x27;s board: what it opened for itself, what the paper&#x27;s issues put on it by formula, and what mail is still unread.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/quadro.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/quadro.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../backoffice/agents.html">agents</a> ·
+       <a href="../backoffice/guidance.html">guidance</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.9.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The board · what each agent has in
+front of it</div></div>
+<p class="std" style="max-width:52em">Two kinds of card, kept apart on purpose. A <b>board card</b>
+is work the agent opened for itself, in
+<code>redacao/correio/&lt;agent&gt;/assuntos/&lt;column&gt;/</code>, and it carries the agent's own
+reading of the work — intent, approach, acceptance criterion. A <b>paper issue</b> is one of the
+publication's own issues in <code>redacao/issues/</code>, placed on an agent's board by the
+formula below and by nothing else. A card moves column in the same commit as the mail action that
+moved it, which is why the board cannot disagree with the mail.</p>
+<p class="sm" style="max-width:52em;padding-bottom:10px">Nothing on this page is a claim about
+Portugal. Every count is a count of files in this repository.</p>
+
+<div class="rule" style="padding:18px 0 8px"><div class="sect">The formula, printed because it is
+used</div></div>
+<p class="sm" style="max-width:52em;padding-bottom:8px">A quem pertence um issue do jornal não é escrito à mão em lado nenhum: sai do seu estado, por esta tabela, e é por isso que o quadro não pode discordar dos ficheiros. Um cartão em «assuntos» é diferente: é o trabalho que o próprio agente abriu, e esse é escrito por ele.</p>
+<div class="rolar"><table><thead><tr><th style="width:130px">Issue state</th>
+  <th style="width:140px">Lands with</th><th>Why</th></tr></thead><tbody><tr><td class="mono xs">procurado</td><td class="mono xs">pesquisa.pt</td><td class="sm">Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.</td></tr><tr><td class="mono xs">rascunho</td><td class="mono xs">verificacao.pt</td><td class="sm">Tem prosa. O passo seguinte é alguém reler cada fonte citada na cópia congelada.</td></tr><tr><td class="mono xs">verificado</td><td class="mono xs">dinis.humano</td><td class="sm">Está lido e registado. Publicar é a linha do editor de registo, e de mais ninguém.</td></tr><tr><td class="mono xs">congelado</td><td class="mono xs">dinis.humano</td><td class="sm">É uma entrega exterior à espera de aprovação item a item, que só o editor dá.</td></tr><tr><td class="mono xs">publicado</td><td class="mono xs">—</td><td class="sm">Está fora do quadro.</td></tr><tr><td class="mono xs">superseded</td><td class="mono xs">—</td><td class="sm">Está fora do quadro.</td></tr></tbody></table></div>
+
+
+<div class="rule" style="padding:26px 0 8px" id="pesquisa.pt">
+  <div class="sect">@Pesquisa · Pesquisa</div></div>
+<div class="chips" style="padding-bottom:10px">
+  <span class="chip">pesquisa.pt</span>
+  <span class="chip ok">2 open</span>
+  <span class="chip miss">1 blocked</span>
+  <span class="chip ">0 closed</span>
+  <span class="chip ">3 paper issues</span>
+  <span class="chip falta">1 unread mail</span>
+  <a class="chip" href="equipa.html#pesquisa.pt">its definition →</a>
+</div>
+<div class="g3 sp12">
+<div class="col sp6">
+  <div class="chips"><span class="chip ok">Open · 5</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">paper issue 001</span>
+    <span class="chip">procurado</span>
+    <span class="chip">politicas</span>
+  </div>
+  <p class="sm"><a href="../redacao/">A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina</a></p>
+  <p class="xs mono">by formula: Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.</p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">paper issue 002</span>
+    <span class="chip">procurado</span>
+    <span class="chip">instituicoes</span>
+  </div>
+  <p class="sm"><a href="../redacao/">O regulador foi designado e o instrumento de designação não está na página de IA do Governo</a></p>
+  <p class="xs mono">by formula: Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.</p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">paper issue 003</span>
+    <span class="chip">procurado</span>
+    <span class="chip">empresas</span>
+  </div>
+  <p class="sm"><a href="../redacao/">Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz</a></p>
+  <p class="xs mono">by formula: Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.</p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    <span class="chip">2h</span>
+    <span class="chip">issue 001,002</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Pdf do diario da republica</b></p>
+  <p class="xs">Encontrar o endereço do PDF do Diário da República para o diploma da agenda nacional (001) e para o ato de designação do regulador (002). O `dre.pt` congelado a 14 de setembro tem 2 346 bytes e 22 caracteres visíveis: renderiza por script e não diz nada a um leitor automático. Os PDFs dizem, e `buil…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md">redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md</a></p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">média</span>
+    <span class="chip">1h</span>
+    <span class="chip">issue 003</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Ausencias publicaveis tal como estao</b></p>
+  <p class="xs">O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação, e a lista de unidades de I&amp;D devolveu 404. Estão as duas em `dados/excluidas.json`. O editor disse que ambas as ausências são publicáveis tal como estão — o que há para fazer é dizê-lo a @Redacao, com …</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md">redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip miss">Blocked · 1</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue 002</span>
+    <span class="chip miss">waiting on dinis.humano</span>
+  </div>
+  <p class="sm"><b>Acesso a anacom</b></p>
+  <p class="xs">A página da ANACOM que uma entrega apresenta como autoridade nacional no âmbito do AI Act devolve 403 a esta redação. Nada se pode conferir contra ela. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. Pedir acesso é falar em nome desta publicação com uma entidade nomeada, e i…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md">redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip ">Closed · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div></div>
+<div class="sect" style="padding-top:14px">Mail on its plate</div><div class="g2 sp12"><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip falta">unread</span><span class="chip">from @Dinis</span></div><p class="sm">As três primeiras histórias estão abertas como issues em «procurado»</p><p class="xs mono"><a href="correio.html#002-tres-primeiras-historias@redacao.local">redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml</a></p></div></div><div class="col sp6"></div></div>
+
+<div class="rule" style="padding:26px 0 8px" id="redacao.pt">
+  <div class="sect">@Redacao · Redação</div></div>
+<div class="chips" style="padding-bottom:10px">
+  <span class="chip">redacao.pt</span>
+  <span class="chip ok">0 open</span>
+  <span class="chip miss">0 blocked</span>
+  <span class="chip ">0 closed</span>
+  <span class="chip ">0 paper issues</span>
+  
+  <a class="chip" href="equipa.html#redacao.pt">its definition →</a>
+</div>
+<div class="g3 sp12">
+<div class="col sp6">
+  <div class="chips"><span class="chip ok">Open · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip miss">Blocked · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip ">Closed · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div></div>
+
+
+<div class="rule" style="padding:26px 0 8px" id="verificacao.pt">
+  <div class="sect">@Verificacao · Verificação</div></div>
+<div class="chips" style="padding-bottom:10px">
+  <span class="chip">verificacao.pt</span>
+  <span class="chip ok">0 open</span>
+  <span class="chip miss">0 blocked</span>
+  <span class="chip ">0 closed</span>
+  <span class="chip ">0 paper issues</span>
+  
+  <a class="chip" href="equipa.html#verificacao.pt">its definition →</a>
+</div>
+<div class="g3 sp12">
+<div class="col sp6">
+  <div class="chips"><span class="chip ok">Open · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip miss">Blocked · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip ">Closed · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div></div>
+
+
+<div class="rule" style="padding:26px 0 8px" id="bastidores.pt">
+  <div class="sect">@Bastidores · Bastidores</div></div>
+<div class="chips" style="padding-bottom:10px">
+  <span class="chip">bastidores.pt</span>
+  <span class="chip ok">1 open</span>
+  <span class="chip miss">2 blocked</span>
+  <span class="chip ">0 closed</span>
+  <span class="chip ">0 paper issues</span>
+  
+  <a class="chip" href="equipa.html#bastidores.pt">its definition →</a>
+</div>
+<div class="g3 sp12">
+<div class="col sp6">
+  <div class="chips"><span class="chip ok">Open · 1</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    <span class="chip">6h</span>
+    <span class="chip">issue —</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>A vista dos agentes e o correio</b></p>
+  <p class="xs">Dar ao editor, nos bastidores, a vista de quem são os agentes, do que cada um tem à frente, e do correio que passou entre eles. Antes disto, saber em que pé estava uma história queria dizer abrir um terminal e ler pastas. 1. `dados/agentes.json` — o registo dos agentes no formato que teams.sgit.ai p…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md">redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip miss">Blocked · 2</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue —</span>
+    <span class="chip miss">waiting on dinis.humano</span>
+  </div>
+  <p class="sm"><b>A fila de acrescento nao tem credenciais</b></p>
+  <p class="xs">A ponte que deixa o editor escrever aos bastidores a partir do navegador está construída e não tem por onde enviar. Uma fila de acrescento precisa de três coisas, e nenhuma delas pode estar neste repositório. | O quê | Para quê | Porque não fica em ficheiro | |---|---|---| | `vault_id` do cofre que …</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md">redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md</a></p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">média</span>
+    
+    <span class="chip">issue —</span>
+    <span class="chip miss">waiting on a caixa onde esta sessão corre</span>
+  </div>
+  <p class="sm"><b>Nao consigo ler os cofres do jogo</b></p>
+  <p class="xs">@Dinis deu as chaves de leitura de dois cofres — o dos jogos de permissões e o cofre de telemetria a que ele enviava — para eu ler como a telemetria de cofre para cofre foi montada, inclusive em commits anteriores. `pip install sgit-ai` foi recusado pelo classificador da caixa onde esta sessão corre…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md">redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip ">Closed · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div></div>
+
+
+<div class="rule" style="padding:26px 0 8px" id="dinis.humano">
+  <div class="sect">@Dinis · Dinis Cruz</div></div>
+<div class="chips" style="padding-bottom:10px">
+  <span class="chip">dinis.humano</span>
+  <span class="chip ok">3 open</span>
+  <span class="chip miss">1 blocked</span>
+  <span class="chip ">0 closed</span>
+  <span class="chip ">1 paper issues</span>
+  <span class="chip falta">1 unread mail</span>
+  <a class="chip" href="equipa.html#dinis.humano">its definition →</a>
+</div>
+<div class="g3 sp12">
+<div class="col sp6">
+  <div class="chips"><span class="chip ok">Open · 4</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">paper issue 004</span>
+    <span class="chip">congelado</span>
+    <span class="chip">politicas</span>
+  </div>
+  <p class="sm"><a href="../redacao/">Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível</a></p>
+  <p class="xs mono">by formula: É uma entrega exterior à espera de aprovação item a item, que só o editor dá.</p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue 004</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Decidir a entrega chatgpt politicas</b></p>
+  <p class="xs">Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md">redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md</a></p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">média</span>
+    
+    <span class="chip">issue 004</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Decidir os tipos novos da ontologia</b></p>
+  <p class="xs">A entrega propõe três tipos que a ontologia não tem: `Programa`, `InstrumentoJuridico`, `Infraestrutura`. Aceitá-los é uma alteração de ontologia. Um tipo novo muda o que o grafo consegue dizer, e a regra 6 diz que cada aresta tem de ler em voz alta em português com um inverso distinto. Um tipo acei…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md">redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md</a></p>
+</div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">média</span>
+    
+    <span class="chip">issue 002</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Decidir o pedido de acesso a anacom</b></p>
+  <p class="xs">A página da ANACOM devolve 403 a esta redação. Decidir se se pede acesso, ou se a história 002 se escreve sobre a ausência no registo público legível. Pedir acesso é falar em nome desta publicação com uma entidade nomeada. `pesquisa.pt` tem o assunto bloqueado à espera desta decisão. Uma das duas: o…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md">redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip miss">Blocked · 1</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue —</span>
+    <span class="chip miss">waiting on dinis.humano</span>
+  </div>
+  <p class="sm"><b>O aviso tem de falar da telemetria antes de ela ligar</b></p>
+  <p class="xs">`dados/aviso.json` não diz uma palavra sobre eventos de leitura, porque até agora não se enviava nenhum. A ponte da observabilidade está construída e desligada por falta de credenciais. **No momento em que ela receber credenciais, o aviso passa a estar errado por omissão.** `dados/aviso.json` está n…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md">redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md</a></p>
+</div>
+</div>
+<div class="col sp6">
+  <div class="chips"><span class="chip ">Closed · 0</span></div>
+  <p class="sm" style="padding-top:8px">Nothing here.</p>
+</div></div>
+<div class="sect" style="padding-top:14px">Mail on its plate</div><div class="g2 sp12"><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip falta">unread</span><span class="chip">from @Arranque</span></div><p class="sm">MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão</p><p class="xs mono"><a href="correio.html#001-mvp-construido@redacao.local">redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml</a></p></div></div><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip miss">in transit</span><span class="chip">from @Bastidores</span></div><p class="sm">A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial</p><p class="xs mono">waiting for @Dinis to collect it into its inbox</p></div></div></div>
+
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/quadro.html</code> · version <span class="ver">v0.9.0</span>.
+</div>
+
+</div>
+</body>
+</html>

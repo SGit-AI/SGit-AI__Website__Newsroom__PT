@@ -7,22 +7,30 @@
     "pesquisa": {
       "nome": "Pesquisa",
       "fornecedor": "esta redação",
-      "especie": "departamento"
+      "especie": "departamento",
+      "id_correio": "pesquisa.pt",
+      "alias": "@Pesquisa"
     },
     "redacao": {
       "nome": "Redação",
       "fornecedor": "esta redação",
-      "especie": "departamento"
+      "especie": "departamento",
+      "id_correio": "redacao.pt",
+      "alias": "@Redacao"
     },
     "verificacao": {
       "nome": "Verificação",
       "fornecedor": "esta redação",
-      "especie": "departamento"
+      "especie": "departamento",
+      "id_correio": "verificacao.pt",
+      "alias": "@Verificacao"
     },
     "editor": {
       "nome": "Dinis Cruz",
       "fornecedor": "humano",
-      "especie": "editor de registo"
+      "especie": "editor de registo",
+      "id_correio": "dinis.humano",
+      "alias": "@Dinis"
     },
     "chatgpt": {
       "nome": "chatgpt",

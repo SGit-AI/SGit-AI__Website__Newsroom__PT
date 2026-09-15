@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bridges · pt.newsroom back office</title>
+<meta name="description" content="How the editor reaches the back office from a browser: append lanes, what they send, what they never send, and where the credentials live.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/pontes.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/pontes.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../backoffice/agents.html">agents</a> ·
+       <a href="../backoffice/guidance.html">guidance</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.9.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The bridges · how a static site
+  reaches the newsroom</div></div>
+<p class="std" style="max-width:52em">As pontes entre este site estático e o cofre. Um site sem servidor não consegue escrever no repositório onde a redação vive; uma fila de acrescento resolve isso sem lhe dar um servidor. Este ficheiro descreve as pontes e NÃO contém credencial nenhuma: o identificador do cofre e o código de acrescento são dados ao navegador de quem os tem e ficam em localStorage. O detetor de cadeias com forma de chave do admin/build/validate.js falha a construção se alguma aparecer, e é isso que torna esta frase verificável em vez de uma promessa.</p>
+<div class="chips" style="padding:10px 0 4px">
+  <a class="chip" href="#editor-para-bastidores">O editor fala com os bastidores</a><a class="chip" href="#observabilidade">Quem leu o quê, sem saber quem</a>
+  <span class="chip miss">2
+    of 2 without credentials</span>
+</div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Why an append lane, and not
+  something simpler</div></div>
+<p class="std" style="max-width:52em">Porque divide o acesso em quatro capacidades que não se sobrepõem: quem tem o código de acrescento ACRESCENTA e mais nada — não lista, não obtém, não lê; quem tem a chave de enumeração lista, obtém e marca como tratado, e não escreve; quem tem a chave de escrita configura e purga; e só quem tem a chave privada decifra. O servidor guarda apenas o SHA-256 dos três primeiros e responde a um acrescento com «{ok:true}» e mais nada. É por isso que um código de acrescento é a única forma de credencial que sobrevive a ser publicada.</p>
+<p class="sm" style="max-width:52em">Read at the source rather than recalled:
+<a href="https://sgit.ai/docs/vault-messaging.md">vault-messaging</a>,
+<a href="https://sgit.ai/api/append-lanes.md">the append-lanes API</a>,
+<a href="https://sgit.ai/docs/pki.md">the PKI</a>, and
+<a href="https://sgit.ai/docs/briefs/vault-telemetry-append-lanes.md">the telemetry brief</a>.</p>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">A finding from the games vault,
+  which changed this design</div></div>
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm">O cofre dos jogos de permissões construía eventos de telemetria e nunca os enviava. A causa não era o código: uma aplicação de cofre corre numa moldura cujo CSP é «connect-src blob: data:» e um fetch para fora é bloqueado em silêncio; a única saída seria «permissions.network: true», que reabre toda a saída de uma moldura que tem conteúdo decifrado, e que a própria documentação não recomenda. Este site não é uma aplicação de cofre: é um site estático, e o fetch direto para o ponto de acrescento funciona. O que a telemetria dos jogos não conseguiu fazer, este site consegue — e a razão é a diferença de superfície, não de esforço.</p>
+</div>
+
+
+<div class="cartao" style="padding:16px;margin-top:18px" id="editor-para-bastidores">
+  <div class="chips" style="padding-bottom:8px">
+    <span class="chip ok" style="font-size:13px"><b>O editor fala com os bastidores</b></span>
+    <span class="chip">editor-para-bastidores</span>
+    <span class="chip miss">sem-credencial</span>
+  </div>
+  <p class="sm mono xs">navegador do editor → fila de acrescento → cofre → @Bastidores</p>
+  <p class="std" style="max-width:52em;padding-top:6px">Para o editor poder comentar uma página, pedir uma alteração ou dar uma instrução no momento em que a está a ler, sem abrir um terminal e sem escrever um issue à mão.</p>
+  <div class="g2 sp12" style="padding-top:10px">
+    <div class="col sp6">
+      <div class="sect">Sends</div><ul class="sm" style="padding-left:18px;margin:0"><li>quando (ISO 8601)</li><li>pagina (o caminho onde o editor estava)</li><li>versao do site</li><li>assunto</li><li>corpo</li><li>tipo: nota | alteracao | instrucao | remocao</li></ul>
+      <div class="sect" style="padding-top:10px">Never sends</div>
+      <ul class="sm" style="padding-left:18px;margin:0"><li>Nada que o editor não tenha escrito. Sem identificador de sessão, sem agente do utilizador, sem referenciador.</li></ul>
+      
+    </div>
+    <div class="col sp6">
+      <div class="sect">Who sends, who receives</div>
+      <p class="sm"><b>Sends:</b> dinis.humano, do navegador, em qualquer página deste site</p>
+      <div class="sect" style="padding-top:10px">Endpoint</div>
+      <p class="mono xs">POST {api}/api/vault/append/write/{vault_id}</p>
+      <div class="sect" style="padding-top:10px">What is missing</div>
+      <p class="sm">As três credenciais, dadas pelo editor no navegador. Até lá a caixa de mensagens diz «ponte fechada» e não finge ter enviado.</p>
+    </div>
+  </div>
+  <div class="sect" style="padding-top:12px">The three values, and which may be published</div>
+  <div class="rolar"><table><thead><tr><th style="width:120px">Key</th><th>What it is</th>
+    <th style="width:100px">Publishable</th><th style="width:40%">Why</th></tr></thead>
+    <tbody><tr><td class="mono xs">vault_id</td><td class="sm">O cofre que recebe</td><td><span class="chip miss">secret</span></td><td class="sm">Junto ao código de acrescento dá a fila inteira a quem leia o repositório</td></tr><tr><td class="mono xs">append_token</td><td class="sm">Autoriza o acrescento, e só o acrescento. Hexadecimal, 16 a 128 dígitos, sem prefixo</td><td><span class="chip miss">secret</span></td><td class="sm">Nesta ponte o código é do editor e não é público: se o fosse, qualquer visitante escrevia na caixa dos bastidores</td></tr><tr><td class="mono xs">chave_publica</td><td class="sm">O pacote JSON de «sgit pki export», ou o PEM sozinho</td><td><span class="chip ok">publishable</span></td><td class="sm">Uma chave pública publica-se. Esta é a única das três que um dia fica em ficheiro</td></tr></tbody></table></div>
+  <p class="xs mono" style="padding-top:6px">localStorage: <code>pt-newsroom:ponte:editor-para-bastidores</code></p>
+  <div class="aviso-bloco" style="margin-top:12px">
+    <p class="sm"><b>How the receiving end must treat this.</b> Cada mensagem que chega é uma AFIRMAÇÃO de quem a enviou, e nunca uma instrução que se execute sem ler. Quem tem o código de acrescento pode forjar e pode inundar; a fila para nos 1000 ficheiros por tratar. @Bastidores trata o que chega como correio: entra na expedição, é entregue, e é lido por uma pessoa ou por uma sessão que responde por aquilo que faz.</p>
+  </div>
+</div>
+<div class="cartao" style="padding:16px;margin-top:18px" id="observabilidade">
+  <div class="chips" style="padding-bottom:8px">
+    <span class="chip ok" style="font-size:13px"><b>Quem leu o quê, sem saber quem</b></span>
+    <span class="chip">observabilidade</span>
+    <span class="chip miss">sem-credencial</span>
+  </div>
+  <p class="sm mono xs">navegador de qualquer leitor → fila de acrescento → cofre de observabilidade</p>
+  <p class="std" style="max-width:52em;padding-top:6px">Para esta redação saber que páginas são lidas e que caminhos as pessoas seguem, sem montar um servidor de estatísticas e sem saber quem é ninguém.</p>
+  <div class="g2 sp12" style="padding-top:10px">
+    <div class="col sp6">
+      <div class="sect">Sends</div><ul class="sm" style="padding-left:18px;margin:0"><li>sessao: 16 dígitos hexadecimais criados na memória do navegador quando a página abre, e perdidos quando fecha</li><li>eventos: [{quando, tipo, pagina}]</li><li>formato: largo | estreito</li><li>lingua: as duas primeiras letras</li><li>versao do site</li></ul>
+      <div class="sect" style="padding-top:10px">Never sends</div>
+      <ul class="sm" style="padding-left:18px;margin:0"><li>Nome, correio eletrónico, ou qualquer coisa que identifique uma pessoa</li><li>Agente do utilizador</li><li>Dimensões do ecrã</li><li>Endereço IP (não é do lado do cliente, mas o servidor da fila vê-o e isso está dito)</li><li>Referenciador</li><li>Endereço completo com parâmetros</li></ul>
+      <div class="sect" style="padding-top:10px">Client-side limits</div><ul class="sm" style="padding-left:18px;margin:0"><li>Um envio a cada 4 segundos, no máximo</li><li>40 envios por sessão, no máximo</li><li>Falha em silêncio: se o envio falhar, o leitor não pode notar</li></ul><div class="sect" style="padding-top:10px">The switch</div><p class="sm">Cada página tem um aviso em português simples e um interruptor para desligar o envio. Abrir uma página normalmente não telefona a casa; esta telefona, e por isso diz-se.</p>
+    </div>
+    <div class="col sp6">
+      <div class="sect">Who sends, who receives</div>
+      <p class="sm"><b>Sends:</b> Qualquer navegador que abra uma página deste site, se a ponte estiver configurada e o leitor não tiver desligado o envio</p>
+      <div class="sect" style="padding-top:10px">Endpoint</div>
+      <p class="mono xs">POST {api}/api/vault/append/write/{vault_id}</p>
+      <div class="sect" style="padding-top:10px">What is missing</div>
+      <p class="sm">O cofre de observabilidade, o seu código de acrescento e a sua chave pública. Enquanto faltarem, não se envia nada — e não há aviso a dizer que se envia, porque um aviso sobre uma coisa que não acontece é pior do que nenhum.</p>
+    </div>
+  </div>
+  <div class="sect" style="padding-top:12px">The three values, and which may be published</div>
+  <div class="rolar"><table><thead><tr><th style="width:120px">Key</th><th>What it is</th>
+    <th style="width:100px">Publishable</th><th style="width:40%">Why</th></tr></thead>
+    <tbody><tr><td class="mono xs">vault_id</td><td class="sm">O cofre de observabilidade</td><td><span class="chip ok">publishable</span></td><td class="sm">Sozinho não dá nada: escrever exige o código, e nem um nem outro dá para ler</td></tr><tr><td class="mono xs">append_token</td><td class="sm">Autoriza o acrescento, e só o acrescento</td><td><span class="chip ok">publishable</span></td><td class="sm">Nesta ponte o código É público, e é o padrão que a documentação da telemetria descreve: só escreve, não lista, não obtém, não lê. É a única forma de credencial que sobrevive a ser publicada</td></tr><tr><td class="mono xs">chave_publica</td><td class="sm">A chave pública do cofre de observabilidade</td><td><span class="chip ok">publishable</span></td><td class="sm">Publica-se por construção</td></tr></tbody></table></div>
+  <p class="xs mono" style="padding-top:6px">localStorage: <code>pt-newsroom:ponte:observabilidade</code></p>
+  <div class="aviso-bloco" style="margin-top:12px">
+    <p class="sm"><b>How the receiving end must treat this.</b> Cada evento é uma afirmação e não prova. Quem tem a chave de leitura do site tem o código de acrescento e pode forjar ou inundar a fila. Os números que dali saem são direcionais, e uma página que os apresentasse como medição estaria a mentir sobre o que são.</p>
+  </div>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Unlock · give this browser the
+  three values</div></div>
+<p class="std" style="max-width:52em">Paste them here and they go to this browser's
+<code>localStorage</code> for this origin, and nowhere else. They are not sent to
+pt.newsroom.sgit.ai — there is no server to send them to — and they are not in any file in the
+repository. Clearing them is one button. If you are reading this on a shared machine, do not.</p>
+<p class="sm" style="max-width:52em;padding-bottom:10px">The public key is easiest as the whole
+JSON bundle <code>sgit pki export &lt;fingerprint&gt;</code> writes: the page reads the
+<code>encrypt</code> field out of it. A bare PEM works too.</p>
+
+<div class="cartao" style="padding:16px">
+  <div class="chips" style="padding-bottom:10px">
+    <button class="chip" id="ponte-escolha-editor" type="button">editor → back office</button>
+    <button class="chip" id="ponte-escolha-obs" type="button">observability</button>
+    <span class="chip" id="ponte-estado">reading…</span>
+  </div>
+  <div class="col sp6">
+    <label class="sm" for="ponte-vault">Vault id — the vault that receives</label>
+    <input class="mono xs" id="ponte-vault" type="text" autocomplete="off" spellcheck="false"
+           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
+                  color:var(--tinta);width:100%">
+    <label class="sm" for="ponte-token" style="padding-top:8px">Append token — hex, 16–128 digits,
+      no prefix</label>
+    <input class="mono xs" id="ponte-token" type="text" autocomplete="off" spellcheck="false"
+           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
+                  color:var(--tinta);width:100%">
+    <label class="sm" for="ponte-chave" style="padding-top:8px">Public key — the
+      <code>sgit pki export</code> bundle, or a PEM</label>
+    <textarea class="mono xs" id="ponte-chave" rows="4" autocomplete="off" spellcheck="false"
+              style="padding:8px;border:1px solid var(--filete);background:var(--papel);
+                     color:var(--tinta);width:100%"></textarea>
+    <div class="chips" style="padding-top:10px">
+      <button class="chip ok" id="ponte-guardar" type="button">keep in this browser</button>
+      <button class="chip" id="ponte-prova" type="button">send a proof message</button>
+      <button class="chip miss" id="ponte-esquecer" type="button">forget</button>
+    </div>
+    <p class="sm" id="ponte-resposta" style="padding-top:8px"></p>
+  </div>
+</div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Write to
+  @Bastidores</div></div>
+<p class="std" style="max-width:52em">This goes into the append lane, and
+@Bastidores files it as mail — into
+<code>redacao/correio/expedicao/bastidores.pt/</code>, delivered, read, and answered like any
+other message. It is treated as <b>a claim by whoever sent it</b>, never as an instruction that
+runs without being read. Nothing here can publish a story: that is
+@Dinis's
+line and only his.</p>
+<div class="cartao" style="padding:16px">
+  <div class="col sp6">
+    <div class="chips">
+      <span class="sm">kind:</span>
+      <select class="mono xs" id="msg-tipo" style="padding:6px;border:1px solid var(--filete);
+              background:var(--papel);color:var(--tinta);max-width:100%;min-width:0">
+        <option value="nota">nota — a remark</option>
+        <option value="alteracao">alteracao — change this</option>
+        <option value="instrucao">instrucao — do this next</option>
+        <option value="remocao">remocao — a removal request</option>
+      </select>
+    </div>
+    <label class="sm" for="msg-assunto" style="padding-top:8px">Subject</label>
+    <input id="msg-assunto" type="text"
+           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
+                  color:var(--tinta);width:100%">
+    <label class="sm" for="msg-corpo" style="padding-top:8px">Body</label>
+    <textarea id="msg-corpo" rows="6"
+              style="padding:8px;border:1px solid var(--filete);background:var(--papel);
+                     color:var(--tinta);width:100%"></textarea>
+    <div class="chips" style="padding-top:10px">
+      <button class="chip ok" id="msg-enviar" type="button">send</button>
+    </div>
+    <p class="sm" id="msg-resposta" style="padding-top:8px"></p>
+  </div>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The envelope on the wire</div></div>
+<p class="std" style="max-width:52em">Uma chave AES-256-GCM nova por mensagem cifra a carga, e o RSA só serve para a entregar. É o que torna o envelope usável em cargas de qualquer tamanho — e pesado em cargas minúsculas: 37 bytes de texto simples dão um ficheiro de 1 076 bytes, porque a chave embrulhada domina. The shape below is
+base64 sobre um JSON pequeno, from <a href="https://sgit.ai/docs/pki.md">https://sgit.ai/docs/pki.md — a v0.15.0 do sgit</a>.</p>
+<div class="rolar"><table><thead><tr><th style="width:80px">Field</th><th>Contents</th></tr>
+</thead><tbody><tr><td class="mono xs">v</td><td class="sm">A versão do envelope. 2 na v0.15.0.</td></tr><tr><td class="mono xs">w</td><td class="sm">A chave de conteúdo AES-256 embrulhada com RSA-OAEP para o destinatário. 512 bytes com uma chave de 4096 bits.</td></tr><tr><td class="mono xs">i</td><td class="sm">O IV do AES-GCM. 12 bytes.</td></tr><tr><td class="mono xs">c</td><td class="sm">O texto cifrado com a sua etiqueta GCM. Texto simples mais 16 bytes.</td></tr></tbody></table></div>
+<div class="aviso-bloco" style="margin-top:12px">
+<p class="sm"><b>One parameter is not confirmed.</b> A função de resumo do RSA-OAEP. A documentação do PKI diz «RSA-OAEP 4096» e não nomeia o resumo; este site usa SHA-256, que é o que o cofre dos jogos usou. É o único parâmetro destas pontes que não foi confirmado contra o binário, e uma ida e volta de prova confirma-o numa tentativa. Está dito aqui em vez de ser assumido em silêncio.</p>
+</div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Not built</div></div>
+<div class="rolar"><table><thead><tr><th style="width:26%">What</th><th>Why not</th></tr></thead>
+<tbody><tr><td class="sm"><b>O lado que recebe</b></td><td class="sm">Listar, decifrar e marcar como tratado precisa da chave de enumeração e da chave privada, e nenhuma das duas pode estar num site estático nem numa sessão de agente. Corre onde o editor correr o sgit, e o resultado entra neste repositório como correio.</td></tr><tr><td class="sm"><b>Pagamentos rastreados pela mesma via</b></td><td class="sm">Não há pagamentos. O argumento em newsroom.sgit.ai descreve-os; este site não os tem, e um evento de pagamento numa fila sem pagamentos seria teatro.</td></tr></tbody></table></div>
+
+<script src="../assets/ponte.js"></script>
+<script>
+(function () {
+  "use strict";
+  var PONTES = {"editor-para-bastidores": {"nome": "O editor fala com os bastidores", "estado": "sem-credencial"}, "observabilidade": {"nome": "Quem leu o quê, sem saber quem", "estado": "sem-credencial"}};
+  var atual = "editor-para-bastidores";
+  var el = function (id) { return document.getElementById(id); };
+  var ponte = function () { return new PonteCofre.Ponte({ id: atual }); };
+
+  function pintar() {
+    var p = ponte(), cfg = p.ler() || {};
+    el("ponte-vault").value = cfg.vault_id || "";
+    el("ponte-token").value = cfg.append_token || "";
+    el("ponte-chave").value = cfg.chave_publica || "";
+    el("ponte-estado").textContent = PONTES[atual].nome + " — " +
+      (p.aberta() ? "open in this browser" : "closed: no credentials");
+    el("ponte-estado").className = "chip " + (p.aberta() ? "ok" : "miss");
+  }
+
+  el("ponte-escolha-editor").onclick = function () {
+    atual = "editor-para-bastidores"; pintar();
+  };
+  el("ponte-escolha-obs").onclick = function () { atual = "observabilidade"; pintar(); };
+
+  el("ponte-guardar").onclick = function () {
+    var ok = ponte().guardar({
+      vault_id: el("ponte-vault").value.trim(),
+      append_token: el("ponte-token").value.trim(),
+      chave_publica: el("ponte-chave").value.trim(),
+    });
+    el("ponte-resposta").textContent = ok
+      ? "Kept in this browser. Nothing left this page."
+      : "This browser refused to store it — a private window, or site data blocked.";
+    pintar();
+  };
+
+  el("ponte-esquecer").onclick = function () {
+    ponte().esquecer();
+    el("ponte-resposta").textContent = "Forgotten. The lane is closed again.";
+    pintar();
+  };
+
+  /* The proof round trip. It is the one call that settles the unconfirmed OAEP hash: if the
+   * vault decrypts this, the envelope is right; if it does not, it is the hash and nothing else. */
+  el("ponte-prova").onclick = function () {
+    el("ponte-resposta").textContent = "sending…";
+    ponte().enviar({
+      tipo: "prova", quando: new Date().toISOString(), versao: "v0.9.0",
+      pagina: location.pathname,
+      corpo: "Proof round trip from the bridges page. If this decrypts, the envelope is right.",
+    }).then(function () {
+      el("ponte-resposta").textContent = "Accepted. The response is blind by design — {ok:true} " +
+        "and nothing else — so this says the server took it, not that anyone has read it.";
+    }).catch(function (err) {
+      el("ponte-resposta").textContent = "Refused: " + err.message;
+    });
+  };
+
+  el("msg-enviar").onclick = function () {
+    var assunto = el("msg-assunto").value.trim(), corpo = el("msg-corpo").value.trim();
+    if (!assunto || !corpo) {
+      el("msg-resposta").textContent = "A message needs a subject and a body.";
+      return;
+    }
+    var p = new PonteCofre.Ponte({ id: "editor-para-bastidores" });
+    el("msg-resposta").textContent = "sending…";
+    p.enviar({
+      tipo: el("msg-tipo").value, quando: new Date().toISOString(), versao: "v0.9.0",
+      pagina: location.pathname, assunto: assunto, corpo: corpo,
+    }).then(function () {
+      el("msg-resposta").textContent = "Sent. @Bastidores files it into its mailroom on the next " +
+        "check-in, and it will show on the mail page.";
+      el("msg-assunto").value = ""; el("msg-corpo").value = "";
+    }).catch(function (err) {
+      /* Loud on purpose. The observability lane fails silently because a reader must not notice;
+       * a message the editor believes he sent and did not is worse than an error in plain sight. */
+      el("msg-resposta").textContent = "Not sent: " + err.message;
+    });
+  };
+
+  pintar();
+})();
+</script>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/pontes.html</code> · version <span class="ver">v0.9.0</span>.
+</div>
+
+</div>
+</body>
+</html>

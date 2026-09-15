@@ -1,0 +1,52 @@
+{
+  "quando": "2026-09-15T01:30:00Z",
+  "especie": "construcao",
+  "prompt": "Integrar o dev, rever o trabalho do outro agente à procura de defeitos, ver o que isso afeta no trabalho desta sessão, e lançar.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "build/",
+    "dados/",
+    "redacao/",
+    "backoffice/",
+    "entidades/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.8.0",
+  "o_que_fez": [
+    "Integrou o dev, que entretanto lançou v0.7.0 (o portão do navegador) e v0.7.1 (a competência da execução agendada). Os 242 conflitos eram todos em ficheiros gerados e resolveram-se a reconstruir, nunca à mão.",
+    "Resolveu uma colisão de versões: esta sessão tinha lançado v0.7.0 no seu ramo e o dev tinha lançado v0.7.0 e v0.7.1 ao mesmo tempo. Renumerada para v0.8.0 — duas versões com o mesmo número querem dizer que uma tem de ser desfeita.",
+    "Defeito encontrado e corrigido no trabalho desta sessão, pelo portão do outro agente: /backoffice/pontes.html transbordava a 390px (scrollWidth 413). A causa era um <select>, que tira a largura da opção mais longa e não encolhe abaixo dela.",
+    "Lacuna de cobertura fechada: as quatro páginas novas não estavam na lista do render.mjs, porque a lista é feita de componentes e nenhuma delas usa um. Passam a estar — 15 páginas num navegador em vez de 11.",
+    "Defeito encontrado no trabalho do outro agente: pt-json-viewer e pt-doc-browser lançavam o carregamento sem o esperar, e por isso ficavam «prontos» antes de o dado chegar — o que contradiz o que o comentário da própria classe-base promete que «pronto» quer dizer. Os dois passam a esperar."
+  ],
+  "revisao_do_outro_agente": {
+    "o_que_se_leu": [
+      "admin/build/render.mjs — o portão do navegador",
+      "assets/components/base/.../sg-component.js — falhou(), pronto(), o await do onReady",
+      "os sete componentes, para ver se algum onReady lança trabalho que não espera",
+      ".claude/skills/newsroom-run/SKILL.md — as três correções do ramo, do validador e do registo"
+    ],
+    "o_que_se_confirmou_estar_certo": [
+      "falhou() lê this.resourceName dentro do catch, e isso é seguro: o connectedCallback já o leu ANTES do try, e por isso um papel sem resourceName falha antes de a linha ser alcançável.",
+      "O filtro de ruído do favicon ignora o pedido do NAVEGADOR e não o do site: um ficheiro que uma página pede e não existe continua a falhar o portão.",
+      "A distinção entre «este componente não subiu» e «um pedido que o leitor fez falhou» está anotada e é a que torna o sinal útil.",
+      "A porta efémera para o servidor do portão: uma porta fixa falharia com outra sessão a correr no mesmo repositório, o que aconteceu de facto nesta sessão."
+    ],
+    "o_que_se_corrigiu": [
+      "pt-json-viewer: onReady passa a async e espera o load; _fromHash passa a devolver a promessa, sem o que o await esperaria undefined.",
+      "pt-doc-browser: onReady passa a async e espera o _load.",
+      "render.mjs: as quatro páginas novas entram na lista.",
+      "build/pontes.py: o <select> ganha max-width e min-width, e as opções encurtam."
+    ]
+  },
+  "nota": "Uma execução de CONSTRUÇÃO e não de redação: não obteve nem congelou uma fonte, não escreveu uma afirmação sobre Portugal, não moveu um issue e não pôs nada em publicado. Mexeu em redacao/ para escrever este registo, que o portão 12 permite explicitamente."
+}

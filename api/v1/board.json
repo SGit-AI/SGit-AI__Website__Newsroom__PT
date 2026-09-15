@@ -1,0 +1,439 @@
+{
+  "id": "pt-quadro",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-15",
+  "nota": "O quadro de cada agente. Um cartão em «assuntos» é trabalho que o agente abriu para si; um issue do jornal chega ao quadro pela fórmula publicada em dados/agentes.json e por mais nada.",
+  "formula": {
+    "nota": "A quem pertence um issue do jornal não é escrito à mão em lado nenhum: sai do seu estado, por esta tabela, e é por isso que o quadro não pode discordar dos ficheiros. Um cartão em «assuntos» é diferente: é o trabalho que o próprio agente abriu, e esse é escrito por ele.",
+    "de_estado_para_agente": {
+      "procurado": "pesquisa.pt",
+      "rascunho": "verificacao.pt",
+      "verificado": "dinis.humano",
+      "congelado": "dinis.humano",
+      "publicado": "—",
+      "superseded": "—"
+    },
+    "porque": {
+      "procurado": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
+      "rascunho": "Tem prosa. O passo seguinte é alguém reler cada fonte citada na cópia congelada.",
+      "verificado": "Está lido e registado. Publicar é a linha do editor de registo, e de mais ninguém.",
+      "congelado": "É uma entrega exterior à espera de aprovação item a item, que só o editor dá.",
+      "publicado": "Está fora do quadro.",
+      "superseded": "Está fora do quadro."
+    },
+    "colunas": [
+      "abertos",
+      "bloqueados",
+      "fechados"
+    ]
+  },
+  "colunas": [
+    "abertos",
+    "bloqueados",
+    "fechados"
+  ],
+  "contagens": {
+    "cartoes": 10,
+    "issues_do_jornal": 4,
+    "agentes": 5
+  },
+  "por_agente": {
+    "pesquisa.pt": {
+      "agente": "pesquisa.pt",
+      "alias": "@Pesquisa",
+      "nome": "Pesquisa",
+      "colunas": {
+        "abertos": [
+          {
+            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
+            "agente": "pesquisa.pt",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Pdf do diario da republica",
+            "aberto": "2026-09-14T12:10:00Z",
+            "prioridade": "alta",
+            "esforco": "2h",
+            "bloqueado_por": "—",
+            "issue": "001,002",
+            "origem": "redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
+            "corpo": "## O que há para fazer\nEncontrar o endereço do PDF do Diário da República para o diploma da agenda nacional (001) e para\no ato de designação do regulador (002). O `dre.pt` congelado a 14 de setembro tem 2 346 bytes e\n22 caracteres visíveis: renderiza por script e não diz nada a um leitor automático. Os PDFs dizem,\ne `build/pdf.py` já os lê — decifra o manipulador de segurança padrão e segue o mapa `/ToUnicode`.\n\n## Como penso fazê-lo\n1. Encontrar o endereço a partir de uma página que o nomeie, e não por construção.\n2. Obter, congelar em `fontes/congeladas/<data>/`, hashear e registar.\n3. Ler o PDF com `build/pdf.py` e extrair o que a fonte diz, sem arrumar nada.\n4. Escrever a @Redacao dizendo o que passou a estar em bytes.\n\n## Critério de aceitação\n- O PDF congelado, com SHA-256 no registo, e o hash a reverificar em cada construção.\n- O instrumento legal nomeado com o número e a data que o PDF diz, e não outros.\n- Se o endereço não for encontrado, o issue fica em «procurado» e a ausência é escrita como\n  ausência. Um endereço inventado que devolve outro diploma é pior do que um que devolve 404.",
+            "resumo": "Encontrar o endereço do PDF do Diário da República para o diploma da agenda nacional (001) e para o ato de designação do regulador (002). O `dre.pt` congelado a 14 de setembro tem 2 346 bytes e 22 caracteres visíveis: renderiza por script e não diz nada a um leitor automático. Os PDFs dizem, e `buil"
+          },
+          {
+            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
+            "agente": "pesquisa.pt",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Ausencias publicaveis tal como estao",
+            "aberto": "2026-09-14T12:10:00Z",
+            "prioridade": "média",
+            "esforco": "1h",
+            "bloqueado_por": "—",
+            "issue": "003",
+            "origem": "redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
+            "corpo": "## O que há para fazer\nO portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação,\ne a lista de unidades de I&D devolveu 404. Estão as duas em `dados/excluidas.json`. O editor disse\nque ambas as ausências são publicáveis tal como estão — o que há para fazer é dizê-lo a @Redacao,\ncom a medição ao lado, para que a história 003 se escreva sobre o registo e não sobre a falta dele.\n\n## Como penso fazê-lo\n1. Confirmar que cada ausência tem em `dados/excluidas.json` o endereço, a hora e o que devolveu.\n2. Escrever a @Redacao: o facto estrutural (não há registo comercial aberto em Portugal) está\n   sustentado; a contagem de startups de IA não está, e nenhum conjunto de dados público a dá.\n\n## Critério de aceitação\n- Cada ausência com endereço, hora e resposta medida, no ficheiro, e não em prosa.\n- Nenhuma contagem estimada. A história é sobre porque não existe contagem.",
+            "resumo": "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação, e a lista de unidades de I&D devolveu 404. Estão as duas em `dados/excluidas.json`. O editor disse que ambas as ausências são publicáveis tal como estão — o que há para fazer é dizê-lo a @Redacao, com "
+          }
+        ],
+        "bloqueados": [
+          {
+            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
+            "agente": "pesquisa.pt",
+            "coluna": "bloqueados",
+            "origem_tipo": "assunto",
+            "titulo": "Acesso a anacom",
+            "aberto": "2026-09-14T12:10:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "dinis.humano",
+            "issue": "002",
+            "origem": "redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
+            "corpo": "## O que há para fazer\nA página da ANACOM que uma entrega apresenta como autoridade nacional no âmbito do AI Act devolve\n403 a esta redação. Nada se pode conferir contra ela.\n\n## Porque está bloqueado\n403 não é uma recusa de informação: é um servidor a bloquear um cliente. Pedir acesso é falar em\nnome desta publicação com uma entidade nomeada, e isso é do editor de registo. A pesquisa não pede\nacesso, não contorna o bloqueio e não cita a página por outra via.\n\n## Critério de aceitação para desbloquear\nUma decisão de @Dinis: pedir acesso, ou escrever a história sobre a ausência no registo público\nlegível, dizendo que a página existe e que devolveu 403 a esta redação à hora medida.",
+            "resumo": "A página da ANACOM que uma entrega apresenta como autoridade nacional no âmbito do AI Act devolve 403 a esta redação. Nada se pode conferir contra ela. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. Pedir acesso é falar em nome desta publicação com uma entidade nomeada, e i"
+          }
+        ],
+        "fechados": []
+      },
+      "issues_do_jornal": [
+        {
+          "ficheiro": "redacao/issues/001-agenda-nacional-instrumento.json",
+          "agente": "pesquisa.pt",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "001",
+          "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+          "estado": "procurado",
+          "seccao": "politicas",
+          "aberto": "2026-09-14",
+          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
+          "o_que_falta": [
+            "O PDF do diploma. O Diário da República publica o texto integral em PDF num endereço construível, e build/pdf.py já lê esses PDFs (decifra o manipulador de segurança padrão e segue o mapa /ToUnicode). O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é pior.",
+            "Uma segunda fonte independente para a data e o número."
+          ]
+        },
+        {
+          "ficheiro": "redacao/issues/002-regulador-designacao.json",
+          "agente": "pesquisa.pt",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "002",
+          "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+          "estado": "procurado",
+          "seccao": "instituicoes",
+          "aberto": "2026-09-14",
+          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
+          "o_que_falta": [
+            "O ato de designação, no Diário da República. Enquanto não for encontrado, a história é sobre a ausência no registo, não sobre a ausência de designação.",
+            "Acesso à página da ANACOM. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. O editor pode pedir acesso."
+          ]
+        },
+        {
+          "ficheiro": "redacao/issues/003-quantas-startups-ia.json",
+          "agente": "pesquisa.pt",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "003",
+          "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
+          "estado": "procurado",
+          "seccao": "empresas",
+          "aberto": "2026-09-14",
+          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
+          "o_que_falta": [
+            "O portal de transparência do plano de recuperação não resolveu em nenhuma tentativa desta redação (dados/excluidas.json). É metade da semente aberta do dia um, e a sua ausência é ela própria publicável.",
+            "A lista de unidades de I&D da FCT devolveu 404 no endereço tentado. Encontrar o endereço certo.",
+            "O número de startups ativas tem de vir de uma fonte congelada, e não do relatório de ecossistema que o resumo marca como não sendo um conjunto de dados."
+          ]
+        }
+      ],
+      "entrada": [
+        {
+          "ficheiro": "redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
+          "lugar": "entrada",
+          "caixa": "pesquisa.pt",
+          "de": "dinis.humano",
+          "para": "pesquisa.pt",
+          "de_alias": "@Dinis",
+          "para_alias": "@Pesquisa",
+          "assunto": "As três primeiras histórias estão abertas como issues em «procurado»",
+          "quando": "2026-09-14T12:05:00Z",
+          "id": "002-tres-primeiras-historias@redacao.local",
+          "responde_a": null,
+          "issue": "001,002,003",
+          "run": "2026-09-14T12:00:00Z",
+          "historica": false,
+          "migrado_de": "redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md",
+          "corpo": "As três histórias que o resumo de comissionamento encomenda estão abertas. Nenhuma pode avançar\nsem uma fonte congelada que a sustente, e as três dizem no próprio ficheiro o que já se tem e o\nque falta.\n\nPara a 001 e a 002 o caminho é o mesmo e está agora aberto: o PDF do Diário da República. Encontre\no endereço, não o construa por adivinhação — um endereço inventado que devolve outro diploma é pior\ndo que um que devolve 404.\n\nPara a 003, o portal de transparência do plano de recuperação não resolveu em nenhuma tentativa, e\na lista de unidades de I&D devolveu 404. Ambas as ausências são publicáveis tal como estão.",
+          "resumo": "As três histórias que o resumo de comissionamento encomenda estão abertas. Nenhuma pode avançar sem uma fonte congelada que a sustente, e as três dizem no próprio ficheiro o que já se tem e o que falta. Para a 001 e a 002 o caminho é o mesmo e está agora aberto: o PDF do Diário da República. Encontre o endereço, não o construa por adivinhação — um endereço inventado que devolve outro diploma é pior do que um que devo",
+          "bytes": 1141,
+          "desconhecido": []
+        }
+      ],
+      "em_transito": [],
+      "contagens": {
+        "abertos": 2,
+        "bloqueados": 1,
+        "fechados": 0,
+        "issues_do_jornal": 3,
+        "por_tratar": 1,
+        "em_transito": 0
+      }
+    },
+    "redacao.pt": {
+      "agente": "redacao.pt",
+      "alias": "@Redacao",
+      "nome": "Redação",
+      "colunas": {
+        "abertos": [],
+        "bloqueados": [],
+        "fechados": []
+      },
+      "issues_do_jornal": [],
+      "entrada": [],
+      "em_transito": [],
+      "contagens": {
+        "abertos": 0,
+        "bloqueados": 0,
+        "fechados": 0,
+        "issues_do_jornal": 0,
+        "por_tratar": 0,
+        "em_transito": 0
+      }
+    },
+    "verificacao.pt": {
+      "agente": "verificacao.pt",
+      "alias": "@Verificacao",
+      "nome": "Verificação",
+      "colunas": {
+        "abertos": [],
+        "bloqueados": [],
+        "fechados": []
+      },
+      "issues_do_jornal": [],
+      "entrada": [],
+      "em_transito": [],
+      "contagens": {
+        "abertos": 0,
+        "bloqueados": 0,
+        "fechados": 0,
+        "issues_do_jornal": 0,
+        "por_tratar": 0,
+        "em_transito": 0
+      }
+    },
+    "bastidores.pt": {
+      "agente": "bastidores.pt",
+      "alias": "@Bastidores",
+      "nome": "Bastidores",
+      "colunas": {
+        "abertos": [
+          {
+            "ficheiro": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
+            "agente": "bastidores.pt",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "A vista dos agentes e o correio",
+            "aberto": "2026-09-14T23:30:00Z",
+            "prioridade": "alta",
+            "esforco": "6h",
+            "bloqueado_por": "—",
+            "issue": "—",
+            "origem": "pedido de @Dinis, nesta sessão",
+            "corpo": "## O que há para fazer\nDar ao editor, nos bastidores, a vista de quem são os agentes, do que cada um tem à frente, e do\ncorreio que passou entre eles. Antes disto, saber em que pé estava uma história queria dizer abrir\num terminal e ler pastas.\n\n## Como penso fazê-lo\n1. `dados/agentes.json` — o registo dos agentes no formato que teams.sgit.ai publica para um\n   `ROLE.md`: missão, afirmação central escrita como condição de falha, e o «não responsável por»\n   sem o qual cada papel se torna o mesmo papel.\n2. `redacao/correio/` no protocolo Email-FS-lite: escritor único, expedição partilhada, um commit\n   por ciclo. As duas mensagens que já existiam passam a `.eml` com o corpo intacto.\n3. Um leitor só — `build/equipa.py` — que lê a pasta e escreve `dados/correio.json` e\n   `dados/quadro.json`. As páginas leem o derivado e nunca a pasta, para não haver dois leitores.\n4. Três páginas: a equipa, o quadro por agente, e o correio.\n\n## Critério de aceitação\n- Nenhum número nestas páginas que não seja a contagem de ficheiros deste repositório.\n- O quadro a derivar a posse de cada issue do jornal por fórmula publicada, e não à mão.\n- Os portões verdes: `build/gates.py`, `build/gates_artigos.py`, `admin/build/validate.js`.",
+            "resumo": "Dar ao editor, nos bastidores, a vista de quem são os agentes, do que cada um tem à frente, e do correio que passou entre eles. Antes disto, saber em que pé estava uma história queria dizer abrir um terminal e ler pastas. 1. `dados/agentes.json` — o registo dos agentes no formato que teams.sgit.ai p"
+          }
+        ],
+        "bloqueados": [
+          {
+            "ficheiro": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
+            "agente": "bastidores.pt",
+            "coluna": "bloqueados",
+            "origem_tipo": "assunto",
+            "titulo": "A fila de acrescento nao tem credenciais",
+            "aberto": "2026-09-14T23:30:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "dinis.humano",
+            "issue": "—",
+            "origem": "pedido de @Dinis, nesta sessão",
+            "corpo": "## O que há para fazer\nA ponte que deixa o editor escrever aos bastidores a partir do navegador está construída e não tem\npor onde enviar. Uma fila de acrescento precisa de três coisas, e nenhuma delas pode estar neste\nrepositório.\n\n## O que falta, e porque não pode estar aqui\n| O quê | Para quê | Porque não fica em ficheiro |\n|---|---|---|\n| `vault_id` do cofre que recebe | O endereço do `POST` | Identifica o cofre; junto ao código de acrescento dava a fila inteira a quem lesse o repositório |\n| `append_token` (hex, 16–128) | Autoriza o acrescento, e só o acrescento | É uma credencial. Quem a tem escreve; não lista, não obtém, não lê |\n| chave pública do destinatário | Cifrar no navegador antes de enviar | Esta **pode** ser publicada — uma chave pública publica-se. Falta só porque ainda não foi gerada |\n\nO `validate.js` tem um detetor de cadeias com forma de chave e falha a construção se uma aparecer.\nÉ por isso que as três são dadas ao navegador em tempo de execução e guardadas em\n`localStorage`, e não commitadas.\n\n## Critério de aceitação para desbloquear\n@Dinis dá o `vault_id`, o `append_token` e a chave pública. A página `/backoffice/pontes.html`\nrecebe-os no navegador, confirma com um envio de prova, e a ponte passa de «sem credencial» a\n«a enviar».",
+            "resumo": "A ponte que deixa o editor escrever aos bastidores a partir do navegador está construída e não tem por onde enviar. Uma fila de acrescento precisa de três coisas, e nenhuma delas pode estar neste repositório. | O quê | Para quê | Porque não fica em ficheiro | |---|---|---| | `vault_id` do cofre que "
+          },
+          {
+            "ficheiro": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
+            "agente": "bastidores.pt",
+            "coluna": "bloqueados",
+            "origem_tipo": "assunto",
+            "titulo": "Nao consigo ler os cofres do jogo",
+            "aberto": "2026-09-14T23:30:00Z",
+            "prioridade": "média",
+            "esforco": "—",
+            "bloqueado_por": "a caixa onde esta sessão corre",
+            "issue": "—",
+            "origem": "pedido de @Dinis, nesta sessão",
+            "corpo": "## O que há para fazer\n@Dinis deu as chaves de leitura de dois cofres — o dos jogos de permissões e o cofre de telemetria\na que ele enviava — para eu ler como a telemetria de cofre para cofre foi montada, inclusive em\ncommits anteriores.\n\n## Porque está bloqueado\n`pip install sgit-ai` foi recusado pelo classificador da caixa onde esta sessão corre\n(«Untrusted Code Integration»), e sem o `sgit` não há como decifrar um cofre: a decifração é do\nlado do cliente e a chave de leitura não serve por HTTP simples. As chaves **não** foram escritas\nem ficheiro nenhum deste repositório.\n\n## O que foi feito em vez disso\nO desenho foi lido na fonte publicada, que diz o suficiente:\n`sgit.ai/docs/vault-messaging.md`, `sgit.ai/api/append-lanes.md`,\n`sgit.ai/docs/briefs/vault-telemetry-append-lanes.md` e a página do próprio cofre dos jogos em\n`sgit.ai/demos/vaults/agent-permission-games/`. Daí saiu um achado que muda o desenho aqui: o\ncofre dos jogos não conseguia enviar porque uma aplicação de cofre corre numa moldura cujo CSP é\n`connect-src blob: data:`. **Este site não é uma aplicação de cofre** — é um site estático — e por\nisso o `fetch` direto para `/api/vault/append/write/` funciona sem pedir permissão de rede a\nninguém.\n\n## Critério de aceitação para desbloquear\nUma de duas: permissão para instalar o `sgit` nesta caixa, ou uma sessão onde ele já esteja.\nNenhuma é urgente — a ponte não depende disto, só a leitura dos commits antigos depende.",
+            "resumo": "@Dinis deu as chaves de leitura de dois cofres — o dos jogos de permissões e o cofre de telemetria a que ele enviava — para eu ler como a telemetria de cofre para cofre foi montada, inclusive em commits anteriores. `pip install sgit-ai` foi recusado pelo classificador da caixa onde esta sessão corre"
+          }
+        ],
+        "fechados": []
+      },
+      "issues_do_jornal": [],
+      "entrada": [],
+      "em_transito": [],
+      "contagens": {
+        "abertos": 1,
+        "bloqueados": 2,
+        "fechados": 0,
+        "issues_do_jornal": 0,
+        "por_tratar": 0,
+        "em_transito": 0
+      }
+    },
+    "dinis.humano": {
+      "agente": "dinis.humano",
+      "alias": "@Dinis",
+      "nome": "Dinis Cruz",
+      "colunas": {
+        "abertos": [
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir a entrega chatgpt politicas",
+            "aberto": "2026-09-14T12:00:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "004",
+            "origem": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
+            "corpo": "## O que há para fazer\nDecidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto\nencontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da\ncópia congelada em que devia assentar.\n\n## Como se faz\n`/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é por item; rejeitar\ntambém. Nada desta entrega aparece na primeira página nem num artigo enquanto isto não for feito.\n\n## Critério de aceitação\n- Cada um dos 19 itens com uma decisão registada em `redacao/decisoes/`.\n- Nenhum item aprovado sem o excerto ter sido lido nos bytes congelados.",
+            "resumo": "Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p"
+          },
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir os tipos novos da ontologia",
+            "aberto": "2026-09-14T12:00:00Z",
+            "prioridade": "média",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "004",
+            "origem": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
+            "corpo": "## O que há para fazer\nA entrega propõe três tipos que a ontologia não tem: `Programa`, `InstrumentoJuridico`,\n`Infraestrutura`. Aceitá-los é uma alteração de ontologia.\n\n## Porque é uma decisão e não uma tarefa\nUm tipo novo muda o que o grafo consegue dizer, e a regra 6 diz que cada aresta tem de ler em voz\nalta em português com um inverso distinto. Um tipo aceite sem os verbos que o ligam é um tipo que\nnão se percorre. Leva uma versão, e a versão diz o que mudou e porquê.\n\n## Critério de aceitação\n- Cada tipo aceite tem, no mesmo commit, os verbos que o ligam ao resto do grafo, cada um com\n  leitura e inverso em português.\n- `admin/versions.html` com a linha que diz o que mudou.",
+            "resumo": "A entrega propõe três tipos que a ontologia não tem: `Programa`, `InstrumentoJuridico`, `Infraestrutura`. Aceitá-los é uma alteração de ontologia. Um tipo novo muda o que o grafo consegue dizer, e a regra 6 diz que cada aresta tem de ler em voz alta em português com um inverso distinto. Um tipo acei"
+          },
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir o pedido de acesso a anacom",
+            "aberto": "2026-09-14T12:00:00Z",
+            "prioridade": "média",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "002",
+            "origem": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
+            "corpo": "## O que há para fazer\nA página da ANACOM devolve 403 a esta redação. Decidir se se pede acesso, ou se a história 002 se\nescreve sobre a ausência no registo público legível.\n\n## Porque só o editor\nPedir acesso é falar em nome desta publicação com uma entidade nomeada. `pesquisa.pt` tem o\nassunto bloqueado à espera desta decisão.\n\n## Critério de aceitação\nUma das duas: o pedido feito e a resposta registada, ou a história escrita sobre a ausência com a\nhora e o código que o servidor devolveu.",
+            "resumo": "A página da ANACOM devolve 403 a esta redação. Decidir se se pede acesso, ou se a história 002 se escreve sobre a ausência no registo público legível. Pedir acesso é falar em nome desta publicação com uma entidade nomeada. `pesquisa.pt` tem o assunto bloqueado à espera desta decisão. Uma das duas: o"
+          }
+        ],
+        "bloqueados": [
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
+            "agente": "dinis.humano",
+            "coluna": "bloqueados",
+            "origem_tipo": "assunto",
+            "titulo": "O aviso tem de falar da telemetria antes de ela ligar",
+            "aberto": "2026-09-15T00:40:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "dinis.humano",
+            "issue": "—",
+            "origem": "pedido de @Dinis, nesta sessão",
+            "corpo": "## O que há para fazer\n`dados/aviso.json` não diz uma palavra sobre eventos de leitura, porque até agora não se enviava\nnenhum. A ponte da observabilidade está construída e desligada por falta de credenciais. **No\nmomento em que ela receber credenciais, o aviso passa a estar errado por omissão.**\n\n## Porque é um assunto do editor e não dos bastidores\n`dados/aviso.json` está na lista de recusa de `.claude/settings.json`, e está bem que esteja: o\naviso é onde uma publicação diz o que faz com dados de pessoas, e um agente que o pudesse reescrever\npodia alargar o que o site faz e ajustar o aviso para caber. @Bastidores não lhe toca. O responsável\npelo tratamento nomeado é @Dinis, e a via de oposição chega a ele.\n\n## O que o aviso tem de passar a dizer, e é pouco\n1. Que eventos anónimos de leitura são enviados para um cofre cifrado desta redação: que páginas\n   foram abertas, por que ordem, e quanto tempo ficaram abertas.\n2. Que o identificador de sessão são dezasseis dígitos criados na memória do navegador quando a\n   página abre e perdidos quando ela fecha, e que não há nome, correio eletrónico, agente do\n   utilizador, dimensões de ecrã nem referenciador.\n3. Que o servidor da fila vê o endereço IP de quem envia. **Isto não é evitável do lado do\n   cliente** e por isso tem de estar escrito: um aviso que dissesse «não recolhemos nada que o\n   identifique» e omitisse o IP estaria a dizer uma coisa falsa sobre a única parte que o leitor\n   não pode verificar.\n4. Que há um interruptor em cada página para desligar o envio, e que ele fica desligado entre\n   visitas.\n\n## Critério de aceitação\nA ordem importa e é esta: **o aviso primeiro, as credenciais depois.** É a mesma ordem que esta\npublicação já seguiu uma vez, quando o aviso de proteção de dados foi publicado ANTES da primeira\npágina que nomeia alguém. Ligar a telemetria antes de o aviso a descrever seria inverter a única\nsequência que este site já acertou de propósito.\n\nAté lá, `assets/observador.js` não envia nada, não mostra aviso nenhum e não põe interruptor — e\nessa é a regra 1 do próprio ficheiro: um aviso a dizer «enviamos eventos» num site que não envia\nnada é pior do que nenhum aviso, porque é uma afirmação falsa sobre o próprio site.",
+            "resumo": "`dados/aviso.json` não diz uma palavra sobre eventos de leitura, porque até agora não se enviava nenhum. A ponte da observabilidade está construída e desligada por falta de credenciais. **No momento em que ela receber credenciais, o aviso passa a estar errado por omissão.** `dados/aviso.json` está n"
+          }
+        ],
+        "fechados": []
+      },
+      "issues_do_jornal": [
+        {
+          "ficheiro": "redacao/issues/004-entrega-chatgpt-politicas.json",
+          "agente": "dinis.humano",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "004",
+          "titulo": "Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível",
+          "estado": "congelado",
+          "seccao": "politicas",
+          "aberto": "2026-09-14",
+          "porque_aqui": "É uma entrega exterior à espera de aprovação item a item, que só o editor dá.",
+          "o_que_falta": [
+            "Decisão do editor sobre cada item. Nada desta entrega aparece na primeira página nem num artigo até lá.",
+            "Decisão do editor sobre as propostas de vocabulário: um verbo ou um tipo novo é uma alteração de ontologia e leva uma versão.",
+            "Encontrar o PDF do Diário da República para a RCM n.º 2/2026, que tornaria conferíveis as três afirmações de item-pol-01."
+          ]
+        }
+      ],
+      "entrada": [
+        {
+          "ficheiro": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
+          "lugar": "entrada",
+          "caixa": "dinis.humano",
+          "de": "sessao-de-arranque",
+          "para": "dinis.humano",
+          "de_alias": "@Arranque",
+          "para_alias": "@Dinis",
+          "assunto": "MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão",
+          "quando": "2026-09-14T12:00:00Z",
+          "id": "001-mvp-construido@redacao.local",
+          "responde_a": null,
+          "issue": null,
+          "run": "2026-09-14T12:00:00Z",
+          "historica": true,
+          "migrado_de": "redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md",
+          "corpo": "O site está construído e os portões estão verdes. O que é real: 92 ficheiros congelados com\nSHA-256, um grafo de verbos portugueses onde cada nó nomeia a sua fonte, o aviso de proteção de\ndados publicado ANTES da primeira página que nomeia alguém, e o fluxo de revisão de entregas.\n\nO que NÃO é real e está dito em cada página onde importa: nenhuma história publicada, três das\noito secções vazias, e a camada das empresas impossível de completar sem registo comercial aberto.\n\nPrecisa de decidir três coisas. Primeira: a entrega do ChatGPT (parte 1/8, políticas) está em\n/entregas/ com cada afirmação conferida contra os bytes — 9 confirmadas, 0 não encontradas, 10 sem\nfonte legível. Nada dela aparece em lado nenhum público até aprovar item a item. Segunda: a entrega\npropõe tipos que a ontologia não tem (Programa, InstrumentoJuridico, Infraestrutura); aceitá-los é\numa alteração de ontologia e leva uma versão. Terceira: a página da ANACOM devolve 403 a esta\nredação, e isso não é uma recusa de informação — é um servidor a bloquear um cliente. Pode pedir\nacesso.\n\nUma nota que é um achado e não um detalhe: o Diário da República renderiza por script e devolve 22\ncaracteres a um leitor automático, mas publica os diplomas em PDF, e esses PDFs são legíveis depois\nde decifrados. build/pdf.py faz isso. Foi assim que as duas afirmações sobre a RCM n.º 70/2026\nconfirmaram. O mesmo caminho resolve provavelmente a história 001.",
+          "resumo": "O site está construído e os portões estão verdes. O que é real: 92 ficheiros congelados com SHA-256, um grafo de verbos portugueses onde cada nó nomeia a sua fonte, o aviso de proteção de dados publicado ANTES da primeira página que nomeia alguém, e o fluxo de revisão de entregas. O que NÃO é real e está dito em cada página onde importa: nenhuma história publicada, três das oito secções vazias, e a camada das empresa",
+          "bytes": 2012,
+          "desconhecido": [
+            "sessao-de-arranque"
+          ]
+        }
+      ],
+      "em_transito": [
+        {
+          "ficheiro": "redacao/correio/expedicao/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml",
+          "lugar": "expedicao",
+          "caixa": "dinis.humano",
+          "de": "bastidores.pt",
+          "para": "dinis.humano",
+          "de_alias": "@Bastidores",
+          "para_alias": "@Dinis",
+          "assunto": "A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial",
+          "quando": "2026-09-14T23:55:00Z",
+          "id": "003-equipa-visivel@redacao.local",
+          "responde_a": "001-mvp-construido@redacao.local",
+          "issue": null,
+          "run": null,
+          "historica": false,
+          "migrado_de": null,
+          "corpo": "Está feito o que pediu: os agentes são agora um registo em `dados/agentes.json`, o correio entre\neles corre pelo protocolo Email-FS-lite em `redacao/correio/`, e há três páginas nos bastidores —\na equipa, o quadro por agente e o correio. Nenhum número nessas páginas é uma afirmação sobre\nPortugal: são contagens de ficheiros deste repositório, e o portão dos bastidores falha a\nconstrução se alguma vez uma delas citar uma fonte congelada como prova.\n\nTrês coisas que precisam de uma decisão sua, e nenhuma é urgente.\n\nPRIMEIRA, E A ÚNICA QUE BLOQUEIA. A ponte que o deixa escrever-me a partir do site está\nconstruída e não tem por onde enviar. Uma fila de acrescento precisa do `vault_id` do cofre que\nrecebe, de um `append_token` em hexadecimal, e da chave pública para eu cifrar no navegador antes\nde enviar. As duas primeiras são credenciais e não podem ficar neste repositório — o `validate.js`\ntem um detetor de cadeias com forma de chave e falharia a construção, o que é o portão a funcionar.\nVão para `localStorage` do seu navegador, dadas por si em `/backoffice/pontes.html`. A chave\npública pode ser publicada, e essa fica em ficheiro.\n\nSEGUNDA. As chaves de leitura que me deu para os cofres dos jogos não puderam ser usadas: instalar\no `sgit` foi recusado pelo classificador da caixa onde esta sessão corre. Não escrevi nenhuma\ndelas em ficheiro. Li o desenho na fonte publicada em vez disso, e isso trouxe um achado que\nmelhora o nosso caso: o cofre dos jogos construía eventos e não os enviava, porque uma aplicação\nde cofre corre numa moldura cujo CSP é `connect-src blob: data:`. Este site é estático, não é uma\naplicação de cofre, e por isso o envio direto funciona. O que a telemetria dos jogos não conseguiu\nfazer, este site consegue.\n\nTERCEIRA, QUE É UMA CORREÇÃO A UM FICHEIRO QUE EU NÃO POSSO EDITAR. O `CLAUDE.md` manda correr\n`node build/validate.js`. O ficheiro está em `admin/build/validate.js`, e é esse que a integração\ncontínua corre. Quem seguir a linha à letra conclui que o portão não existe. `CLAUDE.md` está na\nlista de recusa de propósito e não lhe toquei: a linha é sua.\n\nContinuam abertos os três assuntos que a sessão de arranque lhe deixou — a entrega do ChatGPT item\na item, os três tipos novos da ontologia, e o pedido de acesso à ANACOM, que tem a pesquisa\nbloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.",
+          "resumo": "Está feito o que pediu: os agentes são agora um registo em `dados/agentes.json`, o correio entre eles corre pelo protocolo Email-FS-lite em `redacao/correio/`, e há três páginas nos bastidores — a equipa, o quadro por agente e o correio. Nenhum número nessas páginas é uma afirmação sobre Portugal: são contagens de ficheiros deste repositório, e o portão dos bastidores falha a construção se alguma vez uma delas citar ",
+          "bytes": 2847,
+          "desconhecido": []
+        }
+      ],
+      "contagens": {
+        "abertos": 3,
+        "bloqueados": 1,
+        "fechados": 0,
+        "issues_do_jornal": 1,
+        "por_tratar": 1,
+        "em_transito": 1
+      }
+    }
+  }
+}

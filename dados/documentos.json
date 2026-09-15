@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 52,
+  "contagem": 62,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -57,89 +57,89 @@
       "caminho": "agents/README.md",
       "titulo": "The agents",
       "categoria": "Agent mandates",
-      "bytes": 2744,
-      "linhas": 48,
-      "palavras": 444
+      "bytes": 3546,
+      "linhas": 50,
+      "palavras": 530
     },
     {
-      "caminho": "agents/copydesk/MANDATE.md",
-      "titulo": "Copydesk — mandate",
+      "caminho": "agents/bastidores.pt/MANDATE.md",
+      "titulo": "Bastidores — mandate",
       "categoria": "Agent mandates",
-      "bytes": 1077,
-      "linhas": 30,
-      "palavras": 179
+      "bytes": 3206,
+      "linhas": 161,
+      "palavras": 633
     },
     {
-      "caminho": "agents/copydesk/ROLE.md",
-      "titulo": "Copydesk — the newsroom agent",
+      "caminho": "agents/bastidores.pt/ROLE.md",
+      "titulo": "Bastidores — @Bastidores",
       "categoria": "Agent mandates",
-      "bytes": 1370,
-      "linhas": 30,
-      "palavras": 218
+      "bytes": 3117,
+      "linhas": 343,
+      "palavras": 815
     },
     {
-      "caminho": "agents/dragnet/MANDATE.md",
-      "titulo": "Dragnet — mandate",
-      "categoria": "Agent mandates",
-      "bytes": 1615,
-      "linhas": 37,
-      "palavras": 263
-    },
-    {
-      "caminho": "agents/dragnet/ROLE.md",
-      "titulo": "Dragnet — the research agent",
-      "categoria": "Agent mandates",
-      "bytes": 1523,
-      "linhas": 32,
-      "palavras": 244
-    },
-    {
-      "caminho": "agents/editor/MANDATE.md",
+      "caminho": "agents/dinis.humano/MANDATE.md",
       "titulo": "Dinis Cruz — mandate",
       "categoria": "Agent mandates",
-      "bytes": 1494,
-      "linhas": 28,
-      "palavras": 254
+      "bytes": 1876,
+      "linhas": 78,
+      "palavras": 346
     },
     {
-      "caminho": "agents/editor/ROLE.md",
-      "titulo": "Dinis Cruz — editor of record",
+      "caminho": "agents/dinis.humano/ROLE.md",
+      "titulo": "Dinis Cruz — @Dinis",
       "categoria": "Agent mandates",
-      "bytes": 1441,
-      "linhas": 32,
-      "palavras": 248
+      "bytes": 2350,
+      "linhas": 226,
+      "palavras": 553
     },
     {
-      "caminho": "agents/foundry/MANDATE.md",
-      "titulo": "Foundry — mandate",
+      "caminho": "agents/pesquisa.pt/MANDATE.md",
+      "titulo": "Pesquisa — mandate",
       "categoria": "Agent mandates",
-      "bytes": 2031,
-      "linhas": 44,
-      "palavras": 326
+      "bytes": 2529,
+      "linhas": 129,
+      "palavras": 496
     },
     {
-      "caminho": "agents/foundry/ROLE.md",
-      "titulo": "Foundry — the platform agent",
+      "caminho": "agents/pesquisa.pt/ROLE.md",
+      "titulo": "Pesquisa — @Pesquisa",
       "categoria": "Agent mandates",
-      "bytes": 2031,
-      "linhas": 40,
-      "palavras": 333
+      "bytes": 2766,
+      "linhas": 291,
+      "palavras": 681
     },
     {
-      "caminho": "agents/proof/MANDATE.md",
-      "titulo": "Proof — mandate",
+      "caminho": "agents/redacao.pt/MANDATE.md",
+      "titulo": "Redação — mandate",
       "categoria": "Agent mandates",
-      "bytes": 1064,
-      "linhas": 30,
-      "palavras": 170
+      "bytes": 2589,
+      "linhas": 139,
+      "palavras": 503
     },
     {
-      "caminho": "agents/proof/ROLE.md",
-      "titulo": "Proof — the verification agent",
+      "caminho": "agents/redacao.pt/ROLE.md",
+      "titulo": "Redação — @Redacao",
       "categoria": "Agent mandates",
-      "bytes": 1304,
-      "linhas": 28,
-      "palavras": 224
+      "bytes": 2455,
+      "linhas": 245,
+      "palavras": 602
+    },
+    {
+      "caminho": "agents/verificacao.pt/MANDATE.md",
+      "titulo": "Verificação — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 2445,
+      "linhas": 125,
+      "palavras": 474
+    },
+    {
+      "caminho": "agents/verificacao.pt/ROLE.md",
+      "titulo": "Verificação — @Verificacao",
+      "categoria": "Agent mandates",
+      "bytes": 2381,
+      "linhas": 224,
+      "palavras": 549
     },
     {
       "caminho": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.md",
@@ -406,20 +406,100 @@
       "palavras": 100
     },
     {
-      "caminho": "redacao/correio/editor/entrada/2026-09-14T1200__sessao-de-arranque__o-que-foi-construido.md",
-      "titulo": "2026-09-14T1200__sessao-de-arranque__o-que-foi-construido",
+      "caminho": "redacao/correio/LEIA-ME.md",
+      "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 1696,
-      "linhas": 29,
-      "palavras": 274
+      "bytes": 5980,
+      "linhas": 120,
+      "palavras": 800
     },
     {
-      "caminho": "redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md",
-      "titulo": "2026-09-14T1205__editor__tres-primeiras-historias",
+      "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
+      "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
-      "bytes": 841,
-      "linhas": 20,
-      "palavras": 138
+      "bytes": 1410,
+      "linhas": 29,
+      "palavras": 221
+    },
+    {
+      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
+      "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
+      "categoria": "Newsroom files",
+      "bytes": 1470,
+      "linhas": 30,
+      "palavras": 248
+    },
+    {
+      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
+      "titulo": "003__nao-consigo-ler-os-cofres-do-jogo",
+      "categoria": "Newsroom files",
+      "bytes": 1670,
+      "linhas": 34,
+      "palavras": 258
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
+      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
+      "categoria": "Newsroom files",
+      "bytes": 839,
+      "linhas": 22,
+      "palavras": 122
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
+      "titulo": "002__decidir-os-tipos-novos-da-ontologia",
+      "categoria": "Newsroom files",
+      "bytes": 906,
+      "linhas": 23,
+      "palavras": 145
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md",
+      "titulo": "003__decidir-o-pedido-de-acesso-a-anacom",
+      "categoria": "Newsroom files",
+      "bytes": 711,
+      "linhas": 21,
+      "palavras": 105
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
+      "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
+      "categoria": "Newsroom files",
+      "bytes": 2457,
+      "linhas": 43,
+      "palavras": 413
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
+      "titulo": "001__pdf-do-diario-da-republica",
+      "categoria": "Newsroom files",
+      "bytes": 1342,
+      "linhas": 27,
+      "palavras": 219
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
+      "titulo": "002__ausencias-publicaveis-tal-como-estao",
+      "categoria": "Newsroom files",
+      "bytes": 1145,
+      "linhas": 24,
+      "palavras": 175
+    },
+    {
+      "caminho": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
+      "titulo": "003__acesso-a-anacom",
+      "categoria": "Newsroom files",
+      "bytes": 919,
+      "linhas": 22,
+      "palavras": 139
+    },
+    {
+      "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
+      "titulo": "notas — bastidores.pt",
+      "categoria": "Newsroom files",
+      "bytes": 6056,
+      "linhas": 81,
+      "palavras": 959
     }
   ]
 }

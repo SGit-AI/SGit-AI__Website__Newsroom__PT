@@ -18,11 +18,15 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · <b>back office</b></div>
   <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
        <a href="../backoffice/docs.html">documents</a> ·
        <a href="../backoffice/agents.html">agents</a> ·
        <a href="../backoffice/guidance.html">guidance</a> ·
        <a href="../admin/versions.html">versions</a></div>
-  <div><span class="ver">v0.8.0</span></div>
+  <div><span class="ver">v0.9.0</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -57,7 +61,7 @@ its write scope. If no identity fits the work, that is a message to the editor, 
 invent one.</p>
 <div class="rolar"><table><thead><tr><th style="width:130px">Agent</th>
   <th style="width:120px">Role</th><th>Writes in</th><th style="width:210px">Declares</th>
-  <th style="width:150px">Mandate</th></tr></thead><tbody><tr><td class="sm"><b>Foundry</b></td><td class="sm">Platform</td><td class="mono xs">build/, admin/build/, assets/…</td><td class="mono xs">especie: construcao</td><td class="mono xs"><a href="docs.html#agents/foundry/ROLE.md">ROLE</a> · <a href="docs.html#agents/foundry/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dragnet</b></td><td class="sm">Research</td><td class="mono xs">fontes/, dados/registo.json, dados/ (extracted)…</td><td class="mono xs">departamento: pesquisa</td><td class="mono xs"><a href="docs.html#agents/dragnet/ROLE.md">ROLE</a> · <a href="docs.html#agents/dragnet/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Copydesk</b></td><td class="sm">Newsroom</td><td class="mono xs">conteudo/, artigos/**/artigo.md, artigos/**/artigo.json</td><td class="mono xs">departamento: redacao</td><td class="mono xs"><a href="docs.html#agents/copydesk/ROLE.md">ROLE</a> · <a href="docs.html#agents/copydesk/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Proof</b></td><td class="sm">Verification</td><td class="mono xs">dados/verificacoes/, artigos/**/afirmacoes.json</td><td class="mono xs">departamento: verificacao</td><td class="mono xs"><a href="docs.html#agents/proof/ROLE.md">ROLE</a> · <a href="docs.html#agents/proof/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dinis Cruz</b></td><td class="sm">Editor of record</td><td class="mono xs">redacao/decisoes/, redacao/revisoes/, conteudo/…</td><td class="mono xs">departamento: editor</td><td class="mono xs"><a href="docs.html#agents/editor/ROLE.md">ROLE</a> · <a href="docs.html#agents/editor/MANDATE.md">MANDATE</a></td></tr></tbody></table></div>
+  <th style="width:150px">Mandate</th></tr></thead><tbody><tr><td class="sm"><b>Pesquisa</b> <span class="mono xs">@Pesquisa</span></td><td class="sm">departamento</td><td class="mono xs">fontes/congeladas/&lt;data&gt;/, dados/registo.json, dados/*.json extraídos das fontes…</td><td class="mono xs">pesquisa.pt</td><td class="mono xs"><a href="docs.html#agents/pesquisa.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/pesquisa.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Redação</b> <span class="mono xs">@Redacao</span></td><td class="sm">departamento</td><td class="mono xs">artigos/&lt;data&gt;__&lt;slug&gt;/, conteudo/*.md, redacao/correio/redacao.pt/…</td><td class="mono xs">redacao.pt</td><td class="mono xs"><a href="docs.html#agents/redacao.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/redacao.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Verificação</b> <span class="mono xs">@Verificacao</span></td><td class="sm">departamento</td><td class="mono xs">dados/verificacoes/*.json, artigos/&lt;data&gt;__&lt;slug&gt;/verificacao.json, redacao/correio/verificacao.pt/…</td><td class="mono xs">verificacao.pt</td><td class="mono xs"><a href="docs.html#agents/verificacao.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/verificacao.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Bastidores</b> <span class="mono xs">@Bastidores</span></td><td class="sm">departamento</td><td class="mono xs">backoffice/, build/ (exceto os portões), assets/…</td><td class="mono xs">bastidores.pt</td><td class="mono xs"><a href="docs.html#agents/bastidores.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/bastidores.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dinis Cruz</b> <span class="mono xs">@Dinis</span></td><td class="sm">humano</td><td class="mono xs">estado: publicado, redacao/decisoes/, redacao/correio/dinis.humano/…</td><td class="mono xs">dinis.humano</td><td class="mono xs"><a href="docs.html#agents/dinis.humano/ROLE.md">ROLE</a> · <a href="docs.html#agents/dinis.humano/MANDATE.md">MANDATE</a></td></tr></tbody></table></div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">The rest of the estate</div></div>
 <p class="sm" style="max-width:48em">This repository is an instance of an argument made elsewhere,
@@ -73,7 +77,7 @@ reliability, resilience, security, backups, consistency, explainability, documen
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/guidance.html</code> · version <span class="ver">v0.8.0</span>.
+<code>backoffice/guidance.html</code> · version <span class="ver">v0.9.0</span>.
 </div>
 
 </div>

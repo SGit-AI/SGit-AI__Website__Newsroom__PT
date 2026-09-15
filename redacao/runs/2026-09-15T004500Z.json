@@ -1,0 +1,52 @@
+{
+  "quando": "2026-09-15T00:45:00Z",
+  "especie": "construcao",
+  "prompt": "Ver a equipa de agentes de forma visual nos bastidores, com o quadro de cada um; montar o sistema de correio entre agentes a partir do Email-FS-lite; abrir uma ponte para o editor falar com os bastidores a partir do site por uma fila de acrescento de cofre; a observabilidade pelo padrão dos cofres dos jogos; e um painel de conversa sobre o conteúdo.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "assets/",
+    "build/",
+    "dados/",
+    "redacao/",
+    "backoffice/",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.7.0",
+  "leu_antes_de_construir": [
+    "teams.sgit.ai — o formato de um ROLE.md, o protocolo de endereços, e as três topologias de equipa",
+    "sgraph.ai/en-gb/library/agentic-teams — a forma publicada de cada agente da equipa de sgraph.ai",
+    "sgraph.ai/en-gb/library/how-it-works/email-fs-lite — as sete páginas do protocolo, e o guia de adoção",
+    "sgit.ai/docs/vault-messaging, sgit.ai/api/append-lanes, sgit.ai/docs/pki — as filas de acrescento e o envelope",
+    "sgit.ai/docs/briefs/vault-telemetry-append-lanes e sgit.ai/demos/vaults/agent-permission-games — o padrão da telemetria de cofre para cofre",
+    "sgit.ai/articles/chat-on-a-static-site — os dois níveis de uma conversa num site sem servidor"
+  ],
+  "o_que_fez": [
+    "dados/agentes.json: o registo dos agentes, no formato de teams.sgit.ai cruzado com o de sgraph.ai. Cinco papéis, cinco declarados como não construídos com a razão.",
+    "redacao/correio/: o protocolo Email-FS-lite v0.6, adotado tal e qual. As duas mensagens que já existiam migradas para .eml com o corpo intacto, e o remetente que já não existe declarado como identidade histórica.",
+    "build/equipa.py: UM leitor da pasta do correio, que deriva dados/correio.json e dados/quadro.json. build/build.py e build/mesa.py passam a ler o derivado.",
+    "Três páginas de bastidores: a equipa, o quadro por agente, e o correio enfiado por Message-ID.",
+    "assets/ponte.js, build/pontes.py, dados/pontes.json: a ponte para a fila de acrescento, com o envelope da v0.15.0 do sgit. Construída e sem credencial, porque nenhuma credencial pode entrar num ficheiro deste repositório.",
+    "assets/observador.js: a observabilidade. Sem credenciais não faz absolutamente nada — nem envia, nem mostra aviso, nem põe interruptor.",
+    "assets/conversa.js: «falar com este conteúdo» nos dois níveis, com dezoito ferramentas que são GETs a /api/v1/.",
+    "Quatro coleções novas na API: agents, mail, board, bridges.",
+    "Duas duplicações desfeitas na integração do dev: a lista de agentes escrita à mão em build/comentarios.py, e o segundo leitor do correio em build/mesa.py, que depois da migração contava zero sem falhar."
+  ],
+  "confirmado_no_navegador": [
+    "O painel de conversa aparece na primeira página, e o comparador do nível 0 responde dizendo quais as palavras que bateram e onde.",
+    "A ponte diz «closed: no credentials» e recusa enviar com a razão à vista.",
+    "Uma impressão digital «sha256:…» colada onde vai um código de acrescento é recusada antes do pedido, com a mensagem a dizer qual é o engano.",
+    "A observabilidade não deixa rasto nenhum na página enquanto não tiver credenciais: a primeira página não ganhou aviso."
+  ],
+  "bloqueado": [
+    "As três credenciais da ponte, que são de @Dinis e não podem estar em ficheiro.",
+    "Ler os dois cofres cujas chaves de leitura @Dinis deu: «pip install sgit-ai» foi recusado pelo classificador desta caixa, e sem o sgit não há como decifrar um cofre. Nenhuma das chaves foi escrita em ficheiro nenhum. O desenho foi lido na fonte publicada em vez disso.",
+    "dados/aviso.json passar a falar de telemetria ANTES de a ponte da observabilidade receber credenciais. Está na lista de recusa de propósito e é do editor."
+  ],
+  "nota": "Uma execução de CONSTRUÇÃO e não de redação: não obteve nem congelou uma fonte, não escreveu uma afirmação sobre Portugal, não moveu um issue e não pôs nada em publicado. Mexeu em redacao/ para escrever o correio, o quadro dos agentes e este registo, que o portão 12 permite explicitamente. Nenhuma página construída nesta execução cita uma fonte congelada como prova, e o portão dos bastidores confere isso."
+}

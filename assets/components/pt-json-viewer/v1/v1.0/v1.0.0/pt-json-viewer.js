@@ -44,19 +44,26 @@ class PtJsonViewer extends SgComponent {
         if (name === 'src' && this.shadowRoot && value) this.load(value)
     }
 
-    onReady() {
+    /* `async`, and the load is AWAITED. The base class sets `data-estado="pronto"` once onReady
+       returns, and its comment says that means the component "has actually finished loading
+       whatever it loads". A fire-and-forget load made that untrue here: `pronto` landed when the
+       shell mounted, and the render gate could read a component as up while its fetch was still
+       in flight — the same false-healthy signal `falhou()` was added to remove, one level down. */
+    async onReady() {
         this._root = this.getAttribute('site-root') || '../'
         this.$('#expand').addEventListener('click', () => this._all(true))
         this.$('#collapse').addEventListener('click', () => this._all(false))
         window.addEventListener('hashchange', () => this._fromHash())
         const src = this.getAttribute('src')
-        if (src) this.load(src)
-        else this._fromHash()
+        if (src) await this.load(src)
+        else await this._fromHash()
     }
 
+    /* Returns the load's promise so the caller can await it. Without the `return`, `onReady`
+       awaiting this would await `undefined` and go straight to «pronto» with nothing loaded. */
     _fromHash() {
         const h = decodeURIComponent(location.hash.replace(/^#/, ''))
-        if (h && /\.json$/.test(h)) this.load(h)
+        if (h && /\.json$/.test(h)) return this.load(h)
     }
 
     async load(src) {

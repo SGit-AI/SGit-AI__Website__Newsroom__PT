@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.8.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.9.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o

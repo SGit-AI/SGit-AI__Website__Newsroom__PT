@@ -18,7 +18,7 @@
   <div>pt.newsroom.sgit.ai · administration</div>
   <div><a href="../">Back to the paper</a> · <a href="../backoffice/">back office</a> ·
        <a href="../backoffice/guidance.html">guidance</a></div>
-  <div><span class="ver">v0.8.0</span></div>
+  <div><span class="ver">v0.9.0</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -43,7 +43,7 @@ agree before tagging and deploying. A red validate is not a release.</p>
 <tbody>
 
 <tr>
-<td class="mono"><span class="vnum">v0.8.0</span></td>
+<td class="mono"><span class="vnum">v0.9.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
 <b>The language rule gets a test, a gate, and an apology.</b> One question decides every naming
@@ -68,14 +68,19 @@ deny list of <code>.claude/settings.json</code>, so no agent here can edit them 
 fails the build over a file the agent is forbidden to touch is not a gate, it is a deadlock. They
 are named in the gate, counted in its summary, and listed here rather than quietly skipped.
 <br><br>
-<b>The agents have names now.</b> Five identities in <code>agents/</code>, each with a
-<code>ROLE.md</code>, a <code>MANDATE.md</code> and a write scope: <b>Foundry</b> (platform),
-<b>Dragnet</b> (research), <b>Copydesk</b> (newsroom), <b>Proof</b> (verification), and
-<b>Dinis Cruz</b>, the human editor of record. <b>Gate 28</b> fails a run naming an agent that is
-not registered, and an agent folder with no written mandate. Two sessions doing the same role at
-once is normal here now; the role says what the work is, the name says whose mandate it is done
-under. An agent nobody can name is an anonymous contributor to a publication whose entire argument
-is knowing who said what.
+<b>Every agent gets a <code>ROLE.md</code> and a <code>MANDATE.md</code> — rendered, not
+written.</b> And the story of how is the useful part: <b>two sessions answered this same ask on the
+same afternoon.</b> One wrote five mandate files by hand; the other built
+<code>dados/agentes.json</code>, which already held every field those files would state. Two
+answers to one ask is two copies, and two copies diverge the day somebody edits one. The register
+won — it shipped first and is wired into the API, the console and the mail — and the hand-written
+files were deleted. <code>build/mandatos.py</code> now renders
+<code>agents/&lt;id&gt;/ROLE.md</code> and <code>MANDATE.md</code> from it, marked
+<code>DERIVED FILE</code>, with English scaffolding and the register's values quoted verbatim in
+Portuguese. <b>Gate 28</b> fails a run naming an unregistered agent, a registered agent with no
+mandate file, a mandate not marked as derived, and — the one worth having — <b>a mandate whose
+domain, mission or central claim has drifted from the register</b>. A mandate that no longer matches
+reads as authoritative while being wrong.
 <br><br>
 <b>Guidance, at <code>docs/guidance/</code> and in the back office.</b> Four pages, in the order
 they should be read: the language rule, the nine principles each naming the gate that enforces it,
@@ -92,6 +97,94 @@ own register</b>. They were frozen by another publication's fetcher, at its time
 our captures would make this site's method quietly untrue, which is the one failure mode that does
 not look broken. They turn a story explicitly waiting for a second capture into three captures in
 six days: <b>60 → 64 → 70</b> speakers.
+</td>
+</tr>
+
+
+<tr>
+<td class="mono"><span class="vnum">v0.8.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<i>Released by @Bastidores. Translated into English here, like every other row, under the language
+rule this site adopted in v0.9.0 — the words are that release's, the language is the house's.</i>
+<br><br>
+<b>The agents become a register, and the mail between them becomes a protocol.</b> It was three
+paragraphs in <code>dados/equipa.json</code> and two loose messages in a folder.
+<code>dados/agentes.json</code> becomes the register, in the form
+<a href="https://teams.sgit.ai/role-format/index.html">teams.sgit.ai publishes for a
+<code>ROLE.md</code></a> crossed with the one
+<a href="https://sgraph.ai/en-gb/library/agentic-teams/sgraph-ai-team.md">sgraph.ai publishes for
+each agent on its team</a>. Five roles, and the fifth — @Bastidores — writes not one line of the
+paper. Five others are named as <b>not built</b>, with the reason, because a register claiming roles
+nobody runs would be claiming a capability.
+<br><br>
+<b>The field that makes this a team is "not responsible for".</b> Without it every role silently
+becomes the same role — which is why it is in every definition, saying whose the work actually is.
+Each role's central claim is written as a <b>failure condition</b>, so it can be contradicted rather
+than admired.
+<br><br>
+<b>Email-FS-lite, as published, with the difference said out loud.</b> The mail runs on the protocol
+the sgraph.ai team publishes and runs: one writer per folder, dispatch as the only shared surface,
+one commit per cycle, immutable <code>.eml</code> messages that only move. A message's state is
+<b>the folder it is in</b> and not a field, because a field can disagree with the folder and a
+folder cannot disagree with itself. The protocol was designed for a vault, where
+<code>sgit pull</code> is the inbox notification; here it runs in a git repository, and that
+difference is written in <code>redacao/correio/LEIA-ME.md</code> rather than disguised.
+<br><br>
+<b>One reader, and a second reader caught out of date.</b> <code>build/equipa.py</code> reads the
+folder and derives <code>dados/correio.json</code>; everything else reads the derived file. v0.3.1
+was the deletion of a second document reader, and this cycle's integration showed why:
+<code>build/mesa.py</code> counted the mail by opening the folder, and after the migration counted
+zero <b>without failing</b>. A fault that does not fail is the worst kind, and two readers created
+it. There were also two lists of agents — one hand-written in <code>build/comentarios.py</code> —
+and now there is one.
+<br><br>
+<b>The bridge: the editor can talk to the newsroom from the browser.</b> This site is static and
+cannot write to the repository; a vault append queue closes that gap without giving it a server,
+because it splits access into four capabilities that do not overlap — whoever holds the code
+<b>appends and nothing else</b>, and the response to an append is blind on purpose. It is built and
+<b>credential-free</b>: the vault id and the code are given to the browser and live in
+<code>localStorage</code>, because the validator's key-shaped-string tripwire would fail the build
+if one entered a file — which is the gate working rather than a rule being remembered.
+<br><br>
+<b>A finding from the games vault that changes the design.</b> Its telemetry built events and never
+sent them. The cause was not the code: a vault app runs in a frame whose CSP is
+<code>connect-src blob: data:</code>, and the only way out would reopen every exit from a frame
+holding decrypted content. This site is not a vault app — so what the games telemetry could not do,
+this site can. The difference is one of surface, not of effort.
+<br><br>
+<b>"Talk to this content", at both levels, and level 0 is the default because it says why it
+chose.</b> A deterministic comparator running in the browser against the index the build emitted,
+showing the words that matched and where. Level 1 is the reader's own key, with eighteen tools that
+are <code>GET</code>s to <code>/api/v1/</code> — unusually safe to hand a model, because the API is
+only files and the worst a call can do is read something already public. Four new API collections:
+agents, mail, board and bridges.
+<br><br>
+<b>What is blocked, and is the editor's.</b> <code>dados/aviso.json</code> does not mention
+telemetry, and while the bridge is off that is correct. The moment it takes credentials the notice
+is wrong by omission — and the IP address the queue's server sees has to be written down, because it
+is the one part the reader cannot verify. The order is <b>the notice first, the credentials
+after</b>, which is the order this site already got right once, when the notice was published before
+the first page that names anybody.
+<br><br>
+<b>The review of the other agent's work, and three things it changed.</b> The browser gate he added
+the same night — <code>admin/build/render.mjs</code>, which opens every page in a real Chromium —
+found a real defect in this version the first time it ran over it: the bridges page overflowed at
+390px, <code>scrollWidth 413 &gt; 390</code>. The cause was a <code>&lt;select&gt;</code>, which
+takes its width from its longest option and will not shrink below it. Fixed, and it is the gate's
+argument made in public: none of the other three would have seen it.
+<br><br>
+<b>The gate did not cover the new pages, and the omission was exactly the exemption gate 26
+forbids.</b> <code>render.mjs</code>'s page list is made of components, and this version's four
+pages use none — but they have code that runs, and the bridges page has the largest script block on
+the site. All four join the list: 15 pages in a browser instead of 11.
+<br><br>
+<b>And "ready" on two components did not mean what the base class says it means.</b> The comment on
+<code>pronto()</code> promises <code>data-estado</code> is only set once the component "has actually
+finished loading whatever it loads". <code>pt-json-viewer</code> and <code>pt-doc-browser</code>
+started their load without awaiting it, and so became "ready" when the shell mounted — the same
+false health <code>falhou()</code> was added to remove, one level down. Both now await what they
+started.
 </td>
 </tr>
 
@@ -455,7 +548,7 @@ decisions and not a projection of data. The version number in
 <code>admin/build/version.txt</code> is the source of truth and
 <code>admin/build/validate.js</code> checks this table has a row for it, with no duplicates. It is
 in English because its audience operates the newsroom rather than reading the paper — see
-<a href="../backoffice/guidance.html">the guidance</a>. Version <span class="ver">v0.8.0</span>.
+<a href="../backoffice/guidance.html">the guidance</a>. Version <span class="ver">v0.9.0</span>.
 </div>
 
 </div>

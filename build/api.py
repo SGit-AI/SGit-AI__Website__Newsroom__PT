@@ -159,6 +159,34 @@ COLECCOES = [
                     "whether it is linkable in prose under the published linking formula. Keys are "
                     "Portuguese because that is what the repository holds; the path is English "
                     "because the intent is several languages over one set of data."},
+    {"path": "agents", "ficheiro": "agentes.json", "lista": "agentes", "chave": "id",
+     "pt": "agentes", "summary": "The agent roster: mission, central claim, and what each is "
+                                 "not responsible for",
+     "description": "Each role in the shape teams.sgit.ai publishes for a ROLE.md, crossed with "
+                    "the shape sgraph.ai publishes for each of its own agents. The central claim "
+                    "is written as a failure condition so it can be disproved, and «not "
+                    "responsible for» is the field without which every role quietly becomes the "
+                    "same role. An agent has two identifiers and the correspondence is in the "
+                    "file: `id` is the mail address, `id_curto` is what the comment records are "
+                    "keyed on."},
+    {"path": "mail", "ficheiro": "correio.json", "lista": "mensagens", "chave": None,
+     "pt": "correio", "summary": "Every message between the agents, under Email-FS-lite",
+     "description": "RFC 2822 messages in a folder. The state of a message is the folder it sits "
+                    "in and not a field, because a field can disagree with the folder and a "
+                    "folder cannot disagree with itself. Messages are immutable: never edited, "
+                    "never deleted, only moved."},
+    {"path": "board", "ficheiro": "quadro.json", "lista": None, "chave": None,
+     "pt": "quadro", "summary": "What each agent has in front of it",
+     "description": "Two kinds of card, kept apart. A card under `assuntos` is work the agent "
+                    "opened for itself and carries its own reading of it. A paper issue arrives "
+                    "on a board by the published formula in agents.json and by nothing else — "
+                    "classification is a published formula or it does not happen."},
+    {"path": "bridges", "ficheiro": "pontes.json", "lista": "pontes", "chave": "id",
+     "pt": "pontes", "summary": "The append lanes between this static site and the vault",
+     "description": "What each lane sends, what it never sends, and which of its three values may "
+                    "be published. No credential is in this file or in any other: the vault id "
+                    "and the append token are handed to a browser at runtime, and the build has a "
+                    "key-shaped-string tripwire that fails if one ever appears."},
     {"path": "manifest", "ficheiro": "manifesto.json", "lista": None, "chave": None,
      "pt": "manifesto", "summary": "Every data file with its SHA-256"},
     {"path": "excluded", "ficheiro": "excluidas.json", "lista": None, "chave": None,

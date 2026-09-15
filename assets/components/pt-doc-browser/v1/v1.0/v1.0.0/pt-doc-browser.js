@@ -39,13 +39,17 @@ class PtDocBrowser extends SgComponent {
 
     get resourceName() { return 'pt-doc-browser' }
 
-    onReady() {
+    /* `async`, and the load is AWAITED — same reason as pt-json-viewer. The base class sets
+       `data-estado="pronto"` once onReady returns, and that is only true if the load it started
+       has finished. A fire-and-forget load lets the render gate read this component as up while
+       its fetch of documents.json is still in flight. */
+    async onReady() {
         this._root = this.getAttribute('site-root') || '../'
         this._docs = []
         this._current = null
         this.$('#q').addEventListener('input', e => this._filter(e.target.value))
         window.addEventListener('hashchange', () => this._openFromHash())
-        this._load()
+        await this._load()
     }
 
     async _load() {

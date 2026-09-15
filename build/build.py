@@ -1355,17 +1355,22 @@ def ler_issues():
 
 
 def ler_correio():
-    base = ROOT / "redacao" / "correio"
-    msgs = []
-    for f in sorted(base.rglob("*.md")) if base.exists() else []:
-        t = f.read_text(encoding="utf-8")
-        m = re.match(r"^---\n(.*?)\n---\n(.*)$", t, re.S)
-        if not m:
-            continue
-        fm = dict(re.findall(r"^(\w+):\s*(.*)$", m.group(1), re.M))
-        msgs.append({"de": fm.get("de"), "para": fm.get("para"), "assunto": fm.get("assunto"),
-                     "issue": fm.get("issue"), "quando": fm.get("quando"),
-                     "corpo": " ".join(m.group(2).split())[:600], "caixa": f.parent.name})
+    """O correio entre os agentes, de `dados/correio.json`, e nunca da pasta.
+
+    `redacao/correio/` has ONE reader, and it is `build/equipa.py`: it reads the `.eml` files,
+    derives each message's state from the folder it sits in, and writes `dados/correio.json`. This
+    function reads the derived file. Parsing the folder again here would be a second reader of the
+    same thing, and v0.3.1 of this site was precisely the deletion of a second document reader.
+
+    Only what is delivered (`entrada`) or handled (`tratado`) reaches the desk. A message in
+    transit has not arrived, and the copy in `saida/` is the same message in the sender's
+    de quem a enviou — mostrá-la seria contar duas vezes.
+    """
+    d = carregar("correio.json")
+    msgs = [{"de": m["de"], "para": m["para"], "assunto": m["assunto"], "issue": m.get("issue"),
+             "quando": m["quando"], "corpo": m["resumo"], "caixa": m["caixa"],
+             "lugar": m["lugar"], "historica": m.get("historica", False)}
+            for m in d.get("mensagens", []) if m["lugar"] in ("entrada", "tratado")]
     return sorted(msgs, key=lambda m: m.get("quando") or "")
 
 

@@ -116,12 +116,27 @@ def main():
         (quadro[cart["estado"]] if cart["estado"] in quadro else fora).append(cart)
 
     # --- the mail, counted per bench -----------------------------------------
+    # Counted from `dados/correio.json` and not from the folder. `redacao/correio/` has ONE reader,
+    # `build/equipa.py`, which reads the `.eml` files and derives each message's state from the
+    # folder it sits in. Counting the folder again here would be a second reader of the same thing
+    # — and it would be the second reader that goes stale, as this one did when the mail moved to
+    # `.eml` and the boxes took the protocol address («pesquisa.pt») instead of the short name
+    # («pesquisa»).
+    corr = carregar(DADOS / "correio.json")
+    registo_agentes = carregar(DADOS / "agentes.json")
+    # `id_curto` -> `id`, from the register, which is where the correspondence between the two
+    # identifiers lives. Without it, a bench called «pesquisa» does not find the «pesquisa.pt» box.
+    ENDERECO = {a["id_curto"]: a["id"] for a in registo_agentes.get("agentes", [])}
+
     def correio(dep):
-        base = REDACAO / "correio" / dep
-        if not base.exists():
-            return {"entrada": 0, "saida": 0}
-        return {caixa: len(list((base / caixa).glob("*.md")))
-                for caixa in ("entrada", "saida")}
+        caixa_id = ENDERECO.get(dep, dep)
+        msgs = [m for m in corr.get("mensagens", []) if m.get("caixa") == caixa_id]
+        return {
+            "entrada": sum(1 for m in msgs if m.get("lugar") == "entrada"),
+            "saida": sum(1 for m in msgs if m.get("lugar") == "saida"),
+            "tratado": sum(1 for m in msgs if m.get("lugar") == "tratado"),
+            "em_transito": sum(1 for m in msgs if m.get("lugar") == "expedicao"),
+        }
 
     # --- the run records -----------------------------------------------------
     runs = [carregar(f) for f in sorted((REDACAO / "runs").glob("*.json"))] \

@@ -1,0 +1,41 @@
+From: bastidores.pt <bastidores.pt@redacao.local>
+To: dinis.humano <dinis.humano@redacao.local>
+Date: 2026-09-14T23:55:00Z
+Subject: A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial
+Message-ID: <003-equipa-visivel@redacao.local>
+In-Reply-To: <001-mvp-construido@redacao.local>
+X-EmailFS-From-Alias: @Bastidores
+X-EmailFS-To-Alias: @Dinis
+
+Está feito o que pediu: os agentes são agora um registo em `dados/agentes.json`, o correio entre
+eles corre pelo protocolo Email-FS-lite em `redacao/correio/`, e há três páginas nos bastidores —
+a equipa, o quadro por agente e o correio. Nenhum número nessas páginas é uma afirmação sobre
+Portugal: são contagens de ficheiros deste repositório, e o portão dos bastidores falha a
+construção se alguma vez uma delas citar uma fonte congelada como prova.
+
+Três coisas que precisam de uma decisão sua, e nenhuma é urgente.
+
+PRIMEIRA, E A ÚNICA QUE BLOQUEIA. A ponte que o deixa escrever-me a partir do site está
+construída e não tem por onde enviar. Uma fila de acrescento precisa do `vault_id` do cofre que
+recebe, de um `append_token` em hexadecimal, e da chave pública para eu cifrar no navegador antes
+de enviar. As duas primeiras são credenciais e não podem ficar neste repositório — o `validate.js`
+tem um detetor de cadeias com forma de chave e falharia a construção, o que é o portão a funcionar.
+Vão para `localStorage` do seu navegador, dadas por si em `/backoffice/pontes.html`. A chave
+pública pode ser publicada, e essa fica em ficheiro.
+
+SEGUNDA. As chaves de leitura que me deu para os cofres dos jogos não puderam ser usadas: instalar
+o `sgit` foi recusado pelo classificador da caixa onde esta sessão corre. Não escrevi nenhuma
+delas em ficheiro. Li o desenho na fonte publicada em vez disso, e isso trouxe um achado que
+melhora o nosso caso: o cofre dos jogos construía eventos e não os enviava, porque uma aplicação
+de cofre corre numa moldura cujo CSP é `connect-src blob: data:`. Este site é estático, não é uma
+aplicação de cofre, e por isso o envio direto funciona. O que a telemetria dos jogos não conseguiu
+fazer, este site consegue.
+
+TERCEIRA, QUE É UMA CORREÇÃO A UM FICHEIRO QUE EU NÃO POSSO EDITAR. O `CLAUDE.md` manda correr
+`node build/validate.js`. O ficheiro está em `admin/build/validate.js`, e é esse que a integração
+contínua corre. Quem seguir a linha à letra conclui que o portão não existe. `CLAUDE.md` está na
+lista de recusa de propósito e não lhe toquei: a linha é sua.
+
+Continuam abertos os três assuntos que a sessão de arranque lhe deixou — a entrega do ChatGPT item
+a item, os três tipos novos da ontologia, e o pedido de acesso à ANACOM, que tem a pesquisa
+bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.

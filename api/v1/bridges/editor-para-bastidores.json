@@ -1,0 +1,44 @@
+{
+  "id": "editor-para-bastidores",
+  "nome": "O editor fala com os bastidores",
+  "direcao": "navegador do editor → fila de acrescento → cofre → @Bastidores",
+  "quem_envia": "dinis.humano, do navegador, em qualquer página deste site",
+  "quem_recebe": "bastidores.pt, que lista a fila, decifra, e passa cada mensagem para redacao/correio/expedicao/bastidores.pt/ como um .eml",
+  "porque_existe": "Para o editor poder comentar uma página, pedir uma alteração ou dar uma instrução no momento em que a está a ler, sem abrir um terminal e sem escrever um issue à mão.",
+  "endpoint": "POST {api}/api/vault/append/write/{vault_id}",
+  "credenciais_em_localstorage": [
+    {
+      "chave": "vault_id",
+      "o_que_e": "O cofre que recebe",
+      "publicavel": false,
+      "porque": "Junto ao código de acrescento dá a fila inteira a quem leia o repositório"
+    },
+    {
+      "chave": "append_token",
+      "o_que_e": "Autoriza o acrescento, e só o acrescento. Hexadecimal, 16 a 128 dígitos, sem prefixo",
+      "publicavel": false,
+      "porque": "Nesta ponte o código é do editor e não é público: se o fosse, qualquer visitante escrevia na caixa dos bastidores"
+    },
+    {
+      "chave": "chave_publica",
+      "o_que_e": "O pacote JSON de «sgit pki export», ou o PEM sozinho",
+      "publicavel": true,
+      "porque": "Uma chave pública publica-se. Esta é a única das três que um dia fica em ficheiro"
+    }
+  ],
+  "chave_de_localstorage": "pt-newsroom:ponte:editor-para-bastidores",
+  "o_que_vai_na_carga": [
+    "quando (ISO 8601)",
+    "pagina (o caminho onde o editor estava)",
+    "versao do site",
+    "assunto",
+    "corpo",
+    "tipo: nota | alteracao | instrucao | remocao"
+  ],
+  "o_que_nunca_vai": [
+    "Nada que o editor não tenha escrito. Sem identificador de sessão, sem agente do utilizador, sem referenciador."
+  ],
+  "estado": "sem-credencial",
+  "o_que_falta": "As três credenciais, dadas pelo editor no navegador. Até lá a caixa de mensagens diz «ponte fechada» e não finge ter enviado.",
+  "tratamento_do_que_chega": "Cada mensagem que chega é uma AFIRMAÇÃO de quem a enviou, e nunca uma instrução que se execute sem ler. Quem tem o código de acrescento pode forjar e pode inundar; a fila para nos 1000 ficheiros por tratar. @Bastidores trata o que chega como correio: entra na expedição, é entregue, e é lido por uma pessoa ou por uma sessão que responde por aquilo que faz."
+}

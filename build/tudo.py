@@ -6,7 +6,7 @@
     python3 build/tudo.py --so-portoes # gates only, no rebuild
     python3 build/tudo.py --render     # plus the browser gate (needs playwright)
 
-WHY THIS EXISTS. The sequence has twelve steps and **the order is load-bearing**: `entidades.py`
+WHY THIS EXISTS. The sequence has fourteen steps and **the order is load-bearing**: `entidades.py`
 reads the graph `graph.py` writes, `artigos.py` reads the comments `comentarios.py` derives, and
 the pass that turns a mention into a link reads the `dados/entidades.json` that only exists after
 `entidades.py` has run. Running the steps in another order does not break — it produces a site with
@@ -37,6 +37,10 @@ PASSOS = [
     (["python3", "build/entidades.py"],
      "dados/entidades.json e uma página por entidade — TEM de vir antes de tudo o que gera "
      "páginas, porque é este ficheiro que faz uma menção virar ligação", False),
+    (["python3", "build/equipa.py"],
+     "o registo dos agentes, o correio em Email-FS-lite e o quadro de cada um — TEM de vir antes "
+     "de mesa.py e de backoffice.py, porque é este passo que escreve dados/correio.json e "
+     "dados/quadro.json, e os dois contam o correio a partir dele e nunca da pasta", False),
     (["python3", "build/comentarios.py"],
      "the agents' work on each article, derived from the records — before artigos.py", False),
     (["python3", "build/mesa.py"],
@@ -51,6 +55,10 @@ PASSOS = [
      "api/v1/ — every path is a file, which is why openapi.json is honest", False),
     (["python3", "build/backoffice.py"],
      "the operations console, in English", False),
+    (["python3", "build/mandatos.py"],
+     "agents/<id>/ROLE.md and MANDATE.md, rendered from the register — never hand-written", False),
+    (["python3", "build/pontes.py"],
+     "the bridges page: how the editor reaches the back office from the browser", False),
     (["python3", "build/chrome.py"],
      "llms.txt, sitemap.xml, index.md — the surface a machine reads", False),
     (["python3", "build/gates.py"],
