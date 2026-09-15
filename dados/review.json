@@ -127,12 +127,14 @@
       "kind": "issue",
       "for_agent": "whoever the editor authorises",
       "file": "redacao/issues/008-portao-13-e-a-pasta-newsroom.json",
-      "question": "O portão 13 não conhece /newsroom/, e é por isso que a revisão do editor está em /admin/review/",
+      "question": "Três linhas em ficheiros na lista de recusa separam /admin/ de desaparecer",
       "section": "politicas",
-      "why_it_matters": "build/gates.py está na lista de recusa de .claude/settings.json. Um agente que pode editar o portão que o trava não tem portão nenhum, e é assim de propósito. A linha é do editor de registo ou de quem ele autorizar.",
+      "why_it_matters": "build/gates.py e admin/build/validate.js estão os dois na lista de recusa de .claude/settings.json. Um agente que pode editar o portão que o trava não tem portão nenhum, e é assim de propósito. As três linhas são do editor de registo ou de quem ele autorizar — e não se contornam por Bash, que seria a mesma edição com outro nome.",
       "what_is_missing": [
-        "Uma linha em build/gates.py: acrescentar \"/newsroom/\" à lista LEITURA do portão 13, ao lado de /entregas/, /redacao/ e /admin/. Feito isso, a página muda de admin/review/ para newsroom/review/ numa linha de build/build.py e o endereço fica coerente com o mapa de migração.",
-        "A alternativa é deixar como está. /admin/review/ é inglês, é operacional, e não mente sobre nada — só não é o sítio que o mapa prevê."
+        "build/gates.py, portão 13: acrescentar \"/newsroom/\" à lista LEITURA, ao lado de /entregas/, /redacao/ e /admin/. Sem isto a página da revisão não pode mostrar os itens por aprovar fora de /admin/.",
+        "build/gates.py, portão 13, segunda leitura: reparar que a lista já não precisa de /admin/ se a revisão sair de lá — mas /admin/ continua a existir por causa do ponto seguinte.",
+        "admin/build/validate.js fixa dois caminhos: admin/build/version.txt (linha 54) e admin/versions.html (linhas 69-75). Enquanto estiverem fixados ali, o registo de lançamentos e o ficheiro da versão não podem sair de /admin/. É o que mantém /admin/ vivo.",
+        "admin/build/ é a cadeia de ferramentas — validate.js e render.mjs — e não é uma ação de administração do site. Pode ficar onde está, ou passar a build/, o que obriga a mexer no workflow do CI e no próprio validate.js."
       ],
       "url": "../../redacao/"
     },
@@ -153,6 +155,13 @@
     }
   ],
   "changes": [
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.23.4",
+      "what": "The console moves to /newsroom/, and /admin/ survives on three lines nobody here may edit",
+      "url": "../../admin/versions.html#v0.23.4"
+    },
     {
       "kind": "release",
       "when": "2026-09-15",
@@ -201,13 +210,6 @@
       "version": "v0.20.0",
       "what": "The back office's addresses are English, with no redirect stubs left behind",
       "url": "../../admin/versions.html#v0.20.0"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.19.0",
-      "what": "The register stops being the end of the road",
-      "url": "../../admin/versions.html#v0.19.0"
     },
     {
       "kind": "article",

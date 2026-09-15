@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the guidance, as pages with addresses.
 
-    python3 build/guia.py      # after backoffice.py, before chrome.py
+    python3 build/guia.py      # after newsroom.py, before chrome.py
 
-WHY THIS EXISTS. The guidance was on this site only behind a fragment: `/backoffice/docs.html`
+WHY THIS EXISTS. The guidance was on this site only behind a fragment: `/newsroom/docs.html`
 plus `#docs/guidance/language.md`, rendered by a component after the page loads. That is fine for a
 person clicking through the console and useless for everything else. A fragment is not an address:
 it cannot be cited in a commit message, it cannot be linked from `.claude/`, it does not appear in
@@ -11,7 +11,7 @@ the sitemap, and an agent that fetches it gets the shell of a document browser r
 document. `llms.txt` — the file this site tells machines to read first — mentioned the guidance
 zero times.
 
-So each document under `docs/guidance/` gets a real page at `/backoffice/guidance/<name>.html`,
+So each document under `docs/guidance/` gets a real page at `/newsroom/guidance/<name>.html`,
 and the markdown stays exactly where it is. That is the pattern the rest of the site already uses:
 an article is prose at `artigo.md` and a page at `index.html`, and neither is a copy of the other
 — the page is rendered from the file, every build.
@@ -32,12 +32,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import backoffice as B
+import newsroom as B
 import paginas as P
 
 ROOT = Path(__file__).resolve().parents[1]
 FONTE = ROOT / "docs" / "guidance"
-DESTINO = "backoffice/guidance"
+DESTINO = "newsroom/guidance"
 
 # The order is the reading order, and it is stated here rather than inferred from the file names:
 # `before-you-change` sorts before `index`, and a reading order that depends on the alphabet is a
@@ -172,9 +172,9 @@ def reescrever_ligacoes(md, nomes):
     """A link between two markdown files is not a link between the pages rendered from them.
 
     `docs/guidance/index.md` says `[language.md](language.md)` and is right: the two files are
-    siblings. The pages are siblings too, at `backoffice/guidance/`, but they are `.html` — and
+    siblings. The pages are siblings too, at `newsroom/guidance/`, but they are `.html` — and
     `../../CLAUDE.md`, which resolves from `docs/guidance/`, happens to resolve from
-    `backoffice/guidance/` as well, since both are two directories below the root. That coincidence
+    `newsroom/guidance/` as well, since both are two directories below the root. That coincidence
     is worth naming, because it is why only the sibling links needed rewriting and why moving
     either folder would break the rest silently.
 

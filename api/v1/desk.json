@@ -330,7 +330,7 @@
     },
     {
       "id": "008",
-      "titulo": "O portão 13 não conhece /newsroom/, e é por isso que a revisão do editor está em /admin/review/",
+      "titulo": "Três linhas em ficheiros na lista de recusa separam /admin/ de desaparecer",
       "seccao": "politicas",
       "estado": "bloqueado",
       "especie": "issue",

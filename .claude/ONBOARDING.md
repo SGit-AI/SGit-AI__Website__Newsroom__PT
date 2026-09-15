@@ -35,12 +35,12 @@ Published, with real addresses — link to these, not to a file path:
 
 | | Page | Why |
 |---|---|---|
-| 1 | https://pt.newsroom.sgit.ai/backoffice/guidance/index.html | The one-minute version, the reading order, and **what not to build** |
-| 2 | https://pt.newsroom.sgit.ai/backoffice/guidance/language.html | The rule above, in full, with its two honest exceptions |
-| 3 | https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html | Nine principles, each naming the gate that enforces it |
-| 4 | https://pt.newsroom.sgit.ai/backoffice/guidance/before-you-change.html | The checklist |
-| 5 | https://pt.newsroom.sgit.ai/backoffice/guidance/concurrent-sessions.html | What collides between sessions, and what is gated |
-| 6 | https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html | **Which component is the minor**, the two packages the build needs, how to run the browser gate here, and the two merge commands that delete work silently |
+| 1 | https://pt.newsroom.sgit.ai/newsroom/guidance/index.html | The one-minute version, the reading order, and **what not to build** |
+| 2 | https://pt.newsroom.sgit.ai/newsroom/guidance/language.html | The rule above, in full, with its two honest exceptions |
+| 3 | https://pt.newsroom.sgit.ai/newsroom/guidance/principles.html | Nine principles, each naming the gate that enforces it |
+| 4 | https://pt.newsroom.sgit.ai/newsroom/guidance/before-you-change.html | The checklist |
+| 5 | https://pt.newsroom.sgit.ai/newsroom/guidance/concurrent-sessions.html | What collides between sessions, and what is gated |
+| 6 | https://pt.newsroom.sgit.ai/newsroom/guidance/releasing.html | **Which component is the minor**, the two packages the build needs, how to run the browser gate here, and the two merge commands that delete work silently |
 
 In the repository, the same documents are `docs/guidance/*.md` — the markdown is the source and the
 pages are rendered from it by `build/guia.py`. Then read **`CLAUDE.md`** at the root: it is the
@@ -69,7 +69,7 @@ that is neither. `build/before_push.py` suggests the major here and is wrong abo
 whether a number is *taken*, not for which to take. Full reasoning, and the three other things that
 fail silently — the two packages in `requirements.txt`, the browser gate, and the two merge commands
 that delete work without a conflict — are in
-[`releasing.md`](https://pt.newsroom.sgit.ai/backoffice/guidance/releasing.html).
+[`releasing.md`](https://pt.newsroom.sgit.ai/newsroom/guidance/releasing.html).
 
 **Install `requirements.txt` before your first build.** Without `pycryptodomex` an encrypted PDF
 reads as zero characters and is reported as a scanned document; without `jsonschema` a research

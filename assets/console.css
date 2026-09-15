@@ -622,3 +622,28 @@ code { background: var(--bo-head); border-radius: 2px; padding: 0 4px; }
 .ficha { display: grid; gap: var(--bo-1) var(--bo-4); grid-template-columns: max-content 1fr; font-size: 13.5px; }
 .sp6 > * + * { margin-top: var(--bo-2); }
 .sp12 > * + * { margin-top: var(--bo-3); }
+
+/* The interview prompts, rendered from their markdown so they can be copied without leaving the
+   page. They are the only long verbatim blocks in the console, and they are text meant to be
+   selected — so they WRAP rather than scroll sideways. A prompt that needs horizontal scrolling on
+   a phone is a prompt nobody copies on a phone, and the render gate caught exactly that: 937px of
+   content in a 390px viewport. */
+.bo-pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--bo-mono, ui-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0 0 var(--bo-5, 24px);
+  padding: var(--bo-4, 16px);
+  background: var(--bo-sunk, #f5f7fa);
+  border: 1px solid var(--bo-line, #d8dde5);
+  border-radius: var(--bo-rad, 4px);
+  color: var(--bo-ink, #14171d);
+}
+
+.bo-meta {
+  font-size: 12px;
+  color: var(--bo-ink-2, #5b6270);
+  margin: 0 0 var(--bo-2, 8px);
+}

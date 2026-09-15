@@ -285,7 +285,7 @@ SEM_ACENTO = {
 SO_EM_FICHA = {"verificacao", "publicacao"}
 for pagina in sorted(ROOT.rglob("*/index.html")):
     rel = pagina.relative_to(ROOT).as_posix()
-    if "fontes/congeladas" in rel or rel.startswith("briefs/") or "/backoffice/" in f"/{rel}":
+    if "fontes/congeladas" in rel or rel.startswith("briefs/") or "/newsroom/" in f"/{rel}":
         continue
     html = pagina.read_text(encoding="utf-8")
     for ficha in re.findall(r'<span class="chip[^"]*">(.*?)</span>', html, re.S):
@@ -354,7 +354,7 @@ TETO_DE_GERADORES_LEGADOS = 4
 
 LEGADO = ['class="chip', 'class="cartao', 'class="sect', 'class="painel', 'class="std',
           'class="sm"', 'class="xs', 'class="rolar', 'class="g2', 'class="g3']
-# The modules that write into backoffice/. The paper's own generators are not in scope: the paper
+# The modules that write into newsroom/. The paper's own generators are not in scope: the paper
 # IS the design these classes belong to.
 # DISCOVERED, NOT LISTED. This was a hand-written list of four filenames, and the very next commit
 # renamed three of them — so the gate went looking for build/equipa.py, found nothing, and reported
@@ -363,7 +363,7 @@ LEGADO = ['class="chip', 'class="cartao', 'class="sect', 'class="painel', 'class
 # inputs by hand is a gate that a rename disarms, so the files are found by what they are.
 GERADORES_DOS_BASTIDORES = sorted(
     f for f in (ROOT / "build").glob("*.py")
-    if f.name == "backoffice.py" or f.name.startswith("backoffice_"))
+    if f.name == "newsroom.py" or f.name.startswith("newsroom_"))
 if not GERADORES_DOS_BASTIDORES:
     erros.append("desenho: nenhum gerador dos bastidores encontrado em build/ — o portão 39 "
                  "estava a medir uma lista escrita à mão e um mudar de nome desarmou-o uma vez; "
@@ -383,7 +383,7 @@ if erros:
     for e in erros:
         print(f"  ✗ {e}")
     print(f"\n{len(erros)} problema(s). A revisão de desenho está no cofre e o plano dela está em "
-          f"/backoffice/design.html.")
+          f"/newsroom/design.html.")
     sys.exit(1)
 
 print("portões do desenho: OK — " + ", ".join(notas[:6]) +

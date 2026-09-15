@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — a ROLE.md and a MANDATE.md per agent, DERIVED from the register.
 
-    python3 build/mandatos.py      # after backoffice_team.py, which writes dados/agentes.json
+    python3 build/mandatos.py      # after newsroom_team.py, which writes dados/agentes.json
 
 WHY THESE ARE GENERATED AND NOT WRITTEN.
 
@@ -174,7 +174,7 @@ those on every build, so an agent that strays is a red build rather than a surpr
 
 **The register is [`dados/agentes.json`](../dados/agentes.json).** Every file in this folder is
 rendered from it by `build/mandatos.py`. Do not edit them: edit the register, or
-`build/backoffice_team.py` which writes it.
+`build/newsroom_team.py` which writes it.
 
 | Agent | Alias | Role | Mail address | Domain | Mandate |
 |---|---|---|---|---|---|

@@ -8,7 +8,7 @@ those on every build, so an agent that strays is a red build rather than a surpr
 
 **The register is [`dados/agentes.json`](../dados/agentes.json).** Every file in this folder is
 rendered from it by `build/mandatos.py`. Do not edit them: edit the register, or
-`build/backoffice_team.py` which writes it.
+`build/newsroom_team.py` which writes it.
 
 | Agent | Alias | Role | Mail address | Domain | Mandate |
 |---|---|---|---|---|---|

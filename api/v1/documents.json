@@ -3,13 +3,13 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 113,
+  "contagem": 114,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
       "titulo": "Start here — pt.newsroom.sgit.ai",
       "categoria": "Repository root",
-      "bytes": 5961,
+      "bytes": 5947,
       "linhas": 103,
       "palavras": 916
     },
@@ -137,7 +137,7 @@
       "caminho": "admin/versions/v0.16.0.md",
       "titulo": "v0.16.0",
       "categoria": "Repository root",
-      "bytes": 10120,
+      "bytes": 10116,
       "linhas": 119,
       "palavras": 1784
     },
@@ -217,9 +217,17 @@
       "caminho": "admin/versions/v0.23.2.md",
       "titulo": "v0.23.2",
       "categoria": "Repository root",
-      "bytes": 4005,
+      "bytes": 4003,
       "linhas": 53,
       "palavras": 652
+    },
+    {
+      "caminho": "admin/versions/v0.23.3.md",
+      "titulo": "v0.23.3",
+      "categoria": "Repository root",
+      "bytes": 3192,
+      "linhas": 42,
+      "palavras": 473
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -297,7 +305,7 @@
       "caminho": "agents/README.md",
       "titulo": "The agents",
       "categoria": "Agent mandates",
-      "bytes": 3555,
+      "bytes": 3553,
       "linhas": 50,
       "palavras": 530
     },
@@ -721,7 +729,7 @@
       "caminho": "docs/guidance/language.md",
       "titulo": "The language rule",
       "categoria": "Guidance — read first",
-      "bytes": 5067,
+      "bytes": 5065,
       "linhas": 81,
       "palavras": 812
     },

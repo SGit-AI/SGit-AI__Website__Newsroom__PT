@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the agent team, the board and the mail. One reader, three pages.
 
-    python3 build/backoffice_team.py
+    python3 build/newsroom_team.py
 
 WHAT THIS IS
 
@@ -13,9 +13,9 @@ renders three back-office pages from the derived data:
     dados/correio.json    every message, with the state its location implies
     dados/quadro.json     every board card: the agent's own, and the paper's issues by formula
 
-    backoffice/team.html    who the agents are — the roster, in the ROLE.md shape
-    backoffice/board.html    what each one has in front of it — the board
-    backoffice/mail.html   what passed between them — the mail, threaded
+    newsroom/team.html    who the agents are — the roster, in the ROLE.md shape
+    newsroom/board.html    what each one has in front of it — the board
+    newsroom/mail.html   what passed between them — the mail, threaded
 
 WHY ONE READER, SAID OUT LOUD
 
@@ -45,7 +45,7 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from backoffice import GH, VERSAO, e, escrever, pagina  # noqa: E402  the one page chrome
+from newsroom import GH, VERSAO, e, escrever, pagina  # noqa: E402  the one page chrome
 
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
@@ -382,7 +382,7 @@ shown as historical, rather than failing the reader on a name it does not know.<
 <div class="rolar"><table><thead><tr><th style="width:20%">Identity</th><th>What it was</th></tr>
 </thead><tbody>{historicas}</tbody></table></div>
 """
-    return pagina("backoffice/team.html", "The team",
+    return pagina("newsroom/team.html", "The team",
                   "The newsroom's agents: mission, central claim, what each is not responsible "
                   "for, and what each has on its plate.", corpo)
 
@@ -543,7 +543,7 @@ used</h2>
 
 {"".join(blocos)}
 """
-    return pagina("backoffice/board.html", "The board",
+    return pagina("newsroom/board.html", "The board",
                   "Every agent's board: what it opened for itself, what the paper's issues put on "
                   "it by formula, and what mail is still unread.", corpo)
 
@@ -681,7 +681,7 @@ it is in</h2>
 sits in an inbox, and only moves to <code>tratado/</code> when the work it asked for is done.</p>
 {fios or '<p class="sm">No mail yet.</p>'}
 """
-    return pagina("backoffice/mail.html", "The mail",
+    return pagina("newsroom/mail.html", "The mail",
                   "Every message between the newsroom's agents, threaded, with the state each "
                   "one's folder implies.", corpo)
 
@@ -702,7 +702,7 @@ def main():
         "id": "pt-correio", "versao": "0.1.0", "atualizado": time.strftime("%Y-%m-%d"),
         "protocolo": ag.get("protocolo"), "protocolo_versao": ag.get("protocolo_versao"),
         "nota": ("Cada mensagem entre os agentes desta redação, lida de redacao/correio/ por "
-                 "build/backoffice_team.py. O estado de uma mensagem é a pasta onde está e não um campo: "
+                 "build/newsroom_team.py. O estado de uma mensagem é a pasta onde está e não um campo: "
                  "um campo pode discordar da pasta, uma pasta não pode discordar de si mesma. "
                  "Este é o ficheiro que as páginas leem — a pasta tem um leitor só."),
         "lugares": [{"pasta": p, "estado": n, "significa": d} for p, n, d in LUGARES],
@@ -722,9 +722,9 @@ def main():
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     feitas = [
-        escrever("backoffice/team.html", pagina_equipa(ag, q)),
-        escrever("backoffice/board.html", pagina_quadro(ag, q)),
-        escrever("backoffice/mail.html", pagina_correio(ag, msgs)),
+        escrever("newsroom/team.html", pagina_equipa(ag, q)),
+        escrever("newsroom/board.html", pagina_quadro(ag, q)),
+        escrever("newsroom/mail.html", pagina_correio(ag, msgs)),
     ]
     desconhecidos = sorted({x for m in msgs for x in m["desconhecido"]}
                            - {h["id"] for h in ag.get("identidades_historicas", [])})

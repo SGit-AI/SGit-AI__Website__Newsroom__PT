@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.23.3 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.23.4 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -32,7 +32,7 @@ suficiente para ser interessante.
 - [/entidades/](https://pt.newsroom.sgit.ai/entidades/index.html): Uma página por nó do grafo que é uma coisa do mundo: pessoa, organização, instituição, editor, tema, lugar. Cada página é a lista das frases em que a entidade entra, mais a contagem de onde o seu nome aparece nos bytes congelados. Nenhuma linha escrita sobre ninguém.
 - [/api/](https://pt.newsroom.sgit.ai/api/index.html): A API só de leitura, e uma consola que a invoca. Cada caminho é um ficheiro: não há servidor, e por isso não há verbo que não seja GET. Os caminhos são em INGLÊS de propósito — a intenção é várias línguas sobre um só conjunto de dados.
 - [/proveniencia/](https://pt.newsroom.sgit.ai/proveniencia/index.html): Quem escreve este site: agentes de IA, de vários fornecedores, com curadoria de um editor humano nomeado. Contado a partir dos ficheiros de proveniência de cada artigo.
-- [/backoffice/](https://pt.newsroom.sgit.ai/backoffice/index.html): A consola de operações. EM INGLÊS: o seu público é quem opera a redação, não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal.
+- [/newsroom/](https://pt.newsroom.sgit.ai/newsroom/index.html): A consola de operações. EM INGLÊS: o seu público é quem opera a redação, não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal.
 - [/registo/](https://pt.newsroom.sgit.ai/registo/index.html): O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção.
 - [/grafo/](https://pt.newsroom.sgit.ai/grafo/index.html): A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso.
 - [/carteira/](https://pt.newsroom.sgit.ai/carteira/index.html): A carteira: cada página custa um cêntimo a abrir, e o registo do gasto está numa página em vez de num painel. Não cobra nada a ninguém — o saldo vive no navegador de quem lê.
@@ -118,11 +118,11 @@ Esta secção está em inglês, ao contrário do resto deste ficheiro, e a razã
 deste repositório: o que um leitor do jornal vê é português; o que quem opera a redação lê é
 inglês. Quem chega aqui para mudar o site está do segundo lado.
 
-    https://pt.newsroom.sgit.ai/backoffice/guidance/index.html                start here: the reading order
-    https://pt.newsroom.sgit.ai/backoffice/guidance/language.html             the one test that decides naming
-    https://pt.newsroom.sgit.ai/backoffice/guidance/principles.html           nine principles, each with its gate
-    https://pt.newsroom.sgit.ai/backoffice/guidance/before-you-change.html    the checklist
-    https://pt.newsroom.sgit.ai/backoffice/guidance/concurrent-sessions.html  two or three sessions work here at once
+    https://pt.newsroom.sgit.ai/newsroom/guidance/index.html                start here: the reading order
+    https://pt.newsroom.sgit.ai/newsroom/guidance/language.html             the one test that decides naming
+    https://pt.newsroom.sgit.ai/newsroom/guidance/principles.html           nine principles, each with its gate
+    https://pt.newsroom.sgit.ai/newsroom/guidance/before-you-change.html    the checklist
+    https://pt.newsroom.sgit.ai/newsroom/guidance/concurrent-sessions.html  two or three sessions work here at once
 
 The markdown these are rendered from is `docs/guidance/*.md` in the repository, and
 `.claude/ONBOARDING.md` is the short form a Claude Code session is given on startup. `CLAUDE.md` at

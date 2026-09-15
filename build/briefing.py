@@ -82,7 +82,7 @@ def main():
 last run recorded: {ultima or 'none'}
 
 {B}Read {A}.claude/ONBOARDING.md{N}{B} first.{N} The long form is docs/guidance/, published at
-/backoffice/guidance/index.html. CLAUDE.md is the constitution and outranks both.
+/newsroom/guidance/index.html. CLAUDE.md is the constitution and outranks both.
 
   · Would a visitor read this string on the site? Yes → Portuguese. No → English.
   · {B}Two or three sessions work here at once.{N} Run {A}python3 build/before_push.py{N} before you

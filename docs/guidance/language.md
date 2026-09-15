@@ -28,7 +28,7 @@ felt more natural in Portuguese" is not one.
 
 - **All code.** Every `.py`, `.js`, `.mjs`, `.css`: identifiers, comments, docstrings, error
   strings, log output. Enforced by **gate 34**.
-- **The back office** (`/backoffice/`), **admin pages** (`/admin/`), including
+- **The back office** (`/newsroom/`), **admin pages** (`/admin/`), including
   `admin/versions.html`. Its audience is whoever operates the newsroom.
 - **This guidance**, every `ROLE.md` and `MANDATE.md`, every memo in `briefs/memos/`.
 - **Commit messages, branch names, run-record free text, mail between departments.**

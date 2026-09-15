@@ -95,7 +95,7 @@ suficiente para ser interessante.
         ("/proveniencia/", "Quem escreve este site: agentes de IA, de vários fornecedores, com "
                            "curadoria de um editor humano nomeado. Contado a partir dos ficheiros "
                            "de proveniência de cada artigo."),
-        ("/backoffice/", "A consola de operações. EM INGLÊS: o seu público é quem opera a redação, "
+        ("/newsroom/", "A consola de operações. EM INGLÊS: o seu público é quem opera a redação, "
                          "não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal."),
         ("/registo/", "O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção."),
         ("/grafo/", "A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso."),
@@ -185,11 +185,11 @@ Esta secção está em inglês, ao contrário do resto deste ficheiro, e a razã
 deste repositório: o que um leitor do jornal vê é português; o que quem opera a redação lê é
 inglês. Quem chega aqui para mudar o site está do segundo lado.
 
-    https://{HOST}/backoffice/guidance/index.html                start here: the reading order
-    https://{HOST}/backoffice/guidance/language.html             the one test that decides naming
-    https://{HOST}/backoffice/guidance/principles.html           nine principles, each with its gate
-    https://{HOST}/backoffice/guidance/before-you-change.html    the checklist
-    https://{HOST}/backoffice/guidance/concurrent-sessions.html  two or three sessions work here at once
+    https://{HOST}/newsroom/guidance/index.html                start here: the reading order
+    https://{HOST}/newsroom/guidance/language.html             the one test that decides naming
+    https://{HOST}/newsroom/guidance/principles.html           nine principles, each with its gate
+    https://{HOST}/newsroom/guidance/before-you-change.html    the checklist
+    https://{HOST}/newsroom/guidance/concurrent-sessions.html  two or three sessions work here at once
 
 The markdown these are rendered from is `docs/guidance/*.md` in the repository, and
 `.claude/ONBOARDING.md` is the short form a Claude Code session is given on startup. `CLAUDE.md` at

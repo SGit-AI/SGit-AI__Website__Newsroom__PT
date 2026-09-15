@@ -90,8 +90,8 @@ def main():
 
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administration</div>
-  <div><a href="../">Back to the paper</a> · <a href="../backoffice/">back office</a> ·
-       <a href="../backoffice/guidance.html">guidance</a></div>
+  <div><a href="../">Back to the paper</a> · <a href="../newsroom/">back office</a> ·
+       <a href="../newsroom/guidance.html">guidance</a></div>
   <div><a class="ver" href="#{VERSAO}">{VERSAO}</a></div>
 </div>
 
@@ -101,7 +101,7 @@ def main():
 from the two by <code>build/versoes.py</code>. Text does not live inside HTML here — a release note
 is a document, and a document that can only be read as markup is a document with extra steps. It is
 in English because its audience operates the newsroom rather than reading the paper; the rule and
-its exceptions are in <a href="../backoffice/guidance.html">the guidance</a>.</p></div>
+its exceptions are in <a href="../newsroom/guidance.html">the guidance</a>.</p></div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Releases</div></div>
 <h1 class="h-2" style="max-width:26em">Every push to the release branch is a minor version, and

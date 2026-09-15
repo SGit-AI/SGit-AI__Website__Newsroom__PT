@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the bridges page. How the editor reaches the back office from a browser.
 
-    python3 build/backoffice_bridges.py
+    python3 build/newsroom_bridges.py
 
 WHAT THIS PAGE IS FOR
 
@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from backoffice import VERSAO, e, escrever, pagina  # noqa: E402
+from newsroom import VERSAO, e, escrever, pagina  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
@@ -308,7 +308,7 @@ line and only his.</p>
 }})();
 </script>
 """
-    return pagina("backoffice/bridges.html", "The bridges",
+    return pagina("newsroom/bridges.html", "The bridges",
                   "How the editor reaches the back office from a browser: append lanes, what they "
                   "send, what they never send, and where the credentials live.", corpo)
 
@@ -318,7 +318,7 @@ def main():
     if not d:
         print("bridges: dados/pontes.json does not exist — nothing to do")
         return []
-    feitas = [escrever("backoffice/bridges.html", pagina_pontes(d, carregar("agentes.json")))]
+    feitas = [escrever("newsroom/bridges.html", pagina_pontes(d, carregar("agentes.json")))]
     sem = [p["id"] for p in d.get("pontes", []) if p["estado"] == "sem-credencial"]
     print(f"bridges: 1 page, {len(d.get('pontes', []))} bridges"
           + (f", {len(sem)} without credentials ({', '.join(sem)})" if sem else ""))

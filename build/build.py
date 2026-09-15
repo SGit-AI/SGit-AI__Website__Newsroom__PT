@@ -761,83 +761,6 @@ alguma vez for servida como página.</p></div>
 
 
 # ================================================================ entrevistas ===
-def interviews(d):
-    """The two interviews, with the prompts on the page rather than one click away.
-
-    A prompt is copied, not read: by a person about to paste it into ChatGPT, often on a phone.
-    Sending them to a raw markdown file to select-all is how you lose them. So the prompts are here,
-    rendered from their markdown on every build and marked derived — a second VIEW of one copy,
-    never a second copy. Gate 42 fails the build if the page and the markdown disagree.
-
-    IN ENGLISH, like the rest of the operations surface. A visitor does not read this as content:
-    it is how the newsroom works, not what it found. The prompts themselves keep the language they
-    are pasted in — the Portuguese one is Portuguese because a Portuguese speaker pastes it.
-    """
-    iv = d.get("interviews")
-    if not iv:
-        return None
-
-    sections = []
-    for pack in iv["packs"]:
-        blocks = []
-        for pc in pack["pieces"]:
-            blocks.append(
-                f'<div class="hair" id="{e(pack["id"])}-{e(pc["file"].split("__")[0])}" '
-                f'style="padding:20px 0 8px">'
-                f'<div class="sect">{e(pc["title"])} · for {e(pc["for_whom"])}</div></div>'
-                f'<p class="sm" style="padding-bottom:10px">{e(pc["why"])}</p>'
-                f'<div class="chips" style="padding-bottom:10px">'
-                f'<span class="chip">{e(pc["language"])}</span>'
-                f'<span class="chip">{pc["lines"]} lines</span>'
-                f'<span class="chip mono xs">{e(pc["sha256"][:12])}</span>'
-                f'<a class="chip" href="../../{e(pc["path"])}">the raw file</a></div>'
-                f'<div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;'
-                f'background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap">'
-                f'{e(pc["text"])}</pre></div>')
-        sections.append(
-            f'<div class="rule" id="{e(pack["id"])}" style="padding:30px 0 8px">'
-            f'<div class="sect">{e(pack["title"])}</div></div>'
-            f'<p class="std" style="padding-bottom:14px">{e(pack["why"])}</p>'
-            f'<div class="chips" style="padding-bottom:6px">'
-            f'<a class="chip" href="../../briefs/pack/{e(pack["folder"])}/README.md">'
-            f'the method, in full</a></div>'
-            + "".join(blocks))
-
-    index = "".join(
-        f'<a class="chip" href="#{e(p["id"])}">{e(p["title"])} · {len(p["pieces"])} pieces</a>'
-        for p in iv["packs"])
-
-    corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Interviews · the method and the
-prompts</div></div>
-<h1 class="h-2" style="max-width:26em">Two interviews, one mechanism, and opposite
-directions.</h1>
-<p class="std" style="padding:14px 0 12px">{e(iv["what_it_is"])}</p>
-<div class="chips" style="padding-bottom:18px">{index}</div>
-
-<div class="painel" style="margin-bottom:22px">
-  <div class="sect">The rule that governs what comes out of here</div>
-  <p class="sm" style="padding-top:8px">{e(iv["the_rule"])} An interview makes no exception to any
-  rule of this house: three fields per person — listed role, listed organisation, the page that
-  lists it — no contact detail in any file, and removal on request is unconditional and carries no
-  reason. <a href="../../aviso/">The notice</a> says how. And nothing said aloud puts a story into
-  published: that is a line the editor writes in a file.</p></div>
-
-{"".join(sections)}
-
-<div class="painel" style="margin-top:26px">
-  <div class="sect">This text is derived</div>
-  <p class="sm" style="padding-top:8px">The prompts above are rendered from
-  <code>{e(iv["derived_from"])}</code> on every build, and never hand-written here. Content exists
-  once, and gate 42 fails the build if this page and the markdown disagree — a derived file with no
-  gate is a second copy under another name.</p></div>
-"""
-    return pagina("newsroom/interviews/index.html", "Interviews",
-                  "Interviewing somebody to write, and interviewing the editor to know what to do. "
-                  "The prompts, ready to copy.",
-                  corpo, aqui="redacao")
-
-
 # ==================================================================== review ===
 def review(d):
     """The editor's review: what happened, what is his to answer, and a way to answer it.
@@ -1772,7 +1695,7 @@ def ler_issues():
 def ler_correio():
     """O correio entre os agentes, de `dados/correio.json`, e nunca da pasta.
 
-    `redacao/correio/` has ONE reader, and it is `build/backoffice_team.py`: it reads the `.eml` files,
+    `redacao/correio/` has ONE reader, and it is `build/newsroom_team.py`: it reads the `.eml` files,
     derives each message's state from the folder it sits in, and writes `dados/correio.json`. This
     function reads the derived file. Parsing the folder again here would be a second reader of the
     same thing, and v0.3.1 of this site was precisely the deletion of a second document reader.
@@ -1815,7 +1738,6 @@ def carregar_tudo():
         "evento": carregar("evento.json"), "lexico": carregar("lexico.json"),
         "entregas": carregar("entregas.json"),
         "review": carregar("review.json"),
-        "interviews": carregar("interviews.json"),
         "verif": carregar("verificacoes-fonte.json"),
         "historias": carregar("historias.json") or {"historias": []},
         "issues": ler_issues(), "correio": ler_correio(), "runs": ler_runs(),
@@ -1847,8 +1769,6 @@ def main():
     feitas.append(escrever("sobre/index.html", sobre(d)))
     feitas.append(escrever("redacao/index.html", mesa(d)))
     feitas.append(escrever("admin/review/index.html", review(d)))
-    if d.get("interviews"):
-        feitas.append(escrever("newsroom/interviews/index.html", interviews(d)))
     feitas.append(escrever("entregas/index.html", entregas_indice(d)))
     for x in (d["entregas"] or {}).get("entregas", []):
         feitas.append(escrever(f"entregas/{x['id']}.html", entrega_pagina(x, d)))

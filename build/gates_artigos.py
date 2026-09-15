@@ -28,7 +28,7 @@ THE GATES
        prose, there has to be a verification record, and no claim may be left unmarked.
   19 · THE BACK OFFICE PUBLISHES NO CLAIMS. The console is in English by the editor's decision, and
        the condition of that exception is that it reports the newsroom and never the world: no page
-       under /backoffice/ may cite a frozen source as evidence for a claim about Portugal.
+       under /newsroom/ may cite a frozen source as evidence for a claim about Portugal.
   20 · EVERY SECTION HAS AN EDITORIAL RECORD. The brief's eight sections, each with its own
        seccoes/<id>/seccao.json, and none of them claiming what it has no sources to claim.
   21 · THE ENTITY INDEX AGREES WITH THE DISK. Every entity in the index has a page, every page under
@@ -78,7 +78,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 ARTIGOS = ROOT / "artigos"
 SECCOES = ROOT / "seccoes"
-BASTIDORES = ROOT / "backoffice"
+BASTIDORES = ROOT / "newsroom"
 
 erros = []
 
@@ -229,7 +229,7 @@ if BASTIDORES.exists():
             erros.append(f"{rel}: the notice saying this is not the publication is missing. The "
                          f"exception to the language rule holds only while it is visible to a "
                          f"reader who lands here")
-    for obrigatoria in ("backoffice/index.html", "backoffice/docs.html"):
+    for obrigatoria in ("newsroom/index.html", "newsroom/docs.html"):
         if not (ROOT / obrigatoria).exists():
             erros.append(f"{obrigatoria}: was not generated")
 
@@ -525,7 +525,7 @@ EXCEPCOES = {
         r"arranque|pesquisa|verificacao|editor|pastas_alteradas|issues_movidos|portoes|"
         r"versao|quando|agente|leitura|verbo|inverso|dominio|alcance|tudo|paginas|"
         r"mesa|bancadas|quadro|colunas|cartoes|carga|correio|runs|issues|decisoes|"
-        r"chrome|build|gates|extract|entidade|comentario|api|backoffice)\b", re.IGNORECASE),
+        r"chrome|build|gates|extract|entidade|comentario|api|newsroom)\b", re.IGNORECASE),
 }
 
 
@@ -645,7 +645,7 @@ for f in CODIGO:
 # --- 35. every agent that touches this site is named ---------------------------
 agentes = carregar("agentes.json")
 AGENTES_DIR = ROOT / "agents"
-# The register is dados/agentes.json, written by build/backoffice_team.py. The mandate files under agents/
+# The register is dados/agentes.json, written by build/newsroom_team.py. The mandate files under agents/
 # are RENDERED from it by build/mandatos.py. Two sessions answered the same ask on the same
 # afternoon — one by writing the files, one by building the register — and two copies of a mandate
 # diverge on the day somebody edits one. The register won; this gate holds the rendering to it.
@@ -813,18 +813,18 @@ if IDX.exists():
 
 
 #  42 · A DERIVED PROMPT PAGE CANNOT DRIFT FROM ITS SOURCE. The interview prompts
-#       live once as markdown; newsroom/interviews/ renders them. The page has to
+#       live once as markdown; newsroom/interviews.html renders them. The page has to
 #       carry the current text and the recorded hash has to be today's.
 #  41 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
 #       docs/guidance/ is rendered to a page of its own, and everything .claude/ONBOARDING.md
 #       points at exists. For most of this site's life the guidance was reachable only as
-#       `/backoffice/docs.html#docs/guidance/language.md` — a fragment, which is not an address: it
+#       `/newsroom/docs.html#docs/guidance/language.md` — a fragment, which is not an address: it
 #       cannot be cited, it is not in the sitemap, and anything fetching it gets the shell of a
 #       document browser rather than the document. llms.txt, the file this site tells machines to
 #       read first, mentioned the guidance zero times. A briefing whose links have rotted is worse
 #       than no briefing, because it reads as current.
 GUIA_MD = ROOT / "docs" / "guidance"
-GUIA_HTML = ROOT / "backoffice" / "guidance"
+GUIA_HTML = ROOT / "newsroom" / "guidance"
 n_guia = 0
 if GUIA_MD.exists():
     for md in sorted(GUIA_MD.glob("*.md")):
@@ -832,9 +832,9 @@ if GUIA_MD.exists():
         alvo = GUIA_HTML / f"{md.stem}.html"
         if not alvo.exists():
             erros.append(f'docs/guidance/{md.name}: has no page at '
-                         f'backoffice/guidance/{md.stem}.html. Run build/guia.py — a guidance '
+                         f'newsroom/guidance/{md.stem}.html. Run build/guia.py — a guidance '
                          f'document reachable only as a file path cannot be cited by anything')
-    if n_guia and "backoffice/guidance/index.html" not in (ROOT / "llms.txt").read_text(
+    if n_guia and "newsroom/guidance/index.html" not in (ROOT / "llms.txt").read_text(
             encoding="utf-8"):
         erros.append('llms.txt: does not point at the guidance. It is the file this site tells a '
                      'machine to read first, and an agent arriving to CHANGE the site finds no '
@@ -874,12 +874,12 @@ else:
 # agent mandates — so this checks the rendered page still carries each prompt's current text, and
 # that the hash recorded beside it is the hash of what is on disk today.
 f_ent = DADOS / "interviews.json"
-pag_ent = ROOT / "newsroom" / "interviews" / "index.html"
+pag_ent = ROOT / "newsroom" / "interviews.html"
 if f_ent.exists():
     doc_ent = json.loads(f_ent.read_text(encoding="utf-8"))
     html_ent = pag_ent.read_text(encoding="utf-8") if pag_ent.exists() else ""
     if not html_ent:
-        erros.append('newsroom/interviews/index.html is missing and dados/interviews.json exists '
+        erros.append('newsroom/interviews.html is missing and dados/interviews.json exists '
                      '— the prompts have a source and no page rendering it')
     for peca in doc_ent["pieces"]:
         origem = ROOT / peca["path"]

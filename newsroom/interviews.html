@@ -1,44 +1,31 @@
 <!doctype html>
-<html lang="pt-PT">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interviews · pt.newsroom.sgit.ai</title>
+<title>Interviews · pt.newsroom back office</title>
 <meta name="description" content="Interviewing somebody to write, and interviewing the editor to know what to do. The prompts, ready to copy.">
-<link rel="canonical" href="https://pt.newsroom.sgit.ai/newsroom/interviews/">
-<meta property="og:url" content="https://pt.newsroom.sgit.ai/newsroom/interviews/">
-<meta property="og:title" content="Interviews · pt.newsroom.sgit.ai">
-<meta property="og:description" content="Interviewing somebody to write, and interviewing the editor to know what to do. The prompts, ready to copy.">
-<meta property="og:type" content="website">
-<meta name="generator" content="build/build.py v0.23.3">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/fonts.css">
-<link rel="stylesheet" href="../../assets/site.css">
-<script type="module" src="../../assets/components/pt-wallet/v1/v1.0/v1.0.0/pt-wallet.js"></script>
-<script src="../../assets/ponte.js" defer></script>
-<script src="../../assets/observador.js" defer></script>
-<script src="../../assets/conversa.js" defer></script>
-<script type="module" src="../../assets/components/pt-chat/v1/v1.0/v1.0.0/pt-chat.js"></script>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/newsroom/interviews.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/newsroom/interviews.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/console.css">
 </head>
 <body>
-<div class="folha">
-<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../backoffice/" title="The operations console — in English">Back office <span class="flag" aria-label="em inglês">EN</span></a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.3" title="O que mudou em v0.23.3, e porquê">v0.23.3</a></div><div class="datalinha"><div>Lisboa · segunda-feira, 14 de setembro de 2026</div><div>Faltam <b>3 dias</b> para o Startup Summit Lisbon 2026</div></div><div class="mast"><h1 class="nome"><a href="../../">O Ecossistema Português de IA</a></h1><div class="sub"><a href="../../">pt.newsroom.sgit.ai</a></div><div class="lema">O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o suficiente para ser interessante.</div></div><nav class="nav"><a href="../../empresas/">Empresas</a><a href="../../protagonistas/">Protagonistas</a><a href="../../instituicoes/">Instituições</a><a href="../../politicas/">Políticas</a><a href="../../casos-de-uso/">Casos de uso</a><a href="../../codigo-aberto/">Código aberto</a><a href="../../diaspora/">Diáspora</a><a href="../../eventos/">Eventos</a><span class="sep">|</span><a href="../../entidades/">Entidades</a><a href="../../registo/">Registo</a><a href="../../grafo/">Grafo</a></nav>
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Interviews · the method and the
-prompts</div></div>
-<h1 class="h-2" style="max-width:26em">Two interviews, one mechanism, and opposite
-directions.</h1>
-<p class="std" style="padding:14px 0 12px">Two interviews and one mechanism. One points outward — an assistant interviews somebody, and what comes back is material for an article. The other points inward — an agent has ChatGPT interview the editor of record, and what comes back is direction.</p>
-<div class="chips" style="padding-bottom:18px"><a class="chip" href="#interviews">Interviewing somebody, to write · 4 pieces</a><a class="chip" href="#editor-interview">Interviewing the editor, to know what to do · 4 pieces</a></div>
 
-<div class="painel" style="margin-bottom:22px">
-  <div class="sect">The rule that governs what comes out of here</div>
-  <p class="sm" style="padding-top:8px">An interview is a primary source about the person speaking and nothing else. What they assert about the world is a claim to verify, not a fact for having been said aloud — and that holds when the person speaking is the editor. An interview makes no exception to any
-  rule of this house: three fields per person — listed role, listed organisation, the page that
-  lists it — no contact detail in any file, and removal on request is unconditional and carries no
-  reason. <a href="../../aviso/">The notice</a> says how. And nothing said aloud puts a story into
-  published: that is a line the editor writes in a file.</p></div>
+<div class="folha bo-strip">
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.4" title="O que mudou em v0.23.4, e porquê">v0.23.4</a></div>
+</div>
 
-<div class="rule" id="interviews" style="padding:30px 0 8px"><div class="sect">Interviewing somebody, to write</div></div><p class="std" style="padding-bottom:14px">A busy person will not write two pages about their work. They will talk about it for twenty minutes, at an hour that suits them, by voice or by typing.</p><div class="chips" style="padding-bottom:6px"><a class="chip" href="../../briefs/pack/09__interviews/README.md">the method, in full</a></div><div class="hair" id="interviews-01" style="padding:20px 0 8px"><div class="sect">The interview prompt · for the interviewee</div></div><p class="sm" style="padding-bottom:10px">Pasted into ChatGPT as the first message. Always the same, whoever the person is.</p><div class="chips" style="padding-bottom:10px"><span class="chip">português</span><span class="chip">79 lines</span><span class="chip mono xs">f82d2b8687e4</span><a class="chip" href="../../briefs/pack/09__interviews/01__interview-prompt.pt.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># O prompt da entrevista — português
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.4</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../newsroom/team.html">Team</a><a class="nav" href="../newsroom/agents.html">Agent activity</a><a class="nav" href="../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../newsroom/guidance.html">Guidance</a><a class="nav" href="../newsroom/interviews.html" aria-current="page">Interviews</a><a class="nav" href="../newsroom/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<main class="main">
+
+<div class="page-head"><div><h1>Interviews</h1><p>8 prompts in 2 packs</p></div></div>
+
+<p class="bo-note">Two interviews and one mechanism. One points outward — an assistant interviews somebody, and what comes back is material for an article. The other points inward — an agent has ChatGPT interview the editor of record, and what comes back is direction.</p><p class="bo-note"><b>The rule that governs what comes out of here.</b> An interview is a primary source about the person speaking and nothing else. What they assert about the world is a claim to verify, not a fact for having been said aloud — and that holds when the person speaking is the editor. An interview makes no exception to any rule of this house: three fields per person, no contact detail in any file, and removal on request is unconditional and carries no reason. Nothing said aloud puts a story into published.</p><h2 id="interviews">Interviewing somebody, to write</h2><p class="bo-note">A busy person will not write two pages about their work. They will talk about it for twenty minutes, at an hour that suits them, by voice or by typing. <a href="../briefs/pack/09__interviews/README.md">The method, in full.</a></p><h3 id="interviews-01">The interview prompt</h3><p class="bo-note">Pasted into ChatGPT as the first message. Always the same, whoever the person is. <b>For the interviewee.</b></p><p class="bo-meta">português · 79 lines · <code>f82d2b8687e4</code> · <a href="../briefs/pack/09__interviews/01__interview-prompt.pt.md">the raw file</a></p><pre class="bo-pre"># O prompt da entrevista — português
 
 **Cole isto no ChatGPT como primeira mensagem, e depois carregue no ícone do microfone.** Funciona
 também em modo escrito, se preferir escrever. Só precisa de o colar uma vez; o bloco do tema vem a
@@ -116,7 +103,7 @@ disser, e pergunta-me se posso começar. Se eu disser que não, para.
 
 **A seguir vem o bloco do tema: quem sou eu, porque é que me convidaram, e sobre o que querem
 falar. Espera por ele antes de começares a entrevista.**
-</pre></div><div class="hair" id="interviews-02" style="padding:20px 0 8px"><div class="sect">The interview prompt · for the interviewee</div></div><p class="sm" style="padding-bottom:10px">The same interviewer, in English. The interview may be in either language; what gets published is always European Portuguese.</p><div class="chips" style="padding-bottom:10px"><span class="chip">english</span><span class="chip">79 lines</span><span class="chip mono xs">d51a826513c9</span><a class="chip" href="../../briefs/pack/09__interviews/02__the-interview-prompt.en.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># The interview prompt — English
+</pre><h3 id="interviews-02">The interview prompt</h3><p class="bo-note">The same interviewer, in English. The interview may be in either language; what gets published is always European Portuguese. <b>For the interviewee.</b></p><p class="bo-meta">english · 79 lines · <code>d51a826513c9</code> · <a href="../briefs/pack/09__interviews/02__the-interview-prompt.en.md">the raw file</a></p><pre class="bo-pre"># The interview prompt — English
 
 **Paste this into ChatGPT as your first message, then press the microphone.** It works in typed
 mode too, if you would rather write. Paste it once; the topic block comes next, as a second message.
@@ -194,7 +181,7 @@ I say, and ask whether I am ready to begin. If I say no, stop.
 
 **The topic block comes next: who I am, why you invited me, and what you want to talk about. Wait
 for it before starting the interview.**
-</pre></div><div class="hair" id="interviews-03" style="padding:20px 0 8px"><div class="sect">The topic block · for the agent</div></div><p class="sm" style="padding-bottom:10px">The second message, and the only part that changes from interview to interview. An interview is worth whatever this block is worth.</p><div class="chips" style="padding-bottom:10px"><span class="chip">português</span><span class="chip">89 lines</span><span class="chip mono xs">ab9981679a77</span><a class="chip" href="../../briefs/pack/09__interviews/03__topic-block.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># The topic block — what changes from interview to interview
+</pre><h3 id="interviews-03">The topic block</h3><p class="bo-note">The second message, and the only part that changes from interview to interview. An interview is worth whatever this block is worth. <b>For the agent.</b></p><p class="bo-meta">português · 89 lines · <code>ab9981679a77</code> · <a href="../briefs/pack/09__interviews/03__topic-block.md">the raw file</a></p><pre class="bo-pre"># The topic block — what changes from interview to interview
 
 The interview prompt is always the same. **This is the part that changes**, and it is the second
 message the person pastes into ChatGPT. An interview is worth whatever this block is worth: a
@@ -255,7 +242,7 @@ organização listada: &lt;a organização que essa mesma página lista&gt;
 página que o diz: https://pt.newsroom.sgit.ai/entidades/pessoa/&lt;slug&gt;/
 
 ## Porque é que esta redação me convidou
-Está listado como orador do <a class="ent" href="../../entidades/evento/startup-summit-lisbon-2026/">Startup Summit Lisbon 2026</a>, numa sessão sobre IA. Esta redação tem a
+Está listado como orador do Startup Summit Lisbon 2026, numa sessão sobre IA. Esta redação tem a
 página de oradores congelada de 8 e de 13 de setembro e a lista mudou entre as duas.
 
 ## O que a redação já tem, e não precisa de perguntar
@@ -282,7 +269,7 @@ Nada sobre ronda de financiamento em curso.
 ## A língua
 português — a publicação é em português europeu.
 ```
-</pre></div><div class="hair" id="interviews-04" style="padding:20px 0 8px"><div class="sect">The agent prompt · for the editor</div></div><p class="sm" style="padding-bottom:10px">What the editor hands an agent session to prepare a pack. The agent assembles; it does not interview.</p><div class="chips" style="padding-bottom:10px"><span class="chip">english</span><span class="chip">56 lines</span><span class="chip mono xs">463565e2c75e</span><a class="chip" href="../../briefs/pack/09__interviews/04__agent-prompt.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># The agent prompt — whoever assembles the pack
+</pre><h3 id="interviews-04">The agent prompt</h3><p class="bo-note">What the editor hands an agent session to prepare a pack. The agent assembles; it does not interview. <b>For the editor.</b></p><p class="bo-meta">english · 56 lines · <code>463565e2c75e</code> · <a href="../briefs/pack/09__interviews/04__agent-prompt.md">the raw file</a></p><pre class="bo-pre"># The agent prompt — whoever assembles the pack
 
 This is what the editor hands an agent session (Claude Code, in this newsroom) to prepare an
 interview. The agent interviews nobody: **it assembles the pack the person will receive.**
@@ -337,7 +324,7 @@ You are preparing an interview pack for **pt.newsroom.sgit.ai**. The person is: 
 The path to the pack, the topic block for him to read before it goes out, and a list of what you
 could **not** find about the person in the frozen sources — because that is what decides whether the
 questions are good or generic.
-</pre></div><div class="rule" id="editor-interview" style="padding:30px 0 8px"><div class="sect">Interviewing the editor, to know what to do</div></div><p class="std" style="padding-bottom:14px">An agent knows what is in front of it and does not know what the editor thinks matters. Twenty minutes gets that out, and gets it out better than any form.</p><div class="chips" style="padding-bottom:6px"><a class="chip" href="../../briefs/pack/10__editor-interview/README.md">the method, in full</a></div><div class="hair" id="editor-interview-01" style="padding:20px 0 8px"><div class="sect">The preparation prompt · for the agent</div></div><p class="sm" style="padding-bottom:10px">The agent reads its own mandate, its issues and what went wrong, and writes the state block. Without this the conversation is generic and worth nobody&#x27;s time.</p><div class="chips" style="padding-bottom:10px"><span class="chip">english</span><span class="chip">77 lines</span><span class="chip mono xs">db2221178b0d</span><a class="chip" href="../../briefs/pack/10__editor-interview/01__preparation-prompt.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># The preparation prompt — the agent reads itself
+</pre><h2 id="editor-interview">Interviewing the editor, to know what to do</h2><p class="bo-note">An agent knows what is in front of it and does not know what the editor thinks matters. Twenty minutes gets that out, and gets it out better than any form. <a href="../briefs/pack/10__editor-interview/README.md">The method, in full.</a></p><h3 id="editor-interview-01">The preparation prompt</h3><p class="bo-note">The agent reads its own mandate, its issues and what went wrong, and writes the state block. Without this the conversation is generic and worth nobody&#x27;s time. <b>For the agent.</b></p><p class="bo-meta">english · 77 lines · <code>db2221178b0d</code> · <a href="../briefs/pack/10__editor-interview/01__preparation-prompt.md">the raw file</a></p><pre class="bo-pre"># The preparation prompt — the agent reads itself
 
 Handed to an agent session **before** there is any interview. What comes out is the state block the
 editor pastes into ChatGPT after the interviewer prompt.
@@ -413,7 +400,7 @@ E **diz o que farias.** O editor corrige mais depressa do que inventa.
 
 O bloco de estado, num ficheiro, pronto a entrar no pacote. E uma nota ao editor a dizer quanto
 tempo achas que a conversa leva — se as tuas perguntas não cabem em vinte minutos, são demasiadas.
-</pre></div><div class="hair" id="editor-interview-02" style="padding:20px 0 8px"><div class="sect">The editor interview prompt · for the editor</div></div><p class="sm" style="padding-bottom:10px">The interviewer. Walks the editor through the agent&#x27;s questions, each with the agent&#x27;s own proposal.</p><div class="chips" style="padding-bottom:10px"><span class="chip">português</span><span class="chip">87 lines</span><span class="chip mono xs">979b631b5147</span><a class="chip" href="../../briefs/pack/10__editor-interview/02__interview-prompt.pt.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># O prompt da entrevista ao editor — português
+</pre><h3 id="editor-interview-02">The editor interview prompt</h3><p class="bo-note">The interviewer. Walks the editor through the agent&#x27;s questions, each with the agent&#x27;s own proposal. <b>For the editor.</b></p><p class="bo-meta">português · 87 lines · <code>979b631b5147</code> · <a href="../briefs/pack/10__editor-interview/02__interview-prompt.pt.md">the raw file</a></p><pre class="bo-pre"># O prompt da entrevista ao editor — português
 
 **Cole isto no ChatGPT como primeira mensagem, e depois carregue no microfone.** A seguir cola o
 bloco de estado do agente, que é a segunda mensagem. Funciona igualmente em modo escrito.
@@ -499,7 +486,7 @@ Depois do relatório diz exatamente isto:
 ## Antes da primeira pergunta
 
 Diz ao editor, em duas frases, que agente é este e quantas perguntas tens para ele. Depois começa.
-</pre></div><div class="hair" id="editor-interview-03" style="padding:20px 0 8px"><div class="sect">The editor interview prompt · for the editor</div></div><p class="sm" style="padding-bottom:10px">The same, in English.</p><div class="chips" style="padding-bottom:10px"><span class="chip">english</span><span class="chip">88 lines</span><span class="chip mono xs">1d92984f6343</span><a class="chip" href="../../briefs/pack/10__editor-interview/03__the-interview-prompt.en.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># The editor interview prompt — English
+</pre><h3 id="editor-interview-03">The editor interview prompt</h3><p class="bo-note">The same, in English. <b>For the editor.</b></p><p class="bo-meta">english · 88 lines · <code>1d92984f6343</code> · <a href="../briefs/pack/10__editor-interview/03__the-interview-prompt.en.md">the raw file</a></p><pre class="bo-pre"># The editor interview prompt — English
 
 **Paste this into ChatGPT as your first message, then press the microphone.** The agent&#x27;s state
 block is the second message. Works in typed mode too.
@@ -586,7 +573,7 @@ After the report, say exactly this:
 ## Before the first question
 
 Tell the editor in two sentences which agent this is and how many questions you have. Then begin.
-</pre></div><div class="hair" id="editor-interview-04" style="padding:20px 0 8px"><div class="sect">What comes back, and what is done with it · for the agent</div></div><p class="sm" style="padding-bottom:10px">Decisions become files; ideas open an issue and wait. Confusing the two is how an agent does work nobody asked for.</p><div class="chips" style="padding-bottom:10px"><span class="chip">english</span><span class="chip">52 lines</span><span class="chip mono xs">ce20575ffce1</span><a class="chip" href="../../briefs/pack/10__editor-interview/04__what-comes-back.md">the raw file</a></div><div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap"># What comes back, and what is done with it
+</pre><h3 id="editor-interview-04">What comes back, and what is done with it</h3><p class="bo-note">Decisions become files; ideas open an issue and wait. Confusing the two is how an agent does work nobody asked for. <b>For the agent.</b></p><p class="bo-meta">english · 52 lines · <code>ce20575ffce1</code> · <a href="../briefs/pack/10__editor-interview/04__what-comes-back.md">the raw file</a></p><pre class="bo-pre"># What comes back, and what is done with it
 
 The direction report is not a document to file. It is a list of things to do, and the agent that
 asked for the interview is the one who does them — **and the one who writes back saying what it did
@@ -637,18 +624,16 @@ Nothing said in one of these conversations puts a story into `publicado`, excuse
 folder an agent may write in, or turns a statement by the editor into a verified fact. Direction says
 **what is worth doing**. How it is done remains what is written in `CLAUDE.md`, and that is not
 negotiated by voice.
-</pre></div>
+</pre><h2>This text is derived</h2><p class="bo-note">Rendered from <code>briefs/pack/09__interviews/ and briefs/pack/10__editor-interview/</code> on every build and never hand-written here. Content exists once, and gate 42 fails the build if this page and the markdown disagree — a derived file with no gate is a second copy under another name.</p>
 
-<div class="painel" style="margin-top:26px">
-  <div class="sect">This text is derived</div>
-  <p class="sm" style="padding-top:8px">The prompts above are rendered from
-  <code>briefs/pack/09__interviews/ and briefs/pack/10__editor-interview/</code> on every build, and never hand-written here. Content exists
-  once, and gate 42 fails the build if this page and the markdown disagree — a derived file with no
-  gate is a second copy under another name.</p></div>
-<p class="declaracao">Escrito por agentes de IA, com curadoria de um editor humano nomeado. Cada afirmação assenta numa cópia congelada e hasheada da sua fonte; quando não se consegue confirmar, a página di-lo em vez de a omitir. <a href="../../proveniencia/">Quem fez o quê</a>.</p><div class="rodape g4"><div class="col sp6"><div class="sect">Ficha técnica</div><p class="sm">Editor de registo: Dinis Cruz. Pesquisa, redação e verificação: agentes, cada um nomeado no registo de execução que fez o trabalho.</p></div><div class="col sp6"><div class="sect">Fontes</div><p class="sm">Todas obtidas, congeladas byte a byte e verificadas por hash em cada construção. <a href="../../registo/">O registo</a> lista-as; <a href="../../metodo/">o método</a> explica-o.</p></div><div class="col sp6"><div class="sect">Proteção de dados</div><p class="sm">Responsável: Dinis Cruz. Base: interesses legítimos. Remoção incondicional a pedido; nunca se publica o motivo. <a href="../../aviso/">O aviso</a>.</p></div><div class="col sp6"><div class="sect">Parte de</div><p class="sm"><a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> — uma instância do argumento. Este site é nativamente português; não é uma tradução.</p></div></div><div class="agent" style="border:0;margin-top:18px;padding-top:0"><a href="../../artigos/">Os artigos</a> · <a href="../../metodo/">Método</a> · <a href="../../equipa/">A redação</a> · <a href="../../entregas/">Entregas de investigação</a> · <a href="../../redacao/">A mesa</a> · <a href="../../carteira/">A carteira</a> · <a href="../../ficheiros/">Os ficheiros</a> · <a href="../../aviso/">Aviso de proteção de dados</a> · <a href="../../sobre/">Sobre e limites</a> · <a href="../../backoffice/">Back office (EN)</a> · <a href="../../admin/versions.html">Versões</a></div><div class="agent"><b>Para um agente.</b> Esta página é gerada a partir de ficheiros JSON em <code>dados/</code> por <code>build/build.py</code>; nada nela é escrito à mão. O índice legível por máquina está em <a href="../../llms.txt">llms.txt</a> e o manifesto com o hash de cada ficheiro de dados em <a href="../../ficheiros/">ficheiros/</a>. Versão <a class="ver" href="../../admin/versions.html#v0.23.3">v0.23.3</a> · fonte: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · ficheiro: <code>newsroom/interviews/index.html</code>.</div>
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>newsroom/interviews.html</code> · version <span class="ver">v0.23.4</span>.
 </div>
-<!-- The chat lives OUTSIDE .folha on purpose: it is a column of the document, not a block of the
-     page, and putting it inside would make it inherit the sheet's max-width and gutters. -->
-<pt-chat></pt-chat>
+
+</main>
+</div>
 </body>
 </html>

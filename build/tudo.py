@@ -70,9 +70,9 @@ PASSOS = [
     (["python3", "build/entidades.py"],
      "dados/entidades.json e uma página por entidade — TEM de vir antes de tudo o que gera "
      "páginas, porque é este ficheiro que faz uma menção virar ligação", False),
-    (["python3", "build/backoffice_team.py"],
+    (["python3", "build/newsroom_team.py"],
      "o registo dos agentes, o correio em Email-FS-lite e o quadro de cada um — TEM de vir antes "
-     "de mesa.py e de backoffice.py, porque é este passo que escreve dados/correio.json e "
+     "de mesa.py e de newsroom.py, porque é este passo que escreve dados/correio.json e "
      "dados/quadro.json, e os dois contam o correio a partir dele e nunca da pasta", False),
     (["python3", "build/comentarios.py"],
      "the agents' work on each article, derived from the records — before artigos.py", False),
@@ -92,16 +92,16 @@ PASSOS = [
      "/api/ and /proveniencia/", False),
     (["python3", "build/api.py"],
      "api/v1/ — every path is a file, which is why openapi.json is honest", False),
-    (["python3", "build/backoffice.py"],
+    (["python3", "build/newsroom.py"],
      "the operations console, in English", False),
     (["python3", "build/guia.py"],
-     "docs/guidance/*.md becomes a page with an address — after backoffice.py, whose page "
+     "docs/guidance/*.md becomes a page with an address — after newsroom.py, whose page "
      "scaffolding it uses, and before chrome.py, which puts the pages in the sitemap", False),
     (["python3", "build/mandatos.py"],
      "agents/<id>/ROLE.md and MANDATE.md, rendered from the register — never hand-written", False),
-    (["python3", "build/backoffice_design.py"],
+    (["python3", "build/newsroom_design.py"],
      "the design-review page: each item, and whether it is done, deferred or the editor's", False),
-    (["python3", "build/backoffice_bridges.py"],
+    (["python3", "build/newsroom_bridges.py"],
      "the bridges page: how the editor reaches the back office from the browser", False),
     (["python3", "build/versoes.py"],
      "admin/versions.html, rendered from admin/versions/*.md — text does not live inside HTML",

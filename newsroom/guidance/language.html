@@ -6,8 +6,8 @@
 <title>The language rule · pt.newsroom back office</title>
 <meta name="description" content="The language rule — guidance for anyone changing pt.newsroom.sgit.ai.">
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/guidance/language.html">
-<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/guidance/language.html">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/newsroom/guidance/language.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/newsroom/guidance/language.html">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/fonts.css">
 <link rel="stylesheet" href="../../assets/site.css">
@@ -16,11 +16,11 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.3" title="O que mudou em v0.23.3, e porquê">v0.23.3</a></div>
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.4" title="O que mudou em v0.23.4, e porquê">v0.23.4</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../backoffice/"><b>pt.newsroom</b><span>back office · v0.23.3</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../backoffice/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../backoffice/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../backoffice/board.html">Board<span class="count">17</span></a><a class="nav" href="../../backoffice/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../backoffice/team.html">Team</a><a class="nav" href="../../backoffice/agents.html">Agent activity</a><a class="nav" href="../../backoffice/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../backoffice/guidance.html">Guidance</a><a class="nav" href="../../backoffice/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.4</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../newsroom/team.html">Team</a><a class="nav" href="../../newsroom/agents.html">Agent activity</a><a class="nav" href="../../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../newsroom/guidance.html">Guidance</a><a class="nav" href="../../newsroom/interviews.html">Interviews</a><a class="nav" href="../../newsroom/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>The language rule</h1></div></div>
@@ -43,7 +43,7 @@
 <h3 class="h-2">English, because a visitor never reads it</h3>
 <ul>
 <li class="sm"><b>All code.</b> Every <code>.py</code>, <code>.js</code>, <code>.mjs</code>, <code>.css</code>: identifiers, comments, docstrings, error strings, log output. Enforced by <b>gate 34</b>.</li>
-<li class="sm"><b>The back office</b> (<code>/backoffice/</code>), <b>admin pages</b> (<code>/admin/</code>), including <code>admin/versions.html</code>. Its audience is whoever operates the newsroom.</li>
+<li class="sm"><b>The back office</b> (<code>/newsroom/</code>), <b>admin pages</b> (<code>/admin/</code>), including <code>admin/versions.html</code>. Its audience is whoever operates the newsroom.</li>
 <li class="sm"><b>This guidance</b>, every <code>ROLE.md</code> and <code>MANDATE.md</code>, every memo in <code>briefs/memos/</code>.</li>
 <li class="sm"><b>Commit messages, branch names, run-record free text, mail between departments.</b></li>
 <li class="sm"><b>API paths</b> (<code>/api/v1/companies</code>, not <code>/empresas</code>) — the intent is several languages over one set of data, and an English path is the one that does not privilege the first language.</li>
@@ -68,10 +68,10 @@ markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
 
 
 <div class="agent">
-<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+<b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/guidance/language.html</code> · version <span class="ver">v0.23.3</span>.
+<code>newsroom/guidance/language.html</code> · version <span class="ver">v0.23.4</span>.
 </div>
 
 </main>

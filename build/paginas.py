@@ -48,7 +48,7 @@ RODAPE = [
 # The operations console. In the footer as machinery, not in the masthead: it is not the
 # publication, and it is in English on purpose — its audience is whoever operates the newsroom,
 # not whoever reads the paper.
-BASTIDORES = ("backoffice", "Back office (EN)")
+BASTIDORES = ("newsroom", "Newsroom (EN)")
 
 # THE TITLE IS THE SUBJECT, NOT THE ADDRESS. Until v0.2.0 the masthead said «pt.newsroom.sgit.ai»,
 # which is where the site is and not what the site is. A reader arriving does not care about the
@@ -70,7 +70,7 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
 
 
-def utilitarios(raiz, no_backoffice=False):
+def utilitarios(raiz, no_console=False):
     """The utility run at the top right, IDENTICAL on the paper and in the back office.
 
     THE MENU MUST NOT MOVE WHEN YOU CROSS BETWEEN THEM, and before v0.11.0 it moved a lot: the
@@ -87,9 +87,9 @@ def utilitarios(raiz, no_backoffice=False):
     """
     atravessar = (
         f'<a href="{raiz}" title="A publicação, em português">← o jornal</a>'
-        if no_backoffice else
-        f'<a href="{raiz}backoffice/" title="The operations console — in English">'
-        f'Back office <span class="flag" aria-label="em inglês">EN</span></a>')
+        if no_console else
+        f'<a href="{raiz}newsroom/" title="The operations console — in English">'
+        f'Newsroom <span class="flag" aria-label="em inglês">EN</span></a>')
     return (
         f'<div class="utility">'
         f'<a href="{raiz}aviso/">Aviso</a>'
@@ -554,7 +554,7 @@ def inline(t, raiz=""):
     # the pattern, which is the only way this kind of mistake is ever caught.
     t = re.sub(r"(?<![\w*])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", t)
     # A SITE-ABSOLUTE LINK IS RESOLVED AGAINST `raiz`, LIKE EVERY OTHER PATH HERE. Writing
-    # `[x](/backoffice/y.html)` in a document is the natural thing to do and it is what a release
+    # `[x](/newsroom/y.html)` in a document is the natural thing to do and it is what a release
     # note already did — but this site is also served from a local file server during the browser
     # gate and from a preview under a subfolder, so a leading slash is the one form that works in
     # production and nowhere else. It is rewritten to the same relative prefix the rest of the

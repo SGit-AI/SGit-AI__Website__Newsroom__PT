@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the design review, item by item, and what was actually done to each.
 
-    python3 build/backoffice_design.py
+    python3 build/newsroom_design.py
 
 WHY THIS PAGE EXISTS
 
@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from backoffice import e, escrever, pagina  # noqa: E402
+from newsroom import e, escrever, pagina  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
@@ -153,7 +153,7 @@ yourself."</i> None of them is picked here. Each is a card on
 {e(d["o_blocker"])}</p>
 </div>
 """
-    return pagina("backoffice/design.html", "The design review",
+    return pagina("newsroom/design.html", "The design review",
                   "Every item of the design review, and whether it was done, deferred, or left "
                   "to the editor — with the gate that holds each one that was done.", corpo)
 
@@ -163,7 +163,7 @@ def main():
     if not d:
         print("design: dados/desenho.json does not exist — nothing to do")
         return []
-    feitas = [escrever("backoffice/design.html", pagina_desenho(d))]
+    feitas = [escrever("newsroom/design.html", pagina_desenho(d))]
     c = {}
     for i in d["itens"]:
         c[i["estado"]] = c.get(i["estado"], 0) + 1

@@ -72,13 +72,13 @@ const PAGINAS = [
     ['/', ['pt-chat']],
     ['/redacao/', ['pt-newsroom-floor', 'pt-chat']],
     ['/admin/review/', ['pt-decisions']],
-    ['/newsroom/interviews/', ['pt-chat']],
+
     ['/entidades/', ['pt-chat']],
     ['/entidades/editor/comissao-europeia/', ['pt-entity-graph', 'pt-chat']],
     ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph', 'pt-chat']],
     [ARTIGO, ['pt-json-viewer', 'pt-comment-map', 'pt-chat']],
-    ['/backoffice/agents.html', ['pt-comment-map']],
-    ['/backoffice/docs.html', ['pt-doc-browser']],
+    ['/newsroom/agents.html', ['pt-comment-map']],
+    ['/newsroom/docs.html', ['pt-doc-browser']],
     ['/api/', ['pt-api-console', 'pt-chat']],
     ['/grafo/', ['pt-chat']],
     ['/protagonistas/', ['pt-chat']],
@@ -87,17 +87,18 @@ const PAGINAS = [
        element, so none would be caught by a list made of components; but it is code that runs, and
        that is what this gate checks. Being out by default is precisely the kind of exemption gate
        26 says you should not be able to claim by writing the right word. */
-    ['/backoffice/guidance.html', []],
-    ['/backoffice/team.html', []],
-    ['/backoffice/board.html', []],
-    ['/backoffice/mail.html', []],
-    ['/backoffice/bridges.html', []],
-    ['/backoffice/design.html', []],
+    ['/newsroom/guidance.html', []],
+    ['/newsroom/interviews.html', []],
+    ['/newsroom/team.html', []],
+    ['/newsroom/board.html', []],
+    ['/newsroom/mail.html', []],
+    ['/newsroom/bridges.html', []],
+    ['/newsroom/design.html', []],
     /* The console carries `pt-queue`, and it is the one component whose whole job is to count:
        the number in its heading and the number in the rail both come from the list it was given,
        so a page where it silently failed would show a queue of nothing and a rail badge of three.
        Gate 40 below measures the chrome around it. */
-    ['/backoffice/index.html', ['pt-queue']],
+    ['/newsroom/index.html', ['pt-queue']],
 ]
 
 /* EVERY TOOL, REALLY FETCHED, FROM THE DEEPEST PAGE ON THE SITE.
@@ -294,7 +295,7 @@ for (const caminho of FERRAMENTAS_EM) {
         })
     }
     const jornal = await caixa('/')
-    const consola = await caixa('/backoffice/')
+    const consola = await caixa('/newsroom/')
     if (!jornal || !consola) {
         falhas++
         console.log(`\n\u2717 o painel de utilit\u00e1rios n\u00e3o existe numa das duas ` +
