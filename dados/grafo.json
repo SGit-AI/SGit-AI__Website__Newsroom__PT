@@ -5,7 +5,7 @@
   "nota": "Cada nó nomeia a fonte congelada de onde veio; cada aresta é um verbo português com um inverso distinto. Um caminho lê-se em voz alta em português, e se não se ler, a aresta está errada.",
   "contagens": {
     "nos": 312,
-    "arestas": 946,
+    "arestas": 942,
     "tipos": 17,
     "verbos": 15
   },
@@ -78,7 +78,7 @@
       "rotulo": "As histórias",
       "ordem": 10,
       "nos": 6,
-      "arestas": 12
+      "arestas": 8
     }
   ],
   "nos": [
@@ -3537,28 +3537,20 @@
       ]
     },
     {
-      "id": "historia:uma-captura-nao-mostra-movimento",
+      "id": "historia:vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
       "tipo": "Historia",
-      "rotulo": "Uma captura não mostra movimento; duas mostram",
+      "rotulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
       "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/oradores"
+      "estado": "publicado",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
     },
     {
       "id": "historia:regulador-designacao-ausente",
       "tipo": "Historia",
       "rotulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
       "bloco": "historias",
-      "estado": "procurado",
+      "estado": "publicado",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
-    },
-    {
-      "id": "historia:registo-nacional-nao-devolve-texto",
-      "tipo": "Historia",
-      "rotulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
-      "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/registo/dre-inicio"
     },
     {
       "id": "historia:quantas-startups-sao-de-ia",
@@ -3569,20 +3561,28 @@
       "fonte": "2026-09-14/abertas/cordis"
     },
     {
-      "id": "historia:dois-nomes-para-os-mesmos-palcos",
+      "id": "historia:plano-nacional-centros-de-dados",
       "tipo": "Historia",
-      "rotulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
+      "rotulo": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
       "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/agenda"
+      "estado": "publicado",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08"
     },
     {
-      "id": "historia:agenda-nacional-instrumento-legal",
+      "id": "historia:gigafabricas-de-ia-duzentos-milhoes",
       "tipo": "Historia",
-      "rotulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+      "rotulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
       "bloco": "historias",
-      "estado": "procurado",
-      "fonte": "2026-09-14/registo/dre-inicio"
+      "estado": "publicado",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+    },
+    {
+      "id": "historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+      "tipo": "Historia",
+      "rotulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+      "bloco": "historias",
+      "estado": "publicado",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02"
     }
   ],
   "arestas": [
@@ -10295,10 +10295,10 @@
       "bloco": "prova"
     },
     {
-      "id": "assenta_em:historia:uma-captura-nao-mostra-movimento:fonte:2026-09-14/oradores",
+      "id": "assenta_em:historia:vinte-e-cinco-milhoes-para-ia-na-administracao-publica:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
       "verbo": "assenta_em",
-      "origem": "historia:uma-captura-nao-mostra-movimento",
-      "destino": "fonte:2026-09-14/oradores",
+      "origem": "historia:vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+      "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
       "bloco": "historias"
     },
     {
@@ -10316,27 +10316,6 @@
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/dre-inicio",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/dre-inicio",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/gov-ia",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/gov-ia",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/dados-gov",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/dados-gov",
-      "bloco": "historias"
-    },
-    {
       "id": "assenta_em:historia:quantas-startups-sao-de-ia:fonte:2026-09-14/abertas/cordis",
       "verbo": "assenta_em",
       "origem": "historia:quantas-startups-sao-de-ia",
@@ -10344,38 +10323,31 @@
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/agenda",
+      "id": "assenta_em:historia:plano-nacional-centros-de-dados:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
       "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/agenda",
+      "origem": "historia:plano-nacional-centros-de-dados",
+      "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/oradores",
+      "id": "assenta_em:historia:gigafabricas-de-ia-duzentos-milhoes:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
       "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/oradores",
+      "origem": "historia:gigafabricas-de-ia-duzentos-milhoes",
+      "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/patrocinadores",
+      "id": "assenta_em:historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
       "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/patrocinadores",
+      "origem": "historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+      "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:agenda-nacional-instrumento-legal:fonte:2026-09-14/registo/dre-inicio",
+      "id": "assenta_em:historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
       "verbo": "assenta_em",
-      "origem": "historia:agenda-nacional-instrumento-legal",
-      "destino": "fonte:2026-09-14/registo/dre-inicio",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:agenda-nacional-instrumento-legal:fonte:2026-09-14/registo/gov-ia",
-      "verbo": "assenta_em",
-      "origem": "historia:agenda-nacional-instrumento-legal",
-      "destino": "fonte:2026-09-14/registo/gov-ia",
+      "origem": "historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+      "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
       "bloco": "historias"
     }
   ]

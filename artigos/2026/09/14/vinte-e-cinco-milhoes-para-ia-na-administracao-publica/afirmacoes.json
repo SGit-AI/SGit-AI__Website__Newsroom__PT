@@ -1,0 +1,29 @@
+{
+  "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+  "verificado_em": "2026-09-15",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "estado": "confirmada",
+      "localizador": "Comunicado, destaque",
+      "excerto": "Investimento de 25 milhões para adoção de IA na Administração Pública"
+    },
+    {
+      "id": "a2",
+      "texto": "O comunicado refere agentes de apoio à contratação pública e automatização de faturas como casos em desenvolvimento.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "estado": "confirmada",
+      "localizador": "Comunicado, parágrafo 2",
+      "excerto": "desde agentes de apoio à contratação pública até à automatização de faturas."
+    }
+  ],
+  "resumo": {
+    "confirmadas": 2,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  }
+}

@@ -111,7 +111,7 @@
     "sources/5/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
     "sources/6/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']"
   ],
-  "congelada_em": "2026-09-14",
+  "congelada_em": "2026-09-15",
   "fontes": [
     {
       "id": "src-pol-01",
@@ -120,7 +120,7 @@
       "titulo": "Resolução do Conselho de Ministros n.º 2/2026, de 8 de janeiro",
       "lingua": "pt",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
       "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
       "bytes": 2346,
       "caracteres_visiveis": 22,
@@ -135,9 +135,9 @@
       "titulo": "Resolução do Conselho de Ministros n.º 2/2026",
       "lingua": "pt",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
-      "sha256": "7f2737c3725e222f4a8c512d814b1d8cd32bd7ba9590b5e92e8555e9b0c05f71",
-      "bytes": 156325,
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
+      "sha256": "92218b35d08bf8312238e304dae1556331868206b3aef93b3938352152c0f0db",
+      "bytes": 156327,
       "caracteres_visiveis": 2738,
       "formato": "html",
       "legivel": true,
@@ -150,9 +150,9 @@
       "titulo": "Agenda Nacional de Inteligência Artificial (ANIA)",
       "lingua": "pt",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
-      "sha256": "d767992a4c7d33928da6f61b97aff1691f075f6f8a11594d637262bc8c2d4473",
-      "bytes": 181336,
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
+      "sha256": "f61594416b8fd19a14c479c59b32137db8f199197a54f6ddb8ac47a0aefbb252",
+      "bytes": 181286,
       "caracteres_visiveis": 4262,
       "formato": "html",
       "legivel": true,
@@ -165,9 +165,9 @@
       "titulo": "Comunicado do Conselho de Ministros de 25 de junho de 2026",
       "lingua": "pt",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
-      "sha256": "d722fd938380aa948dc2c1ae190f35fa9dbf13689ee540a9c595ecb592c90e4c",
-      "bytes": 224915,
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
+      "sha256": "2e5645535541b492b017b96951126cafe4b1c502b1fbc193540c0d3051a56584",
+      "bytes": 224635,
       "caracteres_visiveis": 6492,
       "formato": "html",
       "legivel": true,
@@ -180,7 +180,7 @@
       "titulo": "Conferência ANACOM 2025 termina com compromisso de avançar na regulação da inteligência artificial",
       "lingua": "pt",
       "acesso": "search-snippet; abertura devolveu HTTP 403",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
       "sha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
       "bytes": 239,
       "caracteres_visiveis": 74,
@@ -195,9 +195,9 @@
       "titulo": "Inteligência Artificial",
       "lingua": "pt",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
-      "sha256": "4ed3abc5594f6bcb1a57f7135ff68d9cbeccb121a937bf1bb27a87963b1e423e",
-      "bytes": 193738,
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
+      "sha256": "645b2e78e08458febed615296ca46a6a91608a50ede6df5c4fb3a371c77a6d80",
+      "bytes": 193743,
       "caracteres_visiveis": 4590,
       "formato": "html",
       "legivel": true,
@@ -210,8 +210,8 @@
       "titulo": "Governance and enforcement of the AI Act",
       "lingua": "en",
       "acesso": "html",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
-      "sha256": "40a2c1b02cf04d50d0b446aeeb52b6eef3631ccaa862719d097586783e2827e1",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
+      "sha256": "de200aa14720d9f0551bdbe9daa30727dbdae265e4d8fa9cc4c97bc53ac6f576",
       "bytes": 54695,
       "caracteres_visiveis": 5128,
       "formato": "html",
@@ -225,7 +225,7 @@
       "titulo": "Resolução do Conselho de Ministros n.º 70/2026",
       "lingua": "pt",
       "acesso": "pdf",
-      "congelada": "fontes/congeladas/2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
       "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
       "bytes": 228725,
       "caracteres_visiveis": 30808,
@@ -952,11 +952,32 @@
   },
   "revisao": {
     "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-    "estado": "por_rever",
-    "decidido_por": null,
-    "decidido_em": null,
+    "estado": "em_revisao",
+    "decidido_por": "Dinis Cruz",
+    "decidido_em": "2026-09-15",
     "como_se_usa": "Este ficheiro é a decisão do editor de registo, e é escrito por uma pessoa. Para aprovar um item, ponha-o em `itens` com estado `aprovada` e um comentário. Para rejeitar, `rejeitada` com a razão. Enquanto um item não tiver decisão, nada dele aparece na primeira página nem num artigo — o portão 13 falha a construção se aparecer. Uma execução automática nunca escreve aqui.",
-    "itens": {},
+    "itens": {
+      "item-pol-02": {
+        "estado": "aprovada",
+        "comentario": "Aprovo a afirmação confirmada e só ela: as 32 iniciativas estão nos bytes da página do digitalGOV. Os quatro eixos citam o registo do Diário da República, que não devolve texto, e por isso não se escrevem. O artigo que sair daqui tem de dizer as duas coisas — o que se leu e o que não se conseguiu ler — porque a segunda é metade da história."
+      },
+      "item-pol-03": {
+        "estado": "aprovada",
+        "comentario": "Aprovo as duas afirmações confirmadas: o prazo de designação que a Comissão publica, e a página temática do Governo que descreve o regulamento sem nomear autoridade nenhuma. A terceira, a da ANACOM, assenta numa página que nos devolveu 403 e não se escreve. Isto responde à história 002, que estava encomendada e sem prosa desde o primeiro dia."
+      },
+      "item-pol-05": {
+        "estado": "aprovada",
+        "comentario": "As duas afirmações confirmaram contra o comunicado do Conselho de Ministros de 25 de junho. É um anúncio, e o artigo escreve-o como anúncio: o diploma que o executa não foi localizado, e essa ausência diz-se em vez de se omitir."
+      },
+      "item-pol-07": {
+        "estado": "aprovada",
+        "comentario": "As duas afirmações confirmaram contra o comunicado do Governo sobre a ANIA. Mesma regra do item anterior: é o que o Governo anunciou, com data e endereço, e não é uma medição do que foi executado."
+      },
+      "item-pol-08": {
+        "estado": "aprovada",
+        "comentario": "Aprovo sem reservas. É o único item da entrega que assenta num PDF do Diário da República lido na íntegra — 30 808 caracteres — e as duas afirmações confirmaram contra o diploma. É também a prova de que o caminho do PDF funciona, o que faz dele o argumento para a regra nova do resumo de investigação."
+      }
+    },
     "comentarios": [
       {
         "quem": "sessao-de-arranque",
@@ -981,6 +1002,36 @@
         "quando": "2026-09-14T12:13:00Z",
         "sobre": null,
         "texto": "A entrega não valida contra o esquema publicado: 45 erros, todos de forma. Os mais substantivos são propostas de vocabulário — Programa, InstrumentoJuridico, Infraestrutura — que a ontologia deste site ainda não tem. Aceitá-las é uma alteração de ontologia e leva uma versão, por isso fica para o editor e não para uma execução."
+      },
+      {
+        "quem": "Dinis Cruz",
+        "quando": "2026-09-15T09:45:00Z",
+        "sobre": null,
+        "texto": "Decidi hoje os oito itens. Cinco aprovados, nenhum rejeitado, três deixados sem decisão de propósito. Aprovar aqui quer dizer «isto pode ser escrito», e nunca quer dizer «escreva-se tudo o que o item diz»: em cada item aprovado, só as afirmações com o excerto nos bytes passam para a prosa. As que citam fontes ilegíveis ficam de fora do artigo e dentro do registo de verificação, onde se veem."
+      },
+      {
+        "quem": "Dinis Cruz",
+        "quando": "2026-09-15T09:45:00Z",
+        "sobre": "item-pol-01",
+        "texto": "Não aprovo e não rejeito, e a diferença importa. Rejeitar seria dizer que não quero esta pista; quero-a mais do que qualquer outra da entrega. As três afirmações assentam todas numa página que não devolve texto, e aprovar seria dizer que isto pode ser escrito como facto quando não há bytes que o sustentem. Fica por rever e abre trabalho de pesquisa: encontrar o PDF da Série I do Diário da República n.º 5/2026. Encontrado o endereço, isto decide-se em minutos."
+      },
+      {
+        "quem": "Dinis Cruz",
+        "quando": "2026-09-15T09:45:00Z",
+        "sobre": "item-pol-04",
+        "texto": "Mesmo tratamento do item-pol-01 e pela mesma razão: as duas afirmações citam o registo do Diário da República, que não devolve texto. A iniciativa I.1 e a atribuição à FCT ficam à espera do mesmo PDF."
+      },
+      {
+        "quem": "Dinis Cruz",
+        "quando": "2026-09-15T09:45:00Z",
+        "sobre": "item-pol-06",
+        "texto": "Igual. As três afirmações sobre os espaços de dados setoriais e a Política Nacional de Dados citam a mesma página ilegível. Um único PDF desbloqueia estes três itens ao mesmo tempo, e é por isso que ele é o pedido de pesquisa mais valioso que esta redação tem em aberto."
+      },
+      {
+        "quem": "Dinis Cruz",
+        "quando": "2026-09-15T09:45:00Z",
+        "sobre": null,
+        "texto": "Sobre as propostas de vocabulário: não decido hoje. Programa, InstrumentoJuridico e Infraestrutura são uma alteração de ontologia, levam uma versão própria, e nenhum dos cinco artigos que autorizo precisa delas para ser escrito. Um tipo novo aceite à pressa para publicar um artigo é um tipo que fica."
       }
     ]
   }

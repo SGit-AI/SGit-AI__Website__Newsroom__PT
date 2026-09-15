@@ -11,38 +11,29 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/console.css">
 </head>
 <body>
-<div class="folha">
 
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.15.0" title="O que mudou em v0.15.0, e porquê">v0.15.0</a></div>
-
-<div class="datalinha">
-  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+<div class="folha bo-strip">
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.19.0" title="O que mudou em v0.19.0, e porquê">v0.19.0</a></div>
 </div>
 
-<nav class="nav nav--consola"><a href="../backoffice/">console</a><a href="../backoffice/equipa.html" class="aqui">team</a><a href="../backoffice/quadro.html">board</a><a href="../backoffice/correio.html">mail</a><a href="../backoffice/pontes.html">bridges</a><a href="../backoffice/desenho.html">design</a><a href="../backoffice/docs.html">documents</a><a href="../backoffice/agents.html">agents</a><a href="../backoffice/guidance.html">guidance</a><a href="../admin/versions.html">versions</a></nav>
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.19.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">17</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html" aria-current="page">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<main class="main">
 
-<div class="consola-corpo">
-
-<div class="aviso-bloco" style="border-left-color:var(--acento)">
-<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
-purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
-publication itself is natively Portuguese and nothing here is linked from the masthead. Every
-number on these pages counts files in this repository — the back office reports on the newsroom
-and never on the world, and a gate fails the build if a page here ever cites a frozen source as
-evidence for a claim about Portugal.</p>
-</div>
+<div class="page-head"><div><h1>The team</h1></div></div>
 
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The team · 5 roles,
-one of them human</div></div>
+<h2>The team · 5 roles,
+one of them human</h2>
 <p class="std" style="max-width:52em;padding-bottom:6px">O registo dos agentes desta redação, no formato que teams.sgit.ai publica para um ROLE.md e que sgraph.ai publica para cada agente da sua própria equipa. Três campos fazem disto uma equipa e não uma lista: a missão (uma frase, que é a chave de encaminhamento), a afirmação central (escrita como condição de falha, para poder ser desmentida) e o «não responsável por» — sem ele, cada papel torna-se silenciosamente o mesmo papel. Os departamentos são os mesmos três de dados/equipa.json; este ficheiro acrescenta o endereço de correio de cada um, o quadro que cada um tem à sua frente, e um quarto agente que não escreve uma linha do jornal.</p>
-<div class="chips" style="padding-bottom:16px">
-  <span class="chip ok">5 roles</span>
-  <span class="chip ">15 board cards</span>
-  <span class="chip ">protocol email-fs-lite 0.6</span>
-  <span class="chip falta">5 roles deliberately not built</span>
+<div class="stats" style="margin-bottom:18px">
+  <span class="path">5 roles · 17 board cards ·
+  protocol email-fs-lite 0.6 ·
+  <a href="#nao-construido">5 roles deliberately not
+  built</a></span>
 </div>
 <p class="sm" style="max-width:52em">The shape of each definition below is the one
 <a href="https://teams.sgit.ai/role-format/index.html">teams.sgit.ai publishes for a <code>ROLE.md</code></a> — name,
@@ -55,13 +46,12 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
 
 
 <div class="cartao" style="padding:16px;margin-top:18px" id="pesquisa.pt">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>@Pesquisa</b></span>
-    <span class="chip">pesquisa.pt</span>
-    <span class="chip">Claude Code — sessão agendada</span>
-    <span class="chip ">tier A</span>
-    <span class="chip ok">a-correr</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">@Pesquisa</b>
+    <span class="st st--3">a-correr</span>
     
+    <span class="path">pesquisa.pt · Claude Code — sessão agendada ·
+      tier A</span>
   </div>
   <p class="std" style="max-width:52em"><b>Pesquisa</b> — Fontes primárias, congelamento, hash, registo, extração e comparação</p>
   <p class="std" style="max-width:52em">Encontrar a fonte primária e deixá-la em bytes que esta redação tem em mãos, antes de qualquer afirmação assentar nela.</p>
@@ -100,7 +90,7 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
       <div class="chips">
         <span class="chip ok">2 open</span>
         <span class="chip miss">1 blocked</span>
-        <span class="chip ">3 paper issues</span>
+        <span class="chip ">1 paper issues</span>
         <span class="chip falta">1 unread</span>
       </div>
       <p class="sm" style="padding-top:6px"><a href="quadro.html#pesquisa.pt">its board →</a> ·
@@ -109,13 +99,12 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
   </div>
 </div>
 <div class="cartao" style="padding:16px;margin-top:18px" id="redacao.pt">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>@Redacao</b></span>
-    <span class="chip">redacao.pt</span>
-    <span class="chip">Claude Code — sessão agendada</span>
-    <span class="chip ">tier A</span>
-    <span class="chip ok">a-correr</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">@Redacao</b>
+    <span class="st st--3">a-correr</span>
     
+    <span class="path">redacao.pt · Claude Code — sessão agendada ·
+      tier A</span>
   </div>
   <p class="std" style="max-width:52em"><b>Redação</b> — A prosa de cada artigo, e a marca de fonte em cada afirmação</p>
   <p class="std" style="max-width:52em">Escrever a partir do que a pesquisa registou, e de mais nada, levando cada afirmação a marca da fonte congelada em que assenta.</p>
@@ -163,13 +152,12 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
   </div>
 </div>
 <div class="cartao" style="padding:16px;margin-top:18px" id="verificacao.pt">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>@Verificacao</b></span>
-    <span class="chip">verificacao.pt</span>
-    <span class="chip">Claude Code — sessão agendada</span>
-    <span class="chip ">tier A</span>
-    <span class="chip ok">a-correr</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">@Verificacao</b>
+    <span class="st st--3">a-correr</span>
     
+    <span class="path">verificacao.pt · Claude Code — sessão agendada ·
+      tier A</span>
   </div>
   <p class="std" style="max-width:52em"><b>Verificação</b> — A releitura de cada fonte citada, na cópia congelada</p>
   <p class="std" style="max-width:52em">Reler cada fonte citada na cópia congelada e marcar cada afirmação confirmada, disputada ou não encontrada.</p>
@@ -217,13 +205,12 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
   </div>
 </div>
 <div class="cartao" style="padding:16px;margin-top:18px" id="bastidores.pt">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>@Bastidores</b></span>
-    <span class="chip">bastidores.pt</span>
-    <span class="chip">Claude Code — sessão a pedido do editor</span>
-    <span class="chip ">tier A</span>
-    <span class="chip ok">a-correr</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">@Bastidores</b>
+    <span class="st st--3">a-correr</span>
     
+    <span class="path">bastidores.pt · Claude Code — sessão a pedido do editor ·
+      tier A</span>
   </div>
   <p class="std" style="max-width:52em"><b>Bastidores</b> — A consola de operações, o protocolo de correio entre agentes, as pontes para o cofre e a observabilidade</p>
   <p class="std" style="max-width:52em">Dar ao editor de registo uma vista do que cada agente tem à frente, e um caminho para lhe falar, sem publicar uma única afirmação sobre Portugal.</p>
@@ -271,13 +258,12 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
   </div>
 </div>
 <div class="cartao" style="padding:16px;margin-top:18px" id="dinis.humano">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>@Dinis</b></span>
-    <span class="chip">dinis.humano</span>
-    <span class="chip">Humano</span>
-    <span class="chip ">tier humano</span>
-    <span class="chip ok">a-correr</span>
-    <span class="chip falta">human in the loop</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">@Dinis</b>
+    <span class="st st--3">a-correr</span>
+    <span class="st st--1">a human in the loop</span>
+    <span class="path">dinis.humano · Humano ·
+      tier humano</span>
   </div>
   <p class="std" style="max-width:52em"><b>Dinis Cruz</b> — Editor de registo; responsável pelo tratamento nomeado no aviso</p>
   <p class="std" style="max-width:52em">Ler cada página antes de ela ir para o ar, e responder pelo que esta publicação diz.</p>
@@ -314,9 +300,9 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
       <p class="sm">Quando decide correr</p>
       <div class="sect" style="padding-top:8px">On its plate now</div>
       <div class="chips">
-        <span class="chip ok">8 open</span>
+        <span class="chip ok">9 open</span>
         <span class="chip miss">1 blocked</span>
-        <span class="chip ">1 paper issues</span>
+        <span class="chip ">2 paper issues</span>
         <span class="chip falta">1 unread</span>
       </div>
       <p class="sm" style="padding-top:6px"><a href="quadro.html#dinis.humano">its board →</a> ·
@@ -325,21 +311,21 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
   </div>
 </div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The write rule</div></div>
+<h2>The write rule</h2>
 <p class="std" style="max-width:52em">Um agente só escreve dentro de correio/&lt;o-seu-id&gt;/ e correio/sessoes/&lt;o-seu-id&gt;/. Para chegar a outro, deixa o ficheiro em correio/expedicao/&lt;destinatario&gt;/ e o destinatário é que o move. É a regra do escritor único, e é uma fronteira de segurança e não uma conveniência: ninguém pode corromper a caixa de outro, e cada alteração é atribuível a exatamente um agente.</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Publishing is not an agent</div></div>
+<h2>Publishing is not an agent</h2>
 <p class="std" style="max-width:52em"><b>Um passo de construção, não um agente.</b>
 Dar-lhe um papel seria dar-lhe uma caixa de correio, um quadro e uma página, e nenhuma delas teria o que mostrar. build/ constrói, os portões falham, a integração contínua publica o que passou.</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Roles deliberately not built</div></div>
+<h2 id="nao-construido">Roles deliberately not built</h2>
 <p class="sm" style="max-width:52em;padding-bottom:8px">A roster that claimed roles nobody runs
 would be claiming a capability. These are named with the reason they are absent, which is the same
 discipline <code>dados/equipa.json</code> already applies to departments.</p>
 <div class="rolar"><table><thead><tr><th style="width:20%">Role</th><th>Why not</th></tr></thead>
 <tbody><tr><td class="sm"><b>@Correcoes</b></td><td class="sm">Não é um agente enquanto não houver nada para corrigir. A primeira correção cria-o.</td></tr><tr><td class="sm"><b>@Traducao</b></td><td class="sm">Este site é nativamente português. Não há para onde traduzir.</td></tr><tr><td class="sm"><b>@Observador</b></td><td class="sm">Faria passagens de QA com capturas de ecrã contra o site em produção, como observer.qa faz em sgraph.ai. Ainda ninguém o correu aqui, e reclamá-lo seria reclamar uma capacidade.</td></tr><tr><td class="sm"><b>@Ontologista</b></td><td class="sm">A ontologia é mantida à mão por quem a altera, e cada alteração leva uma versão. Um agente dedicado só se justifica quando a ontologia mudar mais depressa do que uma pessoa a consegue ler.</td></tr><tr><td class="sm"><b>@Jornalista</b></td><td class="sm">Escreveria o «o que é novo» a partir do histórico de commits. admin/versions.html já o faz por release, e um segundo lugar onde dizer o mesmo acabaria por discordar do primeiro.</td></tr></tbody></table></div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Retired identities</div></div>
+<h2>Retired identities</h2>
 <p class="sm" style="max-width:52em;padding-bottom:8px">Mail is never deleted, so a sender that no
 longer exists still has to resolve to something. These are declared in the message header and
 shown as historical, rather than failing the reader on a name it does not know.</p>
@@ -351,10 +337,10 @@ shown as historical, rather than failing the reader on a name it does not know.<
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/equipa.html</code> · version <span class="ver">v0.15.0</span>.
+<code>backoffice/equipa.html</code> · version <span class="ver">v0.19.0</span>.
 </div>
 
-</div>
+</main>
 </div>
 </body>
 </html>

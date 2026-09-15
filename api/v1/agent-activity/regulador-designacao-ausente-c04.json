@@ -1,14 +1,16 @@
 {
-  "quando": "2026-09-14",
-  "agente": "redacao",
-  "especie": "falta",
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
   "sobre": {
-    "tipo": "artigo",
-    "ref": "regulador-designacao-ausente"
+    "tipo": "afirmacao",
+    "ref": "a1"
   },
-  "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
-  "estado": "aberto",
-  "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[0]",
+  "texto": "A Comissão Europeia indica que cada Estado-Membro deveria ter designado e habilitado as suas autoridades nacionais competentes até 2 de agosto de 2025.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada e o excerto foi procurado outra vez nos bytes. A terceira afirmação da pista original citava uma página que devolveu 403; não entrou na prosa e fica registada aqui como não conferida.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+  "de": "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json#afirmacoes[0]",
   "id": "regulador-designacao-ausente-c04",
   "artigo": "regulador-designacao-ausente"
 }

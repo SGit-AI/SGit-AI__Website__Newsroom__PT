@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.15.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.19.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -13,10 +13,10 @@ suficiente para ser interessante.
 ## O que é real hoje, em números que vêm de ficheiros
 
 - 92 ficheiros congelados de 1 captura(s), cada um com SHA-256, todos reverificados em cada construção
-- 312 nós e 946 arestas; cada aresta é um verbo português com um inverso distinto
+- 312 nós e 942 arestas; cada aresta é um verbo português com um inverso distinto
 - 70 pessoas e 67 organizações, derivadas das fontes, nunca escritas à mão
 - 15 sessões lidas do recuo estático da agenda congelada
-- 19 afirmações entregues por assistentes exteriores; 9 com o excerto encontrado nos bytes; 0 publicadas
+- 23 afirmações entregues por assistentes exteriores; 12 com o excerto encontrado nos bytes; 0 publicadas
 
 ## O que NÃO é real, dito aqui e em cada página onde importa
 
@@ -105,12 +105,12 @@ Um artigo é uma pasta datada, e o caminho é previsível a partir da data e do 
 A data no caminho é a data do MATERIAL, não a da publicação. `publicado_em` é um campo separado,
 escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
 
-- https://pt.newsroom.sgit.ai/artigos/2026/09/14/uma-captura-nao-mostra-movimento/ — Uma captura não mostra movimento; duas mostram (verificado)
-- https://pt.newsroom.sgit.ai/artigos/2026/09/14/regulador-designacao-ausente/ — O regulador foi designado e o instrumento de designação não está na página de IA do Governo (procurado)
-- https://pt.newsroom.sgit.ai/artigos/2026/09/14/registo-nacional-nao-devolve-texto/ — Duas das três páginas do registo nacional não devolvem texto a um leitor automático (verificado)
+- https://pt.newsroom.sgit.ai/artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/ — O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública (publicado)
+- https://pt.newsroom.sgit.ai/artigos/2026/09/14/regulador-designacao-ausente/ — O regulador foi designado e o instrumento de designação não está na página de IA do Governo (publicado)
 - https://pt.newsroom.sgit.ai/artigos/2026/09/14/quantas-startups-sao-de-ia/ — Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz (procurado)
-- https://pt.newsroom.sgit.ai/artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/ — O mesmo evento nomeia os seus palcos de duas maneiras (verificado)
-- https://pt.newsroom.sgit.ai/artigos/2026/09/14/agenda-nacional-instrumento-legal/ — A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina (procurado)
+- https://pt.newsroom.sgit.ai/artigos/2026/09/14/plano-nacional-centros-de-dados/ — O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro (publicado)
+- https://pt.newsroom.sgit.ai/artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/ — O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros (publicado)
+- https://pt.newsroom.sgit.ai/artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/ — A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler (publicado)
 
 ## Se vai MUDAR este site, e não apenas lê-lo
 

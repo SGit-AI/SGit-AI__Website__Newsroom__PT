@@ -22,8 +22,8 @@
   "contagem": 198,
   "ligaveis": 172,
   "por_fundamento": {
-    "bytes": 179,
-    "registo": 4,
+    "bytes": 180,
+    "registo": 3,
     "nenhum": 15
   },
   "ligaveis_em_prosa": 147,
@@ -50,11 +50,19 @@
       "url": "entidades/editor/comissao-europeia/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 6
+        },
+        {
           "fonte": "2026-09-14/registo/dados-gov",
           "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 1,
+      "ficheiros_com_o_nome": 3,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -68,9 +76,14 @@
       "tipo": "Editor",
       "nome": "Diário da República",
       "url": "entidades/editor/diario-da-republica/",
-      "nos_bytes": [],
-      "ficheiros_com_o_nome": 0,
-      "fundamento": "registo",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
       "grau": {
@@ -85,15 +98,35 @@
       "url": "entidades/editor/digitalgov/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 22
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
           "ocorrencias": 13
         },
         {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
           "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 13
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 13
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 7,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -327,11 +360,19 @@
           "ocorrencias": 4
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 4
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
           "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -372,9 +413,29 @@
         {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
           "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 8,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -3922,15 +3983,35 @@
           "ocorrencias": 8
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 8
+        },
+        {
           "fonte": "2026-09-14/registo/dados-gov",
           "ocorrencias": 3
         },
         {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
           "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 8,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -3969,11 +4050,19 @@
           "ocorrencias": 3
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 3
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
           "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 5,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4046,11 +4135,23 @@
           "ocorrencias": 9
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 9
+        },
+        {
           "fonte": "2026-09-14/registo/gov-ia",
           "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 4,
+      "ficheiros_com_o_nome": 7,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -4104,6 +4205,14 @@
           "ocorrencias": 4
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+          "ocorrencias": 4
+        },
+        {
           "fonte": "2026-09-14/registo/gov-ia",
           "ocorrencias": 3
         },
@@ -4112,7 +4221,7 @@
           "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 4,
+      "ficheiros_com_o_nome": 6,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4223,11 +4332,19 @@
       "url": "entidades/tecnologia/ia-generativa/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 3
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
           "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 1,
+      "ficheiros_com_o_nome": 3,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4253,9 +4370,29 @@
         {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
           "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 7
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 4
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 8,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -4431,11 +4568,23 @@
           "ocorrencias": 41
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+          "ocorrencias": 41
+        },
+        {
           "fonte": "2026-09-14/oradores/tina-valand",
           "ocorrencias": 27
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 24
+        },
+        {
           "fonte": "2026-09-14/oradores/daniel-grech",
+          "ocorrencias": 21
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
           "ocorrencias": 21
         },
         {
@@ -4447,27 +4596,15 @@
           "ocorrencias": 16
         },
         {
+          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+          "ocorrencias": 16
+        },
+        {
           "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
           "ocorrencias": 15
-        },
-        {
-          "fonte": "2026-09-14/oradores/igor-nikolaiev",
-          "ocorrencias": 14
-        },
-        {
-          "fonte": "2026-09-14/oradores/slavi-slavev",
-          "ocorrencias": 12
-        },
-        {
-          "fonte": "2026-09-14/oradores/andreia-gaudencio",
-          "ocorrencias": 11
-        },
-        {
-          "fonte": "2026-09-14/oradores/precy-servito",
-          "ocorrencias": 10
         }
       ],
-      "ficheiros_com_o_nome": 36,
+      "ficheiros_com_o_nome": 43,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -5039,7 +5176,7 @@
           "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 19,
+      "ficheiros_com_o_nome": 22,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,

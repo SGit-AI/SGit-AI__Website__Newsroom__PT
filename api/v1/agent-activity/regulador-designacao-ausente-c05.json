@@ -1,14 +1,16 @@
 {
-  "quando": "2026-09-14",
-  "agente": "redacao",
-  "especie": "falta",
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
   "sobre": {
-    "tipo": "artigo",
-    "ref": "regulador-designacao-ausente"
+    "tipo": "afirmacao",
+    "ref": "a2"
   },
-  "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
-  "estado": "aberto",
-  "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[1]",
+  "texto": "A página temática oficial portuguesa descreve o Regulamento de IA sem identificar nominalmente a autoridade nacional.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada e o excerto foi procurado outra vez nos bytes. A terceira afirmação da pista original citava uma página que devolveu 403; não entrou na prosa e fica registada aqui como não conferida.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+  "de": "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json#afirmacoes[1]",
   "id": "regulador-designacao-ausente-c05",
   "artigo": "regulador-designacao-ausente"
 }

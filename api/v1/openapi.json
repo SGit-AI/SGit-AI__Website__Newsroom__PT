@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "pt.newsroom.sgit.ai",
-    "version": "0.15.0",
+    "version": "0.19.0",
     "summary": "The Portuguese AI ecosystem, as data",
     "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
     "contact": {
@@ -631,14 +631,14 @@
             },
             "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
             "examples": {
-              "uma-captura-nao-mostra-movimento": {
-                "value": "uma-captura-nao-mostra-movimento"
+              "vinte-e-cinco-milhoes-para-ia-na-administracao-publica": {
+                "value": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
               },
               "regulador-designacao-ausente": {
                 "value": "regulador-designacao-ausente"
               },
-              "registo-nacional-nao-devolve-texto": {
-                "value": "registo-nacional-nao-devolve-texto"
+              "quantas-startups-sao-de-ia": {
+                "value": "quantas-startups-sao-de-ia"
               }
             }
           }
@@ -755,6 +755,9 @@
             },
             "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
             "examples": {
+              "chatgpt-2026-09-15-politicas-2": {
+                "value": "chatgpt-2026-09-15-politicas-2"
+              },
               "chatgpt-pt-newsroom-2026-09-14-politicas": {
                 "value": "chatgpt-pt-newsroom-2026-09-14-politicas"
               }
@@ -977,14 +980,14 @@
             },
             "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
             "examples": {
-              "agenda-nacional-instrumento-legal-c01": {
-                "value": "agenda-nacional-instrumento-legal-c01"
+              "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c01": {
+                "value": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c01"
               },
-              "agenda-nacional-instrumento-legal-c02": {
-                "value": "agenda-nacional-instrumento-legal-c02"
+              "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c02": {
+                "value": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c02"
               },
-              "agenda-nacional-instrumento-legal-c03": {
-                "value": "agenda-nacional-instrumento-legal-c03"
+              "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c03": {
+                "value": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c03"
               }
             }
           }

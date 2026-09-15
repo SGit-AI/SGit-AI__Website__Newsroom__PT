@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a2"
+  },
+  "texto": "O diploma identifica os centros de dados como suporte de tecnologias como a inteligência artificial, a computação em nuvem e o tratamento massivo de dados.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+  "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/afirmacoes.json#afirmacoes[1]",
+  "id": "plano-nacional-centros-de-dados-c08",
+  "artigo": "plano-nacional-centros-de-dados"
+}

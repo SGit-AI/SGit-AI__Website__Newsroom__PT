@@ -1,0 +1,29 @@
+{
+  "slug": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+  "data": "2026-09-14",
+  "seccao": "politicas",
+  "antetitulo": "Políticas · um anúncio",
+  "titulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
+  "entrada": "O comunicado oficial sobre a Agenda Nacional de Inteligência Artificial anuncia 25 milhões de euros para adoção de IA na Administração Pública, e nomeia dois casos em desenvolvimento: agentes de apoio à contratação pública e automatização de faturas.",
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
+  "origem": "entrega chatgpt-pt-newsroom-2026-09-14-politicas · item-pol-07",
+  "issue": "004",
+  "especie": "registo_publico",
+  "o_que_e": "Um registo do que um comunicado oficial anuncia, citado do comunicado, com o endereço e a data.",
+  "o_que_nao_afirma": [
+    "Não afirma que os 25 milhões de euros foram gastos, contratados ou sequer cabimentados.",
+    "Não afirma que os dois casos nomeados estão em funcionamento. O comunicado descreve-os como em desenvolvimento.",
+    "Não avalia a medida nem quem a anunciou."
+  ],
+  "assenta_em": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
+  ],
+  "departamentos": {
+    "pesquisa": "Congelou o comunicado do Governo sobre a ANIA: 181 336 bytes, 4 262 caracteres legíveis, com SHA-256 no registo.",
+    "redacao": "Escreveu a partir das duas afirmações aprovadas e de mais nada.",
+    "verificacao": "Releu as duas afirmações na cópia congelada do comunicado."
+  },
+  "bloco_primeira_pagina": null
+}

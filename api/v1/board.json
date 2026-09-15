@@ -33,8 +33,8 @@
     "fechados"
   ],
   "contagens": {
-    "cartoes": 15,
-    "issues_do_jornal": 4,
+    "cartoes": 17,
+    "issues_do_jornal": 3,
     "agentes": 5
   },
   "por_agente": {
@@ -96,38 +96,6 @@
       },
       "issues_do_jornal": [
         {
-          "ficheiro": "redacao/issues/001-agenda-nacional-instrumento.json",
-          "agente": "pesquisa.pt",
-          "coluna": "abertos",
-          "origem_tipo": "issue",
-          "id": "001",
-          "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-          "estado": "procurado",
-          "seccao": "politicas",
-          "aberto": "2026-09-14",
-          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
-          "o_que_falta": [
-            "O PDF do diploma. O Diário da República publica o texto integral em PDF num endereço construível, e build/pdf.py já lê esses PDFs (decifra o manipulador de segurança padrão e segue o mapa /ToUnicode). O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é pior.",
-            "Uma segunda fonte independente para a data e o número."
-          ]
-        },
-        {
-          "ficheiro": "redacao/issues/002-regulador-designacao.json",
-          "agente": "pesquisa.pt",
-          "coluna": "abertos",
-          "origem_tipo": "issue",
-          "id": "002",
-          "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-          "estado": "procurado",
-          "seccao": "instituicoes",
-          "aberto": "2026-09-14",
-          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
-          "o_que_falta": [
-            "O ato de designação, no Diário da República. Enquanto não for encontrado, a história é sobre a ausência no registo, não sobre a ausência de designação.",
-            "Acesso à página da ANACOM. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. O editor pode pedir acesso."
-          ]
-        },
-        {
           "ficheiro": "redacao/issues/003-quantas-startups-ia.json",
           "agente": "pesquisa.pt",
           "coluna": "abertos",
@@ -173,7 +141,7 @@
         "abertos": 2,
         "bloqueados": 1,
         "fechados": 0,
-        "issues_do_jornal": 3,
+        "issues_do_jornal": 1,
         "por_tratar": 1,
         "em_transito": 0
       }
@@ -278,14 +246,36 @@
       },
       "issues_do_jornal": [],
       "entrada": [],
-      "em_transito": [],
+      "em_transito": [
+        {
+          "ficheiro": "redacao/correio/expedicao/bastidores.pt/005__dinis.humano__os-resumos-de-investigacao-precisam-de-uma-pagina.eml",
+          "lugar": "expedicao",
+          "caixa": "bastidores.pt",
+          "de": "dinis.humano",
+          "para": "bastidores.pt",
+          "de_alias": "@Dinis",
+          "para_alias": "@Bastidores",
+          "assunto": "Os resumos de investigação precisam de uma página que os renderize, e não de uma segunda cópia",
+          "quando": "2026-09-15T09:40:00Z",
+          "id": "005-resumos-em-html@redacao.local",
+          "responde_a": null,
+          "issue": "010",
+          "run": null,
+          "historica": false,
+          "migrado_de": null,
+          "corpo": "O QUE PEÇO\n\nUma página HTML que renderize\n`briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md` — e o irmão da Perplexity,\n`13__research-brief-for-perplexity.md` — com o cromo deste site: cabeçalho, navegação, distintivo\nde versão, bloco «para um agente», rodapé. Hoje o endereço\n\n  https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md\n\ndevolve markdown em bruto ao navegador. É o documento certo no sítio certo e a ler-se mal. Este é\no documento que entregamos a um assistente exterior; é a peça mais pública do método desta redação\ne a única que não se parece com o resto do site.\n\nA REGRA QUE NÃO PODE SER QUEBRADA PARA FAZER ISTO\n\n`build/build.py`, na linha 732, diz porque é que os resumos são ligados e não republicados: **o\nconteúdo existe uma vez**. Se o texto passar a viver também dentro de um `.html`, os dois acabam\npor discordar no dia em que alguém editar um. Não quero uma segunda cópia — quero uma segunda\nVISTA da mesma cópia.\n\nO caminho que já existe neste repositório é o de `build/mandatos.py`: um ficheiro DERIVADO,\ngerado a partir da fonte única, marcado como derivado, e refeito em cada construção. Faça o mesmo:\no `.md` continua a ser a fonte; o `.html` é render dele e nunca é editado à mão. Se o HTML e o\nmarkdown puderem divergir, o desenho está errado.\n\nDeixo-lhe as decisões de implementação, mas registo o que me parece:\n\n- Um portão que falhe a construção se um `.html` de resumo estiver dessincronizado do `.md` de que\n  deriva. Um ficheiro derivado sem portão é uma cópia com outro nome — foi o que o portão 28\n  aprendeu com os mandatos.\n- O `.md` continua a responder no mesmo endereço. Há ferramentas, e assistentes, que o querem em\n  bruto; o brief manda-os lá. Não parta o endereço para acrescentar uma vista.\n- O endereço da vista renderizada é seu para escolher, desde que entre no sitemap e no llms.txt.\n\nPORQUE É QUE ISTO VALE A PENA AGORA, E NÃO DAQUI A UMA VERSÃO\n\nO ciclo de investigação vai passar a correr com regularidade — o editor quer o ChatGPT a fazer uma\npassagem por dia ou de doze em doze horas, e o fluxo de publicação desta redação a correr atrás\ndela. O resumo deixa de ser um documento que se cola uma vez e passa a ser a interface entre esta\nredação e as ferramentas que a alimentam. Uma interface lê-se muitas vezes.\n\nA v0.10.1 corrigiu o endereço do esquema que o resumo mandava buscar — apontava para\n`newsroom.sgit.ai/briefs/pt-newsroom-pack/`, que não existe, quando este site é\n`pt.newsroom.sgit.ai` a servir `briefs/pack/`. A entrega 1/8 do ChatGPT falhou a validação em doze\npontos por não conseguir ler o contrato. O documento está agora certo e é a altura de o pôr\nlegível.\n\n— Dinis",
+          "resumo": "O QUE PEÇO Uma página HTML que renderize `briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md` — e o irmão da Perplexity, `13__research-brief-for-perplexity.md` — com o cromo deste site: cabeçalho, navegação, distintivo de versão, bloco «para um agente», rodapé. Hoje o endereço https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md devolve markdown em bruto ao nave",
+          "bytes": 3169,
+          "desconhecido": []
+        }
+      ],
       "contagens": {
         "abertos": 1,
         "bloqueados": 2,
         "fechados": 0,
         "issues_do_jornal": 0,
         "por_tratar": 0,
-        "em_transito": 0
+        "em_transito": 1
       }
     },
     "dinis.humano": {
@@ -294,21 +284,6 @@
       "nome": "Dinis Cruz",
       "colunas": {
         "abertos": [
-          {
-            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
-            "agente": "dinis.humano",
-            "coluna": "abertos",
-            "origem_tipo": "assunto",
-            "titulo": "Decidir a entrega do ChatGPT sobre políticas, item a item",
-            "aberto": "2026-09-14T12:00:00Z",
-            "prioridade": "alta",
-            "esforco": "—",
-            "bloqueado_por": "—",
-            "issue": "004",
-            "origem": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
-            "corpo": "## O que há para fazer\nDecidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto\nencontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da\ncópia congelada em que devia assentar.\n\n## Como se faz\n`/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é por item; rejeitar\ntambém. Nada desta entrega aparece na primeira página nem num artigo enquanto isto não for feito.\n\n## Critério de aceitação\n- Cada um dos 19 itens com uma decisão registada em `redacao/decisoes/`.\n- Nenhum item aprovado sem o excerto ter sido lido nos bytes congelados.",
-            "resumo": "Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p"
-          },
           {
             "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
             "agente": "dinis.humano",
@@ -413,6 +388,36 @@
             "origem": "revisão de desenho, cofre e54hfntq, §3.2 e §4.5.5",
             "corpo": "## A decisão\nA grelha «Em preparação» repete, no mesmo ecrã e textualmente, três histórias que já estão acima:\nduas que já estão na coluna da direita, e uma que **é o título principal**. O leitor lê o título da\nhistória de abertura **duas vezes antes de rolar uma vez**. Metade da grelha é enchimento, e isso\ncontradiz a orientação do próprio projeto: «conteúdo existe uma vez».\n\nA correção é um filtro de cinco linhas e está pronta. O efeito é que a primeira página passa a\nmostrar **três histórias em vez de seis**.\n\n## Porque é sua e não nossa\nPorque «visivelmente mais vazia» é um juízo sobre o jornal e não sobre o código. Pelos padrões\ndesta publicação, três verdadeiras batem seis com três repetidas — mas é o editor que responde pelo\nque a primeira página parece, e a revisão pede expressamente esta confirmação antes de alguém\ndeduplicar.\n\n## As opções\n- **Deduplicar agora** — três histórias, e a página assume a espessura da edição.\n- **Manter seis** e fazer o segundo corte querer dizer outra coisa (por departamento, por estado de\n  verificação), para que a repetição carregue significado em vez de ser enchimento.\n- **Esperar** por mais histórias, e deduplicar quando houver seis distintas.",
             "resumo": "A grelha «Em preparação» repete, no mesmo ecrã e textualmente, três histórias que já estão acima: duas que já estão na coluna da direita, e uma que **é o título principal**. O leitor lê o título da história de abertura **duas vezes antes de rolar uma vez**. Metade da grelha é enchimento, e isso cont"
+          },
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "O leitor de PDF diz que o diploma é digitalizado quando o que lhe falta é uma dependência",
+            "aberto": "2026-09-15T11:30:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "build/pdf.py está na lista de recusa; nenhum agente o pode editar",
+            "issue": "005",
+            "origem": "sessão a-linha-de-publicacao — encontrado ao pôr build/entregas.py no caminho de construção",
+            "corpo": "## O que há para fazer\nCorrigir `build/pdf.py` para que a falta de `pycryptodome` no caminho AESV2 fique registada como\nfalta de dependência e não como um juízo sobre o documento. Hoje `_aes_cbc` devolve `None`, a\n`Cifra` fica com `ok=True` e `porque=None`, e o leitor conclui «é provavelmente um PDF\ndigitalizado, que precisaria de reconhecimento ótico». O diploma não é digitalizado.\n\n## Porque é que isto importa mais do que parece\nO mesmo ficheiro, com o mesmo SHA-256 reverificado pelo portão 1, leu **30 808 caracteres** a 14 de\nsetembro e **0** a 15 de setembro. Os bytes não mudaram — mudou a máquina. Durante essa passagem,\nas duas afirmações da RCM n.º 70/2026 caíram de `confirmada` para `fonte_inacessivel` **com a\nconstrução verde**. Uma prova que depende de quem a lê não é uma prova, e este site é inteiro\nconstruído sobre a promessa contrária.\n\nO caminho do AES-256 já faz isto bem: diz «AES-256 precisa de pycryptodome, que não está\ninstalado». O do AESV2 cala-se. É uma linha de diferença.\n\n## Como se faz\n`build/pdf.py` é seu. Ficam feitas as duas metades que um agente pode fazer:\n`requirements.txt` nomeia as duas dependências com a razão de cada uma, e o CI instala-as antes dos\nportões. Fica por fazer a que está atrás da lista de recusa — e vale a pena pensar num portão que\nleia um PDF conhecido e falhe se ele deixar de dar texto.\n\n## Critério de aceitação\n- Sem a dependência, `Cifra.ok` é `False` e a razão nomeia `pycryptodome`.\n- Nenhuma afirmação é marcada `fonte_inacessivel` com uma explicação que seja um juízo sobre o\n  documento de outra pessoa.",
+            "resumo": "Corrigir `build/pdf.py` para que a falta de `pycryptodome` no caminho AESV2 fique registada como falta de dependência e não como um juízo sobre o documento. Hoje `_aes_cbc` devolve `None`, a `Cifra` fica com `ok=True` e `porque=None`, e o leitor conclui «é provavelmente um PDF digitalizado, que prec"
+          },
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/abertos/011__decidir-a-segunda-entrega-de-politicas.md",
+            "agente": "dinis.humano",
+            "coluna": "abertos",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir a segunda entrega do ChatGPT sobre políticas, item a item",
+            "aberto": "2026-09-15T11:50:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "007",
+            "origem": "entrega chatgpt-2026-09-15-politicas-2, ingerida na sessão a-linha-de-publicacao",
+            "corpo": "## O que há para fazer\nDecidir os três itens da segunda entrega de políticas. Três afirmações têm o excerto nos bytes\ncongelados; uma não se pôde conferir porque o EUR-Lex respondeu 202 e não devolveu corpo.\n\nEstá em `/entregas/chatgpt-2026-09-15-politicas-2.html`, que agora abre com um índice: cada item\ncom o seu veredicto de bytes e um salto para a afirmação.\n\n## O que mudou desde a primeira entrega\n**A entrega valida contra o esquema.** A primeira falhou em 45 pontos porque o resumo mandava\nbuscar o contrato a um endereço que não existe. Corrigido o endereço na v0.17.0, esta passagem\nvalidou à primeira e não reenviou nenhuma das oito páginas que a redação já tinha.\n\nO assistente também encontrou um erro **meu**: a v0.17.0 mandava omitir `delivery.vault` antes de\no cofre existir, e o esquema exige a chave. Ele disse-o nas notas e usou `null`, que é o que o\nesquema aceita. O resumo está corrigido.\n\n## Critério de aceitação\n- Cada um dos três itens com uma decisão registada em `redacao/revisoes/`.\n- Nenhum item aprovado sem o excerto ter sido lido nos bytes congelados.",
+            "resumo": "Decidir os três itens da segunda entrega de políticas. Três afirmações têm o excerto nos bytes congelados; uma não se pôde conferir porque o EUR-Lex respondeu 202 e não devolveu corpo. Está em `/entregas/chatgpt-2026-09-15-politicas-2.html`, que agora abre com um índice: cada item com o seu veredict"
           }
         ],
         "bloqueados": [
@@ -432,7 +437,23 @@
             "resumo": "`dados/aviso.json` não diz uma palavra sobre eventos de leitura, porque até agora não se enviava nenhum. A ponte da observabilidade está construída e desligada por falta de credenciais. **No momento em que ela receber credenciais, o aviso passa a estar errado por omissão.** `dados/aviso.json` está n"
           }
         ],
-        "fechados": []
+        "fechados": [
+          {
+            "ficheiro": "redacao/correio/dinis.humano/assuntos/fechados/001__decidir-a-entrega-chatgpt-politicas.md",
+            "agente": "dinis.humano",
+            "coluna": "fechados",
+            "origem_tipo": "assunto",
+            "titulo": "Decidir a entrega do ChatGPT sobre políticas, item a item",
+            "aberto": "2026-09-14T12:00:00Z",
+            "prioridade": "alta",
+            "esforco": "—",
+            "bloqueado_por": "—",
+            "issue": "004",
+            "origem": "redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml",
+            "corpo": "## O que há para fazer\nDecidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto\nencontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da\ncópia congelada em que devia assentar.\n\n## Como se faz\n`/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é por item; rejeitar\ntambém. Nada desta entrega aparece na primeira página nem num artigo enquanto isto não for feito.\n\n## Critério de aceitação\n- Cada um dos 19 itens com uma decisão registada em `redacao/decisoes/`.\n- Nenhum item aprovado sem o excerto ter sido lido nos bytes congelados.\n\n## Como ficou\nDecidido a 15 de setembro por Dinis Cruz, editor de registo, em\n`redacao/revisoes/chatgpt-pt-newsroom-2026-09-14-politicas.json`.\n\n**Cinco itens aprovados** — pol-02, pol-03, pol-05, pol-07, pol-08 — e cinco artigos publicados a\npartir deles, cada um só com as afirmações cujo excerto foi reencontrado nos bytes congelados.\n\n**Nenhum item rejeitado.** Três — pol-01, pol-04, pol-06 — ficaram sem decisão de propósito: todas\nas suas afirmações citam a página de registo do Diário da República, que não devolve texto.\nRejeitá-los diria que esta redação não os quer, e quer. Abriram o issue 006, que é encontrar um\núnico PDF e desbloqueia os três de uma vez.\n\nAs propostas de vocabulário — Programa, InstrumentoJuridico, Infraestrutura — continuam por decidir\ne são uma alteração de ontologia. Nenhum dos cinco artigos precisou delas.",
+            "resumo": "Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p"
+          }
+        ]
       },
       "issues_do_jornal": [
         {
@@ -450,6 +471,23 @@
             "Decisão do editor sobre cada item. Nada desta entrega aparece na primeira página nem num artigo até lá.",
             "Decisão do editor sobre as propostas de vocabulário: um verbo ou um tipo novo é uma alteração de ontologia e leva uma versão.",
             "Encontrar o PDF do Diário da República para a RCM n.º 2/2026, que tornaria conferíveis as três afirmações de item-pol-01."
+          ]
+        },
+        {
+          "ficheiro": "redacao/issues/007-entrega-chatgpt-politicas-2.json",
+          "agente": "dinis.humano",
+          "coluna": "abertos",
+          "origem_tipo": "issue",
+          "id": "007",
+          "titulo": "Entrega ChatGPT 1/8 (políticas, 2.ª passagem): valida contra o esquema, 3 de 4 afirmações com excerto nos bytes",
+          "estado": "congelado",
+          "seccao": "politicas",
+          "aberto": "2026-09-15",
+          "porque_aqui": "É uma entrega exterior à espera de aprovação item a item, que só o editor dá.",
+          "o_que_falta": [
+            "Decisão do editor sobre cada um dos três itens. Nada desta entrega aparece na primeira página nem num artigo até lá.",
+            "Uma via legível para o Regulamento (UE) 2026/1744. O EUR-Lex respondeu 202 a esta redação; há outras formas de chegar ao mesmo ato no Jornal Oficial e vale a pena procurá-las antes de dar o item por perdido.",
+            "O PDF da Série I da RCM n.º 2/2026 continua por encontrar — o assistente procurou-o em quinze consultas e não o construiu por adivinhação, que é o comportamento certo. Ver o issue 006."
           ]
         }
       ],
@@ -523,10 +561,10 @@
         }
       ],
       "contagens": {
-        "abertos": 8,
+        "abertos": 9,
         "bloqueados": 1,
-        "fechados": 0,
-        "issues_do_jornal": 1,
+        "fechados": 1,
+        "issues_do_jornal": 2,
         "por_tratar": 1,
         "em_transito": 2
       }

@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15T10:20:00Z",
+  "agente": "editor",
+  "agente_verbatim": "Dinis Cruz, editor de registo",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+  },
+  "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[5]",
+  "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c06",
+  "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+}

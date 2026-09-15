@@ -1,0 +1,29 @@
+{
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes",
+  "verificado_em": "2026-09-15",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "O Conselho de Ministros aprovou uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "estado": "confirmada",
+      "localizador": "Ponto 2",
+      "excerto": "permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial."
+    },
+    {
+      "id": "a2",
+      "texto": "O investimento anunciado pode atingir 200 milhões de euros para aquisição de capacidade computacional.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "estado": "confirmada",
+      "localizador": "Ponto 2",
+      "excerto": "através de um investimento até 200 milhões de euros para aquisição de capacidade computacional."
+    }
+  ],
+  "resumo": {
+    "confirmadas": 2,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  }
+}

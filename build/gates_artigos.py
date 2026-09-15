@@ -716,8 +716,17 @@ DECL = [
     re.compile(r"^\s{0,4}(\d{1,3})\s+·"),          # docstring:  «  NN · TITLE»
     re.compile(r"^#\s{0,4}(\d{1,3})\s+·"),         # comment:    «#  NN · TITLE»
     re.compile(r"^#\s*-+\s*(\d{1,3})\.\s"),       # section:    «# --- NN. title ---»
+    re.compile(r"^/\*\s*-+\s*(\d{1,3})\.\s"),     # javascript: «/* --- NN. title ---»
 ]
-FICHEIROS_DE_PORTAO = sorted((ROOT / "build").glob("gates*.py"))
+# NOT ONLY THE PYTHON GATES. This list held `build/gates*.py` and nothing else, and the two gates
+# that live in the browser gate and the site gate were therefore invisible to the registry — so a
+# session could take a number the browser gate already held and this gate would say it was free.
+# It happened on the next merge: a gate 36 was written into admin/build/render.mjs while gate 36
+# above already existed, and nothing here noticed. A registry that covers some of the addresses is
+# a registry that hands out addresses twice.
+FICHEIROS_DE_PORTAO = (sorted((ROOT / "build").glob("gates*.py"))
+                       + [f for f in [ROOT / "admin" / "build" / "render.mjs",
+                                      ROOT / "admin" / "build" / "validate.js"] if f.exists()])
 reclamado = {}
 for f in FICHEIROS_DE_PORTAO:
     rel = f.relative_to(ROOT).as_posix()
@@ -801,7 +810,7 @@ if IDX.exists():
                          f'this one first, so take the next free one')
 
 
-#  39 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
+#  41 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
 #       docs/guidance/ is rendered to a page of its own, and everything .claude/ONBOARDING.md
 #       points at exists. For most of this site's life the guidance was reachable only as
 #       `/backoffice/docs.html#docs/guidance/language.md` — a fragment, which is not an address: it
@@ -855,7 +864,7 @@ else:
 
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-39: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38, 41: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -863,7 +872,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-39: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38, 41: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "

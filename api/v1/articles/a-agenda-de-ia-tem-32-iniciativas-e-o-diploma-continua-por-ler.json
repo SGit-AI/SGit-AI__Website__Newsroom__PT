@@ -1,0 +1,29 @@
+{
+  "slug": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+  "data": "2026-09-14",
+  "seccao": "politicas",
+  "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+  "entrada": "Uma página oficial do digitalGOV diz, em bytes que esta redação conseguiu ler, que a implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas. O diploma que a aprova está num endereço que devolve 22 caracteres de texto. As duas coisas são o mesmo artigo.",
+  "antetitulo": "Políticas · o que se leu e o que não",
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
+  "url": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/",
+  "pasta": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+  "issue": "004",
+  "bloco_primeira_pagina": null,
+  "assenta_em": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+  ],
+  "marcas_na_prosa": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+  ],
+  "verificacao": {
+    "confirmadas": 1,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  },
+  "tem_prosa": true
+}

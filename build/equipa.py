@@ -240,8 +240,17 @@ def quadro(agentes, cartoes, issues, msgs):
 
 
 # ------------------------------------------------------------------ the pages ---
+TRACO = "\u2014"
+
+
 def ficha(chip, texto):
     return f'<span class="chip {chip}">{e(texto)}</span>'
+
+
+def rank(n, texto):
+    """A state, on the console's four-rank scale. 1 = a human must act, 2 = an agent is blocked,
+    3 = running, 4 = done. Only rank 1 is filled, and it is the only rank that is."""
+    return f'<span class="st st--{n}">{e(texto)}</span>'
 
 
 def lista(xs, vazio="—"):
@@ -267,15 +276,16 @@ def pagina_equipa(ag, q):
             so_ele = (f'<div class="sect" style="padding-top:12px">Only this role may</div>'
                       f'{lista(a["so_ele_pode"])}')
         en = a.get("en", {})
+        estado = a.get("estado", TRACO)
+        estado_rank = rank(3, estado) if estado == "a-correr" else rank(2, estado)
         blocos.append(f"""
 <div class="cartao" style="padding:16px;margin-top:18px" id="{e(a["id"])}">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>{e(a["alias"])}</b></span>
-    <span class="chip">{e(a["id"])}</span>
-    <span class="chip">{e(a.get("modelo", ""))}</span>
-    {ficha("", "tier " + str(a.get("nivel", "—")))}
-    {ficha("ok" if a.get("estado") == "a-correr" else "miss", a.get("estado", "—"))}
-    {'<span class="chip falta">human in the loop</span>' if humano else ""}
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">{e(a["alias"])}</b>
+    {estado_rank}
+    {rank(1, "a human in the loop") if humano else ""}
+    <span class="path">{e(a["id"])} \u00b7 {e(a.get("modelo", ""))} \u00b7
+      tier {e(str(a.get("nivel", TRACO)))}</span>
   </div>
   <p class="std" style="max-width:52em"><b>{e(a["nome"])}</b> — {e(a["dominio"])}</p>
   <p class="std" style="max-width:52em">{e(a["missao"])}</p>
@@ -331,14 +341,14 @@ def pagina_equipa(ag, q):
         f'{e(x["porque_fica"])}</td></tr>' for x in ag.get("identidades_historicas", []))
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The team · {len(agentes)} roles,
-one of them human</div></div>
+<h2>The team · {len(agentes)} roles,
+one of them human</h2>
 <p class="std" style="max-width:52em;padding-bottom:6px">{e(ag["nota"])}</p>
-<div class="chips" style="padding-bottom:16px">
-  {ficha("ok", f"{len(agentes)} roles")}
-  {ficha("", f"{cartoes_totais} board cards")}
-  {ficha("", "protocol email-fs-lite " + str(ag.get("protocolo_versao", "")))}
-  {ficha("falta", f'{len(ag.get("nao_construido", []))} roles deliberately not built')}
+<div class="stats" style="margin-bottom:18px">
+  <span class="path">{len(agentes)} roles \u00b7 {cartoes_totais} board cards \u00b7
+  protocol email-fs-lite {e(str(ag.get("protocolo_versao", "")))} \u00b7
+  <a href="#nao-construido">{len(ag.get("nao_construido", []))} roles deliberately not
+  built</a></span>
 </div>
 <p class="sm" style="max-width:52em">The shape of each definition below is the one
 <a href="{ag["formato_do_papel"]}">teams.sgit.ai publishes for a <code>ROLE.md</code></a> — name,
@@ -351,21 +361,21 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
 
 {"".join(blocos)}
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The write rule</div></div>
+<h2>The write rule</h2>
 <p class="std" style="max-width:52em">{e(ag["regra_de_escrita"])}</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Publishing is not an agent</div></div>
+<h2>Publishing is not an agent</h2>
 <p class="std" style="max-width:52em"><b>{e(ag["publicacao"]["o_que_e"])}</b>
 {e(ag["publicacao"]["porque"])}</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Roles deliberately not built</div></div>
+<h2 id="nao-construido">Roles deliberately not built</h2>
 <p class="sm" style="max-width:52em;padding-bottom:8px">A roster that claimed roles nobody runs
 would be claiming a capability. These are named with the reason they are absent, which is the same
 discipline <code>dados/equipa.json</code> already applies to departments.</p>
 <div class="rolar"><table><thead><tr><th style="width:20%">Role</th><th>Why not</th></tr></thead>
 <tbody>{nao_construido}</tbody></table></div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Retired identities</div></div>
+<h2>Retired identities</h2>
 <p class="sm" style="max-width:52em;padding-bottom:8px">Mail is never deleted, so a sender that no
 longer exists still has to resolve to something. These are declared in the message header and
 shown as historical, rather than failing the reader on a name it does not know.</p>
@@ -378,74 +388,118 @@ shown as historical, rather than failing the reader on a name it does not know.<
 
 
 def pagina_quadro(ag, q):
+    """The board — the nearest thing this back office has to a working surface.
+
+    THE 158 CHIPS. The design review counted 158 chips on this one page, and the point it makes is
+    that a chip is a strong signal with a fixed budget per page: at 158 the budget is spent many
+    times over and the eye has nothing to land on. Most of them were not statuses at all — a
+    section name, a priority, an effort estimate, an issue number, an agent id. Those are metadata,
+    and metadata is mono text beside the thing it describes.
+
+    What is left in a box is a STATE, and there are four of them: waiting on a human (rank 1,
+    filled, and the only filled rank), an agent blocked (rank 2, outlined amber), running (rank 3,
+    outlined neutral) and done (rank 4, a tick and no box at all). Rank 4 losing its box is most of
+    how a page stops having 158 chips on it.
+    """
+    editor = "dinis.humano"
     blocos = []
     for a in ag.get("agentes", []):
         v = q.get(a["id"], {})
         c = v.get("contagens", {})
         cols = []
-        for coluna, rotulo, chip in COLUNAS:
+        for coluna, rotulo, _chip in COLUNAS:
             cartoes = v.get("colunas", {}).get(coluna, [])
             itens = []
             if coluna == "abertos":
                 for i in v.get("issues_do_jornal", []):
+                    # A paper issue the formula put on the editor is the one thing on this board
+                    # nobody else can move, so it is the one thing that gets the filled rank.
+                    meu = a["id"] == editor
                     itens.append(f"""
-<div class="cartao">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">paper issue {e(i["id"])}</span>
-    <span class="chip">{e(i["estado"])}</span>
-    {f'<span class="chip">{e(i["seccao"])}</span>' if i.get("seccao") else ""}
+<div class="board__card{' board__card--needs-you' if meu else ''}">
+  <div class="queue__meta" style="margin:0 0 6px">
+    {'<span class="st st--1">needs you</span>' if meu else '<span class="st st--3">on the board</span>'}
+    <span class="path">paper issue {e(i["id"])} · {e(i["estado"])}{
+        " · " + e(i["seccao"]) if i.get("seccao") else ""}</span>
   </div>
-  <p class="sm"><a href="../redacao/">{e(i["titulo"])}</a></p>
-  <p class="xs mono">by formula: {e(i["porque_aqui"])}</p>
+  <p class="quote quote--sm" style="margin:0 0 6px"><a href="../redacao/">{e(i["titulo"])}</a>
+    <span class="lang">PT</span></p>
+  <p class="note" style="margin:0">By formula: {e(i["porque_aqui"])}</p>
 </div>""")
             for x in cartoes:
-                bl = (f'<span class="chip miss">waiting on {e(x["bloqueado_por"])}</span>'
-                      if x.get("bloqueado_por") else "")
+                bloqueado = x.get("bloqueado_por") and x["bloqueado_por"] != "\u2014"
+                no_editor = bloqueado and x["bloqueado_por"] == editor
+                if no_editor:
+                    estado = ('<span class="st st--1">needs you'
+                              f'<span class="who">· {e(a["alias"])} cannot move it</span></span>')
+                elif bloqueado:
+                    estado = f'<span class="st st--2">blocked on {e(x["bloqueado_por"])}</span>'
+                elif coluna == "fechados":
+                    estado = '<span class="st st--4">closed</span>'
+                else:
+                    estado = '<span class="st st--3">open</span>'
+                # Priority, effort and issue number are metadata, not state. They were three more
+                # boxes of equal weight beside the one box that meant something.
+                meta = " · ".join(filter(None, [
+                    e(x["prioridade"]) if x.get("prioridade") else "",
+                    e(x["esforco"]) if x.get("esforco") and x["esforco"] != "\u2014" else "",
+                    f'issue {e(x["issue"])}' if x.get("issue") else "",
+                ]))
                 itens.append(f"""
-<div class="cartao">
-  <div class="chips" style="padding-bottom:6px">
-    {f'<span class="chip">{e(x["prioridade"])}</span>' if x.get("prioridade") else ""}
-    {f'<span class="chip">{e(x["esforco"])}</span>' if x.get("esforco") and x["esforco"] != "—" else ""}
-    {f'<span class="chip">issue {e(x["issue"])}</span>' if x.get("issue") else ""}
-    {bl}
-  </div>
-  <p class="sm"><b>{e(x["titulo"])}</b></p>
-  <p class="xs">{e(x["resumo"])}…</p>
-  <p class="xs mono"><a href="docs.html#{e(x["ficheiro"])}">{e(x["ficheiro"])}</a></p>
+<div class="board__card{' board__card--needs-you' if no_editor else ''}">
+  <div class="queue__meta" style="margin:0 0 6px">{estado}
+    {f'<span class="path">{meta}</span>' if meta else ""}</div>
+  <h3 style="font-size:14.5px">{e(x["titulo"])}</h3>
+  <p class="note" style="margin:0 0 8px">{e(x["resumo"])}\u2026</p>
+  <p class="path" style="margin:0"><a href="docs.html#{e(x["ficheiro"])}">{e(x["ficheiro"])}</a></p>
 </div>""")
             n = len(cartoes) + (len(v.get("issues_do_jornal", [])) if coluna == "abertos" else 0)
             cols.append(f"""
-<div class="col sp6">
-  <div class="chips"><span class="chip {chip}">{rotulo} · {n}</span></div>
-  {"".join(itens) or '<p class="sm" style="padding-top:8px">Nothing here.</p>'}
+<div class="board__col">
+  <h3>{rotulo} <span class="count">{n}</span></h3>
+  {"".join(itens) or '<p class="note" style="margin:0;padding:8px 4px">Nothing here.</p>'}
 </div>""")
         entrada = "".join(
-            f'<div class="cartao"><div class="chips" style="padding-bottom:6px">'
-            f'<span class="chip falta">unread</span><span class="chip">from {e(m["de_alias"])}</span>'
-            f'</div><p class="sm">{e(m["assunto"])}</p>'
-            f'<p class="xs mono"><a href="correio.html#{e(m["id"])}">{e(m["ficheiro"])}</a></p></div>'
+            f'<div class="board__card board__card--needs-you">'
+            f'<div class="queue__meta" style="margin:0 0 6px">'
+            f'<span class="st st--1">unread</span>'
+            f'<span class="path">from {e(m["de_alias"])}</span></div>'
+            f'<p class="note" style="margin:0 0 6px;color:var(--bo-ink)">{e(m["assunto"])}</p>'
+            f'<p class="path" style="margin:0">'
+            f'<a href="correio.html#{e(m["id"])}">{e(m["ficheiro"])}</a></p></div>'
             for m in v.get("entrada", []))
         transito = "".join(
-            f'<div class="cartao"><div class="chips" style="padding-bottom:6px">'
-            f'<span class="chip miss">in transit</span><span class="chip">from {e(m["de_alias"])}'
-            f'</span></div><p class="sm">{e(m["assunto"])}</p>'
-            f'<p class="xs mono">waiting for {e(a["alias"])} to collect it into its inbox</p></div>'
+            f'<div class="board__card">'
+            f'<div class="queue__meta" style="margin:0 0 6px">'
+            f'<span class="st st--2">in transit</span>'
+            f'<span class="path">from {e(m["de_alias"])}</span></div>'
+            f'<p class="note" style="margin:0 0 6px;color:var(--bo-ink)">{e(m["assunto"])}</p>'
+            f'<p class="path" style="margin:0">waiting for {e(a["alias"])} to collect it into its '
+            f'inbox</p></div>'
             for m in v.get("em_transito", []))
+        # The agent's own counts, as a run of numbers rather than a run of boxes. A count is a
+        # number to compare, and the console sets numbers in tabular figures for exactly that.
+        contagens = " · ".join(filter(None, [
+            f'{c.get("abertos", 0)} open',
+            f'{c.get("bloqueados", 0)} blocked',
+            f'{c.get("fechados", 0)} closed',
+            f'{c.get("issues_do_jornal", 0)} paper issues',
+        ]))
+        nao_lida = (f'<span class="st st--1">{c.get("por_tratar", 0)} unread mail</span>'
+                    if c.get("por_tratar") else "")
         blocos.append(f"""
-<div class="rule" style="padding:26px 0 8px" id="{e(a["id"])}">
-  <div class="sect">{e(a["alias"])} · {e(a["nome"])}</div></div>
-<div class="chips" style="padding-bottom:10px">
-  <span class="chip">{e(a["id"])}</span>
-  {ficha("ok", f'{c.get("abertos", 0)} open')}
-  {ficha("miss", f'{c.get("bloqueados", 0)} blocked')}
-  {ficha("", f'{c.get("fechados", 0)} closed')}
-  {ficha("", f'{c.get("issues_do_jornal", 0)} paper issues')}
-  {ficha("falta", f'{c.get("por_tratar", 0)} unread mail') if c.get("por_tratar") else ""}
-  <a class="chip" href="equipa.html#{e(a["id"])}">its definition →</a>
+<h2 id="{e(a["id"])}">{e(a["alias"])} \u00b7 {e(a["nome"])}</h2>
+<div class="queue__meta" style="margin:0 0 12px">
+  {nao_lida}
+  <span class="path">{e(a["id"])} \u00b7 {contagens}</span>
+  <a href="equipa.html#{e(a["id"])}">its definition \u2192</a>
 </div>
-<div class="g3 sp12">{"".join(cols)}</div>
-{f'<div class="sect" style="padding-top:14px">Mail on its plate</div><div class="g2 sp12">'
- f'<div class="col sp6">{entrada}</div><div class="col sp6">{transito}</div></div>'
+<div class="board">{"".join(cols)}</div>
+{f'<div class="sect">Mail on its plate</div><div class="board">'
+ f'<div class="board__col"><h3>Inbox <span class="count">{len(v.get("entrada", []))}</span></h3>'
+ f'{entrada}</div>'
+ f'<div class="board__col"><h3>In transit <span class="count">'
+ f'{len(v.get("em_transito", []))}</span></h3>{transito}</div></div>'
  if (entrada or transito) else ""}
 """)
 
@@ -455,8 +509,8 @@ def pagina_quadro(ag, q):
         f'<td class="sm">{e(f.get("porque", {}).get(k, ""))}</td></tr>'
         for k, vv in f.get("de_estado_para_agente", {}).items())
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The board · what each agent has in
-front of it</div></div>
+<h2>The board · what each agent has in
+front of it</h2>
 <p class="std" style="max-width:52em">Two kinds of card, kept apart on purpose. A <b>board card</b>
 is work the agent opened for itself, in
 <code>redacao/correio/&lt;agent&gt;/assuntos/&lt;column&gt;/</code>, and it carries the agent's own
@@ -467,8 +521,8 @@ moved it, which is why the board cannot disagree with the mail.</p>
 <p class="sm" style="max-width:52em;padding-bottom:10px">Nothing on this page is a claim about
 Portugal. Every count is a count of files in this repository.</p>
 
-<div class="rule" style="padding:18px 0 8px"><div class="sect">The formula, printed because it is
-used</div></div>
+<h2>The formula, printed because it is
+used</h2>
 <p class="sm" style="max-width:52em;padding-bottom:8px">{e(f.get("nota", ""))}</p>
 <div class="rolar"><table><thead><tr><th style="width:130px">Issue state</th>
   <th style="width:140px">Lands with</th><th>Why</th></tr></thead><tbody>{tab}</tbody></table></div>
@@ -526,17 +580,46 @@ def pagina_correio(ag, msgs):
 
     raizes = [m for m in entregues if m.get("responde_a") not in {x["id"] for x in entregues}]
     fios = "".join(render(m) for m in raizes)
-    por_caixa = "".join(
-        f'<tr><td class="mono xs">{e(a["id"])}</td><td class="mono xs">{e(a["alias"])}</td>'
-        f'<td class="xs">{len([m for m in msgs if m["lugar"] == "expedicao" and m["caixa"] == a["id"]])}</td>'
-        f'<td class="xs">{len([m for m in msgs if m["lugar"] == "entrada" and m["caixa"] == a["id"]])}</td>'
-        f'<td class="xs">{len([m for m in msgs if m["lugar"] == "tratado" and m["caixa"] == a["id"]])}</td>'
-        f'<td class="xs">{len([m for m in msgs if m["lugar"] == "saida" and m["caixa"] == a["id"]])}</td>'
-        f'</tr>' for a in ag.get("agentes", []))
+    # A mailbox with something in entrada/ has somebody waiting on it, and the review's finding
+    # was that a table of six count columns says so nowhere: you had to read the third column of
+    # every row and remember what it meant. The state is now a rank, and the row itself is marked
+    # when it is the editor's, because a state marked only inside a cell is one you have to hunt.
+    def estado_da_caixa(aid, dentro, transito):
+        humano = aid == "dinis.humano"
+        if dentro and humano:
+            return '<span class="st st--1">%d unread</span>' % dentro
+        if dentro:
+            return '<span class="st st--2">%d open</span>' % dentro
+        if transito:
+            return '<span class="st st--3">%d in transit</span>' % transito
+        return '<span class="st st--4">clear</span>'
+
+    filas = []
+    for a in ag.get("agentes", []):
+        n = {l: len([m for m in msgs if m["lugar"] == l and m["caixa"] == a["id"]])
+             for l in ("expedicao", "entrada", "tratado", "saida")}
+        marca = ' class="needs-you"' if (a["id"] == "dinis.humano" and n["entrada"]) else ""
+        filas.append(
+            f'<tr{marca}><td class="mono">{e(a["id"])}</td><td class="mono">{e(a["alias"])}</td>'
+            f'<td class="num">{n["expedicao"]}</td><td class="num">{n["entrada"]}</td>'
+            f'<td class="num">{n["tratado"]}</td><td class="num">{n["saida"]}</td>'
+            f'<td>{estado_da_caixa(a["id"], n["entrada"], n["expedicao"])}</td></tr>')
+    por_caixa = "".join(filas)
+
+    # THE MODEL, SHOWN RATHER THAN EXPLAINED. The design review called the mail protocol the best
+    # thing in the back office and its presentation the weakest: a paragraph and a four-row table
+    # for something that is a path a file walks. Shown as the path, it needs no paragraph — and the
+    # ranks are the console's own, so the folder that means "somebody has to act" looks like every
+    # other thing on this site that means that.
+    ROTA = [("saida", 4, "the sender's copy"), ("expedicao", 3, "in transit"),
+            ("entrada", 2, "delivered, open"), ("tratado", 4, "handled")]
+    rota = ' <span class="rota__seta">\u2192</span> '.join(
+        f'<span class="st st--{r}">{nome}/</span><span class="muted">{desc}</span>'
+        for nome, r, desc in ROTA)
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · {len(entregues)} messages
-between the agents</div></div>
+<h2>The mail · {len(entregues)} messages
+between the agents</h2>
 <p class="std" style="max-width:52em">The agents of this newsroom do not talk over a chat. They
 talk in files, under <b>Email-FS-lite</b> — the protocol the sgraph.ai team
 <a href="https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite.md">publishes and runs</a>.
@@ -548,20 +631,27 @@ That difference is written down in
 <a href="docs.html#redacao/correio/LEIA-ME.md"><code>redacao/correio/LEIA-ME.md</code></a> rather
 than glossed over.</p>
 
-<div class="rule" style="padding:18px 0 8px"><div class="sect">Where a message sits is what state
-it is in</div></div>
-<p class="sm" style="max-width:52em;padding-bottom:8px">There is no status field anywhere in the
-protocol. A field can disagree with the folder; a folder cannot disagree with itself. Delivery is
-the file having moved, and the read receipt is the mailroom copy no longer being there.</p>
-<div class="rolar"><table><thead><tr><th style="width:110px">Folder</th>
-  <th style="width:180px">State</th><th>Meaning</th></tr></thead><tbody>{lugares}</tbody></table></div>
+<h2>Where a message sits is what state
+it is in</h2>
+<div class="card">
+  <div class="rota">{rota}</div>
+  <p class="note" style="margin:12px 0 0">There is no status field anywhere in the protocol. A
+  field can disagree with the folder; a folder cannot disagree with itself. Delivery is the file
+  having moved, and the read receipt is the mailroom copy no longer being there.</p>
+</div>
+<details class="provenance" style="margin-top:12px">
+  <summary>What each folder means, in the protocol's own words</summary>
+  <div class="rolar"><table><thead><tr><th style="width:110px">Folder</th>
+    <th style="width:180px">State</th><th>Meaning</th></tr></thead><tbody>{lugares}</tbody></table></div>
+</details>
 
-<div class="rule" style="padding:18px 0 8px"><div class="sect">Every mailbox, counted</div></div>
-<div class="rolar"><table><thead><tr><th>Agent</th><th>Alias</th><th>In transit</th>
-  <th>Inbox</th><th>Handled</th><th>Sent copies</th></tr></thead>
+<h2>Every mailbox, counted</h2>
+<div class="rolar"><table><thead><tr><th>Agent</th><th>Alias</th><th class="num">In transit</th>
+  <th class="num">Inbox</th><th class="num">Handled</th><th class="num">Sent copies</th>
+  <th>State</th></tr></thead>
   <tbody>{por_caixa}</tbody></table></div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The threads</div></div>
+<h2>The threads</h2>
 <p class="sm" style="max-width:52em">Threaded by <code>Message-ID</code> and
 <code>In-Reply-To</code>. Replying does not close anything: a message stays open work while it
 sits in an inbox, and only moves to <code>tratado/</code> when the work it asked for is done.</p>

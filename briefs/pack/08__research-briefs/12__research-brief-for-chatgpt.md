@@ -1,8 +1,10 @@
 # 12 — Research brief for ChatGPT: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back
 
 **Paste this whole document into ChatGPT as the first message. Use a mode that browses the web
-(web search or Deep Research). Written 14 September 2026 for newsroom.sgit.ai v0.3.10, revised for v0.3.11 (sgit vaults); the contract
-it references is `briefs/pt-newsroom-pack/08__research-briefs/research-schema.json`.** CC BY 4.0.
+(web search or Deep Research). Written 14 September 2026 for newsroom.sgit.ai v0.3.10; revised
+15 September 2026 for pt.newsroom.sgit.ai v0.10.0 (sgit vaults; corrected schema address; the
+Diário da República rule from the first delivery). The contract it references is
+`briefs/pack/08__research-briefs/research-schema.json`.** CC BY 4.0.
 
 ---
 
@@ -65,8 +67,10 @@ matter most this month.**
   page, the figure's exact wording, and whether any public dataset lets one count the AI subset.
   The newsroom's third article is that no public dataset can.
 
-### 4. Eventos (events) — time-critical this week
-- **Startup Summit Lisbon, 16–18 September 2026, Beato**: press coverage since 1 September, any
+### 4. Eventos (events) — time-critical: the summit opens tomorrow
+- **Startup Summit Lisbon, 16–18 September 2026, Beato** — it opens the day after this brief was
+  revised, so the newsroom's frozen copies (8 and 13 September) are already behind the event.
+  Wanted: press coverage **since 13 September**, the programme as it stands on the eve, any
   side event (a Guinness pitch-marathon attempt was reported in July by AICEP Portugal Global and
   Portugal Business News — is it confirmed on the event's own pages now?), announced speakers or
   sessions about AI, and anything the event's own site says that contradicts what it said before.
@@ -93,8 +97,31 @@ matter most this month.**
 
 ### What is already held (do not resend)
 The newsroom holds, frozen and hashed, every page of startupsummit.io as of 8 and 13 September,
-seven press pages about the summit, and the summit's speaker pages. Anything newer or different is
-wanted; repeats are not.
+seven press pages about the summit, and the summit's speaker pages.
+
+It also holds, frozen on **14 September** from ChatGPT's first delivery (part 1/8, políticas),
+these eight pages — **do not deliver them again**:
+
+| what it is | address |
+| --- | --- |
+| RCM n.º 2/2026 (record page — script-rendered, unusable) | `diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros/2-2026-1000882016` |
+| RCM n.º 2/2026 on digitalGOV | `digital.gov.pt/pt/documentos/resolucao-do-conselho-de-ministros-2-2026` |
+| Government release on the ANIA | `portugal.gov.pt/gc25/comunicacao/comunicados/agenda-nacional-de-inteligencia-artificial-ania-` |
+| Council of Ministers release, 25 June 2026 | `portugal.gov.pt/gc25/governo/comunicados-do-conselho-de-ministros/comunicado-do-conselho-de-ministros-de-25-de-junho-de-2026` |
+| ANACOM page (returned 403 — unusable) | `anacom.pt/render.jsp?contentId=1817086` |
+| The government's AI topic page | `digital.gov.pt/pt/inteligencia-artificial` |
+| European Commission, AI Act governance | `digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement` |
+| RCM n.º 70/2026, Série I PDF | `files.diariodarepublica.pt/1s/2026/04/07100/0004500052.pdf` |
+
+Two of those eight are held but unreadable, and the facts they were meant to carry are still
+open. **The most wanted single item in this whole brief** is the text of RCM n.º 2/2026 from a
+source the fetcher can read — the Série I PDF of *Diário da República* n.º 5/2026, of 8 January
+2026, on `files.diariodarepublica.pt`. Find that PDF and the newsroom can confirm the instrument
+behind the national AI agenda, the four axes, the 32 initiatives, and initiatives I.1 and I.3.
+Likewise, a designation of a national AI authority is wanted as a published instrument, not as a
+portal page: if ANACOM or the IPQ was designated, there is an act that did it.
+
+Anything newer or different is wanted; repeats are not.
 
 ## B. How to search
 
@@ -105,6 +132,24 @@ wanted; repeats are not.
 - Prefer, in this order: official (`.gov.pt`, `dre.pt`/`diariodarepublica.pt`, EU portals) →
   primary (the organisation the fact is about) → datasets/registers → academic → press. A press
   page is a lead to a primary page; give both when you can.
+- **The Diário da República rule — cite the PDF, not the record page.** This is the single thing
+  that cost the first delivery most: nine of its ten unusable claims cited one page. A
+  `diariodarepublica.pt/dr/detalhe/…` address renders its text by script; the newsroom's fetcher
+  froze 2,346 bytes of it holding **22 characters of visible text**, so no excerpt could be found
+  in the bytes and every claim resting on it was dropped — including the confirmation of the
+  instrument behind the national AI agenda, which is the lead the newsroom most wants. The same
+  delivery's `files.diariodarepublica.pt/1s/…/…pdf` froze 228,725 bytes holding **30,808
+  characters**, and both claims on it were confirmed. So: when you land on a `/dr/detalhe/` page,
+  follow it to the PDF of the *Série I* issue on `files.diariodarepublica.pt`, cite **that** URL,
+  copy the excerpt out of the PDF, mark `access: "pdf"` and give the page number in `locator`. If
+  you cannot reach the PDF, you may still deliver the record page — mark it
+  `access: "script-rendered"` and say in `delivery.notes` that the excerpt is unverifiable from
+  the bytes, so the editor knows before the fetch rather than after.
+- **The same test for every source: would the text survive with JavaScript off?** Deep-linked
+  portal pages (`render.jsp?contentId=…` and the like) often will not, and some refuse the
+  fetcher outright — the ANACOM page in the first delivery returned **403**, and the claim resting
+  on it was dropped. Where a body only exists behind script or a block, look for the same fact on
+  a page that serves plain HTML, or on a PDF, and cite that instead.
 - Open every page you cite. Copy the excerpt from the opened page. Record the retrieval time. If
   the page is a PDF, say so and give the page number. If the body only renders with JavaScript,
   say so (`script-rendered`) — the newsroom's fetcher may see nothing, and knowing that in
@@ -129,7 +174,7 @@ wanted; repeats are not.
 ## D. How to package it
 
 Deliver **JSON only**, validating against the schema at
-https://newsroom.sgit.ai/briefs/pt-newsroom-pack/08__research-briefs/research-schema.json
+https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/research-schema.json
 (a worked example is beside it: `example-delivery.json`). The shape, in short:
 
 ```
@@ -148,6 +193,43 @@ https://newsroom.sgit.ai/briefs/pt-newsroom-pack/08__research-briefs/research-sc
   "vocabulary_proposals": [ { "verb", "inverse", "domain", "range", "reads" } ]
 }
 ```
+
+**The closed lists. Every one of these is enforced; the first delivery failed validation on five
+of them, so they are spelled out here rather than left to the schema.** A value outside a list sets
+the whole part aside.
+
+- `delivery.tool`: `chatgpt` · `perplexity` · `other`. `delivery.part` matches `n/N`.
+- `section`: `empresas` · `protagonistas` · `instituicoes` · `politicas` · `casos-de-uso` ·
+  `codigo-aberto` · `diaspora` · `eventos` (exactly these spellings, unaccented, as shown).
+- `items[].kind`: `lead` · `fact` · `entity` · `event` · `dataset` · `policy-instrument` ·
+  `funding` · `correction-candidate`. **These eight and no others** — do not invent a kind that
+  describes the subject (`instrumento_juridico`, `agenda_nacional` and the like are not kinds).
+  A legal instrument is `policy-instrument`; money is `funding`; a fact that corrects something
+  the newsroom already published is `correction-candidate`.
+- `claims[].confidence`: `alta` · `média` · `baixa` — **`média` carries its accent**.
+- `claims[].status`: always `por_verificar`.
+- `sources[].publisher_kind`: `official` · `primary` · `dataset` · `academic` · `press` ·
+  `company` · `other`.
+- `sources[].access`: `open` · `paywalled` · `login` · `script-rendered` · `pdf` · `blocked`.
+- `entities[].type`: `Organização` · `Instituição` · `Pessoa` · `Política` · `CasoDeUso` ·
+  `Projeto` · `Dataset` · `Modelo` · `Evento` · `Local` · `Programa` — **accented, as shown**.
+- `entities[].id`: a prefix from `org` · `inst` · `pessoa` · `politica` · `caso` · `projeto` ·
+  `dataset` · `modelo` · `evento` · `local` · `programa`, then `:`, then lowercase letters,
+  digits and hyphens only: `org:unbabel`, `politica:ania`. There is no `instrumento:` prefix —
+  a legal instrument is a `Política` with a `politica:` id.
+- `items[].dates` is an **array of objects**, never of strings:
+  `{ "date": "2026-01-08", "what": "publicação em Diário da República", "source": "src-pol-01" }`.
+- Required on every item: `id`, `section`, `kind`, `headline`, `what_the_sources_say`, `claims`,
+  `entities`, `edges`, `why_it_matters`, `personal_data_check`. Required on every claim: `text`,
+  `source`, `excerpt`, `confidence`, `status`. Required on every source: `id`, `url`, `publisher`,
+  `publisher_kind`, `title`, `language`, `published`, `retrieved`, `access` — `published` may be
+  `null`, but the key must be there.
+- `delivery.vault` is **required and nullable**, which is not what an earlier revision of this
+  brief said. Until the vault exists, send `"vault": null` — the whole key, set to null. Do NOT
+  omit it (the schema lists it in `delivery.required`, so the part fails validation), and do not
+  send it as an object full of nulls (`vault_id` and `commit` must be strings when the object is
+  there). This was corrected after a delivery followed the wrong instruction, said so in its own
+  notes, and validated anyway by ignoring it.
 
 **Edges are Portuguese verbs with a distinct inverse.** Use these where they fit:
 `sediada_em / sede_de`, `financiada_por / financia` (with `montante`, `moeda`, `data`, `programa`),

@@ -48,6 +48,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      # The gates read encrypted PDFs and validate deliveries against the published schema. Without
+      # these two packages neither failure is loud: build/pdf.py reports an AES-encrypted diploma as
+      # an unreadable scan, and a delivery skips validation. See requirements.txt.
+      - name: The two packages a gate depends on
+        run: python3 -m pip install --disable-pip-version-check -q -r requirements.txt
       # The section gates run here as well as locally, and they run FIRST. The site gate checks
       # structure — versions agree, links resolve, every page carries an agent block. The section
       # gates check the things this publication actually promises: that every frozen copy still

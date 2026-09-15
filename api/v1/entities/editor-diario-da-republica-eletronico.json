@@ -1,0 +1,15 @@
+{
+  "no": "editor:diario-da-republica-eletronico",
+  "tipo": "Editor",
+  "nome": "Diário da República Eletrónico",
+  "url": "entidades/editor/diario-da-republica-eletronico/",
+  "nos_bytes": [],
+  "ficheiros_com_o_nome": 0,
+  "fundamento": "registo",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 1
+  }
+}

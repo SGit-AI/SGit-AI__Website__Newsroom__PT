@@ -3,16 +3,8 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 88,
+  "contagem": 95,
   "documentos": [
-    {
-      "caminho": ".claude/ONBOARDING.md",
-      "titulo": "Start here — pt.newsroom.sgit.ai",
-      "categoria": "Repository root",
-      "bytes": 4841,
-      "linhas": 90,
-      "palavras": 749
-    },
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
       "titulo": "SKILL",
@@ -132,6 +124,38 @@
       "bytes": 4106,
       "linhas": 54,
       "palavras": 705
+    },
+    {
+      "caminho": "admin/versions/v0.16.0.md",
+      "titulo": "v0.16.0",
+      "categoria": "Repository root",
+      "bytes": 10122,
+      "linhas": 119,
+      "palavras": 1784
+    },
+    {
+      "caminho": "admin/versions/v0.17.0.md",
+      "titulo": "v0.17.0",
+      "categoria": "Repository root",
+      "bytes": 4996,
+      "linhas": 62,
+      "palavras": 807
+    },
+    {
+      "caminho": "admin/versions/v0.18.0.md",
+      "titulo": "v0.18.0",
+      "categoria": "Repository root",
+      "bytes": 2989,
+      "linhas": 36,
+      "palavras": 509
+    },
+    {
+      "caminho": "admin/versions/v0.19.0.md",
+      "titulo": "v0.19.0",
+      "categoria": "Repository root",
+      "bytes": 2203,
+      "linhas": 32,
+      "palavras": 365
     },
     {
       "caminho": "admin/versions/v0.2.0.md",
@@ -302,28 +326,44 @@
       "palavras": 549
     },
     {
-      "caminho": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.md",
+      "caminho": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/artigo.md",
       "titulo": "artigo",
       "categoria": "Articles",
-      "bytes": 1956,
-      "linhas": 36,
-      "palavras": 324
+      "bytes": 2249,
+      "linhas": 33,
+      "palavras": 350
     },
     {
-      "caminho": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/artigo.md",
+      "caminho": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/artigo.md",
       "titulo": "artigo",
       "categoria": "Articles",
-      "bytes": 3152,
-      "linhas": 53,
-      "palavras": 502
+      "bytes": 1458,
+      "linhas": 22,
+      "palavras": 219
     },
     {
-      "caminho": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/artigo.md",
+      "caminho": "artigos/2026/09/14/plano-nacional-centros-de-dados/artigo.md",
       "titulo": "artigo",
       "categoria": "Articles",
-      "bytes": 1778,
-      "linhas": 34,
-      "palavras": 310
+      "bytes": 1969,
+      "linhas": 28,
+      "palavras": 311
+    },
+    {
+      "caminho": "artigos/2026/09/14/regulador-designacao-ausente/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 2748,
+      "linhas": 42,
+      "palavras": 414
+    },
+    {
+      "caminho": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1293,
+      "linhas": 20,
+      "palavras": 188
     },
     {
       "caminho": "artigos/LEIA-ME.md",
@@ -489,15 +529,15 @@
       "caminho": "briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md",
       "titulo": "12 — Research brief for ChatGPT: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
       "categoria": "Commissioning pack",
-      "bytes": 15728,
-      "linhas": 248,
-      "palavras": 2364
+      "bytes": 22487,
+      "linhas": 330,
+      "palavras": 3331
     },
     {
       "caminho": "briefs/pack/08__research-briefs/13__research-brief-for-perplexity.md",
       "titulo": "13 — Research brief for Perplexity: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
       "categoria": "Commissioning pack",
-      "bytes": 14352,
+      "bytes": 14331,
       "linhas": 237,
       "palavras": 2110
     },
@@ -606,14 +646,6 @@
       "palavras": 266
     },
     {
-      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
-      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
-      "categoria": "Newsroom files",
-      "bytes": 906,
-      "linhas": 23,
-      "palavras": 133
-    },
-    {
       "caminho": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
       "titulo": "002__decidir-os-tipos-novos-da-ontologia",
       "categoria": "Newsroom files",
@@ -670,12 +702,36 @@
       "palavras": 237
     },
     {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia.md",
+      "titulo": "010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia",
+      "categoria": "Newsroom files",
+      "bytes": 2006,
+      "linhas": 37,
+      "palavras": 326
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/011__decidir-a-segunda-entrega-de-politicas.md",
+      "titulo": "011__decidir-a-segunda-entrega-de-politicas",
+      "categoria": "Newsroom files",
+      "bytes": 1380,
+      "linhas": 30,
+      "palavras": 216
+    },
+    {
       "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
       "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
       "categoria": "Newsroom files",
       "bytes": 2519,
       "linhas": 44,
       "palavras": 425
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/fechados/001__decidir-a-entrega-chatgpt-politicas.md",
+      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
+      "categoria": "Newsroom files",
+      "bytes": 1818,
+      "linhas": 39,
+      "palavras": 263
     },
     {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",

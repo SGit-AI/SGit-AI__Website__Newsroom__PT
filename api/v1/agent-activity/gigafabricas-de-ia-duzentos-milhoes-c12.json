@@ -1,0 +1,14 @@
+{
+  "quando": "2026-09-15",
+  "agente": "editor",
+  "especie": "decisao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "gigafabricas-de-ia-duzentos-milhoes"
+  },
+  "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+  "estado": "por_rever",
+  "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c12",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

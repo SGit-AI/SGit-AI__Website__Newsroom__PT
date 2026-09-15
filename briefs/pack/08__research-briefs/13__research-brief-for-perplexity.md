@@ -2,7 +2,7 @@
 
 **Paste this whole document into Perplexity (Pro Search or Deep Research; set the focus to Web).
 Written 14 September 2026 for newsroom.sgit.ai v0.3.10, revised for v0.3.11 (sgit vaults); the contract it references is
-`briefs/pt-newsroom-pack/08__research-briefs/research-schema.json`.** CC BY 4.0.
+`briefs/pack/08__research-briefs/research-schema.json`.** CC BY 4.0.
 
 ---
 
@@ -116,7 +116,7 @@ July–September, and the summit's speaker pages are frozen and hashed. Newer or
 ## D. How to package it
 
 **JSON only**, validating against
-https://newsroom.sgit.ai/briefs/pt-newsroom-pack/08__research-briefs/research-schema.json
+https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/research-schema.json
 (worked example beside it: `example-delivery.json`). In short:
 
 ```

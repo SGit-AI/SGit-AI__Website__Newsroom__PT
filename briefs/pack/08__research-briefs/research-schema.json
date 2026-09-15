@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://newsroom.sgit.ai/briefs/pt-newsroom-pack/08__research-briefs/research-schema.json",
+  "$id": "https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/research-schema.json",
   "title": "pt.newsroom.sgit.ai research delivery",
   "description": "What an outside research assistant (ChatGPT, Perplexity, or any other) hands to the Claude agent that runs pt.newsroom.sgit.ai. Everything in it is a LEAD, not a fact: the newsroom fetches and freezes every URL itself, re-finds every excerpt in the frozen bytes, and only then may cite. Every item therefore names its sources, every claim names one source and carries a short verbatim excerpt that must be findable on that page, and every person is reduced to what a primary source lists. Own-words fields are European Portuguese. Since v2 of the briefs a delivery is distributed as an sgit vault: delivery.vault names the vault id and commit, and may carry the read key or share token, never the vault key.",
   "type": "object",
