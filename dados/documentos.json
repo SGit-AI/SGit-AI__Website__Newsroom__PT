@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 81,
+  "contagem": 82,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -84,6 +84,14 @@
       "bytes": 3838,
       "linhas": 50,
       "palavras": 613
+    },
+    {
+      "caminho": "admin/versions/v0.10.1.md",
+      "titulo": "v0.10.1",
+      "categoria": "Repository root",
+      "bytes": 2924,
+      "linhas": 36,
+      "palavras": 470
     },
     {
       "caminho": "admin/versions/v0.2.0.md",
@@ -441,15 +449,15 @@
       "caminho": "briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md",
       "titulo": "12 — Research brief for ChatGPT: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
       "categoria": "Commissioning pack",
-      "bytes": 15728,
-      "linhas": 248,
-      "palavras": 2364
+      "bytes": 22158,
+      "linhas": 326,
+      "palavras": 3274
     },
     {
       "caminho": "briefs/pack/08__research-briefs/13__research-brief-for-perplexity.md",
       "titulo": "13 — Research brief for Perplexity: what pt.newsroom.sgit.ai needs, how to find it, how to hand it back",
       "categoria": "Commissioning pack",
-      "bytes": 14352,
+      "bytes": 14331,
       "linhas": 237,
       "palavras": 2110
     },
