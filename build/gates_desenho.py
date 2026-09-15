@@ -153,10 +153,29 @@ def declaracao(seletor, propriedade):
 MEDIDA_MAX_CPL = 75    # the top of the band for a newspaper column
 MEDIDA_MIN_CPL = 45    # below this the line breaks too often
 
+def resolver_em(valor):
+    """Follow a `var(--token)` to the `em` value behind it.
+
+    The adopted stylesheet names the measure — `.std { max-width: var(--measure) }` — which is the
+    right thing: the value lives in one place and an article template can override it locally. But
+    it meant this gate, which looked for a literal `em`, reported that `.std` had no measure at all
+    while the measure was in fact correct. A gate that cannot follow one level of indirection ends
+    up forbidding the tidier code, which is the wrong way round. So it resolves the token.
+    """
+    if not valor:
+        return None
+    valor = valor.strip()
+    m = re.match(r"^var\(\s*(--[a-z0-9-]+)\s*(?:,[^)]*)?\)$", valor)
+    if m:
+        valor = (dict(re.findall(r"^\s*(--[a-z0-9-]+):\s*([^;]+);", css_sem_notas, re.M))
+                 .get(m.group(1), "")).strip()
+    return valor if valor.endswith("em") else None
+
+
 for seletor, tamanho in (("std", 18), ("sm", 15)):
-    mw = declaracao(seletor, "max-width")
+    mw = resolver_em(declaracao(seletor, "max-width"))
     lh = declaracao(seletor, "line-height")
-    if not mw or not mw.endswith("em"):
+    if not mw:
         erros.append(
             f"desenho: .{seletor} não tem `max-width` em `em` na folha de estilos. Era este o "
             f"defeito de leitura maior da v0.6.0: a coluna media 88 caracteres na primeira página "

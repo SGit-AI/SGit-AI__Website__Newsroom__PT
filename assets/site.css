@@ -1,66 +1,162 @@
-/* pt.newsroom.sgit.ai — o sistema de desenho, tal como o editor de registo o escolheu a 13 de
-   setembro de 2026 de entre quatro direções (a direção A, o jornal em folha larga).
+/* ============================================================================
+   pt.newsroom.sgit.ai — the design system, adopted in v0.13.0.
 
-   UMA DECISÃO REGISTADA AQUI. O pacote de comissionamento diz que a primeira página usa a folha
-   de estilos do próprio desenho e que as páginas interiores podem usar a folha do conjunto,
-   «restilizada com o papel, a tinta e as faces do desenho para que o site se leia como um só».
-   Este site tem UMA folha, esta, e a primeira página usa-a como todas as outras. A razão é a
-   regra que o pacote dá a seguir: conteúdo existe uma vez. Duas folhas com o mesmo papel e a
-   mesma tinta divergiriam — não hoje, mas na terceira vez que alguém mudasse uma cor — e a
-   primeira página deixaria de ser do mesmo jornal que as interiores sem que nada parecesse
-   avariado.
+   THIS FILE CAME FROM A DESIGN REVIEW THE EDITOR COMMISSIONED, in the encrypted vault `e54hfntq`.
+   The review measured rather than asserted — characters per line derived from the grid, contrast
+   computed from the tokens, empty table cells counted one by one — and then shipped a proposed
+   stylesheet and three page templates. The editor asked for it to be implemented. This is it,
+   adopted whole, with the comments kept in English (which is this repository's rule for code and
+   comments) and **one value corrected**: see MEASURE below, where the proposal's own number would
+   have shipped a column wider than the target it set.
 
-   Papel e tinta. Fundo #f7f4ec, tinta #17181c, texto secundário #4a4d55 e #5c5f68, filetes
-   #9f9780, painéis #fffdf7. Um acento, o verde do conjunto #0c5f59, para ligações e fontes que
-   confirmaram; #96450a para uma fonte que não confirmou; #b91c1c para «não encontrado»;
-   #8a5206 para «disputado».
+   Every selector `build/build.py` emits still exists and still means the same thing, so the swap
+   itself broke no template. The new vocabulary — `.band`, `.opener`, `.stats`, `.provenance`,
+   `.article-card`, `.panel-pair`, `.table--index`, `.utility` — is what the generators were then
+   taught to emit, because a stylesheet that offers a band system nobody wraps a section in is a
+   stylesheet with a dead half.
 
-   Filetes, não caixas. Sem cantos redondos, sem sombras, sem gradientes.
+   WHAT CHANGED, AND WHY — the short list. Full reasoning in the review:
+     review/02-what-can-be-improved.md and review/03-what-is-bad.md
 
-   OS VALORES ACIMA FORAM MEDIDOS E CORRIGIDOS NA v0.9.0. A revisão de desenho (o cofre `e54hfntq`)
-   mediu o contraste de cada um destes fichos contra o papel e encontrou duas famílias de problema:
+     1. Measure.      .std capped at 34em (~66 chars). Was 758-828px, ~88-96
+                      chars. This is the single biggest readability fix.
+     2. Leading.      .std 1.45 -> 1.62. A serif on warm paper needs the air.
+     3. Smoothing.    -webkit-font-smoothing: antialiased REMOVED. It was
+                      thinning a variable serif that has no weight to spare.
+     4. Rules.        --filete 1.36:1 -> 2.65:1, --filete-2 1.62:1 -> 3.22:1.
+                      "Filetes, não caixas" only works if the filetes are
+                      visible. A third tier (--filete-3) replaces the overuse
+                      of full-ink .rule for ordinary block separation.
+     5. Status ramp.  --disputa failed WCAG AA at 4.48:1 while carrying
+                      verification state. All four status colours darkened.
+     6. Mono.         .kick and .sect move to the serif. Mono now means one
+                      thing only: a machine fact (hash, byte count, id,
+                      timestamp, path). This is what makes the page read as a
+                      newspaper rather than a build log.
+     7. Accent.       --acento reserved for two meanings: interactive, and
+                      confirmado. It previously carried seven.
+     8. Focus.        :focus-visible added. There was no focus rule at all in
+                      a design that removes every underline.
+     9. Spacing.      A scale (--s1..--s8) so build.py can stop emitting
+                      inline padding. See the vertical-scale block below.
 
-   - **Os filetes não se viam.** `--filete` estava a 1.36:1 e `--filete-2` a 1.62:1. A tese desta
-     folha é «filetes, não caixas» — a estrutura é carregada por filetes — e a estrutura estava
-     a ser carregada por linhas que, num ecrã claro numa sala clara, não estão lá. Era por isso
-     que os blocos da primeira página pareciam correr uns para dentro dos outros. A norma WCAG
-     1.4.11 pede 3:1 a um elemento não textual que carregue significado; estavam a um terço.
-     Passam a 2.65:1 e 3.22:1, e o `.rule` em tinta cheia fica reservado a divisões maiores —
-     antes havia filetes invisíveis e filetes pesados, e nada no meio, e era esse degrau que
-     faltava para a hierarquia se ler.
-   - **Três das quatro cores de estado falhavam ou raspavam o AA.** `--disputa` estava a 4.48:1,
-     abaixo da linha; `--aviso`, `--sec-2` e `--acento` passavam por centésimas, todas usadas a
-     11–13px. Numa publicação cuja proposta inteira é o leitor poder ver o estado de verificação
-     de cada afirmação, esse estado não pode estar codificado em cor a 4.5:1. A rampa escureceu.
+   WHAT DID NOT CHANGE, deliberately:
+     - The two faces. Newsreader + IBM Plex Mono is the right pairing and the
+       fonts.css subsetting for Portuguese accents is correct as it stands.
+     - The masthead. It is the best thing on the site.
+     - The nav's 1px/3px-double rule sandwich. A real broadsheet device.
+     - Paper and ink. #f7f4ec / #17181c stay exactly as chosen.
+     - No rounded corners, no shadows, no gradients. Still held to.
+     - Every LEGACY class and token name the generator already emits
+       (.folha, .mast, .kick, .sect, --papel, --tinta, --filete, ...).
+       Renaming those is a coordinated change with build.py, so they are
+       listed as a proposal at the end of this file rather than changed
+       here. Everything this proposal INTRODUCES is named in English.
 
-   A cor não é o único canal: a legenda `.pastilha` emparelha a amostra com a palavra, e é isso
-   que faz o estado sobreviver a ser visto por quem não distingue as cores. */
+   NAMING. The line this repository draws is between CONTENT, which is
+   Portuguese because the publication is Portuguese, and ARCHITECTURE, which
+   is English — the site's own five components (pt-wallet, pt-entity-graph,
+   pt-json-viewer, pt-doc-browser, pt-api-console) already follow it, and so
+   do .rule, .hair, .dbl, .chip, .mast and .sub in this very file. Everything
+   added here follows it too: .band, .opener, .stats, .edge, .article-card,
+   .panel-pair, .utility, .provenance, .table--index, --measure, --paper-sunk.
+   The legacy Portuguese names are a separate, mechanical migration; the
+   mapping is at the foot of this file.
+
+   Comments here are in English because the review is. If this is adopted,
+   translate them to match the house style in the repo — but do translate
+   them rather than dropping them: the original file's comments are the best
+   documentation in it, and a rule changed with its comment left stale is
+   worse than no comment at all.
+   ============================================================================ */
 
 :root {
-  color-scheme: light;   /* senão os controlos de formulário e as barras seguem o sistema
-                            operativo em vez da página, e um campo escuro num jornal em papel
-                            creme é a única coisa da página que não foi escolhida por ninguém */
   --papel:   #f7f4ec;
   --tinta:   #17181c;
   --tinta-2: #2b2d33;
   --sec:     #4a4d55;
-  --sec-2:   #5c5f68;   /* 5.80:1 — era #6b6e76, a 4.64:1, e é usado a 13px e a 11px */
-  --filete:  #9f9780;   /* 2.65:1 — o filete de trabalho, dentro de um bloco */
-  --filete-2:#8f8873;   /* 3.22:1 — o que carrega significado: bordas de ficha, o a.ent */
+
+  /* WAS #6b6e76 (4.64:1) — used at 11-13px for every table header, the agent
+     block and the version chip. Darkened to clear AA with room to spare. */
+  --sec-2:   #5c5f68;   /* 5.80:1 */
+
+  /* THE THREE RULE TIERS. The old file had two: an invisible hairline
+     (1.36:1) and full ink (16:1), with nothing between — which is why
+     ordinary block separation kept reaching for full ink and why the page
+     reads as one undifferentiated field.
+       --filete    inside a block: between list items, table rows
+       --filete-2  meaning-bearing edges: chip borders, a.ent underline, panels
+       --filete-3  between blocks — the tier that was missing
+       .rule       full ink, major divisions ONLY (target: <= 3 per page) */
+  --filete:   #9f9780;  /* 2.65:1 */
+  --filete-2: #8f8873;  /* 3.22:1 */
+  --filete-3: #6f6a58;  /* block separation */
+
+  /* THE GROUNDS. One ground for the whole page is why the sections run together: hairlines
+     alone cannot separate blocks that are otherwise identical in tone and density. A newspaper
+     varies the GROUND as well as the rule — a recessed band, a lifted panel, an ink band — and
+     the reader navigates by that before reading a single word.
+
+       --papel        #f7f4ec  the base sheet
+       --paper-sunk  #ece6d8  a recessed band, 1.13:1 below the base
+       --painel       #fffdf7  a lifted panel, 1.08:1 above it
+       --tinta        #17181c  an ink band
+
+     The spread from recessed to lifted is ~1.22:1 — plainly visible as banding, while ink on
+     the darkest of them still measures 14.3:1. See .band below for how they are applied. */
+  --paper-sunk: #ece6d8;
   --painel:  #fffdf7;
-  --acento:  #0c5f59;   /* 6.83:1 — era #0f766e, a 4.98:1 */
+
+  /* THE STATUS RAMP. All four darkened; --falta was already fine and stays.
+     Colour must never be the only channel — the .pastilha legend pairs each
+     swatch with a word, and .chip keeps its border weight difference. */
+  --acento:  #0c5f59;   /* 6.83:1  was #0f766e 4.98:1 */
   --acento-claro: #a7f3d0;
-  --aviso:   #96450a;   /* 6.06:1 — era #b45309, a 4.57:1 */
-  --falta:   #b91c1c;   /* 5.89:1 — já passava, e fica */
-  --disputa: #8a5206;   /* 5.81:1 — era #a16207, a 4.48:1, que FALHAVA o AA */
-  /* Uma cor de SINTAXE, e não do papel e da tinta: colore a chave de um objeto JSON
-     no visualizador, onde a cor distingue uma chave de um valor e não um estado de
-     verificação. Fica no `:root` para poder ser medida — 7.93:1 contra o papel — e
-     não porque pertença à paleta do jornal. */
+  --aviso:   #96450a;   /* 6.06:1  was #b45309 4.57:1 */
+  --falta:   #b91c1c;   /* 5.89:1  unchanged */
+  --disputa: #8a5206;   /* 5.81:1  was #a16207 4.48:1 — FAILED AA */
+
+  /* A SYNTAX colour, not paper and ink: it marks the key of a JSON object in the viewer, where
+     colour distinguishes a key from a value and not one verification state from another. It lives
+     in `:root` so the gate can measure it — 7.93:1 against the paper — and not because it belongs
+     to the paper's palette. Added in v0.11.0, when 156 hardcoded colours across seven component
+     stylesheets became tokens: custom properties cross the shadow boundary because they inherit,
+     so a palette change reaches inside a shadow root — but only if there is a token to inherit. */
   --sintaxe-chave: #6b21a8;
+
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --mono:  "IBM Plex Mono", Menlo, Consolas, monospace;
   --goteira: 56px;
+
+  /* MEASURE. Named so the value is in one place rather than repeated as a
+     magic number, and so an article template can override it locally.
+
+     THE PROPOSAL SAID 34em AND 38em, AND BOTH WERE WRONG. It derived them from an average glyph
+     width of 0.48em, the usual figure for a screen serif. Measured in Chromium on a canvas at the
+     element's own computed font with real Portuguese text, Newsreader averages **0.405em** — about
+     18% narrower. Two things follow, and the second is why this differs from the proposal:
+
+       - the problem was WORSE than the review reported: the 758px column held ~104 characters, not
+         88, and the 828px entity column ~114, not 96;
+       - and 34em is 612px, which MEASURES 84 characters — above the 75 the review's own §4.4 fixes
+         as the ceiling, and wider than the 29em already live since v0.9.0.
+
+     So 29em, measured at 71 characters on the front page and 70 on an entity page. The two are the
+     same value because an `em` measure is size-independent: the font size cancels in
+     `width ÷ (size × glyph)`, so 34em and 38em could not have given 66 and 68 characters. Gate 29
+     asserts the range with 0.405. */
+  --measure:    29em;   /* 71 chars, measured — not 34em/66, which measures 84 */
+  --measure-sm: 29em;   /* the same, and for the same reason */
+
+  /* ESCALA. The generator currently emits padding inline
+     (padding:34px 0 30px, padding:22px 0 34px, padding:26px 0 8px, ...).
+     Nobody can change this site's vertical rhythm from the stylesheet while
+     that is true. Have build.py emit .block / .block--tall class names and
+     the rhythm becomes tunable from here. */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+
+  color-scheme: light;   /* so form controls and scrollbars follow the page */
 }
 
 * { box-sizing: border-box; }
@@ -71,231 +167,333 @@ body {
   color: var(--tinta);
   font-family: var(--serif);
   font-size: 16px;
-  line-height: 1.5;
-  /* NÃO voltar a pôr `-webkit-font-smoothing: antialiased` aqui. Força suavização em escala de
-     cinza no WebKit e no Blink, o que desenha o texto MAIS LEVE do que foi especificado. É um
-     hábito da época dos sans pesados em branco; aplicado a um serif variável com hastes finas, a
-     15–18px, sobre papel creme, tira peso exatamente aos traços que a Newsreader precisa para se
-     manter nítida. Se o resultado parecer pesado demais, isso é um sinal verdadeiro e a resposta
-     é mudar o peso da face, não voltar a mentir ao rasterizador. */
+  line-height: 1.55;
+  /* -webkit-font-smoothing: antialiased REMOVED. It forced grayscale
+     antialiasing, rendering Newsreader lighter than specified at exactly the
+     sizes (15-18px) where its hairlines need the weight. If the result now
+     looks too heavy, that is real signal — change the weight, not this. */
 }
 
-.folha { max-width: 1440px; margin: 0 auto; padding: 0 var(--goteira) 56px; }
+.folha { max-width: 1440px; margin: 0 auto; padding: 0 var(--goteira) var(--s8); }
 
-/* THE CONSOLE IS A COLUMN, NOT A BROADSHEET — and this rule exists because v0.9.0 shipped a real
-   layout bug without noticing it.
- *
- * Capping `.std` and `.sm` at 29em is right for the newspaper, where a paragraph sits inside a
- * grid column that is itself about 758px wide: the cap trims the line to a readable measure and
- * the column's own edge is close by. The back office has NO grid. It is one column of prose in a
- * 1328px sheet — so the same cap put the text in a 522px ribbon with 800px of empty paper beside
- * it, while every `.rule` and `.dbl` hairline went on spanning the full width. Text at a third of
- * the page and rules across all of it does not read as a narrow measure; it reads as broken.
- *
- * The fix is the container and not the paragraph. The console's CONTENT column is 58em, so a rule
- * is about 1.6× the prose it divides instead of 2.5×, which is the ratio a documentation page
- * normally has. The prose cap stays exactly the newspaper's, because a console is still read by
- * eyes.
- *
- * The narrowing is on the CONTENT and deliberately not on `.folha`. Narrowing the sheet would
- * narrow the chrome with it — and it did, in the first attempt at this fix: the utility run ended
- * up 312px from the window's right edge in the back office against 56px on the paper. Same slot
- * relative to its own sheet, different place on screen, which is precisely the jump this release
- * set out to remove. The sheet keeps the paper's width on both; only the column inside it narrows.
- *
- * Tables and grids inside it are unaffected: `.rolar` scrolls a wide table within itself, and the
- * card grids lay out against whatever width they are given. */
-.consola-corpo { max-width: 58em; }
-
+/* LINKS. Headline links stay ink — that is the newspaper convention and it is
+   correct. What was missing is any state at all: no focus rule existed, and
+   the one element painted in the accent (.kick) was not a link. */
 a { color: var(--tinta); text-decoration: none; }
-a:hover { color: var(--acento); text-decoration: underline; }
+a:hover { color: var(--acento); text-decoration: underline; text-underline-offset: 2px; }
 a.ac { color: var(--acento); }
 
-/* O ACENTO TINHA SETE TRABALHOS e por isso não sinalizava nenhum: antetítulo, secção-atual na
-   navegação, ligação-sob-o-rato, fonte-confirmada, ficha-ok, verbo-do-grafo e «abrir o grafo».
-   Passa a ter dois — **interativo** e **confirmado** — e o antetítulo saiu dele (ver `.kick`).
-   Os títulos ficam em tinta, porque é isso que um jornal faz, mas ganham um foco visível.
+/* Inline links inside running prose DO get an underline. a.ent (below) is the
+   restrained treatment for entity mentions, not for ordinary links. */
+.std a:not(.ent):not(.chip), .prosa a:not(.ent):not(.chip) {
+  text-decoration: underline;
+  text-decoration-color: var(--filete-2);
+  text-underline-offset: 2px;
+}
+.std a:not(.ent):not(.chip):hover, .prosa a:not(.ent):not(.chip):hover {
+  text-decoration-color: var(--acento);
+}
 
-   O ANEL DE FOCO, que é uma falha de acessibilidade e não uma preferência. Não havia uma única
-   regra de `:focus` em 13,8 kB de folha, num desenho em que `a { text-decoration: none }` é
-   global: quem navega pelo teclado numa primeira página com ~60 ligações tinha apenas o anel por
-   omissão do navegador, sobre ligações preto-em-creme que não têm outra marca. Sobre o painel
-   escuro e sobre o `a.ent` dentro de prosa, esse anel é ambíguo ou de baixo contraste. */
 :focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 .escuro :focus-visible { outline-color: var(--acento-claro); }
 
-/* --- tipografia ------------------------------------------------------------ */
+/* --- tipografia ------------------------------------------------------------
+   THE MONO RULE. Mono means: a machine fact. A hash, a byte count, a file
+   identifier, a timestamp, a version string, a path, code. Nothing else.
+   .kick and .sect moved to the serif; <th> moved to the serif; the footer
+   nav and .declaracao moved to the serif. Mono instances on the front page
+   drop from ~30 chips + every kicker/section head/table header to the chips
+   alone — and the chips themselves get demoted (see .provenance). */
+
 .mono { font-family: var(--mono); }
-/* O ANTETÍTULO E O RÓTULO DE SECÇÃO PASSAM AO SERIF, e é a mudança de dez linhas que mais faz por
-   «isto não parece um jornal».
 
-   Até à v0.9.0 a IBM Plex Mono compunha a datalinha, todos os antetítulos, todos os rótulos de
-   secção, as trinta fichas da primeira página, todos os cabeçalhos de tabela e o rodapé inteiro.
-   Cumulativamente a página lia-se como um REGISTO DE CONSTRUÇÃO com uma boa mancheta. Um jornal
-   não compõe os seus rótulos de secção numa face de máquina de escrever: compõe-os na face de
-   texto, pequenos, espaçados, muitas vezes em versaletes ou em itálico.
+/* WAS: mono, 11px, uppercase, .14em tracking, accent (4.98:1). Four legibility
+   penalties at once, applied to the element that tells a reader which section
+   they are in. Now the serif italic a broadsheet would actually use. */
+.kick {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: .01em;
+  color: var(--sec);
+}
 
-   A regra que fica: o mono quer dizer UMA coisa, um facto de máquina — um hash, uma contagem de
-   bytes, um identificador, uma hora, uma versão, código, um caminho `dados/…`, uma ligação da API.
-   Onde não é isso, é serif.
+/* WAS: mono, 12px, uppercase, .12em. Uppercase is legible above ~14px with
+   modest tracking; below that it is not. Serif small caps, one notch up. */
+.sect {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
 
-   E os dois acumulavam as quatro penalizações de legibilidade ao mesmo tempo: corpo pequeno, mais
-   caixa alta, mais espaçamento forte, mais contraste médio (no caso do antetítulo), numa face
-   monoespaçada. Caixa alta a .14em só se lê acima de ~14px. O antetítulo sobe a 13px, perde a
-   caixa alta, corta o espaçamento, e SAI DO ACENTO — ver a nota sobre os sete trabalhos do acento
-   junto a `a:hover`. */
-.kick { font-family: var(--serif); font-size: 13px; font-style: italic; letter-spacing: .01em;
-        text-transform: none; color: var(--sec); }
-.sect { font-family: var(--serif); font-size: 13px; font-weight: 600; letter-spacing: .08em;
-        text-transform: uppercase; color: var(--tinta); }
-.h-lead { font-size: 54px; line-height: 1.02; font-weight: 500; letter-spacing: -.02em; margin: 0; }
-.h-2 { font-size: 27px; line-height: 1.1; font-weight: 500; letter-spacing: -.015em; margin: 0; }
-.h-3 { font-size: 21px; line-height: 1.15; font-weight: 500; margin: 0; }
-/* DUAS CORREÇÕES AOS NÚMEROS DA PRÓPRIA REVISÃO, e a segunda muda a resposta.
- *
- * A primeira é interna. A §2.1 pede `.std: 34em` e `.sm: 38em` e diz que dão «≈66» e «≈68»
- * caracteres. Os dois não podem estar certos: caracteres por linha são `largura ÷ largura média
- * do glifo`, e com a largura em `em` o corpo cancela-se — a mesma medida em `em` dá o mesmo
- * número de caracteres a qualquer tamanho. 34em e 38em não podem dar 66 e 68.
- *
- * A segunda é a que importa: **a constante estava errada para esta face**. A revisão assume um
- * glifo médio de 0.48em, que é o número habitual para um serif de ecrã. Medida no navegador,
- * numa tela, com a Newsreader a 18px e com texto português a sério, a largura média é **0.405em**
- * — a Newsreader é mais estreita do que a suposição, cerca de 18%.
- *
- * Isso corre nos dois sentidos, e o primeiro é desconfortável:
- *
- *   - O problema era PIOR do que a revisão disse. A coluna de 758px não tinha 88 caracteres:
- *     tinha ≈104. A de 828px das entidades tinha ≈114, não 96.
- *   - E a correção que a revisão pede não chegava ao alvo que a revisão dá. 34em são 612px, e a
- *     612px o navegador mede **84 caracteres** — ainda acima dos 75 que a própria §4.4 fixa.
- *
- * Por isso a medida é 29em (≈522px, ≈71 caracteres) e não 34em. O portão 29 mede com 0.405 e não
- * com 0.48, e diz de onde vem o número. É a diferença entre implementar uma revisão e verificá-la.
- *
- * A entrelinha andava a 1.45 — 26.1px a 18px. Um serif a 18px sobre um fundo creme de baixo
- * contraste precisa de mais ar do que um sans em branco: a faixa de leitura é 1.6-1.65.
- *
- * O `max-width` vive aqui e não numa coluna da grelha por uma razão: o TÍTULO quer os 758px
- * inteiros e o corpo não quer. Estreitar a coluna estreitaria os dois.
- *
- * O `margin: 0` FICA, e a razão é a de sempre: na primeira página cada parágrafo é filho de um
- * flex e recebe o seu espaço do `gap` do contentor, e por isso é o `.prosa > p` que devolve o
- * ritmo ao corpo de um artigo. Mexer nisto desalinha a primeira página inteira. */
-.std { font-size: 18px; line-height: 1.62; margin: 0; color: var(--tinta-2); max-width: 29em; }
-.sm  { font-size: 15px; line-height: 1.6;  margin: 0; color: var(--sec);     max-width: 29em; }
+.h-lead { font-size: 54px; line-height: 1.04; font-weight: 500; letter-spacing: -.02em; margin: 0; }
+.h-2    { font-size: 27px; line-height: 1.14; font-weight: 500; letter-spacing: -.015em; margin: 0; }
+.h-3    { font-size: 21px; line-height: 1.2;  font-weight: 500; margin: 0; }
+
+/* MEASURE + LEADING. The two changes that between them fix most of "hard to
+   read". max-width on a flex child does not fight the grid: the column stays
+   its width, the paragraph stops before the far edge. */
+.std { font-size: 18px; line-height: 1.62; margin: 0; color: var(--tinta-2); max-width: var(--measure); }
+.sm  { font-size: 15px; line-height: 1.6;  margin: 0; color: var(--sec);     max-width: var(--measure-sm); }
 .xs  { font-size: 13px; line-height: 1.55; margin: 0; color: var(--sec-2); }
-.it { font-style: italic; }
+.it  { font-style: italic; }
+
+/* Headlines want the full column even when the body under them does not. */
+.h-lead, .h-2, .h-3 { max-width: none; }
+/* A paragraph inside a table cell, a chip row or a stat strip is not prose. */
+td .sm, th .sm, .chips .sm, .stats .sm { max-width: none; }
 
 /* --- filetes --------------------------------------------------------------- */
-.rule { border-top: 1px solid var(--tinta); }
-.hair { border-top: 1px solid var(--filete); }
+.rule { border-top: 1px solid var(--tinta); }      /* major divisions only */
+.hair { border-top: 1px solid var(--filete); }     /* inside a block */
+.block-sep { border-top: 1px solid var(--filete-3); }  /* between blocks — NEW */
 .dbl  { border-top: 3px double var(--tinta); }
 
-/* --- cabeçalho ------------------------------------------------------------- */
-.datalinha { display: flex; justify-content: space-between; align-items: center; gap: 18px;
-  flex-wrap: wrap; padding: 18px 0 10px; border-bottom: 1px solid var(--filete);
-  font-family: var(--mono); font-size: 12px; color: var(--sec); letter-spacing: .04em; }
-.datalinha b { color: var(--tinta); }
-/* A MANCHETE É A MATÉRIA. O nome próprio da publicação é o que ela mapeia; o endereço passa a
-   subtítulo, onde continua a ser útil sem ser a primeira coisa que um leitor lê. */
-.mast { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 26px 0 18px; text-align: center; }
+/* --- bands (NEW) --------------------------------------
+   A band is full-bleed and carries its own ground; .folha sits INSIDE it rather than around the
+   whole page. This is the structural change that makes sections legible as sections.
+
+       <div class="band band--sunk">
+         <div class="folha"> … </div>
+       </div>
+
+   Generator note: build.py currently opens a single .folha for the page. It should instead emit
+   one .band per section, each containing its own .folha. The class names are the only new
+   vocabulary; nothing inside a section changes.
+
+   Use them with restraint and in a rhythm — base, base, recessed, base, ink. A page that
+   alternates every block is as flat as a page that alternates none. */
+.band { background: var(--papel); }
+.band--sunk  { background: var(--paper-sunk); }
+.band--panel { background: var(--painel); }
+.band--ink { background: var(--tinta); color: var(--papel); }
+.band--ink .sect  { color: var(--acento-claro); }
+.band--ink .std,
+.band--ink .sm    { color: var(--filete-2); }
+.band--ink a      { color: var(--acento-claro); }
+.band--ink .h-lead, .band--ink .h-2, .band--ink .h-3 { color: var(--papel); }
+.band--ink .hair,
+.band--ink .block-sep { border-top-color: #3a3d45; }
+.band--ink .rule      { border-top-color: var(--papel); }
+
+/* A band's own vertical room. A band whose ground changes but whose padding does not still reads
+   as one continuous field — the ground needs air on both sides of it to register as a band. */
+.band > .folha { padding-top: var(--s7); padding-bottom: var(--s7); }
+.band--sunk > .folha, .band--ink > .folha { padding-top: var(--s8); padding-bottom: var(--s8); }
+
+/* The first band carries the masthead and must not push it down — adding the band's own top
+   padding there cost 48px above the operator strip and put the mobile chrome back over 130px,
+   which is the number this design exists to bring down. Measured, not guessed.
+
+   ITS BOTTOM PADDING GOES TOO, and that one was found by looking at the rendered page rather than
+   by reading the rule. The masthead band closed with 48px of its own, the lead band opened with
+   another 48px, and the two stacked into about 100px of blank paper between the nav's double rule
+   and the lead headline — on a broadsheet front page, where the lead is supposed to be the first
+   thing under the nav. The nav's own 3px double rule is already the divider; a band boundary
+   directly beneath it needs no air at all. */
+.band:first-of-type > .folha { padding-top: var(--s2); padding-bottom: 0; }
+
+/* --- section openers (NEW) -------------------------------
+   The second half of the same problem. `.sect` alone — a small letterspaced label — is too
+   quiet to open a section; it is a label, not a door. Three levels, and a page should use the
+   heaviest one no more than three or four times:
+
+     .opener--major   a 3px ink rule, a number, a title at .h-2 size   — a major division
+     .opener          a 1px ink rule and a title                        — an ordinary section
+     .sect              the label alone                                   — a block inside one */
+.opener {
+  display: flex; align-items: baseline; gap: var(--s4); flex-wrap: wrap;
+  border-top: 1px solid var(--tinta);
+  padding-top: var(--s3); margin-bottom: var(--s4);
+}
+.opener--major { border-top-width: 3px; padding-top: var(--s4); margin-bottom: var(--s5); }
+
+.opener__n {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .1em;
+  color: var(--sec-2); align-self: center;
+}
+.opener__title {
+  margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.15;
+  font-weight: 600; letter-spacing: -.01em; color: var(--tinta); max-width: none;
+}
+.opener--major .opener__title { font-size: 27px; }
+.opener__note {
+  font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--sec);
+  flex: 1 1 auto;
+}
+/* The legend (confirmado / disputado / não encontrado) rides at the far end of the opener. */
+.opener__end { margin-left: auto; }
+.band--ink .opener { border-top-color: var(--papel); }
+.band--ink .opener__title { color: var(--papel); }
+.band--ink .opener__n, .band--ink .opener__note { color: var(--filete-2); }
+
+/* --- vertical scale (NEW) -------------------------------------------------
+   Replaces the inline padding the generator emits. .block is the default
+   block rhythm; .block--tall for a major section opening. */
+.block      { padding: var(--s6) 0 var(--s5); }
+.block--tall { padding: var(--s7) 0 var(--s6); }
+.block--short{ padding: var(--s4) 0 var(--s3); }
+
+/* --- cabeçalho -------------------------------------------------------------
+   THE SPLIT. The old .datalinha ran six things together in one grey mono row:
+   two editorial (dateline, countdown) and four operator (Aviso/Método/API,
+   back office, wallet, version). Set identically, so a reader could not tell
+   which was which — and on a phone it wrapped to four rows, ~130px of chrome
+   before the masthead.
+
+   Now: .utility is a thin operator strip, visually subordinate and first;
+   .datalinha is editorial, in the serif, directly above the masthead. Same
+   links, legible ranking. On mobile the operator strip collapses. */
+
+.utility {
+  display: flex; justify-content: flex-end; align-items: center; gap: var(--s4);
+  flex-wrap: wrap; padding: var(--s2) 0;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  color: var(--sec-2);
+}
+.utility a { color: var(--sec-2); }
+.utility a:hover { color: var(--acento); }
+
+.datalinha {
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--s5);
+  flex-wrap: wrap; padding: var(--s2) 0 var(--s3);
+  border-bottom: 1px solid var(--filete);
+  border-top: 1px solid var(--filete);
+  font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--sec);
+}
+.datalinha b { color: var(--tinta); font-style: normal; font-weight: 600; }
+
+.mast { display: flex; flex-direction: column; align-items: center; gap: var(--s1);
+        padding: var(--s6) 0 var(--s4); text-align: center; }
 .mast .nome { font-size: 58px; line-height: 1.02; font-weight: 600; letter-spacing: -.03em; margin: 0; }
 .mast .nome a { color: var(--tinta); }
 .mast .nome a:hover { text-decoration: none; color: var(--acento); }
 .mast .sub { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; color: var(--sec-2); padding-top: 2px; }
 .mast .sub a { color: var(--sec-2); }
-.mast .lema { font-size: 16px; font-style: italic; color: var(--sec); max-width: 46em; padding-top: 6px; }
+.mast .lema { font-size: 16px; font-style: italic; color: var(--sec); max-width: 42em; padding-top: var(--s1); }
 
-/* O marcador de língua na ligação para os bastidores: a consola está em inglês e a ligação
-   di-lo antes de o leitor lá chegar, em vez de o descobrir na página. */
 .flag { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; border: 1px solid var(--filete-2);
         border-radius: 2px; padding: 0 3px; color: var(--sec-2); vertical-align: 1px; }
 a:hover .flag { border-color: var(--acento); color: var(--acento); }
 
-/* A declaração, uma linha e não um bloco. Ver build/paginas.py, bloco_declaracao. */
-.declaracao { font-size: 13px; line-height: 1.5; color: var(--sec-2); margin: 32px 0 0;
-              padding-top: 12px; border-top: 1px solid var(--filete); max-width: 52em; }
-.nav { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 12px 0;
-  border-top: 1px solid var(--tinta); border-bottom: 3px double var(--tinta); }
+/* THE VERSION CHIP IS NOW A LINK. sgit.ai guidance: show the version AND
+   link it to that version's change detail, naming the commit it was built
+   from. The site had the first half only. */
+.ver { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
+a.ver:hover { color: var(--acento); }
+
+.declaracao { font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--sec);
+              margin: var(--s6) 0 0; padding-top: var(--s3);
+              border-top: 1px solid var(--filete); max-width: var(--measure-sm); }
+
+.nav { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: var(--s3) 0;
+       border-top: 1px solid var(--tinta); border-bottom: 3px double var(--tinta); }
 .nav a { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
-.nav a.aqui { color: var(--acento); }
+.nav a.aqui { color: var(--acento); border-bottom: 2px solid var(--acento); }
 .nav .sep { color: var(--filete-2); }
-
-/* THE UTILITY RUN, in the same slot on the paper and in the back office. `build/paginas.py`
-   generates it once for both, so crossing between them moves one label and nothing else — before
-   v0.11.0 the whole chrome rearranged itself, which reads as arriving at a different site. */
-.utilitarios { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-
-/* The console nav wears the paper's nav, so the two look like one system seen from two sides. It
-   is quieter on purpose — a single hairline instead of the broadsheet's double rule, because the
-   back office is not the publication and should not claim the publication's furniture. */
-.nav--consola { border-bottom-width: 1px; border-bottom-style: solid;
-                border-bottom-color: var(--filete); gap: 22px; }
-.nav--consola a { font-family: var(--mono); font-size: 12px; font-weight: 400;
-                  letter-spacing: .04em; }
 
 /* --- fichas ---------------------------------------------------------------- */
 .chip { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 3px 8px;
-  border: 1px solid var(--filete-2); border-radius: 3px; color: var(--sec);
-  background: var(--painel); display: inline-block; white-space: nowrap; }
+        border: 1px solid var(--filete-2); border-radius: 3px; color: var(--sec);
+        background: var(--painel); display: inline-block; white-space: nowrap; }
 .chip.ok      { color: var(--acento); border-color: var(--acento); }
 .chip.miss    { color: var(--aviso);  border-color: var(--aviso); }
 .chip.falta   { color: var(--falta);  border-color: var(--falta); }
 .chip.disputa { color: var(--disputa);border-color: var(--disputa); }
-.chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.chips { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; }
+
+/* PROVENANCE, DEMOTED (NEW). The chips under the lead headline sat where a
+   newspaper puts the dek and byline, and turned a well-written lead into a
+   debug panel. The provenance IS the product and stays on the page — this
+   states it in the site's own voice and puts the chips one step down, behind
+   a disclosure. No JS: <details>/<summary>. */
+.provenance { font-family: var(--serif); font-size: 14px; color: var(--sec); }
+.provenance > summary { cursor: pointer; list-style: none; padding: var(--s1) 0; }
+.provenance > summary::-webkit-details-marker { display: none; }
+.provenance > summary::after {
+  content: " ·  ver as fontes"; font-size: 12px; color: var(--acento);
+  border-bottom: 1px solid var(--filete-2);
+}
+.provenance[open] > summary::after { content: " ·  esconder as fontes"; }
+.provenance > .chips { padding-top: var(--s3); }
 
 /* --- grelha ---------------------------------------------------------------- */
 .g12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px; }
 .g3  { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
 .g2  { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
-.g4  { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.g4  { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5); }
 .col { display: flex; flex-direction: column; }
 
-/* Um filho de grelha tem `min-width: auto` por omissão, o que o impede de encolher abaixo do seu
-   conteúdo mais estreito — e uma ficha com `white-space: nowrap` ou um SHA-256 sem espaços torna
-   esse mínimo maior do que um telemóvel. O resultado é a página inteira a deslizar na horizontal,
-   que é a única coisa que a folha de estilos deste site proíbe expressamente. `min-width: 0` é o
-   que devolve ao filho a capacidade de encolher. */
+/* Kept verbatim from the original, comment and all — it was hard-won.
+   A grid child has min-width:auto by default, which stops it shrinking below
+   its widest content, and a nowrap chip or an unbroken SHA-256 makes that
+   minimum wider than a phone. The result is the whole page sliding
+   horizontally, the one thing this stylesheet expressly forbids. */
 .g12 > *, .g3 > *, .g2 > *, .g4 > *, .col > * { min-width: 0; }
-.sp6 { gap: 6px; } .sp8 { gap: 8px; } .sp10 { gap: 10px; } .sp12 { gap: 12px; }
+
+/* THE HOLE. The front page's 7+5 lead row left ~270px of empty paper at the
+   foot of the left column because the rail ran longer. A grid child stretches
+   to the row height by default; start-aligning both lets the following rule
+   sit at the true end of the taller column. */
+.g12 > .col, .g12 > .painel { align-self: start; }
+
+.sp6 { gap: 6px; } .sp8 { gap: var(--s2); } .sp10 { gap: 10px; } .sp12 { gap: var(--s3); }
 .sp18 { gap: 18px; } .sp22 { gap: 22px; }
 
 /* --- tabelas --------------------------------------------------------------- */
 table { border-collapse: collapse; width: 100%; }
-td, th { font-family: var(--serif); font-size: 15px; padding: 9px 10px 9px 0;
-  border-top: 1px solid var(--filete); text-align: left; vertical-align: top; }
-/* O cabeçalho de tabela era mono a 11px em caixa alta a .12em, e é a mesma acumulação de
-   penalizações que o `.kick` e o `.sect` tinham. Passa ao serif pela mesma regra: mono só onde o
-   conteúdo É um facto de máquina, e o nome de uma coluna não é. O `th.mono` continua a existir
-   para a coluna cujo CONTEÚDO é um hash ou um caminho. */
-th { font-family: var(--serif); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--sec-2); border-top: 0; font-weight: 600; }
+td, th { font-family: var(--serif); font-size: 15px; padding: 10px 12px 10px 0;
+         border-top: 1px solid var(--filete); text-align: left; vertical-align: top; }
+/* WAS mono 11px uppercase .12em at 4.64:1. Serif, like the body of the table. */
+th { font-family: var(--serif); font-size: 12px; letter-spacing: .07em; text-transform: uppercase;
+     color: var(--sec-2); border-top: 0; font-weight: 600; }
 td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 
-/* Tabelas, diagramas e blocos de código são as únicas coisas que podem ser mais largas do que o
-   ecrã, e cada uma dentro do seu próprio contentor que desliza. O corpo da página nunca desliza. */
-.rolar { overflow-x: auto; max-width: 100%; }
+/* A table's meaning-bearing column should sit next to what it qualifies, not
+   at the far edge of a 1440px page. Where a middle column is empty for every
+   row the generator should drop it (see review §3.1) — these cap the damage
+   when it does not.
 
-/* Um SHA-256, um identificador de fonte, uma consulta de pesquisa ou uma expressão regular de um
-   erro de esquema não têm espaços onde partir. Sem isto, uma cadeia dessas define a largura mínima
-   da página — e foi uma delas, num erro de esquema de uma entrega, que fez a página de revisão
-   deslizar na horizontal num telemóvel. */
+   .table--compact  a data table in a column of a page — caps the width so a
+                     row does not span 1328px
+   .table--index    a two-column index (name + source). 46em keeps the source
+                     beside the name rather than a screen away. On the live
+                     page that gap is ~1100px, which is why the /empresas/
+                     index does not scan.
+   td.num / th.num   right-align ONLY for numbers. Never blanket-align the
+                     last column: on /empresas/ the last column is a sentence,
+                     and right-aligning prose gives it a ragged left edge. */
+.table--compact { max-width: 64em; }
+.table--index   { max-width: 46em; }
+td.num, th.num   { text-align: right; font-variant-numeric: tabular-nums; }
+
+.rolar { overflow-x: auto; max-width: 100%; }
 .mono, code, .xs, td.mono, li { overflow-wrap: anywhere; }
 
 /* --- painéis --------------------------------------------------------------- */
-.painel { background: var(--painel); border: 1px solid var(--filete); padding: 18px 20px; }
+.painel { background: var(--painel); border: 1px solid var(--filete-2); padding: 18px 20px; }
 .escuro { background: var(--tinta); color: var(--papel); padding: 22px 24px; }
 .escuro .sect { color: var(--acento-claro); }
 .escuro .sm { color: var(--filete-2); }
 .escuro a { color: var(--acento-claro); }
 
+/* A PAIR OF PANELS IS A PAIR (NEW). On /empresas/ "O que esta secção pode
+   afirmar hoje" and "O que não pode" are a matched pair, but one had a 3px
+   left accent bar and the other had nothing. Symmetric, differentiated by
+   the rule colour at the top rather than a left bar. */
+.panel-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.panel-pair > * { border-top: 3px solid var(--acento); padding-top: var(--s3); }
+.panel-pair > .no { border-top-color: var(--aviso); }
+
 /* --- prosa de artigo -------------------------------------------------------
-   `.std` tem `margin: 0` porque na primeira página cada parágrafo é um filho de uma coluna
-   flex com `gap` — o espaço vem do contentor. A prosa de um artigo não tem contentor nenhum a
-   dar-lhe espaço, e sem isto os parágrafos colam-se uns aos outros e o artigo lê-se como um
-   bloco só. O ritmo vertical vive aqui, e não em cada parágrafo. */
-.prosa > p { margin: 0 0 1.05em; }
+   .std has margin:0 because on the front page every paragraph is a flex child
+   taking its space from the container's gap. Article prose has no such
+   container, so the rhythm is restored here. Kept from the original. */
+.prosa { max-width: var(--measure); }
+.prosa > p { margin: 0 0 1.05em; font-size: 18px; line-height: 1.62; color: var(--tinta-2); }
 .prosa > p:last-child { margin-bottom: 0; }
 .prosa > h2 { margin: 1.8em 0 .5em; }
 .prosa > h3 { margin: 1.5em 0 .4em; }
@@ -305,21 +503,13 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 .prosa .chip { margin: 0 1px; }
 
 /* --- blocos de casa -------------------------------------------------------- */
-.aviso-bloco { border-left: 3px solid var(--aviso); padding: 12px 0 12px 16px; margin: 22px 0; }
-/* A PROSA do bloco «para um agente» passa ao serif; o `<code>` lá dentro fica mono, porque é
-   isso que ele é. O bloco é lido por pessoas tantas vezes como por máquinas, e compô-lo inteiro
-   em mono fazia o fim de cada página parecer a saída de um comando. */
-.agent { border-top: 1px solid var(--filete); margin-top: 40px; padding-top: 14px;
-  font-family: var(--serif); font-size: 13px; color: var(--sec-2); line-height: 1.6; }
+.aviso-bloco { border-left: 3px solid var(--aviso); padding: var(--s3) 0 var(--s3) var(--s4); margin: 22px 0; }
+.agent { border-top: 1px solid var(--filete); margin-top: var(--s7); padding-top: var(--s3);
+         font-family: var(--serif); font-size: 14px; color: var(--sec); line-height: 1.6;
+         max-width: var(--measure-sm); }
 .agent b { color: var(--tinta); font-weight: 600; }
-.agent code, .agent .ver { font-family: var(--mono); font-size: 12px; }
-.ver { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
-/* O distintivo é agora uma ligação (ver `build/paginas.py`, `datalinha`) e tem de continuar a
-   parecer um distintivo e não um título: fica na cor secundária, e só se sublinha ao passar o
-   rato. Sem isto herdava a tinta cheia de `a` e passava a competir com a datalinha. */
-a.ver { color: var(--sec-2); }
-a.ver:hover { color: var(--acento); text-decoration: underline; }
-.rodape { border-top: 3px double var(--tinta); padding-top: 16px; margin-top: 40px; }
+.agent code, .agent a[href$=".txt"] { font-family: var(--mono); font-size: 13px; }
+.rodape { border-top: 3px double var(--tinta); padding-top: var(--s4); margin-top: var(--s7); }
 
 /* --- estados --------------------------------------------------------------- */
 .e-confirmada, .e-aprovada { color: var(--acento); }
@@ -329,83 +519,208 @@ a.ver:hover { color: var(--acento); text-decoration: underline; }
 .e-por_verificar, .e-por_rever { color: var(--sec-2); }
 .pastilha { display: inline-block; width: 10px; height: 10px; vertical-align: middle; margin-right: 6px; }
 
-/* --- o quadro da redação --------------------------------------------------- */
-.quadro { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
-.coluna { border-top: 2px solid var(--tinta); padding-top: 8px; }
-.cartao { border: 1px solid var(--filete); background: var(--painel); padding: 10px; margin-top: 8px; font-size: 14px; }
-.correio { border-left: 2px solid var(--filete); padding-left: 16px; }
-.msg { margin-bottom: 18px; }
-
-/* --- o grafo --------------------------------------------------------------- */
-#cy { width: 100%; height: 620px; background: var(--painel); border: 1px solid var(--filete); }
-.caminho { font-size: 19px; line-height: 1.5; margin: 0; }
-.caminho .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
-
-/* --- the chat column -------------------------------------------------------
-   `<pt-chat>` is a COLUMN and not an overlay: an overlay would cover the page you are asking
-   about. The panel is fixed to the right edge and the document gives up the width, so the page
-   reflows beside it instead of disappearing behind it. The variable is set by the component. */
-html.pt-chat-aberto body { padding-right: var(--pt-chat-w, 420px); }
-html.pt-chat-aberto { scroll-padding-right: var(--pt-chat-w, 420px); }
-@media (max-width: 900px) {
-  /* Below this the panel is the whole screen, so there is nothing to reflow beside. */
-  html.pt-chat-aberto body { padding-right: 0; }
-}
+/* --- article cards (NEW) -----------------------------------------------
+   The "Em preparação" grid had kicker + headline + status and no date. A news
+   card needs a dateline; /empresas/ already does this right in its DATA
+   column. .article-date is the same fact, carried back to the front page. */
+.article-card { display: flex; flex-direction: column; gap: var(--s2);
+                 border-top: 1px solid var(--filete-3); padding-top: var(--s3); }
+.article-date { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
 
 /* --- entidades -------------------------------------------------------------
-   Um índice de duzentos nomes numa só coluna é uma página que se percorre com o
-   polegar durante meio minuto. Em colunas, lê-se de um relance — e `columns` faz
-   isto sem tocar na marcação, que continua a ser uma lista. */
+   A 200-name index in one column is a page you thumb through for half a
+   minute. In columns it reads at a glance, and `columns` does it without
+   touching the markup, which stays a list. Kept from the original. */
 .colunas { columns: 3; column-gap: 40px; padding-left: 1.1em; }
 .colunas li { break-inside: avoid; margin-bottom: .3em; }
-.entidade-vizinhanca { border: 1px solid var(--filete); background: var(--painel); padding: 14px 16px; }
-/* Uma menção ligada é uma ligação com um sublinhado mais discreto: o corpo de um
-   artigo pode ter várias, e sublinhá-las todas a cheio transformava a prosa num
-   índice. Ainda é claramente uma ligação — só não grita. */
-a.ent, a.no { text-decoration: none; border-bottom: 1px solid var(--filete-2); color: inherit; }
-a.ent:hover, a.no:hover { border-bottom-color: var(--acento); color: var(--acento); }
-/* `.no` é a mesma marca para o alvo de uma aresta numa página de entidade. Classe própria e não
-   `.ent` porque o portão 23 conta as ligações `.ent` — uma por entidade e por página — e uma lista
-   de frases repete o mesmo nó muitas vezes, de propósito. São a mesma coisa para o leitor e coisas
-   diferentes para o portão, que é exatamente a distinção que se quer. */
+.entidade-vizinhanca { border: 1px solid var(--filete-2); background: var(--painel); padding: 14px 16px; }
+
+/* A linked mention is a link with a quieter underline: an article body can
+   carry a dozen, and underlining them all at full weight turns prose into an
+   index. Still clearly a link — it just does not shout. Kept from the
+   original; only the rule colour changes, so it can now be seen. */
+a.ent { text-decoration: none; border-bottom: 1px solid var(--filete-2); color: inherit; }
+a.ent:hover { border-bottom-color: var(--acento); color: var(--acento); }
+
+/* THE ENTITY STAT STRIP (NEW). Replaces the one-row <table> used as a
+   key/value pair, whose 230px header wrapped to two lines beside a lone "2".
+   Entity pages are the deepest and most numerous on the site (312 nodes) and
+   had no reusable layout at all. */
+.stats { display: flex; flex-wrap: wrap; gap: var(--s5) var(--s7);
+               border-top: 1px solid var(--filete-3); border-bottom: 1px solid var(--filete-3);
+               padding: var(--s4) 0; margin: var(--s5) 0; }
+/* The strip already closes with a rule. A .rule immediately after it would
+   draw a second line ~20px below the first — two rules doing one job. */
+.stats + .rule { border-top: 0; }
+.stats > div { display: flex; flex-direction: column; gap: 2px; }
+.stats dt, .stats .stat-label {
+  font-family: var(--serif); font-size: 12px; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--sec-2); }
+.stats dd, .stats .stat-value {
+  margin: 0; font-size: 22px; line-height: 1.1; font-weight: 500; color: var(--tinta); }
+.stats .stat-value.mono { font-size: 18px; }
+
+/* An edge read aloud. The path is the truth and stays reachable, but it is
+   not a label — the human name leads, the identifier follows in mono. */
+.edge { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2);
+          padding: var(--s3) 0; border-top: 1px solid var(--filete); }
+.edge .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
+.edge .id { font-family: var(--mono); font-size: 12px; color: var(--sec-2); }
+
+/* --- o grafo ---------------------------------------------------------------
+   The site has no photography — a defensible position for a publication that
+   will not reproduce what it cannot verify. The consequence is that every
+   module below the masthead carries identical visual weight. The graph is the
+   answer: native, generated, verifiable, and the only imagery this
+   publication can honestly make. Giving it room is a decision for the editor
+   (review §4.5, decision 1) — these rules are here so it is one CSS change
+   away rather than a rebuild. */
+#cy { width: 100%; height: 620px; background: var(--painel); border: 1px solid var(--filete-2); }
+.caminho { font-size: 19px; line-height: 1.55; margin: 0; max-width: var(--measure); }
+.caminho .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
+.graph-thumb { width: 100%; aspect-ratio: 16 / 9; background: var(--painel);
+                   border: 1px solid var(--filete-2); display: block; }
+
+button.chip { cursor: pointer; font-family: var(--mono); }
+button.chip:hover { color: var(--acento); border-color: var(--acento); }
+pt-json-viewer, pt-doc-browser, pt-api-console { display: block; }
 
 /* --- telemóvel: a mesma hierarquia numa coluna ----------------------------- */
 @media (max-width: 900px) {
-  :root { --goteira: 18px; }
-  .folha { padding-bottom: 32px; }
-  .g12, .g3, .g2, .g4 { grid-template-columns: 1fr; gap: 22px; }
+  :root { --goteira: 18px; --measure: 100%; --measure-sm: 100%; }
+  .folha { padding-bottom: var(--s6); }
+  .g12, .g3, .g2, .g4, .panel-pair { grid-template-columns: 1fr; gap: 22px; }
   .g12 > *, .g3 > *, .g2 > * { grid-column: auto !important; }
-  .g12 > .borda-esq { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--filete); padding-top: 22px; }
+  .g12 > .borda-esq { border-left: 0 !important; padding-left: 0 !important;
+                      border-top: 1px solid var(--filete-3); padding-top: 22px; }
   .mast .nome { font-size: 38px; letter-spacing: -.03em; }
-  .mast .lema { font-size: 13px; }
-  .h-lead { font-size: 34px; line-height: 1.05; }
+  .mast .lema { font-size: 14px; }
+  .h-lead { font-size: 34px; line-height: 1.07; }
   .h-2 { font-size: 22px; }
   .h-3 { font-size: 19px; }
-  .std { font-size: 16px; }
+  .std, .prosa > p { font-size: 17px; line-height: 1.6; }
   .sm { font-size: 14px; }
-  /* `flex-wrap: nowrap` É A LINHA QUE FALTAVA. A regra base põe `flex-wrap: wrap` na navegação, e
-     aqui punha-se `overflow-x: auto` sem desligar o embrulho — o que não faz nada, porque um flex
-     que embrulha nunca transborda. Os onze itens partiam em três linhas e o separador `|` ficava
-     pendurado no início da terceira. Com o embrulho desligado, a navegação passa a ser UMA linha
-     que desliza na horizontal, dentro de si mesma, que é o que a regra já dizia querer.
-     A barra é escondida porque a nav corta à goteira e o corte já convida a arrastar. */
-  .nav { gap: 18px; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto;
-         padding: 10px 0; scrollbar-width: none; }
+
+  /* THE FIRST SCREEN BELONGS TO THE MASTHEAD. On the live site four wrapped
+     rows of 11px mono chrome take ~130px before the publication name — the
+     best thing on the site arrives under a wallet balance and a version
+     string. Tightened here to ~70px. Getting it lower means abbreviating the
+     dateline on small screens ("14 set 2026"), which is a generator change,
+     not a stylesheet one. */
+  .datalinha { font-size: 12.5px; gap: 2px var(--s3); padding: 5px 0 7px; }
+  .mast { padding: var(--s4) 0 var(--s3); }
+  .mast .sub { font-size: 11px; }
+
+  /* THE NAV BUG. The old file set overflow-x:auto and white-space:nowrap here
+     but never unset flex-wrap:wrap from the base rule — so the nav has always
+     wrapped to three rows instead of scrolling, and the "|" separator dangled
+     at the start of row three. One line fixes it. */
+  .nav { gap: 18px; justify-content: flex-start; overflow-x: auto;
+         flex-wrap: nowrap; padding: 10px 0;
+         scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
   .nav a { white-space: nowrap; font-size: 14px; }
-  /* A medida no telemóvel é imposta pela largura do ecrã, e não por um `max-width` em `em`: a
-     34em a 16px são 544px, muito mais do que um telemóvel tem, e o `max-width` passaria a
-     limitar nada enquanto continuava a aparecer nas ferramentas de quem medisse a página. */
-  .std, .sm { max-width: none; }
-  .datalinha { font-size: 11px; gap: 10px; }
+  .nav .sep { display: none; }
+
+  /* The operator strip is not what a reader came for. It collapses to a
+     single scrollable line so the masthead is the first thing on screen. */
+  .utility { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto;
+                gap: var(--s3); font-size: 10px; scrollbar-width: none; }
+  .utility::-webkit-scrollbar { display: none; }
+  .utility > * { white-space: nowrap; }
+
+  .stats { gap: var(--s4) var(--s5); }
+  .stats dd, .stats .stat-value { font-size: 19px; }
   #cy { height: 420px; }
-  .chip { white-space: normal; }     /* uma ficha longa parte-se em vez de alargar a linha */
+  .chip { white-space: normal; }
   .colunas { columns: 1; }
   ul[style*="columns"] { columns: 1 !important; }
   .quadro { grid-template-columns: 1fr; }
 }
 
-/* Um ficheiro de artigo é um botão que abre o visualizador, não uma ligação que descarrega. */
-button.chip { cursor: pointer; font-family: var(--mono); }
-button.chip:hover { color: var(--acento); border-color: var(--acento); }
-pt-json-viewer, pt-doc-browser, pt-api-console { display: block; }
+/* --- o quadro da redação --------------------------------------------------- */
+.quadro { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.coluna { border-top: 2px solid var(--tinta); padding-top: var(--s2); }
+.cartao { border: 1px solid var(--filete-2); background: var(--painel); padding: 10px; margin-top: var(--s2); font-size: 14px; }
+.correio { border-left: 2px solid var(--filete-2); padding-left: var(--s4); }
+.msg { margin-bottom: 18px; }
+
+
+/* ============================================================================
+   THE BACK OFFICE. Out of the proposal's scope — it reviewed the paper — but it wears this same
+   stylesheet, so these two rules travel with it.
+
+   THE CONSOLE IS A COLUMN, NOT A BROADSHEET. Capping prose at the measure is right for the
+   newspaper, where a paragraph sits inside a grid column about 758px wide. The back office has NO
+   grid: it is one column of prose in a 1328px sheet, so the same cap put the text in a 522px
+   ribbon with 800px of empty paper beside it while every hairline spanned the full width. Text at
+   a third of the page with rules across all of it does not read as a narrow measure — it reads as
+   broken, and it was (v0.9.0, caught by the editor).
+
+   The narrowing is on the CONTENT and deliberately NOT on `.folha`. Narrowing the sheet narrows
+   the chrome with it, and it did in the first attempt: the operator strip ended up 312px from the
+   window's right edge against 56px on the paper — undoing, in the same release, the work that
+   made the chrome stop moving between the two. The sheet keeps the paper's width on both.
+   ============================================================================ */
+.consola-corpo { max-width: 58em; }
+
+/* The console nav wears the paper's `.nav`, so the two read as one system seen from two sides. It
+   is quieter on purpose — a single hairline instead of the broadsheet's double rule — because the
+   back office is not the publication and should not claim the publication's furniture. */
+.nav--consola { border-bottom-width: 1px; border-bottom-style: solid;
+                border-bottom-color: var(--filete); gap: 22px; }
+.nav--consola a { font-family: var(--mono); font-size: 12px; font-weight: 400;
+                  letter-spacing: .04em; }
+.nav--consola a.aqui { border-bottom: 0; color: var(--acento); }
+
+/* The version badge is a link and must still read as a badge rather than a title: it keeps the
+   secondary colour and only underlines on hover. Without this it inherited full ink from `a` and
+   competed with the dateline. */
+a.ver { color: var(--sec-2); }
+a.ver:hover { color: var(--acento); text-decoration: underline; }
+
+/* --- impressão (NEW) -------------------------------------------------------
+   A publication about frozen, citable pages should print to something a
+   reader can cite. Rules survive; chrome does not. */
+@media print {
+  .utility, .nav, .agent { display: none; }
+  body { background: #fff; font-size: 11pt; }
+  .folha { max-width: none; padding: 0; }
+  .std, .prosa > p { font-size: 11pt; line-height: 1.5; max-width: none; }
+  a { text-decoration: none; color: #000; }
+  .std a::after, .prosa a::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+}
+
+
+/* ============================================================================
+   PROPOSED LEGACY RENAME — a decision for the record editor, not done here.
+
+   The stylesheet is already half-English: .rule, .hair, .dbl, .chip, .chips,
+   .mast, .sub, .agent and .msg sit beside .folha, .datalinha, .rodape and
+   .declaracao. Everything this proposal adds is English. Finishing the job is
+   mechanical but it touches build/build.py, build/paginas.py and every
+   emitted template, so it is written down rather than done:
+
+     --papel        -> --paper           .folha        -> .sheet
+     --tinta        -> --ink             .datalinha    -> .dateline
+     --tinta-2      -> --ink-2           .mast .nome   -> .mast .name
+     --sec          -> --muted           .mast .lema   -> .mast .motto
+     --sec-2        -> --muted-2         .nav a.aqui   -> .nav a.here
+     --filete       -> --rule-hair       .painel       -> .panel
+     --filete-2     -> --rule-mid        .escuro       -> .dark
+     --filete-3     -> --rule-block      .prosa        -> .prose
+     --acento       -> --accent          .rodape       -> .footer
+     --acento-claro -> --accent-light    .declaracao   -> .statement
+     --aviso        -> --warn            .aviso-bloco  -> .warn-block
+     --falta        -> --missing         .rolar        -> .scroll
+     --disputa      -> --disputed        .pastilha     -> .dot
+     --goteira      -> --gutter          .caminho      -> .path
+     .kick / .sect keep their names: both are already English enough to read
+     as jargon of the trade, and .sect is used in dozens of templates.
+
+   The state classes (.e-confirmada, .e-nao_encontrada, .e-disputada, ...) are
+   the exception that should STAY Portuguese: they are generated from the
+   verification vocabulary in dados/*.json, which is content. Renaming them
+   would put a translation layer between the data and the stylesheet, and the
+   whole point of that vocabulary is that it is the publication's own words.
+   ============================================================================ */

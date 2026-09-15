@@ -131,9 +131,10 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
 <body>
 <div class="folha">
 
+{utilitarios(raiz, no_backoffice=True)}
+
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · <b>back office</b></div>
-  {utilitarios(raiz, no_backoffice=True)}
 </div>
 
 <nav class="nav nav--consola">{nav_consola}</nav>
