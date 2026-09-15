@@ -201,10 +201,10 @@ class PtApiConsole extends SgComponent {
             out.appendChild(pre)
             this.emit('pt:api.called', { url: u, status: r.status })
         } catch (err) {
-            /* Um pedido que o LEITOR fez e que falhou. Não é o componente que está em baixo — numa
-               consola de API, ver um pedido falhar é metade da utilidade. Não se marca `falhou()`:
-               esse atributo quer dizer «este componente não subiu», e alargá-lo apagaria a
-               distinção que o torna útil a quem confere a página. */
+            /* A request the READER made, which failed. The component is not down — in an API
+               console, watching a request fail is half the point. `falhou()` is deliberately not
+               called: that attribute means "this component did not come up", and widening it would
+               erase the distinction that makes it useful to whatever is checking the page. */
             out.textContent = `Request failed: ${err.message}`
         }
     }

@@ -1,18 +1,18 @@
 /**
- * pt-newsroom-floor — a mesa como uma sala: quem tem o quê, e o que está parado à espera de quem.
+ * pt-newsroom-floor — the desk as a room: who has what, and what is stalled waiting on whom.
  *
- * Quatro bancadas em cima, o quadro em baixo. Clica-se numa bancada e a sala responde: o que
- * aquela bancada faz, o que RECUSA fazer, em que pastas pode escrever, e quais os cartões que
- * estão à espera dela. Clicar outra vez larga o filtro.
+ * Four benches on top, the board below. Click a bench and the room answers: what that bench does,
+ * what it REFUSES to do, which folders it may write in, and which cards are waiting on it. Click
+ * again to drop the filter.
  *
- * A diferença entre isto e a tabela que estava aqui antes não é decoração. Uma tabela mostra
- * linhas; uma sala mostra CARGA — quem tem trabalho em cima da mesa agora, e onde está o próximo
- * gesto. São perguntas diferentes, e a segunda é a que se faz a uma redação às cinco da tarde.
+ * The difference between this and the table that was here before is not decoration. A table shows
+ * rows; a room shows LOAD — who has work on the desk right now, and where the next move is. Those
+ * are different questions, and the second is the one you ask a newsroom at five in the afternoon.
  *
- * NADA AQUI MOVE NADA. Não há botão que empurre um cartão de coluna, e a ausência é deliberada:
- * o estado de uma história vive nos ficheiros da pasta dela, e quem o muda é quem tem direito de
- * escrita naquela pasta. Uma sala que deixasse arrastar um cartão para «publicado» estaria a
- * oferecer, num clique, exatamente o gesto que esta publicação reserva a um humano nomeado.
+ * NOTHING HERE MOVES ANYTHING. There is no button that pushes a card between columns, and the
+ * absence is deliberate: a story's state lives in the files of its own folder, and whoever changes
+ * it is whoever has write access there. A room that let you drag a card into «publicado» would be
+ * handing out, in one click, the exact gesture this publication reserves for a named human.
  *
  * @module pt-newsroom-floor
  * @version 1.0.0
@@ -76,8 +76,8 @@ class PtNewsroomFloor extends SgComponent {
                 num.appendChild(s)
             }
 
-            /* A razão entre o que está por fechar e o total. Uma barra que medisse o total seria
-               um gráfico de quem trabalhou mais, que não é a pergunta. */
+            /* The ratio of still-open to total. A bar measuring the total would be a chart of
+               who worked most, which is not the question. */
             const barra = document.createElement('div')
             barra.className = 'barra'
             const i = document.createElement('i')
@@ -136,8 +136,8 @@ class PtNewsroomFloor extends SgComponent {
             const cartoes = (this._d.quadro || {})[col.id] || []
             const meus = b ? cartoes.filter(c => b.cartoes.includes(c.id)) : cartoes
             const el = document.createElement('div')
-            /* Com uma bancada escolhida, as colunas que não são dela esbatem-se em vez de
-               desaparecerem: o quadro tem de continuar a ser o mesmo quadro. */
+            /* With a bench selected, the columns that are not its own fade rather than
+               disappear: the board has to stay the same board. */
             el.className = (b && col.quem_move !== b.id) ? 'col esbatida' : 'col'
 
             const cab = document.createElement('div')

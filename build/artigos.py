@@ -1,32 +1,34 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — os artigos: ler as pastas datadas, derivar o índice, construir as páginas.
+"""pt.newsroom.sgit.ai — the articles: read the dated folders, derive the index, build the pages.
 
     python3 build/artigos.py
 
-Um artigo é uma PASTA, não um ficheiro:
+An article is a FOLDER, not a file:
 
-    artigos/<aaaa>/<mm>/<dd>/<slug>/
-        artigo.json         estado, secção, título, entrada, em que fontes assenta
-        artigo.md           a prosa, com cada afirmação marcada [[fonte:<captura>/<pagina>]]
-        afirmacoes.json     o registo de verificação de cada afirmação
-        proveniencia.json   que execução, que agente, que modelo, por que ordem
-        index.html          gerado aqui
+    artigos/<yyyy>/<mm>/<dd>/<slug>/
+        artigo.json         state, section, title, standfirst, which sources it stands on
+        artigo.md           the prose, every claim marked [[fonte:<capture>/<page>]]
+        afirmacoes.json     the verification record for each claim
+        proveniencia.json   which run, which agent, which model, in what order
+        index.html          generated here
 
-Porque uma pasta. Um artigo não é só o texto: é o texto mais os bytes em que assenta, mais quem
-verificou cada afirmação contra esses bytes, mais o rasto de quem o produziu. Num ficheiro único,
-três dessas quatro coisas acabam noutro sítio — e quando acabam noutro sítio, deixam de concordar.
+Why a folder. An article is not only the text: it is the text plus the bytes it stands on, plus
+whoever checked each claim against those bytes, plus the trail of who produced it. In a single
+file, three of those four end up somewhere else — and once they are somewhere else, they stop
+agreeing.
 
-Porque a data no caminho. Um endereço construível, que diz quando o artigo foi feito sem que
-ninguém abra o índice. O §8 do resumo é explícito: um dos assistentes com que esta redação
-trabalha não segue ligações dentro de uma página que obteve, por isso os endereços têm de ser
-previsíveis a partir do que já se sabe.
+Why the date in the path. A constructible address, which says when the article was made without
+anybody opening the index. §8 of the brief is explicit: one of the assistants this newsroom works
+with does not follow links inside a page it fetched, so addresses have to be predictable from what
+is already known.
 
-**A data no caminho é a data do MATERIAL, não a da publicação.** `publicado_em` é um campo
-separado, escrito pelo editor de registo, e é a única coisa que põe um artigo na primeira página.
+**The date in the path is the date of the MATERIAL, not of publication.** `publicado_em` is a
+separate field, written by the editor of record, and it is the only thing that puts an article on
+the front page.
 
-O ÍNDICE É DERIVADO. `dados/historias.json` é construído a partir destas pastas e não se edita —
-a mesma regra que governa as organizações, derivadas dos cartões de orador. Um índice escrito à
-mão acaba por discordar das pastas, e nada parece avariado.
+THE INDEX IS DERIVED. `dados/historias.json` is built from these folders and is not edited — the
+same rule that governs the organisations, derived from the speaker cards. A hand-written index ends
+up disagreeing with the folders, and nothing looks broken.
 """
 import json
 import re
@@ -48,7 +50,7 @@ ROT_ESTADO = {k: (r, cor) for k, r, _, cor in ESTADOS}
 
 
 def ler_todos():
-    """Cada pasta de artigo, com os seus quatro ficheiros, ordenada por data e slug."""
+    """Every article folder, with its four files, ordered by date and slug."""
     saida = []
     for meta in sorted(ARTIGOS.rglob("artigo.json")):
         d = meta.parent
@@ -66,7 +68,7 @@ def ler_todos():
 
 
 def marcas_de_fonte(prosa):
-    """Os identificadores [[fonte:…]] que a prosa cita, pela ordem em que aparecem."""
+    """The [[fonte:…]] identifiers the prose cites, in the order they appear."""
     return list(dict.fromkeys(re.findall(r"\[\[fonte:([^\]]+)\]\]", prosa or "")))
 
 
@@ -85,7 +87,7 @@ def pagina_artigo(a, registo):
         f'<h1 class="h-lead" style="max-width:19em">{e(a["titulo"])}</h1>'
         f'<p class="std" style="max-width:42em;padding:16px 0 0">{e(a["entrada"])}</p>')
 
-    # o estado, dito na própria página e não só no índice
+    # the state, said on the page itself and not only in the index
     if publicado:
         linha_estado = (
             f'<p class="xs" style="padding-top:10px">Publicado em '
@@ -100,7 +102,7 @@ def pagina_artigo(a, registo):
             f'primeira página nem em nenhuma secção. Está aqui, com o seu endereço definitivo, '
             f'porque o trabalho é público enquanto se faz — que é o ponto deste site.</p></div>')
 
-    # a prosa, ou a ausência dela dita como ausência
+    # the prose, or its absence stated as an absence
     if a.get("prosa"):
         corpo_prosa = f'<div class="prosa" style="max-width:42em;padding:22px 0">{md_para_html(a["prosa"], "../../../../../")}</div>'
     else:
@@ -116,7 +118,7 @@ def pagina_artigo(a, registo):
             f'escrever antes de o ter seria o contrário de tudo o que este site diz que faz.</p>'
             f'{b_tem}{b_falta}</div>')
 
-    # o que o artigo expressamente não afirma
+    # what the article expressly does not claim
     nao = "".join(f'<li class="sm">{e(x)}</li>' for x in a.get("o_que_nao_afirma", []))
     bloco_nao = (
         f'<div class="rule" style="padding:22px 0 8px"><div class="sect">O que este artigo não '
@@ -125,7 +127,7 @@ def pagina_artigo(a, registo):
         f'diferença entre o que uma fonte sustenta e o que um leitor pode concluir é onde uma '
         f'publicação como esta faz dano sem dizer nada falso.</p>' if nao else "")
 
-    # as afirmações, com a fonte e o hash ao lado
+    # the claims, with the source and the hash beside each
     ver = a.get("verificacao") or {}
     linhas_af = []
     for af in ver.get("afirmacoes", []):
@@ -155,7 +157,7 @@ def pagina_artigo(a, registo):
             f'<th style="width:200px">Refeita</th></tr></thead><tbody>{"".join(linhas_af)}</tbody>'
             f'</table></div>')
 
-    # a proveniência: como o artigo veio a existir
+    # the provenance: how the article came to exist
     prov = a.get("proveniencia") or {}
     linhas_prov = []
     for p in prov.get("cronologia", []):
@@ -212,9 +214,10 @@ def pagina_artigo(a, registo):
         f'document.querySelectorAll(".fich").forEach(function(x){{'
         f'x.classList.toggle("ok",x===b)}});}});</script>')
 
-    # O mapa do trabalho dos agentes. Vive por baixo da proveniência porque responde à pergunta
-    # seguinte: a proveniência diz COMO o artigo veio a existir, e isto diz QUEM disse o quê pelo
-    # caminho — incluindo o que ficou em aberto e o que chegou de fora e ainda não foi decidido.
+    # The map of the agents' work. It sits below the provenance because it answers the
+    # next question: the provenance says HOW the article came to exist, and this says WHO said
+    # what along the way — including what was left open and what arrived from outside and has not
+    # been decided.
     bloco_com = ""
     if (ROOT / a["pasta"] / "comentarios.json").exists():
         bloco_com = (

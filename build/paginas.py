@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — a casca de cada página: cabeça, mancheta, navegação, blocos de casa.
+"""pt.newsroom.sgit.ai — every page's shell: head, masthead, navigation, house blocks.
 
-Definida uma vez aqui e aplicada em todo o lado por `build.py`. É o que impede o site de derivar
-à medida que cresce: o distintivo de versão, a ligação canónica, o aviso de que isto é feito por
-agentes, o bloco «para um agente» que o portão do site exige em cada página, e a ligação para o
-aviso de proteção de dados em cada página que nomeia alguém.
+Defined once here and applied everywhere by `build.py`. It is what stops the site drifting as it
+grows: the version badge, the canonical link, the notice that this is made by agents, the "for an
+agent" block the site gate requires on every page, and the link to the data-protection notice on
+every page that names somebody.
 
-Nada aqui é escrito à mão numa página. Uma página gerada que alguém edita à mão volta a ser
-gerada por cima na construção seguinte, e a edição perde-se — por isso não se edita: edita-se
-isto.
+Nothing here is hand-written into a page. A generated page somebody edits by hand is generated over
+on the next build and the edit is lost — so you do not edit it: you edit this.
 """
 import html
 import json
@@ -22,7 +21,7 @@ VERSAO = (ROOT / "admin" / "build" / "version.txt").read_text(encoding="utf-8").
 GH = "https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT"
 PAI = "https://newsroom.sgit.ai"
 
-# As oito secções do resumo, mais o registo e o grafo. É a nav do desenho, pela ordem do desenho.
+# The brief's eight sections, plus the register and the graph. The design's nav, in its order.
 SECCOES = [
     ("empresas",      "Empresas"),
     ("protagonistas", "Protagonistas"),
@@ -33,11 +32,11 @@ SECCOES = [
     ("diaspora",      "Diáspora"),
     ("eventos",       "Eventos"),
 ]
-# «Entidades» está na mancheta e não no rodapé porque é uma forma de percorrer o jornal, e
-# não maquinaria: é a porta para os duzentos nomes de que este site já sabe alguma coisa.
+# «Entidades» is in the masthead and not the footer because it is a way of walking the paper, not
+# machinery: it is the door to the two hundred names this site already knows something about.
 EXTRA = [("entidades", "Entidades"), ("registo", "Registo"), ("grafo", "Grafo")]
 
-# As páginas de mecânica, no rodapé e não na mancheta.
+# The machinery pages, in the footer rather than the masthead.
 RODAPE = [
     ("artigos", "Os artigos"), ("metodo", "Método"), ("equipa", "A redação"),
     ("entregas", "Entregas de investigação"), ("redacao", "A mesa"),
@@ -45,14 +44,15 @@ RODAPE = [
     ("sobre", "Sobre e limites"),
 ]
 
-# A consola de operações. No rodapé como maquinaria, e não na mancheta: não é a publicação, e está
-# em inglês de propósito — o seu público é quem opera a redação, não quem lê o jornal.
+# The operations console. In the footer as machinery, not in the masthead: it is not the
+# publication, and it is in English on purpose — its audience is whoever operates the newsroom,
+# not whoever reads the paper.
 BASTIDORES = ("backoffice", "Back office (EN)")
 
-# O TÍTULO É A MATÉRIA, NÃO O ENDEREÇO. Até à v0.2.0 a mancheta dizia «pt.newsroom.sgit.ai», que
-# é onde o site está e não o que o site é. Um leitor que chega não quer saber o domínio: quer
-# saber sobre o que é. O endereço passa a subtítulo, onde continua a ser útil — é por ele que se
-# volta — e o nome próprio da publicação é a coisa que ela mapeia.
+# THE TITLE IS THE SUBJECT, NOT THE ADDRESS. Until v0.2.0 the masthead said «pt.newsroom.sgit.ai»,
+# which is where the site is and not what the site is. A reader arriving does not care about the
+# domain: they want to know what it is about. The address becomes the subtitle, where it stays
+# useful — it is how you come back — and the publication's proper name is the thing it maps.
 TITULO = "O Ecossistema Português de IA"
 SUBTITULO = "pt.newsroom.sgit.ai"
 
@@ -119,14 +119,13 @@ def mancheta(aqui, raiz):
 
 
 def bloco_agente(rel, fontes_n=None, raiz=""):
-    """O bloco «para um agente». O portão do site exige-o em cada página, e a razão é a mesma por
-    que este site existe: uma página que uma máquina não consegue ler é uma página que, para
-    metade dos seus leitores, não existe.
+    """The "for an agent" block. The site gate requires it on every page, for the same reason this
+    site exists: a page a machine cannot read is a page that, for half its readers, does not exist.
 
-    As ligações são RELATIVAS e não ancoradas na raiz. Uma ligação `/llms.txt` só resolve quando o
-    site está servido a partir da raiz de um domínio, e este é construído e conferido como uma
-    árvore de ficheiros — o portão 2 do validador percorre cada href e falha quando um deles não
-    existe no disco. Relativas, funcionam nos dois sítios."""
+    The links are RELATIVE, not anchored at the root. A `/llms.txt` link only resolves when the
+    site is served from the root of a domain, and this one is built and checked as a tree of files
+    — the validator's second check walks every href and fails when one is not on disk. Relative,
+    they work in both places."""
     extra = (f' Esta página assenta em {fontes_n} ficheiro(s) congelado(s), '
              f'cada um com o seu SHA-256 no registo.' if fontes_n else "")
     return (
@@ -141,14 +140,14 @@ def bloco_agente(rel, fontes_n=None, raiz=""):
 
 
 def bloco_declaracao(nomeia_pessoas=False, raiz="/"):
-    """UMA LINHA, e uma página onde ela é explicada.
+    """ONE LINE, and a page where it is explained.
 
-    Até à v0.2.0 isto era um parágrafo de cinco linhas em cada página do site. Repetido trinta
-    vezes, um aviso deixa de ser lido: o leitor aprende a forma do bloco e salta-o, que é o
-    oposito do que um aviso é para fazer. Passa a ser uma linha no rodapé, com o peso certo, e a
-    explicação vive uma vez em /proveniencia/ — que é também onde está a coisa que esta publicação
-    tem de mais interessante para dizer sobre si própria, e que não cabia num bloco repetido:
-    QUE modelo escreveu o quê, de que fornecedor, e quando."""
+    Until v0.2.0 this was a five-line paragraph on every page of the site. Repeated thirty times, a
+    notice stops being read: the reader learns the shape of the block and skips it, which is the
+    opposite of what a notice is for. It becomes one line in the footer, at the right weight, and
+    the explanation lives once at /proveniencia/ — which is also where the most interesting thing
+    this publication has to say about itself lives, and it never fitted in a repeated block: WHICH
+    model wrote what, from which provider, and when."""
     aviso = (f' Esta página nomeia pessoas — '
              f'<a href="{raiz}aviso/">o que é detido sobre elas e como sair</a>.'
              if nomeia_pessoas else "")
@@ -185,10 +184,11 @@ def rodape(raiz):
 
 
 # --------------------------------------------------- ligação de entidades ---
-# O índice é lido uma vez e guardado. É `dados/entidades.json`, escrito por `build/entidades.py`,
-# e traz a fórmula que decide o que é uma menção. Se não existir — a primeira construção de um
+# The index is read once and cached. It is `dados/entidades.json`, written by
+# `build/entidades.py`, and it carries the formula that decides what a mention is. If it does not
+# exist — the first build of a
 # repositório novo, ou alguém a correr build.py isolado — o site constrói-se na mesma, sem
-# ligações. Uma passagem que se recusasse a correr sem ela seria uma dependência escondida.
+# links. A pass that refused to run without it would be a hidden dependency.
 _ENTIDADES = None
 _PADRAO = None
 
@@ -202,30 +202,30 @@ def _indice_entidades():
             if x.get("ligavel_em_prosa"):
                 _ENTIDADES[e(x["nome"])] = (x["url"], x["no"])
         if _ENTIDADES:
-            # Os nomes mais longos primeiro: senão «Startup Summit» apanhava a menção antes de
-            # «Startup Summit Lisbon 2026» e ligava ao nó errado por ser o primeiro a casar.
+            # Longest names first: otherwise «Startup Summit» would catch the mention before
+            # «Startup Summit Lisbon 2026» and link the wrong node just by matching first.
             alt = "|".join(re.escape(n) for n in
                            sorted(_ENTIDADES, key=len, reverse=True))
             _PADRAO = re.compile(r"(?<!\w)(" + alt + r")(?!\w)")
     return _ENTIDADES, _PADRAO
 
 
-# O que uma ligação de entidade NUNCA pode atravessar. Uma ligação dentro de outra ligação é HTML
-# inválido e o navegador desfá-la de maneiras diferentes; um nome dentro de `<code>` é um caminho
-# de ficheiro e não uma menção; e o interior de uma marca é atributo, onde um `<a>` seria texto a
+# What an entity link may NEVER cross. A link inside another link is invalid HTML and browsers
+# unpick it differently; a name inside `<code>` is a file path and not a mention; and the inside of
+# a tag is attribute territory, where an `<a>` would be extra text
 # mais dentro de aspas. O `re.split` com captura devolve texto e marcação a alternar, e só o texto
-# é tocado.
+# is touched.
 _MARCACAO = re.compile(r"(<a\b[^>]*>.*?</a>|<code\b[^>]*>.*?</code>|<[^>]+>)", re.S | re.I)
 
 
 def ligar_entidades(corpo, raiz, excepto=None):
-    """Transforma a primeira menção de cada entidade numa ligação para a página dela.
+    """Turn each entity's first mention into a link to its page.
 
-    A fórmula está publicada em `dados/entidades.json`, no campo `formula`, e esta função é a sua
-    única implementação. O que ela diz é modesto de propósito: uma ligação aqui significa «o texto
-    contém este nome, tal e qual como a fonte congelada o escreve», e não «este texto é sobre esta
-    entidade». A diferença é a mesma que existe entre uma etiqueta do léxico e uma caracterização,
-    e é a razão pela qual as duas coisas são fórmulas publicadas neste sítio.
+    The formula is published in `dados/entidades.json`, under `formula`, and this function is its
+    only implementation. What it says is deliberately modest: a link here means "the text contains
+    this name, exactly as the frozen source writes it", not "this text is about this entity". The
+    difference is the same one that separates a lexicon tag from a characterisation, and it is why
+    both are published formulas on this site.
     """
     indice, padrao = _indice_entidades()
     if not padrao:
@@ -243,7 +243,7 @@ def ligar_entidades(corpo, raiz, excepto=None):
         return f'<a class="ent" href="{raiz}{url}">{nome}</a>'
 
     partes = _MARCACAO.split(corpo)
-    for i in range(0, len(partes), 2):        # os índices pares são texto; os ímpares, marcação
+    for i in range(0, len(partes), 2):        # even indices are text; odd ones are markup
         if partes[i]:
             partes[i] = padrao.sub(trocar, partes[i])
     return "".join(partes)
@@ -252,7 +252,7 @@ def ligar_entidades(corpo, raiz, excepto=None):
 def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
            fontes_n=None, com_declaracao=True, extra_head="", extra_body="",
            ligar=True, excepto=None):
-    """Uma página inteira. `rel` é o caminho relativo à raiz, e decide a profundidade."""
+    """A whole page. `rel` is the path relative to the root, and it decides the depth."""
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
     if ligar:
@@ -311,19 +311,18 @@ def escrever(rel, texto):
 
 
 def md_para_html(md, raiz=""):
-    """O renderizador de markdown das histórias. Pequeno de propósito: uma história é prosa com
-    marcas de fonte, e mais nada. As marcas `[[fonte:<id>]]` tornam-se fichas ligadas ao registo.
+    """The markdown renderer for stories. Deliberately small: a story is prose with source marks and
+    nothing else. The `[[fonte:<id>]]` marks become chips linked into the register.
 
-    `raiz` é o prefixo até à raiz do site. Um artigo vive em
-    `artigos/<aaaa>/<mm>/<dd>/<slug>/` — cinco níveis — e uma ficha de fonte escrita com um
-    caminho fixo funcionaria numa página e não na outra. O portão de ligações do site apanha-o,
-    e apanhou.
+    `raiz` is the prefix back to the site root. An article lives at
+    `artigos/<yyyy>/<mm>/<dd>/<slug>/` — five levels down — and a source chip written with a fixed
+    path would work on one page and not the other. The site's link gate catches that, and did.
 
-    UM PARÁGRAFO É SEPARADO POR UMA LINHA EM BRANCO, não por uma quebra de linha. A prosa deste
-    site é escrita com a linha cortada aos 96 caracteres, como todo o resto do repositório; uma
-    versão anterior desta função fazia de cada LINHA um parágrafo, e o resultado era prosa partida
-    a meio da frase e um `**negrito**` que atravessava a quebra e nunca fechava. As linhas de um
-    parágrafo são juntadas antes de serem formatadas, que é o que o markdown sempre quis dizer."""
+    A PARAGRAPH IS SEPARATED BY A BLANK LINE, not by a line break. This site's prose is written
+    wrapped at 96 characters, like the rest of the repository; an earlier version of this function
+    made every LINE a paragraph, and the result was prose broken mid-sentence and a `**bold**` that
+    crossed the break and never closed. A paragraph's lines are joined before being formatted,
+    which is what markdown always meant."""
     saida, lista, paragrafo = [], False, []
 
     def fechar_paragrafo():

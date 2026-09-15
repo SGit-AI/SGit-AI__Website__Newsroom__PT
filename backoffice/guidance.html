@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guidance · pt.newsroom back office</title>
+<meta name="description" content="What to read before changing anything on this site, and who you are when you do.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/guidance.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/guidance.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../backoffice/agents.html">agents</a> ·
+       <a href="../backoffice/guidance.html">guidance</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.8.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Guidance</div></div>
+<h1 class="h-2" style="max-width:30em">What to read before you change anything here — human or
+agent.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 8px"><b>Everything except what a visitor reads
+is in English.</b> One test decides it: would a visitor to pt.newsroom.sgit.ai read this string on
+the site? Yes means European Portuguese under AO90; no means English. That covers code, comments,
+commit messages, this console, the release history, API paths and browser-side state. It does not
+cover the prose, the entity names, or the ontology's readings — those are what the reader reads.</p>
+<p class="sm" style="max-width:46em;padding-bottom:18px"><b>A rule without a gate is decoration.</b>
+Every principle below names the thing that stops the build when it is broken, and the one principle
+that has no gate says so in those words. If you add a rule, add the gate in the same change — and
+break it on purpose first, because a gate that has never failed is a comment.</p>
+
+<div class="g4" style="padding-bottom:30px"><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">01</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/index.md">Start here</a></h3><p class="sm">The one-minute version, the reading order, and what not to build. Most tasks end at the third item on that list.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">02</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/language.md">The language rule</a></h3><p class="sm">One test decides every naming question: would a visitor read this string on the site? The most commonly broken rule here, including by the agent that wrote most of this pipeline.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">03</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/principles.md">The nine principles</a></h3><p class="sm">Each one names the gate that enforces it. The one principle with no gate says so in those words.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">04</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/before-you-change.md">Before you change anything</a></h3><p class="sm">The checklist: know who you are, read in order, find out who else is working here, check the tree is green before you touch it, build with build/tudo.py, record what you did.</p></div></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Who you are</div></div>
+<p class="sm" style="max-width:48em;padding-bottom:12px">More than one agent works here and they
+are not interchangeable. Claim an identity, name it in your run record, and the gates hold you to
+its write scope. If no identity fits the work, that is a message to the editor, not a licence to
+invent one.</p>
+<div class="rolar"><table><thead><tr><th style="width:130px">Agent</th>
+  <th style="width:120px">Role</th><th>Writes in</th><th style="width:210px">Declares</th>
+  <th style="width:150px">Mandate</th></tr></thead><tbody><tr><td class="sm"><b>Foundry</b></td><td class="sm">Platform</td><td class="mono xs">build/, admin/build/, assets/…</td><td class="mono xs">especie: construcao</td><td class="mono xs"><a href="docs.html#agents/foundry/ROLE.md">ROLE</a> · <a href="docs.html#agents/foundry/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dragnet</b></td><td class="sm">Research</td><td class="mono xs">fontes/, dados/registo.json, dados/ (extracted)…</td><td class="mono xs">departamento: pesquisa</td><td class="mono xs"><a href="docs.html#agents/dragnet/ROLE.md">ROLE</a> · <a href="docs.html#agents/dragnet/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Copydesk</b></td><td class="sm">Newsroom</td><td class="mono xs">conteudo/, artigos/**/artigo.md, artigos/**/artigo.json</td><td class="mono xs">departamento: redacao</td><td class="mono xs"><a href="docs.html#agents/copydesk/ROLE.md">ROLE</a> · <a href="docs.html#agents/copydesk/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Proof</b></td><td class="sm">Verification</td><td class="mono xs">dados/verificacoes/, artigos/**/afirmacoes.json</td><td class="mono xs">departamento: verificacao</td><td class="mono xs"><a href="docs.html#agents/proof/ROLE.md">ROLE</a> · <a href="docs.html#agents/proof/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dinis Cruz</b></td><td class="sm">Editor of record</td><td class="mono xs">redacao/decisoes/, redacao/revisoes/, conteudo/…</td><td class="mono xs">departamento: editor</td><td class="mono xs"><a href="docs.html#agents/editor/ROLE.md">ROLE</a> · <a href="docs.html#agents/editor/MANDATE.md">MANDATE</a></td></tr></tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">The rest of the estate</div></div>
+<p class="sm" style="max-width:48em">This repository is an instance of an argument made elsewhere,
+not a restatement of it: where these answer a question, we link rather than copy.
+<a href="https://sgit.ai/docs/guidance/index.html">sgit.ai/docs/guidance</a> ·
+<a href="https://coding.sgit.ai">coding.sgit.ai</a> — the house style, derived by counting rather
+than from documentation · <a href="https://nfrs.sgit.ai">nfrs.sgit.ai</a> — version control,
+reliability, resilience, security, backups, consistency, explainability, documentation ·
+<a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> — the parent publication.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/guidance.html</code> · version <span class="ver">v0.8.0</span>.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — as páginas que nasceram do segundo resumo: a API, a proveniência.
+"""pt.newsroom.sgit.ai — the pages that came out of the second brief: the API, the provenance.
 
     python3 build/paginas_extra.py
 
-Estão num ficheiro à parte de `build/build.py` por uma razão simples: `build.py` constrói o
-jornal, e estas duas não são jornal. Uma é a superfície de dados; a outra é a publicação a falar
-sobre si própria. Misturá-las com as páginas de leitura tornaria os dois ficheiros piores.
+They live apart from `build/build.py` for a simple reason: `build.py` builds the newspaper, and
+these two are not newspaper. One is the data surface; the other is the publication talking about
+itself. Mixing them in with the reading pages would make both files worse.
 """
 import json
 from pathlib import Path
@@ -93,7 +93,7 @@ def proveniencia():
     equipa, hist = carregar("equipa.json"), carregar("historias.json")
     ent, reg = carregar("entregas.json"), carregar("registo.json")
 
-    # Quem escreveu o quê, contado a partir das pastas dos artigos — não de uma lista.
+    # Who wrote what, counted from the article folders — not from a list.
     fornecedores = {}
     for h in hist.get("historias", []):
         f = ROOT / h["pasta"] / "proveniencia.json"

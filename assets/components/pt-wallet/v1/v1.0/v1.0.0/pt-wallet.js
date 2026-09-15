@@ -25,8 +25,8 @@
 import { SgComponent } from '../../../../base/v1/v1.0/v1.0.0/sg-component.js'
 
 const KEY = 'pt.newsroom.wallet.v1'
-const TOPUP = 500          // cêntimos — €5,00
-const PRICE = 1            // cêntimos por página
+const TOPUP = 500          // cents — €5.00
+const PRICE = 1            // cents per page
 const LOG_MAX = 40
 
 const euros = c => `€${(c / 100).toFixed(2).replace('.', ',')}`

@@ -113,9 +113,9 @@ def mtime(p):
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(p.stat().st_mtime))
 
 
-# --- a recusa, aplicada onde os dados são lidos -------------------------------
+# --- the refusal, applied where the data is READ ------------------------------
 # Artigo 24(4) da Lei 58/2019 proíbe a divulgação de moradas e contactos de pessoas singulares
-# que não sejam já geralmente conhecidos. Esta é a aplicação no ponto de leitura.
+# that are not already generally known. This is the enforcement at the point of reading.
 CONTACTO = {
     "email": re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"),
     "telefone": re.compile(r"\+\d[\d ()‑-]{7,}\d"),
@@ -412,11 +412,12 @@ def registar(caps):
     byte copy we hold, so anything else would be a bug in this function."""
     por_alvo = {a["id"]: a for a in fontes.alvos()}
 
-    # As fontes que uma entrega de investigação nomeia são congeladas por `build/entregas.py` para
-    # `<captura>/entregas/<id-da-entrega>/`. Entram no registo como qualquer outra fonte — são
-    # bytes que temos em mãos, com hash — mas o grupo diz de onde vieram, e o publicador vem da
-    # própria entrega e não de `fontes.py`, que não as conhece. O que NÃO muda por estarem aqui: a
-    # afirmação que assenta numa delas continua a ser uma pista até o editor a aprovar.
+    # The sources a research delivery names are frozen by `build/entregas.py` into
+    # `<capture>/entregas/<delivery-id>/`. They enter the register like any other source — they are
+    # bytes we hold, with a hash — but the group says where they came from, and the publisher comes
+    # from the delivery itself rather than from `fontes.py`, which does not know them. What being
+    # here does NOT change: a claim standing on one of them stays a lead until the editor approves
+    # it.
     por_entrega = {}
     ent_dir = ROOT / "redacao" / "entregas"
     for f in sorted(ent_dir.rglob("*.json")) if ent_dir.exists() else []:
@@ -488,9 +489,10 @@ def main():
     orgs = construir_orgs(pessoas)
     sessoes, palcos = sessoes_em(ultima)
 
-    # --- o que mexeu entre capturas ------------------------------------------
-    # Numa lista publicada antes de as portas abrirem, a mudança É a notícia. A razão de uma
-    # saída fica em branco: retirada, conflito de agenda, registo duplicado e erro de edição são
+    # --- what moved between captures -----------------------------------------
+    # In a list published before the doors open, the change IS the news. The reason for a
+    # departure is left blank: a withdrawal, a diary clash, a duplicate entry and an editing slip
+    # are
     # indistinguíveis de fora (CLAUDE.md regra 5).
     mudancas = []
     for a, b in zip(caps, caps[1:]):

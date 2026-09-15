@@ -1,25 +1,25 @@
 /**
- * pt-comment-map — quem disse o quê sobre um artigo, e de que ficheiro isso saiu.
+ * pt-comment-map — who said what about an article, and which file it came out of.
  *
- * Duas vistas de uma coisa só. Em cima, a grelha: agente por espécie de contribuição, com os
- * números. Em baixo, o fluxo por ordem, filtrável por agente. A grelha responde a «quem trabalhou
- * nisto»; o fluxo responde a «e o que é que disseram».
+ * Two views of one thing. Above, the grid: agent by kind of contribution, with the numbers. Below,
+ * the stream in order, filterable by agent. The grid answers "who worked on this"; the stream
+ * answers "and what did they say".
  *
- * Cada entrada mostra o campo `de` — o ficheiro e o caminho de onde foi derivada. Isso não é um
- * detalhe técnico deixado à vista por preguiça: é a diferença entre um registo de trabalho e uma
- * encenação de um. Um comentário que não diga de onde veio não é distinguível de um comentário
- * inventado, e num sítio construído sobre proveniência essa distinção é a única que importa.
+ * Every entry shows its `de` field — the file and path it was derived from. That is not a
+ * technical detail left on display out of laziness: it is the difference between a record of work
+ * and a staging of one. A comment that does not say where it came from is indistinguishable from
+ * an invented one, and on a site built on provenance that distinction is the only one that counts.
  *
- * Lê `comentarios.json` da pasta do artigo, ou `dados/comentarios.json` para a vista agregada da
- * consola de operações. As duas têm a mesma forma, de propósito.
+ * Reads `comentarios.json` from the article's folder, or `dados/comentarios.json` for the
+ * aggregate view in the operations console. The two have the same shape, deliberately.
  *
  * @module pt-comment-map
  * @version 1.0.0
  */
 import { SgComponent } from '../../../../base/v1/v1.0/v1.0.0/sg-component.js'
 
-/* Estados que contam como por fechar. Um estado que este mapa não conheça conta como fechado e
-   aparece na mesma no fluxo — o contrário faria uma barra de alerta nascer de um valor novo. */
+/* States that count as still open. A state this map does not know counts as closed and still
+   appears in the stream — the opposite would let a new value spawn an alert bar on its own. */
 const ABERTOS = new Set(['aberto', 'por_decidir', 'por_rever', 'por_verificar'])
 
 class PtCommentMap extends SgComponent {

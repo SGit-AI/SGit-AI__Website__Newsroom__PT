@@ -1,31 +1,31 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — uma página por entidade, e o índice que faz uma menção virar ligação.
+"""pt.newsroom.sgit.ai — a page per entity, and the index that turns a mention into a link.
 
-    python3 build/entidades.py        # depois de graph.py, antes de build.py e artigos.py
+    python3 build/entidades.py        # after graph.py, before build.py and artigos.py
 
-PORQUE É QUE ISTO EXISTE. Até aqui o site escrevia «Comissão Europeia» em prosa e o nome não ia
-dar a lado nenhum. Um grafo cujos nós não têm endereço é um ficheiro, não um site: o leitor vê o
-nome, quer saber o que mais há por trás dele, e não tem por onde clicar. Esta passagem dá a cada
-nó do grafo que é uma COISA DO MUNDO — uma pessoa, uma organização, uma instituição, um editor,
-um tema, um lugar — uma página própria em `entidades/<tipo>/<id>/`, montada inteiramente a partir
-das arestas que já existem.
+WHY THIS EXISTS. Until now the site wrote «Comissão Europeia» in prose and the name led nowhere. A
+graph whose nodes have no address is a file, not a site: the reader sees the name, wants to know
+what else is behind it, and has nothing to click. This pass gives every graph node that is a THING
+IN THE WORLD — a person, an organisation, an institution, a publisher, a topic, a place — a page of
+its own at `entidades/<type>/<id>/`, assembled entirely from edges that already exist.
 
-E a página lê-se em voz alta, porque o §6 do resumo obrigou o grafo a isso: cada aresta traz uma
-`leitura` em português com `{s}` e `{t}`, e a página de uma entidade é literalmente a lista das
-frases em que ela entra. Foi por isto que valeu a pena recusar `relacionado_com`.
+And the page reads aloud, because §6 of the brief forced the graph to: every edge carries a
+Portuguese `leitura` with `{s}` and `{t}`, and an entity page is literally the list of sentences it
+appears in. This is what made refusing `relacionado_com` worth it.
 
-O QUE ESTA PASSAGEM NÃO FAZ
+WHAT THIS PASS DOES NOT DO
 
-  · Não escreve uma linha sobre ninguém. Tudo o que aparece numa página de entidade ou é um campo
-    verbatim da fonte congelada, ou é uma aresta do grafo lida em voz alta pela leitura publicada
-    na ontologia. Não há resumo, não há adjetivo, não há «é conhecido por».
-  · Não caracteriza uma pessoa nomeada (§4 do resumo). A página de uma Pessoa mostra o que a
-    fonte publica — o nome, o papel LISTADO, a organização LISTADA — e as arestas. Nada mais.
-  · Não inventa um nome. O rótulo é o do nó, que veio dos bytes.
-  · Não liga um nome que não esteja nos bytes. Ver `LIGAVEL` abaixo: uma entidade só entra no
-    índice de ligação se o seu nome for encontrado, tal e qual, numa cópia congelada. Uma entidade
-    que falhe isso continua a ter página — existe no grafo — mas nunca é ligada automaticamente em
-    prosa, e a sua página diz que o nome não foi encontrado nos bytes.
+  · It writes not one line about anybody. Everything on an entity page is either a verbatim field
+    from the frozen source, or a graph edge read aloud through the reading published in the
+    ontology. No summary, no adjective, no "is known for".
+  · It does not characterise a named person (§4 of the brief). A Pessoa's page shows what the
+    source publishes — the name, the LISTED role, the LISTED organisation — and the edges. Nothing
+    else.
+  · It invents no name. The label is the node's, which came from the bytes.
+  · It does not link a name that is not in the bytes. See `ligavel` below: an entity enters the
+    linking index only if its name is found, exactly as written, in a frozen copy. An entity that
+    fails that still has a page — it exists in the graph — but is never linked automatically in
+    prose, and its page says the name was not found in the bytes.
 """
 import html as _html
 import json
@@ -40,23 +40,23 @@ ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 CONGELADAS = ROOT / "fontes" / "congeladas"
 
-# Os tipos que ganham página. Ficam de fora os que já têm endereço noutro lado (Fonte e Captura
-# vivem em /registo/, Historia em /artigos/) e os que não são uma coisa que se possa visitar
-# (Sessao é um item de um programa, e o programa está em /eventos/).
+# The types that get a page. Left out: those that already have an address elsewhere (Fonte and
+# Captura live in /registo/, Historia in /artigos/) and those that are not a thing you can visit
+# (Sessao is an item of a programme, and the programme is in /eventos/).
 TIPOS_COM_PAGINA = ["Pessoa", "Organizacao", "Instituicao", "Editor", "Evento", "Local", "Palco",
                     "Tema", "Tecnologia", "Setor", "Produto", "Servico", "Ideia"]
 
-# A fórmula de ligação, publicada — porque o §6 diz que uma classificação é uma fórmula publicada
-# ou não acontece, e decidir que uma sequência de letras numa frase É uma entidade é classificar.
-MIN_NOME = 6          # «IA» e «AI» são sequências, não menções: ligá-las encheria o site de ruído
-MAX_POR_PAGINA = 1    # liga-se a primeira menção de cada entidade e mais nenhuma
+# The linking formula, published — because §6 says a classification is a published formula or it
+# does not happen, and deciding that a run of letters in a sentence IS an entity is classifying.
+MIN_NOME = 6          # «IA» and «AI» are sequences, not mentions: linking them would flood the site
+MAX_POR_PAGINA = 1    # the first mention of each entity is linked, and no other
 
-# Os tipos que uma menção em prosa pode ligar. São os que NOMEIAM uma coisa própria. Ficam de fora
-# os tipos derivados pelo léxico — Tema, Setor, Tecnologia, Ideia, Serviço, Produto — porque os
-# seus rótulos são substantivos comuns: «Educação», «Hardware», «Fundraising». Ligar a palavra
-# «hardware» numa frase à página de uma Tecnologia seria dizer que aquela palavra é uma referência
-# àquele nó, e não é: é a palavra. Esses nós continuam a ter página e continuam a ser alcançáveis
-# pelo índice e pelas arestas — só não se impõem à prosa.
+# The types a mention in prose may link. They are the ones that NAME a thing of their own. Left
+# out are the types derived by the lexicon — Tema, Setor, Tecnologia, Ideia, Servico, Produto —
+# because their labels are common nouns: «Educação», «Hardware», «Fundraising». Linking the word
+# «hardware» in a sentence to a Tecnologia page would be saying that word is a reference to that
+# node, and it is not: it is the word. Those nodes keep their pages and stay reachable from the
+# index and from the edges — they just do not impose themselves on the prose.
 TIPOS_EM_PROSA = {"Pessoa", "Organizacao", "Instituicao", "Editor", "Evento", "Local", "Palco"}
 
 FORMULA = {
@@ -93,9 +93,9 @@ def carregar(n):
 
 
 def ident_api(x):
-    """O mesmo identificador que `build/api.py` dá ao ficheiro de um item. Duplicado de propósito
-    e não importado: a API é construída DEPOIS desta passagem, e uma dependência de import entre
-    as duas tornaria a ordem de construção mais frágil do que esta linha de código repetida."""
+    """The same identifier `build/api.py` gives an item's file. Duplicated on purpose rather than
+    imported: the API is built AFTER this pass, and an import dependency between the two would make
+    the build order more fragile than this one repeated line of code."""
     base = unicodedata.normalize("NFKD", str(x)).encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-") or "sem-id"
 
@@ -106,19 +106,19 @@ def slug_tipo(t):
 
 
 def caminho(no_id, tipo):
-    """`entidades/<tipo>/<resto-do-id>/`. O id de um nó já é único e já é seguro num URL; o tipo
-    vai à frente porque um leitor que corta o endereço a meio deve cair numa lista útil."""
+    """`entidades/<type>/<rest-of-id>/`. A node id is already unique and already URL-safe; the type
+    goes in front because a reader who truncates the address should land on a useful list."""
     resto = no_id.split(":", 1)[1] if ":" in no_id else no_id
     return f"entidades/{slug_tipo(tipo)}/{resto}/"
 
 
 def texto_congelado():
-    """Cada cópia congelada, com as entidades HTML desfeitas, para se procurar um nome nela.
+    """Every frozen copy, with HTML entities unescaped, so a name can be searched for in it.
 
-    Desfazem-se as entidades porque uma fonte escreve `Comiss&atilde;o` e um leitor lê «Comissão»,
-    e o que se está a perguntar é se o nome está ali. O que NÃO se faz é tirar as marcas: se um
-    nome estiver partido ao meio por um `<span>`, esta procura não o encontra — e prefere-se a
-    falha em não encontrar à afirmação de que se encontrou."""
+    Entities are unescaped because a source writes `Comiss&atilde;o` and a reader reads «Comissão»,
+    and the question being asked is whether the name is there. What is NOT done is stripping tags:
+    if a name is split down the middle by a `<span>`, this search does not find it — and failing to
+    find is preferred to claiming to have found."""
     out = {}
     for f in sorted(CONGELADAS.rglob("*.snapshot")):
         rel = f.relative_to(CONGELADAS).as_posix()[: -len(".snapshot")]
@@ -142,7 +142,7 @@ def main():
 
     bytes_por_fonte = texto_congelado()
 
-    # --- quais os nós que ganham página, e onde -------------------------------
+    # --- which nodes get a page, and where -----------------------------------
     ents = []
     for n in grafo["nos"]:
         if n["tipo"] not in TIPOS_COM_PAGINA:
@@ -151,13 +151,13 @@ def main():
         onde = [{"fonte": fid, "ocorrencias": txt.count(nome)}
                 for fid, txt in bytes_por_fonte.items() if nome in txt]
         onde.sort(key=lambda x: -x["ocorrencias"])
-        # DOIS FUNDAMENTOS, E A PÁGINA DIZ QUAL. O primeiro é o forte: o nome está nos bytes de
-        # uma página congelada. O segundo existe por causa de um caso real — «Diário da República»
-        # é o editor de duas fontes congeladas e não aparece em byte nenhum, porque a página
-        # inicial daquele registo devolve 22 caracteres visíveis a um leitor automático, que é
-        # precisamente uma das histórias deste jornal. Recusar-lhe a ligação deixaria o leitor sem
-        # caminho para a única página que lhe explica isso. Mas os dois fundamentos não valem o
-        # mesmo, e por isso não são confundidos: o campo diz qual é, e a página diz-o por extenso.
+        # TWO GROUNDS, AND THE PAGE SAYS WHICH. The first is the strong one: the name is in the
+        # bytes of a frozen page. The second exists because of a real case — «Diário da República»
+        # publishes two frozen sources and appears in no byte at all, because that register's home
+        # page returns 22 visible characters to an automatic reader, which is precisely one of this
+        # paper's stories. Refusing it a link would leave the reader with no route to the one page
+        # that explains that. But the two grounds are not worth the same, so they are not conflated:
+        # the field says which one it is, and the page says so in full.
         fundamento = "bytes" if onde else ("registo" if n.get("publica") else None)
         ents.append({
             "no": n["id"],
@@ -174,7 +174,7 @@ def main():
 
     por_no = {x["no"]: x for x in ents}
 
-    # --- o grau de cada uma, que é o que faz a página valer a pena ------------
+    # --- each one's degree, which is what makes its page worth having ---------
     saida, entrada = {}, {}
     for a in grafo["arestas"]:
         saida.setdefault(a["origem"], []).append(a)
@@ -216,8 +216,9 @@ def main():
         if n is None:
             return e(nid)
         alvo = por_no.get(nid)
-        # `class="no"`: numa página de entidade, o valor da página é poder seguir estas frases, e
-        # o estilo da casa só sublinha ao passar o rato — o que faz uma ligação parecer texto.
+        # `class="no"`: on an entity page the value of the page is being able to follow these
+        # sentences, and the house style only underlines on hover — which makes a link look like
+        # plain text.
         if alvo:
             return f'<a class="no" href="{raiz}{alvo["url"]}">{e(n["rotulo"])}</a>'
         if n["tipo"] == "Fonte":
@@ -229,7 +230,7 @@ def main():
         return e(n["rotulo"])
 
     def frase(a, eu, raiz):
-        """Uma aresta lida em voz alta. É o §6 a pagar-se: a leitura já está na ontologia."""
+        """One edge read aloud. This is §6 paying for itself: the reading is already in the ontology."""
         o, d = nos.get(a["origem"]), nos.get(a["destino"])
         if not o or not d:
             return None
@@ -257,9 +258,10 @@ def main():
             f'<p class="std" style="max-width:46em;padding:10px 0 4px">{e(tipo.get("definicao", ""))}</p>',
         ]
 
-        # Os campos verbatim. Para uma Pessoa são exatamente três, e nenhum deles é uma frase
-        # nossa: o nome, o papel tal como o evento o lista, e a organização tal como o evento a
-        # lista. A palavra «listado» está lá de propósito — o cartão não afirma um vínculo.
+        # The verbatim fields. For a Pessoa there are exactly three, and none of them is a
+        # sentence of ours: the name, the role as the event lists it, and the organisation as the
+        # event lists it. The word "listed" is there on purpose — a speaker card asserts no
+        # employment relationship.
         campos = []
         if pessoa:
             if p.get("papel"):
@@ -281,8 +283,9 @@ def main():
                 for k, v in campos)
             cab.append(f'<div class="rolar"><table><tbody>{linhas}</tbody></table></div>')
 
-        # As frases. Saída primeiro, porque é o que a entidade faz; entrada depois, porque é o que
-        # lhe é feito. Ambas são a mesma aresta lida dos dois lados, e é isso que o grafo promete.
+        # The sentences. Outbound first, because that is what the entity does; inbound after,
+        # because that is what is done to it. Both are the same edge read from either side, which
+        # is exactly what the graph promises.
         blocos = []
         for rot, arr, limite in (("O que o grafo diz a partir daqui", saida.get(x["no"], []), 200),
                                  ("E o que diz a chegar aqui", entrada.get(x["no"], []), 200)):
@@ -296,9 +299,9 @@ def main():
             blocos.append(f'<div class="rule" style="padding:26px 0 8px"><div class="sect">'
                           f'{rot}</div></div><ul>{itens}</ul>{extra}')
 
-        # Onde o nome está nos bytes. É a diferença entre uma página de entidade e uma ficha de
-        # wiki: aqui diz-se em que ficheiro congelado o nome aparece e quantas vezes, e quando não
-        # aparece em nenhum diz-se isso, que é a coisa mais útil que a página pode dizer.
+        # Where the name is in the bytes. This is the difference between an entity page and a
+        # wiki entry: here it says in which frozen file the name appears and how many times, and
+        # when it appears in none it says that, which is the most useful thing the page can say.
         if x["nos_bytes"]:
             linhas = "".join(
                 f'<tr><td class="mono xs"><a href="{raiz}registo/#{e(b["fonte"])}">'
@@ -344,8 +347,8 @@ def main():
             f'A vizinhança, carregada do grafo</div></div>'
             f'<pt-entity-graph no="{e(x["no"])}" raiz="{raiz}"></pt-entity-graph>')
 
-        # O mesmo `ident` que a API usa para nomear o ficheiro. Escrever aqui outra forma do id
-        # dava uma ligação que o portão de ligações do validador apanha — e apanhou noutra versão.
+        # The same `ident` the API uses to name the file. Writing another form of the id here
+        # would give a link the validator's link gate catches — and it did catch one, once.
         aid = ident_api(x["no"])
         api = (f'<p class="xs" style="padding-top:14px">Em JSON: '
                f'<a href="{raiz}api/v1/graph.json">api/v1/graph.json</a> · '
@@ -356,8 +359,8 @@ def main():
                 f'de IA. {x["grau"]["saida"] + x["grau"]["entrada"]} arestas, lidas em voz alta.')
         comp = (f'<script type="module" src="{raiz}assets/components/pt-entity-graph/'
                 f'v1/v1.0/v1.0.0/pt-entity-graph.js"></script>')
-        # `excepto` é o próprio nó: uma página que se liga a si mesma é uma ligação que não leva
-        # a lado nenhum, e num texto que repete o nome da entidade seria a primeira a aparecer.
+        # `excepto` is the node itself: a page linking to itself is a link that goes nowhere, and
+        # in a text that repeats the entity's name it would be the first one to appear.
         P.escrever(rel, P.pagina(rel, x["nome"], desc, corpo, aqui=tipo.get("seccao"),
                                  nomeia_pessoas=pessoa, fontes_n=x["ficheiros_com_o_nome"] or None,
                                  extra_head=comp, excepto=x["no"]))

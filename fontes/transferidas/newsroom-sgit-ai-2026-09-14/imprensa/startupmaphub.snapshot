@@ -1,0 +1,1037 @@
+<!-- app/views/layouts/application.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8W80REDM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H8W80REDM2');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>  Startup Summit Lisbon 2026 (September 2026, Lisbon, Portugal) – Dates, Venue &amp; Guide | Startup Map Hub
+</title>
+    <meta name="description" content="Startup Summit Lisbon 2026 is an in-person startup and business event for startups, investors and ecosystem builders in Lisbon, Portugal. Startup Summit..." /><meta property="og:title" content="Startup Summit Lisbon 2026 (September 2026, Lisbon, Portugal) – Dates, Venue &amp; Guide · Startup Map Hub" /><meta property="og:description" content="Startup Summit Lisbon 2026 is an in-person startup and business event for startups, investors and ecosystem builders in Lisbon, Portugal. Startup Summit..." /><meta property="og:type" content="website" /><meta property="og:url" content="https://startupmaphub.com/events/startup-summit-lisbon-2026" /><meta property="og:site_name" content="Startup Map Hub" /><meta property="og:image" content="https://startupmaphub.com/icon.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Startup Summit Lisbon 2026 (September 2026, Lisbon, Portugal) – Dates, Venue &amp; Guide · Startup Map Hub" /><meta name="twitter:description" content="Startup Summit Lisbon 2026 is an in-person startup and business event for startups, investors and ecosystem builders in Lisbon, Portugal. Startup Summit..." /><meta name="twitter:image" content="https://startupmaphub.com/icon.png" /><link rel="canonical" href="https://startupmaphub.com/events/startup-summit-lisbon-2026" />  
+
+  <meta name="robots" content="index,follow">
+
+  <link rel="canonical" href="https://startupmaphub.com/events/startup-summit-lisbon-2026">
+
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","@id":"https://startupmaphub.com/events/startup-summit-lisbon-2026#event","name":"Startup Summit Lisbon 2026","url":"https://startupmaphub.com/events/startup-summit-lisbon-2026","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://startupmaphub.com/assets/logos/hub_logo_ink-5e5b5a67.png"],"organizer":{"@type":"Organization","name":"Startup Summit"},"startDate":"2026-09-17","endDate":"2026-09-18","location":{"@type":"Place","name":"Unicorn Factory - Beato Innovation District, Avenida Infante Dom Henrique 143, Lisboa, 1950-406","address":{"@type":"PostalAddress","streetAddress":"Unicorn Factory - Beato Innovation District, Avenida Infante Dom Henrique 143, Lisboa, 1950-406","addressLocality":"Lisbon","addressCountry":"Portugal"}},"description":"Startup Summit Lisbon 2026 brings founders, investors, operators, startup teams, and future builders together for two days of ideas, capital, talent, visibility, and opportunity in Lisbon, held at Unicorn Factory in the Beato Innovation District."}
+</script>
+
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="uip_khp76a5yh8dK-0Bxchlembw5kn1btiSbU0KgT-dx5zYVXAxc_sInwZKDwd7be7t53B1hSHAyZnozZNJsZw" />
+    
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 + Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" data-turbo-track="reload"></script>
+
+    <!-- Re-initialize Bootstrap components on every Turbo navigation -->
+    <script>
+      function initBootstrapComponents() {
+        document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function (el) {
+          bootstrap.Dropdown.getOrCreateInstance(el);
+        });
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+          bootstrap.Tooltip.getOrCreateInstance(el);
+        });
+      }
+      document.addEventListener('turbo:load', initBootstrapComponents);
+      document.addEventListener('turbo:render', initBootstrapComponents);
+    </script>
+
+    <!-- html2canvas (for Save as Image) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+    
+
+    <!-- Brand palette + nav/footer styling -->
+    <style>
+      :root{
+        --nav-offset: 56px;
+        --brand-teal: #008080;
+        --brand-primary: #008080;
+        --brand-deep: #1B3A4B;
+        --brand-ink:#12222A;
+      }
+      body {
+        font-family: 'Proxima Nova', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .min-w-0 { min-width: 0; }
+
+      .nav-gradient{
+        background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-deep) 100%);
+        border-bottom: none;
+      }
+      .nav-gradient .navbar-brand,
+      .nav-gradient .nav-link{
+        color:#fff;
+        white-space: nowrap;
+      }
+      .nav-gradient .nav-link:hover{ color:#f5faff; }
+      .nav-gradient .navbar-toggler{ border-color:rgba(255,255,255,.35); }
+      .nav-gradient .navbar-toggler-icon{ filter: invert(1); }
+
+      /* Active link */
+      .nav-gradient .nav-link.active{
+        color:#fff;
+        position:relative;
+      }
+      .nav-gradient .nav-link.active::after{
+        content:"";
+        position:absolute;
+        left:.5rem; right:.5rem; bottom:-.35rem;
+        height:2px; border-radius:2px;
+        background:rgba(255,255,255,.9);
+      }
+
+      /* Light ghost button for navbar */
+      .btn-ghost-light{
+        background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;
+      }
+      .btn-ghost-light:hover{ background:rgba(255,255,255,.08); border-color:#fff; color:#fff; }
+
+      /* Footer */
+      .footer-accent{ background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-deep) 100%); }
+      .footer-dark{ background:#0e1a20; color:#c7d0d3; }
+      .footer-dark a{ color:#c7d0d3; text-decoration:none; }
+      .footer-dark a:hover{ color:#ffffff; }
+      /* Opt-in per page: hide the footer on mobile only. */
+      @media (max-width: 767.98px){ .footer--hide-mobile{ display:none; } }
+
+      .sticky-filters { position: sticky; top: var(--nav-offset); z-index: 1020; }
+      thead.sticky-top th { top: var(--nav-offset); } /* table header under navbar */
+
+    </style>
+
+    
+
+    <!-- PWA (optional) -->
+
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="48x48">
+    <link rel="icon" href="/icon-192.png?v=2" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/icon-192.png?v=2">
+
+      <script>
+        window['_fs_host'] = 'fullstory.com';
+        window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+        window['_fs_org'] = 'o-20DYDE-na1';
+        window['_fs_namespace'] = 'FS';
+        !function(m,n,e,t,l,o,g,y){var s,f,a=function(h){
+        return!(h in m)||(m.console&&m.console.log&&m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'),!1)}(e)
+        ;function p(b){var h,d=[];function j(){h&&(d.forEach((function(b){var d;try{d=b[h[0]]&&b[h[0]](h[1])}catch(h){return void(b[3]&&b[3](h))}
+        d&&d.then?d.then(b[2],b[3]):b[2]&&b[2](d)})),d.length=0)}function r(b){return function(d){h||(h=[b,d],j())}}return b(r(0),r(1)),{
+        then:function(b,h){return p((function(r,i){d.push([b,h,r,i]),j()}))}}}a&&(g=m[e]=function(){var b=function(b,d,j,r){function i(i,c){
+        h(b,d,j,i,c,r)}r=r||2;var c,u=/Async$/;return u.test(b)?(b=b.replace(u,""),"function"==typeof Promise?new Promise(i):p(i)):h(b,d,j,c,c,r)}
+        ;function h(h,d,j,r,i,c){return b._api?b._api(h,d,j,r,i,c):(b.q&&b.q.push([h,d,j,r,i,c]),null)}return b.q=[],b}(),y=function(b){function h(h){
+        "function"==typeof h[4]&&h[4](new Error(b))}var d=g.q;if(d){for(var j=0;j<d.length;j++)h(d[j]);d.length=0,d.push=h}},function(){
+        (o=n.createElement(t)).async=!0,o.crossOrigin="anonymous",o.src="https://"+l,o.onerror=function(){y("Error loading "+l)}
+        ;var b=n.getElementsByTagName(t)[0];b&&b.parentNode?b.parentNode.insertBefore(o,b):n.head.appendChild(o)}(),function(){function b(){}
+        function h(b,h,d){g(b,h,d,1)}function d(b,d,j){h("setProperties",{type:b,properties:d},j)}function j(b,h){d("user",b,h)}function r(b,h,d){j({
+        uid:b},d),h&&j(h,d)}g.identify=r,g.setUserVars=j,g.identifyAccount=b,g.clearUserCookie=b,g.setVars=d,g.event=function(b,d,j){h("trackEvent",{
+        name:b,properties:d},j)},g.anonymize=function(){r(!1)},g.shutdown=function(){h("shutdown")},g.restart=function(){h("restart")},
+        g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdentity",{consent:!arguments.length||b})}}(),s="fetch",
+        f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
+        }(window,document,window._fs_namespace,"script",window._fs_script);
+        </script>
+
+    <script>
+  if (window.FS) {
+  }
+</script>
+
+    
+
+   
+      <!-- Brevo Conversations {literal} -->
+      <script>
+        (function(d, w, c) {
+          w.BrevoConversationsID = '6909a3c138b0d1fd6a018669';
+          w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+          };
+
+          if (!w._brevoScriptLoaded) {
+            w._brevoScriptLoaded = true;
+            w[c]('init', { mode: 'frame', injectTo: '#brevo-chat' });
+            var s = d.createElement('script');
+            s.async = true;
+            s.setAttribute('data-turbo-eval', 'false');
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+
+            // Re-initialize the widget on Turbo navigation by forcing a fresh script load
+            d.addEventListener("turbo:render", function() {
+              // Delete the loaded Brevo object
+              delete w[c];
+              
+              // Remove the old script tag to prevent duplicate execution issues
+              var oldScripts = d.querySelectorAll('script[src*="brevo-conversations.js"]');
+              oldScripts.forEach(function(script) { script.remove(); });
+              
+              // Recreate the stub
+              w[c] = function() {
+                (w[c].q = w[c].q || []).push(arguments);
+              };
+              
+              // Queue the init command for the fresh container
+              w[c]('init', { mode: 'frame', injectTo: '#brevo-chat' });
+              
+              // Re-inject the script
+              var newScript = d.createElement('script');
+              newScript.async = true;
+              newScript.setAttribute('data-turbo-eval', 'false');
+              newScript.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+              if (d.head) d.head.appendChild(newScript);
+            });
+          }
+        })(document, window, 'BrevoConversations');
+      </script>
+      <!-- /Brevo Conversations {/literal} -->
+
+     
+
+
+
+  </head>
+
+  <body class="text-body d-flex flex-column min-vh-100" >
+    <!-- Header / Nav -->
+    <nav class="navbar navbar-expand-lg nav-gradient sticky-top" data-turbo-permanent>
+      <div class="container-fluid px-3 px-md-4">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img alt="Startup Map Hub" style="height: 44px; width: auto;" src="/assets/logos/hub_logo-0635e500.png" />
+
+</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav mx-auto align-items-center gap-4 fw-semibold">
+                <li class="nav-item">
+                  <a class="nav-link " href="/funding">Funding</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/events">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/startups">Startups</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/pitch-deck-analysis">Pitch Deck Analysis</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/#how-it-works">How It Works</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/pricing">Pricing</a>
+                </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto align-items-center gap-3">
+              <li class="nav-item">
+                <a class="btn btn-ghost-light btn-sm px-3 rounded-pill" href="/users/sign_in">Log In</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-light btn-sm px-3 rounded-pill fw-semibold" href="/users/sign_up">Sign Up</a>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <!-- Page content -->
+    <main class="flex-grow-1 p-0 m-0">
+      
+      
+
+
+
+
+<style>
+  .hero-mini{background:linear-gradient(135deg,#008080 0%,#1B3A4B 100%);color:#fff;}
+  .aura{position:relative}
+  .aura::before{content:"";position:absolute;inset:-2px;z-index:0;border-radius:1rem;background:conic-gradient(from 180deg at 50% 50%,#00b3b3,#1B3A4B,#00b3b3);filter:blur(18px);opacity:.25}
+  .aura>.content{position:relative;z-index:1}
+
+  /* Premium Guide Enhancement */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .metric-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 128, 128, 0.1);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+  .metric-card:hover { 
+    transform: translateY(-5px);
+    background: #fff;
+    border-color: #008080;
+    box-shadow: 0 10px 25px rgba(0, 128, 128, 0.1);
+  }
+  .metric-value { font-size: 1.75rem; font-weight: 800; color: #1B3A4B; line-height: 1.2; margin-bottom: 0.25rem; }
+  .metric-label { font-size: 0.85rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .timeline-expert { position: relative; padding-left: 2rem; border-left: 2px solid #e9ecef; }
+  .timeline-item-ex { position: relative; padding-bottom: 2.5rem; }
+  .timeline-item-ex::before {
+    content: "";
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #008080;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #008080;
+  }
+  .pro-con-card { border-radius: 1rem; border: none; height: 100%; transition: transform 0.2s; }
+  .pro-con-card:hover { transform: scale(1.02); }
+  .verdict-box {
+    background: linear-gradient(135deg, #1B3A4B 0%, #008080 100%);
+    color: #fff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .verdict-box::after {
+    content: "\F272"; /* bi-award */
+    font-family: bootstrap-icons;
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 8rem;
+    opacity: 0.1;
+  }
+</style>
+
+
+
+
+<section class="hero-mini py-4 border-bottom">
+  <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+    <div>
+      <h1 class="h3 fw-semibold mb-1">Startup Summit Lisbon 2026</h1>
+      <div class="small opacity-75">
+        <span class="badge bg-light text-dark me-2">Upcoming</span>
+          September 17, 2026
+           – September 18, 2026
+         • Unicorn Factory - Beato Innovation District, Avenida Infante Dom Henrique 143, Lisboa, 1950-406, Lisbon, Portugal
+      </div>
+    </div>
+
+    <div class="d-flex flex-column align-items-end gap-2">
+      <!-- Share actions -->
+      <div class="d-flex flex-wrap gap-2 align-items-center small justify-content-end">
+        <span class="text-white opacity-75 me-1">Share:</span>
+
+        <button type="button" class="btn btn-outline-light btn-sm" data-copy-link="https://startupmaphub.com/events/startup-summit-lisbon-2026?utm_source=share&amp;utm_medium=copy&amp;utm_campaign=event" aria-label="Copy Link">
+          <i class="bi bi-clipboard"></i>
+        </button>
+
+        <!-- Save as Image -->
+        <button type="button" class="btn btn-light btn-sm fw-semibold text-dark" id="btn-save-image">
+          <i class="bi bi-card-image me-1"></i>Download details
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container py-4">
+  
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-3 p-md-4">
+      
+
+      
+<div class="pro-conversion-area my-5 py-4">
+  <div class="row g-4">
+    
+    <div class="col-md-6">
+      <div class="conversion-card pitch-deck-card h-100 p-4 rounded-4 shadow-lg border-0 aura position-relative overflow-hidden">
+        <div class="content position-relative z-1 d-flex flex-column h-100">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="badge bg-dark text-light text-uppercase fw-bold p-2 " style="font-size: 0.7rem; letter-spacing: 0.5px;">
+              Pitch Deck
+            </span>
+          </div>
+
+          <h3 class="h4 fw-bold text-white mb-3">
+            Raising Capital at Startup Summit Lisbon 2026?
+          </h3>
+
+          <p class="text-white mb-4 flex-grow-1" style="font-size: 0.95rem; line-height: 1.6;">
+            Don't walk into meetings with a generic deck. See what's included in the full package.
+          </p>
+
+          <div class="mt-auto">
+            <a class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow-sm d-inline-flex align-items-center gap-2 w-100 justify-content-center" data-track="event_conversion_click" data-type="pitch_deck" data-event="Startup Summit Lisbon 2026" href="/pricing">
+              View Full Pricing Packages <i class="bi bi-arrow-right"></i>
+</a>          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="conversion-card concierge-card h-100 p-4 rounded-4 shadow-lg border-0 aura position-relative overflow-hidden">
+        <div class="content position-relative z-1 d-flex flex-column h-100">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="badge bg-dark text-light text-uppercase fw-bold p-2 " style="font-size: 0.7rem; letter-spacing: 0.5px;">
+              Application Drafting
+            </span>
+          </div>
+
+          <h3 class="h4 fw-bold text-white mb-3">
+            Your Next Application, Half-Written.
+          </h3>
+
+          <p class="text-white mb-4 flex-grow-1" style="font-size: 0.95rem; line-height: 1.6;">
+            Skip the 4-hour draft. We generate answers for Baobab, Antler, and 30+ programs directly from your pitch deck — one account, one package.
+          </p>
+
+          <div class="mt-auto">
+            <a class="btn btn-warning btn-lg rounded-pill px-4 fw-bold shadow-sm d-inline-flex align-items-center gap-2 w-100 justify-content-center" data-track="event_conversion_click" data-type="application_assistant" data-event="Startup Summit Lisbon 2026" href="/pricing">
+              View Full Pricing Packages <i class="bi bi-magic"></i>
+</a>          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .pro-conversion-area {
+    --pitch-gradient: linear-gradient(135deg, #008080 0%, #1B3A4B 100%);
+    --concierge-gradient: linear-gradient(135deg, #1B3A4B 0%, #2c3e50 100%);
+  }
+
+  .conversion-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    min-height: 320px;
+  }
+
+  .conversion-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  }
+
+  .pitch-deck-card {
+    background: var(--pitch-gradient);
+    border: 1px solid rgba(255,255,255,0.1) !important;
+  }
+
+  .concierge-card {
+    background: var(--concierge-gradient);
+    border: 1px solid rgba(255,255,255,0.1) !important;
+  }
+
+  /* Refine Aura for cards */
+  .conversion-card.aura::before {
+    opacity: 0.1;
+    filter: blur(25px);
+  }
+
+  .conversion-card .btn-light {
+    color: #008080 !important;
+  }
+
+  .conversion-card .btn-warning {
+    background-color: #f1c40f !important;
+    border: none;
+    color: #1B3A4B !important;
+  }
+
+  /* Concierge Slide-in Widget (Phase 3) */
+  .concierge-slide-in {
+    position: fixed;
+    bottom: 30px;
+    right: -400px;
+    width: 320px;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    z-index: 1050;
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .concierge-slide-in.show {
+    right: 30px;
+  }
+</style>
+
+<div id="conciergeSlideIn" class="concierge-slide-in p-3 d-none d-md-block border">
+  <div class="d-flex align-items-start gap-3">
+    <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-circle">
+      <i class="bi bi-lightning-charge-fill"></i>
+    </div>
+    <div>
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <h6 class="fw-bold mb-0">Event Special</h6>
+        <button type="button" class="btn-close small" style="font-size: 0.6rem;" onclick="document.getElementById('conciergeSlideIn').classList.remove('show')"></button>
+      </div>
+      <p class="small text-muted mb-2">
+        Apply to programs like Baobab or Antler in minutes. Get your first draft for <strong>Startup Summit Lisbon 2026</strong> readiness.
+      </p>
+      <a class="btn btn-primary btn-sm rounded-pill px-3 fw-bold" data-track="event_conversion_click" data-type="concierge_widget" data-event="Startup Summit Lisbon 2026" href="/pricing">View Full Pricing Packages</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Use turbo:load for Turbo support
+  document.addEventListener('turbo:load', function() {
+  });
+</script>
+
+      </div>
+  </div>
+
+
+
+    <div class="aura mb-4">
+      <div class="content card border-0 shadow-lg">
+        <div class="card-body">
+            <div class="mb-4 text-break"><p class="mb-3">Startup Summit Lisbon 2026 brings founders, investors, operators, startup teams, and future builders together for two days of ideas, capital, talent, visibility, and opportunity in Lisbon, held at Unicorn Factory in the Beato Innovation District.</p></div>
+          <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <div class="d-flex align-items-center gap-3 p-3 bg-light rounded">
+                    <i class="bi bi-calendar-event fs-4 opacity-75"></i>
+                    <div class="small">
+                      <div class="text-muted">Starts</div>
+                      <div class="fw-semibold">September 17, 2026</div>
+                    </div>
+                  </div>
+                </div>
+
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="d-flex align-items-center gap-3 p-3 bg-light rounded">
+                <i class="bi bi-calendar-check fs-4 opacity-75"></i>
+                <div class="small">
+                  <div class="text-muted">Ends</div>
+                  <div class="fw-semibold">September 18, 2026</div>
+                </div>
+              </div>
+            </div>
+
+
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="d-flex align-items-center gap-3 p-3 bg-light rounded">
+                  <i class="bi bi-geo-alt fs-4 opacity-75"></i>
+                  <div class="small">
+                    <div class="text-muted">Location</div>
+                    <div class="fw-semibold">Unicorn Factory - Beato Innovation District, Avenida Infante Dom Henrique 143, Lisboa, 1950-406, Lisbon, Portugal</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="d-flex align-items-center gap-3 p-3 bg-light rounded">
+                  <i class="bi bi-ticket-perforated fs-4 opacity-75"></i>
+                  <div class="small">
+                    <div class="text-muted">Registration</div>
+                    <div class="fw-semibold">Paid</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <hr class="opacity-25">
+
+          <div class="row g-4">
+
+
+
+
+
+              <div class="col-12">
+                <div class="row g-3">
+                    <div class="col-12 col-md-4">
+                      <div class="text-muted small mb-1"><i class="bi bi-building me-1"></i>Organizer</div>
+                      <div class="fw-semibold">Startup Summit</div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          <hr class="opacity-25 mt-4">
+
+          <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center pt-1">
+            <a class="btn btn-outline-dark btn-lg rounded-pill px-4" href="/events">← All events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="eventRegistrationModal" tabindex="-1" aria-labelledby="eventRegistrationModalLabel" aria-hidden="true" 
+     data-controller="event-registration" data-event-registration-target="modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="eventRegistrationModalLabel">
+          Register Now
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-2 pb-4 px-4">
+        <p class="text-muted small mb-4">
+          Register your interest in <strong>Startup Summit Lisbon 2026</strong>.
+        </p>
+        
+        <div id="registration_form">
+
+    <form data-turbo="true" data-action="turbo:submit-end-&gt;event-registration#submitEnd turbo:submit-start-&gt;event-registration#submitStart" action="/events/startup-summit-lisbon-2026/register" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="GNRPtr3_ilYA5kmgm8tK7kzIxkmuMS7cFKsgVypMMH__HaHlSAAp_Kat8Hxyvc6zWMn9b4PpYynZ3u_HAu_8RQ" autocomplete="off" />
+      
+      <input value="" autocomplete="off" type="hidden" name="event_registration[redirect_url]" id="event_registration_redirect_url" />
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-muted" for="event_registration_first_name">First name</label>
+          <input class="form-control" required="required" placeholder="Jane" type="text" name="event_registration[first_name]" id="event_registration_first_name" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-muted" for="event_registration_last_name">Last name</label>
+          <input class="form-control" required="required" placeholder="Doe" type="text" name="event_registration[last_name]" id="event_registration_last_name" />
+        </div>
+        
+        <div class="col-12">
+          <label class="form-label small fw-bold text-muted" for="event_registration_email">Work Email</label>
+          <input class="form-control" required="required" placeholder="jane@company.com" type="email" name="event_registration[email]" id="event_registration_email" />
+          <div class="form-text small">Please use your company email if possible.</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-bold text-muted" for="event_registration_company_name">Company name</label>
+          <input class="form-control" required="required" placeholder="Acme Corp" type="text" name="event_registration[company_name]" id="event_registration_company_name" />
+        </div>
+
+        <div class="col-12">
+           <label class="form-label small fw-bold text-muted" for="event_registration_role">Your Role</label>
+           <select class="form-select" required="required" name="event_registration[role]" id="event_registration_role"><option value="">Select your role...</option>
+<option value="Founder">Founder</option>
+<option value="Investor">Investor</option>
+<option value="Accelerator / Incubator">Accelerator / Incubator</option>
+<option value="Corporate Innovation">Corporate Innovation</option>
+<option value="Service Provider">Service Provider</option>
+<option value="Research / Policy">Research / Policy</option>
+<option value="Other">Other</option></select>
+        </div>
+
+        <div class="col-12">
+           <label class="form-label small fw-bold text-muted" for="event_registration_goal">Primary Goal for Attending</label>
+           <select class="form-select" required="required" name="event_registration[goal]" id="event_registration_goal"><option value="">Select your primary goal...</option>
+<option value="Raising Capital">Raising Capital</option>
+<option value="Finding Startups to Invest In">Finding Startups to Invest In</option>
+<option value="Networking / Partnerships">Networking / Partnerships</option>
+<option value="Selling a Product / Service">Selling a Product / Service</option>
+<option value="Exploring Ecosystem">Exploring Ecosystem</option></select>
+        </div>
+
+        <div class="col-12 mt-4">
+          <button name="button" type="submit" class="btn btn-primary w-100 fw-bold py-2" data-event-registration-target="form">
+            Register Now <i class="bi bi-arrow-right ms-1"></i>
+</button>        </div>
+      </div>
+</form></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div id="share-card-container" style="position:fixed; left:-9999px; top:0; z-index:-1;">
+  <div id="share-card" class="position-relative bg-white text-dark overflow-hidden shadow-sm"
+       style="width: 600px; height: 315px; font-family: system-ui, -apple-system, sans-serif;">
+
+    <div style="position:absolute; top:0; left:0; right:0; height:6px; background: linear-gradient(90deg, #008080 0%, #1B3A4B 100%);"></div>
+    <div style="position:absolute; bottom:0; left:0; right:0; height:6px; background: linear-gradient(90deg, #1B3A4B 0%, #008080 100%);"></div>
+
+    <div class="p-5 d-flex flex-column justify-content-between h-100">
+      <div>
+        <div class="d-flex align-items-center gap-2 mb-3">
+           <span class="text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 1px; color: #008080;">Startup Map Hub</span>
+           <span class="text-muted">•</span>
+           <span class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 1px;">Event</span>
+        </div>
+
+        <h1 class="fw-bold mb-3 text-dark" style="font-size: 2.2rem; line-height: 1.1;">
+          Startup Summit Lisbon 2026
+        </h1>
+
+        <div class="d-flex flex-column gap-2" style="font-size: 1.1rem;">
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i class="bi bi-calendar-event"></i>
+              <span class="fw-medium text-dark">September 17, 2026</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-secondary">
+              <i class="bi bi-geo-alt"></i>
+              <span>Unicorn Factory - Beato Innovation District, Av...</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between">
+         <span class="badge bg-dark text-white rounded-pill px-3 py-2 fw-normal" style="font-size: 0.85rem;">
+           startupmaphub.com
+         </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Use event delegation for Turbo compatibility (handles initial load + navs)
+document.addEventListener('click', function(e) {
+  
+  // 1. Copy Link Logic
+  var copyBtn = e.target.closest('[data-copy-link]');
+  if (copyBtn) {
+    var url = copyBtn.getAttribute("data-copy-link");
+    function showCopied() {
+      var original = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<i class="bi bi-check2"></i>';
+      setTimeout(function() { copyBtn.innerHTML = original; }, 2000);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(showCopied);
+    } else {
+      var textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.style.position = "fixed";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(textarea);
+      showCopied();
+    }
+  }
+
+  // 2. Save as Image Logic
+  var saveBtn = e.target.closest('#btn-save-image');
+  if (saveBtn) {
+    if (saveBtn.disabled) return;
+    
+    console.log("Save Image clicked");
+    var originalText = saveBtn.innerHTML;
+    saveBtn.innerHTML = '<i class="bi bi-hourglass-split me-1"></i>Saving...';
+    saveBtn.disabled = true;
+
+    var card = document.getElementById('share-card');
+    if (!card) {
+      console.error("Share card element not found");
+      alert("Error: Share card template missing.");
+      saveBtn.innerHTML = originalText;
+      saveBtn.disabled = false;
+      return;
+    }
+    
+    if (typeof html2canvas === 'undefined') {
+       console.error("html2canvas is undefined");
+       alert("Library not loaded. Please wait a moment or refresh.");
+       saveBtn.innerHTML = originalText;
+       saveBtn.disabled = false;
+       return;
+    }
+
+    // Small timeout to allow UI update
+    setTimeout(function() {
+      html2canvas(card, {
+        scale: 2, 
+        useCORS: true, 
+        backgroundColor: "#ffffff",
+        logging: true // Enable logging for debug
+      }).then(function(canvas) {
+        console.log("Canvas generated");
+        var link = document.createElement('a');
+        link.download = "startup-map-event-startup-summit-lisbon-2026.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+      }).catch(function(err){
+        console.error("html2canvas error:", err);
+        alert("Detailed Error: " + err.message);
+        saveBtn.innerHTML = "Error";
+        setTimeout(function() { saveBtn.innerHTML = originalText; saveBtn.disabled = false; }, 2000);
+      });
+    }, 100);
+  }
+});
+</script>
+
+
+    </main>
+
+
+    <!-- Mount point for Brevo -->
+    <div id="brevo-chat"></div>
+
+    <!-- Rails importmap (Turbo etc.) -->
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-77dcb79b.js",
+    "@rails/activestorage": "https://cdn.jsdelivr.net/npm/@rails/activestorage@7.1.3/app/assets/javascripts/activestorage.esm.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-c1e82531.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-4b1e420e.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc53fe7.js",
+    "chart.js": "https://ga.jspm.io/npm:chart.js@4.4.2/dist/chart.js",
+    "@kurkle/color": "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js",
+    "lexxy": "/assets/lexxy-284fd7dc.js",
+    "controllers/analytics_controller": "/assets/controllers/analytics_controller-fa04e1a9.js",
+    "controllers/application": "/assets/controllers/application-3affb389.js",
+    "controllers/apply_interceptor_controller": "/assets/controllers/apply_interceptor_controller-5028989a.js",
+    "controllers/branch_preview_controller": "/assets/controllers/branch_preview_controller-be1b9d34.js",
+    "controllers/chart_controller": "/assets/controllers/chart_controller-f02b923e.js",
+    "controllers/copy_text_controller": "/assets/controllers/copy_text_controller-c07dfef7.js",
+    "controllers/country_picker_controller": "/assets/controllers/country_picker_controller-a375b975.js",
+    "controllers/deck_analysis_expand_controller": "/assets/controllers/deck_analysis_expand_controller-519d6810.js",
+    "controllers/deck_analysis_filter_controller": "/assets/controllers/deck_analysis_filter_controller-63a9c9e1.js",
+    "controllers/deck_analysis_progress_controller": "/assets/controllers/deck_analysis_progress_controller-66eab87c.js",
+    "controllers/deck_processing_controller": "/assets/controllers/deck_processing_controller-b36e605b.js",
+    "controllers/direct_upload_controller": "/assets/controllers/direct_upload_controller-1a00da58.js",
+    "controllers/domain_search_controller": "/assets/controllers/domain_search_controller-068db6bb.js",
+    "controllers/download_button_controller": "/assets/controllers/download_button_controller-d727a1f4.js",
+    "controllers/email_preview_controller": "/assets/controllers/email_preview_controller-d2a16fa5.js",
+    "controllers/event_registration_controller": "/assets/controllers/event_registration_controller-2ea98409.js",
+    "controllers/event_registration_success_controller": "/assets/controllers/event_registration_success_controller-e77c6da4.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-708796bd.js",
+    "controllers/idea_proof_controller": "/assets/controllers/idea_proof_controller-af85c568.js",
+    "controllers/idea_validation_progress_controller": "/assets/controllers/idea_validation_progress_controller-0f8f23d4.js",
+    "controllers": "/assets/controllers/index-c3f5d3c4.js",
+    "controllers/listing_autosave_controller": "/assets/controllers/listing_autosave_controller-b1f8b009.js",
+    "controllers/match_counter_controller": "/assets/controllers/match_counter_controller-ca930f39.js",
+    "controllers/narrative_copier_controller": "/assets/controllers/narrative_copier_controller-2efe7fa3.js",
+    "controllers/opportunity_gate_controller": "/assets/controllers/opportunity_gate_controller-67e1e2cb.js",
+    "controllers/photo_gallery_controller": "/assets/controllers/photo_gallery_controller-56c9e690.js",
+    "controllers/pitch_deck_chat_controller": "/assets/controllers/pitch_deck_chat_controller-251399c3.js",
+    "controllers/pitch_deck_editor_controller": "/assets/controllers/pitch_deck_editor_controller-67e42982.js",
+    "controllers/pitch_deck_slideshow_controller": "/assets/controllers/pitch_deck_slideshow_controller-2f20c441.js",
+    "controllers/place_autofill_controller": "/assets/controllers/place_autofill_controller-bad60259.js",
+    "controllers/poll_reload_controller": "/assets/controllers/poll_reload_controller-6084d7ae.js",
+    "controllers/post_composer_controller": "/assets/controllers/post_composer_controller-1a10ae38.js",
+    "controllers/reading_steps_controller": "/assets/controllers/reading_steps_controller-962cf9c4.js",
+    "controllers/site_intelligence_progress_controller": "/assets/controllers/site_intelligence_progress_controller-cf2f33d8.js",
+    "controllers/site_intelligence_worklist_controller": "/assets/controllers/site_intelligence_worklist_controller-7876f8cf.js",
+    "controllers/social_post_copier_controller": "/assets/controllers/social_post_copier_controller-95b914c7.js",
+    "controllers/startup_search_controller": "/assets/controllers/startup_search_controller-bbc4abb4.js",
+    "controllers/submit_lock_controller": "/assets/controllers/submit_lock_controller-7408fc68.js",
+    "controllers/tap_card_controller": "/assets/controllers/tap_card_controller-68bc8c36.js",
+    "controllers/video_modal_controller": "/assets/controllers/video_modal_controller-356cd2ca.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-77dcb79b.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@rails/activestorage@7.1.3/app/assets/javascripts/activestorage.esm.js">
+<link rel="modulepreload" href="/assets/turbo.min-c1e82531.js">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:chart.js@4.4.2/dist/chart.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js">
+<link rel="modulepreload" href="/assets/lexxy-284fd7dc.js">
+<link rel="modulepreload" href="/assets/controllers/analytics_controller-fa04e1a9.js">
+<link rel="modulepreload" href="/assets/controllers/application-3affb389.js">
+<link rel="modulepreload" href="/assets/controllers/apply_interceptor_controller-5028989a.js">
+<link rel="modulepreload" href="/assets/controllers/branch_preview_controller-be1b9d34.js">
+<link rel="modulepreload" href="/assets/controllers/chart_controller-f02b923e.js">
+<link rel="modulepreload" href="/assets/controllers/copy_text_controller-c07dfef7.js">
+<link rel="modulepreload" href="/assets/controllers/country_picker_controller-a375b975.js">
+<link rel="modulepreload" href="/assets/controllers/deck_analysis_expand_controller-519d6810.js">
+<link rel="modulepreload" href="/assets/controllers/deck_analysis_filter_controller-63a9c9e1.js">
+<link rel="modulepreload" href="/assets/controllers/deck_analysis_progress_controller-66eab87c.js">
+<link rel="modulepreload" href="/assets/controllers/deck_processing_controller-b36e605b.js">
+<link rel="modulepreload" href="/assets/controllers/direct_upload_controller-1a00da58.js">
+<link rel="modulepreload" href="/assets/controllers/domain_search_controller-068db6bb.js">
+<link rel="modulepreload" href="/assets/controllers/download_button_controller-d727a1f4.js">
+<link rel="modulepreload" href="/assets/controllers/email_preview_controller-d2a16fa5.js">
+<link rel="modulepreload" href="/assets/controllers/event_registration_controller-2ea98409.js">
+<link rel="modulepreload" href="/assets/controllers/event_registration_success_controller-e77c6da4.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-708796bd.js">
+<link rel="modulepreload" href="/assets/controllers/idea_proof_controller-af85c568.js">
+<link rel="modulepreload" href="/assets/controllers/idea_validation_progress_controller-0f8f23d4.js">
+<link rel="modulepreload" href="/assets/controllers/index-c3f5d3c4.js">
+<link rel="modulepreload" href="/assets/controllers/listing_autosave_controller-b1f8b009.js">
+<link rel="modulepreload" href="/assets/controllers/match_counter_controller-ca930f39.js">
+<link rel="modulepreload" href="/assets/controllers/narrative_copier_controller-2efe7fa3.js">
+<link rel="modulepreload" href="/assets/controllers/opportunity_gate_controller-67e1e2cb.js">
+<link rel="modulepreload" href="/assets/controllers/photo_gallery_controller-56c9e690.js">
+<link rel="modulepreload" href="/assets/controllers/pitch_deck_chat_controller-251399c3.js">
+<link rel="modulepreload" href="/assets/controllers/pitch_deck_editor_controller-67e42982.js">
+<link rel="modulepreload" href="/assets/controllers/pitch_deck_slideshow_controller-2f20c441.js">
+<link rel="modulepreload" href="/assets/controllers/place_autofill_controller-bad60259.js">
+<link rel="modulepreload" href="/assets/controllers/poll_reload_controller-6084d7ae.js">
+<link rel="modulepreload" href="/assets/controllers/post_composer_controller-1a10ae38.js">
+<link rel="modulepreload" href="/assets/controllers/reading_steps_controller-962cf9c4.js">
+<link rel="modulepreload" href="/assets/controllers/site_intelligence_progress_controller-cf2f33d8.js">
+<link rel="modulepreload" href="/assets/controllers/site_intelligence_worklist_controller-7876f8cf.js">
+<link rel="modulepreload" href="/assets/controllers/social_post_copier_controller-95b914c7.js">
+<link rel="modulepreload" href="/assets/controllers/startup_search_controller-bbc4abb4.js">
+<link rel="modulepreload" href="/assets/controllers/submit_lock_controller-7408fc68.js">
+<link rel="modulepreload" href="/assets/controllers/tap_card_controller-68bc8c36.js">
+<link rel="modulepreload" href="/assets/controllers/video_modal_controller-356cd2ca.js">
+<script type="module">import "application"</script>
+
+      
+<footer class="bn-footer mt-auto pt-5 pb-4">
+    <div class="container text-center pt-5 pb-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <span class="bn-footer-badge mb-3"><i class="bi bi-stars me-1"></i>Get In The Room</span>
+          <h2 class="bn-footer-title display-5 fw-bold mb-3">Stop guessing which event matters.</h2>
+          <p class="bn-footer-text lead mb-4 mx-auto" style="max-width: 600px;">
+            Get matched to the events where the investors from your funding applications actually show up — so every ticket you buy gets you closer to a cheque, not further from one.
+          </p>
+          <a href="/pricing"
+             
+             class="btn btn-light btn-lg px-5 py-3 fw-bold rounded-pill shadow-sm bn-footer-cta"
+>
+            View pricing &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <div class="container border-top pt-4" style="border-color: rgba(255,255,255,0.1) !important;">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="text-white-50 small mb-3 mb-md-0">
+        &copy; 2026 Startup Map Hub (formerly Startup Map Africa). All rights reserved.
+      </div>
+      <div class="footer-links d-flex gap-3 align-items-center">
+        
+          <a class="text-white-50 small text-decoration-none" href="/terms">Terms</a>
+          <a class="text-white-50 small text-decoration-none" href="/privacy">Privacy</a>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .bn-footer {
+    background: linear-gradient(135deg, var(--brand-deep) 0%, #061116 100%);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .bn-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  
+  .bn-footer::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .bn-footer-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #2dd4bf 0%, #0ea5e9 100%);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+  }
+
+  .bn-footer-title {
+    color: #fff;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+
+  .bn-footer-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Proxima Nova', sans-serif;
+  }
+
+  .bn-footer-cta {
+    color: #12222a;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bn-footer-cta:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255,255,255,0.2);
+  }
+
+  .footer-links a {
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: #fff !important;
+  }
+</style>
+
+
+    
+  </body>
+</html>
+

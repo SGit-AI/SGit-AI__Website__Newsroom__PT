@@ -1,25 +1,26 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — a mesa como um sítio e não como uma tabela.
+"""pt.newsroom.sgit.ai — the desk as a place rather than as a table.
 
-    python3 build/mesa.py       # depois de comentarios.py, antes de build.py
+    python3 build/mesa.py       # after comentarios.py, before build.py
 
-O PEDIDO. O editor apontou para a redação virtual de newsroom.sgit.ai — *«uma redação virtual com
-representações visuais dos artigos, com quadros Kanban, quase uma mesa de notícias visual»* — e
-disse que `/redacao/` daqui é uma tabela e aquilo é uma sala.
+THE ASK. The editor pointed at newsroom.sgit.ai's virtual newsroom — *"a virtual newsroom with
+visual representations of the articles, with Kanban boards, almost a visual news desk"* — and said
+that `/redacao/` here is a table and that one is a room.
 
-A diferença entre as duas não é decoração. Uma tabela mostra linhas; uma sala mostra **carga**:
-quem tem o quê em cima da mesa agora, o que está parado à espera de quem, e onde está o próximo
-gesto. São perguntas diferentes e a segunda é a que se faz a uma redação às cinco da tarde.
+The difference is not decoration. A table shows rows; a room shows **load**: who has what on the
+desk right now, what is stalled waiting on whom, and where the next move is. Those are different
+questions, and the second is the one you ask a newsroom at five in the afternoon.
 
-O QUE ESTE FICHEIRO FAZ. Junta num só documento o que já está espalhado — as bancadas e o que cada
-uma pode escrever (`dados/equipa.json`), o quadro (`redacao/issues/`), o correio
-(`redacao/correio/`), as execuções (`redacao/runs/`) e o trabalho por agente
-(`dados/comentarios.json`) — e conta a carga de cada bancada a partir disso. Não inventa estado
-nenhum: cada número aqui é uma contagem de ficheiros ou de entradas que já existem.
+WHAT THIS FILE DOES. It gathers into one document what is already scattered — the benches and what
+each may write (`dados/equipa.json`), the board (`redacao/issues/`), the mail
+(`redacao/correio/`), the run records (`redacao/runs/`) and the per-agent work
+(`dados/comentarios.json`) — and counts each bench's load from that. It invents no state: every
+number here is a count of files or entries that already exist.
 
-E NÃO FAZ UMA COISA. Não move nada. A mesa mostra onde as coisas estão; quem as move é quem tem
-direito de escrita naquela pasta, e o passo que ninguém automático pode dar — pôr uma história em
-«publicado» — continua a ser do editor de registo, e a sala di-lo na coluna onde ele estaria.
+AND ONE THING IT DOES NOT DO. It moves nothing. The desk shows where things are; who moves them is
+whoever has write access to that folder, and the step no automated run may take — putting a story
+into `publicado` — stays the editor of record's, and the room says so in the column where they
+would be.
 """
 import json
 import time
@@ -29,8 +30,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 REDACAO = ROOT / "redacao"
 
-# As colunas do quadro, pela ordem em que uma história as atravessa. `quem_move` não é decorativo:
-# é a regra de quem pode empurrar um cartão para ali, e a última é a razão de existir um humano.
+# The board's columns, in the order a story crosses them. `quem_move` is not decorative: it is the
+# rule for who may push a card there, and the last one is the reason a human exists in this loop.
 COLUNAS = [
     {"id": "procurado", "rotulo": "Procurado",
      "o_que_significa": "A história está encomendada e o material ainda não a sustenta.",
@@ -66,17 +67,18 @@ def main():
     entregas = carregar(DADOS / "entregas.json")
     hoje = carregar(DADOS / "registo.json").get("atualizado", time.strftime("%Y-%m-%d"))
 
-    # --- o quadro: cada issue e cada artigo, na coluna em que está ------------
+    # --- the board: every issue and every article, in the column it is in ------
     issues = [carregar(f) for f in sorted((REDACAO / "issues").glob("*.json"))] \
         if (REDACAO / "issues").exists() else []
-    # UM ISSUE PODE DAR MAIS DO QUE UM ARTIGO, e neste repositório já dá: o issue 001 encomendou
-    # a história do instrumento legal da agenda, e da mesma encomenda saiu também a história de o
-    # registo nacional não devolver texto. A primeira versão desta função assumiu um artigo por
-    # issue, casou o issue com o primeiro que encontrou e **deixou o outro fora do quadro** — um
-    # quadro que esconde trabalho é pior do que não haver quadro, porque parece completo.
+    # ONE ISSUE CAN PRODUCE MORE THAN ONE ARTICLE, and in this repository it already does: issue
+    # 001 commissioned the story about the agenda's legal instrument, and out of the same
+    # commission also came the story about the national register returning no text. The first
+    # version of this function assumed one article per issue, matched the issue to the first it
+    # found, and **left the other off the board** — a board that hides work is worse than no board,
+    # because it looks complete.
     #
-    # Por isso o cartão é o ARTIGO, que é a coisa que tem ficheiros e um estado verdadeiro, e o
-    # issue só ganha cartão próprio quando ainda não produziu nenhum.
+    # So the card is the ARTICLE, which is the thing with files and a true state, and an issue
+    # only gets a card of its own when it has not yet produced one.
     por_issue = {}
     for h in historias.get("historias", []):
         if h.get("issue"):
@@ -113,7 +115,7 @@ def main():
     for cart in cartoes:
         (quadro[cart["estado"]] if cart["estado"] in quadro else fora).append(cart)
 
-    # --- o correio, contado por bancada --------------------------------------
+    # --- the mail, counted per bench -----------------------------------------
     def correio(dep):
         base = REDACAO / "correio" / dep
         if not base.exists():
@@ -121,11 +123,11 @@ def main():
         return {caixa: len(list((base / caixa).glob("*.md")))
                 for caixa in ("entrada", "saida")}
 
-    # --- as execuções --------------------------------------------------------
+    # --- the run records -----------------------------------------------------
     runs = [carregar(f) for f in sorted((REDACAO / "runs").glob("*.json"))] \
         if (REDACAO / "runs").exists() else []
 
-    # --- as bancadas ---------------------------------------------------------
+    # --- the benches ---------------------------------------------------------
     por_agente = comentarios.get("por_agente", {})
     bancadas = []
     for d in equipa.get("departamentos", []):

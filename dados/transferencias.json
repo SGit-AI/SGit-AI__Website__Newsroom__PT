@@ -1,0 +1,232 @@
+{
+  "id": "pt-transferencias",
+  "versao": "1.0.0",
+  "atualizado": "2026-09-14",
+  "o_que_e": "Prova congelada por OUTRA publicação e oferecida a esta. NÃO está no registo desta redação e não deve ser tratada como se estivesse: o registo é o que ESTA redação obteve, e estes ficheiros foram obtidos por outra, com o user-agent dela, às horas do registo dela.",
+  "a_regra": "Prova transferida entre publicações irmãs continua a ser prova, desde que a proveniência viaje com ela e seja publicada. Numa página diz-se «captura de 8 de setembro, obtida por newsroom.sgit.ai» — nunca «a nossa captura de 8 de setembro».",
+  "o_que_e_conferido": "Cada SHA-256 do manifesto recebido é recalculado a partir dos bytes em disco. É a única coisa numa transferência que não obriga a acreditar em ninguém. Um lote com um hash errado é recusado inteiro.",
+  "contagem": 14,
+  "lotes": [
+    {
+      "id": "newsroom-sgit-ai-2026-09-14",
+      "de": {
+        "publicacao": "newsroom.sgit.ai",
+        "seccao": "/portugal/",
+        "versao": "v0.3.11",
+        "repositorio": "https://github.com/SGit-AI/SGit-AI__Website__Newsroom"
+      },
+      "para": {
+        "publicacao": "pt.newsroom.sgit.ai",
+        "versao_observada": "v0.3.1"
+      },
+      "data_do_pacote": "2026-09-14",
+      "versao_do_pacote": "1.0.0",
+      "o_que_e": "Bytes congelados por OUTRA publicação, oferecidos como prova. Não são capturas desta redação e não devem ser registados como se fossem: cada linha abaixo diz quem obteve o ficheiro, quando, de que URL e sob que versão. O SHA-256 é o que o registo de origem regista; confira-o antes de aceitar qualquer linha, porque é a única coisa aqui que não tem de acreditar em ninguém.",
+      "a_regra": "Prova transferida entre publicações irmãs continua a ser prova, desde que a proveniência viaje com ela e seja publicada. Uma captura de 8 de setembro obtida por newsroom.sgit.ai é exatamente isso na página: não \"a nossa captura de 8 de setembro\".",
+      "leia_me": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/LEIA-ME.md",
+      "contagem": 14,
+      "hashes_reverificados": true,
+      "observacoes": [
+        {
+          "id": "hora-de-obtencao-2026-09-08",
+          "o_que": "Todos os 5 ficheiros da captura de 2026-09-08 trazem a mesma hora de obtenção, 2026-09-13T19:44:22Z, que é de outro dia.",
+          "como_e_registado": "A data da captura vem do nome da pasta e do `id_no_registo_de_origem`; a hora vem do manifesto. As duas ficam registadas e não são reconciliadas — decidir qual delas está «realmente» certa seria uma inferência nossa sobre o registo de outra publicação."
+        },
+        {
+          "id": "bytes-coincidentes",
+          "o_que": "4 pares de ficheiros têm exatamente o mesmo número de bytes em capturas diferentes.",
+          "como_e_registado": "Os SHA-256 diferem, logo são ficheiros diferentes. A coincidência fica registada porque um leitor que reparasse nela merece encontrá-la já notada em vez de ficar na dúvida.",
+          "pares": {
+            "15566": [
+              "capturas/2026-09-08/agenda.snapshot",
+              "capturas/2026-09-13/agenda.snapshot"
+            ],
+            "20259": [
+              "capturas/2026-09-08/ai-summary.snapshot",
+              "capturas/2026-09-13/ai-summary.snapshot"
+            ],
+            "20455": [
+              "capturas/2026-09-08/sponsors.snapshot",
+              "capturas/2026-09-13/sponsors.snapshot"
+            ],
+            "50411": [
+              "capturas/2026-09-08/index.snapshot",
+              "capturas/2026-09-13/index.snapshot"
+            ]
+          }
+        }
+      ],
+      "ficheiros": [
+        {
+          "ficheiro": "capturas/2026-09-08/agenda.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-08/agenda.snapshot",
+          "sha256": "20948f2a8db787c7fb6321a270ac066de8464e9d00d2e3146e7596e0c7c7f86c",
+          "bytes": 15566,
+          "url": "https://startupsummit.io/agenda",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:44:22Z",
+          "id_no_registo_de_origem": "2026-09-08/agenda",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-08/ai-summary.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-08/ai-summary.snapshot",
+          "sha256": "1d3d7aa7836bd0b096eb9d5a12ff3de630d9b79b94219435e98c6466969a1927",
+          "bytes": 20259,
+          "url": "https://startupsummit.io/ai-summary",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:44:22Z",
+          "id_no_registo_de_origem": "2026-09-08/ai-summary",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-08/index.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-08/index.snapshot",
+          "sha256": "8afb9f22f161537707ba45a10608680f1b781770b11ef847651788d7957e54a8",
+          "bytes": 50411,
+          "url": "https://startupsummit.io/",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:44:22Z",
+          "id_no_registo_de_origem": "2026-09-08/index",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-08/speakers.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-08/speakers.snapshot",
+          "sha256": "649debec2b82f22d5539951c17927de575a6f15c55f97c94e1321416dd201002",
+          "bytes": 173536,
+          "url": "https://startupsummit.io/speakers",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:44:22Z",
+          "id_no_registo_de_origem": "2026-09-08/speakers",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-08/sponsors.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-08/sponsors.snapshot",
+          "sha256": "73657adabd84fa3eb5e02415c75aa1c4baef2e5b8c5156d5022540d32450b50f",
+          "bytes": 20455,
+          "url": "https://startupsummit.io/sponsors",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:44:22Z",
+          "id_no_registo_de_origem": "2026-09-08/sponsors",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/agenda.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/agenda.snapshot",
+          "sha256": "670fd4701c5d2bdadf9854eec0f4bb8a05e78b627a362c18a78a4ba2380abd41",
+          "bytes": 15566,
+          "url": "https://startupsummit.io/agenda",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:41:36Z",
+          "id_no_registo_de_origem": "2026-09-13/agenda",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/ai-summary.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/ai-summary.snapshot",
+          "sha256": "2ffc98beccb2090e3a80b72a20d21b11a25f2f6f7caa9dc55370edf99bde677e",
+          "bytes": 20259,
+          "url": "https://startupsummit.io/ai-summary",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:41:37Z",
+          "id_no_registo_de_origem": "2026-09-13/ai-summary",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/index.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/index.snapshot",
+          "sha256": "d1514e2991810f6df791aea8ed657b3c1c256abf39a620830846b084114c02c6",
+          "bytes": 50411,
+          "url": "https://startupsummit.io/",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:41:35Z",
+          "id_no_registo_de_origem": "2026-09-13/index",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/llms.txt",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/llms.txt",
+          "sha256": "c3c269cbb4928cc5939ad7e78f0f4a0b40e8acc12e4bba04fc0317e868fe6728",
+          "bytes": 9704,
+          "url": "https://startupsummit.io/llms.txt",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:42:31Z",
+          "id_no_registo_de_origem": "2026-09-13/llms.txt",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/speakers.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/speakers.snapshot",
+          "sha256": "62d727e12a4b4cd27717057dbe871c855a0a14aa71ccece83fd26956a5c5cbeb",
+          "bytes": 183793,
+          "url": "https://startupsummit.io/speakers",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:41:36Z",
+          "id_no_registo_de_origem": "2026-09-13/speakers",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "capturas/2026-09-13/sponsors.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/capturas/2026-09-13/sponsors.snapshot",
+          "sha256": "26293b9f75c34d57a1819100da9fa6e91f8a255af6e36287434ac4420c3039b4",
+          "bytes": 20455,
+          "url": "https://startupsummit.io/sponsors",
+          "editor_da_pagina": "Startup Summit Lisbon 2026",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T19:41:37Z",
+          "id_no_registo_de_origem": "2026-09-13/sponsors",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "imprensa/eventbrite-sept.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/imprensa/eventbrite-sept.snapshot",
+          "sha256": "708af0b081754b89046b4f1e54f1af8b245b30236ec4eca47e8bb7a230b65aba",
+          "bytes": 268784,
+          "url": "https://www.eventbrite.co.uk/e/startup-summit-lisbon-2026-founder-startup-investor-event-tickets-1987781295364",
+          "editor_da_pagina": "Eventbrite",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T21:52:29Z",
+          "id_no_registo_de_origem": "2026-09-13/coverage/eventbrite-sept",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "imprensa/startupmaphub.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/imprensa/startupmaphub.snapshot",
+          "sha256": "fe73aa268041620eea392ce3bdf0245afe8d32b2e9642f36418ceed1fc8aa898",
+          "bytes": 47882,
+          "url": "https://startupmaphub.com/events/startup-summit-lisbon-2026",
+          "editor_da_pagina": "Startup Map Hub",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T21:52:28Z",
+          "id_no_registo_de_origem": "2026-09-13/coverage/startupmaphub",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        },
+        {
+          "ficheiro": "imprensa/summit-lisbon-tech-events.snapshot",
+          "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/imprensa/summit-lisbon-tech-events.snapshot",
+          "sha256": "d2b3f53baf7f48e18b590b7aaab984cc815681188519fee0119f94da84f00e42",
+          "bytes": 14965,
+          "url": "https://startupsummit.io/lisbon-tech-events-2026",
+          "editor_da_pagina": "Startup Summit (the event itself)",
+          "obtido_por": "newsroom.sgit.ai",
+          "obtido_em": "2026-09-13T21:52:31Z",
+          "id_no_registo_de_origem": "2026-09-13/coverage/summit-lisbon-tech-events",
+          "versao_do_site_de_origem": "v0.3.2 (o registo), v0.3.11 (esta transferência)"
+        }
+      ]
+    }
+  ],
+  "recusados": []
+}

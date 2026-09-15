@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "pt.newsroom.sgit.ai",
-    "version": "0.7.1",
+    "version": "0.8.0",
     "summary": "The Portuguese AI ecosystem, as data",
     "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
     "contact": {
@@ -84,6 +84,14 @@
     {
       "name": "documents",
       "description": "Every markdown document in this repository"
+    },
+    {
+      "name": "agents",
+      "description": "The named agents that may change this site, and their mandates"
+    },
+    {
+      "name": "transfers",
+      "description": "Evidence frozen by ANOTHER publication, with its provenance"
     },
     {
       "name": "desk",
@@ -809,6 +817,124 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/agents.json": {
+      "get": {
+        "operationId": "getAgents",
+        "summary": "The named agents that may change this site, and their mandates",
+        "description": "One entry per identity, each with a role, a write scope and what it declares in a run record. An agent nobody can name is an anonymous contributor to a publication whose entire argument is knowing who said what.\n\nSource file in the repository: `dados/agentes.json`.",
+        "tags": [
+          "agents"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agents/{id}.json": {
+      "get": {
+        "operationId": "getAgentsById",
+        "summary": "One item from agents",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "agents"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "foundry": {
+                "value": "foundry"
+              },
+              "dragnet": {
+                "value": "dragnet"
+              },
+              "copydesk": {
+                "value": "copydesk"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
+          }
+        }
+      }
+    },
+    "/transfers.json": {
+      "get": {
+        "operationId": "getTransfers",
+        "summary": "Evidence frozen by ANOTHER publication, with its provenance",
+        "description": "Not in this newsroom's register, and not to be treated as if it were: these bytes were fetched by another publication's fetcher, with its user-agent, at the times in its register. Every SHA-256 is recomputed here; a bundle with one bad hash is refused whole.\n\nSource file in the repository: `dados/transferencias.json`.",
+        "tags": [
+          "transfers"
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection, as JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transfers/{id}.json": {
+      "get": {
+        "operationId": "getTransfersById",
+        "summary": "One item from transfers",
+        "description": "Generated from the same source as the collection, so the two cannot disagree.",
+        "tags": [
+          "transfers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The item id, slugged to ASCII. The collection lists every valid value in `item_ids`.",
+            "examples": {
+              "newsroom-sgit-ai-2026-09-14": {
+                "value": "newsroom-sgit-ai-2026-09-14"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item, as JSON"
+          },
+          "404": {
+            "description": "No such item. There is no server: this is a missing file."
           }
         }
       }

@@ -203,8 +203,8 @@ class PtDocBrowser extends SgComponent {
             })
             this.emit('pt:doc.opened', { path })
         } catch (err) {
-            /* Um documento que o leitor escolheu e que não abriu, com a árvore já de pé. O
-               componente subiu; foi este ficheiro que falhou, e é isso que a página diz. */
+            /* A document the reader picked that would not open, with the tree already up. The
+               component came up; this one file failed, and that is what the page says. */
             doc.textContent = `Could not read ${path}: ${err.message}`
         }
         this.$('.pane').scrollTop = 0

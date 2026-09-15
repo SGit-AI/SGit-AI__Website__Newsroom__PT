@@ -1,60 +1,72 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — os portões das estruturas novas: artigos, secções, bastidores.
+"""pt.newsroom.sgit.ai — the gates for the newer structures: articles, sections, back office,
+entities, agent activity, run records, and the language rule.
 
     python3 build/gates_artigos.py
 
-PORQUE É QUE ISTO É UM FICHEIRO SEPARADO DE `build/gates.py`.
+WHY THIS IS A SEPARATE FILE FROM `build/gates.py`.
 
-`build/gates.py` está na lista de recusa de `.claude/settings.json`: uma execução agendada não o
-pode editar. A regra existe porque um agente que possa alterar o portão que o trava não tem
-portão nenhum — e a maneira errada de acrescentar verificações seria levantar essa proteção.
+`build/gates.py` is in the deny list of `.claude/settings.json`: no agent here can edit it. The rule
+exists because an agent that can change the gate that stops it has no gate at all — and the wrong
+way to add checks would be to lift that protection.
 
-Por isso os portões das estruturas que nasceram depois dele vivem aqui, e `gates.py` fica como
-está: o núcleo estável, protegido. A integração contínua corre os dois, e qualquer um deles a
-falhar é um lançamento que não acontece. Um portão que falha é respondido, nunca silenciado.
+So the gates for the structures that came after it live here, and `gates.py` stays as it is: the
+stable core, protected. CI runs both, and either one failing is a release that does not happen. A
+gate that fails is answered, never silenced.
 
-OS PORTÕES
+THE GATES
 
-  16 · O CAMINHO DE UM ARTIGO NÃO MENTE. artigos/<aaaa>/<mm>/<dd>/<slug>/ tem de concordar com os
-       campos `data` e `slug` do próprio artigo. Um artigo cuja pasta diz uma data e cujo ficheiro
-       diz outra tem dois endereços e uma delas está errada.
-  17 · CADA AFIRMAÇÃO DE UM ARTIGO ANDA PARA TRÁS. Toda a marca [[fonte:…]] na prosa e toda a
-       fonte citada no registo de verificação têm de existir em dados/registo.json.
-  18 · UM ARTIGO VERIFICADO FOI MESMO VERIFICADO. Em `verificado` ou `publicado` tem de haver
-       prosa, tem de haver registo de verificação, e nenhuma afirmação pode ficar por marcar.
-  19 · OS BASTIDORES NÃO PUBLICAM AFIRMAÇÕES. A consola está em inglês por decisão do editor, e a
-       condição dessa exceção é que ela relate a redação e nunca o mundo: nenhuma página de
-       /backoffice/ pode citar uma fonte congelada como prova de uma afirmação sobre Portugal.
-  20 · CADA SECÇÃO TEM UM REGISTO EDITORIAL. As oito secções do resumo, cada uma com o seu
-       seccoes/<id>/seccao.json, e nenhuma a dizer que pode afirmar o que não tem fontes para
-       afirmar.
-  21 · O ÍNDICE DE ENTIDADES CONCORDA COM O DISCO. Cada entidade do índice tem página, cada página
-       sob entidades/ está no índice, e o caminho de cada uma é o que a fórmula produz. Um índice
-       que promete uma página que não existe é uma ligação partida à espera de acontecer.
-  22 · CADA ENTIDADE LIGÁVEL TEM UM FUNDAMENTO, E O FUNDAMENTO É VERDADE. `bytes` se e só se o
-       nome foi encontrado numa cópia congelada; `registo` se e só se o nó é editor de um ficheiro
-       congelado. Uma entidade ligada sem fundamento é uma afirmação sem fonte.
-  23 · A FÓRMULA DE LIGAÇÃO É CUMPRIDA NAS PÁGINAS. Nenhuma página liga a mesma entidade mais do
-       que a fórmula permite, nenhuma página de entidade se liga a si própria, e o texto de cada
-       ligação é o nome verbatim da entidade — não uma abreviatura, não um apelido.
-  26 · «CONSTRUÇÃO» NÃO É A PALAVRA QUE SE ESCREVE PARA ESCAPAR À FRONTEIRA. O portão 12 isenta
-       uma execução que não declara departamento, porque a sessão de arranque cria tudo. Uma
-       execução de construção usa essa isenção, e por isso tem de a merecer: não congela uma
-       fonte, não move um issue, não põe nada em publicado, e declara-se como tal. Sem isto, a
-       fronteira entre departamentos tinha uma porta com o nome escrito ao lado.
-  25 · NENHUM COMENTÁRIO DE AGENTE FOI INVENTADO. Cada entrada de um `comentarios.json` tem de
-       nomear, no campo `de`, um ficheiro e um caminho que existem e resolvem. É a regra das
-       afirmações virada para dentro: um comentário atribuído a um modelo que nunca o escreveu é
-       uma afirmação com uma fonte falsa, que é pior do que uma afirmação sem fonte nenhuma.
-  24 · NENHUMA PÁGINA DE PESSOA DIZ NADA SOBRE A PESSOA. Cada valor da tabela de campos de uma
-       página de Pessoa tem de ser, byte a byte, um valor que já está em dados/pessoas.json ou no
-       nó do grafo. É o §4 do resumo a ser conferido e não prometido: sem isto, uma linha de prosa
-       sobre alguém entrava na página sem ninguém dar por ela.
+  16 · AN ARTICLE'S PATH DOES NOT LIE. artigos/<yyyy>/<mm>/<dd>/<slug>/ has to agree with the
+       article's own `data` and `slug` fields. An article whose folder says one date and whose file
+       says another has two addresses, and one of them is wrong.
+  17 · EVERY CLAIM IN AN ARTICLE WALKS BACK. Every [[fonte:…]] mark in the prose and every source
+       cited in the verification record has to exist in dados/registo.json.
+  18 · A VERIFIED ARTICLE WAS ACTUALLY VERIFIED. In `verificado` or `publicado` there has to be
+       prose, there has to be a verification record, and no claim may be left unmarked.
+  19 · THE BACK OFFICE PUBLISHES NO CLAIMS. The console is in English by the editor's decision, and
+       the condition of that exception is that it reports the newsroom and never the world: no page
+       under /backoffice/ may cite a frozen source as evidence for a claim about Portugal.
+  20 · EVERY SECTION HAS AN EDITORIAL RECORD. The brief's eight sections, each with its own
+       seccoes/<id>/seccao.json, and none of them claiming what it has no sources to claim.
+  21 · THE ENTITY INDEX AGREES WITH THE DISK. Every entity in the index has a page, every page under
+       entidades/ is in the index, and each path is what the formula produces. An index promising a
+       page that does not exist is a broken link waiting to happen.
+  22 · EVERY LINKABLE ENTITY HAS A GROUND, AND THE GROUND IS TRUE. `bytes` if and only if the name
+       was found in a frozen copy; `registo` if and only if the node publishes a frozen file. An
+       entity linked with no ground is a claim with no source.
+  23 · THE LINKING FORMULA IS OBEYED ON THE PAGES. No page links the same entity more often than
+       the formula allows, no entity page links to itself, and each link's text is the entity's
+       verbatim name — not an abbreviation, not a surname.
+  24 · NO PERSON'S PAGE SAYS ANYTHING ABOUT THE PERSON. Every value in a Pessoa page's field table
+       has to be, byte for byte, a value already in dados/pessoas.json or in the graph node. It is
+       §4 of the brief checked rather than promised: without it, a line of prose about somebody
+       would enter the page with nobody noticing.
+  25 · NO AGENT COMMENT WAS INVENTED. Every entry in a `comentarios.json` has to name, in its `de`
+       field, a file and a path that exist and resolve. It is the claims rule turned inward: a
+       comment attributed to a model that never wrote it is a claim with a false source, which is
+       worse than a claim with no source at all.
+  26 · "CONSTRUCTION" IS NOT THE WORD YOU WRITE TO ESCAPE THE BOUNDARY. Gate 12 exempts a run that
+       declares no department, because the bootstrap session creates everything. A construction run
+       uses that exemption, so it has to earn it: it freezes no source, moves no card, publishes
+       nothing, and declares itself as such. Without this, the boundary between departments would
+       have a door with the name written beside it.
+  27 · CODE IS IN ENGLISH. Every comment and docstring under build/, admin/build/ and
+       assets/components/ is read for Portuguese function words. CLAUDE.md has said "code and
+       comments are in English" since the first commit, and seventeen files ignored it because the
+       code already there was Portuguese — an existing convention is not the rule. The two honest
+       exceptions are declared in docs/guidance/language.md and encoded here, not hidden here.
+  28 · EVERY AGENT THAT TOUCHES THIS SITE IS NAMED. A run record names an `agente` that exists in
+       dados/agentes.json, and every registered agent has a ROLE.md and a MANDATE.md. An agent
+       nobody can name is an anonymous contributor to a publication whose argument is knowing who
+       said what.
 """
+import ast
 import html as _html
+import io
 import json
 import re
 import sys
+import tokenize
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,7 +94,7 @@ AS_OITO = ["empresas", "protagonistas", "instituicoes", "politicas",
 ESTADOS_VALIDOS = {"procurado", "rascunho", "verificado", "publicado", "superseded"}
 
 
-# --- 16. o caminho de um artigo não mente --------------------------------------
+# --- 16. an article's path does not lie ----------------------------------------
 metas = sorted(ARTIGOS.rglob("artigo.json")) if ARTIGOS.exists() else []
 if not metas:
     erros.append("artigos: não há uma única pasta de artigo. O site tem uma secção de artigos e "
@@ -117,7 +129,7 @@ for meta in metas:
         if not a.get(campo):
             erros.append(f'{rel}: falta o campo obrigatório «{campo}»')
 
-    # --- 17. cada afirmação anda para trás -------------------------------------
+    # --- 17. every claim walks back --------------------------------------------
     for sid in a.get("assenta_em", []):
         if sid not in por_id:
             erros.append(f'{rel}: assenta em «{sid}», que não está no registo de fontes')
@@ -148,7 +160,7 @@ for meta in metas:
                 (contado["confirmada"], contado["disputada"], contado["nao_encontrada"]):
             erros.append(f'{rel}/afirmacoes.json: o resumo não bate certo com as afirmações')
 
-    # --- 18. um artigo verificado foi mesmo verificado -------------------------
+    # --- 18. a verified article was actually verified -------------------------
     if a.get("estado") in ("verificado", "publicado"):
         if not prosa.strip():
             erros.append(f'{rel}: está em «{a["estado"]}» e não tem prosa. Não se verifica o que '
@@ -182,10 +194,10 @@ if historias:
                      "editado à mão em vez de derivado por build/artigos.py")
 
 
-# --- 19. os bastidores não publicam afirmações ---------------------------------
-# A consola está em inglês por decisão do editor. A condição dessa exceção é que ela relate a
-# REDAÇÃO e nunca o MUNDO: uma página em inglês que citasse uma fonte congelada como prova de
-# alguma coisa sobre Portugal seria a regra da língua a ser quebrada a sério.
+# --- 19. the back office publishes no claims -----------------------------------
+# The console is in English by the editor's decision. The condition of that exception is that it
+# reports the NEWSROOM and never the WORLD: an English page citing a frozen source as evidence for
+# something about Portugal would be the language rule being broken for real.
 if BASTIDORES.exists():
     for p in sorted(BASTIDORES.rglob("*.html")):
         t = p.read_text(encoding="utf-8")
@@ -193,7 +205,7 @@ if BASTIDORES.exists():
         if "[[fonte:" in t:
             erros.append(f"{rel}: carrega uma marca de fonte. Os bastidores relatam a redação, "
                          f"não o mundo")
-        # uma ligação para uma âncora do registo é uma citação de prova
+        # a link to a register anchor is a citation of evidence
         if re.search(r'href="[^"]*registo/#', t):
             erros.append(f"{rel}: cita uma fonte congelada como prova. A consola pode CONTAR "
                          f"fontes; não pode assentar uma afirmação numa delas")
@@ -207,7 +219,7 @@ if BASTIDORES.exists():
             erros.append(f"{obrigatoria}: não foi gerada")
 
 
-# --- 20. cada secção tem um registo editorial ----------------------------------
+# --- 20. every section has an editorial record ---------------------------------
 for sid in AS_OITO:
     f = SECCOES / sid / "seccao.json"
     if not f.exists():
@@ -222,10 +234,10 @@ for sid in AS_OITO:
     if s.get("id") != sid:
         erros.append(f'seccoes/{sid}/seccao.json: o id diz «{s.get("id")}» e a pasta diz «{sid}»')
     congeladas = [t for t in s.get("fontes_alvo", []) if t.get("estado") == "congelada"]
-    # Uma secção sem fontes congeladas não pode dizer que afirma alguma coisa. A declaração tem de
-    # COMEÇAR por «Nada» — o que vem a seguir é a explicação, e exigir a palavra sozinha obrigaria
-    # a escolher entre passar no portão e dizer porquê ao leitor. A verificação é sobre a primeira
-    # palavra, que é a que responde à pergunta.
+    # A section with no frozen sources cannot say it claims anything. The statement has to BEGIN
+    # with «Nada» — what follows is the explanation, and demanding the word alone would force a
+    # choice between passing the gate and telling the reader why. The check is on the first word,
+    # which is the one that answers the question.
     diz = s.get("o_que_pode_afirmar_hoje", "").strip().lower()
     diz_que_afirma = not diz.startswith("nada")
     if not congeladas and diz_que_afirma:
@@ -244,7 +256,7 @@ if extra:
                  f'resumo, e acrescentar uma é uma decisão editorial, não um efeito secundário')
 
 
-# --- 21, 22, 23, 24. as entidades -----------------------------------------------
+# --- 21, 22, 23, 24. the entities -----------------------------------------------
 entidades = carregar("entidades.json")
 grafo = carregar("grafo.json")
 pessoas_json = carregar("pessoas.json")
@@ -256,7 +268,7 @@ if not ents:
     erros.append("entidades: dados/entidades.json não tem entidades — build/entidades.py não "
                  "correu, e as páginas do site estão a ligar para um índice que não existe")
 
-# 21 · o índice e o disco dizem a mesma coisa.
+# 21 · the index and the disk say the same thing.
 no_disco = set()
 if ENTIDADES.exists():
     no_disco = {p.parent.relative_to(ROOT).as_posix() + "/"
@@ -269,7 +281,7 @@ for sobra in sorted(no_disco - no_indice):
     erros.append(f'entidades: {sobra} existe no disco e não está no índice — uma página órfã não '
                  f'é reconstruída nem apagada quando a entidade desaparece do grafo')
 
-# 22 · o fundamento de cada entidade ligável é verdade.
+# 22 · every linkable entity's ground is true.
 for x in ents:
     f = x.get("fundamento")
     tem_bytes = bool(x.get("nos_bytes"))
@@ -286,14 +298,14 @@ for x in ents:
     if f == "registo" and tem_bytes:
         erros.append(f'entidades: {x["no"]} invoca o fundamento fraco tendo o forte — quando o '
                      f'nome está nos bytes, o fundamento é `bytes`')
-    # O fundamento e a ligabilidade são coisas diferentes: um nome curto pode estar nos bytes (e
-    # tem fundamento) e continuar a não ser ligável, que é precisamente o que a regra do
-    # comprimento existe para fazer. O portão confere a ligabilidade, não o fundamento.
+    # The ground and linkability are different things: a short name can be in the bytes (and so
+    # has a ground) and still not be linkable, which is precisely what the length rule exists
+    # to do. The gate checks linkability, not the ground.
     if x.get("ligavel") and len(x["nome"]) < 6:
         erros.append(f'entidades: {x["no"]} tem um nome de {len(x["nome"])} caracteres e está '
                      f'ligável — a fórmula publicada exige pelo menos 6')
 
-# 23 · a fórmula é cumprida nas páginas geradas.
+# 23 · the formula is obeyed on the generated pages.
 MAX_POR_PAGINA = 1
 por_url = {x["url"]: x for x in ents}
 LIGACAO = re.compile(r'<a class="ent" href="([^"]+)">([^<]*)</a>')
@@ -311,9 +323,10 @@ for pag in sorted(ROOT.rglob("*.html")):
         alvo = re.sub(r"^(\.\./)+", "", href)
         contagem[alvo] = contagem.get(alvo, 0) + 1
         esperado = nomes_por_url.get(alvo)
-        # O texto vem de HTML e está escapado; o nome do índice é o nome. Comparar os dois sem
-        # desfazer o escape dava um erro em cada organização com um «&» no nome, que é um bug do
-        # portão e não do site — e foi o que aconteceu quando este portão correu pela primeira vez.
+        # The text comes from HTML and is escaped; the index's name is the name. Comparing the
+        # two without unescaping gave an error for every organisation with an «&» in its name,
+        # which is a bug in the gate and not in the site — and that is what happened the first
+        # time this gate ran.
         rotulo = _html.unescape(rotulo)
         if esperado is None:
             erros.append(f'{rel}: liga a {alvo}, que não é o caminho de nenhuma entidade do índice')
@@ -327,11 +340,11 @@ for pag in sorted(ROOT.rglob("*.html")):
             erros.append(f'{rel}: liga {n} vezes a {alvo}; a fórmula publicada permite '
                          f'{MAX_POR_PAGINA} por página')
     if "<a class=\"ent\"" in texto:
-        # Uma ligação dentro de outra ligação é HTML que cada navegador desfaz à sua maneira.
+        # A link inside another link is HTML each browser unpicks its own way.
         if re.search(r'<a\b[^>]*>(?:(?!</a>).)*<a class="ent"', texto, re.S):
             erros.append(f'{rel}: tem uma ligação de entidade dentro de outra ligação')
 
-# 24 · nenhuma página de Pessoa diz nada sobre a pessoa.
+# 24 · no Pessoa page says anything about the person.
 verbatim = set()
 for pp in pessoas_json.get("pessoas", []):
     for v in pp.values():
@@ -341,10 +354,10 @@ for n in grafo.get("nos", []):
     for v in n.values():
         if isinstance(v, str):
             verbatim.add(v)
-# O valor da célula pode conter uma ligação de entidade — «Zero Risk Startup» na página de quem
-# o evento lista sob ela. Por isso captura-se o INTERIOR da célula e tiram-se as marcas antes de
-# comparar: um padrão que só aceitasse texto simples deixava de ver exatamente as células que
-# passaram a ter uma ligação, e um portão que deixa de ver metade do que guarda não guarda nada.
+# A cell's value may contain an entity link — «Zero Risk Startup» on the page of whoever
+# the event lists under it. So the cell's INNER html is captured and tags stripped before
+# comparing: a pattern accepting only plain text would stop seeing exactly the cells that had
+# just gained a link, and a gate that stops seeing half of what it guards guards nothing.
 CAMPO = re.compile(r'<tr><th style="width:230px">(.*?)</th><td class="sm">(.*?)</td></tr>', re.S)
 for x in ents:
     if x["tipo"] != "Pessoa":
@@ -360,9 +373,9 @@ for x in ents:
                          f'Pessoa não escreve uma linha sobre a pessoa')
 
 
-# --- 25. nenhum comentário de agente foi inventado -------------------------------
-# O campo `de` é «<caminho de ficheiro>#<chave>[<índice ou id>]...». O portão abre o ficheiro e
-# percorre o caminho. Se o caminho não resolver, o comentário não anda para trás até nada.
+# --- 25. no agent comment was invented ------------------------------------------
+# The `de` field is «<file path>#<key>[<index or id>]...». The gate opens the file and walks the
+# path. If the path does not resolve, the comment walks back to nothing.
 REF = re.compile(r"^([^#]+)#(.+)$")
 PASSO = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)(?:\[([^\]]+)\])?")
 
@@ -381,9 +394,9 @@ def resolve(caminho):
         if not isinstance(no, dict) or chave not in no:
             return False, f"«{chave}» não existe em {m.group(1)}"
         no = no[chave]
-        # `findall` devolve "" e não None para um grupo opcional que não casou. Tratar os dois
-        # como ausência é o que faz `…entregas[<id>].revisao` resolver até ao fim em vez de ir
-        # procurar um item com id "" dentro de um objeto que não é uma lista.
+        # `findall` returns "" and not None for an optional group that did not match. Treating
+        # both as absence is what makes `…entregas[<id>].revisao` resolve to the end instead of
+        # hunting for an item with id "" inside an object that is not a list.
         if not indice:
             continue
         if indice.isdigit():
@@ -420,29 +433,29 @@ for f in sorted(ARTIGOS.rglob("comentarios.json")):
         if c.get("texto") is None:
             erros.append(f'{rel}: a entrada {c.get("id")} não tem texto')
 
-# O agregado tem de concordar com a soma das pastas: uma consola que mostra mais trabalho do que
-# aconteceu é a mesma espécie de mentira que um comentário inventado, só que em números.
+# The aggregate has to agree with the sum of the folders: a console showing more work than
+# happened is the same kind of lie as an invented comment, only in numbers.
 agregado = carregar("comentarios.json")
 if agregado and agregado.get("contagem") != n_comentarios:
     erros.append(f'dados/comentarios.json diz {agregado.get("contagem")} entradas e as pastas dos '
                  f'artigos têm {n_comentarios}')
 
-# Nenhum agente aparece sem estar declarado: um nome de agente que ninguém sabe de onde vem é um
-# colaborador anónimo numa publicação cujo argumento inteiro é saber quem disse o quê.
+# No agent appears undeclared: an agent name nobody can place is an
+# anonymous contributor to a publication whose entire argument is knowing who said what.
 declarados = set((agregado or {}).get("agentes", {}))
 for a in sorted(agentes_vistos - declarados):
     erros.append(f'comentários: o agente «{a}» aparece no fluxo e não está declarado em '
                  f'dados/comentarios.json#agentes')
 
 
-# --- 26. uma execução de construção tem de merecer a isenção que usa ------------
+# --- 26. a construction run must earn the exemption it uses ---------------------
 RUNS = ROOT / "redacao" / "runs"
 n_runs = 0
 for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
     r = json.loads(f.read_text(encoding="utf-8"))
     n_runs += 1
     if r.get("departamento"):
-        continue                       # essa é conferida pelo portão 12, em build/gates.py
+        continue                       # that one is checked by gate 12, in build/gates.py
     especie = r.get("especie")
     if not especie:
         erros.append(f'runs: {f.name} não declara departamento nem espécie. A isenção do portão '
@@ -468,9 +481,163 @@ for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
         erros.append(f'runs: {f.name} registou uma versão sem dizer que os portões ficaram verdes')
 
 
+# --- 27. code is in English -----------------------------------------------------
+# Portuguese function words that essentially never appear in English prose. Matching on function
+# words rather than on accents is deliberate: a comment can be entirely Portuguese without a single
+# accented character, and an English comment may legitimately quote an accented Portuguese name.
+PT_PALAVRAS = re.compile(
+    r"\b(?:não|são|está|estão|é|foi|ser|tem|têm|uma|uns|umas|que|para|com|por|"
+    r"como|quando|onde|porque|porquê|isso|isto|aquilo|cada|todos|todas|"
+    r"ficheiro|ficheiros|página|páginas|portão|portões|afirmação|afirmações|"
+    r"fonte|fontes|leitor|leitura|escrever|escrita|nenhum|nenhuma|mesmo|mesma|"
+    r"sítio|coisa|coisas|dele|dela|deles|delas|pelo|pela|nos|nas|aos|às)\b",
+    re.IGNORECASE)
+
+# The exceptions, declared rather than hidden. Each one says why.
+EXCEPCOES = {
+    # Portuguese identifiers this pipeline is built on. These are names, not prose, and renaming
+    # them is the scheduled data-key migration described in docs/guidance/language.md.
+    "identificadores": re.compile(
+        r"\b(?:dados|fontes|congeladas|redacao|artigos|seccoes|entidades|comentarios|"
+        r"historias|registo|grafo|ontologia|verificacoes|entregas|aviso|equipa|lexico|"
+        r"organizacoes|pessoas|sessoes|temas|manifesto|mudancas|excluidas|"
+        r"estado|fonte|nome|texto|afirmacoes|proveniencia|artigo|seccao|slug|"
+        r"publicado|verificado|rascunho|procurado|congelado|confirmada|disputada|"
+        r"nao_encontrada|por_verificar|fonte_inacessivel|departamento|especie|construcao|"
+        r"arranque|pesquisa|verificacao|editor|pastas_alteradas|issues_movidos|portoes|"
+        r"versao|quando|agente|leitura|verbo|inverso|dominio|alcance|tudo|paginas|"
+        r"mesa|bancadas|quadro|colunas|cartoes|carga|correio|runs|issues|decisoes|"
+        r"chrome|build|gates|extract|entidade|comentario|api|backoffice)\b", re.IGNORECASE),
+}
+
+
+def _comentarios_de(caminho, texto):
+    """Every comment and docstring in a file, as (line number, text).
+
+    Only comments are read. Portuguese inside a STRING is usually a label the reader sees, which is
+    exactly where Portuguese belongs — failing on those would be the gate telling the site to stop
+    being Portuguese.
+
+    AND A TRIPLE-QUOTED STRING IS NOT A DOCSTRING. This gate's first version matched every
+    triple-quoted block with a regular expression and flagged eleven page templates in
+    build/build.py: blocks of HTML holding the Portuguese a reader sees, assigned to a variable. It
+    was telling the site to stop being Portuguese. The parser knows the difference between a
+    docstring and a string that merely happens to be long, so the answer comes from `ast` rather
+    than from a pattern."""
+    saida = []
+    if caminho.suffix == ".py":
+        # `tokenize` and not a split on "#". The first version of this gate split every line on the
+        # first "#" and guessed at quoting, which read the `## heading` lines INSIDE the llms.txt
+        # template in build/chrome.py as comments — markdown headings in Portuguese content, which
+        # is exactly where Portuguese belongs. Same family of mistake as matching docstrings with a
+        # regex: the tokenizer already knows what a comment is, so it is asked.
+        try:
+            for tok in tokenize.generate_tokens(io.StringIO(texto).readline):
+                if tok.type == tokenize.COMMENT:
+                    saida.append((tok.start[0], tok.string.lstrip("#")))
+        except (tokenize.TokenError, IndentationError, SyntaxError):
+            pass
+        try:
+            arvore = ast.parse(texto)
+        except SyntaxError:
+            return saida
+        for no in ast.walk(arvore):
+            if not isinstance(no, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                continue
+            doc = ast.get_docstring(no, clean=False)
+            if not doc:
+                continue
+            primeiro = no.body[0]
+            for i, linha in enumerate(doc.split("\n")):
+                saida.append((getattr(primeiro, "lineno", 1) + i, linha))
+    else:
+        for m in re.finditer(r"/\*(.*?)\*/", texto, re.S):
+            n = texto[:m.start()].count("\n") + 1
+            for i, linha in enumerate(m.group(1).split("\n")):
+                saida.append((n + i, linha))
+        for n, linha in enumerate(texto.split("\n"), 1):
+            m = re.search(r"(?<!:)//(.*)$", linha)
+            if m and not re.search(r"https?:$", linha[:m.start()]):
+                saida.append((n, m.group(1)))
+    return saida
+
+
+CODIGO = []
+for base, padroes in ((ROOT / "build", ("*.py",)),
+                      (ROOT / "admin" / "build", ("*.js", "*.mjs")),
+                      (ROOT / "assets" / "components", ("*.js",))):
+    if base.exists():
+        for pad in padroes:
+            CODIGO.extend(sorted(base.rglob(pad)))
+
+# THE FILES THIS GATE MAY NOT DEMAND A FIX TO. build/gates.py, build/entregas.py and build/pdf.py
+# are in the deny list of .claude/settings.json, so no agent here can edit them — and a gate that
+# fails the build over a file the agent is forbidden to touch is not a gate, it is a deadlock. They
+# carry Portuguese comments written before the rule was enforced. They are named here rather than
+# quietly skipped, counted in the summary line, and they are the editor's to clear: only the editor
+# can lift a deny-list entry, and until then this is an honest exemption rather than a hidden one.
+DENY_LIST = {"build/gates.py", "build/entregas.py", "build/pdf.py"}
+pendentes_do_editor = []
+
+n_codigo, n_linhas_conferidas = 0, 0
+for f in CODIGO:
+    if "__pycache__" in f.as_posix():
+        continue
+    if f.relative_to(ROOT).as_posix() in DENY_LIST:
+        pendentes_do_editor.append(f.relative_to(ROOT).as_posix())
+        continue
+    n_codigo += 1
+    rel = f.relative_to(ROOT).as_posix()
+    achados = []
+    for n, linha in _comentarios_de(f, f.read_text(encoding="utf-8")):
+        n_linhas_conferidas += 1
+        limpo = EXCEPCOES["identificadores"].sub(" ", linha)
+        limpo = re.sub(r"`[^`]*`", " ", limpo)          # file names and code between backticks
+        # A Portuguese LABEL quoted inside an English sentence is not a Portuguese comment. This
+        # repository writes such labels in guillemets — «Esta semana em Lisboa» is the name of a
+        # front-page section, and the sentence explaining it is in English. Without this, the gate
+        # would demand that an English comment stop naming the Portuguese thing it describes.
+        limpo = re.sub(r"«[^»]*»", " ", limpo)
+        palavras = set(m.group(0).lower() for m in PT_PALAVRAS.finditer(limpo))
+        if len(palavras) >= 2:
+            achados.append((n, sorted(palavras)[:4], linha.strip()[:70]))
+    if achados:
+        n, palavras, amostra = achados[0]
+        erros.append(f'{rel}:{n}: comment or docstring is in Portuguese '
+                     f'({", ".join(palavras)}) — "{amostra}". CLAUDE.md: code and comments are in '
+                     f'English. {len(achados)} line(s) in this file. See '
+                     f'docs/guidance/language.md')
+
+
+# --- 28. every agent that touches this site is named ---------------------------
+agentes = carregar("agentes.json")
+AGENTES_DIR = ROOT / "agents"
+registados = {a["id"] for a in agentes.get("agents", [])}
+if not registados:
+    erros.append("agents: dados/agentes.json registers nobody. Every agent that may change this "
+                 "site is named there, with a ROLE.md and a MANDATE.md")
+for a in agentes.get("agents", []):
+    for ficheiro in ("ROLE.md", "MANDATE.md"):
+        if not (AGENTES_DIR / a["id"] / ficheiro).exists():
+            erros.append(f'agents/{a["id"]}: registered in dados/agentes.json and has no '
+                         f'{ficheiro}. A named agent without a written mandate is a name, not a '
+                         f'boundary')
+if AGENTES_DIR.exists():
+    for d in sorted(p for p in AGENTES_DIR.iterdir() if p.is_dir()):
+        if d.name not in registados:
+            erros.append(f'agents/{d.name}/ exists on disk and is not in dados/agentes.json — an '
+                         f'unregistered mandate is one no gate can check')
+for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
+    r = json.loads(f.read_text(encoding="utf-8"))
+    quem = r.get("agente")
+    if quem and quem not in registados:
+        erros.append(f'runs: {f.name} names the agent «{quem}», which is not in '
+                     f'dados/agentes.json')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"portões (artigos, secções, bastidores): {len(erros)} erro(s)")
+    print(f"gates 16-28: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -478,10 +645,14 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"portões (artigos, secções, bastidores): OK — {len(metas)} artigos em pastas datadas "
-      f"({com_prosa} com prosa, {pub} publicados), cada caminho a concordar com a sua data e "
-      f"slug, cada afirmação a andar para trás até ao registo, {len(AS_OITO)} secções com "
-      f"registo editorial, bastidores em inglês sem citar prova, "
-      f"{len(ents)} entidades com página e fundamento conferido, "
-      f"{n_comentarios} comentários de agente a andarem para trás até um ficheiro, "
-      f"{n_runs} execuções registadas com a sua fronteira conferida")
+print(f"gates 16-28: OK — {len(metas)} articles in dated folders "
+      f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
+      f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
+      f"record, a back office in English citing no evidence, "
+      f"{len(ents)} entities with a page and a checked ground, "
+      f"{n_comentarios} agent comments each walking back to a file, "
+      f"{n_runs} run records with their boundary checked, "
+      f"{n_codigo} code files in English "
+      f"({len(pendentes_do_editor)} exempt as deny-listed: "
+      f"{', '.join(pendentes_do_editor) or 'none'}), "
+      f"{len(registados)} named agents with a written mandate")

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-CnfqMl9z.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-sVgAtzwK.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-sVgAtzwK.css"></noscript>
+      <title>Agenda — Startup Summit Lisbon 2026 | Sessions, Stages & Times</title>
+    <meta name="description" content="Two-day agenda for Startup Summit Lisbon 2026 — keynotes, panels, fireside chats, speed networking and the Founder Social. September 17–18." />
+    <link rel="canonical" href="https://startupsummit.io/agenda" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/agenda" />
+    <link rel="alternate" hreflang="pt-PT" href="https://startupsummit.io/pt/programa" />
+    <link rel="alternate" hreflang="es-ES" href="https://startupsummit.io/es/programa" />
+    <link rel="alternate" hreflang="fr-FR" href="https://startupsummit.io/fr/programme" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/agenda" />
+
+    <meta property="og:title" content="Agenda — Startup Summit Lisbon 2026 | Sessions, Stages &amp; Times" />
+    <meta property="og:description" content="Two-day agenda for Startup Summit Lisbon 2026 — keynotes, panels, fireside chats, speed networking and the Founder Social. September 17–18." />
+    <meta property="og:image" content="https://startupsummit.io/images/og-agenda.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/agenda" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agenda — Startup Summit Lisbon 2026 | Sessions, Stages &amp; Times" />
+    <meta name="twitter:description" content="Two-day agenda for Startup Summit Lisbon 2026 — keynotes, panels, fireside chats, speed networking and the Founder Social. September 17–18." />
+    <meta name="twitter:image" content="https://startupsummit.io/images/og-agenda.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Agenda","item":"https://startupsummit.io/agenda"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agenda — Startup Summit Lisbon 2026 | Sessions, Stages & Times","url":"https://startupsummit.io/agenda","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png","sameAs":["https://instagram.com/startupsummitlx","https://www.linkedin.com/company/thestartupsummit","https://x.com/startupsummitl"]}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Agenda — Startup Summit Lisbon 2026</h1>
+  <p><strong>Wed 16 Sept · Thu 17 Sept · Fri 18 Sept 2026 · Beato Innovation District, Lisbon</strong></p>
+  <p>Two full days of programming across three stages (Unicorn Stage, Impact
+  Stage, Workshop Rooms), plus a Welcome Drinks pre-event on Wednesday evening.
+  Session formats include keynotes, panels, fireside chats, workshops, speed
+  networking, investor office hours and the Founder Social — all
+  designed so founders, investors and operators meet the right people and leave
+  with real outcomes.</p>
+
+  <h2>Wednesday 16 September — Startup Summit Eve</h2>
+  <ul>
+    <li><strong>19:00 — Welcome Drinks</strong> at Beato Innovation District. Music, drinks, conversations until midnight. All passes welcome.</li>
+  </ul>
+
+  <h2>Thursday 17 September — Day 1</h2>
+  <ul>
+    <li>07:30 — Morning Run (free, all welcome)</li>
+    <li>09:00 — Doors Open · Registration · Expo · Food trucks</li>
+    <li>09:30 — Opening Keynote: Welcome to Startup Summit 2026 (Unicorn Stage)</li>
+    <li>11:45–12:15 · Unicorn Stage — <a href="/agenda/ai-or-die-operators-rebuilding-stack"><strong>AI or Die</strong></a> (Panel)</li>
+    <li>10:00–10:30 · Unicorn Stage — <a href="/agenda/lp-perspective-where-capital-is-moving"><strong>The LP Perspective</strong></a> (Panel)</li>
+    <li>11:05–11:30 · Impact Stage — <a href="/agenda/fundraising-meta-game-what-vcs-look-for"><strong>The Fundraising Meta-Game</strong></a> (Keynote)</li>
+    <li>13:00 — Lunch · Beer Hall · Praça Café · Rooftop Bar</li>
+    <li>14:00 — Investor Office Hours (Founder + Booth + Investor passes)</li>
+    <li>Evening — Founder Social</li>
+  </ul>
+
+  <h2>Friday 18 September — Day 2</h2>
+  <ul>
+    <li>09:00 — Doors Open · Day 2 Welcome</li>
+    <li>09:30–10:00 · Unicorn Stage — <a href="/agenda/portuguese-unicorn-conversation"><strong>Day 2 Opening — Portuguese Unicorn Conversation</strong></a> (Fireside)</li>
+    <li>10:10–10:35 · Impact Stage — <a href="/agenda/what-i-built-with-ai-founders-account"><strong>What I Built With AI</strong></a> (Fireside)</li>
+    <li>11:20–11:45 · Impact Stage — <a href="/agenda/hardware-meets-software-deep-tech"><strong>Hardware Meets Software</strong></a> (Keynote)</li>
+    <li>Afternoon — Speed networking · Investor 1:1s · Workshops</li>
+    <li>Evening — Closing Celebration · VIP Sunset Cruise (VIP-only)</li>
+  </ul>
+
+  <p>This is a summarised view; more sessions, speakers and exact timings are
+  being announced weekly. <a href="/speakers">Meet the Startup Summit speakers</a> ·
+  <a href="/tickets">Buy Startup Summit Lisbon 2026 tickets</a> ·
+  <a href="/why-attend">Why attend Startup Summit</a></p>
+
+      </div>
+    </noscript>
+  </body>
+</html>

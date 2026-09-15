@@ -1,40 +1,40 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — o que cada agente disse sobre cada artigo, derivado do que ficou escrito.
+"""pt.newsroom.sgit.ai — what each agent said about each article, derived from what was recorded.
 
-    python3 build/comentarios.py      # depois de artigos.py, antes de build.py
+    python3 build/comentarios.py      # after artigos.py, before build.py
 
-O PEDIDO E A RECUSA QUE ELE OBRIGOU A FAZER.
+THE ASK, AND THE REFUSAL IT FORCED.
 
-O editor pediu «uma visualização e um mapeamento dos comentários que cada um dos diferentes agentes
-fez a isto» — a pasta de um artigo deve conter o fluxo de trabalho, as decisões, os comentários e
-as vistas dos vários agentes sobre ele.
+The editor asked for "a visualisation and a mapping of the comments each of the different agents
+made on this" — an article's folder should hold the workflow, the decisions, the comments and the
+several agents' views of it.
 
-A maneira fácil de fazer isto seria escrever comentários. Ficariam bem: um do ChatGPT a sugerir,
-outro da Perplexity a discordar, um da verificação a confirmar. E seriam **proveniência
-fabricada** — a única coisa que um sítio inteiro construído sobre proveniência não pode fazer.
-Atribuir a um modelo de outro fornecedor uma frase que ele nunca escreveu é pior do que uma
-afirmação sem fonte: é uma afirmação com uma fonte falsa.
+The easy way to do that would be to WRITE the comments. They would read well: one from ChatGPT
+suggesting, one from Perplexity disagreeing, one from verification confirming. And they would be
+**fabricated provenance** — the one thing a site built entirely on provenance cannot do.
+Attributing to another provider's model a sentence it never wrote is worse than a claim with no
+source: it is a claim with a FALSE source.
 
-Por isso este ficheiro não escreve comentários. **Deriva-os de registos que já existem**, e cada
-comentário nomeia, no campo `de`, o ficheiro e o caminho de onde saiu. Um portão volta a resolver
-esse caminho. Se um comentário não andar para trás até um ficheiro do repositório, a construção
-falha — é a mesma regra das afirmações, aplicada ao trabalho em vez de ao mundo.
+So this file writes no comments. **It derives them from records that already exist**, and every
+entry names, in its `de` field, the file and path it came from. A gate re-resolves that path. If a
+comment cannot walk back to a file in this repository, the build fails — the same rule the claims
+live under, turned on the work instead of on the world.
 
-DE ONDE SAEM
+WHERE THEY COME FROM
 
-  proveniencia.json  `cronologia[]`  → uma ação de um agente nomeado, com o que fez e porque importa
-                     `por_rever[]`   → uma pergunta em aberto que aquele agente deixou
-  afirmacoes.json    `afirmacoes[]`  → a verificação de cada afirmação contra os bytes, e o método
-  artigo.json        `o_que_falta[]` → o que a redação diz que ainda não tem
-  dados/entregas.json               → uma proposta de um assistente EXTERIOR, com o resultado de se
-                                      ter procurado o excerto nos bytes; e a decisão do editor, ou
-                                      a sua ausência, que é o estado em que quase tudo está
+  proveniencia.json  `cronologia[]`  → an action by a named agent, what it did and why it matters
+                     `por_rever[]`   → an open question that agent left behind
+  afirmacoes.json    `afirmacoes[]`  → each claim re-read against the bytes, and the method used
+  artigo.json        `o_que_falta[]` → what the newsroom says it still does not have
+  dados/entregas.json               → a proposal from an OUTSIDE assistant, with the result of
+                                      searching the frozen bytes for its excerpt; and the editor's
+                                      decision, or its absence, which is where almost everything is
 
-COMO UMA PROPOSTA EXTERIOR SE LIGA A UM ARTIGO — e é uma fórmula, não um palpite. Liga-se pela
-SECÇÃO: uma entrega chega para uma secção e um artigo pertence a uma secção. O comentário diz isso
-por extenso e não finge mais: «esta proposta chegou para a secção das políticas, que é a secção
-deste artigo». Não é uma afirmação de que a proposta seja sobre este artigo — para isso seria
-preciso alguém ler as duas coisas, e esse alguém é o editor.
+HOW AN OUTSIDE PROPOSAL ATTACHES TO AN ARTICLE — and it is a formula, not a guess. It attaches by
+SECTION: a delivery arrives for a section, and an article belongs to a section. The comment says so
+in full and pretends nothing more: "this proposal arrived for the policies section, which is this
+article's section". It is not a claim that the proposal is ABOUT this article — that would take
+somebody reading both, and that somebody is the editor.
 """
 import json
 import re
@@ -45,9 +45,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 ARTIGOS = ROOT / "artigos"
 
-# Os agentes, como este repositório os conhece. Um departamento é um agente com um âmbito de
-# escrita; o editor é uma pessoa nomeada; um assistente exterior é uma ferramenta e um modelo,
-# escritos tal como a entrega os declarou.
+# The agents, as this repository knows them. A department is an agent with a write scope; the
+# editor is a named person; an outside assistant is a tool and a model, written exactly as the
+# delivery declared them. The full register, with a mandate each, is in agents/.
 AGENTES = {
     "pesquisa":    {"nome": "Pesquisa", "fornecedor": "esta redação", "especie": "departamento"},
     "redacao":     {"nome": "Redação", "fornecedor": "esta redação", "especie": "departamento"},
@@ -76,8 +76,8 @@ def main():
     equipa = carregar(DADOS / "equipa.json")
     hoje = carregar(DADOS / "registo.json").get("atualizado", time.strftime("%Y-%m-%d"))
 
-    # Os assistentes exteriores, lidos das entregas e não de uma lista escrita à mão: se aparecer
-    # uma entrega de outra ferramenta, ela entra aqui sozinha.
+    # Outside assistants, read from the deliveries rather than from a hand-written list: if a
+    # delivery from another tool turns up, it enters here on its own.
     agentes = dict(AGENTES)
     for ent in entregas.get("entregas", []):
         aid = ent.get("ferramenta") or "desconhecido"
@@ -102,7 +102,7 @@ def main():
             kw["artigo"] = slug
             fluxo.append(kw)
 
-        # 1 · a cronologia: cada ação de um agente nomeado.
+        # 1 · the timeline: every action by a named agent.
         for i, c in enumerate(prov.get("cronologia", [])):
             junta(quando=c.get("quando"), agente=c.get("quem", "redacao"),
                   agente_verbatim=c.get("agente"), especie="acao",
@@ -110,14 +110,14 @@ def main():
                   texto=c.get("o_que", ""), porque=c.get("porque_importa"),
                   estado="feito", de=f"{rel}/proveniencia.json#cronologia[{i}]")
 
-        # 2 · o que aquele agente deixou por rever. É uma pergunta em aberto e fica aberta: um
-        #     fluxo que fecha as suas próprias perguntas não é um fluxo, é uma decoração.
+        # 2 · what that agent left open. It is an open question and it stays open: a stream that
+        #     closes its own questions is not a stream, it is decoration.
         for i, q in enumerate(prov.get("por_rever", [])):
             junta(quando=None, agente=(prov.get("cronologia") or [{}])[0].get("quem", "redacao"),
                   especie="pergunta", sobre={"tipo": "artigo", "ref": slug},
                   texto=q, estado="aberto", de=f"{rel}/proveniencia.json#por_rever[{i}]")
 
-        # 3 · a verificação de cada afirmação, com o método declarado uma vez.
+        # 3 · each claim's verification, with the method stated once.
         for i, a in enumerate(afirm.get("afirmacoes", [])):
             junta(quando=afirm.get("verificado_em"), agente=afirm.get("por", "verificacao"),
                   especie="verificacao", sobre={"tipo": "afirmacao", "ref": a.get("id")},
@@ -125,13 +125,13 @@ def main():
                   estado=a.get("estado", "por_verificar"), fonte=a.get("fonte"),
                   de=f"{rel}/afirmacoes.json#afirmacoes[{i}]")
 
-        # 4 · o que a redação diz que ainda lhe falta.
+        # 4 · what the newsroom says it still lacks.
         for i, f in enumerate(art.get("o_que_falta", [])):
             junta(quando=art.get("data"), agente="redacao", especie="falta",
                   sobre={"tipo": "artigo", "ref": slug}, texto=f, estado="aberto",
                   de=f"{rel}/artigo.json#o_que_falta[{i}]")
 
-        # 5 · o que chegou de fora para a secção deste artigo, e o que aconteceu quando voltou.
+        # 5 · what arrived from outside for this article's section, and what happened to it.
         for ent in entregas.get("entregas", []):
             if art.get("seccao") not in (ent.get("seccoes") or []):
                 continue
@@ -184,7 +184,7 @@ def main():
                             "por_agente": contagem_agente}
         todos.extend(fluxo)
 
-    # --- o agregado, que é o que a consola e a visualização leem -------------
+    # --- the aggregate, which is what the console and the map read -----------
     por_agente = {}
     for c in todos:
         d = por_agente.setdefault(c["agente"], {"total": 0, "abertos": 0, "especies": {}})

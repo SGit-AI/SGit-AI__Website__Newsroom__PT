@@ -103,6 +103,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
   <div><a href="{raiz}">← the paper</a> · <a href="{raiz}backoffice/">console</a> ·
        <a href="{raiz}backoffice/docs.html">documents</a> ·
        <a href="{raiz}backoffice/agents.html">agents</a> ·
+       <a href="{raiz}backoffice/guidance.html">guidance</a> ·
        <a href="{raiz}admin/versions.html">versions</a></div>
   <div><span class="ver">{VERSAO}</span></div>
 </div>
@@ -140,6 +141,14 @@ def escrever(rel, texto):
 
 # ------------------------------------------------------------------ the docs ---
 CATEGORIAS = [
+    ("docs/guidance/", "Guidance — read first",
+     "The rules an agent working here follows: the language rule, the principles with the gate "
+     "that enforces each one, and the checklist for before you change anything. A rule without a "
+     "gate is decoration, so each one names its gate or says it has none."),
+    ("agents/", "Agent mandates",
+     "One folder per named agent, each with a ROLE.md and a MANDATE.md. More than one agent works "
+     "on this site and they are not interchangeable: the role says what the work is, the name says "
+     "whose mandate it is done under."),
     ("briefs/pack/", "Commissioning pack",
      "Cut from newsroom.sgit.ai v0.3.9. The brief this site was built from, the design, what to "
      "inherit, the operating model, the schedule and the research briefs. Where a copy and the "
@@ -245,6 +254,87 @@ def commits_recentes(n=12):
         return [l.split("\t", 3) for l in r.stdout.strip().split("\n") if l.count("\t") >= 3]
     except Exception:
         return []
+
+
+GUIA = [
+    ("index.md", "Start here",
+     "The one-minute version, the reading order, and what not to build. Most tasks end at the "
+     "third item on that list."),
+    ("language.md", "The language rule",
+     "One test decides every naming question: would a visitor read this string on the site? The "
+     "most commonly broken rule here, including by the agent that wrote most of this pipeline."),
+    ("principles.md", "The nine principles",
+     "Each one names the gate that enforces it. The one principle with no gate says so in those "
+     "words."),
+    ("before-you-change.md", "Before you change anything",
+     "The checklist: know who you are, read in order, find out who else is working here, check the "
+     "tree is green before you touch it, build with build/tudo.py, record what you did."),
+]
+
+
+def pagina_guidance():
+    """The guidance landing page, in the back office because that is where an operator looks.
+
+    The markdown under docs/guidance/ is the source of truth; this page is a route into it, and the
+    document browser renders it from the same bytes the build read. Restating the rules here would
+    give this repository two copies of them, and two copies diverge — which is the first thing
+    `index.md` tells you not to do."""
+    cartoes = "".join(
+        f'<div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px">'
+        f'<div class="mono xs">{i + 1:02d}</div>'
+        f'<h3 class="h-3" style="padding:2px 0 4px">'
+        f'<a href="docs.html#docs/guidance/{e(f)}">{e(t)}</a></h3>'
+        f'<p class="sm">{e(d)}</p></div>'
+        for i, (f, t, d) in enumerate(GUIA))
+
+    agentes = json.loads((DADOS / "agentes.json").read_text(encoding="utf-8")) \
+        if (DADOS / "agentes.json").exists() else {"agents": []}
+    linhas = "".join(
+        f'<tr><td class="sm"><b>{e(a["name"])}</b></td><td class="sm">{e(a["role"])}</td>'
+        f'<td class="mono xs">{e(", ".join(a["writes_in"][:3]))}'
+        f'{"…" if len(a["writes_in"]) > 3 else ""}</td>'
+        f'<td class="mono xs">{e(", ".join(f"{k}: {v}" for k, v in a["declares"].items()))}</td>'
+        f'<td class="mono xs"><a href="docs.html#agents/{e(a["id"])}/ROLE.md">ROLE</a> · '
+        f'<a href="docs.html#agents/{e(a["id"])}/MANDATE.md">MANDATE</a></td></tr>'
+        for a in agentes.get("agents", []))
+
+    corpo = f"""
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Guidance</div></div>
+<h1 class="h-2" style="max-width:30em">What to read before you change anything here — human or
+agent.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 8px"><b>Everything except what a visitor reads
+is in English.</b> One test decides it: would a visitor to pt.newsroom.sgit.ai read this string on
+the site? Yes means European Portuguese under AO90; no means English. That covers code, comments,
+commit messages, this console, the release history, API paths and browser-side state. It does not
+cover the prose, the entity names, or the ontology's readings — those are what the reader reads.</p>
+<p class="sm" style="max-width:46em;padding-bottom:18px"><b>A rule without a gate is decoration.</b>
+Every principle below names the thing that stops the build when it is broken, and the one principle
+that has no gate says so in those words. If you add a rule, add the gate in the same change — and
+break it on purpose first, because a gate that has never failed is a comment.</p>
+
+<div class="g4" style="padding-bottom:30px">{cartoes}</div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">Who you are</div></div>
+<p class="sm" style="max-width:48em;padding-bottom:12px">More than one agent works here and they
+are not interchangeable. Claim an identity, name it in your run record, and the gates hold you to
+its write scope. If no identity fits the work, that is a message to the editor, not a licence to
+invent one.</p>
+<div class="rolar"><table><thead><tr><th style="width:130px">Agent</th>
+  <th style="width:120px">Role</th><th>Writes in</th><th style="width:210px">Declares</th>
+  <th style="width:150px">Mandate</th></tr></thead><tbody>{linhas}</tbody></table></div>
+
+<div class="rule" style="padding:22px 0 8px"><div class="sect">The rest of the estate</div></div>
+<p class="sm" style="max-width:48em">This repository is an instance of an argument made elsewhere,
+not a restatement of it: where these answer a question, we link rather than copy.
+<a href="https://sgit.ai/docs/guidance/index.html">sgit.ai/docs/guidance</a> ·
+<a href="https://coding.sgit.ai">coding.sgit.ai</a> — the house style, derived by counting rather
+than from documentation · <a href="https://nfrs.sgit.ai">nfrs.sgit.ai</a> — version control,
+reliability, resilience, security, backups, consistency, explainability, documentation ·
+<a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> — the parent publication.</p>
+"""
+    return pagina("backoffice/guidance.html", "Guidance",
+                  "What to read before changing anything on this site, and who you are when you do.",
+                  corpo)
 
 
 def pagina_agentes():
@@ -553,6 +643,7 @@ def main():
         escrever("backoffice/docs.html", pagina_docs(docs)),
         escrever("backoffice/viewer.html", pagina_viewer()),
         escrever("backoffice/agents.html", pagina_agentes()),
+        escrever("backoffice/guidance.html", pagina_guidance()),
     ]
     (DADOS / "documentos.json").write_text(json.dumps({
         "id": "pt-documentos", "versao": "0.1.0", "atualizado": time.strftime("%Y-%m-%d"),

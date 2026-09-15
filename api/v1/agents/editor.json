@@ -1,0 +1,21 @@
+{
+  "id": "editor",
+  "name": "Dinis Cruz",
+  "role": "Editor of record",
+  "kind": "human",
+  "declares": {
+    "departamento": "editor"
+  },
+  "focus": "Reads every page before it goes live, and answers for what it says.",
+  "writes_in": [
+    "redacao/decisoes/",
+    "redacao/revisoes/",
+    "conteudo/",
+    "CLAUDE.md"
+  ],
+  "only_they_may": [
+    "publish a story",
+    "decide a removal under the notice",
+    "clear an item an agent parked"
+  ]
+}

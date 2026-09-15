@@ -70,8 +70,8 @@ def escrever(rel, obj):
     return f"api/v1/{rel}"
 
 
-# Cada colecção: o caminho em inglês, de onde vem, o que é um item, e como se chama um item.
-# `chave` é o campo que dá o id de um item; None quer dizer que a colecção não se divide.
+# Each collection: the English path, where it comes from, what an item is, and what an item is
+# called. `chave` is the field giving an item its id; None means the collection is not split.
 COLECCOES = [
     {"path": "sources", "ficheiro": "registo.json", "lista": "fontes", "chave": "id",
      "pt": "registo", "summary": "Every frozen source with its SHA-256, bytes and retrieval time",
@@ -128,6 +128,17 @@ COLECCOES = [
      "pt": "equipa", "summary": "The three departments and the editor of record"},
     {"path": "documents", "ficheiro": "documentos.json", "lista": "documentos", "chave": None,
      "pt": "documentos", "summary": "Every markdown document in this repository"},
+    {"path": "agents", "ficheiro": "agentes.json", "lista": "agents", "chave": "id",
+     "pt": "agentes", "summary": "The named agents that may change this site, and their mandates",
+     "description": "One entry per identity, each with a role, a write scope and what it declares "
+                    "in a run record. An agent nobody can name is an anonymous contributor to a "
+                    "publication whose entire argument is knowing who said what."},
+    {"path": "transfers", "ficheiro": "transferencias.json", "lista": "lotes", "chave": "id",
+     "pt": "transferencias", "summary": "Evidence frozen by ANOTHER publication, with its provenance",
+     "description": "Not in this newsroom's register, and not to be treated as if it were: these "
+                    "bytes were fetched by another publication's fetcher, with its user-agent, at "
+                    "the times in its register. Every SHA-256 is recomputed here; a bundle with "
+                    "one bad hash is refused whole."},
     {"path": "desk", "ficheiro": "redacao.json", "lista": None, "chave": None,
      "pt": "redacao", "summary": "The newsroom floor: benches, their load, and the board",
      "description": "Counted from files that already exist — the issue board, the mail between "

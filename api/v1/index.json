@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.7.1",
+  "version": "v0.8.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -532,9 +532,37 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 36,
+      "count": 52,
       "items": null,
       "item_ids": null
+    },
+    {
+      "path": "/api/v1/agents.json",
+      "name": "agents",
+      "portuguese_source": "dados/agentes.json",
+      "summary": "The named agents that may change this site, and their mandates",
+      "description": "One entry per identity, each with a role, a write scope and what it declares in a run record. An agent nobody can name is an anonymous contributor to a publication whose entire argument is knowing who said what.",
+      "count": 5,
+      "items": "/api/v1/agents/<id>.json",
+      "item_ids": [
+        "foundry",
+        "dragnet",
+        "copydesk",
+        "proof",
+        "editor"
+      ]
+    },
+    {
+      "path": "/api/v1/transfers.json",
+      "name": "transfers",
+      "portuguese_source": "dados/transferencias.json",
+      "summary": "Evidence frozen by ANOTHER publication, with its provenance",
+      "description": "Not in this newsroom's register, and not to be treated as if it were: these bytes were fetched by another publication's fetcher, with its user-agent, at the times in its register. Every SHA-256 is recomputed here; a bundle with one bad hash is refused whole.",
+      "count": 1,
+      "items": "/api/v1/transfers/<id>.json",
+      "item_ids": [
+        "newsroom-sgit-ai-2026-09-14"
+      ]
     },
     {
       "path": "/api/v1/desk.json",
@@ -834,7 +862,7 @@
       "portuguese_source": "dados/manifesto.json",
       "summary": "Every data file with its SHA-256",
       "description": null,
-      "count": 23,
+      "count": 25,
       "items": null,
       "item_ids": null
     },

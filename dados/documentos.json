@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 36,
+  "contagem": 52,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -52,6 +52,94 @@
       "bytes": 7738,
       "linhas": 140,
       "palavras": 1195
+    },
+    {
+      "caminho": "agents/README.md",
+      "titulo": "The agents",
+      "categoria": "Agent mandates",
+      "bytes": 2744,
+      "linhas": 48,
+      "palavras": 444
+    },
+    {
+      "caminho": "agents/copydesk/MANDATE.md",
+      "titulo": "Copydesk — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 1077,
+      "linhas": 30,
+      "palavras": 179
+    },
+    {
+      "caminho": "agents/copydesk/ROLE.md",
+      "titulo": "Copydesk — the newsroom agent",
+      "categoria": "Agent mandates",
+      "bytes": 1370,
+      "linhas": 30,
+      "palavras": 218
+    },
+    {
+      "caminho": "agents/dragnet/MANDATE.md",
+      "titulo": "Dragnet — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 1615,
+      "linhas": 37,
+      "palavras": 263
+    },
+    {
+      "caminho": "agents/dragnet/ROLE.md",
+      "titulo": "Dragnet — the research agent",
+      "categoria": "Agent mandates",
+      "bytes": 1523,
+      "linhas": 32,
+      "palavras": 244
+    },
+    {
+      "caminho": "agents/editor/MANDATE.md",
+      "titulo": "Dinis Cruz — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 1494,
+      "linhas": 28,
+      "palavras": 254
+    },
+    {
+      "caminho": "agents/editor/ROLE.md",
+      "titulo": "Dinis Cruz — editor of record",
+      "categoria": "Agent mandates",
+      "bytes": 1441,
+      "linhas": 32,
+      "palavras": 248
+    },
+    {
+      "caminho": "agents/foundry/MANDATE.md",
+      "titulo": "Foundry — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 2031,
+      "linhas": 44,
+      "palavras": 326
+    },
+    {
+      "caminho": "agents/foundry/ROLE.md",
+      "titulo": "Foundry — the platform agent",
+      "categoria": "Agent mandates",
+      "bytes": 2031,
+      "linhas": 40,
+      "palavras": 333
+    },
+    {
+      "caminho": "agents/proof/MANDATE.md",
+      "titulo": "Proof — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 1064,
+      "linhas": 30,
+      "palavras": 170
+    },
+    {
+      "caminho": "agents/proof/ROLE.md",
+      "titulo": "Proof — the verification agent",
+      "categoria": "Agent mandates",
+      "bytes": 1304,
+      "linhas": 28,
+      "palavras": 224
     },
     {
       "caminho": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.md",
@@ -268,6 +356,46 @@
       "bytes": 996,
       "linhas": 15,
       "palavras": 120
+    },
+    {
+      "caminho": "docs/guidance/before-you-change.md",
+      "titulo": "Before you change anything",
+      "categoria": "Guidance — read first",
+      "bytes": 4435,
+      "linhas": 113,
+      "palavras": 713
+    },
+    {
+      "caminho": "docs/guidance/index.md",
+      "titulo": "Working on pt.newsroom.sgit.ai: start here",
+      "categoria": "Guidance — read first",
+      "bytes": 4351,
+      "linhas": 72,
+      "palavras": 678
+    },
+    {
+      "caminho": "docs/guidance/language.md",
+      "titulo": "The language rule",
+      "categoria": "Guidance — read first",
+      "bytes": 4020,
+      "linhas": 68,
+      "palavras": 649
+    },
+    {
+      "caminho": "docs/guidance/principles.md",
+      "titulo": "The principles, and the gate that enforces each one",
+      "categoria": "Guidance — read first",
+      "bytes": 4909,
+      "linhas": 99,
+      "palavras": 832
+    },
+    {
+      "caminho": "fontes/transferidas/newsroom-sgit-ai-2026-09-14/LEIA-ME.md",
+      "titulo": "Transferência: newsroom.sgit.ai → pt.newsroom.sgit.ai",
+      "categoria": "Repository root",
+      "bytes": 2638,
+      "linhas": 52,
+      "palavras": 395
     },
     {
       "caminho": "index.md",

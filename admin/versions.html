@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="pt-PT">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Versões · pt.newsroom.sgit.ai</title>
-<meta name="description" content="O que mudou em cada versão deste site, e porquê.">
+<title>Release history · pt.newsroom.sgit.ai</title>
+<meta name="description" content="What changed in each version of this site, and why.">
 <link rel="canonical" href="https://pt.newsroom.sgit.ai/admin/versions.html">
 <meta property="og:url" content="https://pt.newsroom.sgit.ai/admin/versions.html">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -15,50 +15,109 @@
 <div class="folha">
 
 <div class="datalinha">
-  <div>pt.newsroom.sgit.ai · administração</div>
-  <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.7.1</span></div>
+  <div>pt.newsroom.sgit.ai · administration</div>
+  <div><a href="../">Back to the paper</a> · <a href="../backoffice/">back office</a> ·
+       <a href="../backoffice/guidance.html">guidance</a></div>
+  <div><span class="ver">v0.8.0</span></div>
 </div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
-<h1 class="h-2" style="max-width:26em">Cada empurrão para o ramo de lançamento é uma versão menor,
-e leva uma linha aqui a dizer o que mudou e porquê.</h1>
-<p class="std" style="max-width:46em;padding:14px 0 18px">O número vive em
-<code>admin/build/version.txt</code> e é incrementado exatamente uma vez por lançamento. O assunto
-do commit repete-o (<code>site vX.Y.Z: …</code>), o distintivo aparece em cada página, e a
-integração contínua confere que os três concordam antes de etiquetar e publicar. Uma validação
-vermelha não é lançamento.</p>
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This page is in English, like everything else an operator reads.</b> The rule has
+one test: would a visitor to the site read this string? Yes means European Portuguese; no means
+English. A release history is read by whoever runs the newsroom, not by whoever reads the paper —
+so it is in English, and gate 27 holds the same line for every comment in the codebase. The rule
+and its two honest exceptions are written down in
+<a href="../backoffice/guidance.html">the guidance</a>.</p></div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Releases</div></div>
+<h1 class="h-2" style="max-width:26em">Every push to the release branch is a minor version, and
+carries a line here saying what changed and why.</h1>
+<p class="std" style="max-width:46em;padding:14px 0 18px">The number lives in
+<code>admin/build/version.txt</code> and is bumped exactly once per release. The commit subject
+repeats it (<code>site vX.Y.Z: …</code>), the badge appears on every page, and CI checks the three
+agree before tagging and deploying. A red validate is not a release.</p>
 
 <div class="rolar">
 <table>
-<thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
+<thead><tr><th style="width:90px">Version</th><th style="width:110px">Date</th><th>What changed, and why</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.8.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>The language rule gets a test, a gate, and an apology.</b> One question decides every naming
+question here: <i>would a visitor read this string on the site?</i> Yes means European Portuguese;
+no means English. <code>CLAUDE.md</code> has said "code and comments are in English" since the
+first commit, and <b>seventeen Python files ignored it</b> — including most of the ones written this
+week — because the code already there was Portuguese. An existing convention is not the rule.
+Roughly 880 comment lines across 22 files are now English, and <b>gate 27</b> fails the build on the
+next one.
+<br><br>
+<b>The gate was wrong twice before it was right, and both bugs are worth knowing.</b> Its first
+version matched triple-quoted blocks with a regular expression and flagged eleven <i>page
+templates</i> in <code>build/build.py</code> — blocks of HTML holding the Portuguese a reader sees.
+It was telling the site to stop being Portuguese. Its second read <code>##</code> markdown headings
+<i>inside</i> the llms.txt string as comments. Both are the same mistake: guessing at syntax a
+parser already knows. It now uses <code>ast</code> and <code>tokenize</code>, and skips
+«guillemets», because an English sentence naming a Portuguese section is still an English sentence.
+<br><br>
+<b>Three files are exempt, by name, and the exemption is the editor's to clear.</b>
+<code>build/gates.py</code>, <code>build/entregas.py</code> and <code>build/pdf.py</code> are in the
+deny list of <code>.claude/settings.json</code>, so no agent here can edit them — and a gate that
+fails the build over a file the agent is forbidden to touch is not a gate, it is a deadlock. They
+are named in the gate, counted in its summary, and listed here rather than quietly skipped.
+<br><br>
+<b>The agents have names now.</b> Five identities in <code>agents/</code>, each with a
+<code>ROLE.md</code>, a <code>MANDATE.md</code> and a write scope: <b>Foundry</b> (platform),
+<b>Dragnet</b> (research), <b>Copydesk</b> (newsroom), <b>Proof</b> (verification), and
+<b>Dinis Cruz</b>, the human editor of record. <b>Gate 28</b> fails a run naming an agent that is
+not registered, and an agent folder with no written mandate. Two sessions doing the same role at
+once is normal here now; the role says what the work is, the name says whose mandate it is done
+under. An agent nobody can name is an anonymous contributor to a publication whose entire argument
+is knowing who said what.
+<br><br>
+<b>Guidance, at <code>docs/guidance/</code> and in the back office.</b> Four pages, in the order
+they should be read: the language rule, the nine principles each naming the gate that enforces it,
+the before-you-change checklist, and what not to build. Modelled on
+<a href="https://sgit.ai/docs/guidance/index.html">sgit.ai/docs/guidance</a>, and on the lesson from
+<a href="https://coding.sgit.ai">coding.sgit.ai</a> that measured its own estate and found a guard
+that had never matched anything: <b>a rule without a gate is decoration</b>, so each principle names
+its gate or says it has none.
+<br><br>
+<b>Evidence from a sibling publication, kept as its evidence.</b> Fourteen frozen files from
+newsroom.sgit.ai — two Startup Summit captures from 8 and 13 September, and three press pages —
+verified against their manifest and stored under <code>fontes/transferidas/</code>, <b>never in our
+own register</b>. They were frozen by another publication's fetcher, at its times; entering them as
+our captures would make this site's method quietly untrue, which is the one failure mode that does
+not look broken. They turn a story explicitly waiting for a second capture into three captures in
+six days: <b>60 → 64 → 70</b> speakers.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.7.1</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
-<b>A competência que uma execução agendada segue estava a mandar fazer coisas impossíveis.</b>
-<code>.claude/skills/newsroom-run/SKILL.md</code> dizia <code>git pull origin main</code> e
-<code>git push origin main</code> — e este repositório não tem <code>main</code>; o ramo de
-lançamento, que é também o ramo por omissão, é <code>dev</code>. E mandava correr
-<code>node build/validate.js</code>, que não existe: o validador está em <code>admin/build/</code>.
-Uma execução agendada teria falhado na primeira linha do primeiro passo.
+<b>The skill a scheduled run follows was telling it to do impossible things.</b>
+<code>.claude/skills/newsroom-run/SKILL.md</code> said <code>git pull origin main</code> and
+<code>git push origin main</code> — and this repository has no <code>main</code>; the release
+branch, which is also the default branch, is <code>dev</code>. And it said to run
+<code>node build/validate.js</code>, which does not exist: the validator is in
+<code>admin/build/</code>. A scheduled run would have died on the first line of the first step.
 <br><br>
-<b>E o registo que ela mandava escrever não era o que os portões leem.</b> Os nomes dos campos
-estavam todos errados — <code>inicio</code>, <code>issues_movidas</code>,
-<code>ficheiros_por_pasta</code>, <code>portas</code> — onde os portões 12 e 26 leem
-<code>quando</code>, <code>issues_movidos</code>, <code>pastas_alteradas</code> e
-<code>portoes</code>. A execução escreveria um registo que a fronteira entre departamentos não
-consegue conferir, e desde o portão 26 falharia por não declarar nem departamento nem espécie.
+<b>And the record it told the run to write was not the one the gates read.</b> The field names were
+all wrong — <code>inicio</code>, <code>issues_movidas</code>, <code>ficheiros_por_pasta</code>,
+<code>portas</code> — where gates 12 and 26 read <code>quando</code>, <code>issues_movidos</code>,
+<code>pastas_alteradas</code> and <code>portoes</code>. The run would have produced a record the
+department boundary cannot check, and since gate 26 it would fail outright for declaring neither a
+department nor a species.
 <br><br>
-<b>E a sequência de construção tinha seis passos onde agora há onze.</b> Passa a ser
-<code>python3 build/tudo.py</code>, que é a ordem verdadeira e a única que não pode ficar
-desatualizada sem que alguma coisa falhe.
-<br><br>
-<b>E o passo de publicar passa a ir buscar <code>dev</code> antes de escolher o número de
-versão</b>, porque pode haver outra sessão a trabalhar neste repositório ao mesmo tempo, e duas a
-escolherem o mesmo número quer dizer que uma tem de desfazer o seu lançamento.
+<b>And the build sequence had six steps where there are now eleven.</b> It becomes
+<code>python3 build/tudo.py</code>, which is the real order and the only one that cannot go stale
+without something failing. The publish step now fetches <code>dev</code> before choosing a version
+number, because another session may be working here at the same time, and two picking the same
+number means one has to undo its release.
 </td>
 </tr>
 
@@ -66,35 +125,36 @@ escolherem o mesmo número quer dizer que uma tem de desfazer o seu lançamento.
 <td class="mono"><span class="vnum">v0.7.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
-<b>O quarto portão: abrir as páginas num navegador de verdade.</b> Três portões leem ficheiros e
-leem HTML. Nenhum <i>executa</i> nada. Um componente que rebente ao carregar — um caminho errado, um
-<code>fetch</code> para um ficheiro que mudou de nome, um erro de sintaxe num módulo — passa os três
-e chega ao leitor como uma caixa vazia. E uma caixa vazia parece uma escolha de desenho.
-<code>admin/build/render.mjs</code> abre cada página com componente num Chromium e falha com um erro
-de consola, um pedido falhado, um componente vazio, ou uma página a transbordar a 390px.
+<b>The fourth gate: open the pages in a real browser.</b> Three gates read files and read HTML.
+Neither <i>executes</i> anything. A component that throws on load — a wrong path, a
+<code>fetch</code> for a renamed file, a syntax error in a module — passes all three and reaches the
+reader as an empty box. And an empty box looks like a design choice.
+<code>admin/build/render.mjs</code> opens every page carrying a component in a real Chromium and
+fails on a console error, a failed request, an empty component, or a page overflowing at 390px.
 <br><br>
-<b>E o primeiro teste de injeção encontrou um buraco no próprio portão.</b> Um componente que apanha
-o seu próprio erro e desenha uma mensagem amável está a fazer o certo pelo leitor e o errado por
-quem confere a página: sem erro de consola, sem exceção, com a sombra cheia de texto — parece
-saudável. Uma exceção a meio de um <code>_render()</code> passou. A correção não foi no teste: a
-classe-base ganhou <code>falhou()</code> e <code>data-estado</code> no host, fora da sombra, e cada
-componente passa a dizer se subiu. Seis testes de injeção, incluindo um que nunca acaba de carregar.
+<b>And its first injection test found a hole in the gate itself.</b> A component that catches its
+own error and draws a friendly message is doing right by the reader and wrong by whatever checks the
+page: no console error, no exception, a shadow root full of text — it looks healthy. An exception
+mid-<code>_render()</code> got through. The fix was not in the test: the base class gained
+<code>falhou()</code> and <code>data-estado</code> on the host, outside the shadow root, and every
+component now says whether it came up. Six injection tests, including one that never finishes
+loading.
 <br><br>
-<b>A distinção que se guardou.</b> Um pedido que o LEITOR fez e que falhou não marca o componente
-como em erro — numa consola de API, ver um pedido falhar é metade da utilidade. <code>falhou()</code>
-quer dizer «este componente não subiu», e alargá-lo apagaria exatamente a distinção que o torna
-útil.
+<b>The distinction that was kept.</b> A request the READER made and that failed does not mark the
+component as in error — in an API console, watching a request fail is half the point.
+<code>falhou()</code> means "this component did not come up", and widening it would erase exactly
+the distinction that makes it useful.
 <br><br>
-<b>Um favicon, e um 404 a menos em cada página.</b> O Chromium pede <code>/favicon.ico</code>
-sozinho e nenhum portão via esse 404, porque não é uma ligação de nenhuma página. O papel, a tinta
-e o acento do site, e mais nada: um jornal que ainda não publicou uma única história não tem um
-logótipo para pôr ali.
+<b>A favicon, and one fewer 404 on every page.</b> Chromium asks for <code>/favicon.ico</code>
+unprompted and no gate saw that 404, because it is nobody's link — the browser gate found it. The
+site's paper, ink and accent, and nothing else: a paper that has not published a single story has no
+logo to put there.
 <br><br>
-<b>Os alvos das arestas passam a parecer o que são.</b> Numa página de entidade, o valor da página
-é poder seguir as frases — e o estilo da casa só sublinha ao passar o rato, o que faz uma ligação
-parecer texto. Classe própria <code>.no</code> e não <code>.ent</code>, porque o portão 23 conta as
-ligações <code>.ent</code> — uma por entidade e por página — e uma lista de frases repete o mesmo nó
-muitas vezes, de propósito. A mesma coisa para o leitor, coisas diferentes para o portão.
+<b>Edge targets start looking like what they are.</b> On an entity page the value of the page is
+being able to follow the sentences — and the house style only underlines on hover, which makes a
+link look like text. A class of its own, <code>.no</code> rather than <code>.ent</code>, because
+gate 23 counts <code>.ent</code> links — one per entity per page — and a list of sentences repeats
+the same node many times, deliberately. The same thing to a reader, different things to a gate.
 </td>
 </tr>
 
@@ -102,30 +162,30 @@ muitas vezes, de propósito. A mesma coisa para o leitor, coisas diferentes para
 <td class="mono"><span class="vnum">v0.6.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
-<b>A mesa passa a ser uma sala.</b> <code>/redacao/</code> abre com quatro bancadas — Pesquisa,
-Redação, Verificação, o editor de registo — cada uma a mostrar quantos cartões estão à espera dela e
-quanto do seu trabalho está por fechar. Clica-se numa e a sala responde: o que faz, o que
-<b>recusa</b> fazer, em que pastas escreve. Uma tabela mostra linhas; uma sala mostra carga, e é a
-segunda a pergunta que se faz a uma redação às cinco da tarde.
+<b>The desk becomes a room.</b> <code>/redacao/</code> opens with four benches — Research,
+Newsroom, Verification, the editor of record — each showing how many cards are waiting on it and how
+much of its work is still open. Click one and the room answers: what it does, what it
+<b>refuses</b> to do, which folders it writes in. A table shows rows; a room shows load, and load is
+the question you ask a newsroom at five in the afternoon.
 <br><br>
-<b>Não há maneira de mover um cartão, e a ausência é o desenho.</b> O estado de uma história vive
-nos ficheiros da pasta dela, e quem o muda é quem tem direito de escrita nessa pasta. Uma sala que
-deixasse arrastar um cartão para «publicado» estaria a oferecer, num clique e a quem quer que
-abrisse a página, exatamente o gesto que esta publicação reserva a um humano nomeado. E o quadro em
-tabela fica por baixo, sem JavaScript: metade dos leitores deste site são máquinas, e uma redação
-que só se deixasse ler por uma delas seria a ironia errada.
+<b>There is no way to move a card, and the absence is the design.</b> A story's state lives in the
+files of its own folder, and whoever changes it is whoever has write access there. A room that let
+you drag a card into «publicado» would be handing out, in one click and to anyone who opened the
+page, the exact gesture this publication reserves for a named human. The plain table stays below,
+JavaScript-free: half this site's readers are machines, and a newsroom only one of them could read
+would be the wrong irony.
 <br><br>
-<b>Um defeito apanhado na própria construção.</b> A primeira versão do quadro assumiu um artigo por
-issue e escondeu um artigo — o issue 001 encomendou duas histórias, e o quadro mostrava seis
-cartões e parecia completo. Um quadro que esconde trabalho é pior do que não haver quadro,
-precisamente por parecer completo. O cartão passa a ser o ARTIGO, que é a coisa que tem ficheiros.
+<b>A defect caught in the building of it.</b> The first version of the board assumed one article per
+issue and hid an article — issue 001 commissioned two stories, and the board showed six cards and
+looked complete. A board that hides work is worse than no board, precisely because it looks
+complete. The card becomes the ARTICLE, which is the thing with files.
 <br><br>
-<b>O portão 26: «construção» não é a palavra que se escreve para escapar à fronteira.</b> O portão
-12 isenta uma execução que não declara departamento, porque a sessão de arranque cria tudo. As
-sessões desta semana são de construção e usam essa isenção — então passam a ter de a merecer: não
-congelar uma fonte, não mover um cartão, não pôr nada em publicado, não registar uma versão com os
-portões vermelhos. Cinco testes de injeção. Uma isenção que qualquer execução invoca escrevendo a
-palavra certa não é uma fronteira — é uma porta com o nome ao lado.
+<b>Gate 26: "construction" is not the word you write to escape the boundary.</b> Gate 12 exempts a
+run that declares no department, because the bootstrap session creates everything. This week's
+sessions are construction and use that exemption — so they now have to earn it: freeze no source,
+move no card, publish nothing, record no version on red gates. Five injection tests. An exemption
+any run can claim by typing the right word is not a boundary — it is a door with the name written
+beside it.
 </td>
 </tr>
 
@@ -133,34 +193,34 @@ palavra certa não é uma fronteira — é uma porta com o nome ao lado.
 <td class="mono"><span class="vnum">v0.5.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>O trabalho dos agentes passa a estar à vista — e nada dele foi escrito.</b> Cada artigo ganha um
-<code>comentarios.json</code> e um mapa por baixo da proveniência: quem disse o quê, quando, e o que
-ficou em aberto. 62 entradas, 5 agentes, 35 por fechar.
+<b>The agents' work goes on display — and none of it was written.</b> Every article gains a
+<code>comentarios.json</code> and a map below its provenance: who said what, when, and what was left
+open. 62 entries, 5 agents, 35 still open.
 <br><br>
-A maneira fácil de fazer isto seria <b>escrever</b> os comentários. Ficariam bem — um do ChatGPT a
-sugerir, outro da Perplexity a discordar — e nada daquilo teria acontecido. Atribuir a um modelo de
-outro fornecedor uma frase que ele nunca escreveu é pior do que uma afirmação sem fonte: é uma
-afirmação com uma <b>fonte falsa</b>. Por isso cada entrada é DERIVADA de um registo que já existe —
-a cronologia de proveniência, o registo de verificação, o que a redação diz que ainda lhe falta, o
-que chegou de fora com o resultado de se ter procurado o excerto nos bytes, e a decisão do editor
-ou a sua ausência — e diz no campo <code>de</code> de que ficheiro e de que caminho saiu.
+The easy way to do this would have been to <b>write</b> the comments. They would read well — one
+from ChatGPT suggesting, one from Perplexity disagreeing — and none of it would have happened.
+Attributing to another provider's model a sentence it never wrote is worse than a claim with no
+source: it is a claim with a <b>false source</b>. So every entry is DERIVED from a record that
+already exists — the provenance timeline, the verification record, what the newsroom says it still
+lacks, what arrived from outside with the result of searching the frozen bytes for its excerpt, and
+the editor's decision or its absence — and names in its <code>de</code> field the file and path it
+came from.
 <br><br>
-<b>O portão 25</b> abre esse ficheiro e percorre esse caminho. Se não resolver, a construção falha:
-é a regra das afirmações virada para dentro. Sete testes de injeção, e o que mais vale a pena é o
-último — um nome de agente que ninguém declarou é um colaborador anónimo numa publicação cujo
-argumento inteiro é saber quem disse o quê.
+<b>Gate 25</b> opens that file and walks that path. If it does not resolve, the build fails: the
+claims rule turned inward. Seven injection tests, and the last is the one worth keeping — an agent
+name nobody declared is an anonymous contributor to a publication whose entire argument is knowing
+who said what.
 <br><br>
-<b>Uma proposta exterior liga-se a um artigo pela SECÇÃO, e diz isso por extenso.</b> «Chegou para a
-secção das políticas, que é a secção deste artigo» — não afirma que seja sobre ele. Para isso é
-preciso alguém ler as duas coisas, e esse alguém é o editor.
+<b>An outside proposal attaches to an article by SECTION, and says so in full.</b> "It arrived for
+the policies section, which is this article's section" — not a claim that it is about it. That would
+take somebody reading both, and that somebody is the editor.
 <br><br>
-<b><code>build/tudo.py</code>: a construção inteira num comando.</b> São dez passos e a ordem importa —
-<code>entidades.py</code> tem de correr antes de tudo o que escreve uma página, porque é o ficheiro
-dele que faz uma menção virar ligação. Fora de ordem não rebenta: produz um site com menos ligações
-do que devia e nenhum aviso. A lista de comandos no <code>CLAUDE.md</code> é mais antiga do que
-metade destes passos, e aquele ficheiro é o das regras — está na lista de recusa de propósito, e
-mudá-lo para acompanhar o código é ao contrário. A ordem verdadeira passa a viver num ficheiro
-executável, que é o único sítio onde não pode ficar desatualizada sem que alguma coisa falhe.
+<b><code>build/tudo.py</code>: the whole build in one command.</b> Eleven steps and the order
+matters — <code>entidades.py</code> must run before anything that writes a page, because its output
+is what turns a mention into a link. Out of order nothing breaks; the site just quietly has fewer
+links. The command list in <code>CLAUDE.md</code> is older than half these steps, and that file is
+the rules file — deny-listed on purpose, and editing it to match the code is backwards. The real
+order now lives in an executable file, the one place it cannot go stale without something failing.
 </td>
 </tr>
 
@@ -168,41 +228,41 @@ executável, que é o único sítio onde não pode ficar desatualizada sem que a
 <td class="mono"><span class="vnum">v0.4.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>Os nomes passam a ter endereço.</b> 198 entidades — pessoas, organizações, instituições,
-editores, temas, lugares — cada uma com página em <code>entidades/&lt;tipo&gt;/&lt;id&gt;/</code>, e a
-primeira menção de cada uma em qualquer página do jornal passa a ligar para lá. São 313 ligações.
-Uma página de entidade <b>não tem uma linha escrita sobre ela</b>: tem os campos verbatim da fonte,
-as arestas lidas em voz alta pela leitura publicada na ontologia — «o evento lista X sob Y» — e a
-contagem de em que ficheiro congelado o nome aparece e quantas vezes. É o §6 a pagar-se: foi por
-isto que valeu a pena recusar <code>relacionado_com</code>.
+<b>Names get addresses.</b> 198 entities — people, organisations, institutions, publishers, topics,
+places — each with a page at <code>entidades/&lt;type&gt;/&lt;id&gt;/</code>, and the first mention
+of each one on any page of the paper now links there. 313 links. An entity page <b>has not one line
+written about it</b>: it has the source's verbatim fields, the edges read aloud through the reading
+published in the ontology — «o evento lista X sob Y» — and a count of which frozen file the name
+appears in and how often. This is §6 paying for itself: it is what made refusing
+<code>relacionado_com</code> worth it.
 <br><br>
-<b>A fórmula de ligação é publicada, porque é uma classificação.</b> Nome verbatim com os acentos
-que os bytes lhe deram, pelo menos 6 caracteres, limites de palavra, a primeira menção de cada
-página e mais nenhuma, nunca dentro de outra ligação. E só os tipos que nomeiam uma coisa própria:
-ligar a palavra «hardware» à página de uma Tecnologia seria dizer que aquela palavra é uma
-referência àquele nó, e não é — é a palavra. Uma ligação destas diz «o texto contém este nome»,
-nunca «o texto é sobre esta entidade».
+<b>The linking formula is published, because it is a classification.</b> Verbatim name with the
+accents the bytes gave it, at least 6 characters, word boundaries, the first mention on a page and
+no other, never inside another link. And only types that name a thing of their own: linking the word
+"hardware" to a Technology page would be saying that word is a reference to that node, and it is not
+— it is the word. A link like this says "the text contains this name", never "the text is about this
+entity".
 <br><br>
-<b>O grafo passa a saber de QUEM veio cada byte.</b> Cada fonte congelada ganha uma aresta
-<code>publicada_por</code> para a casa que a publica, derivada do registo pela fórmula
-<code>editor_de_fonte</code>. Um tipo novo, <code>Editor</code>, em vez de alargar
-<code>Instituição</code>: a definição publicada de Instituição é «um organismo público, um regulador
-ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas — alargar a definição para
-caber seria mudar o que ela promete a quem já a leu. E dois nomes que continuem diferentes depois
-da fórmula ficam dois nós: se o registo diz «Diário da República» e «Diário da República
-Eletrónico», são duas coisas que ele diz.
+<b>The graph starts knowing WHOSE each byte was.</b> Every frozen source gains a
+<code>publicada_por</code> edge to the house that publishes it, derived from the register by the
+<code>editor_de_fonte</code> formula. A new type, <code>Editor</code>, rather than widening
+<code>Instituição</code>: that type's published definition is "a public body, a regulator or a
+research unit", and a newspaper is none of those — widening a definition people have already read
+changes what it promises. And two names still different after the formula stay two nodes: if the
+register says «Diário da República» and «Diário da República Eletrónico», those are two things it
+says.
 <br><br>
-<b>Dois fundamentos para uma ligação, e a página diz qual.</b> O forte é o nome estar nos bytes
-(179 entidades). O fraco é ser o nome que o nosso próprio registo dá ao editor de uma fonte (4) —
-existe porque «Diário da República» publica duas fontes congeladas e não aparece em byte nenhum,
-visto que a página inicial daquele registo devolve 22 caracteres visíveis a um leitor automático, o
-que é uma das histórias deste jornal. Os dois não são confundidos: o campo diz qual é, a página
-explica-o, e o portão 22 falha a construção se alguém invocar o fraco tendo o forte.
+<b>Two grounds for a link, and the page says which.</b> The strong one is the name being in the
+bytes (179 entities). The weak one is being the name our own register gives a source's publisher (4)
+— it exists because «Diário da República» publishes two frozen sources and appears in no byte at
+all, since that register's home page returns 22 visible characters to an automatic reader, which is
+one of this paper's own stories. The two are not conflated: the field says which, the page explains
+it, and gate 22 fails the build if anyone invokes the weak one while holding the strong one.
 <br><br>
-<b>Quatro portões novos (21 a 24), dez testes de injeção.</b> Dois dos testes apanharam defeitos nos
-próprios portões antes de apanharem o que quer que fosse no site, e o portão 24 — «nenhuma página
-de Pessoa diz nada sobre a pessoa» — teve de ser endurecido quando a célula da organização passou a
-conter uma ligação: um portão que deixa de ver metade do que guarda não guarda nada.
+<b>Four new gates (21 to 24), ten injection tests.</b> Two of the tests caught defects in the gates
+themselves before catching anything in the site, and gate 24 — "no Pessoa page says anything about
+the person" — had to be hardened when the organisation cell gained a link: a gate that stops seeing
+half of what it guards guards nothing.
 </td>
 </tr>
 
@@ -210,13 +270,13 @@ conter uma ligação: um portão que deixa de ver metade do que guarda não guar
 <td class="mono"><span class="vnum">v0.3.1</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>Havia dois leitores de documentos, e um site que diz que o conteúdo existe uma vez não pode ter
-dois.</b> O <code>backoffice/viewer.html</code> tinha sido escrito antes do pedido de pôr a lista
-à esquerda e o documento à direita; feito isso em <code>&lt;pt-doc-browser&gt;</code>, ficaram duas
-implementações da mesma coisa — e duas implementações divergem, sempre. Nenhuma página ligava para
-a antiga, mas apagar um endereço que já existiu parte quem o guardou: passa a ser um
-<b>permalink</b> que reencaminha para <code>docs.html</code>, levando o <code>#fragmento</code>
-consigo, para que o documento pedido continue a abrir. O leitor é um só.
+<b>There were two document readers, and a site that says content exists once cannot have two.</b>
+<code>backoffice/viewer.html</code> was written before the request to put the list on the left and
+the document on the right; once that was done in <code>&lt;pt-doc-browser&gt;</code>, there were two
+implementations of one thing — and two implementations diverge, always. No page linked to the old
+one, but deleting an address that once existed breaks whoever kept it: it becomes a <b>permalink</b>
+that forwards to <code>docs.html</code>, carrying the <code>#fragment</code> with it, so the
+requested document still opens. There is one reader.
 </td>
 </tr>
 
@@ -224,52 +284,51 @@ consigo, para que o documento pedido continue a abrir. O leitor é um só.
 <td class="mono"><span class="vnum">v0.3.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>O título passa a ser a matéria.</b> «O Ecossistema Português de IA» é a mancheta; o endereço
-passa a subtítulo. Um leitor que chega não quer saber o domínio — quer saber sobre o que é. E as
-manchetes da primeira página passam a ser LIGAÇÕES para os seus artigos: um jornal em que a
-manchete não liga para nada é um cartaz, e era o que isto era.
+<b>The title becomes the subject.</b> «O Ecossistema Português de IA» is the masthead; the address
+becomes the subtitle. A reader arriving does not care about the domain — they want to know what it
+is about. And the front-page headlines become LINKS to their articles: a newspaper whose headline
+links to nothing is a poster, and that is what this was.
 <br><br>
-<b>Uma API só de leitura, em inglês, com consola.</b> <code>/api/</code> — 18 colecções, 28
-operações, 377 ficheiros. Cada caminho é um ficheiro em disco: não há servidor, e por isso não há
-verbo que não seja GET, nem corpo de pedido em lado nenhum, nem nada que possa falhar de uma forma
-que o <code>openapi.json</code> não preveja. Os caminhos são ingleses de propósito — a intenção é
-várias línguas sobre um só conjunto de dados — e as CHAVES dentro dos documentos continuam
-portuguesas, porque são o registo que esta publicação faz de si própria e traduzi-las à saída seria
-servir uma coisa que nenhum ficheiro do repositório contém. A consola faz o pedido a partir do
-navegador e mostra os bytes: uma consola que apenas descreve é um documento com passos a mais.
+<b>A read-only API, in English, with a console.</b> <code>/api/</code> — 18 collections, 28
+operations, 377 files. Every path is a file on disk: there is no server, so there is no verb but
+GET, no request body anywhere, and nothing that can fail in a way <code>openapi.json</code> does not
+predict. The paths are English on purpose — the intent is several languages over one set of data —
+and the KEYS inside the documents stay Portuguese, because they are the record this publication
+keeps of itself and translating them on the way out would serve something no file in the repository
+contains. The console makes the request from the browser and shows the bytes: a console that only
+describes is a document with extra steps.
 <br><br>
-<b>Componentes web, segundo o contrato do conjunto.</b> Quatro, na forma que
-<a href="https://coding.sgit.ai/javascript/index.html">coding.sgit.ai</a> documenta: nativos, sem
-framework, sem passo de construção, <code>static jsUrl = import.meta.url</code> para se
-localizarem, <code>onReady()</code> em vez de <code>connectedCallback</code>, e o caminho versionado
-<code>v1/v1.0/v1.0.0/</code>. <b>Duas divergências, ambas forçadas pelas regras deste site:</b> a
-classe-base é alojada aqui em vez de vir de uma CDN de terceiros, porque uma página que precisa de
-terceiros para renderizar é uma página que terceiros podem deixar de renderizar; e o ficheiro de
-marcação do trio é <code>.tpl</code> e não <code>.html</code>, porque aqui todo o
-<code>.html</code> é uma PÁGINA para o portão do site — tem de ter canónico, bloco de agente e
-linha no sitemap — e um fragmento de componente não é nada disso. A alternativa era enfraquecer o
-portão, e o portão está na lista de recusa de propósito.
+<b>Web components, to the estate's contract.</b> Four, in the form
+<a href="https://coding.sgit.ai/javascript/index.html">coding.sgit.ai</a> documents: native, no
+framework, no build step, <code>static jsUrl = import.meta.url</code> so they locate themselves,
+<code>onReady()</code> rather than <code>connectedCallback</code>, and the versioned path
+<code>v1/v1.0/v1.0.0/</code>. <b>Two departures, both forced by this site's own rules:</b> the base
+class is hosted here rather than coming from a third-party CDN, because a page that needs a third
+party to render is a page a third party can stop rendering; and the triplet's markup file is
+<code>.tpl</code> and not <code>.html</code>, because here every <code>.html</code> is a PAGE to the
+site gate — it must carry a canonical, an agent block and a sitemap line — and a component fragment
+is none of those. The alternative was weakening the gate, and the gate is deny-listed on purpose.
 <br><br>
-<b>Os documentos passam a ler-se sem perder o sítio.</b> Árvore à esquerda com as pastas a
-fecharem-se — <code>briefs/pack/</code> é um elemento e não trinta linhas — e o documento à
-direita, <b>em branco</b>, como um documento. As referências ao resto do conjunto ficam ao pé da
-árvore. Antes era uma lista que atirava o leitor para outra página e lhe tirava as outras.
+<b>Documents become readable without losing your place.</b> Tree on the left with folders that
+collapse — <code>briefs/pack/</code> is one element, not thirty rows — and the document on the
+right, <b>on white</b>, like a document. References to the rest of the estate sit at the foot of the
+tree. Before, it was a list that threw the reader onto another page and took the others away.
 <br><br>
-<b>Os ficheiros de um artigo abrem num visualizador.</b> Clicar em
-<code>afirmacoes.json</code> deixa de devolver um ficheiro em bruto: os estados ganham cor, um
-identificador de fonte fica ligado ao registo, um SHA-256 é encurtado. O bruto continua a um clique.
+<b>An article's files open in a viewer.</b> Clicking <code>afirmacoes.json</code> stops returning a
+raw file: states get colour, a source id links into the register, a SHA-256 is shortened. The raw
+file stays one click away.
 <br><br>
-<b>Pagar para ler, demonstrado em vez de defendido.</b> Um cêntimo por página, cinco euros na
-carteira, recarga ao chegar a zero, e o registo à vista. <b>Não cobra nada a ninguém e diz isso na
-primeira frase do painel</b> — uma barreira de pagamento que não admitisse ser uma demonstração
-seria a única coisa desonesta num site cujo argumento inteiro é proveniência. E nunca bloqueia: o
-interessante é o registo, não o cadeado.
+<b>Paying to read, demonstrated rather than argued.</b> One cent a page, five euros in the wallet, a
+top-up at zero, and the ledger in view. <b>It charges nobody anything and says so in the panel's
+first sentence</b> — a paywall that would not admit to being a demonstration would be the one
+dishonest thing on a site whose entire argument is provenance. And it never blocks: the interesting
+part is the ledger, not the lock.
 <br><br>
-<b>A declaração deixa de ser um bloco em cada página e passa a uma linha, com uma página por
-trás.</b> Repetido trinta vezes, um aviso deixa de ser lido — o leitor aprende a forma do bloco e
-salta-o, que é o oposto do que um aviso serve para fazer. <code>/proveniencia/</code> assume o que
-isto é: escrito por agentes de IA, de vários fornecedores, com <b>curadoria leve</b> de um editor
-humano nomeado. Dizer «leve» é mais honesto do que deixar implícita uma revisão linha a linha.
+<b>The declaration stops being a block on every page and becomes one line with a page behind it.</b>
+Repeated thirty times, a notice stops being read — the reader learns the shape of the block and
+skips it, which is the opposite of what a notice is for. <code>/proveniencia/</code> owns what this
+is: written by AI agents, from several providers, with <b>light curation</b> by a named human
+editor. Saying "light" is more honest than leaving a line-by-line review implied.
 </td>
 </tr>
 
@@ -277,43 +336,42 @@ humano nomeado. Dizer «leve» é mais honesto do que deixar implícita uma revi
 <td class="mono"><span class="vnum">v0.2.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>Um artigo passa a ser uma pasta datada.</b>
-<code>artigos/&lt;aaaa&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> com quatro ficheiros: a prosa,
-o registo de verificação de cada afirmação, a proveniência — que execução de que agente o produziu
-e por que ordem — e o JSON que diz o que o artigo é. Uma pasta e não um ficheiro porque um artigo
-não é só o texto: é o texto mais os bytes em que assenta mais quem os releu mais quem o escreveu,
-e num ficheiro único três dessas quatro coisas acabam noutro sítio e deixam de concordar.
+<b>An article becomes a dated folder.</b>
+<code>artigos/&lt;yyyy&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> with four files: the prose, the
+verification record for each claim, the provenance — which run by which agent produced it, in what
+order — and the JSON saying what the article is. A folder and not a file because an article is not
+only the text: it is the text plus the bytes it stands on plus whoever re-read them plus whoever
+wrote it, and in a single file three of those four end up elsewhere and stop agreeing.
 <br><br>
-A data no caminho é a data do <b>material</b>, não a da publicação. Seis pastas abertas: três com
-prosa e verificação feita, três a recolher material para as histórias que o §11 do resumo
-encomendou. Nenhuma publicada — essa linha é do editor de registo.
-<code>dados/historias.json</code> passa a ser DERIVADO das pastas, como as organizações são
-derivadas dos cartões de orador.
+The date in the path is the date of the <b>material</b>, not of publication. Six folders opened:
+three with prose and verification done, three gathering material for the stories §11 of the brief
+commissioned. None published — that line is the editor of record's.
+<code>dados/historias.json</code> becomes DERIVED from the folders, as the organisations are derived
+from the speaker cards.
 <br><br>
-<b>Cada uma das oito secções ganha pasta e registo editorial.</b>
-<code>seccoes/&lt;id&gt;/seccao.json</code> diz o que a secção cobre, o que pode e o que NÃO pode
-afirmar hoje, que fontes tem congeladas e quais não resolveram, e que perguntas estão em aberto.
-As duas secções sem uma única fonte congelada são obrigadas pelo portão 20 a responder «Nada.» à
-pergunta do que podem afirmar.
+<b>Each of the eight sections gains a folder and an editorial record.</b>
+<code>seccoes/&lt;id&gt;/seccao.json</code> says what the section covers, what it can and what it
+CANNOT claim today, which sources it has frozen and which did not resolve, and which questions are
+open. The two sections with not one frozen source are forced by gate 20 to answer «Nada.» to the
+question of what they can claim.
 <br><br>
-<b>Um back office, em inglês.</b> <code>/backoffice/</code>: a consola de operações com o estado do
-pipeline, quem pode escrever onde, o quadro, os artigos, a cobertura de cada secção, as execuções
-e os commits — e um leitor para os 32 documentos markdown deste repositório, que os lê dos próprios
-bytes em vez de uma cópia. Está em inglês por decisão do editor, e a condição dessa exceção é
-verificada: o portão 19 falha a construção se uma página dos bastidores citar uma fonte congelada
-como prova. A consola relata a redação, nunca o mundo.
+<b>A back office, in English.</b> <code>/backoffice/</code>: the operations console with the
+pipeline's state, who may write where, the board, the articles, each section's coverage, the runs
+and the commits — and a reader for this repository's 32 markdown documents, reading them from their
+own bytes rather than a copy. It is in English by the editor's decision, and the condition of that
+exception is checked: gate 19 fails the build if a back-office page cites a frozen source as
+evidence. The console reports the newsroom, never the world.
 <br><br>
-<b>Cinco portões novos, num ficheiro à parte.</b> <code>build/gates_artigos.py</code> existe
-separado porque <code>build/gates.py</code> está na lista de recusa de
-<code>.claude/settings.json</code>: um agente que possa editar o portão que o trava não tem portão
-nenhum, e a maneira errada de acrescentar verificações seria levantar essa proteção. Os cinco
-foram testados por injeção, como os outros.
+<b>Five new gates, in a separate file.</b> <code>build/gates_artigos.py</code> exists apart because
+<code>build/gates.py</code> is in the deny list of <code>.claude/settings.json</code>: an agent that
+can edit the gate that stops it has no gate at all, and the wrong way to add checks would be to lift
+that protection. All five were injection-tested, like the others.
 <br><br>
-<b>Dois defeitos de renderização corrigidos e vale a pena dizer quais:</b> o renderizador de
-markdown fazia de cada LINHA um parágrafo, o que partia a prosa a meio da frase e deixava um
-<code>**negrito**</code> a atravessar a quebra sem fechar; e a prosa de artigo não tinha ritmo
-vertical nenhum porque <code>.std</code> tem margem zero — o que está certo na primeira página,
-onde o espaço vem do <code>gap</code> da coluna, e errado num artigo, que não tem coluna nenhuma.
+<b>Two rendering defects fixed, and both are worth naming:</b> the markdown renderer made every LINE
+a paragraph, which broke prose mid-sentence and left a <code>**bold**</code> crossing the break
+without closing; and article prose had no vertical rhythm at all because <code>.std</code> has zero
+margin — right on the front page, where the spacing comes from the column's <code>gap</code>, and
+wrong in an article, which has no column.
 </td>
 </tr>
 
@@ -321,16 +379,15 @@ onde o espaço vem do <code>gap</code> da coluna, e errado num artigo, que não 
 <td class="mono"><span class="vnum">v0.1.2</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>O ciclo fecha-se à vista.</b> A página das entregas passa a mostrar de onde uma entrega vem —
-os dois resumos de investigação que um assistente exterior recebe — ao lado do que aconteceu
-quando ela voltou. Ficam ligados a partir do repositório e não republicados como páginas, pelo
-mesmo princípio que rege as cópias congeladas: este site liga, não reproduz, e conteúdo existe uma
-vez.
+<b>The loop closes in view.</b> The deliveries page starts showing where a delivery comes from — the
+two research briefs an outside assistant receives — beside what happened when it came back. They are
+linked from the repository and not republished as pages, by the same principle that governs the
+frozen copies: this site links, it does not reproduce, and content exists once.
 <br><br>
-São dois resumos e não um porque as ferramentas falham de maneiras diferentes, e isso está dito na
-página: uma cita bem por omissão e pesquisa bem em português; a outra estrutura melhor e é mais
-fraca a garantir que abriu mesmo cada endereço — que é precisamente a fraqueza que o portão dos
-excertos apanha.
+There are two briefs and not one because the tools fail in different ways, and the page says so: one
+cites well by default and searches well in Portuguese; the other structures better and is weaker at
+guaranteeing it actually opened each address — which is precisely the weakness the excerpt gate
+catches.
 </td>
 </tr>
 
@@ -338,21 +395,21 @@ excertos apanha.
 <td class="mono"><span class="vnum">v0.1.1</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>O passo da aprovação deixa de ser folclore.</b> A página de cada entrega passa a mostrar
-exatamente como o editor de registo aprova ou rejeita um item — com os identificadores REAIS
-daquela entrega, e não um exemplo com nomes inventados que o editor teria de traduzir antes de
-poder usar, que é onde se enganam os identificadores. O item sugerido para aprovação é o que tem
-mais afirmações com o excerto nos bytes; o sugerido para rejeição é um que não tem nenhuma.
+<b>The approval step stops being folklore.</b> Each delivery's page starts showing exactly how the
+editor of record approves or rejects an item — with that delivery's REAL identifiers, not an example
+with invented names the editor would have to translate before using, which is where identifiers get
+mistyped. The item suggested for approval is the one with the most claims whose excerpt is in the
+bytes; the one suggested for rejection has none.
 <br><br>
-<b>Uma competência nova: <code>/newsroom-entregas</code>.</b> A sessão de revisão de uma entrega,
-escrita para o editor: receber o ficheiro sem lhe tocar, congelar o que ele nomeia, conferir cada
-excerto, e decidir item a item. Diz também o que fazer quando uma fonte não é legível mas devia
-ser — o caminho do PDF do Diário da República — e por que razão não se contorna um 403.
+<b>A new skill: <code>/newsroom-entregas</code>.</b> The review session for a delivery, written for
+the editor: receive the file without touching it, freeze what it names, check every excerpt, and
+decide item by item. It also says what to do when a source is not readable but should be — the
+Diário da República PDF route — and why a 403 is not worked around.
 <br><br>
-<b>Uma regra que estava no portão e não estava escrita em lado nenhum que o editor lesse:</b> não
-se aprova um item cujas afirmações estejam todas sem fonte legível. Aprovar quer dizer «isto pode
-ser escrito como facto», e nesse caso não há bytes para o sustentar. O caminho é abrir um issue de
-pesquisa, não baixar a barra.
+<b>A rule that was in the gate and written nowhere the editor would read it:</b> you do not approve
+an item whose claims are all without a readable source. Approving means "this may be written as
+fact", and in that case there are no bytes to hold it up. The route is to open a research issue, not
+to lower the bar.
 </td>
 </tr>
 
@@ -360,32 +417,31 @@ pesquisa, não baixar a barra.
 <td class="mono"><span class="vnum">v0.1.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
-<b>O MVP.</b> O caminho de ingestão a correr contra fontes reais (obter, congelar, hashear,
-extrair, comparar), o grafo com verbos portugueses, o aviso de proteção de dados, a primeira
-página tal como o desenho a fixa, a mesa da redação e o fluxo de revisão das entregas de
-investigação.
+<b>The MVP.</b> The ingestion path running against real sources (fetch, freeze, hash, extract,
+diff), the graph with Portuguese verbs, the data-protection notice, the front page as the design
+fixes it, the newsroom desk, and the review flow for research deliveries.
 <br><br>
-<b>Três decisões que ficam registadas em vez de implícitas.</b>
-(1) O ramo de lançamento é <code>dev</code>, que é também o ramo por omissão deste repositório — o
-pacote exige que o ramo de lançamento SEJA o ramo por omissão, porque uma execução agendada clona
-o ramo por omissão, e chamava-lhe <code>main</code> por ter sido escrito antes de este repositório
-existir.
-(2) Há uma só folha de estilos, e a primeira página usa-a como todas as outras: o pacote permite
-duas, e duas divergiriam.
-(3) As leituras do grafo que tocam numa pessoa são invariáveis em género, porque este site não
-sabe o género de ninguém e deduzi-lo de um nome seria uma inferência sobre uma pessoa nomeada.
+<b>Three decisions recorded rather than left implicit.</b>
+(1) The release branch is <code>dev</code>, which is also this repository's default branch — the
+pack requires the release branch to BE the default branch, because a scheduled run clones the
+default branch, and it called that branch <code>main</code> only because it was written before this
+repository existed.
+(2) There is one stylesheet, and the front page uses it like every other page: the pack allows two,
+and two would diverge.
+(3) Graph readings that touch a person are gender-invariant, because this site does not know
+anyone's gender and inferring it from a name would be an inference about a named person.
 <br><br>
-<b>O que esta versão NÃO é.</b> Nenhuma história publicada — as três primeiras estão como issues
-em «procurado», e publicar é a linha do editor de registo. Três das oito secções sem um único nó,
-e a dizê-lo na própria página. Nenhum nível de agente além do A testado. Nada de nenhuma entrega
-de investigação aparece numa página de leitura: o portão 13 falha a construção se aparecer.
+<b>What this version is NOT.</b> No story published — the first three are issues in «procurado», and
+publishing is the editor of record's line. Three of the eight sections with not one node, and saying
+so on their own pages. No agent level beyond A tested. Nothing from any research delivery appears on
+a reading page: gate 13 fails the build if it does.
 <br><br>
-<b>Uma capacidade que valeu a pena construir.</b> O Diário da República renderiza por script e
-devolve 22 caracteres visíveis a um leitor automático — mas publica os diplomas em PDF, cifrados
-com o manipulador de segurança padrão e com tipos subconjuntados, o que faz uma biblioteca
-genérica devolver zero caracteres em silêncio. <code>build/pdf.py</code> decifra-os e lê o mapa
-<code>/ToUnicode</code> de cada tipo. Sem isso, esta redação teria publicado «não se consegue ler o
-registo nacional» quando a verdade era «não implementámos o decifrador».
+<b>One capability worth building.</b> The Diário da República renders by script and returns 22
+visible characters to an automatic reader — but it publishes its instruments as PDFs, encrypted with
+the standard security handler and with subsetted fonts, which makes a generic library return zero
+characters in silence. <code>build/pdf.py</code> decrypts them and reads each font's
+<code>/ToUnicode</code> map. Without it, this newsroom would have published "the national register
+cannot be read" when the truth was "we had not implemented the decryptor".
 </td>
 </tr>
 
@@ -394,11 +450,12 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 </div>
 
 <div class="agent">
-<b>Para um agente.</b> Esta página é escrita à mão, ao contrário das do jornal, porque é um
-registo de decisões e não uma projeção de dados. O número de versão em
-<code>admin/build/version.txt</code> é a fonte da verdade e
-<code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.7.1</span>.
+<b>For an agent.</b> This page is hand-written, unlike the paper's pages, because it is a record of
+decisions and not a projection of data. The version number in
+<code>admin/build/version.txt</code> is the source of truth and
+<code>admin/build/validate.js</code> checks this table has a row for it, with no duplicates. It is
+in English because its audience operates the newsroom rather than reading the paper — see
+<a href="../backoffice/guidance.html">the guidance</a>. Version <span class="ver">v0.8.0</span>.
 </div>
 
 </div>

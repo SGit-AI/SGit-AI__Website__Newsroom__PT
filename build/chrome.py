@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — llms.txt, sitemap.xml, index.md e a tabela de versões.
+"""pt.newsroom.sgit.ai — llms.txt, sitemap.xml, index.md and the versions table.
 
     python3 build/chrome.py
 
-A casca das páginas é feita em `build/paginas.py` e aplicada por `build/build.py`; o que sobra é a
-superfície que uma máquina lê, e é ela que este ficheiro escreve.
+The page shell is made in `build/paginas.py` and applied by `build/build.py`; what is left is the
+surface a machine reads, and that is what this file writes.
 
-Porque é que `llms.txt` não é um extra. O §8 do resumo diz que o assistente de um dos fornecedores
-só consegue obter endereços que já apareceram na conversa, e explicitamente não endereços que
-apareceram apenas no seu próprio resultado, e não está documentado como seguindo ligações dentro
-de uma página que obteve. A consequência prática é uma decisão de desenho e não uma preferência:
-**um único ficheiro concatenado e legível por máquina, e endereços construíveis para tudo.** É o
-que este ficheiro produz.
+Why `llms.txt` is not an extra. §8 of the brief says one provider's assistant can only fetch
+addresses that have already appeared in the conversation, and explicitly not addresses that
+appeared only in its own output, and is not documented as following links inside a page it fetched.
+The practical consequence is a design decision rather than a preference: **a single concatenated,
+machine-readable file, and constructible addresses for everything.** That is what this file
+produces.
 """
 import json
 import re
@@ -111,11 +111,11 @@ suficiente para ser interessante.
         ("/casos-de-uso/", "Os casos de uso."), ("/codigo-aberto/", "O código aberto (vazia)."),
         ("/diaspora/", "A diáspora (vazia)."), ("/eventos/", "Os eventos."),
     ]
-    # O caminho completo, com `index.html`, e não a forma abreviada com barra. Duas razões, e a
-    # segunda é a que importa: o portão 4 do validador exige que cada concentrador seja nomeado
-    # aqui pelo caminho do ficheiro, porque «para um agente, uma página que llms.txt não nomeia
-    # não existe»; e o §8 do resumo diz que o assistente de um dos fornecedores não segue ligações
-    # dentro de uma página que obteve, pelo que o endereço tem de estar escrito por inteiro.
+    # The full path, with `index.html`, and not the short form with a trailing slash. Two reasons,
+    # and the second is the one that matters: the validator's fourth check requires every hub to be
+    # named here by file path, because "for an agent, a page llms.txt does not name does not
+    # exist"; and §8 of the brief says one provider's assistant does not follow links inside a page
+    # it fetched, so the address has to be written out in full.
     for caminho, desc in HUBS:
         rel = "index.html" if caminho == "/" else caminho.strip("/") + "/index.html"
         if rel in todas:
@@ -146,6 +146,8 @@ Todos os ficheiros abaixo são JSON, exceto onde indicado, e todos são servidos
 - https://{HOST}/dados/entidades.json — cada entidade, onde o seu nome está nos bytes, e a fórmula de ligação
 - https://{HOST}/dados/comentarios.json — o trabalho dos agentes sobre os artigos, derivado dos registos
 - https://{HOST}/dados/redacao.json — a mesa: as bancadas, a carga de cada uma, e o quadro
+- https://{HOST}/dados/agentes.json — os agentes nomeados que podem mudar este site, e o mandato de cada um
+- https://{HOST}/dados/transferencias.json — prova congelada por OUTRA publicação, com a proveniência dela
 
 ## As entidades, em endereços construíveis
 

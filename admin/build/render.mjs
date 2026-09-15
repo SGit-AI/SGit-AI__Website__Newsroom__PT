@@ -1,46 +1,45 @@
 /**
- * pt.newsroom.sgit.ai — o portão que faltava: abrir as páginas num navegador de verdade.
+ * pt.newsroom.sgit.ai — the gate that was missing: open the pages in a real browser.
  *
  *     python3 -m http.server 8777 --bind 127.0.0.1 &
  *     node admin/build/render.mjs [http://127.0.0.1:8777]
  *
- * PORQUE É QUE ISTO EXISTE. `build/gates.py` lê ficheiros e `admin/build/validate.js` lê HTML.
- * Nenhum dos dois EXECUTA nada. Um componente que rebente ao carregar — um caminho errado, um
- * `fetch` para um ficheiro que mudou de nome, um erro de sintaxe num módulo — passa os três
- * portões e chega ao leitor como uma caixa vazia. E uma caixa vazia parece uma escolha de desenho.
+ * WHY THIS EXISTS. `build/gates.py` reads files and `admin/build/validate.js` reads HTML. Neither
+ * of them EXECUTES anything. A component that throws on load — a wrong path, a `fetch` for a file
+ * that was renamed, a syntax error in a module — passes all three gates and reaches the reader as
+ * an empty box. And an empty box looks like a design choice.
  *
- * Este ficheiro abre cada página que tem um componente, num Chromium a sério, e falha se:
+ * This file opens every page carrying a component, in a real Chromium, and fails if:
  *
- *   · a consola do navegador escrever um erro, ou a página lançar uma exceção;
- *   · algum pedido falhar ou responder 400 ou mais;
- *   · um elemento personalizado não ficar definido, não abrir raiz de sombra, ou ficar vazio;
- *   · o host ficar com `data-estado="erro"`, ou não chegar a `data-estado="pronto"`;
- *   · aparecer o aviso «did not load» que a classe-base mostra quando não consegue carregar;
- *   · um componente ficar preso no seu texto de «a carregar»;
- *   · a página transbordar na horizontal a 390px de largura.
+ *   · the browser console writes an error, or the page throws;
+ *   · any request fails or answers 400 or above;
+ *   · a custom element is never defined, opens no shadow root, or comes up empty;
+ *   · the host ends at `data-estado="erro"`, or never reaches `data-estado="pronto"`;
+ *   · the base class's "did not load" warning appears;
+ *   · a component is stuck on its own loading text;
+ *   · the page overflows horizontally at 390px wide.
  *
- * NÃO CORRE NA INTEGRAÇÃO CONTÍNUA, e é dito aqui para não se pensar que corre: precisa de um
- * navegador instalado, e este repositório não tem dependências de node. É uma conferência local,
- * a correr antes de um lançamento que mexa em componentes. Quando a CI tiver um navegador, passa
- * a portão sem mudar uma linha deste ficheiro.
+ * IT DOES NOT RUN IN CI, said here so nobody assumes it does: it needs a browser installed, and
+ * this repository has no node dependencies. It is a local check, run before any release that
+ * touches components. When CI has a browser, it becomes a gate without a line of this file
+ * changing.
  */
-/* O playwright NÃO é uma dependência deste repositório, e não vai passar a ser: um sítio estático
-   que se constrói com python3 e um ficheiro de node não deve precisar de um `npm install` para se
-   publicar. Por isso o módulo é importado dinamicamente e pode vir de fora, por
-   `PLAYWRIGHT_MODULE`; e o navegador por `CHROME_PATH`, para quando o que está instalado não é o
-   que aquela versão do playwright espera:
+/* Playwright is NOT a dependency of this repository and is not going to become one: a static site
+   built with python3 and one node file should not need an `npm install` to publish. So the module
+   is imported dynamically and may come from outside, via `PLAYWRIGHT_MODULE`; and the browser via
+   `CHROME_PATH`, for when what is installed is not what that version of playwright expects:
 
      PLAYWRIGHT_MODULE=/caminho/node_modules/playwright/index.mjs \
      CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
      node admin/build/render.mjs
 
-   Sem nenhuma das duas, resolve-se `playwright` normalmente. */
+   With neither, `playwright` resolves normally. */
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright')
 
 const BASE = process.argv[2] || 'http://127.0.0.1:8777'
 
-/* Uma página por componente, e as páginas que os juntam. Não é o site inteiro: 232 páginas num
-   navegador é lento e repetitivo, e o que se está a conferir é o código que corre, não o HTML. */
+/* One page per component, plus the pages that combine them. Not the whole site: 232 pages in a
+   browser is slow and repetitive, and what is being checked is the code that runs, not the HTML. */
 const PAGINAS = [
     ['/', []],
     ['/redacao/', ['pt-newsroom-floor']],
@@ -55,9 +54,9 @@ const PAGINAS = [
     ['/protagonistas/', []],
 ]
 
-/* Chromium pede `/favicon.ico` sozinho, sem ninguém lho mandar, e num sítio que serve um SVG isso
-   é um 404 que o leitor nunca vê. Ignora-se o pedido do navegador e não o do site: se uma PÁGINA
-   pedir um ficheiro que não existe, isso continua a falhar. */
+/* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
+   404 the reader never sees. The browser's own request is ignored, not the site's: if a PAGE asks
+   for a file that does not exist, that still fails. */
 const RUIDO = [/\/favicon\.ico$/]
 
 const navegador = await chromium.launch(
@@ -96,12 +95,12 @@ for (const [caminho, comps] of PAGINAS) {
         if (!info.definido) erros.push(`<${tag}> nunca foi definido — o módulo não correu`)
         if (!info.sombra) erros.push(`<${tag}> não abriu raiz de sombra`)
         if (!info.filhos) erros.push(`<${tag}> ficou vazio`)
-        /* O SINAL QUE FALTAVA. Um componente que apanha o seu próprio erro e desenha uma mensagem
-           amável está a fazer o certo pelo leitor e o errado por quem confere a página: sem erro
-           de consola, sem exceção, com a sombra cheia de texto — parece saudável. Foi assim que
-           uma exceção a meio de um `_render()` passou por esta conferência. Agora a classe-base
-           põe `data-estado` no host, fora da sombra, e a falha deixa de ser só legível por uma
-           pessoa. */
+        /* THE SIGNAL THAT WAS MISSING. A component that catches its own error and draws a
+           friendly message is doing right by the reader and wrong by whatever checks the page: no
+           console error, no exception, a shadow root full of text — it looks healthy. That is how
+           an exception mid-`_render()` got through this check. Now the base class puts
+           `data-estado` on the host, outside the shadow root, and failure stops being legible only
+           to a person. */
         if (info.estado === 'erro')
             erros.push(`<${tag}> declarou-se em erro: ${info.erro || 'sem motivo'}`)
         else if (info.estado !== 'pronto')
@@ -111,8 +110,8 @@ for (const [caminho, comps] of PAGINAS) {
             erros.push(`<${tag}> ficou preso em «a carregar»: ${info.texto}`)
     }
 
-    /* 390px. Uma grelha que transborda empurra o corpo para o lado e o leitor de telemóvel passa
-       a arrastar a página na horizontal para ler uma frase. Já aconteceu neste site uma vez. */
+    /* 390px. A grid that overflows pushes the body sideways and the phone reader ends up dragging
+       the page horizontally to read one sentence. It has happened on this site once. */
     await pag.setViewportSize({ width: 390, height: 844 })
     await pag.waitForTimeout(250)
     const larg = await pag.evaluate(() =>

@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — a construção inteira, por ordem, num só comando.
+"""pt.newsroom.sgit.ai — the whole build, in order, in one command.
 
-    python3 build/tudo.py              # construir e conferir
-    python3 build/tudo.py --fetch      # o mesmo, mas a ir buscar as fontes primeiro
-    python3 build/tudo.py --so-portoes # só os portões, sem reconstruir
-    python3 build/tudo.py --render     # mais o portão do navegador (precisa de playwright)
+    python3 build/tudo.py              # build and check
+    python3 build/tudo.py --fetch      # the same, fetching the sources first
+    python3 build/tudo.py --so-portoes # gates only, no rebuild
+    python3 build/tudo.py --render     # plus the browser gate (needs playwright)
 
-PORQUE É QUE ISTO EXISTE. A sequência tem onze passos e **a ordem importa**: `entidades.py` lê o
-grafo que `graph.py` escreve, `artigos.py` lê os comentários que `comentarios.py` deriva, e a
-passagem que transforma uma menção em ligação lê o `dados/entidades.json` que só existe depois de
-`entidades.py` correr. Correr os passos por outra ordem não rebenta — produz um site com menos
-ligações do que devia e nenhum aviso, que é pior.
+WHY THIS EXISTS. The sequence has twelve steps and **the order is load-bearing**: `entidades.py`
+reads the graph `graph.py` writes, `artigos.py` reads the comments `comentarios.py` derives, and
+the pass that turns a mention into a link reads the `dados/entidades.json` that only exists after
+`entidades.py` has run. Running the steps in another order does not break — it produces a site with
+fewer links than it should have and no warning at all, which is worse.
 
-A lista de comandos em `CLAUDE.md` é mais antiga do que metade destes passos, e `CLAUDE.md` é o
-ficheiro de regras: está na lista de recusa de propósito, e mudá-lo para acompanhar o código é ao
-contrário. Então a ordem verdadeira vive aqui, num ficheiro executável, que é o sítio onde uma
-ordem não pode ficar desatualizada sem que alguma coisa falhe.
+The command list in `CLAUDE.md` is older than half these steps, and `CLAUDE.md` is the rules file:
+it is deny-listed on purpose, and editing it to match the code is backwards. So the real order
+lives here, in an executable file, which is the one place an order cannot go stale without
+something failing.
 
-**Um portão vermelho pára tudo.** Não há continuação depois de uma falha, e o código de saída é o
-do passo que falhou. Nunca se lança com um portão vermelho.
+**A red gate stops everything.** Nothing runs after a failure, and the exit code is the failing
+step's. Never release on a red gate.
 """
 import subprocess
 import sys
@@ -26,63 +26,65 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# (comando, o que faz, é-um-portão). A ordem é a ordem.
+# (command, what it does, is-a-gate). The order is the order.
 PASSOS = [
     (["python3", "build/extract.py"],
-     "obter, congelar, hashear, registar, extrair, comparar", False),
+     "fetch, freeze, hash, register, extract, diff", False),
+    (["python3", "build/transferencias.py"],
+     "evidence transferred from a sibling publication — verified, kept as ITS evidence", False),
     (["python3", "build/graph.py"],
-     "ontologia, grafo, triplos, manifesto — inclui a camada dos editores das fontes", False),
+     "ontology, graph, triples, manifest — including the source-publisher layer", False),
     (["python3", "build/entidades.py"],
      "dados/entidades.json e uma página por entidade — TEM de vir antes de tudo o que gera "
      "páginas, porque é este ficheiro que faz uma menção virar ligação", False),
     (["python3", "build/comentarios.py"],
-     "o trabalho dos agentes sobre cada artigo, derivado dos registos — antes de artigos.py", False),
+     "the agents' work on each article, derived from the records — before artigos.py", False),
     (["python3", "build/mesa.py"],
-     "dados/redacao.json — o estado da mesa, contado dos ficheiros que já existem", False),
+     "dados/redacao.json — the desk's state, counted from files that already exist", False),
     (["python3", "build/artigos.py"],
-     "as pastas datadas viram páginas, e dados/historias.json nasce delas", False),
+     "the dated folders become pages, and dados/historias.json is derived from them", False),
     (["python3", "build/build.py"],
-     "a primeira página e as secções", False),
+     "the front page and the sections", False),
     (["python3", "build/paginas_extra.py"],
-     "/api/ e /proveniencia/", False),
+     "/api/ and /proveniencia/", False),
     (["python3", "build/api.py"],
-     "api/v1/ — cada caminho é um ficheiro, e por isso o openapi.json é honesto", False),
+     "api/v1/ — every path is a file, which is why openapi.json is honest", False),
     (["python3", "build/backoffice.py"],
-     "a consola de operações, em inglês", False),
+     "the operations console, in English", False),
     (["python3", "build/chrome.py"],
-     "llms.txt, sitemap.xml, index.md — a superfície que uma máquina lê", False),
+     "llms.txt, sitemap.xml, index.md — the surface a machine reads", False),
     (["python3", "build/gates.py"],
-     "os portões do núcleo (1-15)", True),
+     "the core gates (1-15), in the deny-listed file", True),
     (["python3", "build/gates_artigos.py"],
-     "artigos, secções, bastidores, entidades, comentários e execuções (16-26)", True),
+     "articles, sections, back office, entities, comments, runs and language (16-28)", True),
     (["node", "admin/build/validate.js"],
-     "o portão do site: estrutura, ligações, versão, canónicos, fuga de chaves", True),
+     "the site gate: structure, links, version, canonicals, key-leak tripwire", True),
 ]
 
-# O portão do navegador é à parte porque precisa de um navegador e de um servidor, e este
-# repositório não tem dependências de node. Corre-se com `--render`, antes de um lançamento que
-# mexa em componentes. Sem ele, um componente que rebente ao carregar passa os outros três
-# portões e chega ao leitor como uma caixa vazia — que parece uma escolha de desenho.
+# The browser gate is separate because it needs a browser and a server, and this repository has no
+# node dependencies. Run it with `--render`, before any release that touches components. Without
+# it, a component that throws on load passes the other three gates and reaches the reader as an
+# empty box — which looks like a design choice.
 RENDER = (["node", "admin/build/render.mjs"],
-          "o portão do navegador: cada componente abre mesmo, sem erros e sem transbordar", True)
+          "the browser gate: every component really opens, with no errors and no overflow", True)
 
 
 def servidor_local():
-    """Um servidor de ficheiros só para o portão do navegador, e desligado a seguir.
+    """A file server for the browser gate alone, shut down straight after.
 
-    O site é uma árvore de ficheiros e um navegador a abrir `file://` não faz `fetch` — que é
-    exatamente o que cada componente faz. Sem isto, o portão do navegador media a política de
-    origem do Chromium em vez de medir o site.
+    The site is a tree of files, and a browser opening `file://` cannot `fetch` — which is exactly
+    what every component does. Without this, the browser gate would be measuring Chromium's origin
+    policy instead of measuring the site.
 
-    A porta é escolhida pelo sistema (porta 0) e não fixada. Uma porta fixa falha assim que
-    outra coisa a está a usar — outro servidor esquecido, outra sessão a trabalhar no mesmo
-    repositório ao mesmo tempo — e falhar por causa disso seria um portão vermelho que não diz
-    nada sobre o site."""
+    The port is chosen by the system (port 0), not fixed. A fixed port fails the moment something
+    else is using it — a forgotten server, another session working in the same repository at the
+    same time — and failing for that reason would be a red gate that says nothing about the
+    site."""
     import http.server, socketserver, threading, functools
 
     class Silencioso(http.server.SimpleHTTPRequestHandler):
-        # Sem isto, cada um dos duzentos pedidos que o navegador faz escreve uma linha, e a saída
-        # do portão — que é a coisa que se quer ler — fica enterrada.
+        # Without this, each of the two hundred requests the browser makes writes a line, and the
+        # gate's output — the thing you actually want to read — is buried.
         def log_message(self, *_):
             pass
 
@@ -99,9 +101,9 @@ def main(argv):
 
     passos = [p for p in PASSOS if p[2]] if so_portoes else list(PASSOS)
     if not so_portoes and not com_fetch:
-        # Sem `--fetch`, `extract.py` volta a extrair das cópias que já estão congeladas em vez de
-        # ir à rede. É a ordem certa por omissão: uma construção não deve depender de a rede
-        # estar de pé, nem tocar nas fontes de outras pessoas sem que alguém o peça.
+        # Without `--fetch`, `extract.py` re-extracts from the copies already frozen rather than
+        # going to the network. That is the right default: a build should not depend on the network
+        # being up, nor touch other people's sources unless somebody asked for it.
         passos = [p for p in passos if p[0][1] != "build/extract.py"]
     elif com_fetch:
         passos = [(c + ["--fetch"] if c[1] == "build/extract.py" else c, d, g)
@@ -119,23 +121,23 @@ def main(argv):
         print(f'\n\033[1m→ {etiqueta}\033[0m'.ljust(largura + 14) + f'  {o_que}')
         r = subprocess.run(comando, cwd=ROOT)
         if r.returncode != 0:
-            aviso = ("PORTÃO VERMELHO" if e_portao else "PASSO FALHADO")
+            aviso = ("RED GATE" if e_portao else "STEP FAILED")
             print(f'\n\033[31m{aviso}: {etiqueta} saiu com {r.returncode}.\033[0m')
-            print("A construção pára aqui. Nada do que vem a seguir correu, e não se lança "
-                  "com um portão vermelho.")
+            print("The build stops here. Nothing after it ran, and you do not release on a "
+                  "red gate.")
             if srv:
                 srv.shutdown()
             return r.returncode
 
     if srv:
         srv.shutdown()
-    quantos = "quatro portões" if com_render else "três portões"
-    print(f"\n\033[32mtudo: OK\033[0m — construído e conferido pelos {quantos}.")
+    quantos = "four gates" if com_render else "three gates"
+    print(f"\n\033[32mtudo: OK\033[0m — built and checked by the {quantos}.")
     if not com_render:
-        print("Sem `--render`: nenhum componente foi aberto num navegador. Se esta mudança mexeu "
-              "em assets/components/, corra `python3 build/tudo.py --render`.")
-    print("Falta, e é do editor: incrementar admin/build/version.txt, escrever a linha em "
-          "admin/versions.html, e só então empurrar.")
+        print("Without `--render`, no component was opened in a browser. If this change touched "
+              "assets/components/, run `python3 build/tudo.py --render`.")
+    print("Left, and the editor's: bump admin/build/version.txt, write the row in "
+          "admin/versions.html, and only then push.")
     return 0
 
 

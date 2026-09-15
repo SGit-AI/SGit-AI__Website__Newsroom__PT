@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-CnfqMl9z.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-sVgAtzwK.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-sVgAtzwK.css"></noscript>
+      <title>Startup Summit Lisbon 2026 Partners</title>
+    <meta name="description" content="Partner with Startup Summit Lisbon 2026 and connect with founders, investors, startups, and ecosystem leaders across the European startup ecosystem." />
+    <link rel="canonical" href="https://startupsummit.io/sponsors" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/sponsors" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/sponsors" />
+
+    <meta property="og:title" content="Startup Summit Lisbon 2026 Partners" />
+    <meta property="og:description" content="Partner with Startup Summit Lisbon 2026 and connect with founders, investors, startups, and ecosystem leaders across the European startup ecosystem." />
+    <meta property="og:image" content="https://startupsummit.io/images/og-sponsors.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/sponsors" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Startup Summit Lisbon 2026 Partners" />
+    <meta name="twitter:description" content="Partner with Startup Summit Lisbon 2026 and connect with founders, investors, startups, and ecosystem leaders across the European startup ecosystem." />
+    <meta name="twitter:image" content="https://startupsummit.io/images/og-sponsors.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Sponsors","item":"https://startupsummit.io/sponsors"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Startup Summit Lisbon 2026 Partners","url":"https://startupsummit.io/sponsors","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png","sameAs":["https://instagram.com/startupsummitlx","https://www.linkedin.com/company/thestartupsummit","https://x.com/startupsummitl"],"contactPoint":[{"@type":"ContactPoint","email":"info@startupsummit.io","contactType":"customer service"},{"@type":"ContactPoint","email":"sponsors@startupsummit.io","contactType":"sales"},{"@type":"ContactPoint","email":"press@startupsummit.io","contactType":"public relations"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusinessEvent","@id":"https://startupsummit.io/#event","name":"Startup Summit Lisbon 2026","description":"Startup Summit Lisbon 2026 is a European startup conference bringing together founders, investors, operators, and ecosystem leaders for two days of networking, practical talks, startup booths, and founder-focused opportunities in Lisbon.","startDate":"2026-09-17T09:00:00+01:00","endDate":"2026-09-18T18:00:00+01:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","url":"https://startupsummit.io/","image":["https://startupsummit.io/images/og-homepage.jpg"],"inLanguage":"en","maximumAttendeeCapacity":2000,"about":[{"@type":"Thing","name":"Startups","sameAs":"https://www.wikidata.org/wiki/Q4117810"},{"@type":"Thing","name":"Venture capital","sameAs":"https://www.wikidata.org/wiki/Q860394"},{"@type":"Thing","name":"Entrepreneurship","sameAs":"https://www.wikidata.org/wiki/Q3908516"},{"@type":"Thing","name":"Artificial intelligence","sameAs":"https://www.wikidata.org/wiki/Q11660"}],"mentions":[{"@type":"Place","name":"Lisbon","sameAs":"https://www.wikidata.org/wiki/Q597"},{"@type":"Place","name":"Portugal","sameAs":"https://www.wikidata.org/wiki/Q45"},{"@type":"Place","name":"Beato Innovation District","sameAs":"https://www.wikidata.org/wiki/Q132213987"},{"@type":"Thing","name":"Climate technology","sameAs":"https://www.wikidata.org/wiki/Q11042820"}],"location":{"@type":"Place","name":"Unicorn Factory Lisboa, Beato Innovation District","address":{"@type":"PostalAddress","streetAddress":"Av. Infante Dom Henrique 143","addressLocality":"Lisbon","postalCode":"1950-406","addressRegion":"Lisboa","addressCountry":"PT"},"geo":{"@type":"GeoCoordinates","latitude":38.7432,"longitude":-9.1037}},"organizer":{"@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png"},"performer":[{"@type":"Person","name":"Anmol Goel","jobTitle":"CEO & Partner","image":"https://startupsummit.io/images/speakers/anmol-goel.webp","worksFor":{"@type":"Organization","name":"Gacs Ltd & Gacsym Ventures"},"sameAs":["https://www.linkedin.com/in/anmol-g-215a96a9/"]},{"@type":"Person","name":"Paulo Andrez","jobTitle":"Angel Investor & Author","image":"https://img1.wsimg.com/isteam/ip/6685a3b4-9cd6-4f4a-9967-066ceb7c6eda/NEF_6456.jpg","worksFor":{"@type":"Organization","name":"Zero Risk Startup"},"sameAs":["https://linkedin.com/in/pauloandrez"]},{"@type":"Person","name":"Stephanie Melodia","jobTitle":"Startup Brand Strategist","image":"https://static.wixstatic.com/media/567df4_be8b8b854b1e44d696259f6941b6584b~mv2.jpg","worksFor":{"@type":"Organization","name":"Keynote Speaker"},"sameAs":["https://www.linkedin.com/in/stephmelodia-keynotespeaker"]},{"@type":"Person","name":"Ana Barjasic","jobTitle":"CEO & EU Innovation Advisor","image":"https://images.ctfassets.net/l7h59hfnlxjx/6wKhGODP41eESs1w9nHHaU/93b9a0c77b6247ad516947d367fb51a3/Ana_Barjasic_Profile_Pic.png","worksFor":{"@type":"Organization","name":"Connectology"},"sameAs":["https://linkedin.com/in/ana-barjasic"]}],"offers":[{"@type":"AggregateOffer","name":"General Pass","url":"https://startupsummit.io/tickets#general-pass","priceCurrency":"EUR","lowPrice":"49","highPrice":"119","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Founder Pass","url":"https://startupsummit.io/tickets#founder-pass","priceCurrency":"EUR","lowPrice":"99","highPrice":"199","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Startup Booth Package","url":"https://startupsummit.io/tickets#startup-booth","priceCurrency":"EUR","lowPrice":"199","highPrice":"399","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"Investor Pass","url":"https://startupsummit.io/tickets#investor-pass","priceCurrency":"EUR","lowPrice":"199","highPrice":"499","availability":"https://schema.org/InStock","validFrom":"2026-01-01"},{"@type":"AggregateOffer","name":"VIP Experience Pass","url":"https://startupsummit.io/tickets#vip-pass","priceCurrency":"EUR","lowPrice":"249","highPrice":"599","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to sponsor Startup Summit Lisbon 2026","description":"How to become a sponsor of a founder-first European startup conference.","step":[{"@type":"HowToStep","position":1,"name":"Pick a sponsor tier","text":"Title, Lead, Stage, Networking, Booth or Ecosystem / Media Partner."},{"@type":"HowToStep","position":2,"name":"Email the team","text":"Send a note to sponsors@startupsummit.io for the deck and pricing."},{"@type":"HowToStep","position":3,"name":"Customise your package","text":"Work with the team on custom activations and branded sessions."},{"@type":"HowToStep","position":4,"name":"Activate at the event","text":"Sept 17–18 — get in front of a high-intent audience of founders, investors and operators."}]}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Sponsorship — Startup Summit Lisbon 2026</h1>
+  <p><strong>September 17–18, 2026 · Beato Innovation District, Lisbon, Portugal</strong></p>
+  <p>Get in front of our target audience of 2,000+ founders, investors and operators from 40+ countries at a founder-first European startup conference. We work with sponsors, ecosystem partners and media partners across a range of formats.</p>
+
+  <h2>Sponsorship tiers</h2>
+
+  <h3>Title Sponsor</h3>
+  <p>Headline visibility across the entire event — main stage branding, opening keynote presence, premium booth placement, and exclusive category lockup. Best for brands seeking maximum association with the summit.</p>
+
+  <h3>Lead Sponsor</h3>
+  <p>Strong main stage presence, prominent booth placement, branded session or fireside chat, dedicated lead-capture moments, and high-visibility placement across digital and on-site assets.</p>
+
+  <h3>Stage Sponsor</h3>
+  <p>Naming rights for one of the three stages (Main Stage, Startup Stage, or Workshop Rooms), branded sessions, on-stage thank-yous, and dedicated booth space.</p>
+
+  <h3>Networking Sponsor</h3>
+  <p>Sponsor a marquee networking moment — Founder Social, Speed Networking, Investor Lounge, or VIP Sunset Cruise — with branding, hosting opportunities and curated guest access.</p>
+
+  <h3>Booth Sponsor / Exhibitor</h3>
+  <p>Exhibition booth in the expo area with Startup Summit passes included. Best for product-led brands wanting direct conversations with founders and operators.</p>
+
+  <h3>Ecosystem &amp; Media Partners</h3>
+  <p>Reciprocal partnerships for accelerators, communities, VCs, and media outlets — co-marketing, ticket allocations, branded content opportunities and on-site presence.</p>
+
+  <h2>Why sponsor Startup Summit</h2>
+  <ul>
+    <li>Targeting 2,000+ qualified attendees over two days</li>
+    <li>Investors, angels, VC funds, family offices and corporates</li>
+    <li>150+ speakers planned from 40+ countries</li>
+    <li>200+ startup booths planned in the expo area</li>
+    <li>Pre-event, on-site and post-event brand integration</li>
+    <li>Lisbon — one of Europe's fastest-growing tech hubs</li>
+  </ul>
+
+  <h2>Get in touch</h2>
+  <p>Custom packages are available. Email <a href="mailto:sponsors@startupsummit.io">sponsors@startupsummit.io</a> for the sponsor deck and pricing, or <a href="/contact">use the contact form</a>.</p>
+
+  <p><a href="/">Back to homepage</a> · <a href="/tickets">Tickets</a> · <a href="/startup-booths">Startup Booths</a></p>
+
+      </div>
+    </noscript>
+  </body>
+</html>

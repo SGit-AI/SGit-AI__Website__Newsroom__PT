@@ -1,34 +1,34 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — o grafo. Ontologia, taxonomia, nós, arestas, blocos, triplos.
+"""pt.newsroom.sgit.ai — the graph. Ontology, taxonomy, nodes, edges, blocks, triples.
 
-    python3 build/graph.py     # escreve dados/ontologia.json, grafo.json, triplos.nt, manifesto.json
+    python3 build/graph.py     # writes dados/ontologia.json, grafo.json, triplos.nt, manifesto.json
 
-Adaptado de `portugal/build/graph.py` (newsroom.sgit.ai v0.3.9). Três regras vêm de lá sem
-alteração, e a quarta é a razão de este ficheiro existir separadamente:
+Adapted from `portugal/build/graph.py` (newsroom.sgit.ai v0.3.9). Three rules come from there
+unchanged, and the fourth is why this file exists separately:
 
-1. **Cada aresta é um verbo com um inverso distinto e nomeado.** Uma aresta simétrica seria o seu
-   próprio inverso, o que a gramática proíbe, por isso não há `relacionado_com` e nunca haverá.
-   Um caminho só vale a pena se SE LÊ: percorrido para a frente usa o verbo, para trás usa o
-   inverso, e em qualquer dos sentidos é uma frase.
-2. **A classificação é uma fórmula, não um rótulo.** Onde um nó leva uma classe que este ficheiro
-   não leu de uma fonte, a fórmula é publicada ao lado e o valor diz «pelo título listado», para
-   que ninguém confunda uma inferência com um facto.
-3. **Cada nó nomeia a fonte congelada de onde veio.** Um nó sem `fonte` é um erro, e o portão
-   trata-o como tal. Um nó sem caminho de volta aos bytes é um desenho.
+1. **Every edge is a verb with a distinct, named inverse.** A symmetric edge would be its own
+   inverse, which the grammar forbids, so there is no `relacionado_com` and never will be. A path
+   is only worth having if it READS: walked forwards it uses the verb, backwards the inverse, and
+   either way it is a sentence.
+2. **Classification is a formula, not a label.** Where a node carries a class this file did not
+   read from a source, the formula is published beside it and the value says "by the listed title",
+   so nobody mistakes an inference for a fact.
+3. **Every node names the frozen source it came from.** A node without `fonte` is an error, and the
+   gate treats it as one. A node with no path back to the bytes is a drawing.
 
-4. **OS VERBOS SÃO PORTUGUESES, e o `en` é a anotação.** Esta é a inversão que o §6 do resumo
-   manda fazer, e a única que não é cosmética. A quinta regra publicada do grafo diz: *se um
-   caminho não se lê como uma frase na língua do leitor, as arestas estão erradas.* A língua do
-   leitor deste site é o português, logo o teste de aceitação é um leitor português a ler um
-   caminho em voz alta. Uma ontologia inglesa por trás de uma interface portuguesa falha esse
-   teste enquanto parece acabada — é a forma mais provável de este site estar discretamente
-   errado, porque nada nela parece avariado. Por isso a chave primária de cada verbo aqui é
-   `verbo` em português e `en` é uma anotação que não é usada para nada a não ser a exportação.
+4. **THE VERBS ARE PORTUGUESE, and `en` is the annotation.** This is the inversion §6 of the brief
+   demands, and the only one that is not cosmetic. The graph's fifth published rule says: *if a
+   path does not read as a sentence in the reader's language, the edges are wrong.* This site's
+   reader reads Portuguese, so the acceptance test is a Portuguese reader reading a path aloud. An
+   English ontology behind a Portuguese interface fails that test while looking finished — it is
+   the likeliest way for this site to be quietly wrong, because nothing about it looks broken. So
+   each verb's primary key here is `verbo`, in Portuguese, and `en` is an annotation used for
+   nothing but export.
 
-E uma regra sobre acentos: o corpus de onde este método vem impõe ASCII puro, e o português não
-é uma língua ASCII. Nada aqui normaliza um nome. Os identificadores são dobrados para ASCII
-porque um identificador é uma chave e não um nome; os RÓTULOS ficam como a fonte os escreveu, e o
-portão 9 assere que assim é.
+And a rule about accents: the corpus this method comes from mandates pure ASCII, and Portuguese is
+not an ASCII language. Nothing here normalises a name. Identifiers are folded to ASCII because an
+identifier is a key and not a name; the LABELS stay as the source wrote them, and gate 9 asserts
+that they do.
 """
 import json
 import re
@@ -50,7 +50,7 @@ def ident(nome):
 
 
 # ----------------------------------------------------------------- ontologia ---
-# As oito secções do resumo, no topo da taxonomia. São a espinha do site e a nav da página.
+# The brief's eight sections, at the top of the taxonomy. The site's spine and the page's nav.
 SECCOES = [
     {"id": "empresas",      "rotulo": "As empresas",     "en": "Companies"},
     {"id": "protagonistas", "rotulo": "Os protagonistas", "en": "People"},
@@ -103,18 +103,18 @@ TIPOS = [
      "definicao": "A casa que publica uma página congelada: um organismo, um jornal, um portal, o sítio de um evento. Sai do campo de editor do registo pela fórmula `editor_de_fonte`, e diz quem PUBLICA a página — não quem a escreveu, não quem a opera. Existe como tipo à parte porque a definição de Instituição é «um organismo público, um regulador ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas: alargar aquela definição para caber aqui seria mudar o que ela promete."},
 ]
 
-# verbo_pt / inverso_pt / domínio -> alcance / en / como a aresta se LÊ em português
-# A leitura é o teste: se `{leitura}` não é uma frase portuguesa, a aresta está errada.
+# verb_pt / inverse_pt / domain -> range / en / how the edge READS in Portuguese
+# The reading is the test: if `{leitura}` is not a Portuguese sentence, the edge is wrong.
 #
-# UMA REGRA DE LEITURA QUE É UMA RECUSA, NÃO UMA PREFERÊNCIA DE ESTILO. Em português o particípio
-# passado concorda em género com o sujeito, por isso «está listado em» e «está listada em» são
-# formas diferentes e uma delas está errada para cada pessoa. Este site não sabe o género de
-# ninguém: a fonte não o publica, e deduzi-lo do nome é exatamente a espécie de inferência sobre
-# uma pessoa nomeada que o aviso recusa (e que o portão 7 proíbe). Por isso **toda a leitura que
-# tem uma Pessoa no domínio ou no alcance é invariável em género** — usa verbos na terceira pessoa
-# («fala», «consta», «usa», «defende») e nunca um particípio concordado. Onde o domínio é um tipo
-# de género fixo (uma Fonte é feminina, um Evento é masculino) a concordância é conhecida e
-# escreve-se. O portão 10 volta a ler cada leitura e falha a construção se uma que toca numa
+# A READING RULE THAT IS A REFUSAL, NOT A STYLE PREFERENCE. In Portuguese the past participle
+# agrees in gender with its subject, so «está listado em» and «está listada em» are different forms
+# and one of them is wrong for each person. This site does not know anyone's gender: the source
+# does not publish it, and inferring it from a name is exactly the kind of inference about a named
+# person that the notice refuses (and gate 7 forbids). So **every reading with a Pessoa in its
+# domain or range is gender-invariant** — it uses third-person verbs («fala», «consta», «usa»,
+# «defende») and never an agreeing participle. Where the domain is a type of fixed grammatical
+# gender (a Fonte is feminine, an Evento masculine) the agreement is known and is written. Gate 10
+# re-reads every reading and fails the build if one that touches a
 # Pessoa contiver um particípio concordado.
 ARESTAS = [
     ("fala_em",        "recebe",          "Pessoa",      "Evento",      "speaks_at",      "hosts",
@@ -177,7 +177,7 @@ ARESTAS = [
      "{s} é publicada por {t}",               "{t} publica a página {s}"),
 ]
 
-# Verbos cujas arestas são DERIVADAS pelo léxico e não lidas de uma lista. Cada uma leva
+# Verbs whose edges are DERIVED by the lexicon rather than read from a list. Each carries
 # `correspondeu` e o portão volta a correr o padrão sobre os bytes.
 VERBOS_DERIVADOS = {"atua_em", "usa", "defende", "oferece"}
 
@@ -198,8 +198,8 @@ TAXONOMIA = [
     {"id": "derivado",   "rotulo": "Derivado por fórmula", "tipos": ["Setor", "Tecnologia", "Ideia", "Servico", "Produto"]},
 ]
 
-# A única classificação que este ficheiro inventa em vez de ler. Publicada como fórmula, para que
-# se possa discordar dela, e cada valor diz «pelo título listado» para nunca ser confundido com um
+# The only classification this file invents rather than reads. Published as a formula so it can be
+# disagreed with, and every value says "by the listed title" so it is never mistaken for a
 # facto sobre a pessoa.
 CLASSE_PAPEL = [
     ("investidor", "do lado do investimento, pelo título listado",
@@ -212,21 +212,22 @@ CLASSE_PAPEL = [
 
 
 def editor_de_fonte(publicador):
-    """A fórmula `editor_de_fonte` — publicada em ontologia.formulas.
+    """The `editor_de_fonte` formula — published in ontologia.formulas.
 
-    O registo grava, para cada página congelada, o editor verbatim. A mesma casa aparece lá escrita
-    de mais do que uma maneira: «Diário da República Eletrónico (INCM)» e «Diário da República»,
-    «CORDIS — Comissão Europeia» e «Comissão Europeia». Esta função reduz a cadeia à casa que
-    publica, em dois passos e nenhum mais:
+    The register records, for every frozen page, the publisher verbatim. The same house appears
+    written there more than one way: «Diário da República Eletrónico (INCM)» and «Diário da
+    República», «CORDIS — Comissão Europeia» and «Comissão Europeia». This function reduces the
+    string to the house that publishes, in two steps and no more:
 
-      1. tira o parêntesis final, que nomeia quem OPERA e não quem publica — «(INCM)», «(AMA)»;
-      2. fica com o segmento depois do último travessão, que separa a coleção da casa.
+      1. drop the trailing parenthetical, which names who OPERATES rather than who publishes —
+         «(INCM)», «(AMA)»;
+      2. keep the segment after the last em dash, which separates the collection from the house.
 
-    O que a fórmula NÃO faz é juntar nomes que continuem diferentes depois destes dois passos. Se
-    o registo diz «Diário da República» numa linha e «Diário da República Eletrónico» noutra, o
-    grafo fica com dois nós, porque são duas coisas que o registo diz e decidir que são a mesma
-    seria uma inferência nossa e não um facto dele. É a mesma recusa que produziu a história dos
-    dois nomes para os mesmos palcos.
+    What the formula does NOT do is merge names that are still different after those two steps. If
+    the register says «Diário da República» on one line and «Diário da República Eletrónico» on
+    another, the graph keeps two nodes, because those are two things the register says and deciding
+    they are the same would be our inference rather than its fact. It is the same refusal that
+    produced the story about two names for the same stages.
     """
     t = (publicador or "").strip()
     if not t:
@@ -316,7 +317,7 @@ def main():
         arestas.append({"id": f"{verbo}:{s}:{t}", "verbo": verbo, "origem": s, "destino": t,
                         "bloco": bloco, **extra})
 
-    # --- a prova: cada captura e cada ficheiro congelado ----------------------
+    # --- the evidence: every capture and every frozen file --------------------
     for c in caps:
         no({"id": f"captura:{c}", "tipo": "Captura", "rotulo": f"Captura de {c}", "bloco": "prova",
             "data": c, "fonte": f"{ultima}/index"})
@@ -362,7 +363,7 @@ def main():
             aresta("consta_em", pid, f"fonte:{ultima}/oradores/{p['id']}", "prova")
         aresta("presente_em", pid, f"captura:{ultima}", "mudancas")
 
-    # quem esteve numa captura anterior e já não está na lista publicada
+    # who was in an earlier capture and is no longer in the published list
     for m in mudancas["mudancas"]:
         for saiu in m["sairam"]:
             pid = "pessoa:" + saiu["id"]
@@ -388,7 +389,7 @@ def main():
         if s.get("palco"):
             aresta("no_palco", sid, "palco:" + s["palco"], "programa")
 
-    # --- os temas do evento, e as etiquetas derivadas pelo léxico -------------
+    # --- the event's topics, and the tags derived by the lexicon --------------
     for pt in temas["pessoa_temas"]:
         tid = "tema:" + ident(pt["tema"])
         no({"id": tid, "tipo": "Tema", "rotulo": pt["tema"], "bloco": "temas",
@@ -410,9 +411,9 @@ def main():
         aresta(TIPO_DE[e["tipo"]], "pessoa:" + pe["pessoa"], nid, "derivado",
                correspondeu=pe["correspondeu"], lexico=e["id"])
 
-    # --- o registo nacional: o que se conseguiu ler e o que não --------------
-    # Estes nós são a primeira camada que não vem do evento. São poucos e são honestos: cada um
-    # diz se a página que o atesta devolveu ou não um corpo legível por uma máquina.
+    # --- the national register: what could be read and what could not ---------
+    # These nodes are the first layer that does not come from the event. There are few of them and
+    # they are honest: each says whether the page attesting it returned a machine-readable body.
     INSTITUICOES = {
         "gov-ia": ("Governo de Portugal", "O executivo. Publica o programa e as áreas de política."),
         "dre-inicio": ("Diário da República Eletrónico", "O diário oficial. Se o instrumento legal de uma política existe, é aqui que é publicado."),
@@ -437,17 +438,17 @@ def main():
             "fonte": fid})
         aresta("consta_em", iid, f"fonte:{fid}", "prova")
 
-    # --- quem publica cada página congelada ----------------------------------
-    # Até aqui o grafo sabia de onde veio cada byte e não sabia de QUEM. A ligação faltava, e
-    # faltava exatamente onde um leitor a quer: lê-se «Comissão Europeia» numa página e não há
-    # nada por trás do nome. Esta passagem fecha isso — cada Fonte ganha uma aresta para a casa
-    # que a publica, e a casa ganha uma página que lista tudo o que dela foi congelado.
+    # --- who publishes each frozen page --------------------------------------
+    # Until now the graph knew where each byte came from and not from WHOM. The link was missing,
+    # and missing exactly where a reader wants it: you read «Comissão Europeia» on a page and there
+    # is nothing behind the name. This pass closes that — every Fonte gains an edge to the house
+    # that publishes it, and the house gains a page listing everything frozen from it.
     #
-    # Resolve-se contra os nós que JÁ existem antes de se criar um novo, senão o Governo de
+    # Resolved against nodes that ALREADY exist before minting a new one, otherwise the Governo de
     # Portugal ficava com dois nós (um do registo nacional, outro daqui) e o grafo passava a
-    # dizer que são duas casas. A ordem é a da especificidade da fonte do nó: um Evento e uma
-    # Instituição foram lidos de uma página congelada; um Editor é derivado de um campo do
-    # registo, e por isso é o último recurso e não o primeiro.
+    # saying they are two houses. The order follows how specific the node's source is: an Evento
+    # and an Instituicao were read from a frozen page; an Editor is derived from a register field,
+    # and is therefore the last resort rather than the first.
     por_rotulo = {}
     for n in nos:
         if n["tipo"] in ("Evento", "Instituicao", "Organizacao"):
@@ -473,8 +474,8 @@ def main():
         n = por_no.get(alvo)
         if n is not None:
             n["publica"] = len(d["fontes"])
-            # As formas exatas em que o registo escreve esta casa. Mais do que uma é um facto
-            # sobre o registo, e fica à vista em vez de ser reduzido a uma.
+            # The exact forms in which the register writes this house. More than one is a fact
+            # about the register, and it stays in view rather than being reduced to one.
             n["verbatim_no_registo"] = sorted(d["verbatim"])
         for fid in d["fontes"]:
             aresta("publicada_por", f"fonte:{fid}", alvo, "prova")
@@ -505,7 +506,7 @@ def main():
         b["nos"] = sum(1 for n in nos if n["bloco"] == b["id"])
         b["arestas"] = sum(1 for a in arestas if a["bloco"] == b["id"])
 
-    # arestas duplicadas não são um erro de dados, são um erro de construção
+    # duplicate edges are not a data error, they are a build error
     unicas, chaves = [], set()
     for a in arestas:
         if a["id"] in chaves:
@@ -531,7 +532,7 @@ def main():
     (DADOS / "grafo.json").write_text(
         json.dumps(grafo, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    # --- triplos: o grafo como N-Triples, com os inversos declarados ---------
+    # --- triples: the graph as N-Triples, with the inverses declared ----------
     BASE = "https://pt.newsroom.sgit.ai/grafo/"
     inv = {a["verbo"]: a["inverso"] for a in onto["arestas"]}
     linhas = []
@@ -545,7 +546,7 @@ def main():
         linhas.append(f"<{BASE}no/{a['origem']}> <{BASE}verbo/{a['verbo']}> <{BASE}no/{a['destino']}> .")
     (DADOS / "triplos.nt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
 
-    # --- o manifesto: cada ficheiro deste site com o seu hash ----------------
+    # --- the manifest: every file of this site with its hash ------------------
     import hashlib
     manifesto = []
     for f in sorted(DADOS.rglob("*")):

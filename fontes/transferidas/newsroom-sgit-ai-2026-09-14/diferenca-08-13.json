@@ -1,0 +1,48 @@
+{
+  "id": "diferenca-08-13-setembro",
+  "nota": "A diferença entre as duas capturas da lista de oradores, calculada por newsroom.sgit.ai a 13 de setembro de 2026 e reproduzível a partir dos dois ficheiros congelados nesta transferência. Nenhuma saída tem razão registada, e nenhuma pode ser inferida.",
+  "de": "2026-09-08",
+  "para": "2026-09-13",
+  "sha256_de": "649debec2b82f22d5539951c17927de575a6f15c55f97c94e1321416dd201002",
+  "sha256_para": "62d727e12a4b4cd27717057dbe871c855a0a14aa71ccece83fd26956a5c5cbeb",
+  "contagem_de": 60,
+  "contagem_para": 64,
+  "entraram": [
+    {
+      "id": "cintia-costa",
+      "nome": "Cíntia Costa",
+      "organizacao": "351 Portuguese Startup Association"
+    },
+    {
+      "id": "ed-chandler",
+      "nome": "Ed Chandler",
+      "organizacao": "PriFly Advisors"
+    },
+    {
+      "id": "olesia-rykova",
+      "nome": "Olesia Rykova",
+      "organizacao": "SOULBRANDING"
+    },
+    {
+      "id": "olivia-page",
+      "nome": "Olivia Page",
+      "organizacao": "Mykor"
+    },
+    {
+      "id": "ricardo",
+      "nome": "Ricardo",
+      "organizacao": "Startup Summit"
+    }
+  ],
+  "sairam": [
+    {
+      "id": "kambis-kohansal-vajargah",
+      "nome": "Kambis Kohansal Vajargah",
+      "organizacao": "Austrian Federal Economic Chamber",
+      "razao": null
+    }
+  ],
+  "alteradas": [],
+  "razao_conhecida": false,
+  "sobre_saidas": "Um nome presente numa captura e ausente da seguinte é registado como exatamente isso. Desistência, conflito de agenda, registo duplicado e erro de edição são indistinguíveis de fora, por isso a razão fica em branco em vez de ser adivinhada."
+}

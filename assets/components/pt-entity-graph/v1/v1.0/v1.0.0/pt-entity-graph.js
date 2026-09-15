@@ -1,28 +1,28 @@
 /**
- * pt-entity-graph — a vizinhança de um nó, carregada do grafo e lida em voz alta.
+ * pt-entity-graph — a node's neighbourhood, loaded from the graph and read aloud.
  *
- * A página de uma entidade já traz as frases dela, geradas na construção. Este componente faz uma
- * coisa diferente e que a construção não pode fazer: carrega `api/v1/graph.json` e
- * `api/v1/ontology.json` NO MOMENTO em que a página é aberta, e monta as frases a partir do que
- * lá está agora. Se o grafo mudar e a página não for reconstruída, é aqui que se vê.
+ * An entity page already carries its sentences, generated at build time. This component does
+ * something the build cannot: it loads `api/v1/graph.json` and `api/v1/ontology.json` AT THE MOMENT
+ * the page is opened, and assembles the sentences from what is there now. If the graph changes and
+ * the page is not rebuilt, this is where you see it.
  *
- * As frases não são escritas neste ficheiro. Cada aresta da ontologia traz uma `leitura` com `{s}`
- * e `{t}` — «{s} fala em {t}», «{t} recebe {s}» — e o componente limita-se a substituir. É a razão
- * pela qual o §6 do resumo obrigou cada verbo a ter uma leitura e um inverso nomeado: um grafo com
- * `relacionado_com` não teria nada para este componente dizer.
+ * The sentences are not written in this file. Every ontology edge carries a `leitura` with `{s}`
+ * and `{t}` — «{s} fala em {t}», «{t} recebe {s}» — and the component only substitutes. This is
+ * why §6 of the brief made every verb carry a reading and a named inverse: a graph with
+ * `relacionado_com` would give this component nothing to say.
  *
- * O que ele NÃO faz: não desenha uma teia. Um diagrama de força com trezentos nós é bonito e
- * ilegível, e este site tem um leitor que é uma máquina tantas vezes como é uma pessoa. Uma lista
- * de frases portuguesas lê-se nos dois casos.
+ * What it does NOT do: draw a web. A force diagram with three hundred nodes is pretty and
+ * unreadable, and this site's reader is a machine as often as a person. A list of Portuguese
+ * sentences reads in both cases.
  *
  * @module pt-entity-graph
  * @version 1.0.0
  */
 import { SgComponent } from '../../../../base/v1/v1.0/v1.0.0/sg-component.js'
 
-/* Tipos que têm página de entidade. Tem de concordar com TIPOS_COM_PAGINA em build/entidades.py;
-   quando não concorda, o pior que acontece é um nome sem ligação — nunca uma ligação partida,
-   porque o caminho só se escreve para um tipo desta lista. */
+/* Types that have an entity page. Must agree with TIPOS_COM_PAGINA in build/entidades.py; when it
+   does not, the worst that happens is an unlinked name — never a broken link, because a path is
+   only written for a type in this list. */
 const COM_PAGINA = {
     Pessoa: 'pessoa', Organizacao: 'organizacao', Instituicao: 'instituicao', Editor: 'editor',
     Evento: 'evento', Local: 'local', Palco: 'palco', Tema: 'tema', Tecnologia: 'tecnologia',
@@ -60,7 +60,7 @@ class PtEntityGraph extends SgComponent {
         }
     }
 
-    /** O endereço da página de um nó, ou null se aquele tipo não tem página. */
+    /** The address of a node's page, or null if that type has no page. */
     _url(id) {
         const n = this._nos.get(id)
         if (!n) return null
@@ -80,7 +80,7 @@ class PtEntityGraph extends SgComponent {
         return el
     }
 
-    /** Uma aresta, montada como nós e não como HTML: o rótulo vem de dados e não se interpola. */
+    /** One edge, assembled as DOM nodes rather than HTML: the label comes from data, never interpolated. */
     _frase(a, souOrigem) {
         const o = this._nos.get(a.origem), d = this._nos.get(a.destino)
         if (!o || !d) return null
@@ -88,8 +88,8 @@ class PtEntityGraph extends SgComponent {
         if (!decl) return null
         const modelo = souOrigem ? decl.leitura : decl.leitura_inversa
         const li = document.createElement('li')
-        /* Partir pelo marcador e ir intercalando: o texto do modelo é texto, os rótulos são nós.
-           Assim um rótulo que contenha `<` é um caractere e nunca uma marca. */
+        /* Split on the placeholder and interleave: the template text stays text, the labels are
+           nodes. A label containing `<` is then a character and never a tag. */
         for (const troco of modelo.split(/(\{s\}|\{t\})/)) {
             if (troco === '{s}') li.appendChild(this._rotulo(a.origem, souOrigem))
             else if (troco === '{t}') li.appendChild(this._rotulo(a.destino, !souOrigem))
@@ -110,8 +110,8 @@ class PtEntityGraph extends SgComponent {
         this.$('#meta').textContent =
             `${saida.length + entrada.length} arestas · ${this._nos.size} nós no grafo`
 
-        /* Agrupadas por verbo, porque é assim que se lê: todas as sessões de uma vez, todas as
-           fontes de uma vez. Uma lista de cem frases por ordem de ficheiro não é legível. */
+        /* Grouped by verb, because that is how it reads: all the sessions at once, all the
+           sources at once. A hundred sentences in file order is not legible. */
         const grupos = new Map()
         for (const [arr, souOrigem] of [[saida, true], [entrada, false]]) {
             for (const a of arr) {

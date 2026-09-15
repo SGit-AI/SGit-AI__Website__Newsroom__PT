@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""pt.newsroom.sgit.ai — constrói cada página a partir de dados/ e conteudo/.
+"""pt.newsroom.sgit.ai — builds every page from dados/ and conteudo/.
 
     python3 build/build.py
 
-Nada aqui é escrito à mão. Cada número numa página vem de um ficheiro de dados, e a razão não é
-arrumação: um número escrito à mão num template deixa de concordar com os dados no dia em que os
-dados mudam, e ninguém repara, porque nada parece avariado. O portão compara-os.
+Nothing here is hand-written. Every number on a page comes from a data file, and the reason is not
+tidiness: a number typed into a template stops agreeing with the data on the day the data changes,
+and nobody notices, because nothing looks broken. The gate compares them.
 
-A PRIMEIRA PÁGINA É O DESENHO. A direção A, o jornal em folha larga, escolhida pelo editor de
-registo a 13 de setembro de 2026 de entre quatro. A ordem da página é a que o desenho fixa:
-datalinha · mancheta · as oito secções · a história principal com as fontes em fichas e o estado
-dos três departamentos · duas secundárias e «Nesta edição» · «Em preparação» · «O grafo» com um
-caminho lido em voz alta · «Esta semana em Lisboa» e «O que diz a imprensa» · «Como se faz» com
-o único bloco escuro da página · «Ficha técnica».
+THE FRONT PAGE IS THE DESIGN. Direction A, the broadsheet, chosen by the editor of record on 13
+September 2026 out of four. The page order is the one the design fixes: dateline · masthead · the
+eight sections · the lead story with its sources as chips and the three departments' state · two
+secondaries and «Nesta edição» · «Em preparação» · «O grafo» with a path read aloud · «Esta semana
+em Lisboa» and «O que diz a imprensa» · «Como se faz» with the page's only dark block · «Ficha
+técnica».
 
-Onde esta construção difere do artboard de 13 de setembro, difere porque os DADOS diferem, nunca
-porque o desenho foi reinterpretado: o resumo diz «take the structure, not the numbers».
+Where this build differs from the 13 September artboard, it differs because the DATA differs, never
+because the design was reinterpreted: the brief says "take the structure, not the numbers".
 """
 import json
 import re
@@ -50,39 +50,39 @@ def primeira(d):
     em_preparacao = [h for h in hist["historias"]
                      if h["estado"] in ("procurado", "rascunho", "verificado")]
 
-    # QUE ARTIGO OCUPA QUE LUGAR DA PRIMEIRA PÁGINA é uma propriedade do ARTIGO, declarada no seu
-    # artigo.json, e não uma tabela de slugs aqui dentro. Um slug escrito neste ficheiro seria mais
-    # um sítio para esquecer no dia em que um artigo mudasse de nome.
+    # WHICH ARTICLE TAKES WHICH FRONT-PAGE SLOT is a property of the ARTICLE, declared in its own
+    # artigo.json, and not a table of slugs in here. A slug written into this file would be one more
+    # place to forget on the day an article is renamed.
     #
-    # E cada bloco desta página LIGA para o seu artigo. Um jornal em que a manchete não é uma
-    # ligação não é um jornal: é um cartaz. Era o que isto era até agora.
+    # And every block on this page LINKS to its article. A newspaper whose headline is not a
+    # link is not a newspaper: it is a poster. That is what this was until now.
     slots = {h["bloco_primeira_pagina"]: h for h in hist["historias"]
              if h.get("bloco_primeira_pagina")}
 
     def liga(slot, texto, spec):
-        """O título de um bloco, ligado ao seu artigo quando existe um.
+        """A block's title, linked to its article when there is one.
 
-        `spec` é «<tag> <classe>» — «h1 h-lead». Uma versão anterior usava a cadeia inteira como
-        classe E a primeira palavra como etiqueta, o que produzia `class="h1 h-lead"`: a classe
-        que dá o tamanho ao título deixava de existir, e o resultado parecia certo no HTML e
-        errado na página."""
+        `spec` is «<tag> <class>» — «h1 h-lead». An earlier version used the whole string as the
+        class AND the first word as the tag, which produced `class="h1 h-lead"`: the class that
+        sizes the heading stopped existing, and the result looked right in the HTML and wrong on
+        the page."""
         tag, _, classe = spec.partition(" ")
         h = slots.get(slot)
         corpo = (f'<a href="{e(h["url"])}">{e(texto)}</a>' if h else e(texto))
         return f'<{tag} class="{classe}">{corpo}</{tag}>'
 
     def estado_do(slot):
-        """A ficha de estado do artigo por trás de um bloco — um leitor tem direito a saber que
-        o que está a ler ainda não passou pelo editor."""
+        """The state chip for the article behind a block — a reader is entitled to know that what
+        they are reading has not yet been through the editor."""
         h = slots.get(slot)
         if not h or h["estado"] == "publicado":
             return ""
         return (f'<a class="chip" href="{e(h["url"])}">ler o artigo · {e(h["estado"])}</a>')
 
     # --- a história principal -------------------------------------------------
-    # Não há nenhuma publicada nesta versão, e a primeira página di-lo em vez de encenar uma.
-    # O que ocupa o lugar da manchete é o que esta redação PODE afirmar hoje a partir dos bytes
-    # que tem: a medição da legibilidade do registo nacional.
+    # None is published in this version, and the front page says so rather than staging one.
+    # What takes the headline slot is what this newsroom CAN claim today from the bytes it
+    # holds: the measurement of the national register's readability.
     leg = verf.get("legibilidade", {})
     ilegiveis = [(k, v) for k, v in leg.items() if not v["legivel_por_maquina"]]
     if publicadas:
@@ -94,8 +94,8 @@ def primeira(d):
     else:
         nomes = {"dre-inicio": "o Diário da República", "gov-ia": "a página do Governo",
                  "dados-gov": "o portal nacional de dados abertos"}
-        # Uma lista portuguesa liga o último elemento com «e», e os nomes próprios são nomes
-        # próprios: `capitalize()` punha «O diário da república» e é por isso que não está aqui.
+        # A Portuguese list joins its last element with «e», and proper nouns are proper
+        # nouns: `capitalize()` produced «O diário da república», which is why it is not here.
         rotulos = [nomes.get(k, k) for k, _ in ilegiveis]
         quais = (rotulos[0] if len(rotulos) == 1
                  else ", ".join(rotulos[:-1]) + " e " + rotulos[-1])
@@ -170,7 +170,7 @@ def primeira(d):
             f'<div class="chips"><span class="chip ok">oradores · {e(hoje)} · '
             f'{pes["contagem"]} cartões</span></div></div>')
 
-    # --- «Nesta edição»: contagens, todas de ficheiros -------------------------
+    # --- «Nesta edição»: counts, every one of them from a file -----------------
     n_ent = sum(x["contagens"]["afirmacoes"] for x in ent["entregas"]) if ent else 0
     n_conf = sum(x["contagens"]["confirmadas"] for x in ent["entregas"]) if ent else 0
     nesta = (
@@ -189,10 +189,10 @@ def primeira(d):
         + '</div>')
 
     # --- «Em preparação» ------------------------------------------------------
-    # O desenho manda listar aqui as histórias em rascunho ou verificado, POR TÍTULO apenas. São
-    # agora artigos a sério, cada um com a sua pasta datada e o seu endereço definitivo: o título
-    # liga para lá. O que NÃO liga daqui é o corpo — um artigo por publicar não tem lugar na
-    # primeira página, e é o editor de registo que muda isso.
+    # The design says to list the draft and verified stories here, BY TITLE only. They are
+    # now real articles, each with its dated folder and its final address: the title links
+    # there. What does NOT link from here is the body — an unpublished article has no place
+    # on the front page, and it is the editor of record who changes that.
     cartoes = "".join(
         f'<div class="col sp10"><div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
         f'<h3 class="h-3"><a href="{e(h["url"])}">{e(h["titulo"])}</a></h3>'
@@ -446,10 +446,10 @@ DESCRICAO_SECCAO = {
 
 
 def seccao(sid, d):
-    """Uma secção é uma pasta: seccoes/<id>/seccao.json é o seu registo editorial, e esta página é
-    construída a partir dele. O que a secção cobre, o que pode e não pode afirmar HOJE, que fontes
-    tem por congelar e que perguntas estão em aberto passam a ser dados com que se pode discordar,
-    em vez de prosa escrita num template."""
+    """A section is a folder: seccoes/<id>/seccao.json is its editorial record, and this page is built
+    from it. What the section covers, what it can and cannot claim TODAY, which sources it has yet
+    to freeze and which questions are open all become data you can disagree with, rather than prose
+    written into a template."""
     s = d["seccoes"].get(sid) or {}
     rot = s.get("rotulo") or DESCRICAO_SECCAO[sid][0]
     desc = s.get("ambito") or DESCRICAO_SECCAO[sid][1]
@@ -461,7 +461,7 @@ def seccao(sid, d):
     corpo = [f'<div class="rule" style="padding:26px 0 8px"><div class="sect">{e(rot)}</div></div>',
              f'<p class="std" style="max-width:44em;padding-bottom:18px">{e(desc)}</p>']
 
-    # o registo editorial: o que a secção pode e não pode afirmar hoje
+    # the editorial record: what the section can and cannot claim today
     if s:
         alvos = "".join(
             f'<tr><td class="mono xs">{e(t["id"])}</td>'
@@ -674,9 +674,9 @@ def entregas_indice(d):
         f'{e(s["rotulo"])}</td><td class="sm">{e(s["o_que_significa"])}</td></tr>'
         for s in ent["estados"])
 
-    # Os resumos são ligados a partir do repositório e não republicados como páginas: são o mesmo
-    # princípio que rege as cópias congeladas — este site liga, não reproduz. E o pacote diz a
-    # regra que torna isto mais do que estilo: conteúdo existe uma vez. Se o resumo estivesse aqui
+    # The briefs are linked from the repository and not republished as pages: the same
+    # principle that governs the frozen copies — this site links, it does not reproduce. And
+    # the pack states the rule that makes this more than style: content exists once. If it were here
     # e em briefs/pack/, os dois acabariam por discordar.
     RESUMOS = [
         ("12__research-brief-for-chatgpt.md", "O resumo para o ChatGPT",
@@ -862,9 +862,9 @@ def entrega_pagina(x, d):
             f'editor sobre a ontologia, não um defeito da entrega.</p>'
             f'<ul style="margin:0">{lista}</ul>{mais}</div>')
 
-    # O exemplo é escrito com os ids REAIS desta entrega, e o primeiro item sugerido é o que tem
-    # mais afirmações confirmadas: um exemplo com ids inventados obrigaria o editor a traduzi-lo
-    # antes de o poder usar, e é aí que se enganam os ids.
+    # The example is written with this delivery's REAL ids, and the first suggested item is the one
+    # with the most confirmed claims: an example with invented ids would make the editor translate it
+    # before they can use it, and that is where ids get mistyped.
     ordenados = sorted(x["itens"], key=lambda it: -it["resumo"]["confirmada"])
     melhor = ordenados[0] if ordenados else None
     pior = next((it for it in x["itens"] if it["resumo"]["confirmada"] == 0), None)

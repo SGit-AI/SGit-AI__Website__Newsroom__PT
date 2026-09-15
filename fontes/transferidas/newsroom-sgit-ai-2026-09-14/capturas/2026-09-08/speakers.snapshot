@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager + Microsoft Clarity: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#141D37" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Startup Summit" />
+    <meta name="google-site-verification" content="r2lIUjk6y15WptiYxd5Jdd2KH3ifIGiU5lTKHJm3mpY" />
+
+    <!-- Preconnect to font origins so the browser opens TLS connections in parallel with HTML parse -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Metricool tracker: warm the connection early, actual pixel loads after window.onload -->
+    <link rel="preconnect" href="https://tracker.metricool.com" crossorigin />
+    <link rel="dns-prefetch" href="https://tracker.metricool.com" />
+
+    <!-- Big Shoulders Display is self-hosted (see @font-face in src/index.css) so titles
+         never fall back to Impact when Google Fonts is blocked (Brave, adblockers, corp networks).
+         Preload the latin subset so the first paint uses the real face, not the fallback. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/big-shoulders-display/latin.woff2" crossorigin />
+
+    <!-- Preload the LCP hero poster for both mobile and desktop -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/133f5ca1-fd0d-4812-88be-21ee53017da9/hero-mobile-poster.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/__l5e/assets-v1/bfb21d41-8eb9-472e-b22f-c6fbf9d18c66/hero-desktop-poster.webp" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Roboto / Roboto Mono still loaded from Google Fonts (body copy tolerates the swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+
+    
+    <!-- Default title/meta managed by react-helmet-async per page -->
+    
+    <!-- Canonical injected per-route by the prerender plugin and react-helmet-async (SEO component). Do NOT add a hardcoded canonical here — it would duplicate the per-route one during SPA navigation. -->
+    <meta name="msvalidate.01" content="5E3B581134F736773AFD09F83D8582BE" />
+
+    <!-- Robots / indexing hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack) -->
+    <!-- hreflang alternates for language targeting -->
+    <!-- Twitter / X -->
+    <!-- Static JSON-LD for crawlers -->
+    <!-- Apollo.io tracker: loaded at runtime after cookie consent (see src/lib/consent.ts) -->
+    <script type="module" crossorigin src="/assets/index-Lgeca2QE.js"></script>
+    <link rel="preload" as="style" crossorigin href="/assets/index-oqrbFuV7.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-oqrbFuV7.css"></noscript>
+      <title>Speakers — Startup Summit Lisbon 2026</title>
+    <meta name="description" content="Meet the 60 confirmed speakers at Startup Summit Lisbon 2026 — founders, investors and operators. September 17–18, Beato Innovation District." />
+    <link rel="canonical" href="https://startupsummit.io/speakers" />
+    <link rel="alternate" hreflang="en" href="https://startupsummit.io/speakers" />
+    <link rel="alternate" hreflang="pt-PT" href="https://startupsummit.io/pt/oradores" />
+    <link rel="alternate" hreflang="es-ES" href="https://startupsummit.io/es/ponentes" />
+    <link rel="alternate" hreflang="fr-FR" href="https://startupsummit.io/fr/intervenants" />
+    <link rel="alternate" hreflang="x-default" href="https://startupsummit.io/speakers" />
+
+    <meta property="og:title" content="Speakers — Startup Summit Lisbon 2026" />
+    <meta property="og:description" content="Meet the 60 confirmed speakers at Startup Summit Lisbon 2026 — founders, investors and operators. September 17–18, Beato Innovation District." />
+    <meta property="og:image" content="https://startupsummit.io/images/og-speakers.jpg" />
+    <meta property="og:url" content="https://startupsummit.io/speakers" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Startup Summit" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Speakers — Startup Summit Lisbon 2026" />
+    <meta name="twitter:description" content="Meet the 60 confirmed speakers at Startup Summit Lisbon 2026 — founders, investors and operators. September 17–18, Beato Innovation District." />
+    <meta name="twitter:image" content="https://startupsummit.io/images/og-speakers.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://startupsummit.io/#website","inLanguage":"en-GB","publisher":{"@id":"https://startupsummit.io/#organization"},"name":"Startup Summit","url":"https://startupsummit.io","potentialAction":{"@type":"SearchAction","target":"https://startupsummit.io/blog?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://startupsummit.io/"},{"@type":"ListItem","position":2,"name":"Speakers","item":"https://startupsummit.io/speakers"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Speakers — Startup Summit Lisbon 2026","url":"https://startupsummit.io/speakers","inLanguage":"en-GB","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable"]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Andreia Gaudêncio","jobTitle":"CNCA Project Internal Leader","description":"Andreia Gaudêncio has a PhD in biomedical engineering and is currently the CNCA Project Internal Leader for the BSC AI Factory project — a European initiative offering free access to an incubation program, computational resources, data- and software-related services, and technical support.\\n\\nWithin Data and AI technical support, Andreia works hands-on with startups, SMEs, and researchers to harness High-Performance Computing (HPC) and AI for accelerating innovation, guiding teams through the Deucalion and MareNostrum supercomputers and the project's data-related services.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/andreia-gaudencio.jpg","worksFor":{"@type":"Organization","name":"BSC AI Factory"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Paulo Andrez","jobTitle":"Angel Investor & Author","description":"Paulo is a seasoned entrepreneur turned angel investor, bestselling author of Zero Risk Startup (Forbes Books), and President Emeritus of the European Business Angel Network.","image":"https://img1.wsimg.com/isteam/ip/6685a3b4-9cd6-4f4a-9967-066ceb7c6eda/NEF_6456.jpg/:/cr=t:5.5%25,l:0%25,w:100%25,h:89%25/rs=w:400,h:533,cg:true","worksFor":{"@type":"Organization","name":"Zero Risk Startup"},"sameAs":["https://linkedin.com/in/pauloandrez"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Luis Valente","jobTitle":"CEO & Co-Founder","description":"Forbes 30 Under 30 entrepreneur, strategist, and business manager with a Computer Science background, driven to solve complex problems. My entrepreneurial journey began at 18, and since them have been founding ventures focused on demand prediction, lean operations, and growth design. Believing in technology's power to democratize personalized medicine, I co-founded iLoF - a deep tech company using AI to build a cloud-based library of disease biomarkers. On a mission to accelerate adequate treatments for millions living with complex, heterogeneous diseases globally.","image":"https://startupsummit.io/images/speakers/luis-valente.jpeg","worksFor":{"@type":"Organization","name":"iLoF"},"sameAs":["https://www.linkedin.com/in/luisvalente28/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Anmol Goel","jobTitle":"CEO & Partner","description":"With a sharp eye for high-potential founders and a background in finance and entrepreneurship, Anmol brings a fresh, global perspective to venture investing.","image":"https://startupsummit.io/images/speakers/anmol-goel.png","worksFor":{"@type":"Organization","name":"Gacs Ltd & Gacsym Ventures"},"sameAs":["https://www.linkedin.com/in/anmol-g-215a96a9/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Karan Setiya","jobTitle":"Fintech Venturing Manager","description":"Fintech Venturing at ABN AMRO, early stage investor, ex-BCG, former edTech founder (built and scaled Veduo to 10k users, sunsetted)","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/3eee2e5a-7815-499a-a3b6-0f02615b59d5/karan-setiya.png","worksFor":{"@type":"Organization","name":"ABN AMRO Bank"},"sameAs":["https://www.linkedin.com/in/karansetiya/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rita Kastrati","jobTitle":"CEO and Founder","description":"Rita Kastrati is the founder of Pioneering People, a platform connecting businesses with verified flexible staff instantly, while ensuring workers are paid fairly and on the same day. Growing up in hospitality, she experienced first-hand the challenges of last-minute staffing, which led her to build a faster, fairer way to work. Today, Pioneering People operates across 20+ UK cities, supporting over 10,000 workers and a growing network of businesses. Rita is also building a community of young founders through her 15 Under 30 events and is passionate about shaping the future of flexible work.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/d90ad62b-8b3a-4602-b05d-06358e4936a9.jpg","worksFor":{"@type":"Organization","name":"Pioneering People"},"sameAs":["https://www.linkedin.com/in/rita-kastrati99/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Luis Gutman","jobTitle":"Managing Partner","description":"Luis Felipe Gutman is the Managing Partner at OW Ventures, a Lisbon-based venture capital firm where he leverages over 20 years of experience in technology and innovation to invest in early-stage startups across Portugal, Europe and Brazil. A seasoned executive with a background in digital transformation and agile leadership, he has held key roles in international corporations and startups, specializing in sectors like SportsTech and Impact Investments.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/luis-gutman.png","worksFor":{"@type":"Organization","name":"OW Ventures SCR"},"sameAs":["https://www.linkedin.com/in/luisgutman/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Héctor LV","jobTitle":"Head of Corporate & Legal Counsel","description":"Héctor López Vázquez is Head of Corporate at Lexidy Law Boutique, a pan-European law firm with offices across Spain, Portugal, France, Italy, and Greece. He specialises in cross-border M&A, fundraising structures, and European market entry — advising founders and investors at the intersection of legal strategy and business execution. He also teaches entrepreneurship, financing, and international expansion at ISDE Law Business School and mentors startups at Madrid International Lab.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/a2af2efa-7683-432b-97e0-b5dd81c170ed.jpg","worksFor":{"@type":"Organization","name":"Lexidy Law Boutique SLP"},"sameAs":["https://www.linkedin.com/in/hector-lopez-vzqz/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tina Valand","jobTitle":"Generative AI Director","description":"Tina is a Generative AI Director at Accenture leading Gen AI centres of excellence and Agentic AI. She has been working with clients in Financial services, Media and Retail with over 20 year in innovation, fintech and leading technology transformation. She is leading conversational AI ecosystem partners including Boost.Ai & ElevenLabs. She works closely with Fintech and innovation labs and was Tech 100 Women Uk and Women in Fintech award winner. She is the co founder of Women in Alliances and was recently featured in Forbes for her work in creating inclusive networks. She also works with entrepreneurs as part of a digital membership club called 1 club supporting the new generation of talent","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/cabc2ee9-ff4d-465c-9886-acb3d625cf7c/1779108769917.jpg","worksFor":{"@type":"Organization","name":"Accenture"},"sameAs":["https://uk.linkedin.com/in/tina-valand-b191a42"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vini Devnani","jobTitle":"Fractional Head of People","description":"Fractional Head of People, provide start-up and scale ups with practical skills to hire effectively, build culture and design organisations with humans in the loop. Previously built a HR function globally and scales a company from 30-150 in two years.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/vini-devnani.jpg","worksFor":{"@type":"Organization","name":"JAB Holdings"},"sameAs":["https://www.linkedin.com/in/vini-d-445a771b/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kambis Kohansal Vajargah","jobTitle":"Head of Startup-Services and Deputy Head of Founder-Services","description":"Kambis Kohansal Vajargah is Head of Startup-Services and Deputy Head of Founder-Services at the Austrian Federal Economic Chamber.\n\nHe is the founding partner of several startup companies, including whatchado, Saturo, Carployee, Freebiebox or ALVERI and angel investor at Gateway Ventures, 4u-ventures and Founders of Europe.\n\nThe World Economic Forum has chosen him as a European Digital Leader guiding the digital transformation of Europe. Besides, he is an advisory board member at SXSW Pitch, guest lecturer at renowned universities and TEDx speaker.\n\nKambis Kohansal Vajargah is the editor and author of numerous books, including “How to Start-up” “Startup-Code” and “Sammy und das Geheimnis der Goldmünzen”.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/4a4e05cd-28a0-42f5-97f9-3e776ff6d3b9/kambis-800.jpg","worksFor":{"@type":"Organization","name":"Austrian Federal Economic Chamber"},"sameAs":["https://www.linkedin.com/in/kambis-kohansal-vajargah"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Luiza Castro Rey","jobTitle":"Partner & Co-Founder & Head of Corporate and Web3","description":"Luiza Castro Rey represents a new generation of legal leadership — one that combines technical rigour with strategic vision and human understanding. Educated at PUC-Rio and holding a Master’s in International and Commercial Law from the University of Lisbon, she has built an international career spanning Europe and the Americas. In 2022, she co-founded FiO Legal alongside four partners, driven by the belief that law should actively shape the future of business. As Head of Corporate & Web3, she leads complex work involving digital assets, emerging regulation, and innovative business structures. A speaker, mediator, and entrepreneur, Luiza is recognised for transforming legal practice into a tool for growth, accessibility, and innovation.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/luiza-castro-rey.jpeg","worksFor":{"@type":"Organization","name":"Fio Legal"},"sameAs":["https://www.linkedin.com/in/luiza-reycastro/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nashwa Shah","jobTitle":"Founder, philanthropist and motivational speaker","description":"Nashwa is public speaker and cultural commentator. With a vibrant career spanning hospitality, venture capital and creator\nculture, she now works globally with\nentrepreneurs, influencers and\nbrands to shape and scale their social\nmedia presence.\nShe has driven innovation and\nmarketing for the worldʼs first\ninvite-only digital private membersʼ\nclub and advises major FMCG brands\nand a curated roster of influential\nfigures on brand and growth strategy.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/nashwa-shah.jpeg","worksFor":{"@type":"Organization","name":"Many"},"sameAs":["https://www.linkedin.com/in/nashwa-shah-1322251b0?utm_source=share_via&utm_content=profile&utm_medium=member_ios"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rita Figueiredo","jobTitle":"HEAD OF PORTUGAL","description":"II am a seasoned legal professional committed to making law accessible, transparent, and impactful. With extensive experience in Litigation, Banking, Financial, Corporate, Urban and Immigration Law. Guided by integrity, authenticity, and fearless leadership, I strive to simplify complexities, create meaningful change, and empower both individuals and businesses. As Legal Director for Lexidy’s Lisbon and Porto offices, I lead national and international strategies, fostering collaboration, innovation, and cross-disciplinary excellence. Passionate about delivering seamless 360° legal services, I focus on creating strategic solutions that drive clarity, growth, and opportunity. Fluent in English and Portuguese, I build trust and bridge gaps, ensuring law becomes a catalyst for progress.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/optimized/rita-figueiredo.webp","worksFor":{"@type":"Organization","name":"LEXIDY"},"sameAs":["https://www.linkedin.com/in/rita-figueiredo/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Filipa Faria","jobTitle":"People & Culture Transformation Leader","description":"With an international career across Canada, US, Portugal, Spain, UK, and France, I’ve worked in organizations in sectors such as construction, healthcare, banking, technology, legal, retail, and both public and private sectors. From scaling startups to guiding established corporations, I’ve seen one truth: organizations grow when their people do.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/optimized/filipa-faria.webp","worksFor":{"@type":"Organization","name":"Fio Legal | Fractional Freelance HR"},"sameAs":["https://www.linkedin.com/in/filipaffaria/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Raffaella Loncao","jobTitle":"Founder & Managing Director","description":"I'm Raffaella Loncao, a Lisbon-based founder and Managing Director of On This Planet, a strategic people advisory firm that helps climate and nature scale-ups build the leadership, culture, and organisation they need to grow and expand.\n\nBefore this, I spent over twenty years as an international Chief People Officer in luxury at Gucci and Saint Laurent, building people infrastructure at global level. I sit on the Advisory Board of Women in Sustainable Luxury.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/80ea7c97-a0ab-4575-8059-9d30fa09f413/1781699385500.jpg","worksFor":{"@type":"Organization","name":"On This Planet"},"sameAs":["https://www.linkedin.com/in/raffaellaloncao/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Muhammad Farooq Rathod","jobTitle":"CEO & Founder","description":"Serial Entrepreneur & Startup Founder | Driving Digital Business Transformation | Global Award Winner | Investor, Mentor & Author (US & Europe)","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/muhammad-farooq-rathod.jpeg","worksFor":{"@type":"Organization","name":"UpStride Holdings"},"sameAs":["https://www.linkedin.com/in/muhammad-farooq-rathod-3158001b/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Zoya Mesaric","jobTitle":"Executive Coach, Psychoanalyst & Trauma Specialist","description":"Zoya Mesaric is an Executive Coach, Psychoanalyst, and Trauma Specialist working internationally across Vienna, Lisbon, and London. She helps founders, executives, and high-performing professionals navigate leadership, identity, performance, and psychological resilience. Her work has been presented at the World Congress for Psychotherapy, and she is a regular contributor to Elle Slovenia.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/zoya-mesaric.png","worksFor":{"@type":"Organization","name":"Zoya Mesaric – Private International Practice"},"sameAs":["https://www.linkedin.com/in/zoya-mesaric-mag-a-pth-461259242?utm_source=share_via&utm_content=profile&utm_medium=member_ios"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alexandra Isenegger","jobTitle":"Founder & Managing Director","description":"Founder & MD of Linkilaw Solicitors, a boutique Mayfair law firm specialising in complex, high-profile international disputes. Forbes 30 Under 30 honouree and The Times/LDC Top 50 To Watch. Over a decade advising entrepreneurs, investors, family offices and business leaders where law, leadership and international growth intersect. I speak on conscious leadership, organisational culture, entrepreneurship, cross-border business, and building values-driven organisations. My experience spans complex international structures, cross-border disputes and long-term growth strategies across multiple jurisdictions — with significant engagement in the UAE and wider Middle East. I deliver actionable insights grounded in real-world experience for audiences of founders, executives and investors.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/c3fcf2f3-0bf1-4b95-b942-aaa6a23c71b3.png","worksFor":{"@type":"Organization","name":"Linkilaw Solicitors, CBCA Group"},"sameAs":["https://www.linkedin.com/in/alexandraisenegger/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Viachaslau Smirnou","jobTitle":"CEO & Co-founder","description":"A senior PR & Marketing leader with 15+ years of hands-on experience in IT and tech-driven companies. CEO and Co-Founder of Around PR Studio - PR and communications agency specializing in startup visibility, investment PR, and AI-era reputation strategy for tech and AI companies operating in the US and Europe.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/viachaslau-smirnou.jpg?v=1","worksFor":{"@type":"Organization","name":"Around PR Studio"},"sameAs":["https://www.linkedin.com/in/viachaslau-smirnou-b173068a?originalSubdomain=pl"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Román Knörr Durán","jobTitle":"Marketing & Brand Strategist","description":"A Marketing & Brand Strategist focused on consumer psychology and neuromarketing, drawing on experience working with SMEs across Spain on positioning, go-to-market strategy, and digital presence.\n\nRomán graduated with honours in Marketing from Universidad Complutense de Madrid, with academic and professional focus on how brands build trust and drive decisions at the point of choice.\n\nAt Startup Summit, he'll bring that lens to a practical question: how teams and founders can build real brand equity and go-to-market traction without a big budget behind them.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/d7dc9b88-fdbb-41f0-8f72-311c938391d3.jpg","worksFor":{"@type":"Organization","name":"Román Knörr"},"sameAs":["https://www.linkedin.com/in/román-knörr-durán-42147b235"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Akshay Ruparelia","jobTitle":"CEO & Co-Founder","description":"Akshay is a serial entrepreneur and Forbes 30 Under 30 Europe alumnus who founded Doorsteps at 17; an online estate agency that sold over £1 billion in property and saved customers £15 million in fees. A former free school meals pupil and carer to his deaf parents, he has built his career around commercial impact and social purpose. He founded AKR Growth, an OFSTED-regulated social enterprise helping disadvantaged young people into employment, and serves on the board of the Prince's Trust RISE Campaign. He now leads Brdge, an Emerging Tech Consultancy & Venture Studio delivering GenAI and blockchain solutions globally.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/akshay-ruparelia.jpg?v=1","worksFor":{"@type":"Organization","name":"Brdge"},"sameAs":["https://www.linkedin.com/in/akshay-ruparelia/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Saachin Bhatt","jobTitle":"CIO & Co-founder","description":"Saachin Bhatt CITP MBCS is a serial entrepreneur, innovation strategist, and keynote speaker who joined Accenture at 18 as a data scientist, becoming one of their youngest consultants globally by 21, delivering £15M in impact across national security, aerospace, and tier-1 banks. The youngest ever to achieve Chartered IT Professional status under the Royal Charter, he co-founded Brdge, an award-winning global consultancy and venture studio helping startups, scaleups, and SMEs access world-class AI and emerging tech expertise. He advises Fortune 500 CEOs on AI strategy and is Vice Chair & Governor at one of the UK's top-performing secondary schools.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/saachin-bhatt.jpg?v=1","worksFor":{"@type":"Organization","name":"Brdge"},"sameAs":["https://www.linkedin.com/in/saachinbhatt/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dina Kondratiuk","jobTitle":"CEO & founder","description":"Founder of Solegency, helping startup founders build clarity in their pitches to investors and customers. Previously at Techstars Berlin, I supported early-stage founders with Go-to-Market strategy and fundraising across EU and US markets. Over my career, I have built two business accelerator programs and managed a portfolio of 150 startups with a total implied valuation of $150M+.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/3f9438f1-accf-40db-801c-29e443b01162/1781280361511.jpg","worksFor":{"@type":"Organization","name":"Solegency"},"sameAs":["https://www.linkedin.com/in/dinadea/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"João Ramos","jobTitle":"Innovation Orchestrator","description":"Ex-founder, angel investor, and corporate innovator, I specialize in corporate venturing by bridging corporations with the startup ecosystem to drive new revenue streams, strategic partnerships, and long-term impact.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/05ff4563-c437-4f62-a85e-cf5eb6b584c9.jpg","worksFor":{"@type":"Organization","name":"Fast Track Ventures"},"sameAs":["https://www.linkedin.com/in/joaofmramos/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Thiago Vieira","jobTitle":"Chief Legal Officer","description":"Angel Investor, Exited Cybersecurity Founder, Deepfake forensic court appointed expert, TEDx Speaker, Lawyer","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/da1880d9-44e9-4169-b254-feddfa25d262/1781659168164.jpg","worksFor":{"@type":"Organization","name":"Pactum Global"},"sameAs":["Https://Linkedin.com/in/thiagocybertech"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Diego Sampaio","jobTitle":"CEO","description":"Entrepreneur for over 20 years, Diego is co-founder and CEO of Globalfy, a company that has helped over 10,000 international entrepreneurs from over 100 countries open and operate businesses in the United States. Diego has spent nearly 11 years selling into the U.S. market and building the infrastructure that allows founders from anywhere in the world to compete globally from day one.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/9fa4d986-5aeb-48c1-8610-cdfe1c92b11f.png","worksFor":{"@type":"Organization","name":"Globalfy"},"sameAs":["https://www.linkedin.com/in/diegosampaio/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Amit Grinvald","jobTitle":"Communication Strategist & Public Speaking Coach","description":"Communication strategist for leaders and founders. Works with both founders and VCs on fund narratives, having supported fundraising rounds of €80M+. Mentor at Google for Startups and Founder Institute. Has led conversations at TED, SXSW London, and South Summit. Founder of TEDxUNYP, one of Europe's most recognised TEDx events, with several talks in the global Top 100.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d85d2b8a-e936-4bdc-8c5e-a9a60daa3b9e.png","worksFor":{"@type":"Organization","name":"Independent"},"sameAs":["https://www.linkedin.com/in/amit-grinvald-0655066a/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Janelle Harder","jobTitle":"CEO & Founder","description":"Janelle Harder, based in Croatia, is the Founder of Humannovate Consulting. Over the past 15 years, she's trained, advised and coached 1,000+ leaders at global Fortune 500 companies (with revenues $54B+). She now helps leaders of startups across 9 countries by coaching them on how their behaviour and demeanor is impacting the results of their businesses. Through a focus on culture, leadership, and human behaviour, she helps leaders scale their businesses by seeing how they're getting in their own way to lead more effectively.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/503e709f-6934-4492-8096-18c1fee521f9/1783499372118.jpg","worksFor":{"@type":"Organization","name":"Humannovate Consulting"},"sameAs":["https://www.linkedin.com/in/janelleharder"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kasia Szczesniak","jobTitle":"Founder","description":"Kasia Szczesniak is the founder of Lisbon Business Leaders, specializing in leadership development and transformation. With over 15 years of experience leading marketing strategy for global brands, including Google, and now as a founder herself, her passion for leadership comes from experiencing firsthand the challenges and opportunities of leading in both corporate and entrepreneurial environments. Today, she supports founders and executives in developing the leadership capacity needed to navigate complexity, drive transformation, and thrive in an AI-driven world through a human-first approach to leadership.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/5505d436-c7e9-45d3-893b-d70c1132824a.png","worksFor":{"@type":"Organization","name":"Lisbon Business Leaders"},"sameAs":["https://www.linkedin.com/in/kasiaszczesniak/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lisa Rebecca Press","jobTitle":"Founder","description":"Lisa Press is a finance leader and Founder of Lisa Press Consulting, helping startups and scaling companies improve reporting, automate manual processes, and build finance functions that support better decision making. Her background spans Big 4 audit, Silicon Valley consulting, SaaS finance, FP&A, fundraising, and senior finance leadership, with experience at companies including Stripe and Monta. She is passionate about helping founders turn finance from a reactive back office function into a strategic driver of smarter growth.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f30a1e54-8ca7-41ed-a9db-83d81d89c103.jpg","worksFor":{"@type":"Organization","name":"Lisa Press Consulting"},"sameAs":["https://www.linkedin.com/in/lisa-press-cpa-fmva/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"David Graham","jobTitle":"Managing Partner","description":"David Graham has spent 25 years as a founder, including four exits. He now runs Dyrectli Capital, an early-stage investment syndicate and advisory firm that connects post-MVP founders to capital and invests alongside exited founders and HNWIs. He reviews 3,000+ decks a year, has made around 40 investments over the past three years, and advises early-stage founders on what actually generates cash or closes deals.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d7e0bd47-8f63-47ac-8300-e18bd140f224.png","worksFor":{"@type":"Organization","name":"Dyrectli Capital"},"sameAs":["https://www.linkedin.com/in/dguk/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Igor Nikolaiev","jobTitle":"Co-founder and Chief Product & Technology Officer","description":"I'm Co-founder and CPTO at Aiffin, an AI-native fintech company building the next generation of AI digital infrastructure for SME financing and Underwriting.\n\nI lead product strategy and technology, focusing on applying AI to automate financial decision-making.\n\nIn 2025, Aiffin raised €3.1 million in debt and equity, obtained French JEI status, and joined Station F in Paris. In 2026, I was endorsed by Tech Nation and recognized by the UK Government as an Exceptional Global Talent in Digital Technology.\n\nI built and scaled technology products across fintech, AI, Web3, SaaS and digital identity. My experience includes developing platforms used by millions of users, building financial infrastructure, and designing AI-powered systems for credit decisioning, risk assessment, KYC and AML.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/861f2b9e-9812-4e80-8a42-f264471a893b.png","worksFor":{"@type":"Organization","name":"Aiffin"},"sameAs":["https://www.linkedin.com/in/igornikolaiev/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Precy Servito","jobTitle":"Founder","description":"Precy is a Global Organizational Strategist. Founder of KONNECT, an AI and human strategy execution workspace built for the way startups, scale-ups, and SMBs actually operate, and Founder and Principal Consultant of KAPWA Global, a consulting practice specializing in organizational resilience and change management. Precy has led transformation across workforces of up to 60K+ employees globally, in senior roles spanning Asia, Europe, and the Americas. Precy works at the intersection of AI capability and human judgment for founders and operators navigating fast-moving organizations.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/31d188c8-edca-491f-8ce4-cbc6ee63a08c.png","worksFor":{"@type":"Organization","name":"KONNECT - AI + Human Strategy Execution Workspace"},"sameAs":["https://www.linkedin.com/in/precyservito"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Irina Shurmina","jobTitle":"Founder","description":"Irina Shurmina is a founder of Ladies Who Talk community and Talk Academy – a curated expert platform for business trainings and events. \n\nIrina is a community strategist, networking expert, business development consultant, speaker and moderator.\n\nBefore moving into entrepreneurship, she spent 14+ years in international law firms as Counsel and Head of Practice at CMS, BCLP, and other firms, working with clients including Nike, Clarins, Nestlé, MARS, Cisco, TEVA, Johnson & Johnson, and Unilever.\n\nAlongside her legal career, Irina built professional communities, educational programmes, conferences, and networking formats — including co-founding one of the largest legal communities with 5000+ members.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/1b29f5ab-d4d0-4597-bf6d-5d91f2119f92/1784537238828.jpg","worksFor":{"@type":"Organization","name":"Ladies Who Talk"},"sameAs":["https://www.linkedin.com/in/irina-shurmina/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jorge Sebastiao","jobTitle":"CEO and Co-founder","description":"International Speaker, author, ecosystems builder, investor, startups in innovation: AI, Web3, XR, Gaming, Sustainability, RWA, CyberSecurity, 5G, Robotics. Founder of EcoX and Bombastic Burgh. Author MBC Book.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/544cb986-1398-4617-84b7-82f0e829e92a.png","worksFor":{"@type":"Organization","name":"Ecox / Bombastic Burgh"},"sameAs":["https://www.linkedin.com/in/sebastiao"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Anisha Yadav","jobTitle":"Founder","description":"Anisha Yadav is a cross-industry go-to-market advisor who helps early-stage founders turn founder-led selling into a repeatable revenue engine. With 15+ years across product marketing, account management, and revenue — including accountability for a $100M+ ARR portfolio — she runs First Ten, guiding 0→1 founders through her \"Earn the Right to Scale\" method. She mentors at various SF-based accelerators, helping European founders break into North America.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/327a4c60-e2e2-4700-ace5-c82bc24944bb.jpg","worksFor":{"@type":"Organization","name":"First Ten Advisory"},"sameAs":["https://www.linkedin.com/in/anishayadav/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lauren Mucklow","jobTitle":"Co-Founder","description":"Lauren Mucklow is the Co-Founder & Lead Consultant of What She Said, a growth consultancy supporting female service‑based business owners at every stage of their journey. With over two decades of senior leadership experience in the Brand Experience agency world, Lauren specialises in helping founders gain strategic clarity, stronger positioning and sustainable commercial growth.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/450ab5de-aef1-419e-a5cf-83724ebe36c8.jpg","worksFor":{"@type":"Organization","name":"What She Said Limited"},"sameAs":["https://www.linkedin.com/in/laurenmucklow/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Max Rodman","jobTitle":"Co-founder","description":"Founder of MVMT Studio, a movement, wellness & experience brand based in Lisbon. Real Estate Private Equity, Angel, & VC investor. Passionate about balanced wellbeing, purpose-driven projects, and wellness x built environment.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/4e360f24-d48c-4460-bdf0-bb15667ae003/1785345339051.jpg","worksFor":{"@type":"Organization","name":"MVMT Studio"},"sameAs":["https://www.linkedin.com/in/maxrodman/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sibilla Strupule","jobTitle":"CEO & Founder","description":"Pitch authority. Serial founder with one exit, 20+ international pitch competition wins, Forbes-featured.\nShe's coached 500+ founders whose companies have raised over €70M. An European Innovation Council (EIC) Tech-to-Market mentor and international pitch competition judge, she's spoken at UN and World Bank events and advises founders and executives across Europe on delivering premium pitches that captivate audiences, investors and close rounds.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f0d00ac2-d057-42f2-a6e9-9d5d39ed2d6f.png","worksFor":{"@type":"Organization","name":"SibillaStrupule.com"},"sameAs":["https://www.linkedin.com/in/sibillastrupule/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mark Paul Haaksman","jobTitle":"Co-Founder/ Fundraiser","description":"With over 25 years of experience, I am the Co-Founder and Fund Leader of Sotavento Invest and  the Circular Hub Algarve, focusing on supporting startups in South Portugal. My work centers on providing impact investing, SMART money, and fostering innovation. I have helped finance and co-create value in pre-seed and seed-stage startups, connecting them to the broader entrepreneurial ecosystem.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f598eca5-71dd-4347-a956-ed81883eb709.jpg","worksFor":{"@type":"Organization","name":"Sotavento Angels Fund"},"sameAs":["https://www.linkedin.com/in/mark-p-haaksman-765121/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micael Lopes","jobTitle":"CEO & Founder","description":"Founder of TIME & SPACE. On a mission to enable more presence and connection to people at events.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/fa66e6be-f3f6-453b-871b-ec311b0145b9.jpg","worksFor":{"@type":"Organization","name":"TIME & SPACE"},"sameAs":["https://www.linkedin.com/in/micaelopes/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Satya Morarji","jobTitle":"Founder","description":"Satya Morarji is a speaker coach, leadership mentor and entrepreneur who helps leaders communicate with greater authenticity, clarity and influence.\n\nA double Silver Medallist at the UK & Ireland Public Speaking Championships, his work centres on helping people discover their natural communication style so they can lead with confidence rather than performance and this has lead to him delivering workshops at the United Nations.\n\nAway from the stage, Satya has founded businesses spanning virtual staffing, hospitality and e-commerce, giving him first-hand experience of leading teams, building organisations and communicating through uncertainty. His coaching blends practical leadership experience with storytelling, deep curiosity and powerful questioning.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/3c788132-57c6-49b5-89a8-a03a6c07c9c2.jpg","worksFor":{"@type":"Organization","name":"Freedom VAs"},"sameAs":["https://www.linkedin.com/in/satya-morarji/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tania Tome","jobTitle":"American Business Awards® Judge, Global KeynoteSpeaker, Advisor, Innovation Catalyst & Author","description":"Tânia Tomé is an internationally recognized Lusophone keynote speaker, economist, author and entrepreneur who has inspired audiences in more than 22 countries across Africa, Europe, North America and South America. She is Chair of the AI & Technology, New Product & Service, and Sustainability Awards Judging Committee for the 2026 Stevie® Awards for Women in Business, held in New York, and the first Lusophone and African woman to chair a Global Women in Business Awards judging committee in New York. A former Forbes Coaches Council member and recipient of an Academic Award presented by former Portuguese President Mário Soares, she serves as advisor, board member and international judge for several global initiatives.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/cd0d0c2d-80d1-4946-add4-fbe077560864.jpg","worksFor":{"@type":"Organization","name":"BRANDULOGY"},"sameAs":["https://www.linkedin.com/in/taniatome/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Angelee SIDAR","jobTitle":"Founder","description":"Angelee Sidar is an entrepreneur, keynote speaker and executive coach who helps founders \"scale themselves so that they can scale their businesses.\"\nAfter leaving a corporate career, Angelee built a contract catering company that disrupted a legacy industry, replacing soulless service with experiences centred on health and community. Within three years it reached seven figures and 12+ locations, working with brands including Nike, Adidas, IWG Group and Spaces, before the pandemic brought it to an end.\nThat loss became the catalyst for a deeper journey, reshaping how she saw ambition and success. Today she draws on neuroscience, nervous system regulation and her R.E.F. Method™ to help founders lead with clarity and build purpose.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d9a800d3-7e60-4996-b0c0-fface2f6a72f.png","worksFor":{"@type":"Organization","name":"FIIYS Ltd"},"sameAs":["https://www.linkedin.com/in/angelee-sidar-605a1a70/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ben Lakoff","jobTitle":"Managing Partner","description":"Ben Lakoff, CFA is the Managing Partner of Bankless Ventures, an early-stage venture fund backed by Marc Andreessen, Chris Dixon, and dozens of leading founders and GPs. The firm currently manages two active funds.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/4d4ce03f-31df-4469-bb95-7ca2e138c366.jpg","worksFor":{"@type":"Organization","name":"Bankless Ventures"},"sameAs":["https://www.linkedin.com/in/benlakoff"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rita Martins Freire","jobTitle":"Marketing, CX & Growth Transformation Leader","description":"Marketing, Customer Experience & Growth Transformation Executive with 30+ years of international experience helping organisations drive sustainable growth across global markets. She has led strategic marketing, customer experience, transformation and commercial initiatives across multinational organisations, startups and entrepreneurial ventures, working across Europe and Asia. She is the Founder of TRIVEVO, a strategic advisory launching soon to help SMEs, startups and scale-ups Build, Transform and Scale for sustainable growth. Her perspective combines business strategy, marketing, customer experience and growth, with a strong focus on creating value, building reputation and driving sustainable business performance.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/2e1ae6ed-f46c-4258-bcf0-2e3afe1f228d/1787824282015.jpg","worksFor":{"@type":"Organization","name":"Trivevo"},"sameAs":["https://www.linkedin.com/in/ritamartinsfreire"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sebastian Horstmann","jobTitle":"CTO & Co-Founder","description":"Sebastian Horstmann is Co-Founder and CTO of Cosysense, where he leads the technical architecture behind an AI-native operating system for building energy and operations. His work spans real-time IoT telemetry pipelines, HVAC control and optimization, and the data infrastructure that lets multi-site operators like quick-service restaurant chains monitor and automate energy use at scale. Sebastian is focused on turning fragmented building data into a unified platform that drives measurable energy savings and operational efficiency across hundreds of sites.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f6054a22-5d37-4320-844d-576f8f5bdbcf.jpg","worksFor":{"@type":"Organization","name":"Cosysense"},"sameAs":["https://www.linkedin.com/in/s-horstmann/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sofia Bobrik","jobTitle":"Founder & CEO","description":"I help B2B founders and infrastructure companies turn communications into a business function. Not \"getting coverage\" but making sure that when an investor, enterprise client, or partner checks you out (and they always do), what they find closes the deal for you. The outcomes I work toward: warmer fundraising conversations, shorter enterprise sales cycles, and a category where your name comes up first.","image":"https://media.licdn.com/dms/image/v2/D4E03AQEUmq8mv0czJw/profile-displayphoto-scale_400_400/B4EZ5AHaU5H0Ak-/0/1779192149008?e=1789603200&v=beta&t=Iy62oNvyJU77jKEXWHyfSSjreiaD5B-wM70LEW_z6jc","worksFor":{"@type":"Organization","name":"PR Agency TechWaves"},"sameAs":["https://www.linkedin.com/in/sofia-bobrik/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Pedro Simões","jobTitle":"Entrepreneur","description":"Was an online Fitness Coach, been a Closer for B2B and B2C companies, I’m a Human behaviour and Psychology enthusiast, I’m starting my journey as a philanthropist now, joined the board of JCI recently.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/ec836e81-87b1-48ee-825b-e607bd95bd5c.jpg","worksFor":{"@type":"Organization","name":"JCI"},"sameAs":["https://www.linkedin.com/in/opedrosimoes?utm_source=share_via&utm_content=profile&utm_medium=member_ios"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sylvie Ritt","jobTitle":"Co-Founder","description":"Sylvie is an energetic activator personality. \n\nShe is an athelete, longevity expert, International business and personal re-invention coach. \nYou will feel the spark instantly - she inspires you to connect with your authentic self to discover what you are truly capable of - to live your most purposeful life.\n\n\"Tap into your highest, most vibrant version.\"","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/c8c2ba86-7aa8-4aab-b647-18b168e9fd8b.jpg","worksFor":{"@type":"Organization","name":"Time to Rise"},"sameAs":["http://www.linkedin.com/in/sylvie-ritt-sp-12b261a5"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Daniel Grech","jobTitle":"AI Enablement Consultant","description":"Daniel Grech is an AI enablement consultant based in Lisbon. He works with large enterprises and startups to become AI native, embedding agentic AI into day to day operations rather than leaving it in pilots. He co-founded Wyzer, acquired by ZignSec, where he served as Group CTO through 2025. His engagements span fintech, banking and risk management, delivering measurable results such as a 24% cut in cycle time and a 45% faster path to production. Daniel specialises in regulated industries where automation has to screen and triage without overstepping into automated decisions. He speaks on \"multi-threading the workforce\", the case for running AI agents across a business. He holds an MSc in Statistics and has spoken at ICE London and DELTA Summit.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/6ed5b708-ef2b-41bd-bfd2-67c40093140d.jpg","worksFor":{"@type":"Organization","name":"Self-Employed"},"sameAs":["https://www.linkedin.com/in/daniel-grech-8bb32a24/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Elias Flachowsky","jobTitle":"Co-Founder","description":"At just 23 years old and a lifelong sports enthusiat, Elias spreads high energy naturally. \n\nHe is building his own entrepreneurial journey with one clear mission: helping people stop waiting and start taking action.\nHis dynamic presence and relentless drive inspires you to challenge limiting beliefs, embrace responsibility and unlock unseen potential.\n\n\"Action changes lives. Waiting doesn't.\"","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/a83b142d-a64a-4c15-9cba-bd0114ea8a22.jpg","worksFor":{"@type":"Organization","name":"Time to Rise"},"sameAs":["https://www.linkedin.com/in/elias-flachowsky-bb090542b"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kristina Kutan","jobTitle":"COO","description":"Kristina is COO at VNTR, where she works at the intersection of venture, private capital, and organizational design. Previously, she built and exited her own startup, and today much of her work focuses on building smarter operating systems while keeping human judgment at the center.\n\nAlongside her operating role, Kristina works with leaders and teams through strategic facilitation, leadership sessions, and development programs, advocating for a new generation of leadership that combines structure, adaptability, and human intelligence.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/435d1656-938c-47b8-9d64-d32b3338741d.jpg","worksFor":{"@type":"Organization","name":"VNTR Capital"},"sameAs":["https://www.linkedin.com/in/kristinakutan/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Hudi Shehu","jobTitle":"Founding Chairman","description":"Hudi Shehu is the Founder & Chairman of Postjer Group, a UK-based advisory holding with three subsidiaries and 11 UK awards, and of Business Network Albania, the world’s largest network connecting Albanian entrepreneurs, investors, and executives across Tirana, London, Berlin, New York, and beyond. He has advised and mentored 51+ startup founders, owns three companies, and serves as a board member to seven  companies, while speaking globally on leadership, neuromarketing, community building, and diaspora engagement.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/731bc35c-3c00-4a61-b4db-a373048e3c16.jpg","worksFor":{"@type":"Organization","name":"Business Network Albania"},"sameAs":["https://linkedin.com/in/hudishehu"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alexandre Daletchine","jobTitle":"CEO & Foudner","description":"I'm a TEDx speaker working on how founders and leaders generate ideas and make decisions when there's no precedent to copy. I built the Creativity Archetype Method (CAM) with the aid of AI — a diagnostic across 8 archetypes that identifies how a person creates and what blocks them, with a 3-minute version at quiz.daletchine.com. I spent my career among divergent thinkers, artists and collectors, advising on art investment: capital allocation under uncertainty, the same challenge founders in this room face. I lectured at La Cambre in Brussels and have led interviews and moderated panels with artists and entrepreneurs at Art Basel, the Sovereign Art Foundation, in New York, Moscow and Riyadh. \n(Based in Lisbon)","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/48e5d972-fb16-4858-8b66-445a9c9447b3.jpg","worksFor":{"@type":"Organization","name":"Creativity Matter"},"sameAs":["https://www.linkedin.com/in/alexandre-daletchine-91185213/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Slavi Slavev","jobTitle":"Founder, AI Lead","description":"Slavi is a 2x founder. He co-founded BLITAB, the world's first tactile tablet for blind people, opening the digital world to millions often excluded from it, and later RASK, a 10-minute pharmacy delivery startup in the Nordics. His work has been featured in The New York Times, BBC, MIT Technology Review and CNBC, and he served as a judge for MIT Solve. Today he leads AI adoption in $500M+ revenue companies across different sectors.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/787606c7-e157-4ce9-95c1-2c6ccf98babe.jpg","worksFor":{"@type":"Organization","name":"Independent"},"sameAs":["https://www.linkedin.com/in/sslavev/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Wouter Heijnen","jobTitle":"co-Founder and Startup Scout","description":"Wouter Heijnen co-founder of Sotavento Invest - the go-to fund for early stage investment in the Algarve. Wouter is a seasoned entrepreneur and innovator with a background in healthcare, government innovation, and early-stage brand building. As a co-founder of Sotavento Invest, a fund of funds, he combines his strengths in marketing, branding, and creativity to support impact-driven ventures through funding, mentorship, and infrastructure.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/91ebe3b0-d415-463a-a424-461b07357e37.jpg","worksFor":{"@type":"Organization","name":"Sotavento Invest"},"sameAs":["https://www.linkedin.com/in/wtrhnn"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Diogo Mendonça","jobTitle":"Investor - Tech Exec","description":"15+ years building and scaling Tech/ICT companies / Investor @Angels Way / Venture Partner & Advisor / Builder at heart","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/a89d25d1-538b-4889-87a3-674b5625180b.jpg","worksFor":{"@type":"Organization","name":"Angels Way"},"sameAs":["https://www.linkedin.com/in/dimend/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lidija Krickovic","jobTitle":"CEO & Founder","description":"Lidija Krickovic is the founder of Growth Geek and creator of the 20-Week Foundational Fixes Program, which helps post-raise and scaling companies replace operational chaos with the foundations required for sustainable growth. Across more than 20 years, she has led teams of 200+, grown annual profit from $10M to $24M as a CEO, and taken a venture from inception to a €20M+ valuation in under ten months. She also led internal execution and due diligence for a $40.8M exit, giving her a hands-on perspective on operational efficiency, scaling, and building companies with long-term enterprise value in mind.","image":"https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/370c0a7a-63bc-4638-8164-5aa6a7b7d441.jpg","worksFor":{"@type":"Organization","name":"Growth Geek Unipessoal LDA"},"sameAs":["https://www.linkedin.com/in/lidijakrickovic/"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Startup Summit","url":"https://startupsummit.io","logo":"https://startupsummit.io/images/logo.png","sameAs":["https://instagram.com/startupsummitlx","https://www.linkedin.com/company/thestartupsummit","https://x.com/startupsummitl"]}</script>
+  <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script></head>
+
+  <body>
+    <!-- Metricool tracking pixel — deferred until after window.onload so it never blocks LCP or eats bandwidth on first paint -->
+    <img aria-hidden="true" data-deferred-tracker="true" data-src="https://tracker.metricool.com/c3po.jpg?hash=4c824e9344097ca76a273471126b5e20" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" />
+    <script>
+      window.addEventListener('load', function () {
+        document.querySelectorAll('img[data-deferred-tracker]').forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      });
+    </script>
+    <!-- Static hero: raw HTML, rendered before React parses/mounts, so Chrome
+         credits this H1 paint as LCP. Hidden on non-homepage routes by the
+         one-liner script directly below (and by App.tsx on client-side nav). -->
+    <script>
+      /* Hide the static hero when a non-homepage route was requested (direct
+         hit to /agenda, /tickets, etc.). This is not a router / CTA script —
+         it only toggles display of a decorative block. React re-toggles on
+         client-side route changes via a useEffect in App.tsx. */
+      (function(){var p=location.pathname;if(p!=='/'&&p!=='/index.html'){var h=document.getElementById('hero-static');if(h)h.style.display='none';}})();
+
+      /* "20% Off" chip → persist SPECIAL20 promo, show toast, then hand off to /tickets?ref=SPECIAL20.
+         The promo stays in localStorage until we clear it, so the site can auto-apply on return visits. */
+      (function(){
+        var btn = document.getElementById('hm-promo-apply');
+        var toast = document.getElementById('hm-promo-toast');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          try {
+            localStorage.setItem('ss_promo_code', 'SPECIAL20');
+            localStorage.setItem('ss_promo_code_at', String(Date.now()));
+          } catch (_) {}
+          if (toast) {
+            toast.classList.add('is-visible');
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'promo_apply_click', promo_code: 'SPECIAL20', source: 'mobile_hero' });
+          }
+          setTimeout(function(){
+            window.location.href = '/tickets?ref=SPECIAL20';
+          }, 900);
+        });
+      })();
+
+      /* Mobile hero daily variant tracking. We ship one new mobile hero per
+         day this week and compare day-over-day, so we just stamp the variant
+         id on the document and report impressions/clicks to the dataLayer. */
+      (function(){
+        try {
+          if (!window.matchMedia('(max-width: 767px)').matches) return;
+          var hero = document.querySelector('#hero-static .hero-mobile');
+          if (!hero) return;
+          var v = hero.getAttribute('data-hero-variant') || 'unknown';
+          document.documentElement.setAttribute('data-hero-variant', v);
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'hero_variant_shown', variant: v, surface: 'mobile' });
+          }
+          var push = function(source){
+            if (window.dataLayer) {
+              window.dataLayer.push({ event: 'hero_variant_cta_click', variant: v, surface: 'mobile', source: source });
+            }
+          };
+          var cta = hero.querySelector('.hm-cta');
+          if (cta) cta.addEventListener('click', function(){ push('primary_cta'); });
+          var tap = hero.querySelector('.hm-tap-anywhere');
+          if (tap) tap.addEventListener('click', function(){ push('tap_anywhere'); });
+        } catch (_) {}
+      })();
+
+      /* Scroll cue — ads now land on the homepage, so nudge people into the
+         content below the fold instead of bouncing on the first screen. */
+      (function(){
+        var btn = document.getElementById('hm-scroll-cue');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var hero = document.getElementById('hero-static');
+          var top = hero ? hero.getBoundingClientRect().bottom + window.scrollY : window.innerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.dataLayer) window.dataLayer.push({ event: 'hero_scroll_cue_click', surface: 'mobile' });
+        });
+      })();
+
+
+      /* Lazy-attach the hero video on desktop only, after the poster paints,
+         so it never blocks LCP and mobile devices never download the MP4. */
+      (function(){
+        try {
+          var p = location.pathname;
+          if (p !== '/' && p !== '/index.html') return;
+          var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (rm.matches) return;
+          var v = document.querySelector('#hero-static .hero-video');
+          if (!v) return;
+          var start = function(){
+            if (v.dataset.loaded) return;
+            v.dataset.loaded = '1';
+            var src = document.createElement('source');
+            src.src = '/__l5e/assets-v1/fc52f4b0-f8a0-4f53-9785-0d8d002c4fb5/hero-event-video.mp4';
+            src.type = 'video/mp4';
+            v.appendChild(src);
+            v.load();
+            v.addEventListener('playing', function(){ v.classList.add('is-ready'); }, { once: true });
+            var pl = v.play();
+            if (pl && pl.catch) pl.catch(function(){});
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            setTimeout(start, 800);
+          }
+        } catch(e){}
+      })();
+    </script>
+    <div id="root"></div>
+
+
+    
+      <noscript>
+      <div style="max-width:840px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.55">
+
+  <h1>Speakers — Startup Summit Lisbon 2026</h1>
+  <p><strong>September 17–18, 2026 · Beato Innovation District, Lisbon</strong></p>
+  <p>Startup Summit Lisbon 2026 will feature 150+ speakers from 40+ countries —
+  founders, investors, operators and category leaders across the Unicorn Stage,
+  Impact Stage and Workshop Rooms. 60 confirmed speakers are listed
+  below, with more announced weekly.</p>
+
+  <h2>Confirmed speakers</h2>
+  <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px">
+  
+    <li id="andreia-gaudencio" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/andreia-gaudencio" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/andreia-gaudencio.jpg" alt="Speaker portrait of Andreia Gaudêncio, CNCA Project Internal Leader at BSC AI Factory" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Andreia Gaudêncio</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CNCA Project Internal Leader</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">BSC AI Factory</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Andreia Gaudêncio has a PhD in biomedical engineering and is currently the CNCA Project Internal Leader for the BSC AI Factory project — a European initiative offering free access to an incubation program, computational resources, data- and software-related services, and technical support.\n\nWithin Data and AI technical support, Andreia works hands-on with startups, SMEs, and researchers to harness High-Performance Computing (HPC) and AI for accelerating innovation, guiding teams through the Deucalion and MareNostrum supercomputers and the project's data-related services.</p>
+          
+        </div>
+      </a>
+    </li>
+
+    <li id="paulo-andrez" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/paulo-andrez" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://img1.wsimg.com/isteam/ip/6685a3b4-9cd6-4f4a-9967-066ceb7c6eda/NEF_6456.jpg/:/cr=t:5.5%25,l:0%25,w:100%25,h:89%25/rs=w:400,h:533,cg:true" alt="Speaker portrait of Paulo Andrez, Angel Investor &amp; Author at Zero Risk Startup" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Paulo Andrez</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Angel Investor & Author</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Zero Risk Startup</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Paulo is a seasoned entrepreneur turned angel investor, bestselling author of Zero Risk Startup (Forbes Books), and President Emeritus of the European Business Angel Network.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://linkedin.com/in/pauloandrez" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="luis-valente" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/luis-valente" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://startupsummit.io/images/speakers/luis-valente.jpeg" alt="Speaker portrait of Luis Valente, CEO &amp; Co-Founder at iLoF" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Luis Valente</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">iLoF</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Forbes 30 Under 30 entrepreneur, strategist, and business manager with a Computer Science background, driven to solve complex problems. My entrepreneurial journey began at 18, and since them have been founding ventures focused on demand prediction, lean operations, and growth design. Believing in technology's power to democratize personalized medicine, I co-founded iLoF - a deep tech company using AI to build a cloud-based library of disease biomarkers. On a mission to accelerate adequate treatments for millions living with complex, heterogeneous diseases globally.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/luisvalente28/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="anmol-goel" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/anmol-goel" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://startupsummit.io/images/speakers/anmol-goel.png" alt="Speaker portrait of Anmol Goel, CEO &amp; Partner at Gacs Ltd &amp; Gacsym Ventures" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Anmol Goel</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Partner</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Gacs Ltd & Gacsym Ventures</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">With a sharp eye for high-potential founders and a background in finance and entrepreneurship, Anmol brings a fresh, global perspective to venture investing.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/anmol-g-215a96a9/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="karan-setiya" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/karan-setiya" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/3eee2e5a-7815-499a-a3b6-0f02615b59d5/karan-setiya.png" alt="Speaker portrait of Karan Setiya, Fintech Venturing Manager at ABN AMRO Bank" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Karan Setiya</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Fintech Venturing Manager</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">ABN AMRO Bank</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Fintech Venturing at ABN AMRO, early stage investor, ex-BCG, former edTech founder (built and scaled Veduo to 10k users, sunsetted)</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/karansetiya/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="rita-kastrati" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/rita-kastrati" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/d90ad62b-8b3a-4602-b05d-06358e4936a9.jpg" alt="Speaker portrait of Rita Kastrati, CEO and Founder at Pioneering People" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Rita Kastrati</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO and Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Pioneering People</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Rita Kastrati is the founder of Pioneering People, a platform connecting businesses with verified flexible staff instantly, while ensuring workers are paid fairly and on the same day. Growing up in hospitality, she experienced first-hand the challenges of last-minute staffing, which led her to build a faster, fairer way to work. Today, Pioneering People operates across 20+ UK cities, supporting over 10,000 workers and a growing network of businesses. Rita is also building a community of young founders through her 15 Under 30 events and is passionate about shaping the future of flexible work.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/rita-kastrati99/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="luis-gutman" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/luis-gutman" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/luis-gutman.png" alt="Speaker portrait of Luis Gutman, Managing Partner at OW Ventures SCR" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Luis Gutman</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Managing Partner</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">OW Ventures SCR</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Luis Felipe Gutman is the Managing Partner at OW Ventures, a Lisbon-based venture capital firm where he leverages over 20 years of experience in technology and innovation to invest in early-stage startups across Portugal, Europe and Brazil. A seasoned executive with a background in digital transformation and agile leadership, he has held key roles in international corporations and startups, specializing in sectors like SportsTech and Impact Investments.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/luisgutman/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="hector-lv" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/hector-lv" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/a2af2efa-7683-432b-97e0-b5dd81c170ed.jpg" alt="Speaker portrait of Héctor LV, Head of Corporate &amp; Legal Counsel at Lexidy Law Boutique SLP" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Héctor LV</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Head of Corporate & Legal Counsel</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Lexidy Law Boutique SLP</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Héctor López Vázquez is Head of Corporate at Lexidy Law Boutique, a pan-European law firm with offices across Spain, Portugal, France, Italy, and Greece. He specialises in cross-border M&A, fundraising structures, and European market entry — advising founders and investors at the intersection of legal strategy and business execution. He also teaches entrepreneurship, financing, and international expansion at ISDE Law Business School and mentors startups at Madrid International Lab.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/hector-lopez-vzqz/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="tina-valand" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/tina-valand" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/cabc2ee9-ff4d-465c-9886-acb3d625cf7c/1779108769917.jpg" alt="Speaker portrait of Tina Valand, Generative AI Director at Accenture" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Tina Valand</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Generative AI Director</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Accenture</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Tina is a Generative AI Director at Accenture leading Gen AI centres of excellence and Agentic AI. She has been working with clients in Financial services, Media and Retail with over 20 year in innovation, fintech and leading technology transformation. She is leading conversational AI ecosystem partners including Boost.Ai & ElevenLabs. She works closely with Fintech and innovation labs and was Tech 100 Women Uk and Women in Fintech award winner. She is the co founder of Women in Alliances and was recently featured in Forbes for her work in creating inclusive networks. She also works with entrepreneurs as part of a digital membership club called 1 club supporting the new generation of talent</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://uk.linkedin.com/in/tina-valand-b191a42" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="vini-devnani" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/vini-devnani" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/vini-devnani.jpg" alt="Speaker portrait of Vini Devnani, Fractional Head of People at JAB Holdings" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Vini Devnani</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Fractional Head of People</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">JAB Holdings</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Fractional Head of People, provide start-up and scale ups with practical skills to hire effectively, build culture and design organisations with humans in the loop. Previously built a HR function globally and scales a company from 30-150 in two years.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/vini-d-445a771b/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="kambis-kohansal-vajargah" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/kambis-kohansal-vajargah" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/4a4e05cd-28a0-42f5-97f9-3e776ff6d3b9/kambis-800.jpg" alt="Speaker portrait of Kambis Kohansal Vajargah, Head of Startup-Services and Deputy Head of Founder-Services at Austrian Federal Economic Chamber" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Kambis Kohansal Vajargah</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Head of Startup-Services and Deputy Head of Founder-Services</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Austrian Federal Economic Chamber</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Kambis Kohansal Vajargah is Head of Startup-Services and Deputy Head of Founder-Services at the Austrian Federal Economic Chamber.
+
+He is the founding partner of several startup companies, including whatchado, Saturo, Carployee, Freebiebox or ALVERI and angel investor at Gateway Ventures, 4u-ventures and Founders of Europe.
+
+The World Economic Forum has chosen him as a European Digital Leader guiding the digital transformation of Europe. Besides, he is an advisory board member at SXSW Pitch, guest lecturer at renowned universities and TEDx speaker.
+
+Kambis Kohansal Vajargah is the editor and author of numerous books, including “How to Start-up” “Startup-Code” and “Sammy und das Geheimnis der Goldmünzen”.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/kambis-kohansal-vajargah" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="luiza-castro-rey" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/luiza-castro-rey" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/luiza-castro-rey.jpeg" alt="Speaker portrait of Luiza Castro Rey, Partner &amp; Co-Founder &amp; Head of Corporate and Web3 at Fio Legal" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Luiza Castro Rey</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Partner & Co-Founder & Head of Corporate and Web3</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Fio Legal</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Luiza Castro Rey represents a new generation of legal leadership — one that combines technical rigour with strategic vision and human understanding. Educated at PUC-Rio and holding a Master’s in International and Commercial Law from the University of Lisbon, she has built an international career spanning Europe and the Americas. In 2022, she co-founded FiO Legal alongside four partners, driven by the belief that law should actively shape the future of business. As Head of Corporate & Web3, she leads complex work involving digital assets, emerging regulation, and innovative business structures. A speaker, mediator, and entrepreneur, Luiza is recognised for transforming legal practice into a tool for growth, accessibility, and innovation.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/luiza-reycastro/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="nashwa-shah" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/nashwa-shah" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/nashwa-shah.jpeg" alt="Speaker portrait of Nashwa Shah, Founder, philanthropist and motivational speaker at Many" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Nashwa Shah</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder, philanthropist and motivational speaker</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Many</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Nashwa is public speaker and cultural commentator. With a vibrant career spanning hospitality, venture capital and creator
+culture, she now works globally with
+entrepreneurs, influencers and
+brands to shape and scale their social
+media presence.
+She has driven innovation and
+marketing for the worldʼs first
+invite-only digital private membersʼ
+club and advises major FMCG brands
+and a curated roster of influential
+figures on brand and growth strategy.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/nashwa-shah-1322251b0?utm_source=share_via&utm_content=profile&utm_medium=member_ios" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="rita-figueiredo" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/rita-figueiredo" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/optimized/rita-figueiredo.webp" alt="Speaker portrait of Rita Figueiredo, HEAD OF PORTUGAL at LEXIDY" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Rita Figueiredo</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">HEAD OF PORTUGAL</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">LEXIDY</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">II am a seasoned legal professional committed to making law accessible, transparent, and impactful. With extensive experience in Litigation, Banking, Financial, Corporate, Urban and Immigration Law. Guided by integrity, authenticity, and fearless leadership, I strive to simplify complexities, create meaningful change, and empower both individuals and businesses. As Legal Director for Lexidy’s Lisbon and Porto offices, I lead national and international strategies, fostering collaboration, innovation, and cross-disciplinary excellence. Passionate about delivering seamless 360° legal services, I focus on creating strategic solutions that drive clarity, growth, and opportunity. Fluent in English and Portuguese, I build trust and bridge gaps, ensuring law becomes a catalyst for progress.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/rita-figueiredo/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="filipa-faria" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/filipa-faria" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/optimized/filipa-faria.webp" alt="Speaker portrait of Filipa Faria, People &amp; Culture Transformation Leader at Fio Legal | Fractional Freelance HR" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Filipa Faria</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">People & Culture Transformation Leader</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Fio Legal | Fractional Freelance HR</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">With an international career across Canada, US, Portugal, Spain, UK, and France, I’ve worked in organizations in sectors such as construction, healthcare, banking, technology, legal, retail, and both public and private sectors. From scaling startups to guiding established corporations, I’ve seen one truth: organizations grow when their people do.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/filipaffaria/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="raffaella-loncao" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/raffaella-loncao" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/80ea7c97-a0ab-4575-8059-9d30fa09f413/1781699385500.jpg" alt="Speaker portrait of Raffaella Loncao, Founder &amp; Managing Director at On This Planet" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Raffaella Loncao</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder & Managing Director</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">On This Planet</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">I'm Raffaella Loncao, a Lisbon-based founder and Managing Director of On This Planet, a strategic people advisory firm that helps climate and nature scale-ups build the leadership, culture, and organisation they need to grow and expand.
+
+Before this, I spent over twenty years as an international Chief People Officer in luxury at Gucci and Saint Laurent, building people infrastructure at global level. I sit on the Advisory Board of Women in Sustainable Luxury.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/raffaellaloncao/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="muhammad-farooq-rathod" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/muhammad-farooq-rathod" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/muhammad-farooq-rathod.jpeg" alt="Speaker portrait of Muhammad Farooq Rathod, CEO &amp; Founder at UpStride Holdings" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Muhammad Farooq Rathod</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">UpStride Holdings</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Serial Entrepreneur & Startup Founder | Driving Digital Business Transformation | Global Award Winner | Investor, Mentor & Author (US & Europe)</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/muhammad-farooq-rathod-3158001b/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="zoya-mesaric-mag-a-pth" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/zoya-mesaric-mag-a-pth" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/zoya-mesaric.png" alt="Speaker portrait of Zoya Mesaric, Executive Coach, Psychoanalyst &amp; Trauma Specialist at Zoya Mesaric – Private International Practice" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Zoya Mesaric</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Executive Coach, Psychoanalyst & Trauma Specialist</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Zoya Mesaric – Private International Practice</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Zoya Mesaric is an Executive Coach, Psychoanalyst, and Trauma Specialist working internationally across Vienna, Lisbon, and London. She helps founders, executives, and high-performing professionals navigate leadership, identity, performance, and psychological resilience. Her work has been presented at the World Congress for Psychotherapy, and she is a regular contributor to Elle Slovenia.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/zoya-mesaric-mag-a-pth-461259242?utm_source=share_via&utm_content=profile&utm_medium=member_ios" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="alexandra-isenegger" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/alexandra-isenegger" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/c3fcf2f3-0bf1-4b95-b942-aaa6a23c71b3.png" alt="Speaker portrait of Alexandra Isenegger, Founder &amp; Managing Director at Linkilaw Solicitors, CBCA Group" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Alexandra Isenegger</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder & Managing Director</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Linkilaw Solicitors, CBCA Group</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Founder & MD of Linkilaw Solicitors, a boutique Mayfair law firm specialising in complex, high-profile international disputes. Forbes 30 Under 30 honouree and The Times/LDC Top 50 To Watch. Over a decade advising entrepreneurs, investors, family offices and business leaders where law, leadership and international growth intersect. I speak on conscious leadership, organisational culture, entrepreneurship, cross-border business, and building values-driven organisations. My experience spans complex international structures, cross-border disputes and long-term growth strategies across multiple jurisdictions — with significant engagement in the UAE and wider Middle East. I deliver actionable insights grounded in real-world experience for audiences of founders, executives and investors.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/alexandraisenegger/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="viachaslau-smirnou" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/viachaslau-smirnou" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/viachaslau-smirnou.jpg?v=1" alt="Speaker portrait of Viachaslau Smirnou, CEO &amp; Co-founder at Around PR Studio" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Viachaslau Smirnou</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Co-founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Around PR Studio</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">A senior PR & Marketing leader with 15+ years of hands-on experience in IT and tech-driven companies. CEO and Co-Founder of Around PR Studio - PR and communications agency specializing in startup visibility, investment PR, and AI-era reputation strategy for tech and AI companies operating in the US and Europe.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/viachaslau-smirnou-b173068a?originalSubdomain=pl" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="roman-knorr-duran" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/roman-knorr-duran" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/backfill/d7dc9b88-fdbb-41f0-8f72-311c938391d3.jpg" alt="Speaker portrait of Román Knörr Durán, Marketing &amp; Brand Strategist at Román Knörr" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Román Knörr Durán</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Marketing & Brand Strategist</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Román Knörr</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">A Marketing & Brand Strategist focused on consumer psychology and neuromarketing, drawing on experience working with SMEs across Spain on positioning, go-to-market strategy, and digital presence.
+
+Román graduated with honours in Marketing from Universidad Complutense de Madrid, with academic and professional focus on how brands build trust and drive decisions at the point of choice.
+
+At Startup Summit, he'll bring that lens to a practical question: how teams and founders can build real brand equity and go-to-market traction without a big budget behind them.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/román-knörr-durán-42147b235" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="akshay-ruparelia" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/akshay-ruparelia" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/akshay-ruparelia.jpg?v=1" alt="Speaker portrait of Akshay Ruparelia, CEO &amp; Co-Founder at Brdge" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Akshay Ruparelia</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Brdge</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Akshay is a serial entrepreneur and Forbes 30 Under 30 Europe alumnus who founded Doorsteps at 17; an online estate agency that sold over £1 billion in property and saved customers £15 million in fees. A former free school meals pupil and carer to his deaf parents, he has built his career around commercial impact and social purpose. He founded AKR Growth, an OFSTED-regulated social enterprise helping disadvantaged young people into employment, and serves on the board of the Prince's Trust RISE Campaign. He now leads Brdge, an Emerging Tech Consultancy & Venture Studio delivering GenAI and blockchain solutions globally.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/akshay-ruparelia/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="saachin-bhatt" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/saachin-bhatt" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/saachin-bhatt.jpg?v=1" alt="Speaker portrait of Saachin Bhatt, CIO &amp; Co-founder at Brdge" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Saachin Bhatt</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CIO & Co-founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Brdge</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Saachin Bhatt CITP MBCS is a serial entrepreneur, innovation strategist, and keynote speaker who joined Accenture at 18 as a data scientist, becoming one of their youngest consultants globally by 21, delivering £15M in impact across national security, aerospace, and tier-1 banks. The youngest ever to achieve Chartered IT Professional status under the Royal Charter, he co-founded Brdge, an award-winning global consultancy and venture studio helping startups, scaleups, and SMEs access world-class AI and emerging tech expertise. He advises Fortune 500 CEOs on AI strategy and is Vice Chair & Governor at one of the UK's top-performing secondary schools.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/saachinbhatt/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="dina-kondratiuk" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/dina-kondratiuk" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/3f9438f1-accf-40db-801c-29e443b01162/1781280361511.jpg" alt="Speaker portrait of Dina Kondratiuk, CEO &amp; founder at Solegency" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Dina Kondratiuk</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Solegency</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Founder of Solegency, helping startup founders build clarity in their pitches to investors and customers. Previously at Techstars Berlin, I supported early-stage founders with Go-to-Market strategy and fundraising across EU and US markets. Over my career, I have built two business accelerator programs and managed a portfolio of 150 startups with a total implied valuation of $150M+.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/dinadea/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="joao-ramos" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/joao-ramos" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/05ff4563-c437-4f62-a85e-cf5eb6b584c9.jpg" alt="Speaker portrait of João Ramos, Innovation Orchestrator at Fast Track Ventures" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">João Ramos</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Innovation Orchestrator</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Fast Track Ventures</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Ex-founder, angel investor, and corporate innovator, I specialize in corporate venturing by bridging corporations with the startup ecosystem to drive new revenue streams, strategic partnerships, and long-term impact.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/joaofmramos/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="thiago-vieira" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/thiago-vieira" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/da1880d9-44e9-4169-b254-feddfa25d262/1781659168164.jpg" alt="Speaker portrait of Thiago Vieira, Chief Legal Officer at Pactum Global" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Thiago Vieira</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Chief Legal Officer</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Pactum Global</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Angel Investor, Exited Cybersecurity Founder, Deepfake forensic court appointed expert, TEDx Speaker, Lawyer</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="Https://Linkedin.com/in/thiagocybertech" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="diego-sampaio" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/diego-sampaio" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/9fa4d986-5aeb-48c1-8610-cdfe1c92b11f.png" alt="Speaker portrait of Diego Sampaio, CEO at Globalfy" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Diego Sampaio</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Globalfy</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Entrepreneur for over 20 years, Diego is co-founder and CEO of Globalfy, a company that has helped over 10,000 international entrepreneurs from over 100 countries open and operate businesses in the United States. Diego has spent nearly 11 years selling into the U.S. market and building the infrastructure that allows founders from anywhere in the world to compete globally from day one.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/diegosampaio/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="amit-grinvald" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/amit-grinvald" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d85d2b8a-e936-4bdc-8c5e-a9a60daa3b9e.png" alt="Speaker portrait of Amit Grinvald, Communication Strategist &amp; Public Speaking Coach at Independent" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Amit Grinvald</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Communication Strategist & Public Speaking Coach</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Independent</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Communication strategist for leaders and founders. Works with both founders and VCs on fund narratives, having supported fundraising rounds of €80M+. Mentor at Google for Startups and Founder Institute. Has led conversations at TED, SXSW London, and South Summit. Founder of TEDxUNYP, one of Europe's most recognised TEDx events, with several talks in the global Top 100.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/amit-grinvald-0655066a/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="janelle-harder" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/janelle-harder" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/503e709f-6934-4492-8096-18c1fee521f9/1783499372118.jpg" alt="Speaker portrait of Janelle Harder, CEO &amp; Founder at Humannovate Consulting" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Janelle Harder</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Humannovate Consulting</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Janelle Harder, based in Croatia, is the Founder of Humannovate Consulting. Over the past 15 years, she's trained, advised and coached 1,000+ leaders at global Fortune 500 companies (with revenues $54B+). She now helps leaders of startups across 9 countries by coaching them on how their behaviour and demeanor is impacting the results of their businesses. Through a focus on culture, leadership, and human behaviour, she helps leaders scale their businesses by seeing how they're getting in their own way to lead more effectively.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/janelleharder" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="kasia-szczesniak" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/kasia-szczesniak" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/5505d436-c7e9-45d3-893b-d70c1132824a.png" alt="Speaker portrait of Kasia Szczesniak, Founder at Lisbon Business Leaders" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Kasia Szczesniak</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Lisbon Business Leaders</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Kasia Szczesniak is the founder of Lisbon Business Leaders, specializing in leadership development and transformation. With over 15 years of experience leading marketing strategy for global brands, including Google, and now as a founder herself, her passion for leadership comes from experiencing firsthand the challenges and opportunities of leading in both corporate and entrepreneurial environments. Today, she supports founders and executives in developing the leadership capacity needed to navigate complexity, drive transformation, and thrive in an AI-driven world through a human-first approach to leadership.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/kasiaszczesniak/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="lisa-rebecca-press" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/lisa-rebecca-press" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f30a1e54-8ca7-41ed-a9db-83d81d89c103.jpg" alt="Speaker portrait of Lisa Rebecca Press, Founder at Lisa Press Consulting" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Lisa Rebecca Press</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Lisa Press Consulting</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Lisa Press is a finance leader and Founder of Lisa Press Consulting, helping startups and scaling companies improve reporting, automate manual processes, and build finance functions that support better decision making. Her background spans Big 4 audit, Silicon Valley consulting, SaaS finance, FP&A, fundraising, and senior finance leadership, with experience at companies including Stripe and Monta. She is passionate about helping founders turn finance from a reactive back office function into a strategic driver of smarter growth.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/lisa-press-cpa-fmva/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="david-graham" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/david-graham" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d7e0bd47-8f63-47ac-8300-e18bd140f224.png" alt="Speaker portrait of David Graham, Managing Partner at Dyrectli Capital" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">David Graham</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Managing Partner</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Dyrectli Capital</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">David Graham has spent 25 years as a founder, including four exits. He now runs Dyrectli Capital, an early-stage investment syndicate and advisory firm that connects post-MVP founders to capital and invests alongside exited founders and HNWIs. He reviews 3,000+ decks a year, has made around 40 investments over the past three years, and advises early-stage founders on what actually generates cash or closes deals.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/dguk/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="igor-nikolaiev" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/igor-nikolaiev" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/861f2b9e-9812-4e80-8a42-f264471a893b.png" alt="Speaker portrait of Igor Nikolaiev, Co-founder and Chief Product &amp; Technology Officer at Aiffin" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Igor Nikolaiev</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-founder and Chief Product & Technology Officer</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Aiffin</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">I'm Co-founder and CPTO at Aiffin, an AI-native fintech company building the next generation of AI digital infrastructure for SME financing and Underwriting.
+
+I lead product strategy and technology, focusing on applying AI to automate financial decision-making.
+
+In 2025, Aiffin raised €3.1 million in debt and equity, obtained French JEI status, and joined Station F in Paris. In 2026, I was endorsed by Tech Nation and recognized by the UK Government as an Exceptional Global Talent in Digital Technology.
+
+I built and scaled technology products across fintech, AI, Web3, SaaS and digital identity. My experience includes developing platforms used by millions of users, building financial infrastructure, and designing AI-powered systems for credit decisioning, risk assessment, KYC and AML.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/igornikolaiev/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="precy-servito" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/precy-servito" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/31d188c8-edca-491f-8ce4-cbc6ee63a08c.png" alt="Speaker portrait of Precy Servito, Founder at KONNECT - AI + Human Strategy Execution Workspace" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Precy Servito</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">KONNECT - AI + Human Strategy Execution Workspace</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Precy is a Global Organizational Strategist. Founder of KONNECT, an AI and human strategy execution workspace built for the way startups, scale-ups, and SMBs actually operate, and Founder and Principal Consultant of KAPWA Global, a consulting practice specializing in organizational resilience and change management. Precy has led transformation across workforces of up to 60K+ employees globally, in senior roles spanning Asia, Europe, and the Americas. Precy works at the intersection of AI capability and human judgment for founders and operators navigating fast-moving organizations.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/precyservito" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="irina-shurmina" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/irina-shurmina" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/1b29f5ab-d4d0-4597-bf6d-5d91f2119f92/1784537238828.jpg" alt="Speaker portrait of Irina Shurmina, Founder at Ladies Who Talk" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Irina Shurmina</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Ladies Who Talk</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Irina Shurmina is a founder of Ladies Who Talk community and Talk Academy – a curated expert platform for business trainings and events. 
+
+Irina is a community strategist, networking expert, business development consultant, speaker and moderator.
+
+Before moving into entrepreneurship, she spent 14+ years in international law firms as Counsel and Head of Practice at CMS, BCLP, and other firms, working with clients including Nike, Clarins, Nestlé, MARS, Cisco, TEVA, Johnson & Johnson, and Unilever.
+
+Alongside her legal career, Irina built professional communities, educational programmes, conferences, and networking formats — including co-founding one of the largest legal communities with 5000+ members.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/irina-shurmina/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="jorge-sebastiao" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/jorge-sebastiao" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/544cb986-1398-4617-84b7-82f0e829e92a.png" alt="Speaker portrait of Jorge Sebastiao, CEO and Co-founder at Ecox / Bombastic Burgh" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Jorge Sebastiao</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO and Co-founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Ecox / Bombastic Burgh</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">International Speaker, author, ecosystems builder, investor, startups in innovation: AI, Web3, XR, Gaming, Sustainability, RWA, CyberSecurity, 5G, Robotics. Founder of EcoX and Bombastic Burgh. Author MBC Book.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/sebastiao" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="anisha-yadav" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/anisha-yadav" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/327a4c60-e2e2-4700-ace5-c82bc24944bb.jpg" alt="Speaker portrait of Anisha Yadav, Founder at First Ten Advisory" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Anisha Yadav</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">First Ten Advisory</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Anisha Yadav is a cross-industry go-to-market advisor who helps early-stage founders turn founder-led selling into a repeatable revenue engine. With 15+ years across product marketing, account management, and revenue — including accountability for a $100M+ ARR portfolio — she runs First Ten, guiding 0→1 founders through her "Earn the Right to Scale" method. She mentors at various SF-based accelerators, helping European founders break into North America.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/anishayadav/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="lauren-mucklow" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/lauren-mucklow" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/450ab5de-aef1-419e-a5cf-83724ebe36c8.jpg" alt="Speaker portrait of Lauren Mucklow, Co-Founder at What She Said Limited" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Lauren Mucklow</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">What She Said Limited</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Lauren Mucklow is the Co-Founder & Lead Consultant of What She Said, a growth consultancy supporting female service‑based business owners at every stage of their journey. With over two decades of senior leadership experience in the Brand Experience agency world, Lauren specialises in helping founders gain strategic clarity, stronger positioning and sustainable commercial growth.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/laurenmucklow/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="max-rodman" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/max-rodman" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/4e360f24-d48c-4460-bdf0-bb15667ae003/1785345339051.jpg" alt="Speaker portrait of Max Rodman, Co-founder at MVMT Studio" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Max Rodman</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">MVMT Studio</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Founder of MVMT Studio, a movement, wellness & experience brand based in Lisbon. Real Estate Private Equity, Angel, & VC investor. Passionate about balanced wellbeing, purpose-driven projects, and wellness x built environment.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/maxrodman/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="sibilla-strupule" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/sibilla-strupule" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f0d00ac2-d057-42f2-a6e9-9d5d39ed2d6f.png" alt="Speaker portrait of Sibilla Strupule, CEO &amp; Founder at SibillaStrupule.com" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Sibilla Strupule</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">SibillaStrupule.com</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Pitch authority. Serial founder with one exit, 20+ international pitch competition wins, Forbes-featured.
+She's coached 500+ founders whose companies have raised over €70M. An European Innovation Council (EIC) Tech-to-Market mentor and international pitch competition judge, she's spoken at UN and World Bank events and advises founders and executives across Europe on delivering premium pitches that captivate audiences, investors and close rounds.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/sibillastrupule/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="mark-paul-haaksman" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/mark-paul-haaksman" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f598eca5-71dd-4347-a956-ed81883eb709.jpg" alt="Speaker portrait of Mark Paul Haaksman, Co-Founder/ Fundraiser at Sotavento Angels Fund" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Mark Paul Haaksman</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-Founder/ Fundraiser</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Sotavento Angels Fund</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">With over 25 years of experience, I am the Co-Founder and Fund Leader of Sotavento Invest and  the Circular Hub Algarve, focusing on supporting startups in South Portugal. My work centers on providing impact investing, SMART money, and fostering innovation. I have helped finance and co-create value in pre-seed and seed-stage startups, connecting them to the broader entrepreneurial ecosystem.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/mark-p-haaksman-765121/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="micael-lopes" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/micael-lopes" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/fa66e6be-f3f6-453b-871b-ec311b0145b9.jpg" alt="Speaker portrait of Micael Lopes, CEO &amp; Founder at TIME &amp; SPACE" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Micael Lopes</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">TIME & SPACE</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Founder of TIME & SPACE. On a mission to enable more presence and connection to people at events.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/micaelopes/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="satya-morarji" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/satya-morarji" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/3c788132-57c6-49b5-89a8-a03a6c07c9c2.jpg" alt="Speaker portrait of Satya Morarji, Founder at Freedom VAs" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Satya Morarji</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Freedom VAs</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Satya Morarji is a speaker coach, leadership mentor and entrepreneur who helps leaders communicate with greater authenticity, clarity and influence.
+
+A double Silver Medallist at the UK & Ireland Public Speaking Championships, his work centres on helping people discover their natural communication style so they can lead with confidence rather than performance and this has lead to him delivering workshops at the United Nations.
+
+Away from the stage, Satya has founded businesses spanning virtual staffing, hospitality and e-commerce, giving him first-hand experience of leading teams, building organisations and communicating through uncertainty. His coaching blends practical leadership experience with storytelling, deep curiosity and powerful questioning.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/satya-morarji/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="tania-tome" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/tania-tome" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/cd0d0c2d-80d1-4946-add4-fbe077560864.jpg" alt="Speaker portrait of Tania Tome, American Business Awards® Judge, Global KeynoteSpeaker, Advisor, Innovation Catalyst &amp; Author at BRANDULOGY" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Tania Tome</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">American Business Awards® Judge, Global KeynoteSpeaker, Advisor, Innovation Catalyst & Author</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">BRANDULOGY</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Tânia Tomé is an internationally recognized Lusophone keynote speaker, economist, author and entrepreneur who has inspired audiences in more than 22 countries across Africa, Europe, North America and South America. She is Chair of the AI & Technology, New Product & Service, and Sustainability Awards Judging Committee for the 2026 Stevie® Awards for Women in Business, held in New York, and the first Lusophone and African woman to chair a Global Women in Business Awards judging committee in New York. A former Forbes Coaches Council member and recipient of an Academic Award presented by former Portuguese President Mário Soares, she serves as advisor, board member and international judge for several global initiatives.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/taniatome/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="angelee-sidar" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/angelee-sidar" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/d9a800d3-7e60-4996-b0c0-fface2f6a72f.png" alt="Speaker portrait of Angelee SIDAR, Founder at FIIYS Ltd" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Angelee SIDAR</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">FIIYS Ltd</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Angelee Sidar is an entrepreneur, keynote speaker and executive coach who helps founders "scale themselves so that they can scale their businesses."
+After leaving a corporate career, Angelee built a contract catering company that disrupted a legacy industry, replacing soulless service with experiences centred on health and community. Within three years it reached seven figures and 12+ locations, working with brands including Nike, Adidas, IWG Group and Spaces, before the pandemic brought it to an end.
+That loss became the catalyst for a deeper journey, reshaping how she saw ambition and success. Today she draws on neuroscience, nervous system regulation and her R.E.F. Method™ to help founders lead with clarity and build purpose.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/angelee-sidar-605a1a70/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="ben-lakoff" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/ben-lakoff" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/4d4ce03f-31df-4469-bb95-7ca2e138c366.jpg" alt="Speaker portrait of Ben Lakoff, Managing Partner at Bankless Ventures" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Ben Lakoff</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Managing Partner</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Bankless Ventures</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Ben Lakoff, CFA is the Managing Partner of Bankless Ventures, an early-stage venture fund backed by Marc Andreessen, Chris Dixon, and dozens of leading founders and GPs. The firm currently manages two active funds.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/benlakoff" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="rita-martins-freire" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/rita-martins-freire" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/public/2e1ae6ed-f46c-4258-bcf0-2e3afe1f228d/1787824282015.jpg" alt="Speaker portrait of Rita Martins Freire, Marketing, CX &amp; Growth Transformation Leader at Trivevo" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Rita Martins Freire</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Marketing, CX & Growth Transformation Leader</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Trivevo</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Marketing, Customer Experience & Growth Transformation Executive with 30+ years of international experience helping organisations drive sustainable growth across global markets. She has led strategic marketing, customer experience, transformation and commercial initiatives across multinational organisations, startups and entrepreneurial ventures, working across Europe and Asia. She is the Founder of TRIVEVO, a strategic advisory launching soon to help SMEs, startups and scale-ups Build, Transform and Scale for sustainable growth. Her perspective combines business strategy, marketing, customer experience and growth, with a strong focus on creating value, building reputation and driving sustainable business performance.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/ritamartinsfreire" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="sebastian-horstmann" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/sebastian-horstmann" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/f6054a22-5d37-4320-844d-576f8f5bdbcf.jpg" alt="Speaker portrait of Sebastian Horstmann, CTO &amp; Co-Founder at Cosysense" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Sebastian Horstmann</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CTO & Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Cosysense</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Sebastian Horstmann is Co-Founder and CTO of Cosysense, where he leads the technical architecture behind an AI-native operating system for building energy and operations. His work spans real-time IoT telemetry pipelines, HVAC control and optimization, and the data infrastructure that lets multi-site operators like quick-service restaurant chains monitor and automate energy use at scale. Sebastian is focused on turning fragmented building data into a unified platform that drives measurable energy savings and operational efficiency across hundreds of sites.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/s-horstmann/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="sofia-bobrik" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/sofia-bobrik" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEUmq8mv0czJw/profile-displayphoto-scale_400_400/B4EZ5AHaU5H0Ak-/0/1779192149008?e=1789603200&v=beta&t=Iy62oNvyJU77jKEXWHyfSSjreiaD5B-wM70LEW_z6jc" alt="Speaker portrait of Sofia Bobrik, Founder &amp; CEO at PR Agency TechWaves" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Sofia Bobrik</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder & CEO</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">PR Agency TechWaves</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">I help B2B founders and infrastructure companies turn communications into a business function. Not "getting coverage" but making sure that when an investor, enterprise client, or partner checks you out (and they always do), what they find closes the deal for you. The outcomes I work toward: warmer fundraising conversations, shorter enterprise sales cycles, and a category where your name comes up first.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/sofia-bobrik/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="pedro-simoes" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/pedro-simoes" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/ec836e81-87b1-48ee-825b-e607bd95bd5c.jpg" alt="Speaker portrait of Pedro Simões, Entrepreneur at JCI" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Pedro Simões</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Entrepreneur</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">JCI</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Was an online Fitness Coach, been a Closer for B2B and B2C companies, I’m a Human behaviour and Psychology enthusiast, I’m starting my journey as a philanthropist now, joined the board of JCI recently.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/opedrosimoes?utm_source=share_via&utm_content=profile&utm_medium=member_ios" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="sylvie-ritt" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/sylvie-ritt" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/c8c2ba86-7aa8-4aab-b647-18b168e9fd8b.jpg" alt="Speaker portrait of Sylvie Ritt, Co-Founder at Time to Rise" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Sylvie Ritt</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Time to Rise</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Sylvie is an energetic activator personality. 
+
+She is an athelete, longevity expert, International business and personal re-invention coach. 
+You will feel the spark instantly - she inspires you to connect with your authentic self to discover what you are truly capable of - to live your most purposeful life.
+
+"Tap into your highest, most vibrant version."</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="http://www.linkedin.com/in/sylvie-ritt-sp-12b261a5" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="daniel-grech" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/daniel-grech" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/6ed5b708-ef2b-41bd-bfd2-67c40093140d.jpg" alt="Speaker portrait of Daniel Grech, AI Enablement Consultant at Self-Employed" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Daniel Grech</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">AI Enablement Consultant</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Self-Employed</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Daniel Grech is an AI enablement consultant based in Lisbon. He works with large enterprises and startups to become AI native, embedding agentic AI into day to day operations rather than leaving it in pilots. He co-founded Wyzer, acquired by ZignSec, where he served as Group CTO through 2025. His engagements span fintech, banking and risk management, delivering measurable results such as a 24% cut in cycle time and a 45% faster path to production. Daniel specialises in regulated industries where automation has to screen and triage without overstepping into automated decisions. He speaks on "multi-threading the workforce", the case for running AI agents across a business. He holds an MSc in Statistics and has spoken at ICE London and DELTA Summit.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/daniel-grech-8bb32a24/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="elias-flachowsky" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/elias-flachowsky" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/a83b142d-a64a-4c15-9cba-bd0114ea8a22.jpg" alt="Speaker portrait of Elias Flachowsky, Co-Founder at Time to Rise" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Elias Flachowsky</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Co-Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Time to Rise</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">At just 23 years old and a lifelong sports enthusiat, Elias spreads high energy naturally. 
+
+He is building his own entrepreneurial journey with one clear mission: helping people stop waiting and start taking action.
+His dynamic presence and relentless drive inspires you to challenge limiting beliefs, embrace responsibility and unlock unseen potential.
+
+"Action changes lives. Waiting doesn't."</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/elias-flachowsky-bb090542b" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="kristina-kutan" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/kristina-kutan" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/435d1656-938c-47b8-9d64-d32b3338741d.jpg" alt="Speaker portrait of Kristina Kutan, COO at VNTR Capital" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Kristina Kutan</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">COO</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">VNTR Capital</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Kristina is COO at VNTR, where she works at the intersection of venture, private capital, and organizational design. Previously, she built and exited her own startup, and today much of her work focuses on building smarter operating systems while keeping human judgment at the center.
+
+Alongside her operating role, Kristina works with leaders and teams through strategic facilitation, leadership sessions, and development programs, advocating for a new generation of leadership that combines structure, adaptability, and human intelligence.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/kristinakutan/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="hudi-shehu" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/hudi-shehu" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/731bc35c-3c00-4a61-b4db-a373048e3c16.jpg" alt="Speaker portrait of Hudi Shehu, Founding Chairman at Business Network Albania" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Hudi Shehu</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founding Chairman</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Business Network Albania</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Hudi Shehu is the Founder & Chairman of Postjer Group, a UK-based advisory holding with three subsidiaries and 11 UK awards, and of Business Network Albania, the world’s largest network connecting Albanian entrepreneurs, investors, and executives across Tirana, London, Berlin, New York, and beyond. He has advised and mentored 51+ startup founders, owns three companies, and serves as a board member to seven  companies, while speaking globally on leadership, neuromarketing, community building, and diaspora engagement.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://linkedin.com/in/hudishehu" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="alexandre-daletchine" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/alexandre-daletchine" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/48e5d972-fb16-4858-8b66-445a9c9447b3.jpg" alt="Speaker portrait of Alexandre Daletchine, CEO &amp; Foudner at Creativity Matter" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Alexandre Daletchine</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Foudner</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Creativity Matter</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">I'm a TEDx speaker working on how founders and leaders generate ideas and make decisions when there's no precedent to copy. I built the Creativity Archetype Method (CAM) with the aid of AI — a diagnostic across 8 archetypes that identifies how a person creates and what blocks them, with a 3-minute version at quiz.daletchine.com. I spent my career among divergent thinkers, artists and collectors, advising on art investment: capital allocation under uncertainty, the same challenge founders in this room face. I lectured at La Cambre in Brussels and have led interviews and moderated panels with artists and entrepreneurs at Art Basel, the Sovereign Art Foundation, in New York, Moscow and Riyadh. 
+(Based in Lisbon)</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/alexandre-daletchine-91185213/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="slavi-slavev" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/slavi-slavev" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/787606c7-e157-4ce9-95c1-2c6ccf98babe.jpg" alt="Speaker portrait of Slavi Slavev, Founder, AI Lead at Independent" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Slavi Slavev</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Founder, AI Lead</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Independent</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Slavi is a 2x founder. He co-founded BLITAB, the world's first tactile tablet for blind people, opening the digital world to millions often excluded from it, and later RASK, a 10-minute pharmacy delivery startup in the Nordics. His work has been featured in The New York Times, BBC, MIT Technology Review and CNBC, and he served as a judge for MIT Solve. Today he leads AI adoption in $500M+ revenue companies across different sectors.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/sslavev/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="wouter-heijnen" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/wouter-heijnen" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/91ebe3b0-d415-463a-a424-461b07357e37.jpg" alt="Speaker portrait of Wouter Heijnen, co-Founder and Startup Scout at Sotavento Invest" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Wouter Heijnen</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">co-Founder and Startup Scout</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Sotavento Invest</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Wouter Heijnen co-founder of Sotavento Invest - the go-to fund for early stage investment in the Algarve. Wouter is a seasoned entrepreneur and innovator with a background in healthcare, government innovation, and early-stage brand building. As a co-founder of Sotavento Invest, a fund of funds, he combines his strengths in marketing, branding, and creativity to support impact-driven ventures through funding, mentorship, and infrastructure.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/wtrhnn" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="diogo-mendonca" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/diogo-mendonca" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/a89d25d1-538b-4889-87a3-674b5625180b.jpg" alt="Speaker portrait of Diogo Mendonça, Investor - Tech Exec at Angels Way" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Diogo Mendonça</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Investor - Tech Exec</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Angels Way</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">15+ years building and scaling Tech/ICT companies / Investor @Angels Way / Venture Partner & Advisor / Builder at heart</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/dimend/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+
+    <li id="lidija-krickovic" style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#FFCF00;color:#000">
+      <a href="/speakers/lidija-krickovic" style="display:block;text-decoration:none;color:inherit">
+        <img src="https://vnhlwqsbozhgewgxwjik.supabase.co/storage/v1/object/public/speaker-headshots/applications/370c0a7a-63bc-4638-8164-5aa6a7b7d441.jpg" alt="Speaker portrait of Lidija Krickovic, CEO &amp; Founder at Growth Geek Unipessoal LDA" width="480" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block" />
+        <div style="padding:14px">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700;line-height:1.15">Lidija Krickovic</h3>
+          <p style="margin:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">CEO & Founder</p>
+          <p style="margin:0 0 8px;font-size:12px;opacity:0.75">Growth Geek Unipessoal LDA</p>
+          <p style="margin:0;font-size:13px;line-height:1.45">Lidija Krickovic is the founder of Growth Geek and creator of the 20-Week Foundational Fixes Program, which helps post-raise and scaling companies replace operational chaos with the foundations required for sustainable growth. Across more than 20 years, she has led teams of 200+, grown annual profit from $10M to $24M as a CEO, and taken a venture from inception to a €20M+ valuation in under ten months. She also led internal execution and due diligence for a $40.8M exit, giving her a hands-on perspective on operational efficiency, scaling, and building companies with long-term enterprise value in mind.</p>
+          <p style="margin:8px 0 0;font-size:12px"><a href="https://www.linkedin.com/in/lidijakrickovic/" rel="nofollow" style="color:#000;text-decoration:underline">LinkedIn</a></p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <h2>More speakers being announced</h2>
+  <p>We are confirming new founders, investors and operators every week. Follow
+  Startup Summit on <a href="https://www.linkedin.com/company/thestartupsummit" rel="nofollow">LinkedIn</a>
+  or <a href="https://instagram.com/startupsummitlx" rel="nofollow">Instagram</a> for announcements, or
+  <a href="/speaker/apply">apply to speak</a> at Startup Summit Lisbon 2026.</p>
+
+  <p><a href="/tickets">Buy Startup Summit Lisbon 2026 tickets</a> ·
+  <a href="/agenda">View the Startup Summit agenda</a> ·
+  <a href="/why-attend">Why attend Startup Summit</a></p>
+
+      </div>
+    </noscript>
+  </body>
+</html>
