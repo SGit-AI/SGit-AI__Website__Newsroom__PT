@@ -813,7 +813,7 @@ if IDX.exists():
 
 
 #  42 · A DERIVED PROMPT PAGE CANNOT DRIFT FROM ITS SOURCE. The interview prompts
-#       live once as markdown; redacao/entrevistas/ renders them. The page has to
+#       live once as markdown; newsroom/interviews/ renders them. The page has to
 #       carry the current text and the recorded hash has to be today's.
 #  41 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
 #       docs/guidance/ is rendered to a page of its own, and everything .claude/ONBOARDING.md
@@ -868,29 +868,29 @@ else:
 
 
 # --- 42. o texto derivado das entrevistas não pode divergir da sua fonte --------
-# The interview prompts live once, as markdown under briefs/pack/09__entrevistas/, and
-# redacao/entrevistas/ RENDERS them so a person can copy a prompt without leaving the page. A
+# The interview prompts live once, as markdown under briefs/pack/09__interviews/, and
+# newsroom/interviews/ RENDERS them so a person can copy a prompt without leaving the page. A
 # derived file with no gate is a second copy with extra steps — the lesson gate 28 learned from the
 # agent mandates — so this checks the rendered page still carries each prompt's current text, and
 # that the hash recorded beside it is the hash of what is on disk today.
-f_ent = DADOS / "entrevistas.json"
-pag_ent = ROOT / "redacao" / "entrevistas" / "index.html"
+f_ent = DADOS / "interviews.json"
+pag_ent = ROOT / "newsroom" / "interviews" / "index.html"
 if f_ent.exists():
     doc_ent = json.loads(f_ent.read_text(encoding="utf-8"))
     html_ent = pag_ent.read_text(encoding="utf-8") if pag_ent.exists() else ""
     if not html_ent:
-        erros.append('redacao/entrevistas/index.html is missing and dados/entrevistas.json exists '
+        erros.append('newsroom/interviews/index.html is missing and dados/interviews.json exists '
                      '— the prompts have a source and no page rendering it')
-    for peca in doc_ent["pecas"]:
-        origem = ROOT / peca["caminho"]
+    for peca in doc_ent["pieces"]:
+        origem = ROOT / peca["path"]
         if not origem.exists():
-            erros.append(f'entrevistas: {peca["caminho"]} is named in dados/entrevistas.json and '
+            erros.append(f'interviews: {peca["path"]} is named in dados/interviews.json and '
                          f'does not exist')
             continue
         agora = hashlib.sha256(origem.read_text(encoding="utf-8").encode("utf-8")).hexdigest()
         if agora != peca["sha256"]:
-            erros.append(f'entrevistas: {peca["caminho"]} changed since dados/entrevistas.json was '
-                         f'written — run build/entrevistas.py, then build/build.py')
+            erros.append(f'interviews: {peca["path"]} changed since dados/interviews.json was '
+                         f'written — run build/interviews.py, then build/build.py')
         # Sampled across the WHOLE file, not once at the top. The first version took a single
         # line and passed a page whose middle had been hand-edited — a gate that checks one line
         # certifies one line. Lines carrying markup or backticks are skipped because they are
@@ -900,8 +900,8 @@ if f_ent.exists():
         amostras = linhas[:: max(1, len(linhas) // 8)][:8] if linhas else []
         em_falta = [a for a in amostras if html_ent and escape(a) not in html_ent]
         if em_falta:
-            erros.append(f'entrevistas: the page is missing {len(em_falta)} of {len(amostras)} '
-                         f'sampled lines of {peca["caminho"]} (first: '
+            erros.append(f'interviews: the page is missing {len(em_falta)} of {len(amostras)} '
+                         f'sampled lines of {peca["path"]} (first: '
                          f'«{em_falta[0][:60]}…») — it was hand-edited, or not rebuilt')
 
 

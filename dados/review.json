@@ -1,0 +1,262 @@
+{
+  "id": "pt-review",
+  "version": "1.0.0",
+  "updated": "2026-09-15",
+  "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
+  "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
+  "count": 9,
+  "questions": [
+    {
+      "id": "chatgpt-2026-09-15-politicas-2/item-pol-09",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-2026-09-15-politicas-2.json",
+      "question": "Regulamento (UE) 2026/1744 altera o calendário de aplicação das regras europeias de IA",
+      "delivery_id": "chatgpt-2026-09-15-politicas-2",
+      "item_id": "item-pol-09",
+      "section": "politicas",
+      "confirmed": 1,
+      "claims": 2,
+      "without_bytes": 1,
+      "why_it_matters": "É uma alteração oficial e posterior às páginas já congeladas pela redação; muda datas operacionais que afetam entidades públicas e privadas em Portugal.",
+      "confirmed_claims": [
+        "O portal digitalGOV afirma que o Regulamento Europeu de Inteligência Artificial é diretamente aplicável em Portugal."
+      ],
+      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-09"
+    },
+    {
+      "id": "chatgpt-2026-09-15-politicas-2/item-pol-10",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-2026-09-15-politicas-2.json",
+      "question": "Sistemas de geração de conteúdos anteriores a agosto de 2026 têm regra transitória de marcação",
+      "delivery_id": "chatgpt-2026-09-15-politicas-2",
+      "item_id": "item-pol-10",
+      "section": "politicas",
+      "confirmed": 1,
+      "claims": 1,
+      "without_bytes": 0,
+      "why_it_matters": "A data de 2 de dezembro de 2026 é imediata para fornecedores com sistemas anteriores à aplicação das regras e pode orientar uma explicação prática para organizações portuguesas.",
+      "confirmed_claims": [
+        "O digitalGOV identifica um período de transição para sistemas disponíveis no mercado antes de 2 de agosto de 2026."
+      ],
+      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-10"
+    },
+    {
+      "id": "chatgpt-2026-09-15-politicas-2/item-pol-11",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-2026-09-15-politicas-2.json",
+      "question": "Centro de Excelência em IA define funções para a adoção de IA na Administração Pública",
+      "delivery_id": "chatgpt-2026-09-15-politicas-2",
+      "item_id": "item-pol-11",
+      "section": "politicas",
+      "confirmed": 1,
+      "claims": 1,
+      "without_bytes": 0,
+      "why_it_matters": "É uma estrutura operacional de política pública com funções descritas numa página oficial nova; permite seguir projetos, padrões e apoio técnico à Administração Pública.",
+      "confirmed_claims": [
+        "O Centro de Excelência em IA declara três funções nucleares: estratégica, operacional e de capacitação."
+      ],
+      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-11"
+    },
+    {
+      "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-01",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-pt-newsroom-2026-09-14-politicas.json",
+      "question": "RCM n.º 2/2026 confirma juridicamente a Agenda Nacional de Inteligência Artificial",
+      "delivery_id": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "item_id": "item-pol-01",
+      "section": "politicas",
+      "confirmed": 0,
+      "claims": 3,
+      "without_bytes": 3,
+      "why_it_matters": "Corrige diretamente a ausência de confirmação automatizada referida no primeiro artigo da redação e fornece o URL oficial, o número, a data, o diário e o emitente.",
+      "confirmed_claims": [],
+      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-01"
+    },
+    {
+      "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-04",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-pt-newsroom-2026-09-14-politicas.json",
+      "question": "A ANIA atribui a Fábrica de IA e o reforço do Deucalion à FCT",
+      "delivery_id": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "item_id": "item-pol-04",
+      "section": "politicas",
+      "confirmed": 0,
+      "claims": 2,
+      "without_bytes": 2,
+      "why_it_matters": "Identifica a participação portuguesa na infraestrutura europeia, a infraestrutura nacional associada, o calendário formal e a entidade executora indicada.",
+      "confirmed_claims": [],
+      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-04"
+    },
+    {
+      "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-06",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-pt-newsroom-2026-09-14-politicas.json",
+      "question": "A ANIA liga espaços de dados setoriais à futura Política Nacional de Dados",
+      "delivery_id": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "item_id": "item-pol-06",
+      "section": "politicas",
+      "confirmed": 0,
+      "claims": 3,
+      "without_bytes": 3,
+      "why_it_matters": "A Política Nacional de Dados surge no diploma como dependência operacional da IA, mas não foi localizada uma página oficial que confirme a sua aprovação autónoma ou estado de execução.",
+      "confirmed_claims": [],
+      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-06"
+    },
+    {
+      "id": "issue-005",
+      "kind": "issue",
+      "for_agent": "whoever the editor authorises",
+      "file": "redacao/issues/005-pdf-aesv2-sem-dependencia.json",
+      "question": "O leitor de PDF diz «é provavelmente um PDF digitalizado» quando o que lhe falta é uma dependência",
+      "section": "politicas",
+      "why_it_matters": "build/pdf.py está na lista de recusa de .claude/settings.json. Nenhum agente desta redação o pode editar, e é assim de propósito. A correção é do editor de registo ou de quem ele autorizar.",
+      "what_is_missing": [
+        "Corrigir build/pdf.py: quando _aes_cbc devolve None por falta de dependência, Cifra tem de ficar com ok=False e uma razão que nomeie a dependência, como já acontece no AES-256. Uma limitação deste leitor nunca pode ser publicada como um achado sobre o documento de outrem — é o que o próprio docstring de build/entregas.py exige.",
+        "Considerar um portão que leia um PDF conhecido e falhe a construção se ele deixar de dar texto. Uma prova que depende de quem a lê não é uma prova."
+      ],
+      "url": "../../redacao/"
+    },
+    {
+      "id": "issue-008",
+      "kind": "issue",
+      "for_agent": "whoever the editor authorises",
+      "file": "redacao/issues/008-portao-13-e-a-pasta-newsroom.json",
+      "question": "O portão 13 não conhece /newsroom/, e é por isso que a revisão do editor está em /admin/review/",
+      "section": "politicas",
+      "why_it_matters": "build/gates.py está na lista de recusa de .claude/settings.json. Um agente que pode editar o portão que o trava não tem portão nenhum, e é assim de propósito. A linha é do editor de registo ou de quem ele autorizar.",
+      "what_is_missing": [
+        "Uma linha em build/gates.py: acrescentar \"/newsroom/\" à lista LEITURA do portão 13, ao lado de /entregas/, /redacao/ e /admin/. Feito isso, a página muda de admin/review/ para newsroom/review/ numa linha de build/build.py e o endereço fica coerente com o mapa de migração.",
+        "A alternativa é deixar como está. /admin/review/ é inglês, é operacional, e não mente sobre nada — só não é o sítio que o mapa prevê."
+      ],
+      "url": "../../redacao/"
+    },
+    {
+      "id": "ontology-new-types",
+      "kind": "ontology",
+      "for_agent": "the session that touches the ontology",
+      "file": "dados/ontologia.json",
+      "question": "Accept into the ontology the entity types the deliveries proposed?",
+      "section": "—",
+      "why_it_matters": "A type accepted in a hurry to publish one article is a type that stays. None of the articles published so far needed these: they are proposals, not blockers.",
+      "types": [
+        "Infraestrutura",
+        "InstrumentoJuridico",
+        "Organizacao"
+      ],
+      "url": "../../entregas/"
+    }
+  ],
+  "changes": [
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.23.3",
+      "what": "The operational surface stops speaking Portuguese in its addresses",
+      "url": "../../admin/versions.html#v0.23.3"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.23.2",
+      "what": "The release rules stop living in one session's head, and the editor gets interviewed too",
+      "url": "../../admin/versions.html#v0.23.2"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.23.1",
+      "what": "The editor gets a page that asks him the questions, and the interview method arrives",
+      "url": "../../admin/versions.html#v0.23.1"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.23.0",
+      "what": "The messages say where things are, and the rule that let them be corrected",
+      "url": "../../admin/versions.html#v0.23.0"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.22.0",
+      "what": "The English migration, mapped and proven — and stopped at a wall it may not climb",
+      "url": "../../admin/versions.html#v0.22.0"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.21.0",
+      "what": "A session starting here now lands on something, and the guidance gets addresses",
+      "url": "../../admin/versions.html#v0.21.0"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.20.0",
+      "what": "The back office's addresses are English, with no redirect stubs left behind",
+      "url": "../../admin/versions.html#v0.20.0"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-15",
+      "version": "v0.19.0",
+      "what": "The register stops being the end of the road",
+      "url": "../../admin/versions.html#v0.19.0"
+    },
+    {
+      "kind": "article",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
+      "url": "../../artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/"
+    },
+    {
+      "kind": "article",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+      "url": "../../artigos/2026/09/14/regulador-designacao-ausente/"
+    },
+    {
+      "kind": "article",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
+      "url": "../../artigos/2026/09/14/plano-nacional-centros-de-dados/"
+    },
+    {
+      "kind": "article",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
+      "url": "../../artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/"
+    },
+    {
+      "kind": "article",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+      "url": "../../artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/"
+    },
+    {
+      "kind": "delivery",
+      "when": "2026-09-15",
+      "version": "",
+      "what": "chatgpt delivery · 3 items, 3 of 4 claims found in the bytes",
+      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html"
+    },
+    {
+      "kind": "delivery",
+      "when": "2026-09-14",
+      "version": "",
+      "what": "chatgpt delivery · 8 items, 9 of 19 claims found in the bytes",
+      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html"
+    }
+  ]
+}

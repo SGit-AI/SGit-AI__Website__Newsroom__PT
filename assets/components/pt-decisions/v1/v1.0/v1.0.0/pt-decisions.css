@@ -1,4 +1,4 @@
-/* pt-decisoes — the editor's review, as controls rather than prose.
+/* pt-decisions — the editor's review, as controls rather than prose.
 
    It borrows the newspaper's own tokens rather than redeclaring them, so the review reads as part
    of this publication and not as an admin screen bolted onto it. Custom properties cross the
@@ -17,14 +17,14 @@
   margin-bottom: var(--s4, 16px);
 }
 
-.d__topo {
+.d__top {
   display: flex; justify-content: space-between; gap: var(--s3, 12px);
   flex-wrap: wrap; align-items: baseline;
   padding-bottom: var(--s2, 8px);
 }
 
 /* The destination is the first thing read: a decision with no addressee is a note to self. */
-.para {
+.to {
   font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
   color: var(--acento, #0f766e);
 }
@@ -52,7 +52,7 @@
   color: var(--tinta, #14171d);
   cursor: pointer;
 }
-.chip.fina { font-size: 12px; color: var(--tinta-2, #3b3f46); }
+.chip.thin { font-size: 12px; color: var(--tinta-2, #3b3f46); }
 
 /* Pressed is a filled state and not a tint, because a tint at this size is invisible to anyone
    who is not looking for it — and the editor is choosing, not browsing. */
@@ -63,7 +63,7 @@
 .chip.ok[aria-pressed="true"]   { background: var(--acento, #0f766e); border-color: var(--acento, #0f766e); }
 .chip.miss[aria-pressed="true"] { background: var(--disputa, #b91c1c); border-color: var(--disputa, #b91c1c); }
 
-.chip:focus-visible, textarea:focus-visible, .copiar:focus-visible {
+.chip:focus-visible, textarea:focus-visible, .copy:focus-visible {
   outline: 2px solid var(--acento, #0f766e); outline-offset: 2px;
 }
 
@@ -82,7 +82,7 @@ textarea {
   resize: vertical;
 }
 
-.barra {
+.bar {
   position: sticky; bottom: 0;
   display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
   padding: var(--s3, 12px) 0;
@@ -90,18 +90,18 @@ textarea {
   border-top: 1px solid var(--filete, #d8dde5);
 }
 
-.copiar {
+.copy {
   font-family: inherit; font-size: 13px;
   padding: 7px 14px;
   border: 1px solid var(--tinta, #14171d);
   background: var(--tinta, #14171d); color: var(--papel, #faf7f2);
   cursor: pointer;
 }
-.copiar.apagar { background: transparent; color: var(--tinta-2, #3b3f46); border-color: var(--filete-2, #b9c0cc); }
+.copy.clear { background: transparent; color: var(--tinta-2, #3b3f46); border-color: var(--filete-2, #b9c0cc); }
 
-#contagem { font-size: 13px; color: var(--sec-2, #6b6e76); }
+#count { font-size: 13px; color: var(--sec-2, #6b6e76); }
 
-#saida {
+#out {
   width: 100%; box-sizing: border-box; margin-top: var(--s3, 12px);
   font-family: var(--mono, ui-monospace, monospace); font-size: 12px;
   min-height: 160px;
@@ -109,5 +109,5 @@ textarea {
 
 @media (max-width: 560px) {
   .d { padding: var(--s3, 12px) var(--s3, 12px); }
-  .barra { position: static; }
+  .bar { position: static; }
 }

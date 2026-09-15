@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 112,
+  "contagem": 113,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -212,6 +212,14 @@
       "bytes": 4734,
       "linhas": 60,
       "palavras": 827
+    },
+    {
+      "caminho": "admin/versions/v0.23.2.md",
+      "titulo": "v0.23.2",
+      "categoria": "Repository root",
+      "bytes": 4005,
+      "linhas": 53,
+      "palavras": 652
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -598,7 +606,7 @@
       "palavras": 604
     },
     {
-      "caminho": "briefs/pack/09__entrevistas/01__prompt-da-entrevista.pt.md",
+      "caminho": "briefs/pack/09__interviews/01__interview-prompt.pt.md",
       "titulo": "O prompt da entrevista — português",
       "categoria": "Commissioning pack",
       "bytes": 3782,
@@ -606,7 +614,7 @@
       "palavras": 636
     },
     {
-      "caminho": "briefs/pack/09__entrevistas/02__the-interview-prompt.en.md",
+      "caminho": "briefs/pack/09__interviews/02__the-interview-prompt.en.md",
       "titulo": "The interview prompt — English",
       "categoria": "Commissioning pack",
       "bytes": 3541,
@@ -614,39 +622,39 @@
       "palavras": 636
     },
     {
-      "caminho": "briefs/pack/09__entrevistas/03__bloco-do-tema.md",
-      "titulo": "O bloco do tema — o que muda de entrevista para entrevista",
+      "caminho": "briefs/pack/09__interviews/03__topic-block.md",
+      "titulo": "The topic block — what changes from interview to interview",
       "categoria": "Commissioning pack",
-      "bytes": 3494,
-      "linhas": 85,
-      "palavras": 627
+      "bytes": 3705,
+      "linhas": 89,
+      "palavras": 651
     },
     {
-      "caminho": "briefs/pack/09__entrevistas/04__prompt-do-agente.md",
-      "titulo": "O prompt do agente — quem monta o pacote",
+      "caminho": "briefs/pack/09__interviews/04__agent-prompt.md",
+      "titulo": "The agent prompt — whoever assembles the pack",
       "categoria": "Commissioning pack",
-      "bytes": 3188,
-      "linhas": 55,
+      "bytes": 3151,
+      "linhas": 56,
       "palavras": 520
     },
     {
-      "caminho": "briefs/pack/09__entrevistas/README.md",
-      "titulo": "09 — As entrevistas",
+      "caminho": "briefs/pack/09__interviews/README.md",
+      "titulo": "09 — Interviews",
       "categoria": "Commissioning pack",
-      "bytes": 2799,
-      "linhas": 48,
-      "palavras": 491
+      "bytes": 3029,
+      "linhas": 52,
+      "palavras": 511
     },
     {
-      "caminho": "briefs/pack/10__entrevista-ao-editor/01__prompt-de-preparacao.md",
-      "titulo": "O prompt de preparação — o agente lê-se a si próprio",
+      "caminho": "briefs/pack/10__editor-interview/01__preparation-prompt.md",
+      "titulo": "The preparation prompt — the agent reads itself",
       "categoria": "Commissioning pack",
-      "bytes": 3267,
-      "linhas": 73,
-      "palavras": 578
+      "bytes": 3429,
+      "linhas": 77,
+      "palavras": 596
     },
     {
-      "caminho": "briefs/pack/10__entrevista-ao-editor/02__prompt-da-entrevista.pt.md",
+      "caminho": "briefs/pack/10__editor-interview/02__interview-prompt.pt.md",
       "titulo": "O prompt da entrevista ao editor — português",
       "categoria": "Commissioning pack",
       "bytes": 4440,
@@ -654,7 +662,7 @@
       "palavras": 776
     },
     {
-      "caminho": "briefs/pack/10__entrevista-ao-editor/03__the-interview-prompt.en.md",
+      "caminho": "briefs/pack/10__editor-interview/03__the-interview-prompt.en.md",
       "titulo": "The editor interview prompt — English",
       "categoria": "Commissioning pack",
       "bytes": 4155,
@@ -662,20 +670,20 @@
       "palavras": 750
     },
     {
-      "caminho": "briefs/pack/10__entrevista-ao-editor/04__o-que-volta.md",
-      "titulo": "O que volta, e o que o agente faz com ele",
+      "caminho": "briefs/pack/10__editor-interview/04__what-comes-back.md",
+      "titulo": "What comes back, and what is done with it",
       "categoria": "Commissioning pack",
-      "bytes": 2868,
-      "linhas": 49,
-      "palavras": 514
+      "bytes": 2879,
+      "linhas": 52,
+      "palavras": 519
     },
     {
-      "caminho": "briefs/pack/10__entrevista-ao-editor/README.md",
-      "titulo": "10 — A entrevista ao editor",
+      "caminho": "briefs/pack/10__editor-interview/README.md",
+      "titulo": "10 — Interviewing the editor",
       "categoria": "Commissioning pack",
-      "bytes": 3768,
+      "bytes": 3665,
       "linhas": 60,
-      "palavras": 667
+      "palavras": 634
     },
     {
       "caminho": "briefs/pack/LICENSE.md",

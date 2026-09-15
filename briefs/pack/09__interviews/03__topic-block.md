@@ -1,13 +1,17 @@
-# O bloco do tema — o que muda de entrevista para entrevista
+# The topic block — what changes from interview to interview
 
-O prompt da entrevista é sempre o mesmo. **Isto é a parte que muda**, e é a segunda mensagem que a
-pessoa cola no ChatGPT. Uma entrevista vale o que valer este bloco: um bloco genérico produz uma
-conversa genérica.
+The interview prompt is always the same. **This is the part that changes**, and it is the second
+message the person pastes into ChatGPT. An interview is worth whatever this block is worth: a
+generic block produces a generic conversation.
 
-Preenche-se a partir do que a redação já tem congelado sobre a pessoa e a sua organização — não a
-partir do que se presume sobre ela.
+It is filled in from what the newsroom already holds frozen about the person and their
+organisation — never from what is assumed about them.
+
+The template below is **in Portuguese**, because it is pasted into a Portuguese conversation. The
+instructions around it are English, like the rest of this repository's operational surface.
 
 ---
+
 
 ## O modelo, por preencher
 

@@ -76,11 +76,11 @@ PASSOS = [
      "dados/quadro.json, e os dois contam o correio a partir dele e nunca da pasta", False),
     (["python3", "build/comentarios.py"],
      "the agents' work on each article, derived from the records — before artigos.py", False),
-    (["python3", "build/entrevistas.py"],
-     "dados/entrevistas.json — the interview prompts, rendered from briefs/pack/09__entrevistas/. "
+    (["python3", "build/interviews.py"],
+     "dados/interviews.json — the interview prompts, rendered from briefs/pack/09__interviews/. "
      "A derived view of one copy: the markdown is the source and the page is never hand-edited", False),
-    (["python3", "build/revisao.py"],
-     "dados/revisao.json — the questions whose answer is the editor's, gathered from the "
+    (["python3", "build/review.py"],
+     "dados/review.json — the questions whose answer is the editor's, gathered from the "
      "deliveries, the board and the ontology proposals. After mesa.py, before build.py", False),
     (["python3", "build/mesa.py"],
      "dados/redacao.json — the desk's state, counted from files that already exist", False),

@@ -1,0 +1,21 @@
+{
+  "id": "008",
+  "titulo": "O portão 13 não conhece /newsroom/, e é por isso que a revisão do editor está em /admin/review/",
+  "seccao": "politicas",
+  "estado": "bloqueado",
+  "aberto_em": "2026-09-15",
+  "ultimo_toque": { "quem": "editor", "quando": "2026-09-15" },
+  "enquadramento": "O editor apontou que os endereços das áreas que não são conteúdo continuam em português — /redacao/revisao/, /redacao/entrevistas/. O mapa de migração (dados/en-migration.json) já concorda: redacao/ não está na lista de urls_do_leitor que ficam em português, e as suas subpastas estão mapeadas para newsroom/. As duas páginas foram renomeadas; uma delas não pôde ir para o sítio certo.",
+  "de_onde_vem": "build/gates.py, portão 13 — a quarentena das entregas",
+  "o_que_ja_se_tem": [
+    "/redacao/entrevistas/ passou a /newsroom/interviews/ sem problema: não mostra itens de entregas.",
+    "/redacao/revisao/ passou a /admin/review/ e não a /newsroom/review/. O portão 13 permite que itens de entrega por aprovar sejam mostrados COM O SEU ESTADO em exatamente três superfícies — /entregas/, /redacao/ e /admin/ — e a página da revisão é exatamente esse tipo de superfície. Usar /admin/ é usar a isenção para o fim que ela tem, e não contorná-la.",
+    "Tudo o resto foi renomeado: build/review.py, build/interviews.py, dados/review.json, dados/interviews.json, o componente pt-decisions, as pastas briefs/pack/09__interviews/ e 10__editor-interview/, as chaves dos dois ficheiros de dados, e a prosa das duas páginas, que passou a inglês como o resto da superfície de operações."
+  ],
+  "o_que_falta": [
+    "Uma linha em build/gates.py: acrescentar \"/newsroom/\" à lista LEITURA do portão 13, ao lado de /entregas/, /redacao/ e /admin/. Feito isso, a página muda de admin/review/ para newsroom/review/ numa linha de build/build.py e o endereço fica coerente com o mapa de migração.",
+    "A alternativa é deixar como está. /admin/review/ é inglês, é operacional, e não mente sobre nada — só não é o sítio que o mapa prevê."
+  ],
+  "porque_esta_bloqueado": "build/gates.py está na lista de recusa de .claude/settings.json. Um agente que pode editar o portão que o trava não tem portão nenhum, e é assim de propósito. A linha é do editor de registo ou de quem ele autorizar.",
+  "recusa": "Não se contorna o portão 13 escondendo o título do item para a página passar. A página mostra o que o editor precisa de ver para decidir; se o sítio onde ela está não for permitido, muda-se o sítio ou muda-se a lista — não se muda o que a página diz."
+}

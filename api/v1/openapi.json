@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "pt.newsroom.sgit.ai",
-    "version": "0.23.2",
+    "version": "0.23.3",
     "summary": "The Portuguese AI ecosystem, as data",
     "description": "A read-only API over a newsroom that maps Portugal's AI landscape as a graph.\n\n**Every path is a file.** There is no server behind this document: the site is static, and a GET is a file read. Which means this document cannot drift from the implementation in the usual way — if a path is here and the file is not, the build fails.\n\n**The paths are English and the field names are Portuguese.** That is deliberate: the publication is natively Portuguese, the interface to the data is English because the intent is several languages over one dataset, and the keys inside a document are the publication's own record of itself. Translating them on the way out would mean serving something no file in the repository contains, which is the one thing this site exists not to do.\n\n**On the personal data.** People appear here in their professional capacity, from lists their own sources published. No contact details, no biographies, no characterisation of anyone. Reusing this data does not transfer the lawful basis for processing it: see `/api/v1/notice.json` and take your own advice.",
     "contact": {

@@ -688,5 +688,24 @@
     "120 keys are phrases rather than compounds and came out half-translated — why_existe_este_file. Each was then written by hand.",
     "redacao/ is a READER URL: redacao/index.html is the newsroom-floor page. Its backend subfolders move; the page does not.",
     "Portuguese Python identifiers — keyword arguments and locals — are invisible to a string-level rename, so code and data drift apart. Unsolved; see falta_alem_do_mapa."
-  ]
+  ],
+  "done_since_the_map": {
+    "note": "Renamed after v0.22.0 drew this map, and therefore never part of the blocked migration: these artefacts were CREATED in English-speaking areas after the map existed, so naming them Portuguese and adding them to the backlog would have been the mistake. The key is English among Portuguese keys on purpose — this file is itself pending migration, and a new Portuguese key would be one more to rename.",
+    "when": "2026-09-15",
+    "why": "The editor pointed out that non-content areas were still carrying Portuguese addresses. `redacao/` is not in `nao_se_aplica.urls_do_leitor`, and its subfolders are already mapped to `newsroom/`, so the map already agreed.",
+    "pages": {
+      "redacao/entrevistas/ → newsroom/interviews/": "moved, done",
+      "redacao/revisao/ → admin/review/": "moved to /admin/ and NOT to /newsroom/review/. Gate 13 permits unapproved delivery items to be shown WITH THEIR STATE on exactly three surfaces — /entregas/, /redacao/ and /admin/ — and this page is that kind of surface. build/gates.py is deny-listed, so adding /newsroom/ to that list is the editor's line to write. Issue 008."
+    },
+    "files": {
+      "build/revisao.py": "build/review.py",
+      "build/entrevistas.py": "build/interviews.py",
+      "dados/revisao.json": "dados/review.json",
+      "dados/entrevistas.json": "dados/interviews.json",
+      "assets/components/pt-decisoes/": "assets/components/pt-decisions/",
+      "briefs/pack/09__entrevistas/": "briefs/pack/09__interviews/",
+      "briefs/pack/10__entrevista-ao-editor/": "briefs/pack/10__editor-interview/"
+    },
+    "also": "Every key inside dados/review.json and dados/interviews.json, every identifier in the pt-decisions component, and the prose of both pages, which is English because they are operational surfaces and a visitor does not read them as content. The quoted evidence on the review page stays Portuguese: the map renames vocabulary and never values."
+  }
 }

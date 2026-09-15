@@ -1,9 +1,13 @@
-# O prompt de preparação — o agente lê-se a si próprio
+# The preparation prompt — the agent reads itself
 
-Dá-se isto a uma sessão de agente **antes** de haver entrevista nenhuma. O que sai é o bloco de
-estado que o editor vai colar no ChatGPT a seguir ao prompt do entrevistador.
+Handed to an agent session **before** there is any interview. What comes out is the state block the
+editor pastes into ChatGPT after the interviewer prompt.
+
+The template below is **in Portuguese**, because it is pasted into a Portuguese conversation. The
+instructions around it are English, like the rest of this repository's operational surface.
 
 ---
+
 
 Vais preparar uma entrevista em que **o editor de registo te dá direção**. Tu não conduzes a
 conversa — quem a conduz é o ChatGPT, com o teu bloco de estado à frente. O teu trabalho é fazer com
@@ -18,7 +22,7 @@ Sem inventar nada e sem generalizar:
 2. **O que tens à frente.** Os teus issues em `redacao/issues/` — abertos, bloqueados, e há quanto
    tempo. O teu correio por tratar em `redacao/correio/<o-teu-id>/entrada/`.
 3. **O que fizeste.** Os teus últimos registos em `redacao/runs/`, e o que eles dizem que correu mal.
-4. **O que está à espera do editor.** `dados/revisao.json` já junta isso; lê-o.
+4. **O que está à espera do editor.** `dados/review.json` já junta isso; lê-o.
 5. **Onde é que te enganaste.** As últimas notas de lançamento em `admin/versions/` que descrevem
    defeitos no teu domínio. Um agente que não sabe o que partiu repete-o.
 

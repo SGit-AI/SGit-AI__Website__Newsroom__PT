@@ -71,7 +71,8 @@ const PAGINAS = [
        back office is the English side of the house. */
     ['/', ['pt-chat']],
     ['/redacao/', ['pt-newsroom-floor', 'pt-chat']],
-    ['/redacao/revisao/', ['pt-decisoes', 'pt-chat']],
+    ['/admin/review/', ['pt-decisions']],
+    ['/newsroom/interviews/', ['pt-chat']],
     ['/entidades/', ['pt-chat']],
     ['/entidades/editor/comissao-europeia/', ['pt-entity-graph', 'pt-chat']],
     ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph', 'pt-chat']],

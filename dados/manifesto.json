@@ -32,13 +32,13 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 25938,
-      "sha256": "0bb14cf76b92b2291e949ff255cf7b8d9a13d4eeeedd720b2ca585ada0b82f83"
+      "bytes": 26081,
+      "sha256": "6ba42cc875f08fd9b54fd580f2beb510ca96a1f7fa1ddde5df261ae8153c5227"
     },
     {
       "ficheiro": "dados/en-migration.json",
-      "bytes": 25940,
-      "sha256": "728cd68c4564e2e0f31cb579ddae041a6fac06b36dffcbaa3dc6d16cb1e8fd9d"
+      "bytes": 27927,
+      "sha256": "c39a4f9abb86bd206b0ccb95ab7c59d132ca6712b48273c872901cdf2d4ba6e0"
     },
     {
       "ficheiro": "dados/entidades.json",
@@ -49,11 +49,6 @@
       "ficheiro": "dados/entregas.json",
       "bytes": 76790,
       "sha256": "12bb0975abdfd9c8a36937fa5004f14775fd9632c9331fdd37ca110821ae340d"
-    },
-    {
-      "ficheiro": "dados/entrevistas.json",
-      "bytes": 74979,
-      "sha256": "1c93e9ede181e91126be20cf0ff6e2c00d5f02b576d468240cbb74c1c4089710"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -86,14 +81,19 @@
       "sha256": "093c8aff60de7e65b83528e15243bda20197d8a5fa60fbdc3a700fc47846d44c"
     },
     {
+      "ficheiro": "dados/interviews.json",
+      "bytes": 75579,
+      "sha256": "9658d59f366371dae32606e50dabcd0bb57e7743d6ae49363d65868d72594428"
+    },
+    {
       "ficheiro": "dados/lexico.json",
       "bytes": 7721,
       "sha256": "34d5113b7daf6e98ebb90ae671d01a9d3f82cdd1b6108b1fe658c14b73f404c8"
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 5350,
-      "sha256": "1316bf56892e47499b62efb01c7dc129270acd3a3020146c080d912caf019969"
+      "bytes": 5348,
+      "sha256": "cd0f9461cbe5f26617021d2015e8597caa7ead2f9e3303c88436d7d88f67f814"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -127,8 +127,8 @@
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 19787,
-      "sha256": "179ed7ddb6154000c8d6a9e574c0be68f5a9ce3fc2807175da3158a1c8438461"
+      "bytes": 20239,
+      "sha256": "dea29cce12e30e91c9beee8de10f1e48faca53c499b4efee00b5f77027411c0f"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -136,9 +136,9 @@
       "sha256": "90642853ce77ff9fa0223dea253940b1b31ea45a4df5a2e827ab765119174fa7"
     },
     {
-      "ficheiro": "dados/revisao.json",
-      "bytes": 11590,
-      "sha256": "08ff142f7db74cf6da837b52ffccc0055fa11e559a6d74302a4ffac4420160d8"
+      "ficheiro": "dados/review.json",
+      "bytes": 12660,
+      "sha256": "fb6f5171de81e80b3e5f521a9eecd5c52834149f631f05ea550326899b0f7848"
     },
     {
       "ficheiro": "dados/sessoes.json",

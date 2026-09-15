@@ -327,6 +327,22 @@
       },
       "aberto_em": "2026-09-15",
       "de": "redacao/issues/006"
+    },
+    {
+      "id": "008",
+      "titulo": "O portão 13 não conhece /newsroom/, e é por isso que a revisão do editor está em /admin/review/",
+      "seccao": "politicas",
+      "estado": "bloqueado",
+      "especie": "issue",
+      "url": null,
+      "issue": "008",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-15"
+      },
+      "aberto_em": "2026-09-15",
+      "de": "redacao/issues/008"
     }
   ],
   "execucoes": [
@@ -740,7 +756,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 10,
+    "cartoes": 11,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,
