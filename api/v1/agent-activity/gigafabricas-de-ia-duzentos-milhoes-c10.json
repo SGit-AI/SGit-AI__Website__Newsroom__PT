@@ -1,0 +1,17 @@
+{
+  "quando": "2026-09-15",
+  "agente": "chatgpt",
+  "agente_verbatim": "gpt-5",
+  "especie": "proposta",
+  "sobre": {
+    "tipo": "proposta",
+    "ref": "item-pol-10"
+  },
+  "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+  "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+  "estado": "por_decidir",
+  "entrega": "chatgpt-2026-09-15-politicas-2",
+  "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c10",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

@@ -5,11 +5,19 @@
   "url": "entidades/editor/comissao-europeia/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "ocorrencias": 6
+    },
+    {
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "ocorrencias": 6
+    },
+    {
       "fonte": "2026-09-14/registo/dados-gov",
       "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 1,
+  "ficheiros_com_o_nome": 3,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

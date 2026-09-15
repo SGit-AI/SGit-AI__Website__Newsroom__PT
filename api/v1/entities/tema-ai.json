@@ -17,11 +17,23 @@
       "ocorrencias": 41
     },
     {
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "ocorrencias": 41
+    },
+    {
       "fonte": "2026-09-14/oradores/tina-valand",
       "ocorrencias": 27
     },
     {
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "ocorrencias": 24
+    },
+    {
       "fonte": "2026-09-14/oradores/daniel-grech",
+      "ocorrencias": 21
+    },
+    {
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
       "ocorrencias": 21
     },
     {
@@ -33,27 +45,15 @@
       "ocorrencias": 16
     },
     {
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "ocorrencias": 16
+    },
+    {
       "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
       "ocorrencias": 15
-    },
-    {
-      "fonte": "2026-09-14/oradores/igor-nikolaiev",
-      "ocorrencias": 14
-    },
-    {
-      "fonte": "2026-09-14/oradores/slavi-slavev",
-      "ocorrencias": 12
-    },
-    {
-      "fonte": "2026-09-14/oradores/andreia-gaudencio",
-      "ocorrencias": 11
-    },
-    {
-      "fonte": "2026-09-14/oradores/precy-servito",
-      "ocorrencias": 10
     }
   ],
-  "ficheiros_com_o_nome": 36,
+  "ficheiros_com_o_nome": 43,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

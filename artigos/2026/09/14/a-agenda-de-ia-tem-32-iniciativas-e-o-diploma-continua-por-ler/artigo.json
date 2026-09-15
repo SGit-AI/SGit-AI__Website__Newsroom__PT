@@ -1,0 +1,30 @@
+{
+  "slug": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+  "data": "2026-09-14",
+  "seccao": "politicas",
+  "antetitulo": "Políticas · o que se leu e o que não",
+  "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+  "entrada": "Uma página oficial do digitalGOV diz, em bytes que esta redação conseguiu ler, que a implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas. O diploma que a aprova está num endereço que devolve 22 caracteres de texto. As duas coisas são o mesmo artigo.",
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
+  "origem": "entrega chatgpt-pt-newsroom-2026-09-14-politicas · item-pol-02",
+  "issue": "004",
+  "especie": "medicao",
+  "o_que_e": "Uma afirmação confirmada nos bytes, e a medição da parede que impede as outras. O que se afirma é o que uma página devolveu, numa data, a um leitor automático.",
+  "o_que_nao_afirma": [
+    "Não afirma quais são as 32 iniciativas nem como se organizam. Essa informação citava uma página que não devolve texto.",
+    "Não afirma que a agenda não tem instrumento jurídico. Afirma que esta redação não conseguiu lê-lo no endereço que lhe foi dado.",
+    "Não afirma que alguém esconde alguma coisa. Renderizar por script é uma escolha técnica comum."
+  ],
+  "assenta_em": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+  ],
+  "departamentos": {
+    "pesquisa": "Congelou as duas páginas. A do digitalGOV devolveu 156 325 bytes e 2 738 caracteres legíveis; a do registo do Diário da República devolveu 2 346 bytes e 22 caracteres.",
+    "redacao": "Escreveu a partir da única afirmação aprovada e da medição que esta redação fez dos bytes da outra página.",
+    "verificacao": "Releu a afirmação na cópia congelada do digitalGOV e voltou a contar os caracteres visíveis das duas páginas."
+  },
+  "bloco_primeira_pagina": null
+}

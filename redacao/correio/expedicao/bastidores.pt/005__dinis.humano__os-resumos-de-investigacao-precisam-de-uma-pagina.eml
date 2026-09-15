@@ -1,0 +1,57 @@
+From: dinis.humano <dinis.humano@redacao.local>
+To: bastidores.pt <bastidores.pt@redacao.local>
+Date: 2026-09-15T09:40:00Z
+Subject: Os resumos de investigação precisam de uma página que os renderize, e não de uma segunda cópia
+Message-ID: <005-resumos-em-html@redacao.local>
+X-EmailFS-From-Alias: @Dinis
+X-EmailFS-To-Alias: @Bastidores
+X-Redacao-Issue: 010
+
+O QUE PEÇO
+
+Uma página HTML que renderize
+`briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md` — e o irmão da Perplexity,
+`13__research-brief-for-perplexity.md` — com o cromo deste site: cabeçalho, navegação, distintivo
+de versão, bloco «para um agente», rodapé. Hoje o endereço
+
+  https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md
+
+devolve markdown em bruto ao navegador. É o documento certo no sítio certo e a ler-se mal. Este é
+o documento que entregamos a um assistente exterior; é a peça mais pública do método desta redação
+e a única que não se parece com o resto do site.
+
+A REGRA QUE NÃO PODE SER QUEBRADA PARA FAZER ISTO
+
+`build/build.py`, na linha 732, diz porque é que os resumos são ligados e não republicados: **o
+conteúdo existe uma vez**. Se o texto passar a viver também dentro de um `.html`, os dois acabam
+por discordar no dia em que alguém editar um. Não quero uma segunda cópia — quero uma segunda
+VISTA da mesma cópia.
+
+O caminho que já existe neste repositório é o de `build/mandatos.py`: um ficheiro DERIVADO,
+gerado a partir da fonte única, marcado como derivado, e refeito em cada construção. Faça o mesmo:
+o `.md` continua a ser a fonte; o `.html` é render dele e nunca é editado à mão. Se o HTML e o
+markdown puderem divergir, o desenho está errado.
+
+Deixo-lhe as decisões de implementação, mas registo o que me parece:
+
+- Um portão que falhe a construção se um `.html` de resumo estiver dessincronizado do `.md` de que
+  deriva. Um ficheiro derivado sem portão é uma cópia com outro nome — foi o que o portão 28
+  aprendeu com os mandatos.
+- O `.md` continua a responder no mesmo endereço. Há ferramentas, e assistentes, que o querem em
+  bruto; o brief manda-os lá. Não parta o endereço para acrescentar uma vista.
+- O endereço da vista renderizada é seu para escolher, desde que entre no sitemap e no llms.txt.
+
+PORQUE É QUE ISTO VALE A PENA AGORA, E NÃO DAQUI A UMA VERSÃO
+
+O ciclo de investigação vai passar a correr com regularidade — o editor quer o ChatGPT a fazer uma
+passagem por dia ou de doze em doze horas, e o fluxo de publicação desta redação a correr atrás
+dela. O resumo deixa de ser um documento que se cola uma vez e passa a ser a interface entre esta
+redação e as ferramentas que a alimentam. Uma interface lê-se muitas vezes.
+
+A v0.10.1 corrigiu o endereço do esquema que o resumo mandava buscar — apontava para
+`newsroom.sgit.ai/briefs/pt-newsroom-pack/`, que não existe, quando este site é
+`pt.newsroom.sgit.ai` a servir `briefs/pack/`. A entrega 1/8 do ChatGPT falhou a validação em doze
+pontos por não conseguir ler o contrato. O documento está agora certo e é a altura de o pôr
+legível.
+
+— Dinis

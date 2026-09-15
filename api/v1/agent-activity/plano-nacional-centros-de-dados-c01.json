@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-14T11:30:00Z",
+  "agente": "chatgpt",
+  "agente_verbatim": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "plano-nacional-centros-de-dados"
+  },
+  "texto": "Entregou a pista item-pol-08 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[0]",
+  "id": "plano-nacional-centros-de-dados-c01",
+  "artigo": "plano-nacional-centros-de-dados"
+}

@@ -429,11 +429,24 @@ def pagina_quadro(ag, q):
             for x in cartoes:
                 bloqueado = x.get("bloqueado_por") and x["bloqueado_por"] != "\u2014"
                 no_editor = bloqueado and x["bloqueado_por"] == editor
+                # `bloqueado_por` CARRIES TWO DIFFERENT THINGS and only one of them fits in a
+                # badge. Usually it is an agent id, `dinis.humano`. But a card may instead put the
+                # whole reason there — one on the board today is a 66-character sentence naming a
+                # deny-listed file and saying no agent may edit it. A rank badge is two words and
+                # refuses to wrap, so a sentence in one pushed this page 193px past a 390px
+                # viewport. An id goes in the badge; anything with a space in it makes the badge
+                # say only «blocked» and the reason reads beside it, which is where a sentence
+                # belongs anyway.
+                porque_bloqueado = ""
                 if no_editor:
                     estado = ('<span class="st st--1">needs you'
                               f'<span class="who">· {e(a["alias"])} cannot move it</span></span>')
-                elif bloqueado:
+                elif bloqueado and " " not in x["bloqueado_por"]:
                     estado = f'<span class="st st--2">blocked on {e(x["bloqueado_por"])}</span>'
+                elif bloqueado:
+                    estado = '<span class="st st--2">blocked</span>'
+                    porque_bloqueado = (f'<p class="note" style="margin:0 0 8px">'
+                                        f'{e(x["bloqueado_por"])}</p>')
                 elif coluna == "fechados":
                     estado = '<span class="st st--4">closed</span>'
                 else:
@@ -450,6 +463,7 @@ def pagina_quadro(ag, q):
   <div class="queue__meta" style="margin:0 0 6px">{estado}
     {f'<span class="path">{meta}</span>' if meta else ""}</div>
   <h3 style="font-size:14.5px">{e(x["titulo"])}</h3>
+  {porque_bloqueado}
   <p class="note" style="margin:0 0 8px">{e(x["resumo"])}\u2026</p>
   <p class="path" style="margin:0"><a href="docs.html#{e(x["ficheiro"])}">{e(x["ficheiro"])}</a></p>
 </div>""")
@@ -558,7 +572,7 @@ def pagina_correio(ag, msgs):
                              for par in re.split(r"\n\s*\n", m["corpo"]) if par.strip())
         filho_html = "".join(render(x, nivel + 1) for x in filhos.get(m["id"], []))
         return f"""
-<div class="correio" style="margin-top:16px;{'margin-left:22px' if nivel else ''}" id="{e(m["id"])}">
+<div class="correio{' correio--resposta' if nivel else ''}" id="{e(m["id"])}">
   <div class="chips" style="padding-bottom:6px">
     <span class="chip {chip[0]}">{chip[1]}</span>
     <span class="chip"><b>{e(m["de_alias"])}</b> → {e(m["para_alias"])}</span>

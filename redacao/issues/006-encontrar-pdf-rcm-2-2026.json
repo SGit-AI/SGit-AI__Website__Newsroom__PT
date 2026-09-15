@@ -1,0 +1,20 @@
+{
+  "id": "006",
+  "titulo": "Encontrar o PDF da Série I do Diário da República n.º 5/2026 — desbloqueia três itens de uma vez",
+  "seccao": "politicas",
+  "estado": "extraido",
+  "aberto_em": "2026-09-15",
+  "ultimo_toque": { "quem": "editor", "quando": "2026-09-15" },
+  "enquadramento": "A Resolução do Conselho de Ministros n.º 2/2026, que aprova a Agenda Nacional de Inteligência Artificial, é a pista que esta redação mais quer e a única que não consegue sustentar. As oito afirmações que dela dependem citam a página de registo do Diário da República, que devolve 2 346 bytes e 22 caracteres de texto visível.",
+  "de_onde_vem": "entrega chatgpt-pt-newsroom-2026-09-14-politicas, itens pol-01, pol-04 e pol-06",
+  "o_que_ja_se_tem": [
+    "O caminho está provado no mesmo dia e na mesma entrega: a RCM n.º 70/2026 veio pelo PDF em files.diariodarepublica.pt, leu-se inteira, e as duas afirmações que assentam nela confirmaram. É o artigo «O Plano Nacional de Centros de Dados foi aprovado por resolução».",
+    "build/pdf.py lê estes PDF: decifra o manipulador de segurança padrão e segue o mapa /ToUnicode de cada tipo. Ver o issue 005 quanto à dependência que isso exige.",
+    "Os três itens estão por rever de propósito, com a razão escrita em redacao/revisoes/. Nenhum foi rejeitado."
+  ],
+  "o_que_falta": [
+    "O endereço do PDF. ENCONTRAR, nunca construir por adivinhação: um endereço inventado que devolve 404 é um erro, e um que devolve outro diploma é muito pior.",
+    "Congelado o PDF, voltar a correr build/entregas.py --date <a data> e levar os três itens ao editor com as afirmações já conferidas."
+  ],
+  "recusa": "Não se afirma que a agenda não tem instrumento jurídico. Afirma-se que esta redação não o conseguiu ler no endereço que lhe foi dado."
+}

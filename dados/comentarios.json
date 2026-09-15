@@ -34,7 +34,7 @@
     },
     "chatgpt": {
       "nome": "chatgpt",
-      "fornecedor": "gpt-6-astra",
+      "fornecedor": "gpt-5",
       "especie": "assistente exterior"
     }
   },
@@ -46,74 +46,94 @@
     "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
     "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
   },
-  "contagem": 62,
-  "abertos": 35,
+  "contagem": 95,
+  "abertos": 56,
   "por_agente": {
-    "pesquisa": {
-      "total": 20,
-      "abertos": 10,
-      "especies": {
-        "acao": 10,
-        "pergunta": 10
-      }
-    },
-    "redacao": {
-      "total": 10,
-      "abertos": 7,
-      "especies": {
-        "falta": 7,
-        "acao": 3
-      }
-    },
     "chatgpt": {
-      "total": 16,
-      "abertos": 16,
+      "total": 48,
+      "abertos": 44,
       "especies": {
-        "proposta": 16
+        "acao": 4,
+        "proposta": 44
+      }
+    },
+    "pesquisa": {
+      "total": 11,
+      "abertos": 5,
+      "especies": {
+        "acao": 6,
+        "pergunta": 5
       }
     },
     "editor": {
-      "total": 2,
-      "abertos": 2,
+      "total": 16,
+      "abertos": 4,
       "especies": {
-        "decisao": 2
+        "acao": 8,
+        "decisao": 8
+      }
+    },
+    "redacao": {
+      "total": 7,
+      "abertos": 3,
+      "especies": {
+        "acao": 4,
+        "falta": 3
       }
     },
     "verificacao": {
-      "total": 14,
+      "total": 13,
       "abertos": 0,
       "especies": {
-        "acao": 3,
-        "verificacao": 11
+        "acao": 4,
+        "verificacao": 9
       }
     }
   },
   "por_artigo": {
-    "agenda-nacional-instrumento-legal": {
-      "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
-      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+    "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler": {
+      "url": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/",
+      "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
       "seccao": "politicas",
-      "estado": "procurado",
-      "contagem": 14,
-      "abertos": 13,
+      "estado": "publicado",
+      "contagem": 20,
+      "abertos": 12,
       "por_agente": {
-        "pesquisa": 3,
-        "redacao": 2,
-        "chatgpt": 8,
-        "editor": 1
+        "chatgpt": 12,
+        "pesquisa": 1,
+        "editor": 4,
+        "redacao": 1,
+        "verificacao": 2
       }
     },
-    "dois-nomes-para-os-mesmos-palcos": {
-      "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
-      "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
-      "seccao": "eventos",
-      "estado": "verificado",
-      "contagem": 9,
-      "abertos": 1,
+    "gigafabricas-de-ia-duzentos-milhoes": {
+      "url": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/",
+      "titulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
+      "seccao": "politicas",
+      "estado": "publicado",
+      "contagem": 21,
+      "abertos": 12,
       "por_agente": {
-        "pesquisa": 3,
+        "chatgpt": 12,
+        "pesquisa": 1,
+        "editor": 4,
         "redacao": 1,
-        "verificacao": 5
+        "verificacao": 3
+      }
+    },
+    "plano-nacional-centros-de-dados": {
+      "url": "artigos/2026/09/14/plano-nacional-centros-de-dados/",
+      "titulo": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
+      "seccao": "politicas",
+      "estado": "publicado",
+      "contagem": 21,
+      "abertos": 12,
+      "por_agente": {
+        "chatgpt": 12,
+        "pesquisa": 1,
+        "editor": 4,
+        "redacao": 1,
+        "verificacao": 3
       }
     },
     "quantas-startups-sao-de-ia": {
@@ -128,119 +148,211 @@
         "redacao": 3
       }
     },
-    "registo-nacional-nao-devolve-texto": {
-      "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
-      "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
-      "seccao": "politicas",
-      "estado": "verificado",
-      "contagem": 19,
-      "abertos": 10,
-      "por_agente": {
-        "pesquisa": 4,
-        "redacao": 1,
-        "verificacao": 5,
-        "chatgpt": 8,
-        "editor": 1
-      }
-    },
     "regulador-designacao-ausente": {
       "url": "artigos/2026/09/14/regulador-designacao-ausente/",
       "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
       "seccao": "instituicoes",
-      "estado": "procurado",
+      "estado": "publicado",
       "contagem": 5,
-      "abertos": 4,
+      "abertos": 2,
       "por_agente": {
         "pesquisa": 3,
-        "redacao": 2
+        "verificacao": 2
       }
     },
-    "uma-captura-nao-mostra-movimento": {
-      "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
-      "titulo": "Uma captura não mostra movimento; duas mostram",
-      "seccao": "eventos",
-      "estado": "verificado",
-      "contagem": 8,
-      "abertos": 1,
+    "vinte-e-cinco-milhoes-para-ia-na-administracao-publica": {
+      "url": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/",
+      "titulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
+      "seccao": "politicas",
+      "estado": "publicado",
+      "contagem": 21,
+      "abertos": 12,
       "por_agente": {
-        "pesquisa": 3,
+        "chatgpt": 12,
+        "pesquisa": 1,
+        "editor": 4,
         "redacao": 1,
-        "verificacao": 4
+        "verificacao": 3
       }
     }
   },
   "fluxo": [
     {
-      "quando": "2026-09-14T18:10:00Z",
+      "quando": "2026-09-14T11:30:00Z",
+      "agente": "chatgpt",
+      "agente_verbatim": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+      },
+      "texto": "Entregou a pista item-pol-02 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[0]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c01",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
       "agente": "pesquisa",
       "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
       },
-      "texto": "Abriu a pasta do artigo encomendado pelo §11 do resumo e ligou-a ao issue 001. Nenhuma prosa foi escrita: não há material que a sustente.",
-      "porque": "Um contentor aberto e vazio é honesto; um contentor com prosa escrita antes das fontes seria o contrário de tudo o que este site diz que faz.",
+      "texto": "Obteve e congelou cada endereço que a entrega nomeia, com SHA-256 no registo, e procurou nos bytes congelados o excerto que o assistente diz ter lido.",
+      "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#cronologia[0]",
-      "id": "agenda-nacional-instrumento-legal-c01",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[1]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c02",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
-      "quando": null,
-      "agente": "pesquisa",
-      "especie": "pergunta",
+      "quando": "2026-09-15T09:45:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
       },
-      "texto": "O PDF do diploma. build/pdf.py já lê os PDF do Diário da República. O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é muito pior.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#por_rever[0]",
-      "id": "agenda-nacional-instrumento-legal-c02",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "texto": "Aprovou item-pol-02 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[2]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c03",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
-      "quando": null,
-      "agente": "pesquisa",
-      "especie": "pergunta",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
-      },
-      "texto": "Uma segunda fonte independente para o número e a data.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/proveniencia.json#por_rever[1]",
-      "id": "agenda-nacional-instrumento-legal-c03",
-      "artigo": "agenda-nacional-instrumento-legal"
-    },
-    {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15T10:00:00Z",
       "agente": "redacao",
-      "especie": "falta",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
       },
-      "texto": "O PDF do diploma. build/pdf.py já lê os PDF do Diário da República. O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é muito pior.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json#o_que_falta[0]",
-      "id": "agenda-nacional-instrumento-legal-c04",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "texto": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[3]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c04",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
-      "quando": "2026-09-14",
-      "agente": "redacao",
-      "especie": "falta",
+      "quando": "2026-09-15T10:10:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
       },
-      "texto": "Uma segunda fonte independente para o número e a data.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/agenda-nacional-instrumento-legal/artigo.json#o_que_falta[1]",
-      "id": "agenda-nacional-instrumento-legal-c05",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "texto": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[4]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c05",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15T10:20:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+      },
+      "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json#cronologia[5]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c06",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "verificacao",
+      "especie": "verificacao",
+      "sobre": {
+        "tipo": "afirmacao",
+        "ref": "a1"
+      },
+      "texto": "A implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/afirmacoes.json#afirmacoes[0]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c07",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c08",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c09",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c10",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c11",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -256,8 +368,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "agenda-nacional-instrumento-legal-c06",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c12",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -273,8 +385,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "agenda-nacional-instrumento-legal-c07",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c13",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -290,8 +402,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "agenda-nacional-instrumento-legal-c08",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c14",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -307,8 +419,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "agenda-nacional-instrumento-legal-c09",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c15",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -324,8 +436,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "agenda-nacional-instrumento-legal-c10",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -341,8 +453,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "agenda-nacional-instrumento-legal-c11",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c17",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -358,8 +470,8 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "agenda-nacional-instrumento-legal-c12",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c18",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -371,12 +483,12 @@
         "ref": "item-pol-08"
       },
       "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "agenda-nacional-instrumento-legal-c13",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c19",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
     },
     {
       "quando": "2026-09-14",
@@ -384,13 +496,29 @@
       "especie": "decisao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "agenda-nacional-instrumento-legal"
+        "ref": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
       },
-      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
-      "estado": "por_rever",
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "agenda-nacional-instrumento-legal-c14",
-      "artigo": "agenda-nacional-instrumento-legal"
+      "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c20",
+      "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+    },
+    {
+      "quando": "2026-09-14T11:30:00Z",
+      "agente": "chatgpt",
+      "agente_verbatim": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
+      },
+      "texto": "Entregou a pista item-pol-05 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[0]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c01",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
       "quando": "2026-09-14T12:00:00Z",
@@ -399,140 +527,668 @@
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "dois-nomes-para-os-mesmos-palcos"
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
       },
-      "texto": "Congelou as oito páginas próprias do evento numa captura datada.",
+      "texto": "Obteve e congelou cada endereço que a entrega nomeia, com SHA-256 no registo, e procurou nos bytes congelados o excerto que o assistente diz ter lido.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[0]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c01",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[1]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c02",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": "2026-09-14T12:25:00Z",
-      "agente": "pesquisa",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "quando": "2026-09-15T09:45:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "dois-nomes-para-os-mesmos-palcos"
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
       },
-      "texto": "Correu nomes_de_palco() sobre cada página congelada: uma procura por uma lista fechada de nomes conhecidos, guardando em que página cada um aparece.",
+      "texto": "Aprovou item-pol-05 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[1]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c02",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[2]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c03",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": "2026-09-14T17:55:00Z",
+      "quando": "2026-09-15T10:00:00Z",
       "agente": "redacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "dois-nomes-para-os-mesmos-palcos"
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
       },
-      "texto": "Escreveu a partir do resultado, sem acrescentar hipóteses sobre a causa.",
+      "texto": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[2]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c03",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[3]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c04",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": "2026-09-14T17:58:00Z",
+      "quando": "2026-09-15T10:10:00Z",
       "agente": "verificacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "dois-nomes-para-os-mesmos-palcos"
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
       },
-      "texto": "Repetiu a procura em cada cópia congelada e marcou as quatro afirmações.",
+      "texto": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#cronologia[3]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c04",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[4]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c05",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": null,
-      "agente": "pesquisa",
-      "especie": "pergunta",
+      "quando": "2026-09-15T10:20:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "dois-nomes-para-os-mesmos-palcos"
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
       },
-      "texto": "Ninguém perguntou ao evento. É a pergunta óbvia e um leitor humano fá-la melhor do que esta redação; a resposta seria uma correção, e o procedimento de correção existe.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/proveniencia.json#por_rever[0]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c05",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[5]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c06",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
         "ref": "a1"
       },
-      "texto": "A agenda nomeia Unicorn Stage, Impact Stage e Workshop Rooms.",
-      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "texto": "O Conselho de Ministros aprovou uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/agenda",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[0]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c06",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/afirmacoes.json#afirmacoes[0]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c07",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
         "ref": "a2"
       },
-      "texto": "A página de oradores nomeia os mesmos três.",
-      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "texto": "O investimento anunciado pode atingir 200 milhões de euros para aquisição de capacidade computacional.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/oradores",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[1]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c07",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/afirmacoes.json#afirmacoes[1]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c08",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c09",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c10",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c11",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c12",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
     },
     {
       "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-01"
+      },
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c13",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c14",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c15",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c16",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c17",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c18",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c19",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c20",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "gigafabricas-de-ia-duzentos-milhoes"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "em_revisao",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "gigafabricas-de-ia-duzentos-milhoes-c21",
+      "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+    },
+    {
+      "quando": "2026-09-14T11:30:00Z",
+      "agente": "chatgpt",
+      "agente_verbatim": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Entregou a pista item-pol-08 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[0]",
+      "id": "plano-nacional-centros-de-dados-c01",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "agente": "pesquisa",
+      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Obteve e congelou cada endereço que a entrega nomeia, com SHA-256 no registo, e procurou nos bytes congelados o excerto que o assistente diz ter lido.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[1]",
+      "id": "plano-nacional-centros-de-dados-c02",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15T09:45:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Aprovou item-pol-08 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[2]",
+      "id": "plano-nacional-centros-de-dados-c03",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15T10:00:00Z",
+      "agente": "redacao",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[3]",
+      "id": "plano-nacional-centros-de-dados-c04",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15T10:10:00Z",
+      "agente": "verificacao",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[4]",
+      "id": "plano-nacional-centros-de-dados-c05",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15T10:20:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[5]",
+      "id": "plano-nacional-centros-de-dados-c06",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
-        "ref": "a3"
+        "ref": "a1"
       },
-      "texto": "A página de patrocínios nomeia Main Stage, Startup Stage e Workshop Rooms.",
-      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "texto": "A Resolução do Conselho de Ministros n.º 70/2026 aprovou o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/patrocinadores",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[2]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c08",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/afirmacoes.json#afirmacoes[0]",
+      "id": "plano-nacional-centros-de-dados-c07",
+      "artigo": "plano-nacional-centros-de-dados"
     },
     {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
-        "ref": "a4"
+        "ref": "a2"
       },
-      "texto": "Um dos três nomes coincide entre os dois conjuntos.",
-      "porque": "Cada nome de palco foi novamente procurado no texto visível de cada cópia congelada, com a mesma função de extração que produziu a observação original.",
+      "texto": "O diploma identifica os centros de dados como suporte de tecnologias como a inteligência artificial, a computação em nuvem e o tratamento massivo de dados.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/patrocinadores",
-      "de": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/afirmacoes.json#afirmacoes[3]",
-      "id": "dois-nomes-para-os-mesmos-palcos-c09",
-      "artigo": "dois-nomes-para-os-mesmos-palcos"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/afirmacoes.json#afirmacoes[1]",
+      "id": "plano-nacional-centros-de-dados-c08",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "plano-nacional-centros-de-dados-c09",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "plano-nacional-centros-de-dados-c10",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "plano-nacional-centros-de-dados-c11",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "plano-nacional-centros-de-dados-c12",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-01"
+      },
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "plano-nacional-centros-de-dados-c13",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "plano-nacional-centros-de-dados-c14",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "plano-nacional-centros-de-dados-c15",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "plano-nacional-centros-de-dados-c16",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "plano-nacional-centros-de-dados-c17",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "plano-nacional-centros-de-dados-c18",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "plano-nacional-centros-de-dados-c19",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "plano-nacional-centros-de-dados-c20",
+      "artigo": "plano-nacional-centros-de-dados"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "plano-nacional-centros-de-dados"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "em_revisao",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "plano-nacional-centros-de-dados-c21",
+      "artigo": "plano-nacional-centros-de-dados"
     },
     {
       "quando": "2026-09-14T18:10:00Z",
@@ -635,314 +1291,6 @@
       "artigo": "quantas-startups-sao-de-ia"
     },
     {
-      "quando": "2026-09-14T12:00:00Z",
-      "agente": "pesquisa",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
-      "especie": "acao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Obteve e congelou as três páginas do registo nacional em fontes/congeladas/2026-09-14/registo/, com SHA-256 no registo.",
-      "porque": null,
-      "estado": "feito",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[0]",
-      "id": "registo-nacional-nao-devolve-texto-c01",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14T12:20:00Z",
-      "agente": "pesquisa",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
-      "especie": "acao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Mediu a legibilidade: bytes recebidos contra caracteres visíveis, pela mesma função que extrai texto de qualquer página congelada.",
-      "porque": null,
-      "estado": "feito",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[1]",
-      "id": "registo-nacional-nao-devolve-texto-c02",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14T13:40:00Z",
-      "agente": "pesquisa",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
-      "especie": "acao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Implementou build/pdf.py depois de a extração de um PDF do Diário da República devolver zero caracteres — o que se veio a verificar ser cifra e tipos subconjuntados, não uma página vazia.",
-      "porque": "Sem esta distinção, este artigo teria afirmado que o registo nacional não se lê. A afirmação teria sido falsa e teria parecido sustentada.",
-      "estado": "feito",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[2]",
-      "id": "registo-nacional-nao-devolve-texto-c03",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14T17:45:00Z",
-      "agente": "redacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
-      "especie": "acao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Escreveu a prosa a partir de dados/verificacoes-fonte.json, com cada número marcado com a fonte congelada de onde vem.",
-      "porque": null,
-      "estado": "feito",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[3]",
-      "id": "registo-nacional-nao-devolve-texto-c04",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14T17:50:00Z",
-      "agente": "verificacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
-      "especie": "acao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Refez cada medição sobre os bytes congelados e marcou as quatro afirmações. Nenhuma ficou disputada ou por encontrar.",
-      "porque": null,
-      "estado": "feito",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#cronologia[4]",
-      "id": "registo-nacional-nao-devolve-texto-c05",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": null,
-      "agente": "pesquisa",
-      "especie": "pergunta",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "Um humano ainda não abriu nenhuma das três páginas num navegador para confirmar que o conteúdo ESTÁ lá para um leitor humano. A medição é sobre o que um leitor automático recebe, e o artigo diz isso — mas a confirmação humana tornaria a história mais forte.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/proveniencia.json#por_rever[0]",
-      "id": "registo-nacional-nao-devolve-texto-c06",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "verificacao",
-      "especie": "verificacao",
-      "sobre": {
-        "tipo": "afirmacao",
-        "ref": "a1"
-      },
-      "texto": "O Diário da República devolveu 2 346 bytes e 22 caracteres de texto visível.",
-      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
-      "estado": "confirmada",
-      "fonte": "2026-09-14/registo/dre-inicio",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[0]",
-      "id": "registo-nacional-nao-devolve-texto-c07",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "verificacao",
-      "especie": "verificacao",
-      "sobre": {
-        "tipo": "afirmacao",
-        "ref": "a2"
-      },
-      "texto": "A página do Governo devolveu 165 569 bytes e 348 caracteres visíveis.",
-      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
-      "estado": "confirmada",
-      "fonte": "2026-09-14/registo/gov-ia",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[1]",
-      "id": "registo-nacional-nao-devolve-texto-c08",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "verificacao",
-      "especie": "verificacao",
-      "sobre": {
-        "tipo": "afirmacao",
-        "ref": "a3"
-      },
-      "texto": "O portal nacional de dados abertos devolveu 849 388 bytes e 27 406 caracteres, e é a única das três legível por um leitor automático.",
-      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
-      "estado": "confirmada",
-      "fonte": "2026-09-14/registo/dados-gov",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[2]",
-      "id": "registo-nacional-nao-devolve-texto-c09",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "verificacao",
-      "especie": "verificacao",
-      "sobre": {
-        "tipo": "afirmacao",
-        "ref": "a4"
-      },
-      "texto": "Um diploma do Diário da República em PDF lê-se por inteiro depois de decifrado e de seguido o mapa /ToUnicode de cada tipo.",
-      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e a contagem de caracteres visíveis voltou a ser feita sobre os mesmos bytes com a mesma função (build/extract.py, texto_de). Uma afirmação que é uma medição verifica-se refazendo a medição, não relendo uma frase.",
-      "estado": "confirmada",
-      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
-      "de": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/afirmacoes.json#afirmacoes[3]",
-      "id": "registo-nacional-nao-devolve-texto-c10",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-01"
-      },
-      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "registo-nacional-nao-devolve-texto-c11",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-02"
-      },
-      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "registo-nacional-nao-devolve-texto-c12",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-03"
-      },
-      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "registo-nacional-nao-devolve-texto-c13",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-04"
-      },
-      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "registo-nacional-nao-devolve-texto-c14",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-05"
-      },
-      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "registo-nacional-nao-devolve-texto-c15",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-06"
-      },
-      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "registo-nacional-nao-devolve-texto-c16",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-07"
-      },
-      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "registo-nacional-nao-devolve-texto-c17",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "chatgpt",
-      "agente_verbatim": "gpt-6-astra",
-      "especie": "proposta",
-      "sobre": {
-        "tipo": "proposta",
-        "ref": "item-pol-08"
-      },
-      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
-      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
-      "estado": "por_decidir",
-      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "registo-nacional-nao-devolve-texto-c18",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
-      "quando": "2026-09-14",
-      "agente": "editor",
-      "especie": "decisao",
-      "sobre": {
-        "tipo": "artigo",
-        "ref": "registo-nacional-nao-devolve-texto"
-      },
-      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
-      "estado": "por_rever",
-      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "registo-nacional-nao-devolve-texto-c19",
-      "artigo": "registo-nacional-nao-devolve-texto"
-    },
-    {
       "quando": "2026-09-14T18:10:00Z",
       "agente": "pesquisa",
       "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
@@ -987,32 +1335,52 @@
       "artigo": "regulador-designacao-ausente"
     },
     {
-      "quando": "2026-09-14",
-      "agente": "redacao",
-      "especie": "falta",
+      "quando": "2026-09-15",
+      "agente": "verificacao",
+      "especie": "verificacao",
       "sobre": {
-        "tipo": "artigo",
-        "ref": "regulador-designacao-ausente"
+        "tipo": "afirmacao",
+        "ref": "a1"
       },
-      "texto": "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[0]",
+      "texto": "A Comissão Europeia indica que cada Estado-Membro deveria ter designado e habilitado as suas autoridades nacionais competentes até 2 de agosto de 2025.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada e o excerto foi procurado outra vez nos bytes. A terceira afirmação da pista original citava uma página que devolveu 403; não entrou na prosa e fica registada aqui como não conferida.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json#afirmacoes[0]",
       "id": "regulador-designacao-ausente-c04",
       "artigo": "regulador-designacao-ausente"
     },
     {
-      "quando": "2026-09-14",
-      "agente": "redacao",
-      "especie": "falta",
+      "quando": "2026-09-15",
+      "agente": "verificacao",
+      "especie": "verificacao",
       "sobre": {
-        "tipo": "artigo",
-        "ref": "regulador-designacao-ausente"
+        "tipo": "afirmacao",
+        "ref": "a2"
       },
-      "texto": "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/regulador-designacao-ausente/artigo.json#o_que_falta[1]",
+      "texto": "A página temática oficial portuguesa descreve o Regulamento de IA sem identificar nominalmente a autoridade nacional.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada e o excerto foi procurado outra vez nos bytes. A terceira afirmação da pista original citava uma página que devolveu 403; não entrou na prosa e fica registada aqui como não conferida.",
+      "estado": "confirmada",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "de": "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json#afirmacoes[1]",
       "id": "regulador-designacao-ausente-c05",
       "artigo": "regulador-designacao-ausente"
+    },
+    {
+      "quando": "2026-09-14T11:30:00Z",
+      "agente": "chatgpt",
+      "agente_verbatim": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+      "especie": "acao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+      },
+      "texto": "Entregou a pista item-pol-07 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c01",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
       "quando": "2026-09-14T12:00:00Z",
@@ -1021,124 +1389,325 @@
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "uma-captura-nao-mostra-movimento"
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
       },
-      "texto": "Congelou a página de oradores e extraiu 70 cartões, cada um com nome, papel e organização listados — nunca a biografia, que fica nos bytes.",
+      "texto": "Obteve e congelou cada endereço que a entrega nomeia, com SHA-256 no registo, e procurou nos bytes congelados o excerto que o assistente diz ter lido.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[0]",
-      "id": "uma-captura-nao-mostra-movimento-c01",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[1]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c02",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": "2026-09-14T12:05:00Z",
-      "agente": "pesquisa",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "quando": "2026-09-15T09:45:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "uma-captura-nao-mostra-movimento"
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
       },
-      "texto": "Comparou a contagem de cartões com o número que a página declara. Concordaram.",
+      "texto": "Aprovou item-pol-07 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[1]",
-      "id": "uma-captura-nao-mostra-movimento-c02",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[2]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c03",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": "2026-09-14T18:00:00Z",
+      "quando": "2026-09-15T10:00:00Z",
       "agente": "redacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "uma-captura-nao-mostra-movimento"
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
       },
-      "texto": "Escreveu a ausência de diferença como afirmação, em vez de deixar o lugar vazio ou preenchê-lo com uma frase verdadeira e oca.",
+      "texto": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[2]",
-      "id": "uma-captura-nao-mostra-movimento-c03",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[3]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c04",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": "2026-09-14T18:02:00Z",
+      "quando": "2026-09-15T10:10:00Z",
       "agente": "verificacao",
-      "agente_verbatim": "sessão de arranque (Claude Code, Opus 5)",
+      "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
       "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "uma-captura-nao-mostra-movimento"
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
       },
-      "texto": "Recontou os cartões e reconfirmou que só existe uma captura.",
+      "texto": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
       "porque": null,
       "estado": "feito",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#cronologia[3]",
-      "id": "uma-captura-nao-mostra-movimento-c04",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[4]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c05",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": null,
-      "agente": "pesquisa",
-      "especie": "pergunta",
+      "quando": "2026-09-15T10:20:00Z",
+      "agente": "editor",
+      "agente_verbatim": "Dinis Cruz, editor de registo",
+      "especie": "acao",
       "sobre": {
         "tipo": "artigo",
-        "ref": "uma-captura-nao-mostra-movimento"
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
       },
-      "texto": "Este artigo fica desatualizado por construção assim que houver uma segunda captura, e isso é o objetivo. Quando acontecer, é substituído (superseded) a partir dessa data e não apagado.",
-      "estado": "aberto",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/proveniencia.json#por_rever[0]",
-      "id": "uma-captura-nao-mostra-movimento-c05",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "porque": null,
+      "estado": "feito",
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[5]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c06",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
         "ref": "a1"
       },
-      "texto": "A lista de oradores tem 70 nomes.",
-      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+      "texto": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/oradores",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[0]",
-      "id": "uma-captura-nao-mostra-movimento-c06",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/afirmacoes.json#afirmacoes[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c07",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
-      "quando": "2026-09-14",
+      "quando": "2026-09-15",
       "agente": "verificacao",
       "especie": "verificacao",
       "sobre": {
         "tipo": "afirmacao",
         "ref": "a2"
       },
-      "texto": "A página declara de si própria que são 70, e os dois números concordam.",
-      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
+      "texto": "O comunicado refere agentes de apoio à contratação pública e automatização de faturas como casos em desenvolvimento.",
+      "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
       "estado": "confirmada",
-      "fonte": "2026-09-14/oradores",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[1]",
-      "id": "uma-captura-nao-mostra-movimento-c07",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/afirmacoes.json#afirmacoes[1]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c08",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-09"
+      },
+      "texto": "O calendário do AI Act mudou: separar obrigações já aplicáveis dos novos prazos de 2027 e 2028.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c09",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-10"
+      },
+      "texto": "Marcação de conteúdos por IA: quem beneficia do período transitório e até quando.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[1]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c10",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-11"
+      },
+      "texto": "Mapear os primeiros projetos, recursos e entregáveis do Centro de Excelência em IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 1 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-15-politicas-2",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].itens[2]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c11",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-15",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+      },
+      "texto": "A entrega «chatgpt-2026-09-15-politicas-2» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-15-politicas-2].revisao",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c12",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
       "quando": "2026-09-14",
-      "agente": "verificacao",
-      "especie": "verificacao",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
       "sobre": {
-        "tipo": "afirmacao",
-        "ref": "a3"
+        "tipo": "proposta",
+        "ref": "item-pol-01"
       },
-      "texto": "Existe apenas uma captura desta página, pelo que não há diferença para relatar.",
-      "porque": "Os cartões foram novamente contados na cópia congelada, e a contagem declarada pela própria página foi novamente extraída do seu texto visível.",
-      "estado": "confirmada",
-      "fonte": "2026-09-14/oradores",
-      "de": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/afirmacoes.json#afirmacoes[2]",
-      "id": "uma-captura-nao-mostra-movimento-c08",
-      "artigo": "uma-captura-nao-mostra-movimento"
+      "texto": "Atualização factual: o ato que aprovou a ANIA foi localizado no Diário da República.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c13",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-02"
+      },
+      "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-03"
+      },
+      "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-04"
+      },
+      "texto": "Da ANIA à execução: que capacidade da Fábrica de IA ficou disponível através do Deucalion e da EuroHPC?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-05"
+      },
+      "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-06"
+      },
+      "texto": "A peça de dados da ANIA: os espaços setoriais começaram no prazo previsto?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 3 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-07"
+      },
+      "texto": "Onde estão aplicados os 25 milhões de euros para IA na Administração Pública?",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-6-astra",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-08"
+      },
+      "texto": "Do plano à infraestrutura: estado das medidas do Plano Nacional de Centros de Dados ligadas à IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 0 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-14",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+      },
+      "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "em_revisao",
+      "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     }
   ]
 }

@@ -1,12 +1,38 @@
 {
   "artigo": "regulador-designacao-ausente",
-  "verificado_em": null,
-  "por": null,
-  "como": "Ainda não houve verificação: não há prosa para verificar. Este ficheiro existe vazio de propósito, para que a pasta tenha a mesma forma que as outras e para que nada tenha de ser criado à pressa quando a prosa chegar.",
-  "afirmacoes": [],
+  "verificado_em": "2026-09-15",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada e o excerto foi procurado outra vez nos bytes. A terceira afirmação da pista original citava uma página que devolveu 403; não entrou na prosa e fica registada aqui como não conferida.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "A Comissão Europeia indica que cada Estado-Membro deveria ter designado e habilitado as suas autoridades nacionais competentes até 2 de agosto de 2025.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "estado": "confirmada",
+      "localizador": "National competent authorities",
+      "excerto": "Each Member State should have designated and empowered national competent authorities until 2 August 2025."
+    },
+    {
+      "id": "a2",
+      "texto": "A página temática oficial portuguesa descreve o Regulamento de IA sem identificar nominalmente a autoridade nacional.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "estado": "confirmada",
+      "localizador": "Iniciativas — Regulamento Europeu de IA",
+      "excerto": "Estabelece o primeiro quadro jurídico horizontal para o desenvolvimento, colocação no mercado e utilização de sistemas de IA na União Europeia."
+    }
+  ],
+  "nao_conferidas": [
+    {
+      "texto": "A página oficial localizada da ANACOM apresenta-a como autoridade nacional no âmbito da aplicação do AI Act.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "estado": "fonte_inacessivel",
+      "porque": "A página devolveu HTTP 403 a esta redação. Nada se pode conferir contra ela, e não se contorna um bloqueio."
+    }
+  ],
   "resumo": {
-    "confirmadas": 0,
+    "confirmadas": 2,
     "disputadas": 0,
-    "nao_encontradas": 0
+    "nao_encontradas": 0,
+    "fonte_inacessivel": 1
   }
 }

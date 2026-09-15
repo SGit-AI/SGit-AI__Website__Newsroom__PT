@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15T10:20:00Z",
+  "agente": "editor",
+  "agente_verbatim": "Dinis Cruz, editor de registo",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "gigafabricas-de-ia-duzentos-milhoes"
+  },
+  "texto": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json#cronologia[5]",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c06",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

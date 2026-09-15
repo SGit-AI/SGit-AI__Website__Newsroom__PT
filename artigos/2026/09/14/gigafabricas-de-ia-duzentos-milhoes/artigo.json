@@ -1,0 +1,29 @@
+{
+  "slug": "gigafabricas-de-ia-duzentos-milhoes",
+  "data": "2026-09-14",
+  "seccao": "politicas",
+  "antetitulo": "Políticas · um anúncio",
+  "titulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
+  "entrada": "O comunicado do Conselho de Ministros de 25 de junho de 2026 regista a aprovação de uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial. É o que o Governo anunciou, com data e endereço. O diploma que o executa não foi localizado por esta redação.",
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
+  "origem": "entrega chatgpt-pt-newsroom-2026-09-14-politicas · item-pol-05",
+  "issue": "004",
+  "especie": "registo_publico",
+  "o_que_e": "Um registo do que um comunicado oficial diz, citado do comunicado. Um anúncio e um diploma são duas coisas, e este artigo só tem a primeira.",
+  "o_que_nao_afirma": [
+    "Não afirma que o investimento foi feito. Afirma que foi anunciado como podendo atingir 200 milhões de euros.",
+    "Não afirma que não existe diploma. Afirma que esta redação não o localizou, o que é diferente.",
+    "Não caracteriza a decisão nem quem a tomou."
+  ],
+  "assenta_em": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+  ],
+  "departamentos": {
+    "pesquisa": "Congelou o comunicado do Conselho de Ministros de 25 de junho de 2026: 224 915 bytes, 6 492 caracteres legíveis, com SHA-256 no registo.",
+    "redacao": "Escreveu a partir das duas afirmações aprovadas e de mais nada.",
+    "verificacao": "Releu as duas afirmações na cópia congelada do comunicado."
+  },
+  "bloco_primeira_pagina": null
+}

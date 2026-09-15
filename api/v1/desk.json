@@ -49,19 +49,17 @@
         "dados/*.json extraídos das fontes"
       ],
       "carga": {
-        "entradas": 20,
-        "abertas": 10,
+        "entradas": 11,
+        "abertas": 5,
         "por_especie": {
-          "acao": 10,
-          "pergunta": 10
+          "acao": 6,
+          "pergunta": 5
         },
-        "cartoes_a_espera": 4
+        "cartoes_a_espera": 2
       },
       "cartoes": [
-        "regulador-designacao-ausente",
         "quantas-startups-sao-de-ia",
-        "agenda-nacional-instrumento-legal",
-        "004"
+        "007"
       ],
       "correio": {
         "entrada": 1,
@@ -82,11 +80,11 @@
         "conteudo/*.md"
       ],
       "carga": {
-        "entradas": 10,
-        "abertas": 7,
+        "entradas": 7,
+        "abertas": 3,
         "por_especie": {
-          "falta": 7,
-          "acao": 3
+          "acao": 4,
+          "falta": 3
         },
         "cartoes_a_espera": 0
       },
@@ -110,19 +108,15 @@
         "dados/verificacoes/*.json"
       ],
       "carga": {
-        "entradas": 14,
+        "entradas": 13,
         "abertas": 0,
         "por_especie": {
-          "acao": 3,
-          "verificacao": 11
+          "acao": 4,
+          "verificacao": 9
         },
-        "cartoes_a_espera": 3
+        "cartoes_a_espera": 0
       },
-      "cartoes": [
-        "uma-captura-nao-mostra-movimento",
-        "registo-nacional-nao-devolve-texto",
-        "dois-nomes-para-os-mesmos-palcos"
-      ],
+      "cartoes": [],
       "correio": {
         "entrada": 0,
         "saida": 0,
@@ -144,22 +138,19 @@
         "Limpar um item que ficou «parado»."
       ],
       "carga": {
-        "entradas": 2,
-        "abertas": 2,
+        "entradas": 16,
+        "abertas": 4,
         "por_especie": {
-          "decisao": 2
+          "acao": 8,
+          "decisao": 8
         },
-        "cartoes_a_espera": 3,
+        "cartoes_a_espera": 0,
         "entregas_por_rever": 1
       },
-      "cartoes": [
-        "uma-captura-nao-mostra-movimento",
-        "registo-nacional-nao-devolve-texto",
-        "dois-nomes-para-os-mesmos-palcos"
-      ],
+      "cartoes": [],
       "correio": {
         "entrada": 1,
-        "saida": 0,
+        "saida": 1,
         "tratado": 0,
         "em_transito": 2
       },
@@ -168,22 +159,6 @@
   ],
   "quadro": {
     "procurado": [
-      {
-        "id": "regulador-designacao-ausente",
-        "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-        "seccao": "instituicoes",
-        "estado": "procurado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/regulador-designacao-ausente/",
-        "issue": "002",
-        "irmaos": 0,
-        "ultimo_toque": {
-          "quem": "pesquisa",
-          "quando": "2026-09-14"
-        },
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[regulador-designacao-ausente]"
-      },
       {
         "id": "quantas-startups-sao-de-ia",
         "titulo": "Quantas das startups ativas em Portugal são empresas de IA, e porque nenhum conjunto de dados público o diz",
@@ -199,90 +174,161 @@
         },
         "aberto_em": "2026-09-14",
         "de": "dados/historias.json#historias[quantas-startups-sao-de-ia]"
-      },
-      {
-        "id": "agenda-nacional-instrumento-legal",
-        "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-        "seccao": "politicas",
-        "estado": "procurado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
-        "issue": "001",
-        "irmaos": 1,
-        "ultimo_toque": {
-          "quem": "pesquisa",
-          "quando": "2026-09-14"
-        },
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[agenda-nacional-instrumento-legal]"
       }
     ],
     "congelado": [
       {
-        "id": "004",
-        "titulo": "Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível",
+        "id": "007",
+        "titulo": "Entrega ChatGPT 1/8 (políticas, 2.ª passagem): valida contra o esquema, 3 de 4 afirmações com excerto nos bytes",
         "seccao": "politicas",
         "estado": "congelado",
         "especie": "issue",
         "url": null,
-        "issue": "004",
+        "issue": "007",
         "irmaos": 0,
         "ultimo_toque": {
           "quem": "pesquisa",
-          "quando": "2026-09-14"
+          "quando": "2026-09-15"
         },
-        "aberto_em": "2026-09-14",
-        "de": "redacao/issues/004"
+        "aberto_em": "2026-09-15",
+        "de": "redacao/issues/007"
       }
     ],
     "rascunho": [],
-    "verificado": [
+    "verificado": [],
+    "publicado": [
       {
-        "id": "uma-captura-nao-mostra-movimento",
-        "titulo": "Uma captura não mostra movimento; duas mostram",
-        "seccao": "eventos",
-        "estado": "verificado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
-        "issue": null,
-        "irmaos": 0,
-        "ultimo_toque": {},
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[uma-captura-nao-mostra-movimento]"
-      },
-      {
-        "id": "registo-nacional-nao-devolve-texto",
-        "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
+        "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+        "titulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
         "seccao": "politicas",
-        "estado": "verificado",
+        "estado": "publicado",
         "especie": "artigo",
-        "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
-        "issue": "001",
-        "irmaos": 1,
+        "url": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/",
+        "issue": "004",
+        "irmaos": 3,
         "ultimo_toque": {
           "quem": "pesquisa",
           "quando": "2026-09-14"
         },
         "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[registo-nacional-nao-devolve-texto]"
+        "de": "dados/historias.json#historias[vinte-e-cinco-milhoes-para-ia-na-administracao-publica]"
       },
       {
-        "id": "dois-nomes-para-os-mesmos-palcos",
-        "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
-        "seccao": "eventos",
-        "estado": "verificado",
+        "id": "regulador-designacao-ausente",
+        "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
+        "seccao": "instituicoes",
+        "estado": "publicado",
         "especie": "artigo",
-        "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
-        "issue": null,
+        "url": "artigos/2026/09/14/regulador-designacao-ausente/",
+        "issue": "002",
         "irmaos": 0,
-        "ultimo_toque": {},
+        "ultimo_toque": {
+          "quem": "editor",
+          "quando": "2026-09-15"
+        },
         "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[dois-nomes-para-os-mesmos-palcos]"
+        "de": "dados/historias.json#historias[regulador-designacao-ausente]"
+      },
+      {
+        "id": "plano-nacional-centros-de-dados",
+        "titulo": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
+        "seccao": "politicas",
+        "estado": "publicado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/plano-nacional-centros-de-dados/",
+        "issue": "004",
+        "irmaos": 3,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[plano-nacional-centros-de-dados]"
+      },
+      {
+        "id": "gigafabricas-de-ia-duzentos-milhoes",
+        "titulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
+        "seccao": "politicas",
+        "estado": "publicado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/",
+        "issue": "004",
+        "irmaos": 3,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[gigafabricas-de-ia-duzentos-milhoes]"
+      },
+      {
+        "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+        "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+        "seccao": "politicas",
+        "estado": "publicado",
+        "especie": "artigo",
+        "url": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/",
+        "issue": "004",
+        "irmaos": 3,
+        "ultimo_toque": {
+          "quem": "pesquisa",
+          "quando": "2026-09-14"
+        },
+        "aberto_em": "2026-09-14",
+        "de": "dados/historias.json#historias[a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler]"
       }
-    ],
-    "publicado": []
+    ]
   },
-  "fora_do_quadro": [],
+  "fora_do_quadro": [
+    {
+      "id": "001",
+      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+      "seccao": "politicas",
+      "estado": "fechado",
+      "especie": "issue",
+      "url": null,
+      "issue": "001",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-15"
+      },
+      "aberto_em": "2026-09-14",
+      "de": "redacao/issues/001"
+    },
+    {
+      "id": "005",
+      "titulo": "O leitor de PDF diz «é provavelmente um PDF digitalizado» quando o que lhe falta é uma dependência",
+      "seccao": "politicas",
+      "estado": "bloqueado",
+      "especie": "issue",
+      "url": null,
+      "issue": "005",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-15"
+      },
+      "aberto_em": "2026-09-15",
+      "de": "redacao/issues/005"
+    },
+    {
+      "id": "006",
+      "titulo": "Encontrar o PDF da Série I do Diário da República n.º 5/2026 — desbloqueia três itens de uma vez",
+      "seccao": "politicas",
+      "estado": "extraido",
+      "especie": "issue",
+      "url": null,
+      "issue": "006",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-15"
+      },
+      "aberto_em": "2026-09-15",
+      "de": "redacao/issues/006"
+    }
+  ],
   "execucoes": [
     {
       "quando": "2026-09-14T12:00:00Z",
@@ -648,10 +694,10 @@
     }
   ],
   "contagens": {
-    "cartoes": 7,
+    "cartoes": 10,
     "bancadas": 4,
     "execucoes": 15,
-    "publicados": 0,
-    "a_espera_do_editor": 4
+    "publicados": 5,
+    "a_espera_do_editor": 1
   }
 }

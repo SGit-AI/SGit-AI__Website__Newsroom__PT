@@ -2,15 +2,20 @@
   "id": "001",
   "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
   "seccao": "politicas",
-  "estado": "procurado",
+  "estado": "fechado",
   "aberto_em": "2026-09-14",
-  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "ultimo_toque": {
+    "quem": "editor",
+    "quando": "2026-09-15"
+  },
   "enquadramento": "O diário oficial renderiza por script e devolveu um corpo praticamente vazio a um leitor automático. Uma história sobre a legibilidade do registo nacional, contada por uma redação que bateu na parede — e que tem uma resolução humana óbvia, que passa a ser o mecanismo de correção a funcionar no primeiro dia.",
   "de_onde_vem": "§11 do resumo de comissionamento, primeira das três primeiras histórias.",
   "o_que_ja_se_tem": [
     "dre.pt congelado a 2026-09-14: 2 346 bytes, 22 caracteres visíveis. Medição com hash no registo.",
     "portugal.gov.pt congelado a 2026-09-14: 165 569 bytes, 348 caracteres visíveis.",
-    "Uma entrega do ChatGPT nomeia a RCM n.º 2/2026 como o ato que aprova a ANIA, e as três afirmações que a sustentam ficaram SEM FONTE LEGÍVEL: a página do Diário da República que cita é a que renderiza por script."
+    "Uma entrega do ChatGPT nomeia a RCM n.º 2/2026 como o ato que aprova a ANIA, e as três afirmações que a sustentam ficaram SEM FONTE LEGÍVEL: a página do Diário da República que cita é a que renderiza por script.",
+    "FECHADO a 15 de setembro, e transferido, não abandonado. A pergunta — qual é o instrumento que aprova a agenda nacional de IA, e porque não se consegue lê-lo — passou para o issue 006, que é a busca do PDF da Série I do Diário da República n.º 5/2026, e para o artigo publicado «A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler».",
+    "O contentor vazio que existia em artigos/2026/09/14/agenda-nacional-instrumento-legal/ foi removido do site: um artigo sem prosa, que descrevia o trabalho desta redação em vez de dizer alguma coisa a quem a lê, não tem razão para estar à frente de um leitor."
   ],
   "o_que_falta": [
     "O PDF do diploma. O Diário da República publica o texto integral em PDF num endereço construível, e build/pdf.py já lê esses PDFs (decifra o manipulador de segurança padrão e segue o mapa /ToUnicode). O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é pior.",

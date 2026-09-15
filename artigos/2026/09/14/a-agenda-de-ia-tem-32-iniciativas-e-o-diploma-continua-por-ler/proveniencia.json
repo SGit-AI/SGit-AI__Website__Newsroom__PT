@@ -1,0 +1,61 @@
+{
+  "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+  "porque_existe_este_ficheiro": "Um artigo deste site diz em que bytes assenta. Este ficheiro diz de onde veio o próprio artigo: que execução, que agente, que modelo, e por que ordem. Sem isto, a cadeia de proveniência para no texto e não chega a quem o escreveu.",
+  "cronologia": [
+    {
+      "quando": "2026-09-14T11:30:00Z",
+      "quem": "chatgpt",
+      "agente": "ChatGPT (gpt-6-astra), a seguir o resumo 12__research-brief-for-chatgpt.md v2",
+      "o_que": "Entregou a pista item-pol-02 na entrega 1/8 (políticas), com o endereço, o excerto verbatim e o que diz por palavras suas. Uma entrega é uma lista de pistas com proveniência, nunca factos.",
+      "produziu": [
+        "redacao/entregas/chatgpt/chatgpt-pt-newsroom-2026-09-14-politicas.json"
+      ]
+    },
+    {
+      "quando": "2026-09-14T12:00:00Z",
+      "quem": "pesquisa",
+      "agente": "sessão de arranque (Claude Code, Opus 5)",
+      "o_que": "Obteve e congelou cada endereço que a entrega nomeia, com SHA-256 no registo, e procurou nos bytes congelados o excerto que o assistente diz ter lido.",
+      "produziu": [
+        "dados/registo.json",
+        "dados/entregas.json"
+      ]
+    },
+    {
+      "quando": "2026-09-15T09:45:00Z",
+      "quem": "editor",
+      "agente": "Dinis Cruz, editor de registo",
+      "o_que": "Aprovou item-pol-02 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
+      "produziu": [
+        "redacao/revisoes/chatgpt-pt-newsroom-2026-09-14-politicas.json"
+      ]
+    },
+    {
+      "quando": "2026-09-15T10:00:00Z",
+      "quem": "redacao",
+      "agente": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "o_que": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
+      "produziu": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/artigo.md"
+      ]
+    },
+    {
+      "quando": "2026-09-15T10:10:00Z",
+      "quem": "verificacao",
+      "agente": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+      "o_que": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
+      "produziu": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/afirmacoes.json"
+      ]
+    },
+    {
+      "quando": "2026-09-15T10:20:00Z",
+      "quem": "editor",
+      "agente": "Dinis Cruz, editor de registo",
+      "o_que": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "produziu": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/artigo.json"
+      ]
+    }
+  ]
+}

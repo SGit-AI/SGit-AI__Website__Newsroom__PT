@@ -1,0 +1,21 @@
+{
+  "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+  "verificado_em": "2026-09-15",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "A implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "estado": "confirmada",
+      "localizador": "Em detalhe",
+      "excerto": "A sua implementação envolve 32 iniciativas que mobilizam universidades, centros de investigação, empresas e Administração Pública"
+    }
+  ],
+  "resumo": {
+    "confirmadas": 1,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  }
+}

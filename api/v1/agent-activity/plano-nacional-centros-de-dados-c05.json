@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15T10:10:00Z",
+  "agente": "verificacao",
+  "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "plano-nacional-centros-de-dados"
+  },
+  "texto": "Releu cada afirmação contra a cópia congelada nomeada e voltou a procurar o excerto nos bytes.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[4]",
+  "id": "plano-nacional-centros-de-dados-c05",
+  "artigo": "plano-nacional-centros-de-dados"
+}

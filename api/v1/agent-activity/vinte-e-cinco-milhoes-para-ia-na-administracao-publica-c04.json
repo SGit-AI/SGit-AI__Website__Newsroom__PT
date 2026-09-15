@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15T10:00:00Z",
+  "agente": "redacao",
+  "agente_verbatim": "sessão a-linha-de-publicacao (Claude Code, Opus 5)",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+  },
+  "texto": "Escreveu a prosa a partir das afirmações aprovadas e de mais nada. Cada afirmação leva a marca da fonte congelada em que assenta.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json#cronologia[3]",
+  "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c04",
+  "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+}

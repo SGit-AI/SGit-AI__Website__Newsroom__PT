@@ -3,11 +3,11 @@
   "data": "2026-09-14",
   "seccao": "instituicoes",
   "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-  "entrada": "Encomendada pelo §11 do resumo de comissionamento. Dois factos, duas citações, e uma pergunta em vez de uma resposta. Ainda não há prosa.",
+  "entrada": "O Regulamento Europeu de IA manda cada Estado-Membro designar as suas autoridades nacionais competentes até 2 de agosto de 2025. A página temática do Governo português descreve o regulamento e não nomeia autoridade nenhuma. Esta redação não encontrou o ato de designação, e não afirma que ele não existe.",
   "antetitulo": "Instituições",
-  "estado": "procurado",
-  "publicado_em": null,
-  "publicado_por": null,
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
   "url": "artigos/2026/09/14/regulador-designacao-ausente/",
   "pasta": "artigos/2026/09/14/regulador-designacao-ausente",
   "issue": "002",
@@ -16,11 +16,15 @@
     "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
     "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
   ],
-  "marcas_na_prosa": [],
+  "marcas_na_prosa": [
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+    "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
+  ],
   "verificacao": {
-    "confirmadas": 0,
+    "confirmadas": 2,
     "disputadas": 0,
-    "nao_encontradas": 0
+    "nao_encontradas": 0,
+    "fonte_inacessivel": 1
   },
-  "tem_prosa": false
+  "tem_prosa": true
 }
