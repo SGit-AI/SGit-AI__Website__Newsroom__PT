@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.10.0",
+  "version": "v0.11.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -532,7 +532,7 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 81,
+      "count": 82,
       "items": null,
       "item_ids": null
     },

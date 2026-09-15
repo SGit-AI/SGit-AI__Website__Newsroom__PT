@@ -1,0 +1,25 @@
+{
+  "quando": "2026-09-15T03:15:00Z",
+  "especie": "construcao",
+  "prompt": "Pull the design vault and see the design updates and proposed components; plus: the top-level menu must not move between the site and the back office, put the budget spend on its own page instead of a popup, and look at layout bugs like the one in the screenshot.",
+  "modelo": "Claude Opus 5 (Claude Code, remote session)",
+  "pastas_alteradas": ["admin/", "api/", "artigos/", "assets/", "build/", "carteira/", "dados/", "redacao/", "backoffice/", "entidades/", "index.html", "llms.txt", "sitemap.xml", "index.md"],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.11.0",
+  "o_que_fez": [
+    "The utility run is generated once in build/paginas.py and emitted by both chromes in the same slot. Measured in a browser: 18px from the top, 56px from the right, 18px tall, on the paper AND in the back office. One label differs, and it is the crossing link.",
+    "The console's own links become a nav below the strip, wearing the paper's .nav with a single hairline, and marking the page you are on — which the paper's nav always did and the back office never did.",
+    "Fixed a layout bug this session shipped in v0.9.0 and the editor caught: the 29em prose cap put back-office text in a 522px ribbon inside a 1328px sheet while the hairlines spanned the full width. The console's CONTENT column is now 58em; rule/text is 1.78x instead of 2.5x.",
+    "pt-wallet gains two modes on one template: a LINK in the chrome, and the ledger on its own page at /carteira/. No popup in either. The page carries a stat strip, the actions and the last pages read.",
+    "156 hardcoded colours across seven component stylesheets become tokens, so a palette change reaches inside a shadow root. Gate 33b fails the build on a new one, injection-tested."
+  ],
+  "encontrado_pelo_cofre_e_confirmado_aqui": "The design review's v0.4.0 reported that the five shipped components hardcode #0f766e and #f7f4ec, so a palette change would not reach them. Confirmed by grep: six files, and the v0.9.0 contrast fixes had indeed landed everywhere except inside the components. Custom properties DO cross the shadow boundary — they inherit — so the fix is tokens, not duplication.",
+  "o_primeiro_remendo_estava_errado": "Putting the console width on .folha narrowed the SHEET, which narrowed the chrome with it: the utility run ended up 312px from the window's right edge against 56px on the paper. That silently undid the menu work in the same release. Caught by measuring both pages in a browser rather than by looking at one. The width moved to the content wrapper, and the stylesheet says why where somebody would be tempted to move it back.",
+  "revisado_e_nao_adotado": {
+    "o_que": "The vault moved from v0.1.0 (a review) to v0.4.0 (a proposal): a drop-in redesign/site.css, three page templates, a pattern library, and three new components (pt-specimen, pt-palette, pt-provenance) on this repository's own triplet contract.",
+    "porque_nao_agora": "It is a large, coherent proposal that decides several of the five questions the review itself reserved for the editor — where the provenance chips go, whether the card grid de-duplicates, how the header strip splits. Adopting it wholesale would be an agent taking those decisions by importing a file. It is read, summarised and put to the editor instead.",
+    "uma_medicao_a_conferir": "The proposal's own table claims 70.8 characters per line. It reaches that number with the 0.48em average glyph the v0.1.0 review used, which this session measured at 0.405em for Newsreader. If the proposal sets 34em it will measure about 84 characters, not 70.8 — the same error, in the same place, one version later."
+  },
+  "nota": "A CONSTRUCTION run, not a newsroom one: it fetched and froze no source, wrote no claim about Portugal, moved no issue and published nothing. It touched redacao/ to write this record, which gate 12 explicitly allows. It read an external vault, which is the source of the work and not a source of the paper: nothing from it reached a page a reader reads."
+}

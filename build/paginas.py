@@ -40,6 +40,7 @@ EXTRA = [("entidades", "Entidades"), ("registo", "Registo"), ("grafo", "Grafo")]
 RODAPE = [
     ("artigos", "Os artigos"), ("metodo", "Método"), ("equipa", "A redação"),
     ("entregas", "Entregas de investigação"), ("redacao", "A mesa"),
+    ("carteira", "A carteira"),
     ("ficheiros", "Os ficheiros"), ("aviso", "Aviso de proteção de dados"),
     ("sobre", "Sobre e limites"),
 ]
@@ -69,6 +70,46 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
 
 
+def utilitarios(raiz, no_backoffice=False):
+    """The utility run at the top right, IDENTICAL on the paper and in the back office.
+
+    THE MENU MUST NOT MOVE WHEN YOU CROSS BETWEEN THEM, and before v0.11.0 it moved a lot: the
+    paper had a dateline, a countdown and this run of links, then a centred masthead and a section
+    nav; the back office had a single row that mixed its own identity, its own eleven links and the
+    version, all in a different order and a different place. Clicking "Back office" moved every
+    item in the chrome at once, which reads as arriving at a different site rather than at the back
+    of the same one.
+
+    So this run is generated once, here, and both chromes emit it in the same slot with the same
+    items in the same order. Exactly one item differs, and it is the one that has to: on the paper
+    it points INTO the back office, and in the back office it points back out at the paper. Same
+    position, same width, same face — so crossing over moves one label and nothing else.
+    """
+    atravessar = (
+        f'<a href="{raiz}" title="A publicação, em português">← o jornal</a>'
+        if no_backoffice else
+        f'<a href="{raiz}backoffice/" title="The operations console — in English">'
+        f'Back office <span class="flag" aria-label="em inglês">EN</span></a>')
+    return (
+        f'<div class="utilitarios">'
+        f'<a href="{raiz}aviso/">Aviso</a>'
+        f'<a href="{raiz}metodo/">Método</a>'
+        f'<a href="{raiz}api/">API</a>'
+        f'{atravessar}'
+        # The wallet is a LINK to its own page, not a panel over this one. See pt-wallet.js: the
+        # editor asked for the spend on a page of its own, and a ledger worth reading is worth a
+        # URL. The component still debits the page it is on — that is the demonstration — it just
+        # no longer covers the masthead to show you the result.
+        f'<pt-wallet site-root="{raiz}"></pt-wallet>'
+        # THE VERSION BADGE IS A LINK. The sgit.ai guidance asks for both things — show the
+        # version in the chrome AND link it to that version's detail — and until v0.9.0 only
+        # the first half was done: it was a `<span>`, and the only route to the detail was the
+        # last item of an eleven-item list in the footer. On a site whose entire proposition is
+        # traceability, it was the one place the site did not trace itself.
+        f'<a class="ver" href="{raiz}admin/versions.html#{VERSAO}" '
+        f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div>')
+
+
 def datalinha(hoje, dias=None):
     dta = data_pt(hoje)
     direita = ""
@@ -77,23 +118,7 @@ def datalinha(hoje, dias=None):
                    f'Startup Summit Lisbon 2026</div>' if dias else
                    '<div><b>Hoje</b>: Startup Summit Lisbon 2026</div>')
     return (f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}'
-            f'<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">'
-            f'<a href="{{raiz}}aviso/">Aviso</a>'
-            f'<a href="{{raiz}}metodo/">Método</a>'
-            f'<a href="{{raiz}}api/">API</a>'
-            f'<a href="{{raiz}}backoffice/" title="The operations console — in English">'
-            f'Back office <span class="flag" aria-label="em inglês">EN</span></a>'
-            f'<pt-wallet site-root="{{raiz}}"></pt-wallet>'
-            # THE VERSION BADGE IS A LINK. The sgit.ai guidance asks for both things — show the
-            # version in the chrome AND link it to that version's detail — and until v0.9.0 only
-            # the first half was done: it was a `<span>`, and the only route to the detail was the
-            # last item of an eleven-item list in the footer. On a site whose entire proposition is
-            # traceability, it was the one place the site did not trace itself.
-            # The anchor goes to this version's number in `admin/versions.html`, where what changed
-            # and why is written; the `title` says where it goes, because a version number on its
-            # own does not.
-            f'<a class="ver" href="{{raiz}}admin/versions.html#{VERSAO}" '
-            f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div></div>')
+            f'{utilitarios("{raiz}")}</div>')
 
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",

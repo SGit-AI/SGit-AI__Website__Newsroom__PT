@@ -99,6 +99,9 @@ suficiente para ser interessante.
                          "não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal."),
         ("/registo/", "O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção."),
         ("/grafo/", "A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso."),
+        ("/carteira/", "A carteira: cada página custa um cêntimo a abrir, e o registo do gasto "
+                       "está numa página em vez de num painel. Não cobra nada a ninguém — o saldo "
+                       "vive no navegador de quem lê."),
         ("/ficheiros/", "O manifesto: cada ficheiro de dados com o seu SHA-256."),
         ("/metodo/", "Obter, congelar, hashear, extrair, comparar — e onde cada recusa corre."),
         ("/equipa/", "Três departamentos, o editor de registo, e o que não está construído."),

@@ -5,6 +5,12 @@
   "contagem": 14,
   "versoes": [
     {
+      "versao": "v0.11.0",
+      "data": "2026-09-15",
+      "ficheiro": "admin/versions/v0.11.0.md",
+      "titulo": "The chrome stops moving between the paper and the back office, the spend gets a page of its own, and the palette finally reaches inside the components"
+    },
+    {
       "versao": "v0.10.0",
       "data": "2026-09-15",
       "titulo": "The language rule gets a test, a gate, and an apology",

@@ -1,13 +1,12 @@
 <div class="bar" part="bar">
-  <button id="open" type="button" class="badge" aria-expanded="false">
+  <a id="open" class="badge" href="#">
     <span class="dot"></span>
     <span id="bal">—</span>
     <span class="lbl">carteira</span>
-  </button>
+  </a>
   <div id="panel" class="panel" hidden>
     <div class="head">
       <b>A carteira</b>
-      <button id="close" type="button" class="x" aria-label="fechar">×</button>
     </div>
     <p class="demo"><b>Isto é uma demonstração e não cobra nada a ninguém.</b> Não há pagamento,
       não há conta, e nada sai deste navegador: o saldo vive em <code>localStorage</code> e
