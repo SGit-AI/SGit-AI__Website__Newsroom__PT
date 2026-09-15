@@ -79,44 +79,56 @@ def primeira(d):
             return ""
         return (f'<a class="chip" href="{e(h["url"])}">ler o artigo · {e(h["estado"])}</a>')
 
-    # --- a história principal -------------------------------------------------
-    # None is published in this version, and the front page says so rather than staging one.
-    # What takes the headline slot is what this newsroom CAN claim today from the bytes it
-    # holds: the measurement of the national register's readability.
-    leg = verf.get("legibilidade", {})
-    ilegiveis = [(k, v) for k, v in leg.items() if not v["legivel_por_maquina"]]
-    if publicadas:
-        lead = publicadas[0]
-        bloco_lead = (
-            f'<div class="kick">{e(lead.get("antetitulo", ""))}</div>'
-            f'<h1 class="h-lead"><a href="{e(lead["url"])}">{e(lead["titulo"])}</a></h1>'
-            f'<p class="std">{e(lead.get("entrada", ""))}</p>')
-    else:
-        nomes = {"dre-inicio": "o Diário da República", "gov-ia": "a página do Governo",
-                 "dados-gov": "o portal nacional de dados abertos"}
-        # A Portuguese list joins its last element with «e», and proper nouns are proper
-        # nouns: `capitalize()` produced «O diário da república», which is why it is not here.
-        rotulos = [nomes.get(k, k) for k, _ in ilegiveis]
-        quais = (rotulos[0] if len(rotulos) == 1
-                 else ", ".join(rotulos[:-1]) + " e " + rotulos[-1])
-        quais = quais[0].upper() + quais[1:]
-        verbo = "devolveu" if len(rotulos) == 1 else "devolveram"
-        n_pt = {1: "Uma", 2: "Duas", 3: "Três"}.get(len(ilegiveis), str(len(ilegiveis)))
-        tot_pt = {1: "uma", 2: "duas", 3: "três"}.get(len(leg), str(len(leg)))
-        bloco_lead = (
-            f'<div class="kick">O registo nacional · uma medição</div>'
-            + liga("lead", f"{n_pt} das {tot_pt} páginas do registo nacional não devolvem "
-                            f"texto a um leitor automático", "h1 h-lead") +
-            f'<p class="std">Esta redação obteve e congelou hoje {tot_pt} páginas do registo '
-            f'público português. {quais} {verbo} bytes e quase nenhum texto visível: renderizam '
-            f'por script. É uma medição com data e hash sobre a legibilidade do registo, não uma '
-            f'opinião sobre quem o publica — e é a parede contra a qual as três primeiras '
-            f'histórias desta publicação foram encomendadas.</p>')
+    # --- a história principal e as duas secundárias ---------------------------
+    # These three blocks used to be bespoke: each was written from one measurement — the register's
+    # readability, the event's two sets of stage names, the speaker list that had only one capture —
+    # and each linked to the article about that measurement. They were what this newsroom could
+    # claim before it had published anything, and they were about its own plumbing. A reader who
+    # arrives wanting to know about AI in Portugal was met by three stories about how the site
+    # reads pages. Now that there are published articles, the front page leads with them.
+    #
+    # Which article takes which slot stays a property of the ARTICLE, declared in its own
+    # artigo.json. What changed is the fallback: with no slot declared, the published articles fill
+    # lead, secundaria-1 and secundaria-2 in order, so a front page is never empty and never links
+    # to an article that no longer exists.
+    ordem = sorted(publicadas, key=lambda h: (h.get("publicado_em") or h["data"], h["slug"]),
+                   reverse=True)
+    for nome in ("lead", "secundaria-1", "secundaria-2"):
+        if nome not in slots:
+            for h in ordem:
+                if h not in slots.values():
+                    slots[nome] = h
+                    break
 
-    fichas_lead = "".join(
-        f'<span class="chip {"ok" if v["legivel_por_maquina"] else "falta"}">'
-        f'{e(k)} · {v["caracteres_visiveis"]} caracteres</span>'
-        for k, v in sorted(leg.items()))
+    lead = slots.get("lead")
+    if lead:
+        bloco_lead = (
+            f'<div class="kick">{e(lead.get("antetitulo") or lead["seccao"])}</div>'
+            + liga("lead", lead["titulo"], "h1 h-lead") +
+            f'<p class="std">{e(lead.get("entrada", ""))}</p>')
+        # The chips under the lead are the lead's OWN frozen sources. They used to be the
+        # readability measurement, which stayed put when the headline changed and described a
+        # different article than the one above it.
+        # A source is named by its PUBLISHER, not by the id it happens to carry in the register.
+        # «src-pol-03» means something to this repository and nothing to a reader; «Governo de
+        # Portugal · 181 336 bytes» is the same fact said to the person reading it.
+        por_fonte = {f["id"]: f for f in reg["fontes"]}
+        fichas_lead = "".join(
+            f'<span class="chip ok">{e(por_fonte[s]["publicador"])} · '
+            f'{por_fonte[s]["bytes"]:,} bytes</span>'.replace(",", "\u202f")
+            for s in lead.get("assenta_em", []) if s in por_fonte)
+        n_conf_lead = (lead.get("verificacao") or {}).get("confirmadas", 0)
+        fichas_lead += (f'<span class="chip ok">{n_conf_lead} afirmaç'
+                        f'{"ões" if n_conf_lead != 1 else "ão"} confirmada'
+                        f'{"s" if n_conf_lead != 1 else ""}</span>')
+    else:
+        bloco_lead = (
+            '<div class="kick">Ainda não há primeira página</div>'
+            '<h1 class="h-lead">Nenhum artigo foi publicado ainda.</h1>'
+            '<p class="std">Quando o editor de registo escrever a linha num artigo, ele aparece '
+            'aqui. Até lá esta publicação tem trabalho em preparação e diz que o tem, em vez de '
+            'encenar uma primeira página.</p>')
+        fichas_lead = ""
 
     estado_dep = (
         f'<div class="hair" style="padding-top:14px;display:flex;gap:24px;flex-wrap:wrap">'
@@ -127,48 +139,23 @@ def primeira(d):
         f'<div class="col sp6" style="flex:1;min-width:150px"><div class="sect">Verificação</div>'
         f'<p class="sm">{d["n_verificadas"]} afirmações relidas nos bytes congelados.</p></div></div>')
 
-    # --- as duas secundárias --------------------------------------------------
-    palcos_por_pagina = verf.get("nomes_de_palco", {})
-    conjuntos = {tuple(v) for v in palcos_por_pagina.values()}
-    sec1 = ""
-    if len(conjuntos) > 1:
-        pares = sorted(palcos_por_pagina.items())
-        sec1 = (
-            f'<div class="col sp10">'
-            f'<div class="kick">Verificação</div>'
-            + liga("secundaria-1", "O mesmo evento nomeia os seus palcos de duas maneiras",
-                   "h2 h-2") +
-            f'<p class="sm">Em páginas diferentes do seu próprio site, congeladas no mesmo dia, o '
-            f'evento chama aos palcos nomes diferentes. Ambas as páginas são dele; nenhuma está '
-            f'errada — estão em desacordo.</p>'
-            f'<div class="chips">'
-            + "".join(f'<span class="chip ok">{e(k)} · {e(", ".join(v))}</span>' for k, v in pares)
-            + '</div></div>')
+    def secundaria(slot, topo=False):
+        h = slots.get(slot)
+        if not h:
+            return ""
+        n = (h.get("verificacao") or {}).get("confirmadas", 0)
+        estilo = ('col sp10' if topo else
+                  'hair col sp10" style="padding-top:22px')
+        return (f'<div class="{estilo}">'
+                f'<div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
+                + liga(slot, h["titulo"], "h2 h-2") +
+                f'<p class="sm">{e((h.get("entrada") or "")[:230])}</p>'
+                f'<div class="chips"><span class="chip ok">{n} confirmada'
+                f'{"s" if n != 1 else ""}</span>'
+                f'<span class="chip">{e(h["seccao"])}</span></div></div>')
 
-    ultima_mud = mud["mudancas"][-1] if mud["mudancas"] else None
-    if ultima_mud:
-        sec2 = (
-            f'<div class="hair col sp10" style="padding-top:22px">'
-            f'<div class="kick">A lista mexe-se</div>'
-            + liga("secundaria-2", f'Entraram {len(ultima_mud["entraram"])} e '
-                   f'{"saiu" if len(ultima_mud["sairam"]) == 1 else "saíram"} '
-                   f'{len(ultima_mud["sairam"])}', "h2 h-2") +
-            f'<p class="sm">Entre {e(ultima_mud["de"])} e {e(ultima_mud["para"])} a lista publicada '
-            f'de oradores passou de {ultima_mud["contagem_de"]} para {ultima_mud["contagem_para"]}. '
-            f'Temos as duas cópias e os dois hashes, e é só por isso que alguém o pode dizer. A '
-            f'razão de uma saída fica em branco.</p>'
-            f'<div class="chips"><span class="chip ok">oradores · {e(ultima_mud["de"])}</span>'
-            f'<span class="chip ok">oradores · {e(ultima_mud["para"])}</span></div></div>')
-    else:
-        sec2 = (
-            f'<div class="hair col sp10" style="padding-top:22px">'
-            f'<div class="kick">A lista mexe-se</div>'
-            + liga("secundaria-2", "Uma captura não mostra movimento; duas mostram", "h2 h-2") +
-            f'<p class="sm">Só existe uma captura da lista de oradores, a de {e(hoje)}, com '
-            f'{pes["contagem"]} nomes. Não há aqui nenhuma diferença para relatar, e dizer o '
-            f'contrário seria inventar uma. A captura seguinte torna esta afirmação possível.</p>'
-            f'<div class="chips"><span class="chip ok">oradores · {e(hoje)} · '
-            f'{pes["contagem"]} cartões</span></div></div>')
+    sec1 = secundaria("secundaria-1", topo=True)
+    sec2 = secundaria("secundaria-2")
 
     # --- «Nesta edição»: counts, every one of them from a file -----------------
     n_ent = sum(x["contagens"]["afirmacoes"] for x in ent["entregas"]) if ent else 0
@@ -281,7 +268,7 @@ def primeira(d):
 <div class="g12" style="padding:34px 0 30px">
   <div class="col sp18" style="grid-column:span 7">
     {bloco_lead}
-    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}{estado_do("lead")}</div>
+    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}</div>
     {estado_dep}
   </div>
   <div class="col sp22 borda-esq" style="grid-column:span 5;border-left:1px solid var(--filete);padding-left:40px">
@@ -292,7 +279,7 @@ def primeira(d):
 {bloco_publicados}
 
 <div class="rule" style="padding:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
-  <div class="sect">Em preparação · as três primeiras histórias do registo nacional</div>
+  <div class="sect">Em preparação</div>
   {legenda}
 </div>
 <div class="g3" style="padding:10px 0 34px">{cartoes}</div>

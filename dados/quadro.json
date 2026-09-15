@@ -34,7 +34,7 @@
   ],
   "contagens": {
     "cartoes": 16,
-    "issues_do_jornal": 4,
+    "issues_do_jornal": 2,
     "agentes": 5
   },
   "por_agente": {
@@ -96,38 +96,6 @@
       },
       "issues_do_jornal": [
         {
-          "ficheiro": "redacao/issues/001-agenda-nacional-instrumento.json",
-          "agente": "pesquisa.pt",
-          "coluna": "abertos",
-          "origem_tipo": "issue",
-          "id": "001",
-          "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-          "estado": "procurado",
-          "seccao": "politicas",
-          "aberto": "2026-09-14",
-          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
-          "o_que_falta": [
-            "O PDF do diploma. O Diário da República publica o texto integral em PDF num endereço construível, e build/pdf.py já lê esses PDFs (decifra o manipulador de segurança padrão e segue o mapa /ToUnicode). O endereço tem de ser ENCONTRADO, não construído por adivinhação: um endereço inventado que devolve 404 é um erro; um que devolve outro diploma é pior.",
-            "Uma segunda fonte independente para a data e o número."
-          ]
-        },
-        {
-          "ficheiro": "redacao/issues/002-regulador-designacao.json",
-          "agente": "pesquisa.pt",
-          "coluna": "abertos",
-          "origem_tipo": "issue",
-          "id": "002",
-          "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-          "estado": "procurado",
-          "seccao": "instituicoes",
-          "aberto": "2026-09-14",
-          "porque_aqui": "Falta-lhe uma fonte congelada. Quem a vai buscar é a pesquisa.",
-          "o_que_falta": [
-            "O ato de designação, no Diário da República. Enquanto não for encontrado, a história é sobre a ausência no registo, não sobre a ausência de designação.",
-            "Acesso à página da ANACOM. 403 não é uma recusa de informação: é um servidor a bloquear um cliente. O editor pode pedir acesso."
-          ]
-        },
-        {
           "ficheiro": "redacao/issues/003-quantas-startups-ia.json",
           "agente": "pesquisa.pt",
           "coluna": "abertos",
@@ -173,7 +141,7 @@
         "abertos": 2,
         "bloqueados": 1,
         "fechados": 0,
-        "issues_do_jornal": 3,
+        "issues_do_jornal": 1,
         "por_tratar": 1,
         "em_transito": 0
       }

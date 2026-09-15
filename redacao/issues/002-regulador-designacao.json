@@ -2,15 +2,19 @@
   "id": "002",
   "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
   "seccao": "instituicoes",
-  "estado": "procurado",
+  "estado": "publicado",
   "aberto_em": "2026-09-14",
-  "ultimo_toque": { "quem": "pesquisa", "quando": "2026-09-14" },
+  "ultimo_toque": {
+    "quem": "editor",
+    "quando": "2026-09-15"
+  },
   "enquadramento": "Dois factos, duas citações, e uma pergunta em vez de uma resposta. Publica-se o registo, nunca o veredicto, e nenhum adjetivo sobre uma parte nomeada.",
   "de_onde_vem": "§11 do resumo de comissionamento, segunda das três primeiras histórias.",
   "o_que_ja_se_tem": [
     "Uma entrega do ChatGPT cita uma página da ANACOM que a apresenta como autoridade nacional no âmbito do AI Act. Essa página devolveu 403 a esta redação: nada se pode conferir contra ela.",
     "A mesma entrega cita a página da Comissão Europeia que diz que os Estados-Membros deveriam ter designado autoridades competentes até 2 de agosto de 2025 — e ESSA afirmação foi confirmada nos bytes congelados.",
-    "A página temática oficial portuguesa foi congelada e confirmada: descreve o Regulamento sem identificar nominalmente a autoridade nacional."
+    "A página temática oficial portuguesa foi congelada e confirmada: descreve o Regulamento sem identificar nominalmente a autoridade nacional.",
+    "PUBLICADO a 15 de setembro em artigos/2026/09/14/regulador-designacao-ausente/, com as duas afirmações confirmadas nos bytes. A terceira, a da ANACOM, ficou de fora por 403 e está registada como não conferida."
   ],
   "o_que_falta": [
     "O ato de designação, no Diário da República. Enquanto não for encontrado, a história é sobre a ausência no registo, não sobre a ausência de designação.",

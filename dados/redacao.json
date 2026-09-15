@@ -49,17 +49,16 @@
         "dados/*.json extraídos das fontes"
       ],
       "carga": {
-        "entradas": 24,
-        "abertas": 10,
+        "entradas": 11,
+        "abertas": 5,
         "por_especie": {
-          "acao": 14,
-          "pergunta": 10
+          "acao": 6,
+          "pergunta": 5
         },
-        "cartoes_a_espera": 2
+        "cartoes_a_espera": 1
       },
       "cartoes": [
-        "quantas-startups-sao-de-ia",
-        "agenda-nacional-instrumento-legal"
+        "quantas-startups-sao-de-ia"
       ],
       "correio": {
         "entrada": 1,
@@ -80,11 +79,11 @@
         "conteudo/*.md"
       ],
       "carga": {
-        "entradas": 12,
-        "abertas": 5,
+        "entradas": 7,
+        "abertas": 3,
         "por_especie": {
-          "acao": 7,
-          "falta": 5
+          "acao": 4,
+          "falta": 3
         },
         "cartoes_a_espera": 0
       },
@@ -108,19 +107,15 @@
         "dados/verificacoes/*.json"
       ],
       "carga": {
-        "entradas": 27,
+        "entradas": 13,
         "abertas": 0,
         "por_especie": {
-          "acao": 7,
-          "verificacao": 20
+          "acao": 4,
+          "verificacao": 9
         },
-        "cartoes_a_espera": 3
+        "cartoes_a_espera": 0
       },
-      "cartoes": [
-        "uma-captura-nao-mostra-movimento",
-        "registo-nacional-nao-devolve-texto",
-        "dois-nomes-para-os-mesmos-palcos"
-      ],
+      "cartoes": [],
       "correio": {
         "entrada": 0,
         "saida": 0,
@@ -142,20 +137,16 @@
         "Limpar um item que ficou «parado»."
       ],
       "carga": {
-        "entradas": 14,
+        "entradas": 12,
         "abertas": 0,
         "por_especie": {
           "acao": 8,
-          "decisao": 6
+          "decisao": 4
         },
-        "cartoes_a_espera": 3,
+        "cartoes_a_espera": 0,
         "entregas_por_rever": 0
       },
-      "cartoes": [
-        "uma-captura-nao-mostra-movimento",
-        "registo-nacional-nao-devolve-texto",
-        "dois-nomes-para-os-mesmos-palcos"
-      ],
+      "cartoes": [],
       "correio": {
         "entrada": 1,
         "saida": 1,
@@ -182,70 +173,11 @@
         },
         "aberto_em": "2026-09-14",
         "de": "dados/historias.json#historias[quantas-startups-sao-de-ia]"
-      },
-      {
-        "id": "agenda-nacional-instrumento-legal",
-        "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-        "seccao": "politicas",
-        "estado": "procurado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
-        "issue": "001",
-        "irmaos": 1,
-        "ultimo_toque": {
-          "quem": "pesquisa",
-          "quando": "2026-09-14"
-        },
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[agenda-nacional-instrumento-legal]"
       }
     ],
     "congelado": [],
     "rascunho": [],
-    "verificado": [
-      {
-        "id": "uma-captura-nao-mostra-movimento",
-        "titulo": "Uma captura não mostra movimento; duas mostram",
-        "seccao": "eventos",
-        "estado": "verificado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
-        "issue": null,
-        "irmaos": 0,
-        "ultimo_toque": {},
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[uma-captura-nao-mostra-movimento]"
-      },
-      {
-        "id": "registo-nacional-nao-devolve-texto",
-        "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
-        "seccao": "politicas",
-        "estado": "verificado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
-        "issue": "001",
-        "irmaos": 1,
-        "ultimo_toque": {
-          "quem": "pesquisa",
-          "quando": "2026-09-14"
-        },
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[registo-nacional-nao-devolve-texto]"
-      },
-      {
-        "id": "dois-nomes-para-os-mesmos-palcos",
-        "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
-        "seccao": "eventos",
-        "estado": "verificado",
-        "especie": "artigo",
-        "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
-        "issue": null,
-        "irmaos": 0,
-        "ultimo_toque": {},
-        "aberto_em": "2026-09-14",
-        "de": "dados/historias.json#historias[dois-nomes-para-os-mesmos-palcos]"
-      }
-    ],
+    "verificado": [],
     "publicado": [
       {
         "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
@@ -273,8 +205,8 @@
         "issue": "002",
         "irmaos": 0,
         "ultimo_toque": {
-          "quem": "pesquisa",
-          "quando": "2026-09-14"
+          "quem": "editor",
+          "quando": "2026-09-15"
         },
         "aberto_em": "2026-09-14",
         "de": "dados/historias.json#historias[regulador-designacao-ausente]"
@@ -330,6 +262,22 @@
     ]
   },
   "fora_do_quadro": [
+    {
+      "id": "001",
+      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
+      "seccao": "politicas",
+      "estado": "fechado",
+      "especie": "issue",
+      "url": null,
+      "issue": "001",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-15"
+      },
+      "aberto_em": "2026-09-14",
+      "de": "redacao/issues/001"
+    },
     {
       "id": "005",
       "titulo": "O leitor de PDF diz «é provavelmente um PDF digitalizado» quando o que lhe falta é uma dependência",
@@ -639,10 +587,10 @@
     }
   ],
   "contagens": {
-    "cartoes": 12,
+    "cartoes": 9,
     "bancadas": 4,
     "execucoes": 11,
     "publicados": 5,
-    "a_espera_do_editor": 3
+    "a_espera_do_editor": 0
   }
 }

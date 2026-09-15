@@ -4,8 +4,8 @@
   "atualizado": "2026-09-14",
   "nota": "Cada nó nomeia a fonte congelada de onde veio; cada aresta é um verbo português com um inverso distinto. Um caminho lê-se em voz alta em português, e se não se ler, a aresta está errada.",
   "contagens": {
-    "nos": 316,
-    "arestas": 951,
+    "nos": 312,
+    "arestas": 942,
     "tipos": 17,
     "verbos": 15
   },
@@ -77,8 +77,8 @@
       "id": "historias",
       "rotulo": "As histórias",
       "ordem": 10,
-      "nos": 10,
-      "arestas": 17
+      "nos": 6,
+      "arestas": 8
     }
   ],
   "nos": [
@@ -3545,28 +3545,12 @@
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
     },
     {
-      "id": "historia:uma-captura-nao-mostra-movimento",
-      "tipo": "Historia",
-      "rotulo": "Uma captura não mostra movimento; duas mostram",
-      "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/oradores"
-    },
-    {
       "id": "historia:regulador-designacao-ausente",
       "tipo": "Historia",
       "rotulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
       "bloco": "historias",
       "estado": "publicado",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
-    },
-    {
-      "id": "historia:registo-nacional-nao-devolve-texto",
-      "tipo": "Historia",
-      "rotulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
-      "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/registo/dre-inicio"
     },
     {
       "id": "historia:quantas-startups-sao-de-ia",
@@ -3591,22 +3575,6 @@
       "bloco": "historias",
       "estado": "publicado",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
-    },
-    {
-      "id": "historia:dois-nomes-para-os-mesmos-palcos",
-      "tipo": "Historia",
-      "rotulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
-      "bloco": "historias",
-      "estado": "verificado",
-      "fonte": "2026-09-14/agenda"
-    },
-    {
-      "id": "historia:agenda-nacional-instrumento-legal",
-      "tipo": "Historia",
-      "rotulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-      "bloco": "historias",
-      "estado": "procurado",
-      "fonte": "2026-09-14/registo/dre-inicio"
     },
     {
       "id": "historia:a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
@@ -10334,13 +10302,6 @@
       "bloco": "historias"
     },
     {
-      "id": "assenta_em:historia:uma-captura-nao-mostra-movimento:fonte:2026-09-14/oradores",
-      "verbo": "assenta_em",
-      "origem": "historia:uma-captura-nao-mostra-movimento",
-      "destino": "fonte:2026-09-14/oradores",
-      "bloco": "historias"
-    },
-    {
       "id": "assenta_em:historia:regulador-designacao-ausente:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
       "verbo": "assenta_em",
       "origem": "historia:regulador-designacao-ausente",
@@ -10352,27 +10313,6 @@
       "verbo": "assenta_em",
       "origem": "historia:regulador-designacao-ausente",
       "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/dre-inicio",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/dre-inicio",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/gov-ia",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/gov-ia",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:registo-nacional-nao-devolve-texto:fonte:2026-09-14/registo/dados-gov",
-      "verbo": "assenta_em",
-      "origem": "historia:registo-nacional-nao-devolve-texto",
-      "destino": "fonte:2026-09-14/registo/dados-gov",
       "bloco": "historias"
     },
     {
@@ -10394,41 +10334,6 @@
       "verbo": "assenta_em",
       "origem": "historia:gigafabricas-de-ia-duzentos-milhoes",
       "destino": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/agenda",
-      "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/agenda",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/oradores",
-      "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/oradores",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:dois-nomes-para-os-mesmos-palcos:fonte:2026-09-14/patrocinadores",
-      "verbo": "assenta_em",
-      "origem": "historia:dois-nomes-para-os-mesmos-palcos",
-      "destino": "fonte:2026-09-14/patrocinadores",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:agenda-nacional-instrumento-legal:fonte:2026-09-14/registo/dre-inicio",
-      "verbo": "assenta_em",
-      "origem": "historia:agenda-nacional-instrumento-legal",
-      "destino": "fonte:2026-09-14/registo/dre-inicio",
-      "bloco": "historias"
-    },
-    {
-      "id": "assenta_em:historia:agenda-nacional-instrumento-legal:fonte:2026-09-14/registo/gov-ia",
-      "verbo": "assenta_em",
-      "origem": "historia:agenda-nacional-instrumento-legal",
-      "destino": "fonte:2026-09-14/registo/gov-ia",
       "bloco": "historias"
     },
     {

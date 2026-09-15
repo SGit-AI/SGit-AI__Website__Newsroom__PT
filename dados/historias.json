@@ -30,7 +30,7 @@
       "significa": "Substituído a partir de uma data. Nunca apagado."
     }
   ],
-  "contagem": 10,
+  "contagem": 6,
   "publicados": 5,
   "historias": [
     {
@@ -55,33 +55,6 @@
       ],
       "verificacao": {
         "confirmadas": 2,
-        "disputadas": 0,
-        "nao_encontradas": 0
-      },
-      "tem_prosa": true
-    },
-    {
-      "slug": "uma-captura-nao-mostra-movimento",
-      "data": "2026-09-14",
-      "seccao": "eventos",
-      "titulo": "Uma captura não mostra movimento; duas mostram",
-      "entrada": "Só existe uma captura da lista de oradores, com 70 nomes. Não há aqui nenhuma diferença para relatar, e dizer o contrário seria inventar uma. Este artigo existe para dizer isso, e para ficar à espera da segunda captura.",
-      "antetitulo": "A lista mexe-se",
-      "estado": "verificado",
-      "publicado_em": null,
-      "publicado_por": null,
-      "url": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/",
-      "pasta": "artigos/2026/09/14/uma-captura-nao-mostra-movimento",
-      "issue": null,
-      "bloco_primeira_pagina": "secundaria-2",
-      "assenta_em": [
-        "2026-09-14/oradores"
-      ],
-      "marcas_na_prosa": [
-        "2026-09-14/oradores"
-      ],
-      "verificacao": {
-        "confirmadas": 3,
         "disputadas": 0,
         "nao_encontradas": 0
       },
@@ -114,37 +87,6 @@
         "disputadas": 0,
         "nao_encontradas": 0,
         "fonte_inacessivel": 1
-      },
-      "tem_prosa": true
-    },
-    {
-      "slug": "registo-nacional-nao-devolve-texto",
-      "data": "2026-09-14",
-      "seccao": "politicas",
-      "titulo": "Duas das três páginas do registo nacional não devolvem texto a um leitor automático",
-      "entrada": "Esta redação obteve e congelou três páginas do registo público português. O Diário da República e a página do Governo devolveram bytes e quase nenhum texto visível: renderizam por script. É uma medição com data e hash, não uma opinião sobre quem publica.",
-      "antetitulo": "O registo nacional · uma medição",
-      "estado": "verificado",
-      "publicado_em": null,
-      "publicado_por": null,
-      "url": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/",
-      "pasta": "artigos/2026/09/14/registo-nacional-nao-devolve-texto",
-      "issue": "001",
-      "bloco_primeira_pagina": "lead",
-      "assenta_em": [
-        "2026-09-14/registo/dre-inicio",
-        "2026-09-14/registo/gov-ia",
-        "2026-09-14/registo/dados-gov"
-      ],
-      "marcas_na_prosa": [
-        "2026-09-14/registo/dre-inicio",
-        "2026-09-14/registo/gov-ia",
-        "2026-09-14/registo/dados-gov"
-      ],
-      "verificacao": {
-        "confirmadas": 4,
-        "disputadas": 0,
-        "nao_encontradas": 0
       },
       "tem_prosa": true
     },
@@ -226,63 +168,6 @@
         "nao_encontradas": 0
       },
       "tem_prosa": true
-    },
-    {
-      "slug": "dois-nomes-para-os-mesmos-palcos",
-      "data": "2026-09-14",
-      "seccao": "eventos",
-      "titulo": "O mesmo evento nomeia os seus palcos de duas maneiras",
-      "entrada": "Em páginas diferentes do seu próprio site, congeladas no mesmo dia, o Startup Summit Lisbon 2026 chama aos palcos nomes diferentes. Ambas as páginas são dele; nenhuma está errada — estão em desacordo.",
-      "antetitulo": "Verificação",
-      "estado": "verificado",
-      "publicado_em": null,
-      "publicado_por": null,
-      "url": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/",
-      "pasta": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos",
-      "issue": null,
-      "bloco_primeira_pagina": "secundaria-1",
-      "assenta_em": [
-        "2026-09-14/agenda",
-        "2026-09-14/oradores",
-        "2026-09-14/patrocinadores"
-      ],
-      "marcas_na_prosa": [
-        "2026-09-14/agenda",
-        "2026-09-14/oradores",
-        "2026-09-14/patrocinadores"
-      ],
-      "verificacao": {
-        "confirmadas": 4,
-        "disputadas": 0,
-        "nao_encontradas": 0
-      },
-      "tem_prosa": true
-    },
-    {
-      "slug": "agenda-nacional-instrumento-legal",
-      "data": "2026-09-14",
-      "seccao": "politicas",
-      "titulo": "A agenda nacional de IA existe e o seu instrumento legal não pôde ser confirmado no registo público legível por máquina",
-      "entrada": "Encomendada pelo §11 do resumo de comissionamento. Esta pasta existe para recolher o material; ainda não há prosa e nada aqui é uma afirmação.",
-      "antetitulo": "Políticas",
-      "estado": "procurado",
-      "publicado_em": null,
-      "publicado_por": null,
-      "url": "artigos/2026/09/14/agenda-nacional-instrumento-legal/",
-      "pasta": "artigos/2026/09/14/agenda-nacional-instrumento-legal",
-      "issue": "001",
-      "bloco_primeira_pagina": null,
-      "assenta_em": [
-        "2026-09-14/registo/dre-inicio",
-        "2026-09-14/registo/gov-ia"
-      ],
-      "marcas_na_prosa": [],
-      "verificacao": {
-        "confirmadas": 0,
-        "disputadas": 0,
-        "nao_encontradas": 0
-      },
-      "tem_prosa": false
     },
     {
       "slug": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
