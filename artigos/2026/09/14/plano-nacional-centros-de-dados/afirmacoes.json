@@ -1,0 +1,29 @@
+{
+  "artigo": "plano-nacional-centros-de-dados",
+  "verificado_em": "2026-09-15",
+  "por": "verificacao",
+  "como": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "afirmacoes": [
+    {
+      "id": "a1",
+      "texto": "A Resolução do Conselho de Ministros n.º 70/2026 aprovou o Plano Nacional de Centros de Dados e o respetivo Plano de Ação.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "estado": "confirmada",
+      "localizador": "p. 1, sumário",
+      "excerto": "Aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação."
+    },
+    {
+      "id": "a2",
+      "texto": "O diploma identifica os centros de dados como suporte de tecnologias como a inteligência artificial, a computação em nuvem e o tratamento massivo de dados.",
+      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "estado": "confirmada",
+      "localizador": "p. 2, anexo I, ponto 1.1",
+      "excerto": "viabilizam o desenvolvimento e a adoção de tecnologias como a inteligência artificial (IA), a computação em nuvem e o tratamento massivo de dados."
+    }
+  ],
+  "resumo": {
+    "confirmadas": 2,
+    "disputadas": 0,
+    "nao_encontradas": 0
+  }
+}

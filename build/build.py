@@ -89,7 +89,7 @@ def primeira(d):
         lead = publicadas[0]
         bloco_lead = (
             f'<div class="kick">{e(lead.get("antetitulo", ""))}</div>'
-            f'<h1 class="h-lead"><a href="artigos/{e(lead["slug"])}.html">{e(lead["titulo"])}</a></h1>'
+            f'<h1 class="h-lead"><a href="{e(lead["url"])}">{e(lead["titulo"])}</a></h1>'
             f'<p class="std">{e(lead.get("entrada", ""))}</p>')
     else:
         nomes = {"dre-inicio": "o Diário da República", "gov-ia": "a página do Governo",
@@ -242,6 +242,41 @@ def primeira(d):
                      f'({e(i0["id"].split("/")[-1])}) devolveu um erro e ficou fora do registo: '
                      f'não pode ser citada.</p>')
 
+    # --- what has actually been published -------------------------------------
+    # The three blocks above are bespoke: each is written from a specific measurement and takes
+    # whichever article declares that slot. They are the EDITOR'S choice of what leads. This block
+    # is the other thing a reader needs — everything that has been published, newest day first,
+    # with the full archive one link away. Without it, an article the editor published but did not
+    # put in one of the three slots would exist on the site and be reachable from nowhere.
+    por_dia_pub = {}
+    for h in publicadas:
+        por_dia_pub.setdefault(h.get("publicado_em") or h["data"], []).append(h)
+    grupos_pub = []
+    for dia, lista in sorted(por_dia_pub.items(), reverse=True)[:2]:
+        cartoes_pub = "".join(
+            f'<div class="painel col sp8">'
+            f'<div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
+            f'<h3 class="h-3"><a href="{e(h["url"])}">{e(h["titulo"])}</a></h3>'
+            f'<p class="sm">{e((h.get("entrada") or "")[:190])}</p>'
+            f'<div class="chips"><span class="chip ok">'
+            f'{(h.get("verificacao") or {}).get("confirmadas", 0)} confirmadas</span>'
+            f'<span class="chip">{e(h["seccao"])}</span></div></div>'
+            for h in sorted(lista, key=lambda x: x["seccao"]))
+        grupos_pub.append(
+            f'<div class="hair" style="padding:14px 0 6px"><div class="sect">'
+            f'{e(data_pt(dia, False))} · {len(lista)} artigo{"s" if len(lista) != 1 else ""}'
+            f'</div></div><div class="g3" style="padding:6px 0 16px">{cartoes_pub}</div>')
+    bloco_publicados = ""
+    if grupos_pub:
+        bloco_publicados = (
+            f'<div class="rule" style="padding:18px 0 8px;display:flex;'
+            f'justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">'
+            f'<div class="sect">Publicado · {len(publicadas)} artigo'
+            f'{"s" if len(publicadas) != 1 else ""}</div>'
+            f'<a class="mono ac" style="font-size:12px;letter-spacing:.04em" href="artigos/">'
+            f'Todos os artigos, dia a dia →</a></div>'
+            + "".join(grupos_pub))
+
     corpo = f"""
 <div class="g12" style="padding:34px 0 30px">
   <div class="col sp18" style="grid-column:span 7">
@@ -253,6 +288,8 @@ def primeira(d):
     {sec1}{sec2}{nesta}
   </div>
 </div>
+
+{bloco_publicados}
 
 <div class="rule" style="padding:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
   <div class="sect">Em preparação · as três primeiras histórias do registo nacional</div>
@@ -1487,13 +1524,12 @@ def main():
     feitas.append(escrever("entregas/index.html", entregas_indice(d)))
     for x in (d["entregas"] or {}).get("entregas", []):
         feitas.append(escrever(f"entregas/{x['id']}.html", entrega_pagina(x, d)))
-    for h in d["historias"]["historias"]:
-        if h["estado"] == "publicado":
-            md = (ROOT / "conteudo" / f"{h['slug']}.md").read_text(encoding="utf-8")
-            corpo = f'<div style="max-width:42em;padding:26px 0">{md_para_html(md)}</div>'
-            feitas.append(escrever(f"artigos/{h['slug']}.html",
-                                   pagina(f"artigos/{h['slug']}.html", h["titulo"],
-                                          h.get("entrada", ""), corpo, nomeia_pessoas=True)))
+    # An article is its dated folder, and build/artigos.py renders it there from artigo.md. This
+    # used to render a SECOND copy of every published article at artigos/<slug>.html out of
+    # conteudo/<slug>.md — a path that predates the dated folders and that nothing ever exercised,
+    # because nothing had ever been published. The first publication found it: two renderers for
+    # one article is the same defect the briefs are linked rather than republished to avoid.
+    # Content exists once.
     print(f"build: {len(feitas)} páginas")
     return feitas
 

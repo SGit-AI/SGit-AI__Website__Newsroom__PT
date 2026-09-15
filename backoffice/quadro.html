@@ -27,7 +27,7 @@
        <a href="../backoffice/agents.html">agents</a> ·
        <a href="../backoffice/guidance.html">guidance</a> ·
        <a href="../admin/versions.html">versions</a></div>
-  <div><span class="ver">v0.10.1</span></div>
+  <div><span class="ver">v0.10.2</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -254,7 +254,7 @@ used</div></div>
   <div class="chips"><span class="chip ">Closed · 0</span></div>
   <p class="sm" style="padding-top:8px">Nothing here.</p>
 </div></div>
-
+<div class="sect" style="padding-top:14px">Mail on its plate</div><div class="g2 sp12"><div class="col sp6"></div><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip miss">in transit</span><span class="chip">from @Dinis</span></div><p class="sm">Os resumos de investigação precisam de uma página que os renderize, e não de uma segunda cópia</p><p class="xs mono">waiting for @Bastidores to collect it into its inbox</p></div></div></div>
 
 <div class="rule" style="padding:26px 0 8px" id="dinis.humano">
   <div class="sect">@Dinis · Dinis Cruz</div></div>
@@ -262,7 +262,7 @@ used</div></div>
   <span class="chip">dinis.humano</span>
   <span class="chip ok">8 open</span>
   <span class="chip miss">1 blocked</span>
-  <span class="chip ">0 closed</span>
+  <span class="chip ">1 closed</span>
   <span class="chip ">1 paper issues</span>
   <span class="chip falta">1 unread mail</span>
   <a class="chip" href="equipa.html#dinis.humano">its definition →</a>
@@ -279,17 +279,6 @@ used</div></div>
   </div>
   <p class="sm"><a href="../redacao/">Entrega ChatGPT 1/8 (políticas): 9 afirmações com excerto confirmado, 10 sem fonte legível</a></p>
   <p class="xs mono">by formula: É uma entrega exterior à espera de aprovação item a item, que só o editor dá.</p>
-</div>
-<div class="cartao">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">alta</span>
-    
-    <span class="chip">issue 004</span>
-    <span class="chip miss">waiting on —</span>
-  </div>
-  <p class="sm"><b>Decidir a entrega do ChatGPT sobre políticas, item a item</b></p>
-  <p class="xs">Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p…</p>
-  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md">redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md</a></p>
 </div>
 <div class="cartao">
   <div class="chips" style="padding-bottom:6px">
@@ -368,6 +357,17 @@ used</div></div>
   <p class="xs">A grelha «Em preparação» repete, no mesmo ecrã e textualmente, três histórias que já estão acima: duas que já estão na coluna da direita, e uma que **é o título principal**. O leitor lê o título da história de abertura **duas vezes antes de rolar uma vez**. Metade da grelha é enchimento, e isso cont…</p>
   <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/009__quao-magra-a-edicao-pode-parecer.md">redacao/correio/dinis.humano/assuntos/abertos/009__quao-magra-a-edicao-pode-parecer.md</a></p>
 </div>
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue 005</span>
+    <span class="chip miss">waiting on build/pdf.py está na lista de recusa; nenhum agente o pode editar</span>
+  </div>
+  <p class="sm"><b>O leitor de PDF diz que o diploma é digitalizado quando o que lhe falta é uma dependência</b></p>
+  <p class="xs">Corrigir `build/pdf.py` para que a falta de `pycryptodome` no caminho AESV2 fique registada como falta de dependência e não como um juízo sobre o documento. Hoje `_aes_cbc` devolve `None`, a `Cifra` fica com `ok=True` e `porque=None`, e o leitor conclui «é provavelmente um PDF digitalizado, que prec…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/abertos/010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia.md">redacao/correio/dinis.humano/assuntos/abertos/010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia.md</a></p>
+</div>
 </div>
 <div class="col sp6">
   <div class="chips"><span class="chip miss">Blocked · 1</span></div>
@@ -385,8 +385,19 @@ used</div></div>
 </div>
 </div>
 <div class="col sp6">
-  <div class="chips"><span class="chip ">Closed · 0</span></div>
-  <p class="sm" style="padding-top:8px">Nothing here.</p>
+  <div class="chips"><span class="chip ">Closed · 1</span></div>
+  
+<div class="cartao">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">alta</span>
+    
+    <span class="chip">issue 004</span>
+    <span class="chip miss">waiting on —</span>
+  </div>
+  <p class="sm"><b>Decidir a entrega do ChatGPT sobre políticas, item a item</b></p>
+  <p class="xs">Decidir, item a item, a entrega 1/8 do ChatGPT sobre políticas: 9 afirmações com o excerto encontrado nos bytes, 10 sem fonte legível. Está em `/entregas/` com cada afirmação ao lado da cópia congelada em que devia assentar. `/newsroom-entregas` abre a sessão de revisão com os ids reais. Aprovar é p…</p>
+  <p class="xs mono"><a href="docs.html#redacao/correio/dinis.humano/assuntos/fechados/001__decidir-a-entrega-chatgpt-politicas.md">redacao/correio/dinis.humano/assuntos/fechados/001__decidir-a-entrega-chatgpt-politicas.md</a></p>
+</div>
 </div></div>
 <div class="sect" style="padding-top:14px">Mail on its plate</div><div class="g2 sp12"><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip falta">unread</span><span class="chip">from @Arranque</span></div><p class="sm">MVP v0.1.0 construído; o que é real, o que não é, e o que precisa da sua decisão</p><p class="xs mono"><a href="correio.html#001-mvp-construido@redacao.local">redacao/correio/dinis.humano/entrada/001__sessao-de-arranque__o-que-foi-construido.eml</a></p></div></div><div class="col sp6"><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip miss">in transit</span><span class="chip">from @Bastidores</span></div><p class="sm">A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial</p><p class="xs mono">waiting for @Dinis to collect it into its inbox</p></div><div class="cartao"><div class="chips" style="padding-bottom:6px"><span class="chip miss">in transit</span><span class="chip">from @Bastidores</span></div><p class="sm">A revisão de desenho está implementada até onde um agente a pode implementar; cinco decisões são suas</p><p class="xs mono">waiting for @Dinis to collect it into its inbox</p></div></div></div>
 
@@ -396,7 +407,7 @@ used</div></div>
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/quadro.html</code> · version <span class="ver">v0.10.1</span>.
+<code>backoffice/quadro.html</code> · version <span class="ver">v0.10.2</span>.
 </div>
 
 </div>

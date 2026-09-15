@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 82,
+  "contagem": 89,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -92,6 +92,14 @@
       "bytes": 2924,
       "linhas": 36,
       "palavras": 470
+    },
+    {
+      "caminho": "admin/versions/v0.10.2.md",
+      "titulo": "v0.10.2",
+      "categoria": "Repository root",
+      "bytes": 3562,
+      "linhas": 46,
+      "palavras": 588
     },
     {
       "caminho": "admin/versions/v0.2.0.md",
@@ -262,12 +270,36 @@
       "palavras": 549
     },
     {
+      "caminho": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 2249,
+      "linhas": 33,
+      "palavras": 350
+    },
+    {
       "caminho": "artigos/2026/09/14/dois-nomes-para-os-mesmos-palcos/artigo.md",
       "titulo": "artigo",
       "categoria": "Articles",
       "bytes": 1956,
       "linhas": 36,
       "palavras": 324
+    },
+    {
+      "caminho": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1458,
+      "linhas": 22,
+      "palavras": 219
+    },
+    {
+      "caminho": "artigos/2026/09/14/plano-nacional-centros-de-dados/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1969,
+      "linhas": 28,
+      "palavras": 311
     },
     {
       "caminho": "artigos/2026/09/14/registo-nacional-nao-devolve-texto/artigo.md",
@@ -278,12 +310,28 @@
       "palavras": 502
     },
     {
+      "caminho": "artigos/2026/09/14/regulador-designacao-ausente/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 2748,
+      "linhas": 42,
+      "palavras": 414
+    },
+    {
       "caminho": "artigos/2026/09/14/uma-captura-nao-mostra-movimento/artigo.md",
       "titulo": "artigo",
       "categoria": "Articles",
       "bytes": 1778,
       "linhas": 34,
       "palavras": 310
+    },
+    {
+      "caminho": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/artigo.md",
+      "titulo": "artigo",
+      "categoria": "Articles",
+      "bytes": 1293,
+      "linhas": 20,
+      "palavras": 188
     },
     {
       "caminho": "artigos/LEIA-ME.md",
@@ -558,14 +606,6 @@
       "palavras": 266
     },
     {
-      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
-      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
-      "categoria": "Newsroom files",
-      "bytes": 906,
-      "linhas": 23,
-      "palavras": 133
-    },
-    {
       "caminho": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
       "titulo": "002__decidir-os-tipos-novos-da-ontologia",
       "categoria": "Newsroom files",
@@ -622,12 +662,28 @@
       "palavras": 237
     },
     {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia.md",
+      "titulo": "010__o-leitor-de-pdf-mente-quando-lhe-falta-uma-dependencia",
+      "categoria": "Newsroom files",
+      "bytes": 2006,
+      "linhas": 37,
+      "palavras": 326
+    },
+    {
       "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
       "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
       "categoria": "Newsroom files",
       "bytes": 2519,
       "linhas": 44,
       "palavras": 425
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/fechados/001__decidir-a-entrega-chatgpt-politicas.md",
+      "titulo": "001__decidir-a-entrega-chatgpt-politicas",
+      "categoria": "Newsroom files",
+      "bytes": 1818,
+      "linhas": 39,
+      "palavras": 263
     },
     {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",

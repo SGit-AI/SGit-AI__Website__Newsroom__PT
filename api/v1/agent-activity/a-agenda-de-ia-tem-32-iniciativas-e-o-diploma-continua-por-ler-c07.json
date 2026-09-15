@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a1"
+  },
+  "texto": "A implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+  "de": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/afirmacoes.json#afirmacoes[0]",
+  "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c07",
+  "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
+}

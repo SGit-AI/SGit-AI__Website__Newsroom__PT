@@ -1,36 +1,30 @@
 {
   "data": "2026-09-14",
-  "estado": "procurado",
-  "publicado_em": null,
-  "publicado_por": null,
+  "estado": "publicado",
+  "publicado_em": "2026-09-15",
+  "publicado_por": "Dinis Cruz",
   "origem": "resumo-de-comissionamento §11",
   "slug": "regulador-designacao-ausente",
   "seccao": "instituicoes",
   "issue": "002",
   "antetitulo": "Instituições",
   "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-  "entrada": "Encomendada pelo §11 do resumo de comissionamento. Dois factos, duas citações, e uma pergunta em vez de uma resposta. Ainda não há prosa.",
+  "entrada": "O Regulamento Europeu de IA manda cada Estado-Membro designar as suas autoridades nacionais competentes até 2 de agosto de 2025. A página temática do Governo português descreve o regulamento e não nomeia autoridade nenhuma. Esta redação não encontrou o ato de designação, e não afirma que ele não existe.",
   "especie": "registo_publico",
   "o_que_e": "Um contentor aberto. Publica-se o registo, nunca o veredicto, e nenhum adjetivo sobre uma parte nomeada.",
   "o_que_nao_afirma": [
-    "Não afirmará que nenhuma autoridade foi designada. Afirmará o que está e o que não está no registo público, com datas e hashes."
+    "Não afirma que nenhuma autoridade foi designada. Afirma o que está e o que não está nas páginas que esta redação conseguiu ler, com datas e hashes.",
+    "Não afirma que a ANACOM é ou não é a autoridade. A página que o diria devolveu 403 a esta redação e nada se conferiu contra ela.",
+    "Não caracteriza o Governo, a ANACOM nem qualquer outra parte nomeada. Publica-se o registo, nunca o veredicto."
   ],
   "assenta_em": [
     "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
     "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
   ],
   "departamentos": {
-    "pesquisa": "Aberto. Ver o_que_falta.",
-    "redacao": "Por começar.",
-    "verificacao": "Por começar."
+    "pesquisa": "Congelou a página da Comissão Europeia e a página temática do Governo. A página da ANACOM que a pista nomeava devolveu 403 e não se conferiu nada contra ela.",
+    "redacao": "Escreveu a partir das duas afirmações aprovadas pelo editor. A terceira, a da ANACOM, ficou de fora.",
+    "verificacao": "Releu as duas afirmações nas cópias congeladas e reencontrou os dois excertos nos bytes."
   },
-  "o_que_ja_se_tem": [
-    "CONFIRMADA nos bytes: a Comissão Europeia diz que os Estados-Membros deveriam ter designado autoridades competentes até 2 de agosto de 2025.",
-    "CONFIRMADA nos bytes: a página temática oficial portuguesa descreve o Regulamento sem identificar nominalmente a autoridade nacional.",
-    "SEM FONTE LEGÍVEL: a página da ANACOM que a entrega cita devolveu 403 a esta redação. Um 403 é um servidor a bloquear um cliente, não uma recusa de informação."
-  ],
-  "o_que_falta": [
-    "O ato de designação no Diário da República. Enquanto não for encontrado, a história é sobre a ausência NO REGISTO, e não sobre a ausência de designação.",
-    "Acesso à página da ANACOM. O editor pode pedi-lo. Não se contorna um bloqueio: uma redação que falsifica um agente perde o argumento que a torna diferente."
-  ]
+  "bloco_primeira_pagina": null
 }

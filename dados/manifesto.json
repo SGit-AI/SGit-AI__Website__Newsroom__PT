@@ -17,13 +17,13 @@
     },
     {
       "ficheiro": "dados/comentarios.json",
-      "bytes": 48962,
-      "sha256": "73f7de51f8b2dff7ccf8a0ef2cea096e841f6624b06988b0a5d34b6c4221dd65"
+      "bytes": 105727,
+      "sha256": "aa3af794f7d82a6a24158da0abc1d19c0e7ba161d9560805f8cecfcb38a8b6dd"
     },
     {
       "ficheiro": "dados/correio.json",
-      "bytes": 25378,
-      "sha256": "fdfff45128adfd0a0c6bcb4ee10ab99a74e7d897dd920fbd805e795ce585bb5a"
+      "bytes": 33440,
+      "sha256": "5ac43c7bea41e734a84479c7440e853ee131ed4e238b97dafd941518ea798078"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 19007,
-      "sha256": "bbde4715c083ecb511aec2960c82f2978589192c32bda1196934c16f28526e1e"
+      "bytes": 20319,
+      "sha256": "97e0352e225dbafca90f7aa5a09dc783e861beb0ddf6407bdac01c7649e43873"
     },
     {
       "ficheiro": "dados/entidades.json",
@@ -42,8 +42,8 @@
     },
     {
       "ficheiro": "dados/entregas.json",
-      "bytes": 56725,
-      "sha256": "9b22d6efcdae695f82bcf8c4352e5a10ee69db1cb1b420e434732765f70c8dc6"
+      "bytes": 61229,
+      "sha256": "c9e11122e03242023562110766a493346a3f8304b7c8dc361183271160f332a9"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -67,13 +67,13 @@
     },
     {
       "ficheiro": "dados/grafo.json",
-      "bytes": 355658,
-      "sha256": "1b4c0a580934163ff61bb52e24ecd304b60d274fb57491bf0810463b5bdf54f9"
+      "bytes": 359235,
+      "sha256": "9b443293a8942ce3c11c2b9cc598be1c119f3eeabe8eaeb38c2aa33af041716b"
     },
     {
       "ficheiro": "dados/historias.json",
-      "bytes": 7787,
-      "sha256": "762c26ac54e01d36e315e8c09a09dce8c81449ca2ef71b8529cb43c1fb04ae98"
+      "bytes": 13669,
+      "sha256": "c9dcb3bd6b3ab88b02cc4f82345520ffb19a9e370200afd20d9366a986934e02"
     },
     {
       "ficheiro": "dados/lexico.json",
@@ -82,8 +82,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 4867,
-      "sha256": "6fa07f4b1480a08f017ab26dbe14bab1d7f21566f8f61d23aa14ab38ed2ee0b2"
+      "bytes": 4869,
+      "sha256": "daea74acfe5de265c1dad389cc18cd435900baf89dcaabdc69060f2ff6fe6f25"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -112,13 +112,13 @@
     },
     {
       "ficheiro": "dados/quadro.json",
-      "bytes": 54580,
-      "sha256": "78c663c6eec71b07bf7f07d93f7f3aeebdfe4c4de1271a17def24882ddb955bc"
+      "bytes": 58699,
+      "sha256": "df06b99c12c25b1e181df5f969d412311833f50f4353a2e321924ec68e7fc1b1"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 15507,
-      "sha256": "de11b71ef8cd55d7701100e30f045309b886d2a9cd13d5cd53524d9d9c045943"
+      "bytes": 17641,
+      "sha256": "15e4e2913c5f9f86081ee428b2eba93782df9564813f03a77d47c673bc2ad9a7"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -142,8 +142,8 @@
     },
     {
       "ficheiro": "dados/triplos.nt",
-      "bytes": 272703,
-      "sha256": "36bd86ab0bcddaa5dc17f5da52023808e456ba64894bd32d0d0c31effa142c5c"
+      "bytes": 275864,
+      "sha256": "392561e419ac392d0f4a82c9b31fce796312fdb9f6dead83c4c988f8e1ad367f"
     },
     {
       "ficheiro": "dados/verificacoes-fonte.json",

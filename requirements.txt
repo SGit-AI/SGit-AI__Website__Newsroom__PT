@@ -1,0 +1,16 @@
+# What this build needs beyond the standard library. Two packages, and both are load-bearing on a
+# gate — which is why they are pinned in a file rather than left to whoever set up the machine.
+#
+# pycryptodomex — build/pdf.py. The Diário da República publishes its diplomas as PDFs encrypted
+#   with the standard security handler, and the newer ones use AES (AESV2/AESV3). Without this
+#   package build/pdf.py cannot decrypt them: every stream decrypts to zero bytes and the reader
+#   reports «nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado», which
+#   is a WRONG statement about somebody else's document. A frozen PDF that read 30 808 characters
+#   on one machine reads 0 on another, hashes still match, and every claim resting on it silently
+#   turns to `fonte_inacessivel` while the build stays green. Evidence that depends on which
+#   machine reads it is not evidence.
+# jsonschema — build/entregas.py. A research delivery is validated against
+#   briefs/pack/08__research-briefs/research-schema.json before anything in it is frozen or
+#   believed. No validator, no gate.
+pycryptodomex>=3.20
+jsonschema>=4.21

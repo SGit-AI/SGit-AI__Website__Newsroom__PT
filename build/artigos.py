@@ -242,34 +242,72 @@ def pagina_artigo(a, registo):
                   extra_body=extra)
 
 
-def indice(artigos, registo):
-    por_ano = {}
-    for a in artigos:
-        por_ano.setdefault(a["data"][:4], []).append(a)
+def _linha(a):
+    """One article as a table row, wherever it is being listed."""
+    rot, cor = ROT_ESTADO.get(a["estado"], (a["estado"], "#6b6e76"))
+    r = (a.get("verificacao") or {}).get("resumo") or a.get("verificacao") or {}
+    conf = (f'<span class="chip ok">{r["confirmadas"]} confirmadas</span>'
+            if r.get("confirmadas") else "")
+    return (f'<tr><td class="mono xs">{e(a["data"])}</td>'
+            f'<td><a href="{e(a["url"].replace("artigos/", ""))}">{e(a["titulo"])}</a>'
+            f'<div class="xs" style="padding-top:4px">{e(a["entrada"][:150])}</div></td>'
+            f'<td class="sm">{e(a["seccao"])}</td>'
+            f'<td><span class="chip" style="color:{cor};border-color:{cor}">{e(rot)}</span>'
+            f'{conf}</td>'
+            f'<td class="mono xs">{len(a.get("assenta_em", []))} fonte(s)</td></tr>')
 
-    blocos = []
-    for ano, lista in sorted(por_ano.items(), reverse=True):
-        linhas = []
-        for a in lista:
-            rot, cor = ROT_ESTADO.get(a["estado"], (a["estado"], "#6b6e76"))
-            ver = a.get("verificacao") or {}
-            r = ver.get("resumo") or {}
-            conf = (f'<span class="chip ok">{r["confirmadas"]} confirmadas</span>'
-                    if r.get("confirmadas") else "")
-            linhas.append(
-                f'<tr><td class="mono xs">{e(a["data"])}</td>'
-                f'<td><a href="{e(a["url"].replace("artigos/", ""))}">{e(a["titulo"])}</a>'
-                f'<div class="xs" style="padding-top:4px">{e(a["entrada"][:150])}</div></td>'
-                f'<td class="sm">{e(a["seccao"])}</td>'
-                f'<td><span class="chip" style="color:{cor};border-color:{cor}">{e(rot)}</span>'
-                f'{conf}</td>'
-                f'<td class="mono xs">{len(a.get("assenta_em", []))} fonte(s)</td></tr>')
-        blocos.append(
-            f'<div class="rule" style="padding:22px 0 8px"><div class="sect">{ano}</div></div>'
-            f'<div class="rolar"><table><thead><tr><th style="width:100px">Data</th><th>Artigo</th>'
-            f'<th style="width:120px">Secção</th><th style="width:230px">Estado</th>'
-            f'<th style="width:90px">Assenta em</th></tr></thead>'
-            f'<tbody>{"".join(linhas)}</tbody></table></div>')
+
+def _tabela(linhas):
+    return (f'<div class="rolar"><table><thead><tr><th style="width:100px">Material</th>'
+            f'<th>Artigo</th><th style="width:120px">Secção</th>'
+            f'<th style="width:230px">Estado</th><th style="width:90px">Assenta em</th></tr>'
+            f'</thead><tbody>{"".join(linhas)}</tbody></table></div>')
+
+
+def indice(artigos, registo):
+    """The archive: everything published, grouped by the DAY IT WAS PUBLISHED, newest first.
+
+    Grouped by publication day and not by the date in the path, because those are different dates
+    and the reader wants the one that answers «what came out, and when». The date in the path is
+    the date of the MATERIAL — the day the bytes were frozen — and it stays in its own column.
+
+    This page, and not the front page, is the complete list. What reaches the front page and in
+    which block is an editorial choice made article by article in `artigo.json`; an archive that
+    only showed what was chosen would make that choice invisible and unauditable.
+    """
+    publicados = [a for a in artigos if a["estado"] == "publicado"]
+    outros = [a for a in artigos if a["estado"] != "publicado"]
+
+    por_dia = {}
+    for a in publicados:
+        por_dia.setdefault(a.get("publicado_em") or a["data"], []).append(a)
+
+    dias = []
+    for dia, lista in sorted(por_dia.items(), reverse=True):
+        lista = sorted(lista, key=lambda x: (x["seccao"], x["titulo"]))
+        n = len(lista)
+        dias.append(
+            f'<div class="rule" style="padding:22px 0 8px">'
+            f'<div class="sect">{e(data_pt(dia, False))} · '
+            f'{n} artigo{"s" if n != 1 else ""}</div></div>'
+            + _tabela([_linha(a) for a in lista]))
+    if not dias:
+        dias = ['<div class="painel"><p class="sm">Nenhum artigo publicado ainda. Quando o editor '
+                'de registo escrever a linha num artigo, ele aparece aqui, no dia em que '
+                'foi publicado.</p></div>']
+
+    bloco_outros = ""
+    if outros:
+        bloco_outros = (
+            f'<div class="rule" style="padding:26px 0 8px"><div class="sect">Em preparação · '
+            f'{len(outros)}</div></div>'
+            f'<p class="sm" style="padding-bottom:10px">Artigos com pasta, fontes '
+            f'congeladas e — nalguns casos — prosa, que o editor de registo ainda não publicou. '
+            f'Estão aqui à vista de propósito: o que esta redação tem em mãos faz parte do que '
+            f'tem para dizer.</p>'
+            + _tabela([_linha(a) for a in sorted(outros, key=lambda x: x["data"], reverse=True)]))
+
+    blocos = ["".join(dias), bloco_outros]
 
     contagens = {k: sum(1 for a in artigos if a["estado"] == k) for k, _, _, _ in ESTADOS}
     fichas = "".join(
@@ -281,12 +319,17 @@ def indice(artigos, registo):
 
     corpo = f"""
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Os artigos</div></div>
-<h1 class="h-2" style="max-width:26em">Um artigo é uma pasta datada, e a pasta é o artigo.</h1>
-<p class="std" style="padding:14px 0 12px">Cada artigo vive em
+<h1 class="h-2" style="max-width:26em">Tudo o que foi publicado, dia a dia.</h1>
+<p class="std" style="padding:14px 0 12px">Esta é a lista completa, agrupada pelo dia em que cada
+artigo foi publicado. A primeira página mostra três; qual deles lá vai, e em que bloco, é uma
+escolha editorial escrita no próprio <code>artigo.json</code> de cada um — por isso o sítio onde se
+encontra <b>tudo</b> é aqui, e não lá.</p>
+<p class="std" style="padding-bottom:12px">Cada artigo vive em
 <code>artigos/&lt;aaaa&gt;/&lt;mm&gt;/&lt;dd&gt;/&lt;slug&gt;/</code> com a prosa, o registo de
 verificação de cada afirmação, e a proveniência — que execução de que agente o produziu, e por que
-ordem. A data no caminho é a data do <b>material</b>, não a da publicação: um artigo só chega à
-primeira página quando o editor de registo escreve a linha.</p>
+ordem. Há duas datas e não se confundem: a do caminho é a do <b>material</b>, o dia em que os bytes
+foram congelados; a do agrupamento é a da <b>publicação</b>, o dia em que o editor de registo
+escreveu a linha.</p>
 <div class="chips" style="padding-bottom:18px">{fichas}</div>
 {"".join(blocos)}
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Os estados</div></div>

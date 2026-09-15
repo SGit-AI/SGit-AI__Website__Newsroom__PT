@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15T09:45:00Z",
+  "agente": "editor",
+  "agente_verbatim": "Dinis Cruz, editor de registo",
+  "especie": "acao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "plano-nacional-centros-de-dados"
+  },
+  "texto": "Aprovou item-pol-08 item a item, depois de ler cada afirmação ao lado da sua cópia congelada. Só as afirmações com o excerto nos bytes passaram para a prosa.",
+  "porque": null,
+  "estado": "feito",
+  "de": "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json#cronologia[2]",
+  "id": "plano-nacional-centros-de-dados-c03",
+  "artigo": "plano-nacional-centros-de-dados"
+}

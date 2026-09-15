@@ -1,0 +1,23 @@
+{
+  "id": "005",
+  "titulo": "O leitor de PDF diz «é provavelmente um PDF digitalizado» quando o que lhe falta é uma dependência",
+  "seccao": "politicas",
+  "estado": "bloqueado",
+  "aberto_em": "2026-09-15",
+  "ultimo_toque": { "quem": "editor", "quando": "2026-09-15" },
+  "enquadramento": "Encontrado ao pôr build/entregas.py no caminho de construção. O mesmo PDF congelado, com o mesmo SHA-256 reverificado pelo portão 1, leu 30 808 caracteres a 14 de setembro e 0 caracteres a 15 de setembro. Os bytes são os mesmos; o que mudou foi a máquina.",
+  "de_onde_vem": "build/pdf.py, função _aes_cbc",
+  "o_que_ja_se_tem": [
+    "A causa está isolada. O PDF do Diário da República está cifrado com o manipulador de segurança padrão em AESV2 (AES-128-CBC). build/pdf.py faz AES importando Cryptodome ou Crypto; nenhum dos dois estava instalado nesta máquina.",
+    "Quando o import falha, _aes_cbc devolve None. O objeto Cifra continua com ok=True e porque=None, todos os fluxos decifram para zero bytes, e texto() conclui «nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado».",
+    "Isso é uma afirmação ERRADA sobre o documento de outra pessoa. O diploma não é digitalizado: tem camada de texto e lê-se inteiro assim que a dependência existe. Instalado pycryptodomex, o mesmo ficheiro voltou a dar exatamente 30 808 caracteres.",
+    "O caminho do AES-256 (R5/R6) já faz isto bem: diz «AES-256 precisa de pycryptodome, que não está instalado». O caminho do AESV2 não diz nada.",
+    "Mitigado em parte: requirements.txt passa a nomear as duas dependências e o CI instala-as antes dos portões."
+  ],
+  "o_que_falta": [
+    "Corrigir build/pdf.py: quando _aes_cbc devolve None por falta de dependência, Cifra tem de ficar com ok=False e uma razão que nomeie a dependência, como já acontece no AES-256. Uma limitação deste leitor nunca pode ser publicada como um achado sobre o documento de outrem — é o que o próprio docstring de build/entregas.py exige.",
+    "Considerar um portão que leia um PDF conhecido e falhe a construção se ele deixar de dar texto. Uma prova que depende de quem a lê não é uma prova."
+  ],
+  "porque_esta_bloqueado": "build/pdf.py está na lista de recusa de .claude/settings.json. Nenhum agente desta redação o pode editar, e é assim de propósito. A correção é do editor de registo ou de quem ele autorizar.",
+  "recusa": "Enquanto não estiver corrigido, uma afirmação marcada fonte_inacessivel por falta de texto num PDF cifrado não deve ser lida como uma afirmação sobre o documento. Pode ser apenas esta redação sem a dependência."
+}

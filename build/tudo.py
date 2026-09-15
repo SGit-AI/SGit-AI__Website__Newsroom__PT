@@ -26,12 +26,37 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def data_do_congelamento():
+    """The capture date the deliveries were frozen under.
+
+    `build/entregas.py --date` defaults to TODAY, and it re-checks each excerpt against
+    `fontes/congeladas/<date>/entregas/…`. Run on any day after the freeze, that directory does not
+    exist, every source reads as unreadable, and a delivery that had nine confirmed claims silently
+    reports zero — the build stays green while the record under it changes meaning. So the date
+    comes from the register's newest capture, which is where the bytes actually are, and never from
+    the clock. `entregas.py` is deny-listed and cannot be fixed from inside itself; this is the
+    nearest honest place.
+    """
+    import json
+    reg = json.loads((ROOT / "dados" / "registo.json").read_text(encoding="utf-8"))
+    return sorted(reg["capturas"])[-1] if reg.get("capturas") else None
+
+
+_DATA = data_do_congelamento()
+
 # (command, what it does, is-a-gate). The order is the order.
 PASSOS = [
     (["python3", "build/extract.py"],
      "fetch, freeze, hash, register, extract, diff", False),
     (["python3", "build/transferencias.py"],
      "evidence transferred from a sibling publication — verified, kept as ITS evidence", False),
+    (["python3", "build/entregas.py"] + (["--date", _DATA] if _DATA else []),
+     "research deliveries: validate, re-check every excerpt against the frozen bytes, and fold in "
+     "the editor's decisions from redacao/revisoes/ — MUST run before anything that reads "
+     "dados/entregas.json, which is build.py (the /entregas/ pages) and gate 13 (the quarantine). "
+     "Without this step an approval written by the editor never reaches the build, and the gate "
+     "goes on believing nothing was approved", False),
     (["python3", "build/graph.py"],
      "ontology, graph, triples, manifest — including the source-publisher layer", False),
     (["python3", "build/entidades.py"],

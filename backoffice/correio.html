@@ -27,7 +27,7 @@
        <a href="../backoffice/agents.html">agents</a> ·
        <a href="../backoffice/guidance.html">guidance</a> ·
        <a href="../admin/versions.html">versions</a></div>
-  <div><span class="ver">v0.10.1</span></div>
+  <div><span class="ver">v0.10.2</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -40,7 +40,7 @@ evidence for a claim about Portugal.</p>
 </div>
 
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · 4 messages
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · 5 messages
 between the agents</div></div>
 <p class="std" style="max-width:52em">The agents of this newsroom do not talk over a chat. They
 talk in files, under <b>Email-FS-lite</b> — the protocol the sgraph.ai team
@@ -64,7 +64,7 @@ the file having moved, and the read receipt is the mailroom copy no longer being
 <div class="rule" style="padding:18px 0 8px"><div class="sect">Every mailbox, counted</div></div>
 <div class="rolar"><table><thead><tr><th>Agent</th><th>Alias</th><th>In transit</th>
   <th>Inbox</th><th>Handled</th><th>Sent copies</th></tr></thead>
-  <tbody><tr><td class="mono xs">pesquisa.pt</td><td class="mono xs">@Pesquisa</td><td class="xs">0</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">redacao.pt</td><td class="mono xs">@Redacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">verificacao.pt</td><td class="mono xs">@Verificacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">bastidores.pt</td><td class="mono xs">@Bastidores</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">2</td></tr><tr><td class="mono xs">dinis.humano</td><td class="mono xs">@Dinis</td><td class="xs">2</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr></tbody></table></div>
+  <tbody><tr><td class="mono xs">pesquisa.pt</td><td class="mono xs">@Pesquisa</td><td class="xs">0</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">redacao.pt</td><td class="mono xs">@Redacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">verificacao.pt</td><td class="mono xs">@Verificacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">bastidores.pt</td><td class="mono xs">@Bastidores</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td><td class="xs">2</td></tr><tr><td class="mono xs">dinis.humano</td><td class="mono xs">@Dinis</td><td class="xs">2</td><td class="xs">1</td><td class="xs">0</td><td class="xs">1</td></tr></tbody></table></div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">The threads</div></div>
 <p class="sm" style="max-width:52em">Threaded by <code>Message-ID</code> and
@@ -226,13 +226,55 @@ a lista de unidades de I&amp;D devolveu 404. Ambas as ausências são publicáve
      · migrated from <code>redacao/correio/pesquisa/entrada/2026-09-14T1205__editor__tres-primeiras-historias.md</code></p>
   
 </div>
+<div class="correio" style="margin-top:16px;" id="005-resumos-em-html@redacao.local">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip miss">in transit</span>
+    <span class="chip"><b>@Dinis</b> → @Bastidores</span>
+    <span class="chip">2026-09-15T09:40:00Z</span>
+    <span class="chip">issue 010</span>
+    
+    
+    <span class="chip">sender copy kept</span>
+  </div>
+  <p class="std" style="max-width:52em"><b>Os resumos de investigação precisam de uma página que os renderize, e não de uma segunda cópia</b></p>
+  <p class='sm' style='max-width:52em'>O QUE PEÇO</p><p class='sm' style='max-width:52em'>Uma página HTML que renderize
+`briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md` — e o irmão da Perplexity,
+`13__research-brief-for-perplexity.md` — com o cromo deste site: cabeçalho, navegação, distintivo
+de versão, bloco «para um agente», rodapé. Hoje o endereço</p><p class='sm' style='max-width:52em'>  https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/12__research-brief-for-chatgpt.md</p><p class='sm' style='max-width:52em'>devolve markdown em bruto ao navegador. É o documento certo no sítio certo e a ler-se mal. Este é
+o documento que entregamos a um assistente exterior; é a peça mais pública do método desta redação
+e a única que não se parece com o resto do site.</p><p class='sm' style='max-width:52em'>A REGRA QUE NÃO PODE SER QUEBRADA PARA FAZER ISTO</p><p class='sm' style='max-width:52em'>`build/build.py`, na linha 732, diz porque é que os resumos são ligados e não republicados: **o
+conteúdo existe uma vez**. Se o texto passar a viver também dentro de um `.html`, os dois acabam
+por discordar no dia em que alguém editar um. Não quero uma segunda cópia — quero uma segunda
+VISTA da mesma cópia.</p><p class='sm' style='max-width:52em'>O caminho que já existe neste repositório é o de `build/mandatos.py`: um ficheiro DERIVADO,
+gerado a partir da fonte única, marcado como derivado, e refeito em cada construção. Faça o mesmo:
+o `.md` continua a ser a fonte; o `.html` é render dele e nunca é editado à mão. Se o HTML e o
+markdown puderem divergir, o desenho está errado.</p><p class='sm' style='max-width:52em'>Deixo-lhe as decisões de implementação, mas registo o que me parece:</p><p class='sm' style='max-width:52em'>- Um portão que falhe a construção se um `.html` de resumo estiver dessincronizado do `.md` de que
+  deriva. Um ficheiro derivado sem portão é uma cópia com outro nome — foi o que o portão 28
+  aprendeu com os mandatos.
+- O `.md` continua a responder no mesmo endereço. Há ferramentas, e assistentes, que o querem em
+  bruto; o brief manda-os lá. Não parta o endereço para acrescentar uma vista.
+- O endereço da vista renderizada é seu para escolher, desde que entre no sitemap e no llms.txt.</p><p class='sm' style='max-width:52em'>PORQUE É QUE ISTO VALE A PENA AGORA, E NÃO DAQUI A UMA VERSÃO</p><p class='sm' style='max-width:52em'>O ciclo de investigação vai passar a correr com regularidade — o editor quer o ChatGPT a fazer uma
+passagem por dia ou de doze em doze horas, e o fluxo de publicação desta redação a correr atrás
+dela. O resumo deixa de ser um documento que se cola uma vez e passa a ser a interface entre esta
+redação e as ferramentas que a alimentam. Uma interface lê-se muitas vezes.</p><p class='sm' style='max-width:52em'>A v0.10.1 corrigiu o endereço do esquema que o resumo mandava buscar — apontava para
+`newsroom.sgit.ai/briefs/pt-newsroom-pack/`, que não existe, quando este site é
+`pt.newsroom.sgit.ai` a servir `briefs/pack/`. A entrega 1/8 do ChatGPT falhou a validação em doze
+pontos por não conseguir ler o contrato. O documento está agora certo e é a altura de o pôr
+legível.</p><p class='sm' style='max-width:52em'>— Dinis</p>
+  <p class="xs mono">redacao/correio/expedicao/bastidores.pt/005__dinis.humano__os-resumos-de-investigacao-precisam-de-uma-pagina.eml · 3169 bytes ·
+     in <code>@Bastidores</code>'s
+     mailroom
+     · sender copy at <code>redacao/correio/dinis.humano/saida/bastidores.pt/005__dinis.humano__os-resumos-de-investigacao-precisam-de-uma-pagina.eml</code>
+     </p>
+  
+</div>
 
 
 <div class="agent">
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/correio.html</code> · version <span class="ver">v0.10.1</span>.
+<code>backoffice/correio.html</code> · version <span class="ver">v0.10.2</span>.
 </div>
 
 </div>

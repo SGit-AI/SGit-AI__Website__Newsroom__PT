@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a2"
+  },
+  "texto": "O investimento anunciado pode atingir 200 milhões de euros para aquisição de capacidade computacional.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+  "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/afirmacoes.json#afirmacoes[1]",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c08",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

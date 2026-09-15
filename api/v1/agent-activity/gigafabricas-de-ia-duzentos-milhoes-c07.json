@@ -1,0 +1,16 @@
+{
+  "quando": "2026-09-15",
+  "agente": "verificacao",
+  "especie": "verificacao",
+  "sobre": {
+    "tipo": "afirmacao",
+    "ref": "a1"
+  },
+  "texto": "O Conselho de Ministros aprovou uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial.",
+  "porque": "Cada afirmação foi relida contra a cópia congelada nomeada, e o excerto que o assistente exterior diz ter lido foi procurado outra vez nos bytes. Uma afirmação cujo excerto não se reencontra não entra na prosa, esteja ou não o item aprovado.",
+  "estado": "confirmada",
+  "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+  "de": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/afirmacoes.json#afirmacoes[0]",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c07",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

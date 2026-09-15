@@ -30,9 +30,36 @@
       "significa": "Substituído a partir de uma data. Nunca apagado."
     }
   ],
-  "contagem": 6,
-  "publicados": 0,
+  "contagem": 10,
+  "publicados": 5,
   "historias": [
+    {
+      "slug": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "O Governo anunciou 25 milhões de euros para adoção de IA na Administração Pública",
+      "entrada": "O comunicado oficial sobre a Agenda Nacional de Inteligência Artificial anuncia 25 milhões de euros para adoção de IA na Administração Pública, e nomeia dois casos em desenvolvimento: agentes de apoio à contratação pública e automatização de faturas.",
+      "antetitulo": "Políticas · um anúncio",
+      "estado": "publicado",
+      "publicado_em": "2026-09-15",
+      "publicado_por": "Dinis Cruz",
+      "url": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/",
+      "pasta": "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica",
+      "issue": "004",
+      "bloco_primeira_pagina": null,
+      "assenta_em": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
+      ],
+      "verificacao": {
+        "confirmadas": 2,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
     {
       "slug": "uma-captura-nao-mostra-movimento",
       "data": "2026-09-14",
@@ -65,11 +92,11 @@
       "data": "2026-09-14",
       "seccao": "instituicoes",
       "titulo": "O regulador foi designado e o instrumento de designação não está na página de IA do Governo",
-      "entrada": "Encomendada pelo §11 do resumo de comissionamento. Dois factos, duas citações, e uma pergunta em vez de uma resposta. Ainda não há prosa.",
+      "entrada": "O Regulamento Europeu de IA manda cada Estado-Membro designar as suas autoridades nacionais competentes até 2 de agosto de 2025. A página temática do Governo português descreve o regulamento e não nomeia autoridade nenhuma. Esta redação não encontrou o ato de designação, e não afirma que ele não existe.",
       "antetitulo": "Instituições",
-      "estado": "procurado",
-      "publicado_em": null,
-      "publicado_por": null,
+      "estado": "publicado",
+      "publicado_em": "2026-09-15",
+      "publicado_por": "Dinis Cruz",
       "url": "artigos/2026/09/14/regulador-designacao-ausente/",
       "pasta": "artigos/2026/09/14/regulador-designacao-ausente",
       "issue": "002",
@@ -78,13 +105,17 @@
         "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
         "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
       ],
-      "marcas_na_prosa": [],
+      "marcas_na_prosa": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
+      ],
       "verificacao": {
-        "confirmadas": 0,
+        "confirmadas": 2,
         "disputadas": 0,
-        "nao_encontradas": 0
+        "nao_encontradas": 0,
+        "fonte_inacessivel": 1
       },
-      "tem_prosa": false
+      "tem_prosa": true
     },
     {
       "slug": "registo-nacional-nao-devolve-texto",
@@ -143,6 +174,60 @@
       "tem_prosa": false
     },
     {
+      "slug": "plano-nacional-centros-de-dados",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "O Plano Nacional de Centros de Dados foi aprovado por resolução, e esta redação conseguiu ler o diploma inteiro",
+      "entrada": "A Resolução do Conselho de Ministros n.º 70/2026 aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação. É o único diploma desta entrega que esta redação leu na íntegra — 30 808 caracteres de um PDF do Diário da República — e as duas afirmações que dele saem confirmaram contra os bytes.",
+      "antetitulo": "Políticas · um diploma lido na íntegra",
+      "estado": "publicado",
+      "publicado_em": "2026-09-15",
+      "publicado_por": "Dinis Cruz",
+      "url": "artigos/2026/09/14/plano-nacional-centros-de-dados/",
+      "pasta": "artigos/2026/09/14/plano-nacional-centros-de-dados",
+      "issue": "004",
+      "bloco_primeira_pagina": null,
+      "assenta_em": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08"
+      ],
+      "verificacao": {
+        "confirmadas": 2,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
+    {
+      "slug": "gigafabricas-de-ia-duzentos-milhoes",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "O Conselho de Ministros aprovou a entrada de Portugal nas Gigafábricas de IA europeias, com um investimento até 200 milhões de euros",
+      "entrada": "O comunicado do Conselho de Ministros de 25 de junho de 2026 regista a aprovação de uma resolução que permite a Portugal integrar o projeto europeu de Gigafábricas de Inteligência Artificial. É o que o Governo anunciou, com data e endereço. O diploma que o executa não foi localizado por esta redação.",
+      "antetitulo": "Políticas · um anúncio",
+      "estado": "publicado",
+      "publicado_em": "2026-09-15",
+      "publicado_por": "Dinis Cruz",
+      "url": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/",
+      "pasta": "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes",
+      "issue": "004",
+      "bloco_primeira_pagina": null,
+      "assenta_em": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+      ],
+      "verificacao": {
+        "confirmadas": 2,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
+    },
+    {
       "slug": "dois-nomes-para-os-mesmos-palcos",
       "data": "2026-09-14",
       "seccao": "eventos",
@@ -198,6 +283,35 @@
         "nao_encontradas": 0
       },
       "tem_prosa": false
+    },
+    {
+      "slug": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+      "data": "2026-09-14",
+      "seccao": "politicas",
+      "titulo": "A agenda nacional de IA integra 32 iniciativas, e o diploma que a aprova continua sem se deixar ler",
+      "entrada": "Uma página oficial do digitalGOV diz, em bytes que esta redação conseguiu ler, que a implementação da Agenda Nacional de Inteligência Artificial envolve 32 iniciativas. O diploma que a aprova está num endereço que devolve 22 caracteres de texto. As duas coisas são o mesmo artigo.",
+      "antetitulo": "Políticas · o que se leu e o que não",
+      "estado": "publicado",
+      "publicado_em": "2026-09-15",
+      "publicado_por": "Dinis Cruz",
+      "url": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/",
+      "pasta": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler",
+      "issue": "004",
+      "bloco_primeira_pagina": null,
+      "assenta_em": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+      ],
+      "marcas_na_prosa": [
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+        "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+      ],
+      "verificacao": {
+        "confirmadas": 1,
+        "disputadas": 0,
+        "nao_encontradas": 0
+      },
+      "tem_prosa": true
     }
   ]
 }
