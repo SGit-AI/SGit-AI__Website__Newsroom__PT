@@ -1,0 +1,34 @@
+{
+  "quando": "2026-09-15T05:45:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "The VoiceDebrief-style chat: a right-hand column with a vertical rail, resizable, with the key and the settings in localStorage.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "backoffice/",
+    "dados/",
+    "entidades/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.11.0",
+  "o_que_fez": [
+    "pt-chat: a new component. A vertical rail on the right edge, a fixed right-hand column, a drag handle with pointer and keyboard resize. The page reflows beside it rather than being covered: <html> carries the class and the width as a custom property.",
+    "localStorage holds the width, the open state, the materials sent, the model and the reader's own OpenRouter key. The key never enters a file; the site gate's key-shaped-string tripwire still passes.",
+    "assets/conversa.js became engine-only: it emits each tool call and result as it happens, and asks OpenRouter for usage, so the panel shows the path, the bytes and the cost of every round.",
+    "Found by screenshot, not by a gate: [hidden] does not hide when a class rule in the same sheet sets display. The panel shipped permanently open across 227 pages while every gate was green.",
+    "Browser gate, two changes: it now reads the computed style of every element carrying hidden inside a shadow root, and it waits for data-estado rather than sleeping 400ms, which had made /grafo/ a false red.",
+    "Three injection tests run and reverted: a selector absent from the template, a renamed .tpl, and the [hidden] rule removed. All three go red; the files were restored byte-identical.",
+    "admin/versions/v0.10.0.md corrected: it named gates 27 and 28, which were renumbered to 34 and 35 in the same commit that shipped it."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. The panel is read-only by construction — every tool is a GET to a file that is already public, and there is no server to write to."
+}

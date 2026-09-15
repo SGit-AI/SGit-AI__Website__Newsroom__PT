@@ -153,10 +153,29 @@ def declaracao(seletor, propriedade):
 MEDIDA_MAX_CPL = 75    # the top of the band for a newspaper column
 MEDIDA_MIN_CPL = 45    # below this the line breaks too often
 
+def resolver_em(valor):
+    """Follow a `var(--token)` to the `em` value behind it.
+
+    The adopted stylesheet names the measure — `.std { max-width: var(--measure) }` — which is the
+    right thing: the value lives in one place and an article template can override it locally. But
+    it meant this gate, which looked for a literal `em`, reported that `.std` had no measure at all
+    while the measure was in fact correct. A gate that cannot follow one level of indirection ends
+    up forbidding the tidier code, which is the wrong way round. So it resolves the token.
+    """
+    if not valor:
+        return None
+    valor = valor.strip()
+    m = re.match(r"^var\(\s*(--[a-z0-9-]+)\s*(?:,[^)]*)?\)$", valor)
+    if m:
+        valor = (dict(re.findall(r"^\s*(--[a-z0-9-]+):\s*([^;]+);", css_sem_notas, re.M))
+                 .get(m.group(1), "")).strip()
+    return valor if valor.endswith("em") else None
+
+
 for seletor, tamanho in (("std", 18), ("sm", 15)):
-    mw = declaracao(seletor, "max-width")
+    mw = resolver_em(declaracao(seletor, "max-width"))
     lh = declaracao(seletor, "line-height")
-    if not mw or not mw.endswith("em"):
+    if not mw:
         erros.append(
             f"desenho: .{seletor} não tem `max-width` em `em` na folha de estilos. Era este o "
             f"defeito de leitura maior da v0.6.0: a coluna media 88 caracteres na primeira página "
@@ -284,6 +303,33 @@ if re.search(r'<span class="ver">v[0-9]', inicio):
                  "ligação. A orientação de sgit.ai pede as duas coisas — mostrar a versão na "
                  "cromagem e ligá-la ao que mudou nessa versão — e num site cuja proposta inteira "
                  "é a rastreabilidade, este é o único lugar onde o site não se rastreia a si mesmo")
+
+
+# --- 33b. no component hardcodes a palette colour ------------------------------
+# THE DESIGN REVIEW FOUND THIS AND IT WAS WORTH FINDING. The five shipped components hardcoded
+# `#0f766e`, `#f7f4ec` and most of the rest of the palette in their own CSS — so the v0.9.0
+# contrast fixes landed everywhere EXCEPT inside them, which is the half of the site a reader
+# spends longest looking at. Custom properties DO cross the shadow boundary, because they inherit:
+# a component that reads `var(--acento)` picks up a palette change for free. It just needs a token
+# to inherit, and there were none.
+#
+# A hex inside `var(--token, #fallback)` is a FALLBACK and is fine — the token wins whenever it is
+# defined, which is always here. Only a hex used as the value itself is a hardcoded colour.
+PALETA = {v.strip().lower() for v in fichos.values()}
+for cf in sorted((ROOT / "assets" / "components").rglob("*.css")):
+    texto = cf.read_text(encoding="utf-8")
+    sem_fallback = re.sub(r"var\(\s*--[a-z0-9-]+\s*,\s*#[0-9a-fA-F]{3,8}\s*\)",
+                          "var(--x)", texto)
+    for m in re.finditer(r"#[0-9a-fA-F]{3,8}\b", sem_fallback):
+        cor = m.group(0).lower()
+        porque = (" — and it is a palette colour, so a palette change does not reach inside it"
+                  if cor in PALETA else
+                  " — use a token from `:root`, or declare it there if it is a new colour, so the"
+                  " gate can measure it")
+        erros.append(
+            f"desenho: {cf.relative_to(ROOT)} hardcodes the colour {cor}{porque}. A custom"
+            f" property crosses the shadow boundary: `var(--acento)` picks the change up for"
+            f" free. A `var(--token, #hex)` fallback is acceptable")
 
 # ----------------------------------------------------------------------- output ---
 if erros:

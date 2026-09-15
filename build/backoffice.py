@@ -36,7 +36,11 @@ import json
 import re
 import subprocess
 import time
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paginas import utilitarios  # noqa: E402  the ONE utility run, shared
 
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
@@ -77,9 +81,38 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
 
+# The console's own pages, in reading order. This is the back office's equivalent of the paper's
+# section nav, and it is rendered by the same `.nav` rule so the two look like one system seen
+# from two sides rather than two sites that happen to share a stylesheet.
+CONSOLA = [
+    ("backoffice/", "console"),
+    ("backoffice/equipa.html", "team"),
+    ("backoffice/quadro.html", "board"),
+    ("backoffice/correio.html", "mail"),
+    ("backoffice/pontes.html", "bridges"),
+    ("backoffice/desenho.html", "design"),
+    ("backoffice/docs.html", "documents"),
+    ("backoffice/agents.html", "agents"),
+    ("backoffice/guidance.html", "guidance"),
+    ("admin/versions.html", "versions"),
+]
+
+
+def nav_da_consola(rel, raiz):
+    """The console nav, with the page you are on marked — the paper's nav already does this and the
+    back office did not, so you could not tell where you were from the chrome."""
+    saida = []
+    for caminho, rotulo in CONSOLA:
+        aqui = ' class="aqui"' if caminho == rel or (
+            caminho == "backoffice/" and rel == "backoffice/index.html") else ""
+        saida.append(f'<a href="{raiz}{caminho}"{aqui}>{rotulo}</a>')
+    return "".join(saida)
+
+
 def pagina(rel, titulo, descricao, corpo, extra_body=""):
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
+    nav_consola = nav_da_consola(rel, raiz)
     canonico = f"https://{HOST}/{rel}"
     return f"""<!doctype html>
 <html lang="en">
@@ -98,20 +131,15 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
 <body>
 <div class="folha">
 
+{utilitarios(raiz, no_backoffice=True)}
+
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · <b>back office</b></div>
-  <div><a href="{raiz}">← the paper</a> · <a href="{raiz}backoffice/">console</a> ·
-       <a href="{raiz}backoffice/equipa.html">team</a> ·
-       <a href="{raiz}backoffice/quadro.html">board</a> ·
-       <a href="{raiz}backoffice/correio.html">mail</a> ·
-       <a href="{raiz}backoffice/pontes.html">bridges</a> ·
-       <a href="{raiz}backoffice/desenho.html">design</a> ·
-       <a href="{raiz}backoffice/docs.html">documents</a> ·
-       <a href="{raiz}backoffice/agents.html">agents</a> ·
-       <a href="{raiz}backoffice/guidance.html">guidance</a> ·
-       <a href="{raiz}admin/versions.html">versions</a></div>
-  <div><span class="ver">{VERSAO}</span></div>
 </div>
+
+<nav class="nav nav--consola">{nav_consola}</nav>
+
+<div class="consola-corpo">
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
 <p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
@@ -131,6 +159,7 @@ repository; nothing here is hand-written. The machine-readable index of the publ
 <code>{e(rel)}</code> · version <span class="ver">{VERSAO}</span>.
 </div>
 
+</div>
 </div>
 {extra_body}</body>
 </html>
@@ -274,6 +303,10 @@ GUIA = [
     ("before-you-change.md", "Before you change anything",
      "The checklist: know who you are, read in order, find out who else is working here, check the "
      "tree is green before you touch it, build with build/tudo.py, record what you did."),
+    ("concurrent-sessions.md", "More than one session at a time",
+     "Three sessions work on this repository at once. What has actually collided between them, "
+     "which gates now catch each one, and the order that avoids most of it. Includes the merge "
+     "that succeeded and still deleted a release's work."),
 ]
 
 

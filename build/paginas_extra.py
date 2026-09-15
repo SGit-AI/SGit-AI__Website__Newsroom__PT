@@ -193,10 +193,52 @@ neste site é aconselhamento jurídico.</p>
                   corpo, aqui=None, com_declaracao=False)
 
 
+def carteira():
+    """THE WALLET, ON A PAGE — which is what the editor asked for and the right shape for this.
+
+    Until v0.11.0 the balance and the spend ledger lived in a panel that opened over the page from
+    a badge in the chrome. The editor asked for them on a page of their own, and the reason is not
+    taste: **the ledger is the interesting part of the demonstration**, and a ledger worth reading
+    is worth an address. A panel that covers the masthead cannot be linked to, cannot be read on a
+    phone without covering what you were reading, and closes itself on the first click elsewhere.
+
+    The badge in the chrome still exists and still debits the page — the debit IS the demonstration
+    and has to happen wherever the reader is. What changed is that it is now a LINK here instead of
+    a button that opens a drawer.
+
+    The markup is the component's own, in `modo="pagina"`. There is no second copy of the ledger:
+    two copies would diverge the day somebody changed the price in one of them.
+    """
+    corpo = """
+<div class="rule" style="padding:26px 0 8px"><div class="sect">A carteira</div></div>
+<h1 class="h-lead" style="max-width:24em">Cada página deste site custa um cêntimo a abrir, e o
+registo de quanto já gastou está aqui.</h1>
+<p class="std" style="padding:18px 0 6px">O site-mãe defende, em vários ensaios, que quem cria o
+facto devia ser pago por ele. Esta é essa defesa tornada concreta numa publicação que existe de
+facto: cada página tem um preço, abri-la debita a carteira, a carteira recarrega quando esvazia,
+e o registo do que foi gasto é legível — está abaixo, e é o seu, não o de mais ninguém.</p>
+
+<pt-wallet modo="pagina" site-root="../"></pt-wallet>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Para onde iria o dinheiro</div></div>
+<p class="std" style="padding-bottom:10px">Numa versão a sério, o cêntimo iria para quem produziu
+a fonte congelada em que a página assenta — e é por isso que esta publicação registra sempre qual
+é. Uma página que não soubesse nomear a sua fonte não saberia a quem pagar; o
+<a href="../registo/">registo</a> é, visto deste ângulo, a lista dos credores.</p>
+<p class="sm">O argumento inteiro vive em <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a>,
+e não é repetido aqui: conteúdo existe uma vez.</p>
+"""
+    return pagina("carteira/index.html", "A carteira",
+                  "Cada página deste site custa um cêntimo a abrir. O saldo, o gasto e o registo "
+                  "das páginas lidas — tudo no seu próprio navegador, e nada cobrado a ninguém.",
+                  corpo, aqui=None)
+
+
 def main():
     feitas = [escrever("api/index.html", api()),
-              escrever("proveniencia/index.html", proveniencia())]
-    print(f"páginas extra: {len(feitas)} (api, proveniência)")
+              escrever("proveniencia/index.html", proveniencia()),
+              escrever("carteira/index.html", carteira())]
+    print(f"páginas extra: {len(feitas)} (api, proveniência, carteira)")
     return feitas
 
 

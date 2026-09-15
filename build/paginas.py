@@ -40,6 +40,7 @@ EXTRA = [("entidades", "Entidades"), ("registo", "Registo"), ("grafo", "Grafo")]
 RODAPE = [
     ("artigos", "Os artigos"), ("metodo", "Método"), ("equipa", "A redação"),
     ("entregas", "Entregas de investigação"), ("redacao", "A mesa"),
+    ("carteira", "A carteira"),
     ("ficheiros", "Os ficheiros"), ("aviso", "Aviso de proteção de dados"),
     ("sobre", "Sobre e limites"),
 ]
@@ -69,6 +70,131 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
 
 
+def utilitarios(raiz, no_backoffice=False):
+    """The utility run at the top right, IDENTICAL on the paper and in the back office.
+
+    THE MENU MUST NOT MOVE WHEN YOU CROSS BETWEEN THEM, and before v0.11.0 it moved a lot: the
+    paper had a dateline, a countdown and this run of links, then a centred masthead and a section
+    nav; the back office had a single row that mixed its own identity, its own eleven links and the
+    version, all in a different order and a different place. Clicking "Back office" moved every
+    item in the chrome at once, which reads as arriving at a different site rather than at the back
+    of the same one.
+
+    So this run is generated once, here, and both chromes emit it in the same slot with the same
+    items in the same order. Exactly one item differs, and it is the one that has to: on the paper
+    it points INTO the back office, and in the back office it points back out at the paper. Same
+    position, same width, same face — so crossing over moves one label and nothing else.
+    """
+    atravessar = (
+        f'<a href="{raiz}" title="A publicação, em português">← o jornal</a>'
+        if no_backoffice else
+        f'<a href="{raiz}backoffice/" title="The operations console — in English">'
+        f'Back office <span class="flag" aria-label="em inglês">EN</span></a>')
+    return (
+        f'<div class="utility">'
+        f'<a href="{raiz}aviso/">Aviso</a>'
+        f'<a href="{raiz}metodo/">Método</a>'
+        f'<a href="{raiz}api/">API</a>'
+        f'{atravessar}'
+        # The wallet is a LINK to its own page, not a panel over this one. See pt-wallet.js: the
+        # editor asked for the spend on a page of its own, and a ledger worth reading is worth a
+        # URL. The component still debits the page it is on — that is the demonstration — it just
+        # no longer covers the masthead to show you the result.
+        f'<pt-wallet site-root="{raiz}"></pt-wallet>'
+        # THE VERSION BADGE IS A LINK. The sgit.ai guidance asks for both things — show the
+        # version in the chrome AND link it to that version's detail — and until v0.9.0 only
+        # the first half was done: it was a `<span>`, and the only route to the detail was the
+        # last item of an eleven-item list in the footer. On a site whose entire proposition is
+        # traceability, it was the one place the site did not trace itself.
+        f'<a class="ver" href="{raiz}admin/versions.html#{VERSAO}" '
+        f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div>')
+
+
+def abertura(titulo, numero=None, nota="", fim="", maior=False):
+    """A section opener: a rule, an optional number, a title, an optional note, an optional end.
+
+    `.sect` alone — a small letterspaced label — is too quiet to OPEN a section. It is a label, not
+    a door, and using it for both is half of why the front page read as one undifferentiated field
+    (the other half being hairlines nobody could see). The adopted stylesheet gives three levels:
+
+        .opener--major   a 3px ink rule, a number, a title at .h-2 size   — a major division
+        .opener          a 1px ink rule and a title                        — an ordinary section
+        .sect            the label alone                                   — a block inside one
+
+    Used with restraint. The stylesheet's own note says a page should reach for the heaviest level
+    no more than three or four times, so this is NOT a blanket replacement for the 104 `.rule` +
+    `.sect` pairs across the generators: the ordinary ones stay `.sect`, because a page where
+    everything is a door has no doors.
+
+    `fim` rides at the far end — it is where the confirmado/disputado legend goes.
+    """
+    n = f'<span class="opener__n">{e(numero)}</span>' if numero else ""
+    nt = f'<span class="opener__note">{e(nota)}</span>' if nota else ""
+    f = f'<div class="opener__end">{fim}</div>' if fim else ""
+    cls = "opener opener--major" if maior else "opener"
+    return (f'<div class="{cls}">{n}<h2 class="opener__title">{e(titulo)}</h2>{nt}{f}</div>')
+
+
+def tira_de_numeros(pares):
+    """A stat strip: label over value, in a row, ruled top and bottom.
+
+    Replaces two patterns the review named. On an entity page it replaces a ONE-ROW `<table>` used
+    to present a single key/value pair, whose 230px header wrapped to two lines beside a lone «2».
+    On the front page it replaces a stack of label/sentence rows under «Nesta edição», where the
+    numbers — the thing a reader scans for — were buried inside prose.
+
+    A number here is a `.stat-value`; a number that is a machine fact (a hash, an id) adds `mono`
+    and the stylesheet sizes it down, because a monospaced 22px digit run is wider than the column.
+    """
+    saida = []
+    for rotulo, valor, *resto in pares:
+        cls = "stat-value mono" if (resto and resto[0]) else "stat-value"
+        saida.append(f'<div><span class="stat-label">{e(rotulo)}</span>'
+                     f'<span class="{cls}">{e(valor)}</span></div>')
+    return f'<div class="stats">{"".join(saida)}</div>'
+
+
+def proveniencia(fichas, frase):
+    """The evidence line under a headline, with the chips one step behind a disclosure.
+
+    The chips sat directly beneath the lead headline — where a newspaper puts the dek and the
+    byline — as three bordered 11px mono runs of character counts. The provenance IS this
+    publication's product and stays on the page; what was wrong was its RANK. A well-written lead
+    followed by byte counts reads as a debug panel.
+
+    So the sentence leads, in the paper's own voice and in the serif, and the chips open on click.
+    `<details>`/`<summary>` and no JavaScript: this has to work for a reader with scripting off,
+    and half this site's readers are machines that will take the chips from the markup regardless.
+    """
+    return (f'<details class="provenance"><summary>{e(frase)}</summary>'
+            f'<div class="chips">{fichas}</div></details>')
+
+
+def banda(corpo, fundo=""):
+    """A full-bleed band carrying its own ground, with a `.folha` INSIDE it.
+
+    This is the structural half of the adopted design, and the reason the front page's sections
+    read as sections. One ground for a whole page is why they ran together: hairlines alone cannot
+    separate blocks that are otherwise identical in tone and density. A newspaper varies the GROUND
+    as well as the rule — a recessed band, a lifted panel, an ink band — and a reader navigates by
+    that before reading a word.
+
+        banda(corpo)            the base sheet
+        banda(corpo, "sunk")    recessed, 1.13:1 below the base
+        banda(corpo, "panel")   lifted, 1.08:1 above it
+        banda(corpo, "ink")     ink, with its own text colours in the stylesheet
+
+    Used in a rhythm and with restraint — base, base, recessed, base — because a page that
+    alternates every block is as flat as one that alternates none.
+
+    The band must be OUTSIDE `.folha` to be full-bleed, which is why `pagina()` takes
+    `corpo_em_bandas`: a page that bands itself opens and closes its own sheets, and the shell
+    stops wrapping the body in one.
+    """
+    cls = f"band band--{fundo}" if fundo else "band"
+    return f'<div class="{cls}"><div class="folha">{corpo}</div></div>'
+
+
 def datalinha(hoje, dias=None):
     dta = data_pt(hoje)
     direita = ""
@@ -76,24 +202,19 @@ def datalinha(hoje, dias=None):
         direita = (f'<div>Faltam <b>{dias} dia{"s" if dias != 1 else ""}</b> para o '
                    f'Startup Summit Lisbon 2026</div>' if dias else
                    '<div><b>Hoje</b>: Startup Summit Lisbon 2026</div>')
-    return (f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}'
-            f'<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">'
-            f'<a href="{{raiz}}aviso/">Aviso</a>'
-            f'<a href="{{raiz}}metodo/">Método</a>'
-            f'<a href="{{raiz}}api/">API</a>'
-            f'<a href="{{raiz}}backoffice/" title="The operations console — in English">'
-            f'Back office <span class="flag" aria-label="em inglês">EN</span></a>'
-            f'<pt-wallet site-root="{{raiz}}"></pt-wallet>'
-            # THE VERSION BADGE IS A LINK. The sgit.ai guidance asks for both things — show the
-            # version in the chrome AND link it to that version's detail — and until v0.9.0 only
-            # the first half was done: it was a `<span>`, and the only route to the detail was the
-            # last item of an eleven-item list in the footer. On a site whose entire proposition is
-            # traceability, it was the one place the site did not trace itself.
-            # The anchor goes to this version's number in `admin/versions.html`, where what changed
-            # and why is written; the `title` says where it goes, because a version number on its
-            # own does not.
-            f'<a class="ver" href="{{raiz}}admin/versions.html#{VERSAO}" '
-            f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div></div>')
+    # THE SPLIT. Until v0.13.0 these were one row: the dateline, the countdown and the four
+    # operator links ran together in a single grey mono line, set identically, so a reader could
+    # not tell which were the paper's and which were the machinery's. A wallet balance sitting
+    # immediately above a newspaper's masthead is disorienting, and on a phone the row wrapped to
+    # four lines — about 130px of chrome before the publication's name, which is the best thing on
+    # the site arriving under a version string.
+    #
+    # Now there are two, and the order ranks them: `.utility` is a thin operator strip, first and
+    # visually subordinate; `.datalinha` is editorial — Lisbon, the date, the countdown — in the
+    # serif, ruled top and bottom, sitting directly above the masthead where a newspaper puts it.
+    # Same links, legible ranking. The operator strip collapses to one scrollable line on a phone.
+    return (utilitarios("{raiz}")
+            + f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}</div>')
 
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -263,8 +384,13 @@ def ligar_entidades(corpo, raiz, excepto=None):
 
 def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
            fontes_n=None, com_declaracao=True, extra_head="", extra_body="",
-           ligar=True, excepto=None):
-    """A whole page. `rel` is the path relative to the root, and it decides the depth."""
+           ligar=True, excepto=None, corpo_em_bandas=False):
+    """A whole page. `rel` is the path relative to the root, and it decides the depth.
+
+    `corpo_em_bandas` — the body already contains its own `.band`/`.folha` pairs, so the shell must
+    not wrap it in a sheet of its own. A band has to sit outside `.folha` to be full-bleed; nesting
+    one inside would give it the sheet's max-width and gutters and it would stop being a band.
+    The chrome and the closing blocks still get a sheet each, because they are not banded."""
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
     if ligar:
@@ -274,11 +400,18 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
     hoje = (carregar("registo.json") or {}).get("atualizado", "2026-09-14")
     dias = dias_para_evento(hoje)
     cabeca = datalinha(hoje, dias).replace("{raiz}", raiz or "")
-    corpo_final = (
-        f'{cabeca}{mancheta(aqui, raiz)}{corpo}'
-        f'{bloco_declaracao(nomeia_pessoas, raiz) if com_declaracao else ""}'
-        f'{rodape(raiz)}{bloco_agente(rel, fontes_n, raiz)}'
-    )
+    fecho = (f'{bloco_declaracao(nomeia_pessoas, raiz) if com_declaracao else ""}'
+             f'{rodape(raiz)}{bloco_agente(rel, fontes_n, raiz)}')
+    if corpo_em_bandas:
+        # The first band carries the chrome and the masthead, so the stylesheet's
+        # `.band:first-of-type > .folha` rule can keep its top padding small — adding a band's full
+        # top padding above the operator strip cost 48px and put the mobile chrome back over 130px,
+        # which is the number this design exists to bring down.
+        corpo_final = (banda(f'{cabeca}{mancheta(aqui, raiz)}')
+                       + corpo + banda(fecho))
+    else:
+        corpo_final = f'{cabeca}{mancheta(aqui, raiz)}{corpo}{fecho}'
+    envolver = "" if corpo_em_bandas else "folha"
     return f"""<!doctype html>
 <html lang="pt-PT">
 <head>
@@ -299,11 +432,15 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 <script src="{raiz}assets/ponte.js" defer></script>
 <script src="{raiz}assets/observador.js" defer></script>
 <script src="{raiz}assets/conversa.js" defer></script>
+<script type="module" src="{raiz}assets/components/pt-chat/v1/v1.0/v1.0.0/pt-chat.js"></script>
 {extra_head}</head>
 <body>
-<div class="folha">
+<div class="{envolver}">
 {corpo_final}
 </div>
+<!-- The chat lives OUTSIDE .folha on purpose: it is a column of the document, not a block of the
+     page, and putting it inside would make it inherit the sheet's max-width and gutters. -->
+<pt-chat></pt-chat>
 {extra_body}</body>
 </html>
 """

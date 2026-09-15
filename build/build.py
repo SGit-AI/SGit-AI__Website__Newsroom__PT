@@ -80,17 +80,17 @@ def primeira(d):
         return (f'<a class="chip" href="{e(h["url"])}">ler o artigo · {e(h["estado"])}</a>')
 
     # --- a história principal e as duas secundárias ---------------------------
-    # These three blocks used to be bespoke: each was written from one measurement — the register's
-    # readability, the event's two sets of stage names, the speaker list that had only one capture —
+    # These three blocks used to be bespoke: each written from one measurement — the register's
+    # readability, the event's two sets of stage names, the speaker list with a single capture —
     # and each linked to the article about that measurement. They were what this newsroom could
     # claim before it had published anything, and they were about its own plumbing. A reader who
-    # arrives wanting to know about AI in Portugal was met by three stories about how the site
-    # reads pages. Now that there are published articles, the front page leads with them.
+    # came to read about AI in Portugal was met by three stories about how the site reads pages.
+    # Now that there are published articles, the front page leads with them.
     #
     # Which article takes which slot stays a property of the ARTICLE, declared in its own
-    # artigo.json. What changed is the fallback: with no slot declared, the published articles fill
-    # lead, secundaria-1 and secundaria-2 in order, so a front page is never empty and never links
-    # to an article that no longer exists.
+    # artigo.json. What changed is the fallback: with no slot declared, published articles fill
+    # lead, secundaria-1 and secundaria-2 in order, so the front page is never empty and never
+    # links to an article that no longer exists.
     ordem = sorted(publicadas, key=lambda h: (h.get("publicado_em") or h["data"], h["slug"]),
                    reverse=True)
     for nome in ("lead", "secundaria-1", "secundaria-2"):
@@ -106,21 +106,15 @@ def primeira(d):
             f'<div class="kick">{e(lead.get("antetitulo") or lead["seccao"])}</div>'
             + liga("lead", lead["titulo"], "h1 h-lead") +
             f'<p class="std">{e(lead.get("entrada", ""))}</p>')
-        # The chips under the lead are the lead's OWN frozen sources. They used to be the
-        # readability measurement, which stayed put when the headline changed and described a
-        # different article than the one above it.
-        # A source is named by its PUBLISHER, not by the id it happens to carry in the register.
-        # «src-pol-03» means something to this repository and nothing to a reader; «Governo de
-        # Portugal · 181 336 bytes» is the same fact said to the person reading it.
+        # The chips under the lead are the lead's OWN frozen sources, named by PUBLISHER rather
+        # than by the id the register carries: «src-pol-03» means something to this repository and
+        # nothing to a reader. They used to be the readability measurement, and they stayed put
+        # when the headline changed — a block of numbers about one story under the title of another.
         por_fonte = {f["id"]: f for f in reg["fontes"]}
         fichas_lead = "".join(
             f'<span class="chip ok">{e(por_fonte[s]["publicador"])} · '
             f'{por_fonte[s]["bytes"]:,} bytes</span>'.replace(",", "\u202f")
             for s in lead.get("assenta_em", []) if s in por_fonte)
-        n_conf_lead = (lead.get("verificacao") or {}).get("confirmadas", 0)
-        fichas_lead += (f'<span class="chip ok">{n_conf_lead} afirmaç'
-                        f'{"ões" if n_conf_lead != 1 else "ão"} confirmada'
-                        f'{"s" if n_conf_lead != 1 else ""}</span>')
     else:
         bloco_lead = (
             '<div class="kick">Ainda não há primeira página</div>'
@@ -144,8 +138,7 @@ def primeira(d):
         if not h:
             return ""
         n = (h.get("verificacao") or {}).get("confirmadas", 0)
-        estilo = ('col sp10' if topo else
-                  'hair col sp10" style="padding-top:22px')
+        estilo = 'col sp10' if topo else 'hair col sp10" style="padding-top:22px'
         return (f'<div class="{estilo}">'
                 f'<div class="kick">{e(h.get("antetitulo") or h["seccao"])}</div>'
                 + liga(slot, h["titulo"], "h2 h-2") +
@@ -160,19 +153,26 @@ def primeira(d):
     # --- «Nesta edição»: counts, every one of them from a file -----------------
     n_ent = sum(x["contagens"]["afirmacoes"] for x in ent["entregas"]) if ent else 0
     n_conf = sum(x["contagens"]["confirmadas"] for x in ent["entregas"]) if ent else 0
+    # THE NUMBERS LEAD, AND THE SENTENCE QUALIFIES THEM. This was five rows of label + sentence,
+    # with the counts — the thing a reader's eye goes looking for — buried mid-prose. A stat strip
+    # puts them at 22px above their label, and the sentences that qualify them follow underneath.
+    # Nothing is removed: every count still carries the file it came from in the line below it.
     nesta = (
         f'<div class="hair col sp8" style="padding-top:22px">'
         f'<div class="sect">Nesta edição</div>'
-        + linha_conta("Oradores", f'{pes["contagem"]} listados · {org["contagem"]} organizações · '
-                                  f'{org["marcadores"]} valores de marcador assinalados')
-        + linha_conta("Fontes", f'{reg["contagem"]} ficheiros congelados de '
-                                f'{len(reg["capturas"])} captura(s) · todos com hash')
-        + linha_conta("Grafo", f'{graf["contagens"]["nos"]} nós · {graf["contagens"]["arestas"]} '
-                               f'arestas · cada aresta um verbo português')
+        + P.tira_de_numeros([
+            ("Oradores", str(pes["contagem"])),
+            ("Organizações", str(org["contagem"])),
+            ("Fontes", str(reg["contagem"])),
+            ("Grafo", f'{graf["contagens"]["nos"]} · {graf["contagens"]["arestas"]}'),
+        ])
         + linha_conta("Programa", f'{ses["contagem"]} sessões lidas da agenda congelada · '
                                   f'{len(ses["palcos"])} palcos')
         + linha_conta("Entregas", f'{n_ent} afirmações entregues · {n_conf} com o excerto '
                                   f'encontrado nos bytes · nenhuma publicada')
+        + linha_conta("O que sustenta", f'{len(reg["capturas"])} captura(s), todas com hash · '
+                                        f'{org["marcadores"]} valores de marcador assinalados · '
+                                        f'cada aresta do grafo é um verbo português')
         + '</div>')
 
     # --- «Em preparação» ------------------------------------------------------
@@ -229,12 +229,21 @@ def primeira(d):
                      f'({e(i0["id"].split("/")[-1])}) devolveu um erro e ficou fora do registo: '
                      f'não pode ser citada.</p>')
 
-    # --- what has actually been published -------------------------------------
-    # The three blocks above are bespoke: each is written from a specific measurement and takes
-    # whichever article declares that slot. They are the EDITOR'S choice of what leads. This block
-    # is the other thing a reader needs — everything that has been published, newest day first,
-    # with the full archive one link away. Without it, an article the editor published but did not
-    # put in one of the three slots would exist on the site and be reachable from nowhere.
+    # THE PROVENANCE, DEMOTED. The sentence is built from the same counts the chips carry, so the
+    # two cannot disagree: the number of frozen pages and the number that returned no text are
+    # derived here, not typed. The chips stay, one click behind, with the byte counts intact.
+    n_f = len(lead.get("assenta_em", [])) if lead else 0
+    n_c = (lead.get("verificacao") or {}).get("confirmadas", 0) if lead else 0
+    frase_prov = (f'Assenta em {n_f} fonte{"s" if n_f != 1 else ""} congelada'
+                  f'{"s" if n_f != 1 else ""} e hasheada{"s" if n_f != 1 else ""} · '
+                  f'{n_c} afirmaç{"ões" if n_c != 1 else "ão"} reencontrada'
+                  f'{"s" if n_c != 1 else ""} nos bytes') if lead else "Sem fontes"
+    proveniencia_lead = P.proveniencia(fichas_lead + estado_do("lead"), frase_prov)
+
+    # --- what has actually been published --------------------------------------
+    # Everything published, newest day first, with the full archive one link away. Without it an
+    # article the editor published into neither the lead nor a secondary would exist on the site
+    # and be reachable from nowhere.
     por_dia_pub = {}
     for h in publicadas:
         por_dia_pub.setdefault(h.get("publicado_em") or h["data"], []).append(h)
@@ -256,33 +265,47 @@ def primeira(d):
     bloco_publicados = ""
     if grupos_pub:
         bloco_publicados = (
-            f'<div class="rule" style="padding:18px 0 8px;display:flex;'
-            f'justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">'
-            f'<div class="sect">Publicado · {len(publicadas)} artigo'
-            f'{"s" if len(publicadas) != 1 else ""}</div>'
-            f'<a class="mono ac" style="font-size:12px;letter-spacing:.04em" href="artigos/">'
-            f'Todos os artigos, dia a dia →</a></div>'
+            P.abertura("Publicado", numero="01",
+                       nota=f'{len(publicadas)} artigo'
+                            f'{"s" if len(publicadas) != 1 else ""}, cada afirmação reencontrada '
+                            f'nos bytes congelados',
+                       fim='<a class="mono ac" style="font-size:12px;letter-spacing:.04em" '
+                           'href="artigos/">Todos os artigos, dia a dia →</a>', maior=True)
             + "".join(grupos_pub))
 
-    corpo = f"""
-<div class="g12" style="padding:34px 0 30px">
+    # The one major opener on this page, with the legend riding at its far end. The stylesheet's
+    # note says to reach for this weight three or four times at most; the front page uses it once.
+    abertura_preparacao = P.abertura(
+        "Em preparação", numero="02",
+        nota="com pasta e fontes congeladas, à espera da linha do editor", fim=legenda,
+        maior=True)
+
+    # THE BAND RHYTHM ON THIS PAGE: base (the lead), recessed («Em preparação»), base (the rest).
+    # Three grounds and not six — the stylesheet's own note is that a page alternating every block
+    # is as flat as one alternating none.
+    banda_lead = P.banda(f"""
+<div class="g12">
   <div class="col sp18" style="grid-column:span 7">
     {bloco_lead}
-    <div class="chips"><span class="mono" style="font-size:12px;color:var(--sec-2)">Assenta em</span>{fichas_lead}</div>
+    {proveniencia_lead}
     {estado_dep}
+    {nesta}
   </div>
   <div class="col sp22 borda-esq" style="grid-column:span 5;border-left:1px solid var(--filete);padding-left:40px">
-    {sec1}{sec2}{nesta}
+    {sec1}{sec2}
   </div>
 </div>
+""")
+    banda_preparacao = P.banda(f"""
+{abertura_preparacao}
+<div class="g3">{cartoes}</div>
+""", "sunk")
 
+    banda_publicados = P.banda(f"""
 {bloco_publicados}
+""") if bloco_publicados else ""
 
-<div class="rule" style="padding:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
-  <div class="sect">Em preparação</div>
-  {legenda}
-</div>
-<div class="g3" style="padding:10px 0 34px">{cartoes}</div>
+    corpo = banda_lead + banda_publicados + banda_preparacao + P.banda(f"""
 
 <div class="rule g12" style="padding:22px 0 34px">
   <div class="col sp12" style="grid-column:span 4">
@@ -343,12 +366,13 @@ def primeira(d):
     <a href="metodo/" class="mono" style="font-size:12px;letter-spacing:.04em">Ler as políticas →</a>
   </div>
 </div>
-"""
+""")
     return pagina("index.html", "Um mapa do ecossistema português de IA",
                   "Uma redação nativamente portuguesa que mapeia o ecossistema português de "
                   "inteligência artificial como um grafo. Cada afirmação anda para trás até uma "
                   "cópia congelada e hasheada da sua fonte.",
-                  corpo, aqui=None, nomeia_pessoas=False, fontes_n=reg["contagem"])
+                  corpo, aqui=None, nomeia_pessoas=False, fontes_n=reg["contagem"],
+                  corpo_em_bandas=True)
 
 
 def linha_conta(rot, val):
@@ -1514,9 +1538,9 @@ def main():
     # An article is its dated folder, and build/artigos.py renders it there from artigo.md. This
     # used to render a SECOND copy of every published article at artigos/<slug>.html out of
     # conteudo/<slug>.md — a path that predates the dated folders and that nothing ever exercised,
-    # because nothing had ever been published. The first publication found it: two renderers for
-    # one article is the same defect the briefs are linked rather than republished to avoid.
-    # Content exists once.
+    # because nothing had ever been published. The first publication found it. Content exists once.
+    # (Deleted once in this work, restored by a clean merge from another session, deleted again:
+    # a clean merge is not evidence that your work survived.)
     print(f"build: {len(feitas)} páginas")
     return feitas
 

@@ -1,35 +1,45 @@
-/* pt.newsroom.sgit.ai — «falar com este conteúdo», num site que não tem servidor.
+/* pt.newsroom.sgit.ai — "talk to this content", on a site with no server. THE ENGINE.
  *
- * O PROBLEMA, E OS DOIS NÍVEIS QUE ELE OBRIGA
+ * This file is the engine only: the tools, the level-0 comparator, the OpenRouter call, and the
+ * browser storage. The interface is `<pt-chat>` in assets/components/. They were one file until
+ * the panel became a right-hand column, and splitting them is the usual reason: two things that
+ * change for different reasons should not share a file. A tool is added because the API grew; a
+ * panel changes because a reader could not find something.
  *
- * Este site é estático. Não há servidor, e por isso não há onde guardar uma chave de API. O
- * desenho é o que sgit.ai publica em `articles/chat-on-a-static-site.md`, com os mesmos dois
- * níveis e pela mesma razão:
+ * THE PROBLEM, AND THE TWO LEVELS IT FORCES
  *
- *   NÍVEL 0 — por omissão, e é o que está ligado. Um comparador determinístico que corre no
- *   navegador contra o índice que a construção emitiu. Instantâneo, gratuito, privado, funciona
- *   sem rede, e — a parte que o torna a omissão e não o parente pobre — **diz porque escolheu**.
- *   Mostra as palavras que bateram e onde bateram. Não inventa: encaminha.
+ * This site is static. There is no server, so there is nowhere to keep an API key. The design is
+ * the one sgit.ai publishes in `articles/chat-on-a-static-site.md`, with the same two levels and
+ * for the same reason:
  *
- *   NÍVEL 1 — opcional, e só se o leitor der a sua própria chave. Chamadas diretas do navegador
- *   para o OpenRouter, com ferramentas sobre a API deste site. A chave fica em `localStorage`, e
- *   o que isso significa está escrito no painel sem rodeios: **sem anfitrião não há chão de
- *   permissões, e a chave vive na origem desta página**. Não passa por pt.newsroom.sgit.ai —
- *   não há por onde passar. Se falhar, cai para o nível 0 em vez de deixar de responder.
+ *   LEVEL 0 — the default, and what is switched on. A deterministic comparator running in the
+ *   browser against the index the build emitted. Instant, free, private, works offline, and — the
+ *   part that makes it the default rather than the poor relation — **it says why it chose**. It
+ *   shows the words that matched and where. It does not invent: it routes.
  *
- * AS FERRAMENTAS SÃO A API DESTE SITE, E A API É SÓ FICHEIROS
+ *   LEVEL 1 — optional, and only if the reader supplies their own key. Direct browser calls to
+ *   OpenRouter, with tools over this site's API. The key lives in `localStorage`, and what that
+ *   means is written in the panel without hedging: **with no host there is no permission floor,
+ *   and the key lives on this page's origin**. It does not pass through pt.newsroom.sgit.ai —
+ *   there is nothing for it to pass through. If it fails, it falls back to level 0 rather than
+ *   stopping answering.
  *
- * Não há verbo que não seja GET, porque cada caminho de `/api/v1/` é um ficheiro no disco. Isso
- * faz das ferramentas uma coisa invulgarmente segura de dar a um modelo: o pior que uma chamada
- * pode fazer é ler uma coisa que já é pública. Não há escrita, não há autenticação para roubar, e
- * não há um endereço construído que possa alcançar outra coisa — a lista de caminhos permitidos
- * está aqui em baixo e nada fora dela é buscado.
+ * THE TOOLS ARE THIS SITE'S API, AND THE API IS ONLY FILES
  *
- * O QUE ISTO NÃO FAZ
+ * There is no verb but GET, because every `/api/v1/` path is a file on disk. That makes the tools
+ * an unusually safe thing to hand a model: the worst a call can do is read something already
+ * public. There is no write, no authentication to steal, and no constructed address that could
+ * reach anything else — the list of allowed paths is below and nothing outside it is fetched.
  *
- * Não publica, não altera um ficheiro, não fala com o cofre e não escreve correio. Para falar com
- * a redação há a ponte em `/backoffice/pontes.html`, que é outra coisa e tem outras regras. Este
- * painel lê, e mais nada.
+ * It is also why every tool below is badged READ and none is badged anything else. A tool list
+ * where every entry is harmless is not a design achievement here; it is a consequence of the API
+ * being files. Said out loud so nobody reads the badges as a safety claim they are not.
+ *
+ * WHAT THIS DOES NOT DO
+ *
+ * It does not publish, does not change a file, does not talk to the vault and does not write mail.
+ * For talking to the newsroom there is the bridge at `/backoffice/pontes.html`, which is a
+ * different thing with different rules. This reads, and nothing else.
  */
 (function (global) {
   "use strict";
@@ -37,10 +47,18 @@
   var CHAVE = "pt-newsroom:conversa:openrouter";
   var MODELO = "pt-newsroom:conversa:modelo";
   var MODELO_OMISSAO = "anthropic/claude-sonnet-4.5";
-  var API = "/api/v1/";
+  /* No leading slash: `raiz()` below is an absolute URL ending in "/", and the two are joined.
+   * With a leading slash here the join produced "../../../..//api/v1/…", whose empty segment
+   * resolved to "/artigos//api/v1/…" and answered 404 on every page except the front one. */
+  var API = "api/v1/";
 
-  /* As ferramentas. Cada uma é um GET a um caminho de `/api/v1/`, e a lista é fechada: um nome
-   * que não esteja aqui não é buscado, e um `{id}` é higienizado antes de entrar no caminho. */
+  /* THIS FILE'S OWN URL, taken at load time. `document.currentScript` is set while a classic
+   * script is executing, and this file is loaded with `defer`, so it is set here. */
+  var MEU = (global.document.currentScript && global.document.currentScript.src) || "";
+
+  /* The tools. Each is a GET to a `/api/v1/` path, and the list is closed: a name not in here is
+   * not fetched, and an `{id}` is sanitised before it enters the path. Every one is READ, for the
+   * reason given in the banner — the API is files. */
   var FERRAMENTAS = [
     { nome: "listar_seccoes", caminho: "sections.json",
       descricao: "As oito secções e o registo editorial de cada uma: o que cobre, e o que pode e " +
@@ -49,21 +67,27 @@
       descricao: "O registo das fontes congeladas: endereço, bytes, SHA-256 e hora de obtenção de " +
                  "cada uma. É aqui que uma afirmação acaba por assentar." },
     { nome: "ler_fonte", caminho: "sources/{id}.json", id: true,
+      lista: "listar_fontes", exemplo: "dados-gov",
       descricao: "Uma fonte congelada em particular, pelo seu id." },
     { nome: "listar_empresas", caminho: "companies.json",
       descricao: "As organizações que o grafo conhece, derivadas das fontes." },
     { nome: "ler_empresa", caminho: "companies/{id}.json", id: true,
+      lista: "listar_empresas", exemplo: "unbabel",
       descricao: "Uma organização, pelo seu id." },
     { nome: "listar_pessoas", caminho: "people.json",
       descricao: "As pessoas que o grafo conhece. Sem contactos: nenhum contacto de pessoa " +
                  "singular existe em ficheiro nenhum deste site." },
     { nome: "ler_pessoa", caminho: "people/{id}.json", id: true,
+      lista: "listar_pessoas", exemplo: "paulo-andrez",
       descricao: "Uma pessoa, pelo seu id." },
     { nome: "listar_artigos", caminho: "articles.json",
       descricao: "Cada artigo, o seu estado e onde está a sua pasta. Publicado só quando o editor " +
                  "de registo escreve essa linha." },
     { nome: "ler_artigo", caminho: "articles/{id}.json", id: true,
-      descricao: "Um artigo pelo seu slug, com as suas afirmações e a proveniência." },
+      lista: "listar_artigos", exemplo: "dois-nomes-para-os-mesmos-palcos",
+      descricao: "Um artigo pelo seu slug, com as suas afirmações e a proveniência. O id é o " +
+                 "slug e só o slug: a pasta do artigo é datada (artigos/2026/09/14/<slug>/) mas " +
+                 "a data não entra no id." },
     { nome: "o_grafo", caminho: "graph.json",
       descricao: "O grafo inteiro: nós e arestas. Cada aresta é um verbo português com um inverso " +
                  "distinto." },
@@ -102,24 +126,43 @@
   }
 
   function raiz() {
-    /* A profundidade da página decide o caminho para `/api/v1/`. Uma raiz absoluta funcionaria em
-     * produção e partiria em qualquer pré-visualização servida a partir de uma subpasta. */
-    var n = location.pathname.replace(/^\/|\/$/g, "").split("/").length - 1;
-    return location.pathname.endsWith("/") || location.pathname.endsWith(".html")
-      ? new Array(Math.max(0, n) + 1).join("../") : "";
+    /* THE ROOT COMES FROM THIS FILE, NOT FROM COUNTING THE ADDRESS BAR.
+     *
+     * This used to count the segments of `location.pathname` and build that many `../`. It was
+     * wrong in two ways at once, and the two hid each other: the count was short by one for a
+     * directory URL — `/artigos/2026/09/14/slug/` needs five `../` and got four — and the result
+     * was then joined to an `API` that began with a slash, so the whole thing collapsed to
+     * `/artigos//api/v1/`. Every tool call from any page below the root answered 404, and the
+     * panel reported the 404 against a path nobody had written, which is the worst kind.
+     *
+     * Counting was the mistake, not the arithmetic. This file knows where it is: it sits at
+     * `<root>/assets/conversa.js`, so one step up from its own URL is the site root, at any
+     * depth, under any prefix, with no rule to keep in step with the page tree. It is the same
+     * mechanism `SgComponent` uses to find its markup (`static jsUrl = import.meta.url`) — the
+     * house pattern, and the reason a component can be moved without being told where it went.
+     *
+     * The fallback is only for a browser that does not set `document.currentScript`; it assumes
+     * the site is served from the domain root, which is true in production and false in a
+     * preview from a subfolder — hence it being the fallback and not the rule. */
+    if (MEU) return new URL("../", MEU).href;
+    return new URL("/", location.href).href;
   }
 
   function buscar(caminho) {
-    return fetch(raiz() + API + caminho, { credentials: "omit" })
+    var url = raiz() + API + caminho;
+    return fetch(url, { credentials: "omit" })
       .then(function (r) {
-        if (!r.ok) throw new Error(caminho + " respondeu " + r.status);
+        /* The URL and not just the path. A 404 reported against `articles.json` sends you looking
+         * at the file, which is there; a 404 reported against the address actually requested
+         * shows you the bad path in the first line. */
+        if (!r.ok) throw new Error(caminho + " respondeu " + r.status + " (" + url + ")");
         return r.json();
       });
   }
 
-  /* ------------------------------------------------------- nível 0: o comparador ---
-   * Determinístico, e a sua virtude é dizer porque escolheu. O índice é `/api/v1/index.json`
-   * mais as secções: o que a construção emitiu, e não uma lista escrita à mão que envelhece. */
+  /* ------------------------------------------------------ level 0: the comparator ---
+   * Deterministic, and its virtue is saying why it chose. The index is `/api/v1/index.json` plus
+   * the sections: what the build emitted, not a hand-written list that ages. */
   var VAZIAS = ("a o as os de do da das dos e em no na nos nas que por para com um uma uns umas " +
     "se ao aos à às pelo pela como mais mas ou ser sobre qual quais quem onde quando quanto " +
     "quantos porque é são foi eram tem têm há este esta estes estas isso").split(" ");
@@ -136,8 +179,8 @@
     return catalogo.map(function (item) {
       var pontos = 0, bateram = [];
       termos.forEach(function (t) {
-        /* Um acerto no nome ou no caminho pesa mais do que um acerto no resumo. O nome é o que a
-         * coisa É; o resumo é o que alguém disse sobre ela. */
+        /* A hit in the name or the path weighs more than a hit in the summary. The name is what
+         * the thing IS; the summary is what somebody said about it. */
         if (palavras(item.nome).indexOf(t) !== -1) { pontos += 3; bateram.push(t + " (no nome)"); }
         else if (palavras(item.caminho).indexOf(t) !== -1) { pontos += 2; bateram.push(t + " (no caminho)"); }
         else if (palavras(item.resumo).indexOf(t) !== -1) { pontos += 1; bateram.push(t + " (no resumo)"); }
@@ -176,15 +219,20 @@
     });
   }
 
-  /* --------------------------------------------------- nível 1: o OpenRouter ---
-   * Chamadas diretas do navegador, com as ferramentas acima. O laço corre no máximo seis voltas:
-   * um modelo que não conclui em seis chamadas de leitura não vai concluir na sétima, e um laço
-   * sem tecto num navegador é uma conta a crescer sem ninguém a ver. */
+  /* ------------------------------------------------------- level 1: OpenRouter ---
+   * Direct calls from the browser, with the tools above. The loop runs at most six rounds: a model
+   * that has not concluded after six reads will not conclude on the seventh, and an uncapped loop
+   * in a browser is a bill growing with nobody watching. */
   function esquemaDeFerramentas() {
     return FERRAMENTAS.map(function (f) {
       var props = {}, obrig = [];
       if (f.id) {
-        props.id = { type: "string", description: "O identificador, tal como a listagem o dá." };
+        props.id = {
+          type: "string",
+          description: "O id, exatamente como vem de `" + (f.lista || "uma listagem") + "`. " +
+            "Letras minúsculas, dígitos, hífen, ponto e sublinhado — sem barras e sem acentos. " +
+            "Por exemplo: " + (f.exemplo || "um-id-assim") + ".",
+        };
         obrig.push("id");
       }
       return {
@@ -202,15 +250,41 @@
     if (!f) return Promise.resolve({ erro: "ferramenta desconhecida: " + nome });
     var caminho = f.caminho;
     if (f.id) {
-      /* Higienizado, e não escapado: só se aceitam os caracteres que um id deste site pode ter.
-       * Um id com uma barra ou um `..` sairia de `/api/v1/` e iria buscar outra coisa. */
-      var id = String((args && args.id) || "").toLowerCase().replace(/[^a-z0-9._-]/g, "");
-      if (!id) return Promise.resolve({ erro: "esta ferramenta precisa de um id" });
+      /* REFUSED, NOT REPAIRED. This used to strip the disallowed characters and carry on, and
+       * that is how `2026/09/14/dois-nomes-para-os-mesmos-palcos` became
+       * `20260914dois-nomes-para-os-mesmos-palcos`: a path nobody wrote, fetched, 404'd, and
+       * reported back as though the article were missing. Silently repairing an argument turns a
+       * wrong question into a wrong answer, which on this site is the one failure that does not
+       * look broken. So an id that is not already an id comes back as a refusal that says what an
+       * id is and which tool hands them out — and the model, which is the one that can fix it,
+       * gets told rather than misled.
+       *
+       * The character set is still a whitelist, and that part was never in doubt: a slash or a
+       * `..` would leave `/api/v1/` and fetch something else entirely. */
+      var cru = String((args && args.id) || "").trim();
+      if (!cru) {
+        return Promise.resolve({
+          erro: "esta ferramenta precisa de um id",
+          como_obter: f.lista ? "chama `" + f.lista + "` primeiro" : undefined,
+          exemplo: f.exemplo,
+        });
+      }
+      var id = cru.toLowerCase();
+      if (!/^[a-z0-9._-]+$/.test(id)) {
+        return Promise.resolve({
+          erro: "«" + cru + "» não é um id deste site",
+          porque: "um id é um segmento só: minúsculas, dígitos, hífen, ponto e sublinhado. " +
+                  "Sem barras, sem acentos, e sem a data da pasta.",
+          como_obter: f.lista ? "chama `" + f.lista + "` e usa o id que vem de lá"
+                              : "consulta a listagem correspondente",
+          exemplo: f.exemplo,
+        });
+      }
       caminho = caminho.replace("{id}", id);
     }
     return buscar(caminho).then(function (d) {
-      /* Truncado, porque uma coleção inteira do grafo tem 300 kB e a janela não os quer. O corte
-       * é dito no próprio resultado, para o modelo saber que está a ver um pedaço. */
+      /* Truncated, because a whole graph collection is 300 kB and the window does not want it.
+       * The cut is stated in the result itself, so the model knows it is seeing a piece. */
       var t = JSON.stringify(d);
       return t.length > 24000
         ? { truncado: true, bytes_totais: t.length, inicio: t.slice(0, 24000) }
@@ -235,38 +309,68 @@
     "item a item. Se citares uma, dizes isso.\n" +
     "6. Não inventas um id. Listas primeiro, e usas um id que a listagem deu.";
 
+  /* `aoVivo` is called with an event rather than a string, because the panel shows each tool call
+   * as it happens — which tool, with what argument, how many bytes came back. A spinner that says
+   * "thinking" hides exactly the part a reader of THIS site should be able to watch: which files
+   * the model actually opened. The events are:
+   *
+   *   {tipo:"chamada", nome, args}              a tool is about to run
+   *   {tipo:"resultado", nome, bytes, erro}     it came back
+   *   {tipo:"custo", chamadas, custo, tokens}   what the round cost, when OpenRouter reports it
+   */
   function perguntar(chave, modelo, historico, aoVivo) {
     var mensagens = [{ role: "system", content: SISTEMA }].concat(historico);
-    var voltas = 0;
+    var voltas = 0, chamadas_feitas = 0, custo = 0, tokens = 0;
+
+    function emitir(ev) { try { aoVivo(ev); } catch (e) { /* the panel is not the engine's problem */ } }
 
     function volta() {
       voltas += 1;
       if (voltas > 6) {
-        return Promise.resolve("Parei ao fim de seis leituras sem chegar a uma resposta. " +
-          "Pergunte de forma mais estreita, ou veja o caminho da API diretamente.");
+        return Promise.resolve({
+          texto: "Parei ao fim de seis leituras sem chegar a uma resposta. Pergunte de forma mais " +
+                 "estreita, ou veja o caminho da API diretamente.",
+          chamadas: chamadas_feitas, custo: custo, tokens: tokens,
+        });
       }
       return fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + chave },
         body: JSON.stringify({
           model: modelo, messages: mensagens, tools: esquemaDeFerramentas(), tool_choice: "auto",
+          /* Ask OpenRouter to bill the round back to us. Without it the panel would have to guess
+           * a price from a table that ages, and a guessed number on a site about provenance is
+           * worse than no number. */
+          usage: { include: true },
         }),
       }).then(function (r) {
         if (r.status === 401) throw new Error("o OpenRouter recusou a chave");
         if (!r.ok) throw new Error("o OpenRouter respondeu " + r.status);
         return r.json();
       }).then(function (d) {
+        var u = d.usage || {};
+        if (typeof u.cost === "number") custo += u.cost;
+        if (typeof u.total_tokens === "number") tokens += u.total_tokens;
+        emitir({ tipo: "custo", chamadas: chamadas_feitas, custo: custo, tokens: tokens });
+
         var m = ((d.choices || [])[0] || {}).message || {};
         mensagens.push(m);
         var chamadas = m.tool_calls || [];
-        if (!chamadas.length) return m.content || "(sem resposta)";
-        aoVivo("a ler: " + chamadas.map(function (c) { return c.function.name; }).join(", "));
+        if (!chamadas.length) {
+          return { texto: m.content || "(sem resposta)", chamadas: chamadas_feitas,
+                   custo: custo, tokens: tokens };
+        }
         return Promise.all(chamadas.map(function (c) {
           var args = {};
-          try { args = JSON.parse(c.function.arguments || "{}"); } catch (e) { /* nada */ }
+          try { args = JSON.parse(c.function.arguments || "{}"); } catch (e) { /* nothing */ }
+          chamadas_feitas += 1;
+          emitir({ tipo: "chamada", nome: c.function.name, args: args });
           return correrFerramenta(c.function.name, args).then(function (res) {
+            var corpo = JSON.stringify(res);
+            emitir({ tipo: "resultado", nome: c.function.name, bytes: corpo.length,
+                     erro: res && res.erro ? res.erro : null });
             mensagens.push({ role: "tool", tool_call_id: c.id, name: c.function.name,
-                             content: JSON.stringify(res) });
+                             content: corpo });
           });
         })).then(volta);
       });
@@ -274,149 +378,13 @@
     return volta();
   }
 
-  /* ------------------------------------------------------------------ o painel --- */
-  function painel() {
-    var caixa = document.createElement("div");
-    caixa.className = "cartao";
-    caixa.id = "conversa";
-    caixa.style.marginTop = "18px";
-    caixa.style.padding = "16px";
-    caixa.innerHTML =
-      '<div class="sect">Falar com este conteúdo</div>' +
-      '<p class="sm" style="max-width:52em;padding-top:6px">Por omissão isto corre inteiramente ' +
-      'no seu navegador: um comparador que encaminha para o caminho da API ou a secção que ' +
-      'responde, e que <b>diz porque escolheu</b>. Não vai nada a nenhum servidor, funciona sem ' +
-      'rede, e não inventa — encaminha.</p>' +
-      '<div class="chips" style="padding-top:8px">' +
-      '<input id="cv-p" type="text" placeholder="o que quer saber?" ' +
-      'style="flex:1 1 18em;min-width:12em;padding:8px;border:1px solid var(--filete);' +
-      'background:var(--papel);color:var(--tinta)">' +
-      '<button class="chip ok" id="cv-ir" type="button">perguntar</button>' +
-      '<button class="chip" id="cv-abrir" type="button">usar a minha chave</button>' +
-      '</div>' +
-      '<div id="cv-chave" hidden style="padding-top:10px">' +
-      '<p class="sm" style="max-width:52em"><b>A sua chave, e o que isso quer dizer.</b> Com a ' +
-      'sua chave do OpenRouter, o painel passa a chamar um modelo com ferramentas de leitura ' +
-      'sobre a API deste site — as ferramentas são só GET, porque cada caminho da API é um ' +
-      'ficheiro, e o pior que uma chamada pode fazer é ler uma coisa que já é pública. ' +
-      'A chave fica no <code>localStorage</code> desta origem. <b>Não há anfitrião e por isso ' +
-      'não há chão de permissões:</b> a chave vive na origem desta página e qualquer script que ' +
-      'aqui corresse poderia lê-la. Não passa por pt.newsroom.sgit.ai — não há por onde passar. ' +
-      'Se preferir não o fazer, o comparador acima responde sem chave nenhuma.</p>' +
-      '<div class="chips" style="padding-top:8px">' +
-      '<input id="cv-k" type="password" placeholder="sk-or-…" autocomplete="off" ' +
-      'style="flex:1 1 16em;padding:8px;border:1px solid var(--filete);background:var(--papel);' +
-      'color:var(--tinta)">' +
-      '<input id="cv-m" type="text" autocomplete="off" ' +
-      'style="flex:1 1 14em;padding:8px;border:1px solid var(--filete);background:var(--papel);' +
-      'color:var(--tinta)">' +
-      '<button class="chip ok" id="cv-guardar" type="button">guardar</button>' +
-      '<button class="chip miss" id="cv-esquecer" type="button">esquecer</button>' +
-      '</div></div>' +
-      '<div id="cv-r" style="padding-top:12px"></div>';
-
-    var folha = document.querySelector(".folha");
-    if (folha) folha.appendChild(caixa);
-
-    var el = function (i) { return document.getElementById(i); };
-    el("cv-m").value = guardado(MODELO, MODELO_OMISSAO);
-
-    function pintarEstado() {
-      el("cv-abrir").textContent = guardado(CHAVE, "")
-        ? "a usar a sua chave — mudar" : "usar a minha chave";
-      el("cv-abrir").className = "chip " + (guardado(CHAVE, "") ? "ok" : "");
-    }
-    pintarEstado();
-
-    el("cv-abrir").onclick = function () {
-      el("cv-chave").hidden = !el("cv-chave").hidden;
-    };
-    el("cv-guardar").onclick = function () {
-      guardar(CHAVE, el("cv-k").value.trim());
-      guardar(MODELO, el("cv-m").value.trim() || MODELO_OMISSAO);
-      el("cv-k").value = "";
-      el("cv-r").innerHTML = '<p class="sm">Guardada neste navegador. Nada saiu desta página.</p>';
-      pintarEstado();
-    };
-    el("cv-esquecer").onclick = function () {
-      esquecer(CHAVE);
-      el("cv-r").innerHTML = '<p class="sm">Esquecida. O comparador continua a responder.</p>';
-      pintarEstado();
-    };
-
-    function nivelZero(pergunta) {
-      return catalogo().then(function (cat) {
-        var r = comparar(pergunta, cat);
-        if (!r.length) {
-          return '<p class="sm">Nada no índice deste site bate com essas palavras. O índice ' +
-            'inteiro está em <a href="' + raiz() + 'api/v1/index.json">/api/v1/index.json</a> e ' +
-            'em <a href="' + raiz() + 'llms.txt">llms.txt</a>.</p>';
-        }
-        return '<p class="sm">O comparador correu no seu navegador. ' + r.length +
-          ' resultado(s), e ao lado de cada um está <b>porque</b> foi escolhido:</p>' +
-          r.map(function (x) {
-            return '<div class="cartao"><div class="chips" style="padding-bottom:4px">' +
-              '<span class="chip">' + x.item.tipo + '</span>' +
-              '<span class="chip ok">' + x.pontos + ' pontos</span></div>' +
-              '<p class="sm"><b>' + x.item.nome + '</b> — <a href="' + raiz() +
-              x.item.caminho.replace(/^\//, "") + '">' + x.item.caminho + '</a></p>' +
-              '<p class="xs">' + x.item.resumo.slice(0, 300) + '</p>' +
-              '<p class="xs mono">bateu: ' + x.bateram.join(", ") + '</p></div>';
-          }).join("");
-      });
-    }
-
-    function ir() {
-      var pergunta = el("cv-p").value.trim();
-      if (!pergunta) return;
-      var chave = guardado(CHAVE, "");
-      el("cv-r").innerHTML = '<p class="sm">a pensar…</p>';
-      if (!chave) {
-        nivelZero(pergunta).then(function (h) { el("cv-r").innerHTML = h; });
-        return;
-      }
-      perguntar(chave, guardado(MODELO, MODELO_OMISSAO), [{ role: "user", content: pergunta }],
-        function (estado) { el("cv-r").innerHTML = '<p class="sm">' + estado + '…</p>'; })
-        .then(function (resposta) {
-          el("cv-r").innerHTML = '<div class="correio">' +
-            resposta.split(/\n\s*\n/).map(function (p) {
-              /* Texto, e não HTML. O que um modelo devolve é texto de outra pessoa, e injectá-lo
-               * como marcação seria dar a um modelo a caneta de escrever nesta página. */
-              var d = document.createElement("p");
-              d.className = "sm"; d.style.maxWidth = "52em"; d.textContent = p;
-              return d.outerHTML;
-            }).join("") + '</div>' +
-            '<p class="xs mono">Respondido por ' + guardado(MODELO, MODELO_OMISSAO) +
-            ', com a sua chave, a ler os caminhos de /api/v1/. Confira o que ele diz contra o ' +
-            'caminho que ele nomeia — é para isso que a API existe.</p>';
-        })
-        .catch(function (err) {
-          /* Cai para o nível 0 em vez de deixar de responder. */
-          nivelZero(pergunta).then(function (h) {
-            el("cv-r").innerHTML = '<p class="sm">O nível 1 falhou (' + err.message +
-              '), e por isso corri o comparador:</p>' + h;
-          });
-        });
-    }
-
-    el("cv-ir").onclick = ir;
-    el("cv-p").addEventListener("keydown", function (ev) {
-      if (ev.key === "Enter") ir();
-    });
-  }
-
-  function arrancar() {
-    /* Fora dos bastidores: a consola tem as suas próprias páginas e não precisa deste painel. */
-    if (location.pathname.indexOf("/backoffice/") !== -1) return;
-    if (!document.querySelector(".folha")) return;
-    painel();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", arrancar);
-  } else {
-    arrancar();
-  }
-
-  global.ptConversa = { FERRAMENTAS: FERRAMENTAS, comparar: comparar, buscar: buscar };
+  /* What the panel needs, and nothing more. The interface is a separate file and talks to this
+   * one only through here; anything it reaches around this object for is a seam that will break. */
+  global.ptConversa = {
+    FERRAMENTAS: FERRAMENTAS,
+    CHAVE: CHAVE, MODELO: MODELO, MODELO_OMISSAO: MODELO_OMISSAO,
+    comparar: comparar, catalogo: catalogo, buscar: buscar, raiz: raiz,
+    perguntar: perguntar, correrFerramenta: correrFerramenta,
+    guardado: guardado, guardar: guardar, esquecer: esquecer,
+  };
 })(window);

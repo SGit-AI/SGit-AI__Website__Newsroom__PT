@@ -13,8 +13,12 @@
  *
  *   · the browser console writes an error, or the page throws;
  *   · any request fails or answers 400 or above;
+ *   · a chat tool does not resolve when really called, from the deepest page and from the root;
  *   · a custom element is never defined, opens no shadow root, or comes up empty;
- *   · the host ends at `data-estado="erro"`, or never reaches `data-estado="pronto"`;
+ *   · an element inside it carries `hidden` and is on screen anyway;
+ *   · the host ends at `data-estado="erro"`, or never reaches `data-estado="pronto"` — the gate
+ *     waits for that attribute to appear rather than sleeping a fixed number of milliseconds,
+ *     because a sleep measures the machine the gate runs on and not the site;
  *   · the base class's "did not load" warning appears;
  *   · a component is stuck on its own loading text;
  *   · the page overflows horizontally at 390px wide.
@@ -41,17 +45,23 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8777'
 /* One page per component, plus the pages that combine them. Not the whole site: 232 pages in a
    browser is slow and repetitive, and what is being checked is the code that runs, not the HTML. */
 const PAGINAS = [
-    ['/', []],
-    ['/redacao/', ['pt-newsroom-floor']],
-    ['/entidades/', []],
-    ['/entidades/editor/comissao-europeia/', ['pt-entity-graph']],
-    ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph']],
-    ['/artigos/2026/09/14/uma-captura-nao-mostra-movimento/', ['pt-json-viewer', 'pt-comment-map']],
+    /* `pt-chat` is on every page the reader sees — 227 of them — so it is named on every reader
+       page in this list rather than checked once. A panel that throws on one template and not
+       another is exactly the failure a single sample would miss. It is NOT on the back-office
+       pages below, and that is deliberate: the chat talks to the paper, in Portuguese, and the
+       back office is the English side of the house. */
+    ['/', ['pt-chat']],
+    ['/redacao/', ['pt-newsroom-floor', 'pt-chat']],
+    ['/entidades/', ['pt-chat']],
+    ['/entidades/editor/comissao-europeia/', ['pt-entity-graph', 'pt-chat']],
+    ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph', 'pt-chat']],
+    ['/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+     ['pt-json-viewer', 'pt-comment-map', 'pt-chat']],
     ['/backoffice/agents.html', ['pt-comment-map']],
     ['/backoffice/docs.html', ['pt-doc-browser']],
-    ['/api/', ['pt-api-console']],
-    ['/grafo/', []],
-    ['/protagonistas/', []],
+    ['/api/', ['pt-api-console', 'pt-chat']],
+    ['/grafo/', ['pt-chat']],
+    ['/protagonistas/', ['pt-chat']],
     /* The team, board and mail pages have no components, and the bridges page has the largest
        script block on this site — the unlock and the message box. None of them uses a custom
        element, so none would be caught by a list made of components; but it is code that runs, and
@@ -62,6 +72,28 @@ const PAGINAS = [
     ['/backoffice/quadro.html', []],
     ['/backoffice/correio.html', []],
     ['/backoffice/pontes.html', []],
+]
+
+/* EVERY TOOL, REALLY FETCHED, FROM THE DEEPEST PAGE ON THE SITE.
+ *
+ * The chat's tools are paths, and a path is a claim about where the reader is standing. The engine
+ * used to build that path by counting the segments of `location.pathname`, and it was wrong on
+ * every page except the front one — so every tool call from an article answered 404 and the panel
+ * blamed the article. Nothing caught it: the component loaded, reached «pronto», threw nothing and
+ * overflowed nothing. A tool is only exercised when somebody asks a question, and no gate asks
+ * questions.
+ *
+ * This one does. It calls every listing tool for real, from the deepest page this site has and
+ * from the shallowest, and fails on any that does not come back with JSON. The two paths matter
+ * for different reasons: the article page is five directories down, which is where the arithmetic
+ * broke; the front page is where the old code accidentally worked, so a fix that only works deep
+ * would pass a deep-only check.
+ *
+ * It also reads one id tool with an id taken from the listing, because a `{id}` path is a second
+ * kind of claim — that the id the listing hands out is the id the reader tool accepts. */
+const FERRAMENTAS_EM = [
+    '/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+    '/',
 ]
 
 /* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
@@ -85,7 +117,29 @@ for (const [caminho, comps] of PAGINAS) {
     pag.on('response', r => { if (r.status() >= 400 && !ruidoso(r.url())) erros.push(`HTTP ${r.status()}: ${r.url()}`) })
 
     await pag.goto(BASE + caminho, { waitUntil: 'networkidle' })
-    await pag.waitForTimeout(400)
+
+    /* WAIT FOR THE STATE, NOT FOR A DURATION. This used to be `waitForTimeout(400)`, and that is
+       how a gate becomes a coin toss: on the graph page Cytoscape runs its layout on the main
+       thread, the components' own `fetch` for their markup resolves behind it, and 400ms found
+       `pt-chat` with an empty shadow root — reported as a broken component when it was ready at
+       three seconds. A fixed sleep measures the machine the gate runs on.
+
+       So the gate waits for what it is actually asserting: every named component carrying a
+       `data-estado`, which the base class sets on the host once `onReady()` has returned or
+       thrown. Reaching the timeout is still a failure, and a real one — a component that needs
+       more than TEMPO_LIMITE to open is a component the reader sees as an empty box. */
+    const TEMPO_LIMITE = 10000
+    if (comps.length) {
+        try {
+            await pag.waitForFunction(
+                ts => ts.every(t => document.querySelector(t)?.hasAttribute('data-estado')),
+                comps, { timeout: TEMPO_LIMITE })
+        } catch {
+            /* Not reported here: the per-component checks below name which one, and what state it
+               was left in, which is the sentence somebody can act on. */
+        }
+    }
+    await pag.waitForTimeout(200)
 
     for (const tag of comps) {
         const info = await pag.evaluate(t => {
@@ -99,6 +153,16 @@ for (const [caminho, comps] of PAGINAS) {
                 filhos: sr ? sr.children.length : 0,
                 estado: el.getAttribute('data-estado'),
                 erro: el.getAttribute('data-erro'),
+                /* `hidden` THAT DOES NOT HIDE. The UA stylesheet's `[hidden] { display: none }`
+                   has the specificity of one attribute selector, so any class rule in the
+                   component's own sheet that sets `display` silently beats it. `pt-chat` shipped
+                   with `.painel { display: flex }` and an element that was `hidden`: the panel
+                   was permanently open, lying across the article — and it passed every check here,
+                   because the component WAS at «pronto», nothing threw and nothing overflowed.
+                   So the gate stops trusting the attribute and reads the computed style. */
+                fantasmas: [...sr.querySelectorAll('[hidden]')]
+                    .filter(x => getComputedStyle(x).display !== 'none')
+                    .map(x => x.id || x.className || x.tagName.toLowerCase()),
             }
         }, tag)
         if (info.falta) { erros.push(`<${tag}> não está na página`); continue }
@@ -115,6 +179,9 @@ for (const [caminho, comps] of PAGINAS) {
             erros.push(`<${tag}> declarou-se em erro: ${info.erro || 'sem motivo'}`)
         else if (info.estado !== 'pronto')
             erros.push(`<${tag}> nunca chegou a «pronto» (data-estado=${info.estado ?? 'ausente'})`)
+        for (const f of info.fantasmas || [])
+            erros.push(`<${tag}> tem «${f}» com o atributo hidden e à vista — uma regra de classe ` +
+                       `com «display» está a ganhar ao [hidden] do navegador`)
         if (/did not load/.test(info.texto)) erros.push(`<${tag}> mostrou o aviso de falha: ${info.texto}`)
         if (/a carregar/.test(info.texto) && info.texto.length < 80)
             erros.push(`<${tag}> ficou preso em «a carregar»: ${info.texto}`)
@@ -136,6 +203,42 @@ for (const [caminho, comps] of PAGINAS) {
         for (const e of unicos) console.log(`    ${e}`)
     } else {
         console.log(`✓ ${caminho}${comps.length ? '  ' + comps.join(' ') : ''}`)
+    }
+    await ctx.close()
+}
+
+for (const caminho of FERRAMENTAS_EM) {
+    const ctx = await navegador.newContext({ viewport: { width: 1280, height: 900 } })
+    const pag = await ctx.newPage()
+    await pag.goto(BASE + caminho, { waitUntil: 'networkidle' })
+    await pag.waitForFunction(() => !!window.ptConversa, null, { timeout: 10000 })
+
+    const problemas = await pag.evaluate(async () => {
+        const m = window.ptConversa
+        const maus = []
+        for (const f of m.FERRAMENTAS) {
+            if (f.id) continue
+            const r = await m.correrFerramenta(f.nome, {})
+            if (!r || r.erro) maus.push(`${f.nome} → ${(r && r.erro) || 'sem resposta'}`)
+        }
+        /* One `{id}` tool, with an id the listing itself gave — the round trip, not the path. */
+        const lista = await m.correrFerramenta('listar_artigos', {})
+        const artigos = (lista && (lista.artigos || lista.historias || lista.itens)) || []
+        const id = artigos.length ? (artigos[0].slug || artigos[0].id) : null
+        if (!id) maus.push('listar_artigos não devolveu nenhum artigo com um id')
+        else {
+            const um = await m.correrFerramenta('ler_artigo', { id: id })
+            if (!um || um.erro) maus.push(`ler_artigo(${id}) → ${(um && um.erro) || 'sem resposta'}`)
+        }
+        return maus
+    })
+
+    if (problemas.length) {
+        falhas++
+        console.log(`\n✗ ${caminho}  ferramentas`)
+        for (const e of problemas) console.log(`    ${e}`)
+    } else {
+        console.log(`✓ ${caminho}  ferramentas: todas resolvem a partir daqui`)
     }
     await ctx.close()
 }
