@@ -17,11 +17,11 @@
              font-family: var(--mono, ui-monospace, monospace); font-size: 11px;
              color: var(--sec-2, #6b6f76); }
 .banc .num b { color: var(--tinta, #16161a); font-weight: 500; }
-.banc .num .alerta b { color: var(--aviso, #b45309); }
+.banc .num .alerta b { color: var(--aviso, var(--aviso)); }
 /* A barra de carga é a única coisa desenhada nesta página, e mede uma razão real: quantas das
    entradas daquela bancada estão por fechar. Cheia não é mau — é trabalho. */
 .barra { height: 3px; background: var(--filete, #dcdcd6); margin-top: 10px; }
-.barra i { display: block; height: 3px; background: var(--aviso, #b45309); }
+.barra i { display: block; height: 3px; background: var(--aviso, var(--aviso)); }
 
 .detalhe { border-left: 3px solid var(--acento, #1d4ed8); padding: 4px 0 4px 16px; }
 .detalhe h3 { font-family: var(--serif, Georgia, serif); font-size: 17px; margin: 0 0 6px;
@@ -55,5 +55,5 @@
          color: var(--filete-2, #b9b9b2); padding-top: 10px; }
 .nota { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; line-height: 1.6;
         color: var(--sec-2, #6b6f76); margin: 0; }
-.erro { color: #b91c1c; }
+.erro { color: var(--falta); }
 @media (max-width: 900px) { .quadro, .bancadas { grid-template-columns: 1fr; } }

@@ -53,6 +53,11 @@
   --aviso:   #96450a;   /* 6.06:1 — era #b45309, a 4.57:1 */
   --falta:   #b91c1c;   /* 5.89:1 — já passava, e fica */
   --disputa: #8a5206;   /* 5.81:1 — era #a16207, a 4.48:1, que FALHAVA o AA */
+  /* Uma cor de SINTAXE, e não do papel e da tinta: colore a chave de um objeto JSON
+     no visualizador, onde a cor distingue uma chave de um valor e não um estado de
+     verificação. Fica no `:root` para poder ser medida — 7.93:1 contra o papel — e
+     não porque pertença à paleta do jornal. */
+  --sintaxe-chave: #6b21a8;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --mono:  "IBM Plex Mono", Menlo, Consolas, monospace;
   --goteira: 56px;
@@ -76,6 +81,31 @@ body {
 }
 
 .folha { max-width: 1440px; margin: 0 auto; padding: 0 var(--goteira) 56px; }
+
+/* THE CONSOLE IS A COLUMN, NOT A BROADSHEET — and this rule exists because v0.9.0 shipped a real
+   layout bug without noticing it.
+ *
+ * Capping `.std` and `.sm` at 29em is right for the newspaper, where a paragraph sits inside a
+ * grid column that is itself about 758px wide: the cap trims the line to a readable measure and
+ * the column's own edge is close by. The back office has NO grid. It is one column of prose in a
+ * 1328px sheet — so the same cap put the text in a 522px ribbon with 800px of empty paper beside
+ * it, while every `.rule` and `.dbl` hairline went on spanning the full width. Text at a third of
+ * the page and rules across all of it does not read as a narrow measure; it reads as broken.
+ *
+ * The fix is the container and not the paragraph. The console's CONTENT column is 58em, so a rule
+ * is about 1.6× the prose it divides instead of 2.5×, which is the ratio a documentation page
+ * normally has. The prose cap stays exactly the newspaper's, because a console is still read by
+ * eyes.
+ *
+ * The narrowing is on the CONTENT and deliberately not on `.folha`. Narrowing the sheet would
+ * narrow the chrome with it — and it did, in the first attempt at this fix: the utility run ended
+ * up 312px from the window's right edge in the back office against 56px on the paper. Same slot
+ * relative to its own sheet, different place on screen, which is precisely the jump this release
+ * set out to remove. The sheet keeps the paper's width on both; only the column inside it narrows.
+ *
+ * Tables and grids inside it are unaffected: `.rolar` scrolls a wide table within itself, and the
+ * card grids lay out against whatever width they are given. */
+.consola-corpo { max-width: 58em; }
 
 a { color: var(--tinta); text-decoration: none; }
 a:hover { color: var(--acento); text-decoration: underline; }
@@ -191,6 +221,19 @@ a:hover .flag { border-color: var(--acento); color: var(--acento); }
 .nav a { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
 .nav a.aqui { color: var(--acento); }
 .nav .sep { color: var(--filete-2); }
+
+/* THE UTILITY RUN, in the same slot on the paper and in the back office. `build/paginas.py`
+   generates it once for both, so crossing between them moves one label and nothing else — before
+   v0.11.0 the whole chrome rearranged itself, which reads as arriving at a different site. */
+.utilitarios { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+/* The console nav wears the paper's nav, so the two look like one system seen from two sides. It
+   is quieter on purpose — a single hairline instead of the broadsheet's double rule, because the
+   back office is not the publication and should not claim the publication's furniture. */
+.nav--consola { border-bottom-width: 1px; border-bottom-style: solid;
+                border-bottom-color: var(--filete); gap: 22px; }
+.nav--consola a { font-family: var(--mono); font-size: 12px; font-weight: 400;
+                  letter-spacing: .04em; }
 
 /* --- fichas ---------------------------------------------------------------- */
 .chip { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 3px 8px;

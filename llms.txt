@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.11.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.12.0 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -35,6 +35,7 @@ suficiente para ser interessante.
 - [/backoffice/](https://pt.newsroom.sgit.ai/backoffice/index.html): A consola de operações. EM INGLÊS: o seu público é quem opera a redação, não quem lê o jornal. Não publica nenhuma afirmação sobre Portugal.
 - [/registo/](https://pt.newsroom.sgit.ai/registo/index.html): O registo: cada ficheiro congelado, com URL, bytes, SHA-256 e hora de obtenção.
 - [/grafo/](https://pt.newsroom.sgit.ai/grafo/index.html): A ontologia e o grafo. Verbos portugueses, cada um com leitura e inverso.
+- [/carteira/](https://pt.newsroom.sgit.ai/carteira/index.html): A carteira: cada página custa um cêntimo a abrir, e o registo do gasto está numa página em vez de num painel. Não cobra nada a ninguém — o saldo vive no navegador de quem lê.
 - [/ficheiros/](https://pt.newsroom.sgit.ai/ficheiros/index.html): O manifesto: cada ficheiro de dados com o seu SHA-256.
 - [/metodo/](https://pt.newsroom.sgit.ai/metodo/index.html): Obter, congelar, hashear, extrair, comparar — e onde cada recusa corre.
 - [/equipa/](https://pt.newsroom.sgit.ai/equipa/index.html): Três departamentos, o editor de registo, e o que não está construído.

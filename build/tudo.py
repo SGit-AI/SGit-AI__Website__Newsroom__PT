@@ -111,6 +111,50 @@ def servidor_local():
     return srv, f"http://127.0.0.1:{srv.server_address[1]}"
 
 
+
+def prontidao_para_lancar():
+    """Would CI tag this commit? Checked here, because CI checks it AFTER the build is green.
+
+    THE FAILURE THIS PREVENTS, which happened on v0.12.0. `validate` passed, all five gates were
+    green, the push went to `dev` — and `tag-release` failed with:
+
+        version.txt says v0.12.0 but the newest release commit in this history is v0.11.0
+
+    CI does not read `version.txt` alone. It reads the newest commit SUBJECT matching
+    `^site vX.Y.Z:` and requires the two to agree, because the subject is what names the release
+    commit to tag. The v0.12.0 work went in under a merge subject — "integra o dev (v0.11.0) e
+    renumera para v0.12.0" — which carries the number but not in the form CI parses. So nothing
+    was tagged, `deploy` was skipped, and the live site stayed on the previous release while every
+    local gate said OK. A green build that does not deploy is the worst kind of green.
+
+    This is a WARNING and not a gate, deliberately. On a feature branch `version.txt` is
+    legitimately ahead of the newest release subject for as long as the work is unfinished — that
+    is the normal state, not an error. Making it a gate would fail every intermediate build and
+    teach whoever hit it to skip gates, which costs more than it saves.
+    """
+    import re
+    import subprocess as sp
+    try:
+        versao = (ROOT / "admin" / "build" / "version.txt").read_text(encoding="utf-8").strip()
+        log = sp.run(["git", "log", "--pretty=%s", "-n", "200"], cwd=ROOT,
+                     capture_output=True, text=True, timeout=20).stdout
+    except Exception:
+        return
+    assuntos = re.findall(r"^site (v[0-9]+\.[0-9]+\.[0-9]+):", log, re.M)
+    mais_novo = assuntos[0] if assuntos else None
+    if mais_novo == versao:
+        print(f"\n\033[32mready to release\033[0m — version.txt and the newest release subject "
+              f"both say {versao}; CI will tag and deploy this commit.")
+        return
+    print(f"\n\033[33mNOT ready to release.\033[0m version.txt says \033[1m{versao}\033[0m and "
+          f"the newest \033[1m«site vX.Y.Z:»\033[0m commit subject says "
+          f"\033[1m{mais_novo or 'nothing'}\033[0m.")
+    print("CI's tag-release job compares exactly these two and fails when they disagree — the "
+          "build goes green, the push succeeds, and DEPLOY IS SKIPPED.")
+    print(f"Before pushing to dev, the release commit's subject must be: "
+          f"\033[1msite {versao}: <one sentence>\033[0m")
+
+
 def main(argv):
     so_portoes = "--so-portoes" in argv
     com_fetch = "--fetch" in argv
@@ -160,6 +204,7 @@ def main(argv):
               "assets/components/, run `python3 build/tudo.py --render`.")
     print("Left, and the editor's: bump admin/build/version.txt, write the row in "
           "admin/versions.html, and only then push.")
+    prontidao_para_lancar()
     return 0
 
 

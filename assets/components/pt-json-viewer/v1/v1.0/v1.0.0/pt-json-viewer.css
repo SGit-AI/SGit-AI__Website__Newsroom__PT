@@ -3,40 +3,40 @@
    What a reader wants there is to SEE the claims, their state and their hashes — so keys that
    carry meaning on this site are rendered as what they mean. */
 :host { display: block; }
-.wrap { border: 1px solid #d9d3c3; background: #ffffff; }
+.wrap { border: 1px solid var(--filete); background: var(--painel); }
 .bar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
-       padding: 10px 14px; border-bottom: 1px solid #e8e4da; background: #fffdf7; flex-wrap: wrap; }
-.title { font: 12px/1.4 'IBM Plex Mono', Menlo, monospace; color: #17181c; overflow-wrap: anywhere; }
-.meta { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: #8a8d94; padding-top: 2px; }
+       padding: 10px 14px; border-bottom: 1px solid var(--filete); background: var(--painel); flex-wrap: wrap; }
+.title { font: 12px/1.4 'IBM Plex Mono', Menlo, monospace; color: var(--tinta); overflow-wrap: anywhere; }
+.meta { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: var(--sec-2); padding-top: 2px; }
 .acts { display: flex; gap: 10px; align-items: center; }
-button { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; background: #fffdf7; color: #4a4d55;
-         border: 1px solid #c9c2ae; border-radius: 2px; padding: 3px 8px; cursor: pointer; }
-button:hover { color: #0f766e; border-color: #0f766e; }
-.raw { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: #0f766e; text-decoration: none; }
+button { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; background: var(--painel); color: var(--sec);
+         border: 1px solid var(--filete-2); border-radius: 2px; padding: 3px 8px; cursor: pointer; }
+button:hover { color: var(--acento); border-color: var(--acento); }
+.raw { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; color: var(--acento); text-decoration: none; }
 .raw:hover { text-decoration: underline; }
 .body { padding: 14px 16px 18px; font: 13px/1.6 'IBM Plex Mono', Menlo, monospace;
-        color: #1a1a1a; overflow-x: auto; }
+        color: var(--tinta); overflow-x: auto; }
 
-.row { padding-left: 14px; border-left: 1px solid #ececec; }
+.row { padding-left: 14px; border-left: 1px solid var(--filete); }
 .row.top { padding-left: 0; border-left: 0; }
-.k { color: #6b21a8; }
-.s { color: #17181c; }
-.n { color: #b45309; }
-.b { color: #0f766e; }
-.nul { color: #8a8d94; font-style: italic; }
-.tog { cursor: pointer; user-select: none; color: #8a8d94; display: inline-block; width: 12px; }
-.tog:hover { color: #0f766e; }
-.count { color: #8a8d94; }
+.k { color: var(--sintaxe-chave); }
+.s { color: var(--tinta); }
+.n { color: var(--aviso); }
+.b { color: var(--acento); }
+.nul { color: var(--sec-2); font-style: italic; }
+.tog { cursor: pointer; user-select: none; color: var(--sec-2); display: inline-block; width: 12px; }
+.tog:hover { color: var(--acento); }
+.count { color: var(--sec-2); }
 .hidden { display: none; }
-.prose { font: 14px/1.6 'Newsreader', Georgia, serif; color: #1a1a1a; max-width: 46em;
+.prose { font: 14px/1.6 'Newsreader', Georgia, serif; color: var(--tinta); max-width: 46em;
          white-space: normal; padding: 1px 0; }
 
 /* keys this site gives meaning to */
 .chip { font: 11px/1.4 'IBM Plex Mono', Menlo, monospace; padding: 1px 7px; border-radius: 3px;
-        border: 1px solid #c9c2ae; color: #4a4d55; background: #fffdf7; display: inline-block; }
-.chip.confirmada, .chip.aprovada, .chip.publicado, .chip.congelada { color: #0f766e; border-color: #0f766e; }
-.chip.nao_encontrada, .chip.rejeitada, .chip.nao_resolve { color: #b91c1c; border-color: #b91c1c; }
-.chip.fonte_inacessivel, .chip.disputada { color: #b45309; border-color: #b45309; }
-.hash { color: #8a8d94; }
-a.src { color: #0f766e; text-decoration: none; }
+        border: 1px solid var(--filete-2); color: var(--sec); background: var(--painel); display: inline-block; }
+.chip.confirmada, .chip.aprovada, .chip.publicado, .chip.congelada { color: var(--acento); border-color: var(--acento); }
+.chip.nao_encontrada, .chip.rejeitada, .chip.nao_resolve { color: var(--falta); border-color: var(--falta); }
+.chip.fonte_inacessivel, .chip.disputada { color: var(--aviso); border-color: var(--aviso); }
+.hash { color: var(--sec-2); }
+a.src { color: var(--acento); text-decoration: none; }
 a.src:hover { text-decoration: underline; }

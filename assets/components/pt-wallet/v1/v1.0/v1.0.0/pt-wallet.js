@@ -38,18 +38,49 @@ class PtWallet extends SgComponent {
 
     get resourceName() { return 'pt-wallet' }
 
+    /**
+     * TWO MODES, AND NO POPUP IN EITHER.
+     *
+     * Until v0.11.0 the badge in the page chrome opened a panel over the page. The editor asked for
+     * the spend on a page of its own instead, and that is the better shape for what this is: the
+     * ledger is the interesting part of the demonstration, and a ledger worth reading is worth a
+     * URL. A panel that covers the masthead cannot be linked to, cannot be read on a phone without
+     * covering what you were reading, and closes itself when you click anything.
+     *
+     *   modo="ficha"  (the default, and what the chrome uses) — the badge alone, as a LINK to the
+     *                 wallet page. It still charges the page: the debit is the whole point, and it
+     *                 has to happen wherever the reader is, not only on the wallet page.
+     *   modo="pagina" — the ledger itself, laid out in the page. No badge, no toggle, no
+     *                 document-level click handler.
+     *
+     * The charge runs in both — and the two DO share one page, the wallet page itself, which
+     * carries the chrome badge as well as the ledger. That is not a double debit: `_charge()`
+     * records the page in `sessionStorage` before returning, so the second instance to run finds
+     * it already seen and does nothing. The guard was written for the back button and happens to
+     * cover this too, which is worth saying out loud rather than relying on by accident.
+     */
     onReady() {
         this._price = Number(this.getAttribute('price') || PRICE)
+        this._modo = this.getAttribute('modo') === 'pagina' ? 'pagina' : 'ficha'
         this._state = this._read()
         this._charge()
+
+        const badge = this.$('#open')
+        const panel = this.$('#panel')
+        if (this._modo === 'pagina') {
+            badge.remove()
+            panel.hidden = false
+            panel.classList.add('pagina')
+            this.$('#topup').addEventListener('click', () => this._topup())
+            this.$('#reset').addEventListener('click', () => this._reset())
+        } else {
+            /* A link and not a button, so it behaves like every other link in the chrome: it can
+               be middle-clicked, copied, and read by a screen reader as somewhere to go. */
+            badge.setAttribute('href', (this.getAttribute('site-root') || '') + 'carteira/')
+            badge.setAttribute('title', 'A carteira e o registo de gasto, numa página')
+            panel.remove()
+        }
         this._paint()
-        this.$('#open').addEventListener('click', () => this._toggle())
-        this.$('#close').addEventListener('click', () => this._toggle(false))
-        this.$('#topup').addEventListener('click', () => this._topup())
-        this.$('#reset').addEventListener('click', () => this._reset())
-        document.addEventListener('click', e => {
-            if (!this.contains(e.target)) this._toggle(false)
-        })
     }
 
     /* --- storage, which is allowed to fail ------------------------------- */
@@ -107,28 +138,30 @@ class PtWallet extends SgComponent {
         this._paint()
     }
 
-    _toggle(force) {
-        const panel = this.$('#panel')
-        const open = force === undefined ? panel.hidden : force
-        panel.hidden = !open
-        this.$('#open').setAttribute('aria-expanded', String(open))
+    /* --- painting --------------------------------------------------------- */
+    /** Set `textContent` on a node that may not be in this mode's markup. */
+    _set(sel, valor) {
+        const el = this.$(sel)
+        if (el) el.textContent = valor
     }
 
-    /* --- painting --------------------------------------------------------- */
     _paint() {
         const s = this._state
-        this.$('#bal').textContent = euros(s.balance)
-        this.$('#bal2').textContent = euros(s.balance)
-        this.$('#price').textContent = cents(this._price)
-        this.$('#price2').textContent = cents(this._price)
-        this.$('#reads').textContent = String(s.reads)
-        this.$('#spent').textContent = euros(s.spent)
+        this._set('#bal', euros(s.balance))
+        this._set('#bal2', euros(s.balance))
+        this._set('#price', cents(this._price))
+        this._set('#price2', cents(this._price))
+        this._set('#reads', String(s.reads))
+        this._set('#spent', euros(s.spent))
 
         const badge = this.$('#open')
-        badge.classList.toggle('low', s.balance <= TOPUP * 0.2 && s.balance > 0)
-        badge.classList.toggle('empty', s.balance <= 0)
+        if (badge) {
+            badge.classList.toggle('low', s.balance <= TOPUP * 0.2 && s.balance > 0)
+            badge.classList.toggle('empty', s.balance <= 0)
+        }
 
         const log = this.$('#log')
+        if (!log) return
         log.textContent = ''
         for (const e of s.log.slice(0, 12)) {
             const li = document.createElement('li')

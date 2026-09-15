@@ -285,6 +285,33 @@ if re.search(r'<span class="ver">v[0-9]', inicio):
                  "cromagem e ligá-la ao que mudou nessa versão — e num site cuja proposta inteira "
                  "é a rastreabilidade, este é o único lugar onde o site não se rastreia a si mesmo")
 
+
+# --- 33b. no component hardcodes a palette colour ------------------------------
+# THE DESIGN REVIEW FOUND THIS AND IT WAS WORTH FINDING. The five shipped components hardcoded
+# `#0f766e`, `#f7f4ec` and most of the rest of the palette in their own CSS — so the v0.9.0
+# contrast fixes landed everywhere EXCEPT inside them, which is the half of the site a reader
+# spends longest looking at. Custom properties DO cross the shadow boundary, because they inherit:
+# a component that reads `var(--acento)` picks up a palette change for free. It just needs a token
+# to inherit, and there were none.
+#
+# A hex inside `var(--token, #fallback)` is a FALLBACK and is fine — the token wins whenever it is
+# defined, which is always here. Only a hex used as the value itself is a hardcoded colour.
+PALETA = {v.strip().lower() for v in fichos.values()}
+for cf in sorted((ROOT / "assets" / "components").rglob("*.css")):
+    texto = cf.read_text(encoding="utf-8")
+    sem_fallback = re.sub(r"var\(\s*--[a-z0-9-]+\s*,\s*#[0-9a-fA-F]{3,8}\s*\)",
+                          "var(--x)", texto)
+    for m in re.finditer(r"#[0-9a-fA-F]{3,8}\b", sem_fallback):
+        cor = m.group(0).lower()
+        porque = (" — and it is a palette colour, so a palette change does not reach inside it"
+                  if cor in PALETA else
+                  " — use a token from `:root`, or declare it there if it is a new colour, so the"
+                  " gate can measure it")
+        erros.append(
+            f"desenho: {cf.relative_to(ROOT)} hardcodes the colour {cor}{porque}. A custom"
+            f" property crosses the shadow boundary: `var(--acento)` picks the change up for"
+            f" free. A `var(--token, #hex)` fallback is acceptable")
+
 # ----------------------------------------------------------------------- output ---
 if erros:
     print("portões do desenho: VERMELHO\n")
