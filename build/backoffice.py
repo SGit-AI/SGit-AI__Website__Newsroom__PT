@@ -91,6 +91,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{canonico}">
 <meta property="og:url" content="{canonico}">
+<link rel="icon" href="{raiz}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{raiz}assets/fonts.css">
 <link rel="stylesheet" href="{raiz}assets/site.css">
 </head>
@@ -519,6 +520,7 @@ never hand-edited.</p>
 border:1px solid var(--filete);white-space:pre">python3 build/tudo.py               # THE WHOLE BUILD, IN ORDER, THEN THE THREE GATES
 python3 build/tudo.py --fetch       # the same, going to the network for the sources first
 python3 build/tudo.py --so-portoes  # gates only, no rebuild
+python3 build/tudo.py --render      # plus the browser gate (needs playwright installed)
 
 # what build/tudo.py runs, in this order — the order is load-bearing
 python3 build/extract.py [--fetch]  # fetch, freeze, hash, register, extract, diff
@@ -534,6 +536,7 @@ python3 build/chrome.py             # llms.txt, sitemap.xml, index.md
 python3 build/gates.py              # gates  1-15  — must print OK
 python3 build/gates_artigos.py      # gates 16-25  — must print OK
 node admin/build/validate.js        # the site gate — must print OK
+node admin/build/render.mjs         # the browser gate — opt-in, see below
 
 # build/entregas.py is run per delivery, not per build:
 python3 build/entregas.py --fetch   # freeze delivery sources, check every excerpt</pre></div>
@@ -544,6 +547,14 @@ nothing breaks, the site just quietly has fewer links than it should. The comman
 <code>CLAUDE.md</code> is older than half these steps, and <code>CLAUDE.md</code> is the rules
 file: it is in the deny list on purpose, and editing the rules to match the code is backwards. So
 the real order lives in an executable file, where it cannot go stale without something failing.</p>
+<p class="xs" style="padding-top:10px"><b>Run <code>--render</code> before shipping anything that
+touches <code>assets/components/</code>.</b> The other three gates read files and read HTML; none
+of them <i>executes</i> anything. A component that throws on load passes all three and reaches the
+reader as an empty box — which looks like a design choice. The browser gate opens each component in
+a real Chromium and fails on a console error, a failed request, a component that never reaches
+<code>data-estado="pronto"</code>, or a page that overflows at 390px. It is opt-in because it needs
+a browser and this repository has no node dependencies; when CI has one, it becomes a gate without
+a line of it changing.</p>
 <p class="xs" style="padding-top:10px">Without <code>--fetch</code> the first two run against the
 copies already frozen and touch no network. That is how the site is rebuilt from a clone, years
 later, to exactly the same pages.</p>

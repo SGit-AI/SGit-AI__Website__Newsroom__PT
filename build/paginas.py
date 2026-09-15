@@ -280,6 +280,7 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 <meta property="og:description" content="{e(descricao)}">
 <meta property="og:type" content="website">
 <meta name="generator" content="build/build.py {VERSAO}">
+<link rel="icon" href="{raiz}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{raiz}assets/fonts.css">
 <link rel="stylesheet" href="{raiz}assets/site.css">
 <script type="module" src="{raiz}assets/components/pt-wallet/v1/v1.0/v1.0.0/pt-wallet.js"></script>

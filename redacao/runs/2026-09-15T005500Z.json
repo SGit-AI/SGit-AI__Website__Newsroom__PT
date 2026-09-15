@@ -1,0 +1,33 @@
+{
+  "quando": "2026-09-15T00:55:00Z",
+  "especie": "construcao",
+  "prompt": "Abrir as páginas num navegador de verdade: o quarto portão.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "backoffice/",
+    "briefs/",
+    "build/",
+    "dados/",
+    "entidades/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.7.0",
+  "o_que_fez": [
+    "admin/build/render.mjs: cada página com componente aberta num Chromium, com falha em erro de consola, pedido falhado, componente que não sobe, ou transbordo a 390px.",
+    "O primeiro teste de injeção encontrou um buraco no próprio portão: um componente que apanha o seu erro e desenha uma mensagem parecia saudável. A classe-base ganhou falhou() e data-estado no host.",
+    "Um favicon SVG — o 404 que o Chromium pedia sozinho e que nenhum portão via.",
+    "Os alvos das arestas nas páginas de entidade passam a parecer ligações (classe .no, separada de .ent para não colidir com a contagem do portão 23).",
+    "build/tudo.py --render: levanta um servidor local numa porta efémera e desliga-o a seguir."
+  ],
+  "nota": "Uma execução de CONSTRUÇÃO: não congelou uma fonte, não escreveu uma afirmação, não moveu um issue e não pôs nada em publicado. Foi a primeira a correr com os quatro portões."
+}

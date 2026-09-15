@@ -1,7 +1,7 @@
 {
   "id": "pt-quadro",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-15",
   "nota": "O quadro de cada agente. Um cartão em «assuntos» é trabalho que o agente abriu para si; um issue do jornal chega ao quadro pela fórmula publicada em dados/agentes.json e por mais nada.",
   "formula": {
     "nota": "A quem pertence um issue do jornal não é escrito à mão em lado nenhum: sai do seu estado, por esta tabela, e é por isso que o quadro não pode discordar dos ficheiros. Um cartão em «assuntos» é diferente: é o trabalho que o próprio agente abriu, e esse é escrito por ele.",

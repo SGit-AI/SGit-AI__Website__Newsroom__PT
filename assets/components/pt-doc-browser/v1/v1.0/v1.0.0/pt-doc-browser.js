@@ -39,13 +39,17 @@ class PtDocBrowser extends SgComponent {
 
     get resourceName() { return 'pt-doc-browser' }
 
-    onReady() {
+    /* `async`, and the load is AWAITED — same reason as pt-json-viewer. The base class sets
+       `data-estado="pronto"` once onReady returns, and that is only true if the load it started
+       has finished. A fire-and-forget load lets the render gate read this component as up while
+       its fetch of documents.json is still in flight. */
+    async onReady() {
         this._root = this.getAttribute('site-root') || '../'
         this._docs = []
         this._current = null
         this.$('#q').addEventListener('input', e => this._filter(e.target.value))
         window.addEventListener('hashchange', () => this._openFromHash())
-        this._load()
+        await this._load()
     }
 
     async _load() {
@@ -54,6 +58,7 @@ class PtDocBrowser extends SgComponent {
             const d = await r.json()
             this._docs = d.documentos || []
         } catch (err) {
+            this.falhou(err.message)
             this.$('#nodes').textContent = `documents.json did not load: ${err.message}`
             return
         }
@@ -202,6 +207,8 @@ class PtDocBrowser extends SgComponent {
             })
             this.emit('pt:doc.opened', { path })
         } catch (err) {
+            /* Um documento que o leitor escolheu e que não abriu, com a árvore já de pé. O
+               componente subiu; foi este ficheiro que falhou, e é isso que a página diz. */
             doc.textContent = `Could not read ${path}: ${err.message}`
         }
         this.$('.pane').scrollTop = 0

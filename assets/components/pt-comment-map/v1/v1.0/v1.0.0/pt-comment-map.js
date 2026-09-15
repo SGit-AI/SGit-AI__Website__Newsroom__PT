@@ -41,6 +41,7 @@ class PtCommentMap extends SgComponent {
             this._especies = Object.keys(d.especies || {})
             this._render()
         } catch (err) {
+            this.falhou(err.message)
             this.$('#title').textContent = 'o registo de trabalho não carregou'
             this.$('#nota').className = 'nota erro'
             this.$('#nota').textContent = `${err.message}`

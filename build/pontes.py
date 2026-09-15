@@ -167,11 +167,11 @@ line and only his.</p>
     <div class="chips">
       <span class="sm">kind:</span>
       <select class="mono xs" id="msg-tipo" style="padding:6px;border:1px solid var(--filete);
-              background:var(--papel);color:var(--tinta)">
-        <option value="nota">nota — a remark on what I am reading</option>
+              background:var(--papel);color:var(--tinta);max-width:100%;min-width:0">
+        <option value="nota">nota — a remark</option>
         <option value="alteracao">alteracao — change this</option>
         <option value="instrucao">instrucao — do this next</option>
-        <option value="remocao">remocao — a removal request under the notice</option>
+        <option value="remocao">remocao — a removal request</option>
       </select>
     </div>
     <label class="sm" for="msg-assunto" style="padding-top:8px">Subject</label>

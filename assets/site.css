@@ -204,8 +204,12 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 /* Uma menção ligada é uma ligação com um sublinhado mais discreto: o corpo de um
    artigo pode ter várias, e sublinhá-las todas a cheio transformava a prosa num
    índice. Ainda é claramente uma ligação — só não grita. */
-a.ent { text-decoration: none; border-bottom: 1px solid var(--filete-2); color: inherit; }
-a.ent:hover { border-bottom-color: var(--acento); color: var(--acento); }
+a.ent, a.no { text-decoration: none; border-bottom: 1px solid var(--filete-2); color: inherit; }
+a.ent:hover, a.no:hover { border-bottom-color: var(--acento); color: var(--acento); }
+/* `.no` é a mesma marca para o alvo de uma aresta numa página de entidade. Classe própria e não
+   `.ent` porque o portão 23 conta as ligações `.ent` — uma por entidade e por página — e uma lista
+   de frases repete o mesmo nó muitas vezes, de propósito. São a mesma coisa para o leitor e coisas
+   diferentes para o portão, que é exatamente a distinção que se quer. */
 
 /* --- telemóvel: a mesma hierarquia numa coluna ----------------------------- */
 @media (max-width: 900px) {

@@ -7,6 +7,7 @@
 <meta name="description" content="O que mudou em cada versão deste site, e porquê.">
 <link rel="canonical" href="https://pt.newsroom.sgit.ai/admin/versions.html">
 <meta property="og:url" content="https://pt.newsroom.sgit.ai/admin/versions.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
@@ -16,7 +17,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.7.0</span></div>
+  <div><span class="ver">v0.8.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -34,7 +35,7 @@ vermelha não é lançamento.</p>
 <tbody>
 
 <tr>
-<td class="mono"><span class="vnum">v0.7.0</span></td>
+<td class="mono"><span class="vnum">v0.8.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
 <b>Os agentes passam a ser um registo, e o correio entre eles passa a ser um protocolo.</b> Eram
@@ -98,9 +99,92 @@ aviso fica errado por omissão — e o endereço IP que o servidor da fila vê t
 porque é a única parte que o leitor não pode verificar. A ordem é <b>o aviso primeiro, as
 credenciais depois</b>, que é a mesma ordem que este site já acertou uma vez, quando o aviso foi
 publicado antes da primeira página que nomeia alguém.
+<br><br>
+<b>A revisão do trabalho do outro agente, e três coisas que ela mudou.</b> O portão do navegador
+que ele acrescentou nesta mesma noite — <code>admin/build/render.mjs</code>, que abre cada página
+num Chromium a sério — encontrou um defeito real nesta versão à primeira vez que correu sobre ela:
+a página das pontes transbordava a 390px, <code>scrollWidth 413 &gt; 390</code>. A causa era um
+<code>&lt;select&gt;</code>, que tira a largura da sua opção mais longa e não encolhe abaixo dela.
+Corrigido, e é o argumento do portão feito em público: nenhum dos outros três o teria visto.
+<br><br>
+<b>O portão não cobria as páginas novas, e a omissão era exatamente a isenção que o portão 26
+proíbe.</b> A lista de páginas do <code>render.mjs</code> é feita de componentes, e as quatro
+páginas desta versão não usam nenhum — mas têm código que corre, e as pontes têm o maior bloco de
+script do sítio. As quatro passam a estar na lista: 15 páginas num navegador, em vez de 11.
+<br><br>
+<b>E o «pronto» de dois componentes não queria dizer o que a classe-base diz que quer dizer.</b>
+O comentário do <code>pronto()</code> promete que <code>data-estado</code> só é posto quando o
+componente «acabou mesmo de carregar o que carrega». O <code>pt-json-viewer</code> e o
+<code>pt-doc-browser</code> lançavam o carregamento sem o esperar, e por isso ficavam «prontos»
+quando a casca montava — a mesma falsa saúde que o <code>falhou()</code> foi acrescentado para
+remover, um nível mais abaixo. Os dois passam a esperar o que começaram.
 </td>
 </tr>
 
+
+<tr>
+<td class="mono"><span class="vnum">v0.7.1</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>A competência que uma execução agendada segue estava a mandar fazer coisas impossíveis.</b>
+<code>.claude/skills/newsroom-run/SKILL.md</code> dizia <code>git pull origin main</code> e
+<code>git push origin main</code> — e este repositório não tem <code>main</code>; o ramo de
+lançamento, que é também o ramo por omissão, é <code>dev</code>. E mandava correr
+<code>node build/validate.js</code>, que não existe: o validador está em <code>admin/build/</code>.
+Uma execução agendada teria falhado na primeira linha do primeiro passo.
+<br><br>
+<b>E o registo que ela mandava escrever não era o que os portões leem.</b> Os nomes dos campos
+estavam todos errados — <code>inicio</code>, <code>issues_movidas</code>,
+<code>ficheiros_por_pasta</code>, <code>portas</code> — onde os portões 12 e 26 leem
+<code>quando</code>, <code>issues_movidos</code>, <code>pastas_alteradas</code> e
+<code>portoes</code>. A execução escreveria um registo que a fronteira entre departamentos não
+consegue conferir, e desde o portão 26 falharia por não declarar nem departamento nem espécie.
+<br><br>
+<b>E a sequência de construção tinha seis passos onde agora há onze.</b> Passa a ser
+<code>python3 build/tudo.py</code>, que é a ordem verdadeira e a única que não pode ficar
+desatualizada sem que alguma coisa falhe.
+<br><br>
+<b>E o passo de publicar passa a ir buscar <code>dev</code> antes de escolher o número de
+versão</b>, porque pode haver outra sessão a trabalhar neste repositório ao mesmo tempo, e duas a
+escolherem o mesmo número quer dizer que uma tem de desfazer o seu lançamento.
+</td>
+</tr>
+
+<tr>
+<td class="mono"><span class="vnum">v0.7.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>O quarto portão: abrir as páginas num navegador de verdade.</b> Três portões leem ficheiros e
+leem HTML. Nenhum <i>executa</i> nada. Um componente que rebente ao carregar — um caminho errado, um
+<code>fetch</code> para um ficheiro que mudou de nome, um erro de sintaxe num módulo — passa os três
+e chega ao leitor como uma caixa vazia. E uma caixa vazia parece uma escolha de desenho.
+<code>admin/build/render.mjs</code> abre cada página com componente num Chromium e falha com um erro
+de consola, um pedido falhado, um componente vazio, ou uma página a transbordar a 390px.
+<br><br>
+<b>E o primeiro teste de injeção encontrou um buraco no próprio portão.</b> Um componente que apanha
+o seu próprio erro e desenha uma mensagem amável está a fazer o certo pelo leitor e o errado por
+quem confere a página: sem erro de consola, sem exceção, com a sombra cheia de texto — parece
+saudável. Uma exceção a meio de um <code>_render()</code> passou. A correção não foi no teste: a
+classe-base ganhou <code>falhou()</code> e <code>data-estado</code> no host, fora da sombra, e cada
+componente passa a dizer se subiu. Seis testes de injeção, incluindo um que nunca acaba de carregar.
+<br><br>
+<b>A distinção que se guardou.</b> Um pedido que o LEITOR fez e que falhou não marca o componente
+como em erro — numa consola de API, ver um pedido falhar é metade da utilidade. <code>falhou()</code>
+quer dizer «este componente não subiu», e alargá-lo apagaria exatamente a distinção que o torna
+útil.
+<br><br>
+<b>Um favicon, e um 404 a menos em cada página.</b> O Chromium pede <code>/favicon.ico</code>
+sozinho e nenhum portão via esse 404, porque não é uma ligação de nenhuma página. O papel, a tinta
+e o acento do site, e mais nada: um jornal que ainda não publicou uma única história não tem um
+logótipo para pôr ali.
+<br><br>
+<b>Os alvos das arestas passam a parecer o que são.</b> Numa página de entidade, o valor da página
+é poder seguir as frases — e o estilo da casa só sublinha ao passar o rato, o que faz uma ligação
+parecer texto. Classe própria <code>.no</code> e não <code>.ent</code>, porque o portão 23 conta as
+ligações <code>.ent</code> — uma por entidade e por página — e uma lista de frases repete o mesmo nó
+muitas vezes, de propósito. A mesma coisa para o leitor, coisas diferentes para o portão.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.6.0</span></td>
@@ -402,7 +486,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.7.0</span>.
+duplicados. Versão <span class="ver">v0.8.0</span>.
 </div>
 
 </div>

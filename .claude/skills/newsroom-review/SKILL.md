@@ -9,7 +9,7 @@ they are not, stop. Everything below happens only on the editor's explicit word,
 time.
 
 ## Review
-1. `git pull origin main`. List every story in `conteudo/` with `estado: verificado`, oldest first.
+1. `git pull origin dev`. List every story in `conteudo/` with `estado: verificado`, oldest first.
 2. For each: show the headline, the standfirst, then every claim from
    `dados/verificacoes/<slug>.json` with its status and the frozen file and hash it stands on.
    Offer to open the frozen file at the passage. Say plainly if any claim is `disputada` and how
