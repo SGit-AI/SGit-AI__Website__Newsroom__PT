@@ -18,7 +18,7 @@
     {
       "ficheiro": "dados/comentarios.json",
       "bytes": 79548,
-      "sha256": "e8791b2fbf54fa0480038ee7e3087f49472a88c9fcf8201ca9ffeeec66c5fe4e"
+      "sha256": "077e12e211dd6978a1e78e445d8026ce1f4bce5de69b3ab87931b3e67607c331"
     },
     {
       "ficheiro": "dados/correio.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 22789,
-      "sha256": "9cfc5cd3da155e6847f762bd6b306101ca825628561c6cae17fa2feba59f789c"
+      "bytes": 22978,
+      "sha256": "e77eb17e5706023ccf7e480aef679b9422f9d75b121f579fffeac7df6c7494d5"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -88,7 +88,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 5030,
-      "sha256": "85ff5fa3aa3a080b0e866b3fb9f4ed39859b3706c56a0e9e336ef5629f4c188a"
+      "sha256": "fa7afef963f46156c8d5f06b84713ee8280c6fb978301017f4904fdba3fa3cef"
     },
     {
       "ficheiro": "dados/mudancas.json",
