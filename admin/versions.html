@@ -17,7 +17,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.7.0</span></div>
+  <div><span class="ver">v0.7.1</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -33,6 +33,34 @@ vermelha não é lançamento.</p>
 <table>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
+
+<tr>
+<td class="mono"><span class="vnum">v0.7.1</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>A competência que uma execução agendada segue estava a mandar fazer coisas impossíveis.</b>
+<code>.claude/skills/newsroom-run/SKILL.md</code> dizia <code>git pull origin main</code> e
+<code>git push origin main</code> — e este repositório não tem <code>main</code>; o ramo de
+lançamento, que é também o ramo por omissão, é <code>dev</code>. E mandava correr
+<code>node build/validate.js</code>, que não existe: o validador está em <code>admin/build/</code>.
+Uma execução agendada teria falhado na primeira linha do primeiro passo.
+<br><br>
+<b>E o registo que ela mandava escrever não era o que os portões leem.</b> Os nomes dos campos
+estavam todos errados — <code>inicio</code>, <code>issues_movidas</code>,
+<code>ficheiros_por_pasta</code>, <code>portas</code> — onde os portões 12 e 26 leem
+<code>quando</code>, <code>issues_movidos</code>, <code>pastas_alteradas</code> e
+<code>portoes</code>. A execução escreveria um registo que a fronteira entre departamentos não
+consegue conferir, e desde o portão 26 falharia por não declarar nem departamento nem espécie.
+<br><br>
+<b>E a sequência de construção tinha seis passos onde agora há onze.</b> Passa a ser
+<code>python3 build/tudo.py</code>, que é a ordem verdadeira e a única que não pode ficar
+desatualizada sem que alguma coisa falhe.
+<br><br>
+<b>E o passo de publicar passa a ir buscar <code>dev</code> antes de escolher o número de
+versão</b>, porque pode haver outra sessão a trabalhar neste repositório ao mesmo tempo, e duas a
+escolherem o mesmo número quer dizer que uma tem de desfazer o seu lançamento.
+</td>
+</tr>
 
 <tr>
 <td class="mono"><span class="vnum">v0.7.0</span></td>
@@ -370,7 +398,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.7.0</span>.
+duplicados. Versão <span class="ver">v0.7.1</span>.
 </div>
 
 </div>

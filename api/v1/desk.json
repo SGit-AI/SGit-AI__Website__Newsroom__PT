@@ -417,12 +417,26 @@
         "index.md"
       ],
       "movidos": 0
+    },
+    {
+      "quando": "2026-09-15T01:20:00Z",
+      "versao": "v0.7.1",
+      "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+      "portoes": true,
+      "pastas": [
+        ".claude/",
+        "admin/",
+        "backoffice/",
+        "build/",
+        "index.html"
+      ],
+      "movidos": 0
     }
   ],
   "contagens": {
     "cartoes": 7,
     "bancadas": 4,
-    "execucoes": 5,
+    "execucoes": 6,
     "publicados": 0,
     "a_espera_do_editor": 4
   }

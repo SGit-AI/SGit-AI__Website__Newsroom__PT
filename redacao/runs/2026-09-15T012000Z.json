@@ -1,0 +1,23 @@
+{
+  "quando": "2026-09-15T01:20:00Z",
+  "especie": "construcao",
+  "prompt": "Corrigir a competência que uma execução agendada segue.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    ".claude/",
+    "admin/",
+    "backoffice/",
+    "build/",
+    "index.html"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.7.1",
+  "o_que_fez": [
+    "newsroom-run: `main` → `dev` (o ramo `main` não existe), `node build/validate.js` → `python3 build/tudo.py` (aquele caminho não existe).",
+    "Os campos do registo de execução passam a ser os que os portões 12 e 26 leem, e a competência passa a exigir que a execução declare departamento ou espécie.",
+    "O passo de publicar vai buscar `dev` antes de escolher o número de versão.",
+    "newsroom-review: o mesmo `main` → `dev`."
+  ],
+  "nota": "Execução de construção. Nenhuma fonte congelada, nenhum cartão movido, nada publicado."
+}

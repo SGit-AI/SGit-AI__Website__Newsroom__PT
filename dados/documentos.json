@@ -1,7 +1,7 @@
 {
   "id": "pt-documentos",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
   "contagem": 36,
   "documentos": [
@@ -17,7 +17,7 @@
       "caminho": ".claude/skills/newsroom-review/SKILL.md",
       "titulo": "SKILL",
       "categoria": "Agent skills",
-      "bytes": 2552,
+      "bytes": 2551,
       "linhas": 40,
       "palavras": 391
     },
@@ -25,9 +25,9 @@
       "caminho": ".claude/skills/newsroom-run/SKILL.md",
       "titulo": "SKILL",
       "categoria": "Agent skills",
-      "bytes": 4896,
-      "linhas": 70,
-      "palavras": 718
+      "bytes": 7208,
+      "linhas": 98,
+      "palavras": 1116
     },
     {
       "caminho": "CLAUDE.md",

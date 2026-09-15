@@ -8,14 +8,22 @@ under the rules in `CLAUDE.md`. Do the steps in order. Do not skip a step becaus
 say it was empty in the run record.
 
 ## 1. Preflight
-- `git pull origin main`. Read `CLAUDE.md`, the newest file in `redacao/runs/`, every file in
+- `git pull origin dev`. Read `CLAUDE.md`, the newest file in `redacao/runs/`, every file in
   `redacao/issues/`, and every `entrada/` folder under `redacao/correio/`.
-- Run `python3 build/gates.py && node build/validate.js`. If either fails on the tree as found,
+- Run `python3 build/tudo.py --so-portoes`. If any gate fails on the tree as found,
   write `redacao/correio/editor/entrada/<now>__run__build-vermelho.md` describing the failure and
   stop. Do not fix work that is not this run's.
-- Create the run record `redacao/runs/<YYYY-MM-DDTHHMM>.json` with `inicio`, `prompt: newsroom-run`,
-  `modelo` (what you are), and empty lists you will fill: `issues_movidas`, `ficheiros_por_pasta`,
-  `correio_enviado`, `portas`, `versao`.
+- Create the run record `redacao/runs/<YYYY-MM-DDTHHMMSSZ>.json`. **The field names matter: the
+  gates read this file.** `quando` (ISO 8601 with the Z), `prompt: newsroom-run`, `modelo` (what
+  you are), and the lists you will fill: `pastas_alteradas`, `issues_movidos` (each
+  `{id, de, para}`), `portoes` (true only if every gate printed OK), `versao`.
+- **Declare who you are.** A newsroom run writes `departamento` — `pesquisa`, `redacao`,
+  `verificacao` or `editor` — and gate 12 then fails the run if it wrote outside that
+  department's folders. A run that does not own a department writes `especie` instead
+  (`arranque` for the bootstrap, `construcao` for a session that builds tooling), and gate 26
+  fails a `construcao` run that froze a source, moved a card, published anything, or recorded a
+  version on red gates. **A run that declares neither is a red gate**: the exemption exists for
+  the bootstrap session, and a run that uses it has to say why.
 
 ## 2. Pesquisa (writes only fontes/, dados/registo.json, extracted dados/*.json)
 - For every target in `dados/fontes-alvo.json` and every issue in `procurado`/`registado`:
@@ -48,20 +56,40 @@ say it was empty in the run record.
 - Never edit the story. Never mark a claim confirmed you did not find in the bytes.
 
 ## 5. Build
-- `python3 build/extract.py && python3 build/graph.py && python3 build/build.py && python3 build/gates.py && python3 build/chrome.py && node build/validate.js`.
-- Red because of this run's own files: fix the files (not the gate) and rebuild. Red for any
+- **`python3 build/tudo.py`** — the whole pipeline, in order, then every gate. Do not run the
+  steps by hand: there are eleven and the order is load-bearing. `build/entidades.py` must run
+  before anything that writes a page, because the pass that turns a name in prose into a link
+  reads the file it produces; out of order nothing breaks, the site just quietly has fewer links
+  than it should. The command list in `CLAUDE.md` is older than half these steps — `build/tudo.py`
+  is the order that cannot go stale without something failing.
+- If this run touched `assets/components/`, also run `python3 build/tudo.py --render`. It opens
+  each component in a real browser. The other gates read files and read HTML; none of them
+  executes anything, so a component that throws on load passes them all and reaches the reader as
+  an empty box. It needs playwright installed; if it is not, say so in the run record rather than
+  reporting a gate you did not run.
+- Red because of this run's own files: fix the files (**never the gate**) and rebuild. Red for any
   other reason: message the editor's inbox with the gate's exact output and stop before step 6.
-- Record every gate's result in the run record.
+- Record every gate's result in the run record. `portoes: true` means every gate printed OK — if
+  you did not run one, it is not true.
 
 ## 6. Publicar
 - `git status`: if nothing changed, skip to step 7.
-- Bump `admin/build/version.txt` to the next minor. Add a row to `admin/versions.html` saying what
-  this run changed, in Portuguese, one paragraph. Commit everything as
-  `site vX.Y.Z: <one sentence>`. `git push origin main`. Record the version in the run record.
+- **`git fetch origin dev` first, and pick the version number after that, not before.** Another
+  session may be working in this repository at the same time. If `dev` moved, merge it in and
+  rebuild (`python3 build/tudo.py`) before choosing a number — two runs that pick the same version
+  means one of them has to undo its release. Resolve conflicts in generated files by rebuilding,
+  never by hand.
+- Bump `admin/build/version.txt` to the next minor **above whatever `origin/dev` now holds**. Add a
+  row to `admin/versions.html` saying what this run changed, in Portuguese, one paragraph. Commit
+  everything as `site vX.Y.Z: <one sentence>`. `git push origin dev`. Record the version in the run
+  record.
+- **Never push with a red gate. Never force-push. Never rewrite history.** A run that cannot push
+  cleanly writes to the editor's inbox and stops; that is a good run.
 - You have not set `estado: publicado` on anything. If you did, revert it now.
 
 ## 7. Report
-- Complete the run record (`fim`, the diff by folder from `git show --stat HEAD` or `git status`).
+- Complete the run record: `pastas_alteradas` from `git show --stat HEAD` (one entry per top-level
+  folder, which is what gate 12 reads), `issues_movidos`, `portoes`, `versao`.
 - Write one message to `redacao/correio/editor/entrada/<now>__run__relatorio.md`: what moved,
   what is waiting for the editor (`verificado` stories, `parado` issues, removal requests), what
   is blocked and why. If the run record was written after the push, commit it and push again with
