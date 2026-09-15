@@ -1,0 +1,138 @@
+/* pt-chat — a right-hand COLUMN, not an overlay.
+   The distinction is the whole point of the layout: an overlay covers the page you were reading,
+   and on this site the page you were reading is the thing you are asking about. The panel takes
+   width from the document instead, and the page reflows beside it. */
+:host { display: block; }
+
+/* `hidden` has to win. The UA stylesheet's `[hidden] { display: none }` has the specificity of a
+   single attribute selector, so ANY class rule here that sets `display` silently beats it — which
+   is what `.painel { display: flex }` did: the panel shipped permanently open, lying on top of the
+   article, because `hidden` on the element did nothing at all. It passed every gate: the component
+   was at `pronto`, nothing threw, nothing overflowed. This one line is the fix, and the browser
+   gate now checks for it on every component rather than on this one. */
+[hidden] { display: none !important; }
+
+/* --- the rail: always there, on the right edge, vertical ------------------ */
+.rail { position: fixed; right: 0; top: 46%; z-index: 40; display: flex; flex-direction: column;
+        gap: 10px; transition: right .12s ease; }
+:host([aberto]) .rail { right: var(--pt-chat-w, 420px); }
+.aba { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
+       font-family: var(--mono, ui-monospace, monospace); font-size: 12px; letter-spacing: .08em;
+       padding: 16px 7px; border: 1px solid var(--filete, #dcdcd6); border-right: 0;
+       border-radius: 4px 0 0 4px; background: var(--acento, #0f766e); color: var(--papel);
+       cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.aba:hover { filter: brightness(1.12); }
+.aba .ponto { width: 7px; height: 7px; border-radius: 50%; background: var(--papel);
+              opacity: .85; }
+
+/* --- the panel ----------------------------------------------------------- */
+.painel { position: fixed; top: 0; right: 0; bottom: 0; width: var(--pt-chat-w, 420px);
+          min-width: 300px; max-width: 90vw; z-index: 41; display: flex; flex-direction: column;
+          background: var(--papel, #f7f4ec); border-left: 1px solid var(--filete, #dcdcd6);
+          box-shadow: -14px 0 34px rgba(0,0,0,.07); }
+.puxador { position: absolute; left: -3px; top: 0; bottom: 0; width: 7px; cursor: col-resize; }
+.puxador:hover, .puxador:focus { background: var(--acento, #0f766e); outline: none; }
+
+.topo { display: flex; justify-content: space-between; align-items: center; gap: 12px;
+        padding: 12px 14px; background: var(--tinta, #17181c); color: var(--papel, #f7f4ec); }
+.titulo { font-family: var(--mono, ui-monospace, monospace); font-size: 12px; letter-spacing: .12em; }
+.gasto { letter-spacing: .04em; opacity: .7; padding-left: 8px; }
+.acts { display: flex; gap: 8px; }
+.btn { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; padding: 5px 10px;
+       border: 1px solid rgba(255,255,255,.35); background: transparent;
+       color: var(--papel, #f7f4ec); cursor: pointer; border-radius: 3px; }
+.btn:hover { border-color: var(--papel, #f7f4ec); }
+.btn.x { border: 0; font-size: 15px; padding: 2px 6px; }
+
+.dobra { border-bottom: 1px solid var(--filete, #dcdcd6); background: var(--painel, #fffdf7); }
+.dobra > summary { cursor: pointer; padding: 10px 14px; font-size: 13px;
+                   color: var(--sec, #4a4d55); list-style: none; }
+.dobra > summary::-webkit-details-marker { display: none; }
+.dobra > summary::before { content: "▸ "; color: var(--sec-2, #6b6f76); }
+.dobra[open] > summary::before { content: "▾ "; }
+.dobra > summary:hover { color: var(--acento, #0f766e); }
+.dobra-corpo { padding: 2px 14px 14px; max-height: 42vh; overflow-y: auto; }
+
+/* the tool list, with the badge that says what a tool may do */
+.ferr { font-size: 13px; line-height: 1.5; padding: 5px 0; border-top: 1px solid var(--filete, #dcdcd6); }
+.ferr:first-child { border-top: 0; }
+.ferr code { font-family: var(--mono, ui-monospace, monospace); font-size: 12px; }
+.selo { font-family: var(--mono, ui-monospace, monospace); font-size: 9px; letter-spacing: .09em;
+        padding: 1px 5px; border: 1px solid currentColor; border-radius: 2px; margin: 0 6px;
+        vertical-align: 1px; }
+.selo.ler { color: var(--acento, #0f766e); }
+.ferr .desc { color: var(--sec, #4a4d55); display: block; padding-top: 1px; }
+
+.envio-item { display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; font-size: 13px;
+              line-height: 1.45; }
+.envio-item input { margin-top: 3px; }
+.envio-item .porque { color: var(--sec-2, #6b6f76); font-size: 12px; display: block; }
+
+/* --- the stream ---------------------------------------------------------- */
+.fluxo { flex: 1 1 auto; overflow-y: auto; padding: 14px; display: flex; flex-direction: column;
+         gap: 12px; }
+.msg { max-width: 92%; font-size: 14px; line-height: 1.55; }
+.msg.eu { align-self: flex-end; background: var(--acento, #0f766e); color: var(--papel);
+          padding: 9px 13px; border-radius: 13px 13px 3px 13px; }
+.msg.ele { align-self: flex-start; background: var(--painel, #fffdf7);
+           border: 1px solid var(--filete, #dcdcd6); padding: 10px 13px;
+           border-radius: 13px 13px 13px 3px; }
+.msg p { margin: 0 0 .7em; } .msg p:last-child { margin-bottom: 0; }
+.msg .rodape { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+               color: var(--sec-2, #6b6f76); padding-top: 6px; }
+
+/* a tool call, shown where it happened rather than hidden behind a spinner */
+.chamada { align-self: stretch; border-left: 2px solid var(--acento, #0f766e); padding: 5px 0 5px 10px;
+           font-family: var(--mono, ui-monospace, monospace); font-size: 11px;
+           color: var(--sec, #4a4d55); overflow-wrap: anywhere; }
+.chamada b { color: var(--tinta, #17181c); font-weight: 500; }
+.chamada.falhou { border-left-color: var(--falta, #b91c1c); color: var(--falta, #b91c1c); }
+
+.encaminhado { border: 1px solid var(--filete, #dcdcd6); background: var(--painel, #fffdf7);
+               padding: 9px 11px; font-size: 13px; line-height: 1.5; }
+.encaminhado .pontos { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+                       color: var(--acento, #0f766e); }
+.encaminhado .bateu { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+                      color: var(--sec-2, #6b6f76); display: block; padding-top: 3px; }
+a { color: var(--acento, #0f766e); }
+
+.vazio { font-size: 13px; line-height: 1.6; color: var(--sec, #4a4d55);
+         border-left: 2px solid var(--filete-2, #b9b9b2); padding: 2px 0 2px 11px; }
+.vazio p { margin: 0 0 .65em; } .vazio p:last-child { margin-bottom: 0; }
+.vazio p:first-child { color: var(--tinta, #17181c); }
+
+.sugestoes { display: flex; flex-direction: column; gap: 6px; padding: 0 14px 10px; }
+.sug { text-align: left; font-size: 13px; padding: 7px 11px; border-radius: 14px;
+       border: 1px solid var(--filete-2, #b9b9b2); background: transparent;
+       color: var(--tinta, #17181c); cursor: pointer; }
+.sug:hover { border-color: var(--acento, #0f766e); color: var(--acento, #0f766e); }
+
+/* --- the composer -------------------------------------------------------- */
+.forma { border-top: 1px solid var(--filete, #dcdcd6); padding: 10px 14px 12px;
+         background: var(--painel, #fffdf7); }
+textarea { width: 100%; box-sizing: border-box; padding: 9px; font: inherit; font-size: 14px;
+           border: 1px solid var(--filete-2, #b9b9b2); background: var(--papel, #f7f4ec);
+           color: var(--tinta, #17181c); resize: vertical; }
+textarea:focus { outline: 2px solid var(--acento, #0f766e); outline-offset: -1px; }
+.fundo { display: flex; gap: 8px; align-items: center; padding-top: 8px; }
+select { flex: 1 1 auto; min-width: 0; padding: 7px; font-family: var(--mono, ui-monospace, monospace);
+         font-size: 11px; border: 1px solid var(--filete-2, #b9b9b2);
+         background: var(--papel, #f7f4ec); color: var(--tinta, #17181c); }
+.enviar { padding: 8px 18px; border: 0; background: var(--acento, #0f766e); color: var(--papel);
+          font-weight: 500; cursor: pointer; border-radius: 3px; }
+.enviar[disabled] { opacity: .5; cursor: default; }
+.chave-linha { font-family: var(--mono, ui-monospace, monospace); font-size: 10px;
+               color: var(--sec-2, #6b6f76); padding-top: 8px; line-height: 1.6; }
+.chave-linha a, .chave-linha button { color: var(--acento, #0f766e); background: none; border: 0;
+                                      padding: 0; font: inherit; cursor: pointer;
+                                      text-decoration: underline; }
+.chave-caixa { display: flex; gap: 6px; padding-top: 6px; }
+.chave-caixa input { flex: 1 1 auto; min-width: 0; padding: 6px; font-family: var(--mono, monospace);
+                     font-size: 11px; border: 1px solid var(--filete-2, #b9b9b2);
+                     background: var(--papel, #f7f4ec); color: var(--tinta, #17181c); }
+
+@media (max-width: 900px) {
+  .painel { width: 100vw; max-width: 100vw; }
+  :host([aberto]) .rail { right: 0; top: auto; bottom: 0; flex-direction: row; }
+  :host([aberto]) .aba { display: none; }
+}

@@ -324,11 +324,15 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 <script src="{raiz}assets/ponte.js" defer></script>
 <script src="{raiz}assets/observador.js" defer></script>
 <script src="{raiz}assets/conversa.js" defer></script>
+<script type="module" src="{raiz}assets/components/pt-chat/v1/v1.0/v1.0.0/pt-chat.js"></script>
 {extra_head}</head>
 <body>
 <div class="folha">
 {corpo_final}
 </div>
+<!-- The chat lives OUTSIDE .folha on purpose: it is a column of the document, not a block of the
+     page, and putting it inside would make it inherit the sheet's max-width and gutters. -->
+<pt-chat></pt-chat>
 {extra_body}</body>
 </html>
 """

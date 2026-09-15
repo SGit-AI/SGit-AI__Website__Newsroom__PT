@@ -341,6 +341,17 @@ a.ver:hover { color: var(--acento); text-decoration: underline; }
 .caminho { font-size: 19px; line-height: 1.5; margin: 0; }
 .caminho .v { font-family: var(--mono); font-size: 12px; color: var(--acento); }
 
+/* --- the chat column -------------------------------------------------------
+   `<pt-chat>` is a COLUMN and not an overlay: an overlay would cover the page you are asking
+   about. The panel is fixed to the right edge and the document gives up the width, so the page
+   reflows beside it instead of disappearing behind it. The variable is set by the component. */
+html.pt-chat-aberto body { padding-right: var(--pt-chat-w, 420px); }
+html.pt-chat-aberto { scroll-padding-right: var(--pt-chat-w, 420px); }
+@media (max-width: 900px) {
+  /* Below this the panel is the whole screen, so there is nothing to reflow beside. */
+  html.pt-chat-aberto body { padding-right: 0; }
+}
+
 /* --- entidades -------------------------------------------------------------
    Um índice de duzentos nomes numa só coluna é uma página que se percorre com o
    polegar durante meio minuto. Em colunas, lê-se de um relance — e `columns` faz
