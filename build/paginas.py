@@ -348,7 +348,15 @@ def _indice_entidades():
 # a tag is attribute territory, where an `<a>` would be extra text
 # mais dentro de aspas. O `re.split` com captura devolve texto e marcação a alternar, e só o texto
 # is touched.
-_MARCACAO = re.compile(r"(<a\b[^>]*>.*?</a>|<code\b[^>]*>.*?</code>|<[^>]+>)", re.S | re.I)
+# `<script>` and `<style>` hold their contents as RAW TEXT, not as markup, and the linker must not
+# reach inside them. It used to: a page carrying its data in an inline
+# `<script type="application/json">` had entity names inside that JSON rewritten into `<a class="ent"
+# href="…">` — valid-looking HTML, and JSON with unescaped quotes in the middle of it, so the
+# component reading it failed to parse and declared itself in error. The browser gate caught it; no
+# other gate could have, because the page was well-formed and the damage was inside a string.
+_MARCACAO = re.compile(
+    r"(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>"
+    r"|<a\b[^>]*>.*?</a>|<code\b[^>]*>.*?</code>|<[^>]+>)", re.S | re.I)
 
 
 def ligar_entidades(corpo, raiz, excepto=None):

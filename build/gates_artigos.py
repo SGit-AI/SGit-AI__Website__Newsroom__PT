@@ -66,7 +66,9 @@ THE GATES
 import ast
 import html as _html
 import io
+import hashlib
 import json
+from html import escape
 import re
 import sys
 import tokenize
@@ -810,6 +812,9 @@ if IDX.exists():
                          f'this one first, so take the next free one')
 
 
+#  42 · A DERIVED PROMPT PAGE CANNOT DRIFT FROM ITS SOURCE. The interview prompts
+#       live once as markdown; redacao/entrevistas/ renders them. The page has to
+#       carry the current text and the recorded hash has to be today's.
 #  41 · THE GUIDANCE HAS ADDRESSES, AND THE BRIEFING'S LINKS RESOLVE. Every document under
 #       docs/guidance/ is rendered to a page of its own, and everything .claude/ONBOARDING.md
 #       points at exists. For most of this site's life the guidance was reachable only as
@@ -862,9 +867,47 @@ else:
                  'by the SessionStart hook, and the hook would be telling it to read nothing')
 
 
+# --- 42. o texto derivado das entrevistas não pode divergir da sua fonte --------
+# The interview prompts live once, as markdown under briefs/pack/09__entrevistas/, and
+# redacao/entrevistas/ RENDERS them so a person can copy a prompt without leaving the page. A
+# derived file with no gate is a second copy with extra steps — the lesson gate 28 learned from the
+# agent mandates — so this checks the rendered page still carries each prompt's current text, and
+# that the hash recorded beside it is the hash of what is on disk today.
+f_ent = DADOS / "entrevistas.json"
+pag_ent = ROOT / "redacao" / "entrevistas" / "index.html"
+if f_ent.exists():
+    doc_ent = json.loads(f_ent.read_text(encoding="utf-8"))
+    html_ent = pag_ent.read_text(encoding="utf-8") if pag_ent.exists() else ""
+    if not html_ent:
+        erros.append('redacao/entrevistas/index.html is missing and dados/entrevistas.json exists '
+                     '— the prompts have a source and no page rendering it')
+    for peca in doc_ent["pecas"]:
+        origem = ROOT / peca["caminho"]
+        if not origem.exists():
+            erros.append(f'entrevistas: {peca["caminho"]} is named in dados/entrevistas.json and '
+                         f'does not exist')
+            continue
+        agora = hashlib.sha256(origem.read_text(encoding="utf-8").encode("utf-8")).hexdigest()
+        if agora != peca["sha256"]:
+            erros.append(f'entrevistas: {peca["caminho"]} changed since dados/entrevistas.json was '
+                         f'written — run build/entrevistas.py, then build/build.py')
+        # Sampled across the WHOLE file, not once at the top. The first version took a single
+        # line and passed a page whose middle had been hand-edited — a gate that checks one line
+        # certifies one line. Lines carrying markup or backticks are skipped because they are
+        # escaped and reflowed on the way into the page; the rest must appear verbatim.
+        linhas = [l.strip() for l in origem.read_text(encoding="utf-8").split("\n")
+                  if len(l.strip()) > 40 and "<" not in l and "`" not in l and "|" not in l]
+        amostras = linhas[:: max(1, len(linhas) // 8)][:8] if linhas else []
+        em_falta = [a for a in amostras if html_ent and escape(a) not in html_ent]
+        if em_falta:
+            erros.append(f'entrevistas: the page is missing {len(em_falta)} of {len(amostras)} '
+                         f'sampled lines of {peca["caminho"]} (first: '
+                         f'«{em_falta[0][:60]}…») — it was hand-edited, or not rebuilt')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-38, 41: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38, 41-42: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -872,7 +915,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-38, 41: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38, 41-42: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "

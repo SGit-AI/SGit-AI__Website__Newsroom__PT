@@ -760,7 +760,167 @@ alguma vez for servida como página.</p></div>
                   corpo, aqui="registo", fontes_n=reg["contagem"])
 
 
-# ======================================================================= grafo ===
+# ================================================================ entrevistas ===
+def entrevistas(d):
+    """The interview method, with the prompts on the page rather than one click away.
+
+    A prompt is copied, not read: by a person about to paste it into ChatGPT, often on a phone.
+    Sending them to a raw markdown file to select-all is how you lose them. So the prompts are here,
+    each with a copy button — a second VIEW of one copy, rendered from
+    `briefs/pack/09__entrevistas/` on every build and marked derived, never a second copy.
+    """
+    ent = d.get("entrevistas")
+    if not ent:
+        return None
+
+    blocos = []
+    for p in ent["pecas"]:
+        blocos.append(
+            f'<div class="rule" id="{e(p["ficheiro"].split("__")[0])}" '
+            f'style="padding:26px 0 8px">'
+            f'<div class="sect">{e(p["titulo"])} · para {e(p["para_quem"])}</div></div>'
+            f'<p class="sm" style="padding-bottom:10px">{e(p["porque"])}</p>'
+            f'<div class="chips" style="padding-bottom:10px">'
+            f'<span class="chip">{e(p["lingua"])}</span>'
+            f'<span class="chip">{p["linhas"]} linhas</span>'
+            f'<span class="chip mono xs">{e(p["sha256"][:12])}</span>'
+            f'<a class="chip" href="../../{e(p["caminho"])}">o ficheiro em bruto</a></div>'
+            f'<div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;'
+            f'background:var(--papel);border:1px solid var(--filete);white-space:pre-wrap">'
+            f'{e(p["texto"])}</pre></div>')
+
+    corpo = f"""
+<div class="rule" style="padding:26px 0 8px"><div class="sect">As entrevistas · o método e os
+prompts</div></div>
+<h1 class="h-2" style="max-width:26em">Uma pessoa ocupada não escreve duas páginas sobre o seu
+trabalho. Fala vinte minutos sobre ele.</h1>
+<p class="std" style="padding:14px 0 12px">{e(ent["o_que_e"])}</p>
+
+<div class="painel" style="margin-bottom:22px">
+  <div class="sect">A regra que governa o que sai daqui</div>
+  <p class="sm" style="padding-top:8px">{e(ent["a_regra"])} Uma entrevista não abre exceção a
+  nenhuma das regras desta casa: três campos por pessoa — cargo listado, organização listada,
+  página que o lista — nenhum dado de contacto em ficheiro nenhum, e a remoção a pedido é
+  incondicional e não leva motivo. <a href="../../aviso/">O aviso</a> diz como.</p></div>
+
+<div class="hair" style="padding:16px 0 20px">
+{md_para_html(ent["readme"].split("## Porque é por voz", 1)[1].rsplit("## As regras", 1)[0]
+              if "## Porque é por voz" in ent["readme"] else ent["readme"])}
+</div>
+
+{"".join(blocos)}
+
+<div class="painel" style="margin-top:26px">
+  <div class="sect">Este texto é derivado</div>
+  <p class="sm" style="padding-top:8px">Os prompts acima são renderizados de
+  <code>{e(ent["derivado_de"])}</code> em cada construção, e nunca escritos aqui à mão. O conteúdo
+  existe uma vez: se esta página e o markdown pudessem discordar, um deles estaria errado e ninguém
+  saberia qual.</p></div>
+"""
+    return pagina("redacao/entrevistas/index.html", "As entrevistas",
+                  "O método das entrevistas por voz desta redação, e os prompts que as fazem — "
+                  "prontos a copiar.",
+                  corpo, aqui="redacao")
+
+
+# ==================================================================== revisão ===
+def revisao(d):
+    """The editor's review: what happened, what is his to answer, and a way to answer it.
+
+    THE PAGE HOLDS NO STATE AND SAYS SO. Every answer captured here lives in the editor's browser
+    until an agent writes it into a file. That is not a limitation to apologise for — this site is
+    static because a static site can be audited, and a console that appeared to record a decision
+    while recording nothing would be the one dishonest page on a publication whose whole argument
+    is that nothing is asserted without bytes behind it.
+    """
+    rev = d.get("revisao") or {"decisoes": [], "mudancas": [], "contagem": 0}
+
+    def contexto(x):
+        """Everything the editor needs to answer WITHOUT leaving the page — and a link for when
+        he wants the frozen bytes, which is the one thing this page will not inline."""
+        partes = []
+        if x["especie"] == "entrega":
+            if x["confirmadas"]:
+                itens = "".join(f"<li>{e(a)}</li>" for a in x["afirmacoes_confirmadas"])
+                partes.append(f'<p><b>{x["confirmadas"]} de {x["afirmacoes"]}</b> afirmações com o '
+                              f'excerto nos bytes congelados:</p><ul>{itens}</ul>')
+            if x["sem_bytes"]:
+                partes.append(f'<p>{x["sem_bytes"]} afirmaç'
+                              f'{"ões" if x["sem_bytes"] != 1 else "ão"} sem fonte legível — '
+                              f'não se pode escrever, aprove-se o item ou não.</p>')
+            if not x["confirmadas"]:
+                partes.append('<p><b>Nenhuma afirmação deste item tem bytes por trás.</b> '
+                              'Aprovar diria que isto pode ser escrito como facto, e não pode. '
+                              'Rejeitar diria que esta redação não quer a pista, o que costuma '
+                              'ser falso. Deixar por rever e abrir pesquisa é a terceira '
+                              'resposta, e normalmente a certa.</p>')
+        if x["especie"] == "ontologia":
+            partes.append('<p>Tipos propostos: ' + ", ".join(f"<b>{e(v)}</b>" for v in x["tipos"])
+                          + '.</p>')
+        if x["especie"] == "issue":
+            for f in x.get("o_que_falta", [])[:3]:
+                partes.append(f'<p>{e(f)}</p>')
+        if x.get("porque_importa"):
+            partes.append(f'<p>{e(x["porque_importa"])}</p>')
+        partes.append(f'<p><a href="{e(x["url"])}">Ver a prova e o contexto completo →</a></p>')
+        return "".join(partes)
+
+    itens_json = json.dumps([{
+        "id": x["id"], "para": e(x["para"]), "ficheiro": x["ficheiro"],
+        "pergunta": e(x["pergunta"]), "contexto": contexto(x),
+    } for x in rev["decisoes"]], ensure_ascii=False)
+
+    # `</` is the only sequence that can end a <script> block early, so it is the only thing that
+    # needs escaping here — and JSON treats `<\/` as a plain `</`, so the data is unchanged.
+    itens_json = itens_json.replace("</", "<\\/")
+
+    linhas_mud = "".join(
+        f'<tr><td class="mono xs">{e(m["quando"])}</td>'
+        f'<td class="sm">{e(m["especie"])}</td>'
+        f'<td><a href="{e(m["url"])}">{e(m["o_que"])}</a></td>'
+        f'<td class="mono xs">{e(m["versao"] or "—")}</td></tr>' for m in rev["mudancas"])
+
+    por_especie = {}
+    for x in rev["decisoes"]:
+        por_especie[x["especie"]] = por_especie.get(x["especie"], 0) + 1
+    fichas = "".join(f'<span class="chip">{n} · {e(k)}</span>'
+                     for k, n in sorted(por_especie.items()))
+
+    corpo = f"""
+<div class="rule" style="padding:26px 0 8px"><div class="sect">A revisão do editor de registo</div></div>
+<h1 class="h-2" style="max-width:26em">{rev["contagem"]} perguntas cuja resposta é sua.</h1>
+<p class="std" style="padding:14px 0 12px">{e(rev["o_que_e"])}</p>
+<div class="chips" style="padding-bottom:18px">{fichas}</div>
+
+<div class="painel" style="margin-bottom:22px">
+  <div class="sect">O que esta página faz, e o que não faz</div>
+  <p class="sm" style="padding-top:8px">As suas respostas ficam <b>no seu navegador</b>, e em mais
+  lado nenhum. Este site é estático: não escreve no repositório, e uma página que parecesse gravar
+  uma decisão sem a gravar seria a única página desonesta desta publicação. O que ela faz é
+  guardar as suas palavras enquanto revê — pode interromper e voltar — e devolvê-las num bloco
+  pronto a colar no agente que as vai transformar em ficheiro. <b>Nada é uma decisão até o
+  ficheiro existir.</b> {e(rev["a_regra"])}</p></div>
+
+<div class="rule" style="padding:22px 0 12px"><div class="sect">As perguntas</div></div>
+<pt-decisoes><script type="application/json">{itens_json}</script></pt-decisoes>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">O que aconteceu</div></div>
+<p class="sm" style="padding-bottom:12px">Cada versão, cada artigo publicado e cada entrega, com a
+data em que aconteceu. Esta página não sabe quando foi a sua última revisão — isso é conhecimento
+que vive no seu navegador, e não num ficheiro que qualquer pessoa possa ler.</p>
+<div class="rolar"><table><thead><tr><th style="width:110px">Quando</th>
+  <th style="width:90px">O quê</th><th>Aconteceu</th>
+  <th style="width:90px">Versão</th></tr></thead><tbody>{linhas_mud}</tbody></table></div>
+"""
+    return pagina("redacao/revisao/index.html", "A revisão do editor",
+                  "O que mudou, o que falta decidir, e um sítio para escrever as respostas antes "
+                  "de elas irem para os ficheiros.",
+                  corpo, aqui="redacao",
+                  extra_body='<script type="module" src="../../assets/components/pt-decisoes/'
+                             'v1/v1.0/v1.0.0/pt-decisoes.js"></script>')
+
+
+# ==================================================================== grafo ===
 def grafo(d):
     g, o = d["grafo"], d["ontologia"]
     verbos = "".join(
@@ -1628,6 +1788,8 @@ def carregar_tudo():
         "aviso": carregar("aviso.json"), "equipa": carregar("equipa.json"),
         "evento": carregar("evento.json"), "lexico": carregar("lexico.json"),
         "entregas": carregar("entregas.json"),
+        "revisao": carregar("revisao.json"),
+        "entrevistas": carregar("entrevistas.json"),
         "verif": carregar("verificacoes-fonte.json"),
         "historias": carregar("historias.json") or {"historias": []},
         "issues": ler_issues(), "correio": ler_correio(), "runs": ler_runs(),
@@ -1658,6 +1820,9 @@ def main():
     feitas.append(escrever("aviso/index.html", aviso(d)))
     feitas.append(escrever("sobre/index.html", sobre(d)))
     feitas.append(escrever("redacao/index.html", mesa(d)))
+    feitas.append(escrever("redacao/revisao/index.html", revisao(d)))
+    if d.get("entrevistas"):
+        feitas.append(escrever("redacao/entrevistas/index.html", entrevistas(d)))
     feitas.append(escrever("entregas/index.html", entregas_indice(d)))
     for x in (d["entregas"] or {}).get("entregas", []):
         feitas.append(escrever(f"entregas/{x['id']}.html", entrega_pagina(x, d)))

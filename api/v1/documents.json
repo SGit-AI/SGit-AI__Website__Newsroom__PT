@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 100,
+  "contagem": 105,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -588,6 +588,46 @@
       "bytes": 4074,
       "linhas": 65,
       "palavras": 604
+    },
+    {
+      "caminho": "briefs/pack/09__entrevistas/01__prompt-da-entrevista.pt.md",
+      "titulo": "O prompt da entrevista — português",
+      "categoria": "Commissioning pack",
+      "bytes": 3782,
+      "linhas": 79,
+      "palavras": 636
+    },
+    {
+      "caminho": "briefs/pack/09__entrevistas/02__the-interview-prompt.en.md",
+      "titulo": "The interview prompt — English",
+      "categoria": "Commissioning pack",
+      "bytes": 3541,
+      "linhas": 79,
+      "palavras": 636
+    },
+    {
+      "caminho": "briefs/pack/09__entrevistas/03__bloco-do-tema.md",
+      "titulo": "O bloco do tema — o que muda de entrevista para entrevista",
+      "categoria": "Commissioning pack",
+      "bytes": 3494,
+      "linhas": 85,
+      "palavras": 627
+    },
+    {
+      "caminho": "briefs/pack/09__entrevistas/04__prompt-do-agente.md",
+      "titulo": "O prompt do agente — quem monta o pacote",
+      "categoria": "Commissioning pack",
+      "bytes": 3188,
+      "linhas": 55,
+      "palavras": 520
+    },
+    {
+      "caminho": "briefs/pack/09__entrevistas/README.md",
+      "titulo": "09 — As entrevistas",
+      "categoria": "Commissioning pack",
+      "bytes": 2799,
+      "linhas": 48,
+      "palavras": 491
     },
     {
       "caminho": "briefs/pack/LICENSE.md",

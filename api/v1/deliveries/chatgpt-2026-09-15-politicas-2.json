@@ -54,10 +54,8 @@
   ],
   "notas_do_assistente": "Não foi localizado, sem adivinhar o endereço, o PDF da Série I da RCM n.º 2/2026; por isso, o instrumento da ANIA não é entregue novamente. Também não foi localizado um ato publicado que designe a autoridade nacional de fiscalização do mercado ou a autoridade notificadora. As pesquisas na CNPD, no PRR, na FCT e na EuroHPC não produziram nesta passagem uma página oficial nova e aberta que satisfizesse o teste do excerto. Uma página da ANACOM e um PDF do IPQ apareceram em resultados, mas não abriram de forma utilizável e foram excluídos. Nenhuma das oito páginas já detidas pela redação foi reenviada. O esquema vivo exige a chave delivery.vault, embora o brief mande omiti-la antes da criação do cofre; foi usado null para validar contra o esquema vivo. O cofre será criado apenas depois das oito partes.",
   "cofre": null,
-  "esquema_valido": false,
-  "erros_de_esquema": [
-    "jsonschema não está instalado — a entrega não foi validada (pip install jsonschema)"
-  ],
+  "esquema_valido": true,
+  "erros_de_esquema": [],
   "congelada_em": "2026-09-15",
   "fontes": [
     {

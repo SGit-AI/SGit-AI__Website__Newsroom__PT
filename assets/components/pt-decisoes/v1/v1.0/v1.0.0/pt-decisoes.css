@@ -1,0 +1,113 @@
+/* pt-decisoes — the editor's review, as controls rather than prose.
+
+   It borrows the newspaper's own tokens rather than redeclaring them, so the review reads as part
+   of this publication and not as an admin screen bolted onto it. Custom properties cross the
+   shadow boundary, which is what makes that possible without duplicating a palette. */
+
+:host {
+  display: block;
+  font-family: var(--serif, Newsreader, Georgia, serif);
+  color: var(--tinta, #14171d);
+}
+
+.d {
+  border: 1px solid var(--filete, #d8dde5);
+  background: var(--painel, #fff);
+  padding: var(--s4, 16px) var(--s5, 24px);
+  margin-bottom: var(--s4, 16px);
+}
+
+.d__topo {
+  display: flex; justify-content: space-between; gap: var(--s3, 12px);
+  flex-wrap: wrap; align-items: baseline;
+  padding-bottom: var(--s2, 8px);
+}
+
+/* The destination is the first thing read: a decision with no addressee is a note to self. */
+.para {
+  font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--acento, #0f766e);
+}
+
+/* Mono only where there is a machine fact — an identifier an agent will match on. */
+.id { font-family: var(--mono, ui-monospace, monospace); font-size: 11px; color: var(--sec-2, #6b6e76); }
+
+.d__t { font-size: 19px; line-height: 1.35; margin: 0 0 var(--s2, 8px); font-weight: 600; }
+
+.d__ctx {
+  font-size: 14px; line-height: 1.6; color: var(--tinta-2, #3b3f46);
+  max-width: var(--measure, 34em);
+  padding-bottom: var(--s3, 12px);
+}
+.d__ctx :is(p, ul) { margin: 0 0 var(--s2, 8px); }
+.d__ctx a { color: var(--acento, #0f766e); }
+
+.v, .r { display: flex; gap: 8px; flex-wrap: wrap; padding-bottom: var(--s3, 12px); }
+
+.chip {
+  font-family: inherit; font-size: 13px;
+  padding: 5px 12px;
+  border: 1px solid var(--filete-2, #b9c0cc);
+  background: var(--papel, #faf7f2);
+  color: var(--tinta, #14171d);
+  cursor: pointer;
+}
+.chip.fina { font-size: 12px; color: var(--tinta-2, #3b3f46); }
+
+/* Pressed is a filled state and not a tint, because a tint at this size is invisible to anyone
+   who is not looking for it — and the editor is choosing, not browsing. */
+.chip[aria-pressed="true"] {
+  background: var(--tinta, #14171d); color: var(--papel, #faf7f2);
+  border-color: var(--tinta, #14171d);
+}
+.chip.ok[aria-pressed="true"]   { background: var(--acento, #0f766e); border-color: var(--acento, #0f766e); }
+.chip.miss[aria-pressed="true"] { background: var(--disputa, #b91c1c); border-color: var(--disputa, #b91c1c); }
+
+.chip:focus-visible, textarea:focus-visible, .copiar:focus-visible {
+  outline: 2px solid var(--acento, #0f766e); outline-offset: 2px;
+}
+
+.lbl {
+  display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--sec-2, #6b6e76); padding-bottom: 6px;
+}
+
+textarea {
+  width: 100%; box-sizing: border-box;
+  font-family: inherit; font-size: 15px; line-height: 1.55;
+  padding: 10px 12px;
+  border: 1px solid var(--filete-2, #b9c0cc);
+  background: var(--papel, #faf7f2);
+  color: var(--tinta, #14171d);
+  resize: vertical;
+}
+
+.barra {
+  position: sticky; bottom: 0;
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  padding: var(--s3, 12px) 0;
+  background: var(--papel, #faf7f2);
+  border-top: 1px solid var(--filete, #d8dde5);
+}
+
+.copiar {
+  font-family: inherit; font-size: 13px;
+  padding: 7px 14px;
+  border: 1px solid var(--tinta, #14171d);
+  background: var(--tinta, #14171d); color: var(--papel, #faf7f2);
+  cursor: pointer;
+}
+.copiar.apagar { background: transparent; color: var(--tinta-2, #3b3f46); border-color: var(--filete-2, #b9c0cc); }
+
+#contagem { font-size: 13px; color: var(--sec-2, #6b6e76); }
+
+#saida {
+  width: 100%; box-sizing: border-box; margin-top: var(--s3, 12px);
+  font-family: var(--mono, ui-monospace, monospace); font-size: 12px;
+  min-height: 160px;
+}
+
+@media (max-width: 560px) {
+  .d { padding: var(--s3, 12px) var(--s3, 12px); }
+  .barra { position: static; }
+}

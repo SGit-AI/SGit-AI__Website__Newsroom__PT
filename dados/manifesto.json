@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 30,
+  "contagem": 32,
   "ficheiros": [
     {
       "ficheiro": "dados/agentes.json",
@@ -18,7 +18,7 @@
     {
       "ficheiro": "dados/comentarios.json",
       "bytes": 79548,
-      "sha256": "077e12e211dd6978a1e78e445d8026ce1f4bce5de69b3ab87931b3e67607c331"
+      "sha256": "e8791b2fbf54fa0480038ee7e3087f49472a88c9fcf8201ca9ffeeec66c5fe4e"
     },
     {
       "ficheiro": "dados/correio.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 22978,
-      "sha256": "e77eb17e5706023ccf7e480aef679b9422f9d75b121f579fffeac7df6c7494d5"
+      "bytes": 24212,
+      "sha256": "edadad7820283020fb548d3f5591ca2565826bd2a348fc588a0714367b3eabfe"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -47,8 +47,13 @@
     },
     {
       "ficheiro": "dados/entregas.json",
-      "bytes": 71424,
-      "sha256": "3f35d03e715b1e907189e43e9d70f8f198ec713ffebbb6410875da3953b393a9"
+      "bytes": 76790,
+      "sha256": "12bb0975abdfd9c8a36937fa5004f14775fd9632c9331fdd37ca110821ae340d"
+    },
+    {
+      "ficheiro": "dados/entrevistas.json",
+      "bytes": 19663,
+      "sha256": "f2f6f5a8f102d9f11b27ad7ab777a8388fc89a957093b9f37a407ed79b0f672b"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -87,8 +92,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 5030,
-      "sha256": "fa7afef963f46156c8d5f06b84713ee8280c6fb978301017f4904fdba3fa3cef"
+      "bytes": 5350,
+      "sha256": "49d54e11f69c82883d9188d536545f96cc1287187449d19d0ec4c862c76bf317"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -129,6 +134,11 @@
       "ficheiro": "dados/registo.json",
       "bytes": 52329,
       "sha256": "90642853ce77ff9fa0223dea253940b1b31ea45a4df5a2e827ab765119174fa7"
+    },
+    {
+      "ficheiro": "dados/revisao.json",
+      "bytes": 11564,
+      "sha256": "a00d921863ae9c74b31a6332045c739befd7bb4b8c138a75f8cf0ab309625e13"
     },
     {
       "ficheiro": "dados/sessoes.json",
