@@ -710,8 +710,17 @@ DECL = [
     re.compile(r"^\s{0,4}(\d{1,3})\s+·"),          # docstring:  «  NN · TITLE»
     re.compile(r"^#\s{0,4}(\d{1,3})\s+·"),         # comment:    «#  NN · TITLE»
     re.compile(r"^#\s*-+\s*(\d{1,3})\.\s"),       # section:    «# --- NN. title ---»
+    re.compile(r"^/\*\s*-+\s*(\d{1,3})\.\s"),     # javascript: «/* --- NN. title ---»
 ]
-FICHEIROS_DE_PORTAO = sorted((ROOT / "build").glob("gates*.py"))
+# NOT ONLY THE PYTHON GATES. This list held `build/gates*.py` and nothing else, and the two gates
+# that live in the browser gate and the site gate were therefore invisible to the registry — so a
+# session could take a number the browser gate already held and this gate would say it was free.
+# It happened on the next merge: a gate 36 was written into admin/build/render.mjs while gate 36
+# above already existed, and nothing here noticed. A registry that covers some of the addresses is
+# a registry that hands out addresses twice.
+FICHEIROS_DE_PORTAO = (sorted((ROOT / "build").glob("gates*.py"))
+                       + [f for f in [ROOT / "admin" / "build" / "render.mjs",
+                                      ROOT / "admin" / "build" / "validate.js"] if f.exists()])
 reclamado = {}
 for f in FICHEIROS_DE_PORTAO:
     rel = f.relative_to(ROOT).as_posix()

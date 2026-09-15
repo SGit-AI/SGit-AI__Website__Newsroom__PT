@@ -35,12 +35,22 @@ from backoffice import e, escrever, pagina  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
 
+# THE DISPOSITION OF A REVIEW ITEM, ON THE CONSOLE'S FOUR-RANK SCALE. The paper's chip classes
+# were chosen when there was one chip style used 159 ways, and two of the five were the wrong way
+# round under a scale where only rank 1 is filled: `parcial` came out filled red, which now means
+# "a human must act", and `editor` — the one disposition that really does mean that — came out as
+# the quiet neutral outline. So the mapping is to ranks, and the rank IS the meaning.
+#
+#   1  a human must act      the editor decides
+#   2  blocked / not moving  deferred
+#   3  running               partly done
+#   4  done                  done, corrected the review
 ESTADOS = {
-    "feito": ("ok", "done"),
-    "parcial": ("falta", "partly done"),
-    "adiado": ("miss", "deferred"),
-    "editor": ("disputa", "the editor decides"),
-    "corrigido": ("ok", "corrected the review"),
+    "feito": (4, "done"),
+    "parcial": (3, "partly done"),
+    "adiado": (2, "deferred"),
+    "editor": (1, "the editor decides"),
+    "corrigido": (4, "corrected the review"),
 }
 
 
@@ -50,8 +60,10 @@ def carregar(n):
 
 
 def bloco(item):
-    chip, rotulo = ESTADOS.get(item["estado"], ("", item["estado"]))
-    gate = (f'<span class="chip ok">held by {e(item["portao"])}</span>'
+    r, rotulo = ESTADOS.get(item["estado"], (3, item["estado"]))
+    # Which gate holds an item is a FACT about it, not a state of it. It was a box of the same
+    # weight as the disposition beside it.
+    gate = (f'<span class="path">held by {e(item["portao"])}</span>'
             if item.get("portao") else "")
     prova = (f'<p class="xs mono">measured: {e(item["medida"])}</p>'
              if item.get("medida") else "")
@@ -61,9 +73,9 @@ def bloco(item):
             if item.get("onde") else "")
     return f"""
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§{e(item["ref"])}</span>
-    <span class="chip {chip}">{rotulo}</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--{r}">{rotulo}</span>
+    <span class="path">§{e(item["ref"])}</span>
     {gate}
   </div>
   <p class="std"><b>{e(item["titulo"])}</b></p>
@@ -77,7 +89,7 @@ def pagina_desenho(d):
     for i in d["itens"]:
         contagens[i["estado"]] = contagens.get(i["estado"], 0) + 1
     fichas = " ".join(
-        f'<span class="chip {ESTADOS[k][0]}">{v} {ESTADOS[k][1]}</span>'
+        f'<span class="st st--{ESTADOS[k][0]}">{v} {ESTADOS[k][1]}</span>'
         for k, v in sorted(contagens.items(), key=lambda kv: -kv[1]) if k in ESTADOS)
 
     grupos = {}
@@ -86,15 +98,15 @@ def pagina_desenho(d):
 
     secs = ""
     for nome, itens in grupos.items():
-        secs += (f'<div class="rule" style="padding:26px 0 8px"><div class="sect">{e(nome)} · '
-                 f'{len(itens)} items</div></div>'
+        secs += (f'<h2>{e(nome)} · '
+                 f'{len(itens)} items</h2>'
                  + "".join(bloco(i) for i in itens))
 
     decisoes = "".join(
         f'<div class="cartao" style="padding:14px;margin-top:12px">'
-        f'<div class="chips" style="padding-bottom:6px">'
-        f'<span class="chip disputa">decision {n}</span>'
-        f'<span class="chip">§{e(x["ref"])}</span></div>'
+        f'<div class="queue__meta" style="margin:0 0 6px">'
+        f'<span class="st st--1">decision {n}</span>'
+        f'<span class="path">§{e(x["ref"])}</span></div>'
         f'<p class="std"><b>{e(x["pergunta"])}</b></p>'
         f'<p class="sm">{e(x["porque_e_do_editor"])}</p>'
         f'<p class="sm"><b>The options:</b> {e(x["opcoes"])}</p>'
@@ -109,8 +121,8 @@ def pagina_desenho(d):
         for x in d["correcoes_a_revisao"])
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The design review, item by item
-  </div></div>
+<h2>The design review, item by item
+  </h2>
 <p class="std">{e(d["nota"])}</p>
 <div class="chips" style="padding:12px 0">{fichas}</div>
 <p class="sm">Source: the encrypted vault <code>{e(d["cofre"])}</code>, version
@@ -119,8 +131,8 @@ copied into this repository: it is a vault the editor holds, and a copy here wou
 the first time it was updated. What this page carries is the <b>disposition</b> of each item, which
 is this repository's business and not the vault's.</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Where the review was wrong, and how
-  we know</div></div>
+<h2>Where the review was wrong, and how
+  we know</h2>
 <p class="sm">The review measured rather than asserted, which is why it was worth implementing.
 Two of its numbers were still wrong, and one of them changed the answer. Recording that is not
 scoring a point: an implementation that had followed the review exactly would have shipped a
@@ -129,8 +141,8 @@ column that still missed the review's own target, and nobody would have known.</
 
 {secs}
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The five decisions the review
-  reserved for the editor</div></div>
+<h2>The five decisions the review
+  reserved for the editor</h2>
 <p class="std">§4.5 of the review says, in as many words: <i>"Agents: do not pick these
 yourself."</i> None of them is picked here. Each is a card on
 <a href="quadro.html#dinis.humano">the editor's board</a>.</p>

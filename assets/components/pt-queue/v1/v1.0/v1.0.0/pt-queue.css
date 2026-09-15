@@ -1,0 +1,100 @@
+/* pt-queue — the "waiting on you" block.
+
+   It borrows the console's tokens rather than redeclaring them, so a change to the status scale
+   in console.css reaches this component. Custom properties cross the shadow boundary; the site's
+   five original components hardcode their hex values and therefore do not get that. */
+
+:host {
+  display: block;
+  /* Without this the next section heading sits on the queue's bottom border. */
+  margin-bottom: var(--bo-6, 32px);
+  font-family: var(--bo-sans, ui-sans-serif, system-ui, sans-serif);
+  color: var(--bo-ink, #14171d);
+  font-variant-numeric: tabular-nums;
+}
+
+.queue {
+  border: 1px solid var(--bo-line, #d8dde5);
+  border-radius: var(--bo-rad, 4px);
+  background: var(--bo-card, #fff);
+  overflow: hidden;
+}
+
+/* The head is tinted only while something is actually waiting. An empty queue that still looked
+   alarmed would teach the operator to ignore the alarm. */
+.queue__head {
+  display: flex; align-items: center; gap: var(--bo-3, 12px);
+  padding: var(--bo-4, 16px) var(--bo-5, 24px);
+  background: var(--bo-r1-soft, #fdeeec);
+  border-bottom: 1px solid var(--bo-line, #d8dde5);
+}
+.queue__head .n { font-size: 30px; font-weight: 700; line-height: 1; color: var(--bo-r1, #9a2515); }
+.queue__head .t { font-size: 15px; font-weight: 650; }
+.queue__head .s { color: var(--bo-muted, #555c68); font-size: 13.5px; }
+
+:host([empty]) .queue__head { background: var(--bo-card, #fff); border-bottom: 0; }
+:host([empty]) .queue__head .n { color: var(--bo-r4, #4a7c59); }
+
+.queue__item {
+  display: grid; grid-template-columns: 1fr auto; gap: var(--bo-3, 12px) var(--bo-4, 16px);
+  align-items: start;
+  padding: var(--bo-4, 16px) var(--bo-5, 24px);
+  border-top: 1px solid var(--bo-line, #d8dde5);
+}
+.queue__item:first-child { border-top: 0; }
+.queue__item h3 { margin: 0; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.queue__item h3 a { color: var(--bo-ink, #14171d); text-decoration: none; }
+.queue__item h3 a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.queue__meta { display: flex; gap: var(--bo-3, 12px); flex-wrap: wrap; align-items: center; margin-top: 6px; }
+.queue__why { color: var(--bo-muted, #555c68); font-size: 14px; margin: var(--bo-2, 8px) 0 0; max-width: 78ch; }
+.queue__do { display: flex; gap: var(--bo-2, 8px); align-items: center; flex-wrap: wrap; }
+
+/* Rank 1 — the only filled RANK in the console. Three items waiting means three filled badges,
+   all saying the same thing; what must not happen is a second meaning being filled too. */
+.st {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--bo-mono, ui-monospace, Menlo, monospace);
+  font-size: 11px; padding: 4px 10px; border-radius: 3px; white-space: nowrap;
+  background: var(--bo-r1, #9a2515); color: var(--bo-on-fill, #fff); font-weight: 650;
+}
+.st .who { opacity: .85; font-weight: 400; }
+
+.btn {
+  font: 600 13px/1 var(--bo-sans, ui-sans-serif, system-ui, sans-serif);
+  padding: 8px 14px; border-radius: var(--bo-rad, 4px); cursor: pointer;
+  border: 1px solid var(--bo-line-2, #b9c1cc); background: var(--bo-card, #fff);
+  color: var(--bo-ink, #14171d); white-space: nowrap;
+}
+.btn:hover { border-color: var(--bo-muted, #555c68); }
+.btn--primary { background: var(--bo-ink, #14171d); border-color: var(--bo-ink, #14171d); color: var(--bo-on-fill, #fff); }
+.btn--primary:hover { background: var(--bo-ink-max, #000); }
+.btn:focus-visible { outline: 2px solid var(--bo-focus, #2f7fd4); outline-offset: 2px; }
+
+.path { font-family: var(--bo-mono, ui-monospace, Menlo, monospace); font-size: 12px;
+        color: var(--bo-muted, #555c68); overflow-wrap: anywhere; }
+
+/* The publication's face, used only for the publication's own words. */
+.quote { font-family: var(--bo-serif, "Newsreader", Georgia, serif); font-size: 15.5px; line-height: 1.5; max-width: 62ch; }
+.lang { font-family: var(--bo-mono, ui-monospace, Menlo, monospace); font-size: 9.5px; letter-spacing: .1em;
+        border: 1px solid var(--bo-line-2, #b9c1cc); border-radius: 2px; padding: 0 3px;
+        color: var(--bo-muted, #555c68); vertical-align: 2px; }
+
+/* The slotted fallback is the plain list a page ships for the no-JS case. Hidden once the
+   component has taken over — but only then, so a failed module leaves it showing. */
+::slotted(*) { display: none; }
+/* Except when the component could not read its own items: then the page's plain list is the
+   only answer left, and hiding it would be worse than not having loaded at all. */
+:host([fallback]) ::slotted(*) { display: revert; }
+:host([fallback]) .queue__head { background: var(--bo-r2, #8a4b06); }
+:host([fallback]) .queue__head .n,
+:host([fallback]) .queue__head .t,
+:host([fallback]) .queue__head .s { color: var(--bo-on-fill, #fff); }
+:host([fallback]) slot { display: block; padding: var(--bo-4, 16px) var(--bo-5, 24px); }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 720px) {
+  .queue__item { grid-template-columns: 1fr; }
+  .queue__do { justify-content: flex-start; }
+}

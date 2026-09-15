@@ -1,11 +1,11 @@
 {
   "id": "pt-desenho",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "atualizado": "2026-09-15",
   "cofre": "e54hfntq",
-  "revisao_versao": "v0.1.0",
+  "revisao_versao": "v0.5.0",
   "revisao_contra": "v0.6.0",
-  "nota": "The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn't look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten».",
+  "nota": "The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn't look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten». The review's second part arrived as vault v0.5.0 and is about the back office: §5 below. It found the console to be «a report about the newsroom, not a console for operating it» — 7,058px of state across nine pages with zero controls on eight of them — and it is right. What the review counted as good and what survived unchanged is not listed as work done, because it was not work: the pipeline model, the department boundaries, the gates and above all the mail protocol are still exactly what they were.",
   "o_blocker": "§3.9 is the item to read twice. The design system lives in inline `style=` attributes in the Python generators — column spans, borders, padding, gaps, colours — and not in site.css. The review is right that most of its own section 2 cannot be delivered until that is fixed, and right that fixing it changes nothing visible on its own. This release took the 54 inline declarations that were actively cancelling the measure fix and added a gate so they cannot return; the rest is a release of its own. Anyone picking it up should read §4.6 first: the stylesheet's comments are the best documentation in this repository, and the work touches nearly every rule they describe.",
   "itens": [
     {
@@ -316,6 +316,159 @@
       "o_que_se_fez": "The face selection and the subset for Portuguese accents, the masthead, the double nav rule, the warm paper and cool near-black, the «filetes, não caixas» discipline, the mobile work, the `a.ent` link-density pattern, the honest content model, and — the one most at risk from a redesign — the stylesheet's own comments. §4.6 warns that an agent which changes a rule and leaves its comment has made the file actively misleading. Every comment over a changed rule was rewritten, one superseded block was deleted rather than left above the block that replaced it, and the header's colour list now carries the measured ratio of each token.",
       "onde": [
         "assets/site.css"
+      ]
+    },
+    {
+      "ref": "5.1",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "«The back office is a report about the newsroom, not a console for operating it»",
+      "estado": "feito",
+      "o_que_se_fez": "The console page now opens with what is waiting on the editor of record, as `pt-queue` — the first thing on the page and the only filled rank on it. The list is derived by `backoffice.fila()` from four sources that each already knew a piece of the answer: the editor's own board lane, cards on another agent's lane whose `bloqueado_por` is the editor, paper issues the formula assigns to the editor, and mail sitting in their inbox. There is no count attribute anywhere — the rail badge and the queue heading are both `len()` of the same list, so they cannot disagree.",
+      "portao": "gate 40 (browser) + the render gate's pt-queue check",
+      "medida": "13 items derived, against the 1 the old console showed — a single cell in row 6 of the first table, in the base chip style",
+      "onde": [
+        "build/backoffice.py",
+        "assets/components/pt-queue/v1/v1.0/v1.0.0/"
+      ]
+    },
+    {
+      "ref": "5.2",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "It wore the newspaper's clothes: the console loaded site.css",
+      "estado": "parcial",
+      "o_que_se_fez": "`assets/console.css` is adopted from the vault: cool neutrals, a dark rail, system sans, tabular numerals, real buttons, and the publication's serif surviving only in `.quote`, where the console shows the newspaper's own words. It is loaded second and wins everything below the operator strip.",
+      "bloqueio": "site.css is still loaded first, for the operator strip and for nothing else. The editor's instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper's rules and the paper's ground, gate 40 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css's `.nav` landing on the rail's items and rendering the rail centred — is answered by a closed reset in console.css.",
+      "medida": "the strip at x=56 y=8 1168×33 on the paper and in the console, measured in Chromium",
+      "onde": [
+        "assets/console.css",
+        "build/backoffice.py",
+        "admin/build/render.mjs"
+      ]
+    },
+    {
+      "ref": "5.3",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Nothing told you what needed you, and «a human is blocking this» was said ten ways",
+      "estado": "feito",
+      "o_que_se_fez": "One scale, four ranks, and only rank 1 is filled. The pipeline's own stage 6 — the most important state in the back office and previously the least visible of the ten, because it used the base chip style while nine lesser places used `.chip.miss` — is rank 1 on a tinted stage. Two mappings the paper's classes had backwards were corrected at the source rather than in the layer: the design review's `parcial` was rendering filled red (which now means a human must act) and `editor` — the one disposition that does mean that — was rendering as the quiet neutral outline.",
+      "portao": "gate 33 (no state without its accent)",
+      "medida": "159 distinct chip labels → 4 ranks; the board 158 chips → 25 ranks; the design review 124 → 39",
+      "onde": [
+        "build/backoffice.py",
+        "build/equipa.py",
+        "build/desenho.py",
+        "build/pontes.py"
+      ]
+    },
+    {
+      "ref": "5.4",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Every page opened with the same 70 words",
+      "estado": "feito",
+      "o_que_se_fez": "The preamble is on `guidance.html` and nowhere else. What every page carries instead is one sentence in the rail — permanently visible, never above the content. That is not a softening of the rule: gate 19 requires every back-office page to say it is not the publication, because the whole area is in English by the editor's decision and the condition of that exception is that a reader who lands here can see it. The gate is unchanged and still finds its string.",
+      "portao": "gate 19",
+      "medida": "9 of 9 pages repeating ~300px of prose → 1 page carrying it in full, 10 carrying one sentence in the rail",
+      "onde": [
+        "build/backoffice.py",
+        "assets/console.css"
+      ]
+    },
+    {
+      "ref": "5.5",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Zero `<h2>` in the entire back office, and five of nine pages with no heading at all",
+      "estado": "feito",
+      "o_que_se_fez": "All 34 section titles became real `<h2>` elements — they were `.sect` divs, which are styling and not structure, so nothing could outline these pages. Every page now has exactly one `<h1>` and it NAMES the place: the console's used to be a sentence in the publication's voice, «What the newsroom has done, what it is waiting on, and who is allowed to do what», which describes a page rather than labelling where you are standing. What still wears `.sect` is a field label inside a card — «Refuses», «Writes in» — because promoting those would have put 60 more entries in every outline and made it useless a different way.",
+      "medida": "h1: 1 on every one of the 10 pages, against 4 of 9 before. h2: 2–10 per page, against 0 across the whole back office",
+      "onde": [
+        "build/backoffice.py",
+        "build/equipa.py",
+        "build/pontes.py",
+        "build/desenho.py"
+      ]
+    },
+    {
+      "ref": "5.6",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "The console declared itself English and was 30–40% Portuguese",
+      "estado": "adiado",
+      "o_que_se_fez": "The furniture is English throughout — the rail's labels, the headings, the page names. Nothing was translated.",
+      "bloqueio": "The Portuguese that remains in the running prose is QUOTED: an agent's mission, a board card's own reading of its work, the formula's `porque` column, a mail subject. Those are records this publication keeps about itself, in the language it keeps them in, and the arrangement for reading them is the one the ontology already uses — the record stands and the `en` block annotates it. Paraphrasing a record on the way to a screen is how a console starts to drift from the files it reports on. Where a record has no `en` annotation, adding one is Redação's write and not this agent's.",
+      "onde": [
+        "dados/agentes.json",
+        "dados/quadro.json"
+      ]
+    },
+    {
+      "ref": "5.7",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Eleven flat navigation items at 12px mono, no grouping, no counts",
+      "estado": "feito",
+      "o_que_se_fez": "A rail, grouped Operate / Understand / Reference, with the current page marked by `aria-current=\"page\"` rather than by weight alone — weight is a styling convention and not something an outline or a screen reader can read. Counts sit on the three items that can be behind, and a zero is never a badge: a count that is always there has stopped being a signal.",
+      "medida": "11 flat links → 3 groups of 11, 3 carrying a count",
+      "onde": [
+        "build/backoffice.py",
+        "assets/console.css"
+      ]
+    },
+    {
+      "ref": "5.8",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "«Eight of the nine pages have zero buttons, inputs, selects or textareas»",
+      "estado": "parcial",
+      "o_que_se_fez": "The bridges page's controls — which were the only real controls in the back office and were dressed as status chips, in the same box as «secret» and «in transit» — are now real buttons and real fields: primary for keeping a credential, danger for forgetting one. The queue's action names the file it would write in its `title`, so an operator who does not trust a button can do the same thing by hand.",
+      "bloqueio": "A button cannot write a file on a static site: there is no server to write it. So the queue's buttons GO TO THE PLACE THE WRITE HAPPENS — the document browser for a file, the mail page for a thread, the bridges page for a message to the newsroom — and nothing claims to have written anything. Making them act is the append lane's job, and the lane is built and has no credentials: that is §5.10 and the editor's.",
+      "medida": "console 0 controls → 13 (one per queue item); bridges 7 chips-as-buttons → 6 buttons and 3 fields",
+      "onde": [
+        "build/pontes.py",
+        "build/backoffice.py"
+      ]
+    },
+    {
+      "ref": "5.9",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "The mail model is the best thing here and was explained in a paragraph and a table",
+      "estado": "feito",
+      "o_que_se_fez": "Shown as the route a message walks — `saida/ → expedicao/ → entrada/ → tratado/`, each folder carrying the rank its state means — which needs no paragraph. The protocol's own four-row table is still published, folded into a `<details>`: the detail is real and worth having and it is not what the page is for. The mailbox table gained a state column and the editor's row is marked on the ROW, because a state marked only inside a cell is one you have to hunt for by reading every row.",
+      "onde": [
+        "build/equipa.py",
+        "assets/console.css"
+      ]
+    },
+    {
+      "ref": "5.10",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "«The vault channel gets a real thread view» with a reply box that writes a file",
+      "estado": "editor",
+      "o_que_se_fez": "Not built. The threads are rendered and the route is visible; the reply box is not.",
+      "bloqueio": "A reply box that writes a file needs the append lane, and the lane needs three values this repository may not hold: the vault id, the append token and the public key. They go to the editor's own browser via /backoffice/pontes.html and nowhere else — `admin/build/validate.js` carries a key-shaped-string tripwire and would fail the build if one appeared. Until the editor hands a browser those values there is nothing to write with, and inventing a box that does nothing would be the one thing this publication says it never does.",
+      "onde": [
+        "build/pontes.py",
+        "assets/ponte.js"
+      ]
+    },
+    {
+      "ref": "5.11",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Filenames: the proposal asks for console.html / mail.html / board.html",
+      "estado": "editor",
+      "o_que_se_fez": "Not renamed. The rail says the English word; the URL still says the Portuguese one.",
+      "bloqueio": "These addresses are published in llms.txt and in the sitemap, and this site's own argument is that a link resolves. Renaming means redirects, and a static site's redirect is a page that exists to say it moved — which is why /backoffice/viewer.html still exists. Whether ten of those are worth the consistency is the editor's call, and it is open question 2 in the vault.",
+      "onde": [
+        "build/backoffice.py",
+        "build/chrome.py"
+      ]
+    },
+    {
+      "ref": "5.12",
+      "grupo": "§5 — the back office, a console of its own",
+      "titulo": "Page height: «7,058px on the console, proposed ~2,600px»",
+      "estado": "adiado",
+      "o_que_se_fez": "The queue's own prose is cut to one line per item — thirteen cards printed in full made the queue 4,000px tall, which is the same failure as the 70-word preamble one screen further down. The preamble going saved ~300px on eight pages.",
+      "bloqueio": "The rest of the height is CONTENT: the agent roster, every article, every section, the delivery records, the run records, the commit log. Reaching 2,600px means deciding which of those the console stops showing, and that is an editorial decision about what the operator needs to see rather than a design one. The measured page is longer than before because the queue was added, not because anything was padded.",
+      "medida": "console 11,056px; the queue itself 13 items in ~1,400px",
+      "onde": [
+        "build/backoffice.py"
       ]
     }
   ],

@@ -81,39 +81,301 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
 
-# The console's own pages, in reading order. This is the back office's equivalent of the paper's
-# section nav, and it is rendered by the same `.nav` rule so the two look like one system seen
-# from two sides rather than two sites that happen to share a stylesheet.
-CONSOLA = [
-    ("backoffice/", "console"),
-    ("backoffice/equipa.html", "team"),
-    ("backoffice/quadro.html", "board"),
-    ("backoffice/correio.html", "mail"),
-    ("backoffice/pontes.html", "bridges"),
-    ("backoffice/desenho.html", "design"),
-    ("backoffice/docs.html", "documents"),
-    ("backoffice/agents.html", "agents"),
-    ("backoffice/guidance.html", "guidance"),
-    ("admin/versions.html", "versions"),
+# THE RAIL — the console's navigation, grouped, instead of eleven flat links.
+#
+# The design review measured the old nav as "eleven flat navigation items … one undifferentiated
+# run at 12px mono. No grouping, so `console` (the dashboard you return to) has the same rank as
+# `versions` (a changelog). No counts, so nothing tells you `mail` has an unread message for you."
+# All three complaints are answered here: three groups in the order an operator needs them, and a
+# count on the items that can be behind.
+#
+# The LABELS are English because the console's furniture is architecture. The URLs are still
+# Portuguese. The proposal asks for console.html / mail.html / board.html as well, and that is a
+# rename of addresses already published in llms.txt and the sitemap, so it needs redirects and it
+# is the editor's call — open question 2 in the vault, recorded on /backoffice/desenho.html.
+RAIL = [
+    ("Operate", [
+        ("backoffice/", "Console", "fila"),
+        ("backoffice/correio.html", "Mail", "correio"),
+        ("backoffice/quadro.html", "Board", "quadro"),
+        ("backoffice/pontes.html", "Bridges", None),
+    ]),
+    ("Understand", [
+        ("backoffice/equipa.html", "Team", None),
+        ("backoffice/agents.html", "Agent activity", None),
+        ("backoffice/desenho.html", "Design review", None),
+    ]),
+    ("Reference", [
+        ("backoffice/guidance.html", "Guidance", None),
+        ("backoffice/docs.html", "Documents", None),
+        ("admin/versions.html", "Versions", None),
+        ("", "\u2197 The paper", None),
+    ]),
 ]
 
 
-def nav_da_consola(rel, raiz):
-    """The console nav, with the page you are on marked — the paper's nav already does this and the
-    back office did not, so you could not tell where you were from the chrome."""
-    saida = []
-    for caminho, rotulo in CONSOLA:
-        aqui = ' class="aqui"' if caminho == rel or (
-            caminho == "backoffice/" and rel == "backoffice/index.html") else ""
-        saida.append(f'<a href="{raiz}{caminho}"{aqui}>{rotulo}</a>')
-    return "".join(saida)
+def fila():
+    """WHAT IS WAITING ON THE EDITOR OF RECORD — derived, never typed.
+
+    This is the question the console exists to answer, and before v0.14.0 the answer was a single
+    cell in row 6 of the first table, reading `waiting on a human` in the BASE chip style, so it
+    looked exactly like the five `running` chips above it. Three other pages each held a piece of
+    the same answer — the mail knew he had an unread message, the board knew an issue was chipped
+    `waiting on dinis.humano`, the pipeline knew stage 6 was stopped — and the console index showed
+    none of it.
+
+    Four sources, one rule: an item belongs here only if NO agent can move it. Anything an agent
+    could still do is not waiting on a human, and putting it here would make the number stop
+    meaning anything.
+
+      1. cards the editor opened, on their own board lane
+      2. cards on ANOTHER agent's lane whose `bloqueado_por` is the editor
+      3. paper issues the formula assigns to the editor (verificado, congelado)
+      4. mail sitting in the editor's inbox
+
+    There is no count attribute anywhere: the number in the rail and the number in the queue are
+    both `len()` of this list, so they cannot disagree. A number typed beside a list it claims to
+    describe is the failure this whole publication exists to report.
+    """
+    q = carregar("quadro.json")
+    itens = []
+    por_agente = q.get("por_agente", {})
+    editor = "dinis.humano"
+    alias_do = {a: v.get("alias", a) for a, v in por_agente.items()}
+
+    def uma_linha(texto, n=150):
+        """One line of why, not the whole card.
+
+        A queue is scanned, and the card's own `resumo` is three or four sentences written for
+        somebody who has decided to do the work. Printed in full, thirteen of them made the queue
+        4,000px tall — which is the same failure as the 70-word preamble, one screen further down.
+        The file is one click away and it has all of it."""
+        texto = " ".join((texto or "").split())
+        if len(texto) <= n:
+            return texto
+        corte = texto[:n].rsplit(" ", 1)[0]
+        return corte + "\u2026"
+
+    def cartao(c, porque):
+        return {
+            "id": Path(c["ficheiro"]).stem,
+            "title": c.get("titulo") or Path(c["ficheiro"]).stem,
+            "status": "needs-you",
+            "since": f'opened {str(c.get("aberto", ""))[:10]}' if c.get("aberto") else "",
+            "where": c["ficheiro"],
+            "why": uma_linha(porque),
+            # ONE action, not two. The second was "Write to the newsroom" on every item, which on
+            # a queue of thirteen is thirteen identical buttons doing the same navigation — and a
+            # button repeated until it is furniture has stopped being an affordance. Writing to the
+            # newsroom is a rail item; reading the file is what is specific to this row.
+            "actions": [{"id": "read", "label": "Read the file", "writes": None}],
+        }
+
+    # 1 — the editor's own lane. `abertos` is work they opened; `bloqueados` is work they cannot
+    #     finish, and both are theirs alone because nobody else may write in their folder.
+    meu = por_agente.get(editor, {})
+    for coluna in ("bloqueados", "abertos"):
+        for c in meu.get("colunas", {}).get(coluna, []):
+            porque = c.get("resumo") or ""
+            if coluna == "bloqueados" and c.get("bloqueado_por", "\u2014") != "\u2014":
+                porque = f'Blocked on {c["bloqueado_por"]}. ' + porque
+            itens.append(cartao(c, porque))
+
+    # 2 — an agent stopped because only the editor may do the next thing. This is the case the old
+    #     console hid best: the agent's own page said `waiting on dinis.humano` and the console
+    #     index never mentioned it.
+    for aid, v in por_agente.items():
+        if aid == editor:
+            continue
+        for c in v.get("colunas", {}).get("bloqueados", []):
+            if c.get("bloqueado_por") != editor:
+                continue
+            it = cartao(c, f'{alias_do.get(aid, aid)} cannot move this: it is blocked on you. '
+                        + uma_linha(c.get("resumo"), 110))
+            # This is the one case where the action is not "read": an agent is stopped and the
+            # thing that unblocks it is a message from the editor. The button names the folder the
+            # reply goes in, so an operator who does not trust it can write the file by hand.
+            it["actions"] = [
+                {"id": "note", "label": f"Answer {alias_do.get(aid, aid)}",
+                 "writes": f"redacao/correio/{editor}/saida/"},
+            ]
+            itens.append(it)
+
+    # 3 — a paper issue the formula puts on the editor. Who owns an issue is never written by hand;
+    #     it falls out of the issue's state, which is why the board cannot disagree with the files.
+    porques = q.get("formula", {}).get("porque", {})
+    for i in meu.get("issues_do_jornal", []):
+        estado = i.get("estado", "")
+        itens.append({
+            "id": f'issue-{i.get("id", "")}',
+            "title": f'Publish decision \u00b7 paper issue {i.get("id", "")}',
+            "status": "needs-you",
+            "since": f'state {estado}' if estado else "",
+            "where": i.get("ficheiro") or f'dados/historias.json \u2192 {i.get("id", "")}',
+            "why": uma_linha(porques.get(estado, "")),
+            # The publication's own words, in the publication's own face, tagged with its language
+            # so the operator can see at a glance that it is a quotation and not console copy.
+            "quote": i.get("titulo") or "",
+            "quoteLang": "PT",
+            "actions": [{"id": "read", "label": "Read it first", "writes": None}],
+        })
+
+    # 4 — mail in the editor's inbox. A message's state is the folder it sits in, so a message in
+    #     entrada/ is by definition unhandled and by definition theirs.
+    for m in meu.get("entrada", []):
+        itens.append({
+            "id": Path(m["ficheiro"]).stem,
+            "title": f'Mail from {m.get("de_alias", m.get("de", ""))} \u00b7 {m.get("assunto", "")}',
+            "status": "needs-you",
+            "since": f'sent {str(m.get("quando", ""))[:10]}' if m.get("quando") else "",
+            "where": m["ficheiro"],
+            "why": ("It is in entrada/, which is what unhandled means in this protocol. Moving it "
+                    "to tratado/ is the read receipt, and only its owner may move it."),
+            "actions": [{"id": "mail", "label": "Open the thread", "writes": None}],
+        })
+    return itens
 
 
-def pagina(rel, titulo, descricao, corpo, extra_body=""):
+def contagens_do_rail():
+    """The three numbers the rail carries, from the same files the pages read."""
+    q, c = carregar("quadro.json"), carregar("correio.json")
+    qa = q.get("contagens", {})
+    return {
+        "fila": len(fila()),
+        "correio": len(q.get("por_agente", {}).get("dinis.humano", {}).get("entrada", [])) or None,
+        "quadro": qa.get("cartoes"),
+        "_mensagens": c.get("contagem", 0),
+    }
+
+
+def rail(rel, raiz):
+    """The rail, with the page you are on marked with aria-current.
+
+    Weight alone marked the current page before, which is a styling convention and not something
+    a screen reader or an outline can read. `aria-current="page"` is the thing that actually says
+    where you are; the border and the ground follow from it in CSS."""
+    n = contagens_do_rail()
+    fora = []
+    for grupo, itens in RAIL:
+        linhas = []
+        for caminho, rotulo, chave in itens:
+            aqui = caminho == rel or (caminho == "backoffice/" and rel == "backoffice/index.html")
+            marca = ' aria-current="page"' if aqui else ""
+            valor = n.get(chave) if chave else None
+            # A zero is not a badge. A count that is always there stops being a signal, and the
+            # whole reason the rail carries counts is to say there IS something behind an item.
+            conta = ""
+            if valor:
+                classe = "count r1" if chave in ("fila", "correio") else "count"
+                ident = ' id="rail-fila"' if chave == "fila" else ""
+                conta = f'<span class="{classe}"{ident}>{valor}</span>'
+            linhas.append(f'<a class="nav" href="{raiz}{caminho}"{marca}>{rotulo}{conta}</a>')
+        fora.append(f'<div class="rail__group"><h3>{grupo}</h3>{"".join(linhas)}</div>')
+    # THE MARKER, WHICH IS A RULE AND NOT A PREAMBLE.
+    #
+    # Gate 19 requires every back-office page to say it is not the publication, and the gate is
+    # right: this whole area is in English by the editor's decision, and the condition of that
+    # exception is that a reader who lands here can SEE it is not the paper. So it cannot simply be
+    # deleted because a design review found the long version repetitive.
+    #
+    # Both things are true at once here. The 70-word explanation was ~300px of identical prose
+    # above every screen — which trains the operator to scroll past the top of every page, exactly
+    # where the urgent things live — and it is now on guidance.html and nowhere else. What every
+    # page carries is one sentence, in the rail rather than above the content, so it is permanently
+    # visible without ever being in the way. Gate 19 is unchanged and still finds its string.
+    marca = (f'<p class="rail__note">This is the operations console, not the publication. '
+             f'English on purpose \u2014 <a href="{raiz}backoffice/guidance.html">why</a>.</p>')
+    return (f'<nav class="rail" aria-label="Back office">'
+            f'<a class="rail__brand" href="{raiz}backoffice/">'
+            f'<b>pt.newsroom</b><span>back office \u00b7 {VERSAO}</span></a>'
+            + marca + "".join(fora) + '</nav>')
+
+
+# THE CONSOLE'S TWO WIRES. pt-queue is deliberately inert — it emits an event and does nothing —
+# because a component that decided what a button meant would decide it the same way on every site
+# that used it. The page decides.
+#
+# The review's open question 1 is "do the buttons act, or link?" On a static site they cannot
+# write a file: there is no server to write it. So the honest answer, and the one implemented here,
+# is that every button GOES TO THE PLACE WHERE THE WRITE HAPPENS and names the file on the way —
+# the document browser for a file to read, the mail page for a thread, the bridge page for a
+# message to the newsroom. Nothing here claims to have written anything.
+FILA_JS = """
+<script>
+(function () {
+    /* The rail badge takes its number from the queue rather than holding one of its own, so the
+       two cannot drift. The build wrote a number into the badge as well, for the eight pages that
+       have no queue on them; where both exist this overwrites it with the same count. */
+    document.addEventListener('pt-queue:counted', function (ev) {
+        var badge = document.getElementById('rail-fila')
+        if (!badge) return
+        var n = ev.detail && ev.detail.count
+        if (!n) { badge.remove(); return }
+        badge.textContent = String(n)
+    })
+
+    /* Where each action goes. A path is data from this repository's own files, so it is put in a
+       fragment and never interpolated into markup. */
+    function destino(action, where) {
+        if (action === 'note') return 'pontes.html'
+        if (!where) return 'docs.html'
+        if (/\.eml$/.test(where)) return 'correio.html'
+        if (/\.md$/.test(where)) return 'docs.html#' + where
+        return 'docs.html'
+    }
+
+    document.addEventListener('pt-queue:action', function (ev) {
+        var d = ev.detail || {}
+        var item = (JSON.parse(document.querySelector('pt-queue').getAttribute('items') || '[]')
+                    .filter(function (x) { return x.id === d.id })[0]) || {}
+        location.href = destino(d.action, item.where)
+    })
+})()
+</script>
+"""
+
+
+# THE PREAMBLE, SAID ONCE. It used to open all nine pages verbatim — roughly 300px of identical
+# prose above every screen, which trains the operator to scroll past the top of every page, which
+# is exactly where the urgent things live. It also contradicted this project's own rule that
+# content exists once. It is now on guidance.html and nowhere else.
+PREAMBULO = """
+<div class="aviso-bloco">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository \u2014 the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+"""
+
+
+def pagina(rel, titulo, descricao, corpo, extra_body="", resumo="", acoes="",
+           preambulo=False, largo=False):
+    """The console's one page shell.
+
+    THE h1 NAMES THE PLACE. The review's finding was that five of the nine back-office pages had
+    no heading at all and the whole back office had zero `h2` — section titles were `.sect` divs,
+    which are styling and not structure, so nothing could outline these pages and no screen reader
+    could navigate them. Where an `h1` did exist it was a sentence in the publication's voice:
+    "What the newsroom has done, what it is waiting on, and who is allowed to do what." That
+    describes a page; it does not label where you are standing. So `titulo` is the h1 and it is a
+    noun, and the sentence it replaced is the `resumo` underneath it.
+
+    TWO STYLESHEETS, ON PURPOSE. site.css is loaded first for the operator strip and for nothing
+    else — the editor's instruction is that the strip must not move when you cross over from the
+    paper, so it keeps the paper's rules and the paper's ground. console.css is loaded second and
+    every rule below the strip is the console's. See the header of assets/console.css.
+    """
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
-    nav_consola = nav_da_consola(rel, raiz)
     canonico = f"https://{HOST}/{rel}"
+    cabeca = (f'<div class="page-head"><div><h1>{e(titulo)}</h1>'
+              + (f'<p>{resumo}</p>' if resumo else "")
+              + "</div>"
+              + (f'<div class="head-actions">{acoes}</div>' if acoes else "")
+              + "</div>")
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -127,29 +389,20 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
 <link rel="icon" href="{raiz}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{raiz}assets/fonts.css">
 <link rel="stylesheet" href="{raiz}assets/site.css">
+<link rel="stylesheet" href="{raiz}assets/console.css">
 </head>
 <body>
-<div class="folha">
 
+<div class="folha bo-strip">
 {utilitarios(raiz, no_backoffice=True)}
-
-<div class="datalinha">
-  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
 </div>
 
-<nav class="nav nav--consola">{nav_consola}</nav>
+<div class="shell">
+{rail(rel, raiz)}
+<main class="main{' main--wide' if largo else ''}">
 
-<div class="consola-corpo">
-
-<div class="aviso-bloco" style="border-left-color:var(--acento)">
-<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
-purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
-publication itself is natively Portuguese and nothing here is linked from the masthead. Every
-number on these pages counts files in this repository — the back office reports on the newsroom
-and never on the world, and a gate fails the build if a page here ever cites a frozen source as
-evidence for a claim about Portugal.</p>
-</div>
-
+{cabeca}
+{PREAMBULO if preambulo else ""}
 {corpo}
 
 <div class="agent">
@@ -159,7 +412,7 @@ repository; nothing here is hand-written. The machine-readable index of the publ
 <code>{e(rel)}</code> · version <span class="ver">{VERSAO}</span>.
 </div>
 
-</div>
+</main>
 </div>
 {extra_body}</body>
 </html>
@@ -229,9 +482,6 @@ def pagina_docs(docs):
     is navigating and reading at the same time, so the tree stays. All of it is `pt-doc-browser`:
     this page is a heading and a component."""
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Documents</div></div>
-<h1 class="h-2" style="max-width:28em">Every markdown document this site was built from, readable
-without losing your place.</h1>
 <p class="std" style="max-width:46em;padding:14px 0 8px">{len(docs)} documents. The tree groups
 them by the directory structure that already exists — <code>briefs/pack/</code> is one element,
 not thirty rows — and the viewer reads each document's own bytes, the same file the build read, so
@@ -247,7 +497,9 @@ asked to do. References to the rest of the estate are at the foot of the tree.</
              'src="../assets/components/pt-doc-browser/v1/v1.0/v1.0.0/pt-doc-browser.js"></script>')
     return pagina("backoffice/docs.html", "Documents",
                   "Every markdown document this site was built from, in a two-pane reader.",
-                  corpo, extra_body=extra)
+                  corpo, extra_body=extra,
+                  resumo="Every markdown document this site was built from, readable without "
+                         "losing your place.")
 
 
 FORWARD_JS = """
@@ -266,8 +518,6 @@ FORWARD_JS = """
 
 def pagina_viewer():
     corpo = """
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Document viewer</div></div>
-<h1 class="h-2" style="max-width:28em">This page moved into the document browser.</h1>
 <p class="std" style="max-width:46em;padding:14px 0 10px">Documents are now read in a two-pane
 browser — the tree stays while you read — and this address forwards there, keeping any link
 somebody already holds. There is one viewer, not two: a second implementation of the same thing
@@ -276,7 +526,8 @@ is the rule this site repeats most often, content exists once, broken in its own
 """
     return pagina("backoffice/viewer.html", "Document viewer",
                   "Forwards to the document browser, which is where documents are read.",
-                  corpo, extra_body=FORWARD_JS)
+                  corpo, extra_body=FORWARD_JS,
+                  resumo="This page moved into the document browser.")
 
 
 # --------------------------------------------------------------- the console ---
@@ -338,9 +589,6 @@ def pagina_guidance():
         for a in agentes.get("agentes", []))
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Guidance</div></div>
-<h1 class="h-2" style="max-width:30em">What to read before you change anything here — human or
-agent.</h1>
 <p class="std" style="max-width:46em;padding:14px 0 8px"><b>Everything except what a visitor reads
 is in English.</b> One test decides it: would a visitor to pt.newsroom.sgit.ai read this string on
 the site? Yes means European Portuguese under AO90; no means English. That covers code, comments,
@@ -353,7 +601,7 @@ break it on purpose first, because a gate that has never failed is a comment.</p
 
 <div class="g4" style="padding-bottom:30px">{cartoes}</div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Who you are</div></div>
+<h2>Who you are</h2>
 <p class="sm" style="max-width:48em;padding-bottom:12px">More than one agent works here and they
 are not interchangeable. Claim an identity, name it in your run record, and the gates hold you to
 its write scope. If no identity fits the work, that is a message to the editor, not a licence to
@@ -362,7 +610,7 @@ invent one.</p>
   <th style="width:120px">Role</th><th>Writes in</th><th style="width:210px">Declares</th>
   <th style="width:150px">Mandate</th></tr></thead><tbody>{linhas}</tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">The rest of the estate</div></div>
+<h2>The rest of the estate</h2>
 <p class="sm" style="max-width:48em">This repository is an instance of an argument made elsewhere,
 not a restatement of it: where these answer a question, we link rather than copy.
 <a href="https://sgit.ai/docs/guidance/index.html">sgit.ai/docs/guidance</a> ·
@@ -371,9 +619,13 @@ than from documentation · <a href="https://nfrs.sgit.ai">nfrs.sgit.ai</a> — v
 reliability, resilience, security, backups, consistency, explainability, documentation ·
 <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> — the parent publication.</p>
 """
+    # The ONE page that carries the preamble. It used to open all nine, which is ~300px of
+    # identical prose above every screen and trains the operator to scroll past the top of every
+    # page — exactly where the urgent things live.
     return pagina("backoffice/guidance.html", "Guidance",
                   "What to read before changing anything on this site, and who you are when you do.",
-                  corpo)
+                  corpo, preambulo=True,
+                  resumo="What to read before you change anything here \u2014 human or agent.")
 
 
 def pagina_agentes():
@@ -404,29 +656,28 @@ def pagina_agentes():
         for v in sorted(dados.get("por_artigo", {}).values(), key=lambda x: -x["abertos"]))
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Agents</div></div>
-<h1 class="h-2" style="max-width:30em">What every agent did to every article, derived from the
-records rather than written down.</h1>
 <p class="std" style="max-width:46em;padding:14px 0 8px">{dados.get("contagem", 0)} entries,
 {dados.get("abertos", 0)} still open. Each one names the file and the path it came from, and the
 build fails if that path does not resolve. Nothing here was authored for this page: attributing a
 sentence to a model that never wrote it would be a claim with a forged source, and this whole site
 is an argument that a source is the thing that matters.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Per article</div></div>
+<h2>Per article</h2>
 <div class="rolar"><table><thead><tr><th>Article</th><th style="width:110px">Section</th>
   <th style="width:100px">State</th><th style="width:70px">Entries</th>
   <th style="width:70px">Open</th><th style="width:220px">Agents</th></tr></thead>
   <tbody>{linhas}</tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Everything, by agent</div></div>
+<h2>Everything, by agent</h2>
 <pt-comment-map src="../dados/comentarios.json"></pt-comment-map>
 """
     extra = ('<script type="module" '
              'src="../assets/components/pt-comment-map/v1/v1.0/v1.0.0/pt-comment-map.js"></script>')
-    return pagina("backoffice/agents.html", "Agents",
+    return pagina("backoffice/agents.html", "Agent activity",
                   "What every agent did to every article, derived from the repository's records.",
-                  corpo, extra_body=extra)
+                  corpo, extra_body=extra,
+                  resumo="What every agent did to every article, derived from the records rather "
+                         "than written down.")
 
 
 def pagina_console(docs):
@@ -475,11 +726,27 @@ def pagina_console(docs):
          "the editor of record writes this line, and nothing else can", "editor",
          "ok" if hist.get("publicados") else "wait"),
     ]
-    ESPERA = '<span class="chip">waiting on a human</span>'
-    CORRE = '<span class="chip ok">running</span>'
+    # THE STATE OF A STAGE IS NOT A CHIP LIKE THE OTHERS. The review found the most important
+    # state in the whole back office — stage 6, waiting on a human — rendered in the BASE chip
+    # style, so it looked exactly like the five `running` chips above it, while nine other places
+    # said the same thing in `.chip.miss`. It is rank 1 here, the console's only filled rank, and
+    # the stage itself is tinted, because a state marked only inside a cell is a state you find by
+    # reading every cell.
+    ESPERA = '<span class="st st--1">needs you</span>'
+    CORRE = '<span class="st st--3">running</span>'
+    tira_pipe = "".join(
+        f'<div class="pipe__stage{" pipe__stage--stopped" if st == "wait" else ""}">'
+        f'<div class="n">{n.split(" · ")[0]}</div>'
+        f'<div class="name">{n.split(" · ", 1)[1]}</div>'
+        f'<div class="v">{v}</div>{ESPERA if st == "wait" else CORRE}</div>'
+        for n, v, d, dep, st in etapas)
+    # The detail each stage carries is worth keeping, and it does not fit in a 1/6-width tile. It
+    # goes below the strip as a table, which is what a table is for.
+    ROW_ESPERA = ' class="needs-you"'
     linhas_pipe = "".join(
-        f'<tr><td><b>{n}</b></td><td class="mono">{v}</td><td class="sm">{d}</td>'
-        f'<td class="mono xs">{dep}</td>'
+        f'<tr{ROW_ESPERA if st == "wait" else ""}><td><b>{n}</b></td>'
+        f'<td class="mono">{v}</td><td class="sm">{d}</td>'
+        f'<td class="mono">{dep}</td>'
         f'<td>{ESPERA if st == "wait" else CORRE}</td></tr>'
         for n, v, d, dep, st in etapas)
 
@@ -563,20 +830,31 @@ def pagina_console(docs):
         f'<tr><td class="mono xs">{e(h)}</td><td class="mono xs">{e(d)}</td>'
         f'<td class="sm">{e(s[:110])}</td></tr>' for h, d, _, s in commits_recentes())
 
-    corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Console</div></div>
-<h1 class="h-2" style="max-width:28em">What the newsroom has done, what it is waiting on, and who
-is allowed to do what.</h1>
+    # WHAT IS WAITING ON YOU — the first thing on the page, and the only filled thing on it.
+    # The list is derived by fila(); the number is len() of that list inside the component, so
+    # neither the queue's own heading nor the rail badge holds a number of its own.
+    fila_itens = fila()
+    fila_json = e(json.dumps(fila_itens, ensure_ascii=False))
+    fila_lista = "".join(f'<li>{e(x["title"])} \u2014 <code>{e(x["where"])}</code></li>'
+                         for x in fila_itens)
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">The pipeline</div></div>
-<div class="rolar"><table><thead><tr><th style="width:150px">Stage</th><th style="width:130px">Now</th>
+    corpo = f"""
+
+<pt-queue items="{fila_json}">
+  <ul class="sm">{fila_lista}</ul>
+</pt-queue>
+
+<h2>The pipeline</h2>
+<div class="pipe">{tira_pipe}</div>
+<div class="rolar" style="margin-top:14px"><table><thead><tr><th style="width:150px">Stage</th>
+  <th style="width:130px">Now</th>
   <th>Detail</th><th style="width:100px">Owner</th><th style="width:150px">State</th></tr></thead>
   <tbody>{linhas_pipe}</tbody></table></div>
 <p class="xs" style="max-width:48em;padding-top:10px">Stage 6 is the only one that cannot be moved
 by any agent. <code>estado: publicado</code> is the editor of record's line; gate 11 fails the
 build if it appears without their name and a date.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Departments · who may write where</div></div>
+<h2>Departments · who may write where</h2>
 <div class="rolar"><table><thead><tr><th style="width:190px">Department</th>
   <th style="width:210px">Writes only in</th><th>Refuses</th><th>Wrong when</th></tr></thead>
   <tbody>{deps}</tbody></table></div>
@@ -588,9 +866,9 @@ build if it appears without their name and a date.</p>
 department wrote outside its own folder. That check is what makes this a newsroom rather than a
 script with role names in the comments.</p></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">The agent team ·
+<h2>The agent team ·
   {len(agentes.get("agentes", []))} roles, {quad.get("contagens", {}).get("cartoes", 0)} board
-  cards, {correio} messages</div></div>
+  cards, {correio} messages</h2>
 <p class="sm" style="max-width:52em">Three pages, generated by <code>build/equipa.py</code> from
 <code>dados/agentes.json</code> and the mail folder. The roles are defined in the shape
 <a href="https://teams.sgit.ai/role-format/index.html">teams.sgit.ai publishes for a
@@ -606,15 +884,15 @@ in a folder, one commit per cycle, no broker and no API.</p>
   <a class="chip" href="desenho.html">the design review — item by item, and what was done →</a>
 </div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Board · {len(issues)} issues</div></div>
+<h2>Board · {len(issues)} issues</h2>
 <div class="quadro">{colunas}</div>
 <p class="xs" style="padding-top:10px">Rendered from <code>redacao/issues/*.json</code>. The same
 issues appear on <a href="quadro.html">each agent's board</a>, placed there by a published formula
 and not by hand. The reader-facing version of this board is
 <a href="../redacao/">A mesa</a>, in Portuguese.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Articles · {hist.get("contagem", 0)}
-  folders, {hist.get("publicados", 0)} published</div></div>
+<h2>Articles · {hist.get("contagem", 0)}
+  folders, {hist.get("publicados", 0)} published</h2>
 <div class="rolar"><table><thead><tr><th style="width:90px">Date</th><th>Title</th>
   <th style="width:110px">Section</th><th style="width:120px">State</th>
   <th style="width:110px">Evidence</th><th style="width:100px">Files</th></tr></thead>
@@ -624,24 +902,24 @@ and not by hand. The reader-facing version of this board is
 record and the provenance. <code>dados/historias.json</code> is derived from those folders and is
 never hand-edited.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Sections · coverage</div></div>
+<h2>Sections · coverage</h2>
 <div class="rolar"><table><thead><tr><th style="width:170px">Section</th>
   <th style="width:180px">State</th><th style="width:90px">Graph</th><th style="width:100px">Articles</th>
   <th style="width:140px">Sources</th><th>First open question</th></tr></thead>
   <tbody>{linhas_sec}</tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Runs</div></div>
+<h2>Runs</h2>
 <div class="rolar"><table><thead><tr><th style="width:150px">When</th><th>Prompt</th>
   <th style="width:170px">Model</th><th style="width:200px">Folders</th>
   <th style="width:90px">Gates</th><th style="width:80px">Version</th></tr></thead>
   <tbody>{linhas_run}</tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Recent commits</div></div>
+<h2>Recent commits</h2>
 <div class="rolar"><table><thead><tr><th style="width:80px">Commit</th>
   <th style="width:140px">When</th><th>Subject</th></tr></thead>
   <tbody>{linhas_git}</tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Run it yourself</div></div>
+<h2>Run it yourself</h2>
 <div class="rolar"><pre class="mono xs" style="margin:0;padding:14px;background:var(--painel);
 border:1px solid var(--filete);white-space:pre">python3 build/tudo.py               # THE WHOLE BUILD, IN ORDER, THEN THE THREE GATES
 python3 build/tudo.py --fetch       # the same, going to the network for the sources first
@@ -685,7 +963,7 @@ a line of it changing.</p>
 copies already frozen and touch no network. That is how the site is rebuilt from a clone, years
 later, to exactly the same pages.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Elsewhere in the estate</div></div>
+<h2>Elsewhere in the estate</h2>
 <div class="rolar"><table><thead><tr><th style="width:230px">Site</th><th>What is there</th>
   </tr></thead><tbody>
 {"".join(f'<tr><td><a href="{e(u)}">{e(n)}</a></td><td class="sm">{e(w)}</td></tr>' for n, u, w in ESTATE)}
@@ -693,9 +971,14 @@ later, to exactly the same pages.</p>
 <p class="xs" style="padding-top:10px">{len(docs)} markdown documents in this repository are
 readable at <a href="docs.html">documents</a>.</p>
 """
+    extra = ('<script type="module" '
+             'src="../assets/components/pt-queue/v1/v1.0/v1.0.0/pt-queue.js"></script>'
+             + FILA_JS)
     return pagina("backoffice/index.html", "Console",
                   "The operations console for pt.newsroom.sgit.ai: pipeline, departments, board, "
-                  "articles, sections, runs.", corpo)
+                  "articles, sections, runs.", corpo, extra_body=extra,
+                  resumo="The state of the newsroom right now. Every number on this page counts "
+                         "files in this repository.")
 
 
 def main():

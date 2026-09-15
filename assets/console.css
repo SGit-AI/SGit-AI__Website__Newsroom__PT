@@ -1,0 +1,583 @@
+/* ============================================================================
+   pt.newsroom back office — console.css
+
+   THE POINT OF THIS FILE IS THAT IT IS NOT site.css.
+
+   The back office used to load the publication's stylesheet, so the operations
+   console was set in Newsreader on cream paper with hairline rules and
+   undecorated links — a design built for reading an argument slowly, applied to
+   a surface whose job is seeing state quickly and acting on it. Those two want
+   opposite things:
+
+       a newspaper wants            a console wants
+       --------------------------   ----------------------------------
+       linear, settled reading      scan, compare, jump
+       generous measure             tight and tabular
+       one accent, used sparingly   a status scale where rank is visible
+       links that do not shout      controls that obviously do something
+       the publication's voice      the operator's
+
+   So: cool neutrals, a dark rail, system sans, tabular numerals, real buttons.
+   The publication's serif appears in exactly one place — .quote, where the
+   console shows the newspaper's own words — and that is the point of keeping it
+   available at all.
+
+   PROVENANCE. This file is adopted, not invented here: it is the design agent's
+   `redesign/backoffice/console.css` from vault e54hfntq v0.5.0, reviewed
+   against `review/05-backoffice-ux.md` and shipped in site v0.14.0. The review
+   and its disposition are rendered at /backoffice/desenho.html. Two things were
+   changed on adoption, both recorded below where they are made:
+
+     1. THE OPERATOR STRIP STAYS PUT (see .bo-strip). The proposal replaces the
+        whole back-office chrome, which would have moved the top strip on
+        crossing over from the paper. The editor asked in v0.11.0 that it not
+        move, and that instruction outranks a proposal. So the strip keeps its
+        own ground, its own stylesheet and its exact coordinates, and the
+        console begins beneath it.
+     2. A LEGACY LAYER (at the foot). Nine generated pages emit the paper's
+        class names. Rather than leave eight of them on the newspaper's clothes
+        until every generator is rewritten, those class names are mapped onto
+        the console's own here. The layer is a bridge with a stated end state,
+        not a second design system.
+
+   Content is Portuguese because the publication is Portuguese. Everything here
+   is architecture, so it is English. Filenames were NOT renamed — the proposal
+   asks for console.html / mail.html / board.html, which means redirects for
+   every address already published in llms.txt and the sitemap. That is the
+   editor's call and it is open question 2 in the vault; the rail says the
+   English word and the URL still says the Portuguese one.
+   ============================================================================ */
+
+:root {
+  --bo-bg:      #f3f5f8;   /* the page ground */
+  --bo-card:    #ffffff;
+  --bo-rail:    #171b22;   /* the persistent navigation rail */
+  --bo-rail-2:  #232934;   /* a raised block inside the rail */
+  --bo-rail-tx: #e7eaef;   /* 14.32:1 on the rail */
+  --bo-rail-dim:#939cab;   /*  6.24:1 on the rail */
+  --bo-ink:     #14171d;   /* 17.95:1 on card */
+  --bo-muted:   #555c68;   /*  6.74:1 on card */
+  --bo-line:    #d8dde5;
+  --bo-line-2:  #b9c1cc;
+  --bo-link:    #1b5fa8;   /*  6.46:1 on card */
+  --bo-focus:   #2f7fd4;
+
+  /* THE STATUS SCALE — four ranks, and only rank 1 is filled.
+     The back office currently uses 159 distinct chip labels and says "a human
+     is blocking this" ten different ways, the most important of which is
+     rendered in the BASE chip style with no colour at all. A chip is a strong
+     signal with a fixed budget per page; at 158 on one page the budget is
+     spent many times over and nothing can be found.
+
+     Rank 1 is the only filled rank in this stylesheet — not the only filled
+     element. A queue of three things waiting on you legitimately shows three
+     filled badges; they all mean the same thing and they all trace to the
+     same queue. What must never happen is a SECOND meaning being given a
+     fill, because then the eye has two things to rank and ranks neither.
+     (An earlier draft of this comment said "if two things on a screen are
+     filled, one of them is wrong", which the console itself breaks on every
+     load. The rule is about meanings, not instances.) */
+  --bo-r1:      #9a2515;   /* needs a human — white on this is 7.93:1 */
+  --bo-r1-soft: #fdeeec;
+  --bo-r2:      #8a4b06;   /* an agent is blocked */
+  --bo-r3:      #555c68;   /* running */
+  --bo-r4:      #4a7c59;   /* done */
+
+  /* Painted-on colours the proposal left as literals in its rules. A colour used as a value
+     needs a name, or gate 33b cannot measure it and a component cannot inherit it. */
+  --bo-on-fill: #ffffff;   /* text on a filled rank 1 or on ink — 7.93:1 on --bo-r1 */
+  --bo-ink-max: #000000;   /* the primary button, pressed */
+  --bo-head:    #eef1f5;   /* a table's own head row */
+  --bo-hover:   #f8fafc;   /* a table row under the pointer */
+  --bo-col:     #e9edf2;   /* a board column's ground, behind its cards */
+  --bo-ghost:   #8b93a0;   /* a placeholder — 3.08:1, which is why nothing but a hint uses it */
+
+  --bo-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --bo-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* The publication's face, for quoting the publication and nothing else. */
+  --bo-serif: "Newsreader", Georgia, serif;
+
+  --bo-1: 4px; --bo-2: 8px; --bo-3: 12px; --bo-4: 16px;
+  --bo-5: 24px; --bo-6: 32px; --bo-7: 48px; --bo-8: 64px;
+  --bo-rad: 4px;
+  --bo-rail-w: 232px;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bo-bg);
+  color: var(--bo-ink);
+  font-family: var(--bo-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  /* Counts sit in columns and get compared. They must not jitter. */
+  font-variant-numeric: tabular-nums;
+}
+
+a { color: var(--bo-link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--bo-focus); outline-offset: 2px; border-radius: 2px; }
+
+/* --- the operator strip ----------------------------------------------------
+   THE ONE THING THE CONSOLE DOES NOT RESTYLE, and the first deviation from the
+   proposal. The editor's instruction in v0.11.0 was that the top-level menu
+   must not move when you cross from the paper to the back office, and before
+   that release it moved every item at once, which reads as arriving at a
+   different site rather than at the back of the same one.
+
+   The proposal replaces the whole chrome with this rail, which would have moved
+   it again. So the strip is generated by the SAME function for both chromes
+   (paginas.utilitarios), sits in the same slot, and keeps the paper's
+   stylesheet and the paper's ground — site.css is loaded first for this strip
+   and for nothing else, and console.css is loaded second so every rule below
+   wins on the rest of the page. Gate 40 measures both pages in a browser and
+   fails the build if the strip's box differs by more than a pixel.
+
+   Everything under .bo-strip is the console. The strip is the seam, and it is
+   the one place the two systems touch on purpose. */
+/* The paper puts the strip 8px down the page — `.band:first-of-type > .folha`
+   in site.css, which the back office has no band to match. So the offset is
+   restated here, and gate 40 is what proves the restatement is still right: it
+   read `y 8 -> 0` the first time this file was written without it. */
+.bo-strip {
+  background: var(--papel, #f7f4ec);
+  border-bottom: 1px solid var(--filete, #ded7c8);
+  padding-top: var(--s2, 8px);
+  padding-bottom: 0;
+}
+
+/* --- the shell -------------------------------------------------------------
+   A persistent rail rather than a flat line of eleven links. The rail is what
+   makes this feel like one application instead of nine pages: it is always
+   there, it groups, and it carries the counts. */
+.shell {
+  display: grid; grid-template-columns: var(--bo-rail-w) 1fr; min-height: 100vh;
+  /* The rail is sticky and start-aligned so it can scroll independently, which means it does not
+     stretch to the height of the page — its dark ground stopped where the last nav item ended.
+     Painting the column here runs it the full height without a wrapper element. */
+  background: linear-gradient(to right, var(--bo-rail) 0 var(--bo-rail-w), var(--bo-bg) var(--bo-rail-w));
+}
+
+.rail {
+  background: var(--bo-rail); color: var(--bo-rail-tx);
+  padding: var(--bo-5) 0 var(--bo-6);
+  position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto;
+}
+.rail__brand { padding: 0 var(--bo-5) var(--bo-5); display: block; }
+.rail__brand b { display: block; font-size: 15px; font-weight: 650; color: var(--bo-on-fill); }
+.rail__brand span {
+  display: block; font-family: var(--bo-mono); font-size: 11px;
+  letter-spacing: .06em; color: var(--bo-rail-dim); margin-top: 2px;
+}
+
+/* The language marker gate 19 requires on every page. In the rail, so it is
+   permanently visible and never above the urgent things. */
+.rail__note {
+  margin: 0 var(--bo-5) var(--bo-2); padding-top: var(--bo-3);
+  border-top: 1px solid var(--bo-rail-2);
+  font-size: 11.5px; line-height: 1.5; color: var(--bo-rail-dim);
+}
+.rail__note a { color: var(--bo-rail-tx); text-decoration: underline; text-underline-offset: 2px; }
+
+.rail__group { padding: var(--bo-4) 0 0; }
+.rail__group h3 {
+  margin: 0 0 var(--bo-2); padding: 0 var(--bo-5);
+  font-size: 10.5px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--bo-rail-dim);
+}
+/* THE ONE COST OF LOADING site.css FOR THE STRIP, paid here in full.
+   site.css has `.nav { display: flex; justify-content: center; gap: 30px;
+   flex-wrap: wrap; padding: 12px 0; border-top: 1px solid var(--tinta);
+   border-bottom: 3px double var(--tinta) }` for the paper's section nav — and
+   the rail's items carry `class="nav"` too, so every one of those landed on
+   them. The rail rendered CENTRED, each label at a different indent, which is
+   how a navigation column stops reading as a column.
+
+   The class name is kept, because it is the adopted stylesheet's own and
+   renaming it here would fork the file. What is added is a closed reset of
+   exactly the properties site.css's `.nav` sets, so a leak is impossible rather
+   than unlikely. If site.css's `.nav` ever grows a property, this list is where
+   it has to be answered. */
+.rail a.nav {
+  display: flex; align-items: center; gap: var(--bo-2);
+  justify-content: flex-start; flex-wrap: nowrap; text-align: left;
+  border-top: 0; border-bottom: 0;
+  font-size: 14px; font-weight: 400; letter-spacing: normal;
+  padding: 7px var(--bo-5); color: var(--bo-rail-tx);
+  border-left: 3px solid transparent;
+}
+.rail a.nav:hover { background: var(--bo-rail-2); text-decoration: none; }
+.rail a.nav[aria-current="page"] { background: var(--bo-rail-2); border-left-color: var(--bo-on-fill); font-weight: 600; }
+
+/* A count in the rail is the whole reason the rail exists: it is how the
+   console tells you there is mail for you without you opening mail. */
+.rail .count {
+  margin-left: auto; font-family: var(--bo-mono); font-size: 11px;
+  padding: 1px 7px; border-radius: 999px;
+  background: var(--bo-rail-2); color: var(--bo-rail-dim);
+}
+.rail .count.r1 { background: var(--bo-r1); color: var(--bo-on-fill); font-weight: 600; }
+
+.main { min-width: 0; padding: var(--bo-6) var(--bo-7) var(--bo-8); }
+.main--wide { padding-left: var(--bo-5); padding-right: var(--bo-5); }
+
+/* --- page head -------------------------------------------------------------
+   An h1 that NAMES the place. The current console's h1 is a sentence in the
+   publication's voice — "What the newsroom has done, what it is waiting on,
+   and who is allowed to do what." That is a description of a page, not a
+   label for where you are standing. */
+.page-head { display: flex; align-items: flex-start; gap: var(--bo-5); flex-wrap: wrap; margin-bottom: var(--bo-6); }
+.page-head h1 { margin: 0; font-size: 26px; line-height: 1.15; font-weight: 650; letter-spacing: -.015em; }
+.page-head p { margin: var(--bo-1) 0 0; color: var(--bo-muted); font-size: 14.5px; max-width: 72ch; }
+.page-head .head-actions { margin-left: auto; display: flex; gap: var(--bo-2); }
+
+h2 {
+  margin: var(--bo-7) 0 var(--bo-3);
+  font-size: 13px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--bo-muted);
+}
+h2:first-of-type { margin-top: 0; }
+h3 { margin: 0 0 var(--bo-2); font-size: 15px; font-weight: 650; }
+
+/* --- status ----------------------------------------------------------------
+   Four ranks. Rank 1 filled, rank 2 and 3 outlined, rank 4 not boxed at all —
+   "done" does not need a border around it, and giving it one is most of how a
+   page ends up with 158 chips. */
+.st {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--bo-mono); font-size: 11px; letter-spacing: .02em;
+  padding: 3px 8px; border-radius: 3px; white-space: nowrap;
+}
+.st--1 { background: var(--bo-r1); color: var(--bo-on-fill); font-weight: 650; padding: 4px 10px; }
+.st--2 { color: var(--bo-r2); border: 1px solid var(--bo-r2); }
+.st--3 { color: var(--bo-r3); border: 1px solid var(--bo-line-2); }
+.st--4 { color: var(--bo-r4); padding-left: 0; padding-right: 0; }
+.st--4::before { content: "✓"; font-size: 12px; }
+
+/* Colour is never the only channel: rank 1 also carries a dot, is the only
+   filled thing on the page, and says who it is waiting on in words. */
+.st--1 .who { opacity: .85; font-weight: 400; }
+
+/* --- the queue -------------------------------------------------------------
+   "What is waiting on me" is the question the console exists to answer, so it
+   is the first thing on it and the tallest thing on it. Today that answer is
+   one table cell in row 6 of the first table, in the base chip style. */
+.queue { border: 1px solid var(--bo-line); border-radius: var(--bo-rad); background: var(--bo-card); overflow: hidden; }
+.queue__head {
+  display: flex; align-items: center; gap: var(--bo-3);
+  padding: var(--bo-4) var(--bo-5);
+  background: var(--bo-r1-soft); border-bottom: 1px solid var(--bo-line);
+}
+.queue__head .n { font-size: 30px; font-weight: 700; line-height: 1; color: var(--bo-r1); }
+.queue__head .t { font-size: 15px; font-weight: 650; }
+.queue__head .s { color: var(--bo-muted); font-size: 13.5px; }
+.queue--empty .queue__head { background: var(--bo-card); }
+.queue--empty .queue__head .n { color: var(--bo-r4); }
+
+.queue__item {
+  display: grid; grid-template-columns: 1fr auto; gap: var(--bo-3) var(--bo-4);
+  align-items: start; padding: var(--bo-4) var(--bo-5);
+  border-top: 1px solid var(--bo-line);
+}
+.queue__item:first-of-type { border-top: 0; }
+.queue__item h3 { margin: 0; font-size: 15.5px; font-weight: 600; }
+.queue__item h3 a { color: var(--bo-ink); }
+.queue__meta { display: flex; gap: var(--bo-3); flex-wrap: wrap; align-items: center; margin-top: var(--bo-1); }
+.queue__why { color: var(--bo-muted); font-size: 14px; margin: var(--bo-2) 0 0; max-width: 78ch; }
+.queue__do { display: flex; gap: var(--bo-2); align-items: center; }
+
+/* --- controls --------------------------------------------------------------
+   The back office has ZERO buttons, inputs, selects or textareas on eight of
+   its nine pages. It is a report, not a console. These are the affordances a
+   console needs; each one here maps to a file write the operator could
+   already make by hand. */
+.btn {
+  font: 600 13px/1 var(--bo-sans);
+  padding: 8px 14px; border-radius: var(--bo-rad); cursor: pointer;
+  border: 1px solid var(--bo-line-2); background: var(--bo-card); color: var(--bo-ink);
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.btn:hover { border-color: var(--bo-muted); }
+.btn--primary { background: var(--bo-ink); border-color: var(--bo-ink); color: var(--bo-on-fill); }
+.btn--primary:hover { background: var(--bo-ink-max); }
+.btn--danger { background: var(--bo-r1); border-color: var(--bo-r1); color: var(--bo-on-fill); }
+.btn--quiet { background: transparent; border-color: transparent; color: var(--bo-link); padding-inline: 4px; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+
+.field {
+  width: 100%; font: 14px/1.6 var(--bo-sans); color: var(--bo-ink);
+  padding: 10px var(--bo-3); border: 1px solid var(--bo-line-2);
+  border-radius: var(--bo-rad); background: var(--bo-card); resize: vertical;
+}
+.field:focus { border-color: var(--bo-focus); }
+.field::placeholder { color: var(--bo-ghost); }
+
+/* --- cards and tables ------------------------------------------------------ */
+.card { background: var(--bo-card); border: 1px solid var(--bo-line); border-radius: var(--bo-rad); padding: var(--bo-5); }
+.grid { display: grid; gap: var(--bo-4); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+
+/* A stat that is worth a whole tile is a number a reader compares. */
+.stat .k { font-size: 11.5px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--bo-muted); }
+.stat .v { font-size: 26px; font-weight: 650; line-height: 1.1; margin-top: var(--bo-1); }
+.stat .sub { font-size: 13px; color: var(--bo-muted); margin-top: 2px; }
+
+table.bo { width: 100%; border-collapse: collapse; background: var(--bo-card);
+           border: 1px solid var(--bo-line); border-radius: var(--bo-rad); overflow: hidden; }
+table.bo th, table.bo td { text-align: left; padding: 10px var(--bo-4); border-top: 1px solid var(--bo-line); font-size: 14px; vertical-align: middle; }
+table.bo thead th { border-top: 0; background: var(--bo-head); font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--bo-muted); }
+table.bo tbody tr:hover { background: var(--bo-hover); }
+table.bo td.mono, table.bo th.mono { font-family: var(--bo-mono); font-size: 12.5px; }
+table.bo td.num { text-align: right; font-family: var(--bo-mono); font-size: 13px; }
+/* The row that needs a human is marked on the ROW, not only in a cell. */
+table.bo tr.needs-you td { background: var(--bo-r1-soft); }
+table.bo tr.needs-you td:first-child { box-shadow: inset 3px 0 0 var(--bo-r1); }
+
+.scroll { overflow-x: auto; }
+
+/* --- the pipeline ----------------------------------------------------------
+   Six stages, read left to right, with the one that is stopped picked out.
+   The model is already right in the current back office; it just cannot be
+   seen, because all six rows look identical. */
+.pipe { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px;
+        background: var(--bo-line); border: 1px solid var(--bo-line); border-radius: var(--bo-rad); overflow: hidden; }
+.pipe__stage { background: var(--bo-card); padding: var(--bo-3) var(--bo-4); min-width: 0; }
+.pipe__stage .n { font-family: var(--bo-mono); font-size: 10.5px; color: var(--bo-muted); }
+.pipe__stage .name { font-weight: 650; font-size: 14px; margin: 2px 0 var(--bo-2); }
+.pipe__stage .v { font-family: var(--bo-mono); font-size: 13px; color: var(--bo-muted); margin-bottom: var(--bo-2); }
+.pipe__stage--stopped { background: var(--bo-r1-soft); box-shadow: inset 0 3px 0 var(--bo-r1); }
+
+/* --- quoting the publication ----------------------------------------------
+   The ONLY place the newspaper's serif appears in the console. When the
+   console shows a headline or a claim, it shows it in the publication's own
+   face so it is obviously a quotation and not console copy. */
+.quote { font-family: var(--bo-serif); font-size: 17px; line-height: 1.5; color: var(--bo-ink); max-width: 62ch; }
+.quote--sm { font-size: 15.5px; }
+.lang { font-family: var(--bo-mono); font-size: 9.5px; letter-spacing: .1em;
+        border: 1px solid var(--bo-line-2); border-radius: 2px; padding: 0 3px;
+        color: var(--bo-muted); vertical-align: 2px; }
+
+.muted { color: var(--bo-muted); }
+.note { color: var(--bo-muted); font-size: 13.5px; max-width: 78ch; }
+.mono { font-family: var(--bo-mono); font-size: 12.5px; }
+.path { font-family: var(--bo-mono); font-size: 12px; color: var(--bo-muted); overflow-wrap: anywhere; }
+
+/* --- board ----------------------------------------------------------------- */
+.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--bo-4); align-items: start; }
+.board__col { background: var(--bo-col); border-radius: var(--bo-rad); padding: var(--bo-3); }
+/* THE COLUMN'S heading, not every heading inside the column. As written this
+   was `.board__col h3`, so a card's own h3 — the title of the blocked issue —
+   came out uppercase, 12px and grey, which is the treatment for a column label
+   and completely wrong for the one thing on the board that needs reading. */
+.board__col > h3 { display: flex; align-items: center; gap: var(--bo-2); font-size: 12px; letter-spacing: .08em;
+                 text-transform: uppercase; color: var(--bo-muted); margin-bottom: var(--bo-3); }
+.board__col > h3 .count { margin-left: auto; font-family: var(--bo-mono); font-size: 12px; }
+.board__card { background: var(--bo-card); border: 1px solid var(--bo-line); border-radius: var(--bo-rad);
+               padding: var(--bo-3) var(--bo-4); margin-bottom: var(--bo-2); }
+.board__card--needs-you { border-color: var(--bo-r1); box-shadow: inset 3px 0 0 var(--bo-r1); }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+  /* THE PAINTED COLUMN HAS TO GO WITH THE COLUMN. `.shell` paints the rail's
+     ground as a gradient rather than wrapping it, so the sticky rail can be
+     start-aligned and still run the full height. When the grid collapses to one
+     column the gradient does not: it kept painting 232px of near-black down the
+     left of the page, and the console's h1 came out dark on dark with a light
+     band beginning mid-sentence. */
+  .shell { grid-template-columns: 1fr; background: var(--bo-bg); }
+  /* A rail that becomes a wrapped chip row is right; a rail that takes 490px of
+     a 844px phone screen before the first word of content is not. The groups
+     lose their vertical rhythm here, which they only need in a column. */
+  .rail { position: static; max-height: none; padding: var(--bo-3) 0 var(--bo-3); }
+  .rail__brand { padding: 0 var(--bo-4) var(--bo-3); }
+  .rail__note { margin: 0 var(--bo-4) var(--bo-2); padding-top: var(--bo-2); }
+  .rail__group { display: flex; flex-wrap: wrap; gap: 2px; padding: var(--bo-2) var(--bo-4) 0; }
+  /* The group heading sits ON the row rather than above it. Dropping it would
+     have saved the same space and taken the grouping out of the accessibility
+     tree with it, which is the part of the rail that is not decoration. */
+  .rail__group h3 { width: auto; padding-inline: 0; margin: 0 var(--bo-2) 0 0; align-self: center; }
+  .rail a.nav { border-left: 0; border-bottom: 2px solid transparent; padding: 6px 10px; }
+  .rail a.nav[aria-current="page"] { border-left: 0; border-bottom-color: var(--bo-on-fill); }
+  .main { padding: var(--bo-5) var(--bo-4) var(--bo-7); }
+  .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media print {
+  .rail, .btn, .queue__do { display: none; }
+  .shell { grid-template-columns: 1fr; }
+}
+
+/* ============================================================================
+   THE LEGACY LAYER — the second deviation, and a bridge with an end state.
+
+   Nine back-office pages are generated by five Python modules that emit the
+   paper's class names: .sect for a section title, .chip for a status, .cartao
+   for a card, .std / .sm for prose, .rule for a hairline. Rewriting all five in
+   one release would have been a much larger diff than the review, and a review
+   that lands in one page and leaves eight on the newspaper's clothes is not the
+   review landing.
+
+   So the paper's names are mapped onto the console's here. Two rules make this a
+   bridge rather than a second system:
+
+     - Nothing below invents a value. Every declaration reuses a --bo- token, so
+       the status scale and the palette have exactly one definition.
+     - The mapping is lossy ON PURPOSE, in the direction the review asks for.
+       The paper had one chip style used 159 ways; the console has four ranks.
+       .chip.falta and .chip.miss are ranks 1 and 2, .chip.ok is rank 4 and
+       loses its box entirely, and a bare .chip is rank 3. A generator that
+       wants to say something more precise than four ranks has to stop emitting
+       .chip and start emitting .st, which is the point.
+
+   END STATE: every generator emits .st, .card, .bo and real headings, and this
+   block is deleted. Gate 39 counts the GENERATORS still emitting the paper's
+   class names and holds that count to a ratchet — it may fall and it may not
+   rise. Counting the usages instead was tried first and was wrong: it went red
+   on a commit that added twelve items to the design-review page, because more
+   published content is not more reliance on this block.
+   ============================================================================ */
+
+.folha:not(.bo-strip) { max-width: none; margin: 0; padding: 0; }
+
+/* Prose. The paper's measure is 29em of Newsreader; the console's is a plain
+   character count in the operator's own face. */
+.std { font-size: 15px; line-height: 1.55; color: var(--bo-ink); max-width: 78ch; margin: 0 0 var(--bo-3); }
+.sm  { font-size: 13.5px; line-height: 1.55; color: var(--bo-muted); max-width: 84ch; margin: 0 0 var(--bo-2); }
+.std b, .sm b { color: var(--bo-ink); font-weight: 650; }
+
+/* SECTION TITLES ARE NO LONGER THIS. All 34 of them are real h2 elements now —
+   the review's finding was that the whole back office had zero h2 and five of
+   nine pages had no heading at all, because a section title was a styled div,
+   which is styling and not structure: nothing could outline these pages.
+
+   What is left wearing .sect is a FIELD LABEL inside a card — "Refuses",
+   "Writes in", "Wrong when". Those are labels for a value beside them, not
+   headings of a section, and promoting them would have put 60 more entries in
+   every page's outline and made it useless in a different way. So they keep the
+   label treatment, tightened for sitting inside a card. */
+.sect {
+  font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--bo-muted); margin: var(--bo-3) 0 var(--bo-1);
+}
+.cartao > .sect:first-child, .painel > .sect:first-child, .col > .sect:first-child { margin-top: 0; }
+.rule { border-top: 1px solid var(--bo-line); margin-top: var(--bo-6); padding: 0 !important; }
+.rule:first-child, .rule:first-of-type { border-top: 0; margin-top: 0; }
+.rule .sect { margin-top: var(--bo-4); }
+
+/* Headlines in the publication's voice. The console keeps them legible but
+   stops giving them the paper's display sizes. */
+h1, .h-1, .h-2, .h-3 { font-family: var(--bo-sans); letter-spacing: -.015em; }
+.h-1 { font-size: 26px; font-weight: 650; line-height: 1.15; margin: 0 0 var(--bo-2); }
+.h-2 { font-size: 21px; font-weight: 650; line-height: 1.2;  margin: 0 0 var(--bo-2); }
+.h-3 { font-size: 17px; font-weight: 650; line-height: 1.25; margin: 0 0 var(--bo-2); }
+
+/* THE 159 LABELS, COLLAPSED INTO FOUR RANKS. */
+.chips { display: flex; flex-wrap: wrap; gap: var(--bo-2); align-items: center; }
+/* A `.st` is a rank and never more than two words, so it may refuse to wrap. A
+   legacy `.chip` is whatever a generator put in it — including a whole sentence
+   of navigation — so it must wrap. Copying `white-space: nowrap` across from
+   the rank scale pushed the console 75px past the viewport at 390px, which is
+   the bug gate 25 exists for and which this file introduced. */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--bo-mono); font-size: 11px; letter-spacing: .02em;
+  padding: 3px 8px; border-radius: 3px; white-space: normal; max-width: 100%;
+  color: var(--bo-r3); border: 1px solid var(--bo-line-2); background: transparent;
+}
+a.chip { color: var(--bo-link); }
+a.chip:hover { border-color: var(--bo-muted); text-decoration: none; }
+.chip.falta { background: var(--bo-r1); border-color: var(--bo-r1); color: var(--bo-on-fill); font-weight: 650; padding: 4px 10px; }
+.chip.miss  { background: transparent; border-color: var(--bo-r2); color: var(--bo-r2); }
+.chip.ok    { border: 0; padding-inline: 0; color: var(--bo-r4); background: transparent; }
+.chip.ok::before { content: "\2713"; font-size: 12px; }
+/* A link is an affordance, not a status, so it keeps its box whatever rank it
+   was given — otherwise rank 4 turns every navigation chip into plain text. */
+a.chip.ok { border: 1px solid var(--bo-line-2); padding: 3px 8px; color: var(--bo-link); }
+a.chip.ok::before { content: none; }
+
+/* Cards, panels and the paper's grid. */
+.cartao, .painel {
+  background: var(--bo-card); border: 1px solid var(--bo-line); border-radius: var(--bo-rad);
+  padding: var(--bo-4) var(--bo-5); margin-bottom: var(--bo-3);
+}
+.painel-par { display: grid; gap: var(--bo-4); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; }
+.g2, .g3, .g4, .g12 { display: grid; gap: var(--bo-4); align-items: start; }
+.g2  { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.g3  { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.g4  { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.g12 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.g2 > .col, .g3 > .col, .g4 > .col, .g12 > .col { min-width: 0; }
+
+/* Tables. Every back-office table gets the console's table without the
+   generators having to name a class. */
+.main table:not(.bo) {
+  width: 100%; border-collapse: collapse; background: var(--bo-card);
+  border: 1px solid var(--bo-line); border-radius: var(--bo-rad); overflow: hidden;
+  margin-bottom: var(--bo-3);
+}
+.main table:not(.bo) th, .main table:not(.bo) td {
+  text-align: left; padding: 9px var(--bo-4); border-top: 1px solid var(--bo-line);
+  font-size: 13.5px; vertical-align: top;
+}
+.main table:not(.bo) thead th {
+  border-top: 0; background: var(--bo-head); font-size: 11px; font-weight: 650;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--bo-muted); vertical-align: middle;
+}
+.main table:not(.bo) tbody tr:hover { background: var(--bo-hover); }
+
+/* A run of counts under a heading — the paper calls this a stat strip and the
+   console uses it for the same job, one size down. */
+.stats { display: flex; flex-wrap: wrap; gap: var(--bo-2) var(--bo-4); align-items: baseline; }
+
+/* The route a message travels, which is the mail protocol's whole model. */
+.rota { display: flex; flex-wrap: wrap; align-items: center; gap: var(--bo-2);
+        font-family: var(--bo-mono); font-size: 12.5px; }
+.rota .muted { font-size: 12px; }
+.rota__seta { color: var(--bo-line-2); }
+
+/* A count in a legacy table is still a number to compare. */
+.main table:not(.bo) th.num, .main table:not(.bo) td.num {
+  text-align: right; font-family: var(--bo-mono); font-size: 13px;
+}
+.main table:not(.bo) tr.needs-you td { background: var(--bo-r1-soft); }
+.main table:not(.bo) tr.needs-you td:first-child { box-shadow: inset 3px 0 0 var(--bo-r1); }
+
+/* The `<details>` the mail page folds its protocol table into — the paper's own
+   provenance idiom, which works here for the same reason: the detail is real and
+   worth publishing, and it is not what the page is for. */
+.provenance { border: 1px solid var(--bo-line); border-radius: var(--bo-rad); background: var(--bo-card); }
+.provenance > summary { padding: var(--bo-3) var(--bo-4); cursor: pointer; font-size: 13px;
+                        font-weight: 600; color: var(--bo-muted); }
+.provenance > summary:hover { color: var(--bo-ink); }
+.provenance[open] > summary { border-bottom: 1px solid var(--bo-line); }
+.provenance > *:not(summary) { padding: var(--bo-3) var(--bo-4); }
+.provenance table { margin-bottom: 0 !important; border: 0 !important; }
+
+/* site.css breaks mono ANYWHERE — `.mono, code, .xs, td.mono, li { overflow-wrap:
+   anywhere }` — which is right for a 29em column of newsprint holding a 90-
+   character snapshot path, and wrong for a table cell holding `verificacao.pt`,
+   which came out as `verificacao.p` / `t`. The console breaks a path, because a
+   path has nowhere else to go, and leaves an identifier whole. */
+.main td.mono, .main th.mono { overflow-wrap: normal; }
+
+/* Odds and ends the paper's stylesheet provided and these pages still use. */
+code, .mono-sm { font-family: var(--bo-mono); font-size: 12.5px; }
+code { background: var(--bo-head); border-radius: 2px; padding: 0 4px; }
+.aviso-bloco {
+  background: var(--bo-card); border: 1px solid var(--bo-line);
+  border-left: 3px solid var(--bo-r2); border-radius: var(--bo-rad);
+  padding: var(--bo-4) var(--bo-5); margin-bottom: var(--bo-5);
+}
+.agent {
+  margin-top: var(--bo-7); padding-top: var(--bo-4); border-top: 1px solid var(--bo-line);
+  font-size: 12.5px; color: var(--bo-muted); max-width: 90ch;
+}
+.ficha { display: grid; gap: var(--bo-1) var(--bo-4); grid-template-columns: max-content 1fr; font-size: 13.5px; }
+.sp6 > * + * { margin-top: var(--bo-2); }
+.sp12 > * + * { margin-top: var(--bo-3); }

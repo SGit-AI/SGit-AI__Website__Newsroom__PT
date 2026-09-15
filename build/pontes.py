@@ -52,8 +52,8 @@ def lista(xs, vazio="—"):
 
 def bloco_ponte(p):
     def marca(pode):
-        return ('<span class="chip ok">publishable</span>' if pode
-                else '<span class="chip miss">secret</span>')
+        return ('<span class="st st--4">publishable</span>' if pode
+                else '<span class="st st--2">secret</span>')
 
     cred = "".join(
         f'<tr><td class="mono xs">{e(c["chave"])}</td><td class="sm">{e(c["o_que_e"])}</td>'
@@ -67,10 +67,10 @@ def bloco_ponte(p):
                    f'<p class="sm">{e(p["interruptor"])}</p>' if p.get("interruptor") else "")
     return f"""
 <div class="cartao" style="padding:16px;margin-top:18px" id="{e(p["id"])}">
-  <div class="chips" style="padding-bottom:8px">
-    <span class="chip ok" style="font-size:13px"><b>{e(p["nome"])}</b></span>
-    <span class="chip">{e(p["id"])}</span>
-    <span class="chip miss">{e(p["estado"])}</span>
+  <div class="queue__meta" style="margin:0 0 10px">
+    <b style="font-size:15px">{e(p["nome"])}</b>
+    <span class="st st--2">{e(p["estado"])}</span>
+    <span class="path">{e(p["id"])}</span>
   </div>
   <p class="sm mono xs">{e(p["direcao"])}</p>
   <p class="std" style="max-width:52em;padding-top:6px">{e(p["porque_existe"])}</p>
@@ -113,8 +113,8 @@ def pagina_pontes(d, ag):
     # The unlock and the composer. No secret is rendered into this HTML: the page reads and writes
     # localStorage in the reader's own browser, and the build never sees a value.
     app = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Unlock · give this browser the
-  three values</div></div>
+<h2>Unlock · give this browser the
+  three values</h2>
 <p class="std" style="max-width:52em">Paste them here and they go to this browser's
 <code>localStorage</code> for this origin, and nowhere else. They are not sent to
 pt.newsroom.sgit.ai — there is no server to send them to — and they are not in any file in the
@@ -125,36 +125,31 @@ JSON bundle <code>sgit pki export &lt;fingerprint&gt;</code> writes: the page re
 
 <div class="cartao" style="padding:16px">
   <div class="chips" style="padding-bottom:10px">
-    <button class="chip" id="ponte-escolha-editor" type="button">editor → back office</button>
-    <button class="chip" id="ponte-escolha-obs" type="button">observability</button>
-    <span class="chip" id="ponte-estado">reading…</span>
+    <button class="btn" id="ponte-escolha-editor" type="button">editor → back office</button>
+    <button class="btn" id="ponte-escolha-obs" type="button">observability</button>
+    <span class="st st--3" id="ponte-estado">reading…</span>
+    <span class="path" id="ponte-qual"></span>
   </div>
   <div class="col sp6">
     <label class="sm" for="ponte-vault">Vault id — the vault that receives</label>
-    <input class="mono xs" id="ponte-vault" type="text" autocomplete="off" spellcheck="false"
-           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
-                  color:var(--tinta);width:100%">
+    <input class="field mono" id="ponte-vault" type="text" autocomplete="off" spellcheck="false">
     <label class="sm" for="ponte-token" style="padding-top:8px">Append token — hex, 16–128 digits,
       no prefix</label>
-    <input class="mono xs" id="ponte-token" type="text" autocomplete="off" spellcheck="false"
-           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
-                  color:var(--tinta);width:100%">
+    <input class="field mono" id="ponte-token" type="text" autocomplete="off" spellcheck="false">
     <label class="sm" for="ponte-chave" style="padding-top:8px">Public key — the
       <code>sgit pki export</code> bundle, or a PEM</label>
-    <textarea class="mono xs" id="ponte-chave" rows="4" autocomplete="off" spellcheck="false"
-              style="padding:8px;border:1px solid var(--filete);background:var(--papel);
-                     color:var(--tinta);width:100%"></textarea>
+    <textarea class="field mono" id="ponte-chave" rows="4" autocomplete="off" spellcheck="false"></textarea>
     <div class="chips" style="padding-top:10px">
-      <button class="chip ok" id="ponte-guardar" type="button">keep in this browser</button>
-      <button class="chip" id="ponte-prova" type="button">send a proof message</button>
-      <button class="chip miss" id="ponte-esquecer" type="button">forget</button>
+      <button class="btn btn--primary" id="ponte-guardar" type="button">keep in this browser</button>
+      <button class="btn" id="ponte-prova" type="button">send a proof message</button>
+      <button class="btn btn--danger" id="ponte-esquecer" type="button">forget</button>
     </div>
     <p class="sm" id="ponte-resposta" style="padding-top:8px"></p>
   </div>
 </div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Write to
-  {e(bastidores.get("alias", "@Bastidores"))}</div></div>
+<h2>Write to
+  {e(bastidores.get("alias", "@Bastidores"))}</h2>
 <p class="std" style="max-width:52em">This goes into the append lane, and
 {e(bastidores.get("alias", "@Bastidores"))} files it as mail — into
 <code>redacao/correio/expedicao/bastidores.pt/</code>, delivered, read, and answered like any
@@ -175,15 +170,11 @@ line and only his.</p>
       </select>
     </div>
     <label class="sm" for="msg-assunto" style="padding-top:8px">Subject</label>
-    <input id="msg-assunto" type="text"
-           style="padding:8px;border:1px solid var(--filete);background:var(--papel);
-                  color:var(--tinta);width:100%">
+    <input id="msg-assunto" type="text">
     <label class="sm" for="msg-corpo" style="padding-top:8px">Body</label>
-    <textarea id="msg-corpo" rows="6"
-              style="padding:8px;border:1px solid var(--filete);background:var(--papel);
-                     color:var(--tinta);width:100%"></textarea>
+    <textarea id="msg-corpo" rows="6"></textarea>
     <div class="chips" style="padding-top:10px">
-      <button class="chip ok" id="msg-enviar" type="button">send</button>
+      <button class="btn btn--primary" id="msg-enviar" type="button">send</button>
     </div>
     <p class="sm" id="msg-resposta" style="padding-top:8px"></p>
   </div>
@@ -191,8 +182,8 @@ line and only his.</p>
 """
 
     corpo = f"""
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The bridges · how a static site
-  reaches the newsroom</div></div>
+<h2>The bridges · how a static site
+  reaches the newsroom</h2>
 <p class="std" style="max-width:52em">{e(d["nota"])}</p>
 <div class="chips" style="padding:10px 0 4px">
   {"".join(f'<a class="chip" href="#{e(p["id"])}">{e(p["nome"])}</a>' for p in d.get("pontes", []))}
@@ -200,8 +191,8 @@ line and only his.</p>
     of {len(d.get("pontes", []))} without credentials</span>
 </div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Why an append lane, and not
-  something simpler</div></div>
+<h2>Why an append lane, and not
+  something simpler</h2>
 <p class="std" style="max-width:52em">{e(d["porque_uma_fila_de_acrescento"])}</p>
 <p class="sm" style="max-width:52em">Read at the source rather than recalled:
 <a href="https://sgit.ai/docs/vault-messaging.md">vault-messaging</a>,
@@ -209,8 +200,8 @@ line and only his.</p>
 <a href="https://sgit.ai/docs/pki.md">the PKI</a>, and
 <a href="https://sgit.ai/docs/briefs/vault-telemetry-append-lanes.md">the telemetry brief</a>.</p>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">A finding from the games vault,
-  which changed this design</div></div>
+<h2>A finding from the games vault,
+  which changed this design</h2>
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
 <p class="sm">{e(d["achado_do_cofre_dos_jogos"])}</p>
 </div>
@@ -219,7 +210,7 @@ line and only his.</p>
 
 {app}
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The envelope on the wire</div></div>
+<h2>The envelope on the wire</h2>
 <p class="std" style="max-width:52em">{e(env.get("porque_hibrido", ""))} The shape below is
 {e(env.get("forma", ""))}, from <a href="https://sgit.ai/docs/pki.md">{e(env.get("de_onde_vem", ""))}</a>.</p>
 <div class="rolar"><table><thead><tr><th style="width:80px">Field</th><th>Contents</th></tr>
@@ -228,7 +219,7 @@ line and only his.</p>
 <p class="sm"><b>One parameter is not confirmed.</b> {e(env.get("o_que_nao_esta_confirmado", ""))}</p>
 </div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Not built</div></div>
+<h2>Not built</h2>
 <div class="rolar"><table><thead><tr><th style="width:26%">What</th><th>Why not</th></tr></thead>
 <tbody>{nao}</tbody></table></div>
 
@@ -247,9 +238,9 @@ line and only his.</p>
     el("ponte-vault").value = cfg.vault_id || "";
     el("ponte-token").value = cfg.append_token || "";
     el("ponte-chave").value = cfg.chave_publica || "";
-    el("ponte-estado").textContent = PONTES[atual].nome + " — " +
-      (p.aberta() ? "open in this browser" : "closed: no credentials");
-    el("ponte-estado").className = "chip " + (p.aberta() ? "ok" : "miss");
+    el("ponte-estado").textContent = p.aberta() ? "open" : "no credentials";
+    el("ponte-estado").className = "st st--" + (p.aberta() ? "3" : "2");
+    el("ponte-qual").textContent = PONTES[atual].nome + " \u00b7 in this browser only";
   }}
 
   el("ponte-escolha-editor").onclick = function () {{
