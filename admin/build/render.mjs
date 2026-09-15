@@ -55,7 +55,7 @@ const PAGINAS = [
     ['/entidades/', ['pt-chat']],
     ['/entidades/editor/comissao-europeia/', ['pt-entity-graph', 'pt-chat']],
     ['/entidades/pessoa/paulo-andrez/', ['pt-entity-graph', 'pt-chat']],
-    ['/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+    ['/artigos/2026/09/14/quantas-startups-sao-de-ia/',
      ['pt-json-viewer', 'pt-comment-map', 'pt-chat']],
     ['/backoffice/agents.html', ['pt-comment-map']],
     ['/backoffice/docs.html', ['pt-doc-browser']],
@@ -98,7 +98,7 @@ const PAGINAS = [
  * It also reads one id tool with an id taken from the listing, because a `{id}` path is a second
  * kind of claim — that the id the listing hands out is the id the reader tool accepts. */
 const FERRAMENTAS_EM = [
-    '/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+    '/artigos/2026/09/14/quantas-startups-sao-de-ia/',
     '/',
 ]
 

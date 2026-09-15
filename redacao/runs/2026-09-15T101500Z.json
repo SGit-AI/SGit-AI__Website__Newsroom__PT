@@ -1,0 +1,38 @@
+{
+  "quando": "2026-09-15T10:15:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "Put the initial prompt and the guidance links in .claude/, and get the guidance onto the site as real pages.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": [
+    ".claude/",
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "backoffice/",
+    "build/",
+    "dados/",
+    "docs/",
+    "entidades/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.20.0",
+  "o_que_fez": [
+    "build/guia.py: each docs/guidance/*.md becomes a page at backoffice/guidance/<name>.html. The guidance was previously reachable only as a fragment on the document browser, which is not an address and is not in the sitemap.",
+    "llms.txt gains a guidance section, in English, with the reason stated in the file. It previously mentioned the guidance zero times.",
+    ".claude/ONBOARDING.md, and build/briefing.py printing it from the SessionStart hook so it reaches every session unasked. The permissions block of .claude/settings.json was asserted byte-identical, not merely left alone.",
+    "Gate 41: every guidance document has a page, llms.txt points at them, and every link in the briefing resolves.",
+    "paginas.inline(): code spans lifted out and restored, so a [[fonte:...]] inside backticks is quoted rather than turned into a live register chip; backticks now render as <code> at all; *italics* added, with non-space edges after `2 * 3 * 4` became italics in testing.",
+    "Gate 19 narrowed to unquoted source marks, and injection-tested to confirm an unquoted mark on a console page still fails.",
+    "The site gate found nine broken links the moment markdown links started rendering; one had been wrong in index.md since it was written.",
+    "Merged origin/dev across v0.16.0 to v0.19.0. Gate 36 fired for the first time in anger: gate 39 was claimed by both sessions, then 40 as well, because the other session had extended gate 36's registry to cover render.mjs and validate.js. This gate is 41."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. The gate added in v0.15.0 to catch a gate-number collision caught one on its first real merge, and the other session had independently made it stricter."
+}

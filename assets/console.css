@@ -243,6 +243,16 @@ h2 {
 h2:first-of-type { margin-top: 0; }
 h3 { margin: 0 0 var(--bo-2); font-size: 15px; font-weight: 650; }
 
+/* A LONG PATH IS THE BACK OFFICE'S NORMAL CASE, NOT AN EDGE ONE. This console is mostly file
+   paths and URLs, and a URL has no space in it to break at: with the default `overflow-wrap`,
+   `https://pt.newsroom.sgit.ai/briefs/pack/08__research-briefs/12__…md` sat three pixels past a
+   390px screen and made the whole page drag sideways. Three pixels is enough — the reader still
+   has to pull the page back to read the next sentence.
+
+   `break-word` and not `anywhere`: a word breaks only when it cannot fit, so ordinary prose is
+   unaffected and only the paths wrap. */
+.main p, .main li, .main dd, .main td, .main figcaption { overflow-wrap: break-word; }
+
 /* --- status ----------------------------------------------------------------
    Four ranks. Rank 1 filled, rank 2 and 3 outlined, rank 4 not boxed at all —
    "done" does not need a border around it, and giving it one is most of how a
@@ -251,6 +261,21 @@ h3 { margin: 0 0 var(--bo-2); font-size: 15px; font-weight: 650; }
   display: inline-flex; align-items: center; gap: 5px;
   font-family: var(--bo-mono); font-size: 11px; letter-spacing: .02em;
   padding: 3px 8px; border-radius: 3px; white-space: nowrap;
+  /* A STATUS THAT IS A SENTENCE STILL HAS TO FIT ON A PHONE. `nowrap` is right for the usual
+     case — "waiting on the editor" should not break across two lines mid-phrase — and wrong the
+     moment a status carries a reason, which one of them does: «blocked on build/pdf.py está na
+     lista de recusa; nenhum agente…» rendered as a 538px pill on a 390px screen and pushed the
+     whole board sideways. The browser gate found it; the four other gates were green.
+
+     `min-width: 0` is the load-bearing half. Inside a flex container a child's `min-width`
+     computes to `auto`, which means "never shrink below your content" — so no amount of wrapping
+     downstream helps until this is set. */
+  min-width: 0; max-width: 100%;
+}
+/* Only when it actually cannot fit: the pill keeps its single line until the line is too long for
+   the screen, and then it wraps rather than taking the page with it. */
+@media (max-width: 640px) {
+  .st { white-space: normal; overflow-wrap: anywhere; }
 }
 .st--1 { background: var(--bo-r1); color: var(--bo-on-fill); font-weight: 650; padding: 4px 10px; }
 .st--2 { color: var(--bo-r2); border: 1px solid var(--bo-r2); }

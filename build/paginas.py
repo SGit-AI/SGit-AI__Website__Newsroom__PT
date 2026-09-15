@@ -545,7 +545,19 @@ def inline(t, raiz=""):
     # those two, `2 * 3 * 4` became `2 <i> 3 </i> 4` — caught by trying it rather than by reading
     # the pattern, which is the only way this kind of mistake is ever caught.
     t = re.sub(r"(?<![\w*])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", t)
-    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', t)
+    # A SITE-ABSOLUTE LINK IS RESOLVED AGAINST `raiz`, LIKE EVERY OTHER PATH HERE. Writing
+    # `[x](/backoffice/y.html)` in a document is the natural thing to do and it is what a release
+    # note already did — but this site is also served from a local file server during the browser
+    # gate and from a preview under a subfolder, so a leading slash is the one form that works in
+    # production and nowhere else. It is rewritten to the same relative prefix the rest of the
+    # renderer uses. An external `https://` link is left exactly as written.
+    def _ligacao(m):
+        texto, alvo = m.group(1), m.group(2)
+        if alvo.startswith("/") and not alvo.startswith("//"):
+            alvo = raiz + alvo.lstrip("/")
+        return f'<a href="{alvo}">{texto}</a>'
+
+    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", _ligacao, t)
     t = re.sub(r"\[\[fonte:([^\]]+)\]\]",
                lambda m: f'<a class="chip ok" href="{raiz}registo/#{e(m.group(1))}">'
                          f'{e(m.group(1))}</a>', t)
