@@ -69,7 +69,7 @@
         "tratado": 0,
         "em_transito": 0
       },
-      "execucoes": 13
+      "execucoes": 14
     },
     {
       "id": "redacao",
@@ -129,7 +129,7 @@
         "tratado": 0,
         "em_transito": 0
       },
-      "execucoes": 13
+      "execucoes": 14
     },
     {
       "id": "editor",
@@ -623,12 +623,34 @@
         "index.md"
       ],
       "movidos": 0
+    },
+    {
+      "quando": "2026-09-15T08:30:00Z",
+      "versao": "v0.15.0",
+      "modelo": "Claude Code, remote session",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "backoffice/",
+        "build/",
+        "dados/",
+        "docs/",
+        "entidades/",
+        "redacao/",
+        "index.html",
+        "llms.txt",
+        "sitemap.xml",
+        "index.md"
+      ],
+      "movidos": 0
     }
   ],
   "contagens": {
     "cartoes": 7,
     "bancadas": 4,
-    "execucoes": 14,
+    "execucoes": 15,
     "publicados": 0,
     "a_espera_do_editor": 4
   }

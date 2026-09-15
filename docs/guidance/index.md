@@ -11,8 +11,10 @@ that actually answers each question. If you are an agent and you fetch one thing
 write a word — it decides your file names, your comments, your commit message and your JSON keys.
 **Every claim walks back to bytes**, and a claim with no frozen source is a build failure, not a
 warning. **A rule without a gate is decoration** — if you add a rule here, add the gate in the same
-change. **Run `python3 build/tudo.py` before every commit**: the order of the eleven steps is
-load-bearing and running them by hand silently produces a smaller site. **Only the named human
+change. **Run `python3 build/tudo.py` before every commit**: the order of its steps is
+load-bearing and running them by hand silently produces a smaller site — and
+**`python3 build/before_push.py` before you take a version number**, because two other
+sessions are working while you are. **Only the named human
 editor publishes.** Nothing you do may set `estado: publicado`.
 
 ## Read in this order
@@ -23,8 +25,9 @@ editor publishes.** Nothing you do may set `estado: publicado`.
 | 2 | [`principles.md`](principles.md) | The nine principles, each with the gate that enforces it. A principle with no gate is named as such |
 | 3 | [`../../CLAUDE.md`](../../CLAUDE.md) | The seven rules. It is the constitution; it outranks everything here, including this page |
 | 4 | [`before-you-change.md`](before-you-change.md) | The checklist. What to read, what to run, what to record, in order |
-| 5 | [`../../agents/README.md`](../../agents/README.md) | Who you are. Every agent working here claims a named identity with a `ROLE.md` and a `MANDATE.md` |
-| 6 | [`../../briefs/pack/01__the-brief.md`](../../briefs/pack/01__the-brief.md) | What this publication is for. Read it once; it is the reason the gates are shaped this way |
+| 5 | [`concurrent-sessions.md`](concurrent-sessions.md) | Three sessions work here at once. What collides, what is gated, and the order that avoids most of it |
+| 6 | [`../../agents/README.md`](../../agents/README.md) | Who you are. Every agent working here claims a named identity with a `ROLE.md` and a `MANDATE.md` |
+| 7 | [`../../briefs/pack/01__the-brief.md`](../../briefs/pack/01__the-brief.md) | What this publication is for. Read it once; it is the reason the gates are shaped this way |
 
 Then, only when the task needs them: the estate's own guidance at
 [sgit.ai/docs/guidance](https://sgit.ai/docs/guidance/index.html), the house style at
@@ -52,9 +55,11 @@ Most tasks end here.
 ## The shape of the thing
 
 ```
-build/          the pipeline — eleven steps, and build/tudo.py runs them in the right order
+build/          the pipeline — build/tudo.py runs every step in the right order
   gates.py          gates 1–15, deny-listed
-  gates_artigos.py  gates 16–27, where new gates go
+  gates_artigos.py  gates 16–26 and 34–38, where new gates go
+  gates_desenho.py  gates 27–33, the design review's measurements
+  before_push.py    what another session did while you worked — read-only
 admin/build/    validate.js (the site gate) and render.mjs (the browser gate)
 dados/          the data the site is built from. Portuguese keys — see language.md
 fontes/congeladas/  frozen bytes. Evidence, never pages. Extension is .snapshot for that reason

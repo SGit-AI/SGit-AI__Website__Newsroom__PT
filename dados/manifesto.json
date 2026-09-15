@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 19570,
-      "sha256": "6c4d31709152bbb2e66d00871a8849fff973e139c62fb6aa4097bef3d85b0740"
+      "bytes": 19989,
+      "sha256": "13559d4fc1e8d35ace80634ce9c9b3141a252241e82ff86676820567a7b4248a"
     },
     {
       "ficheiro": "dados/entidades.json",
@@ -83,7 +83,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 4867,
-      "sha256": "cc274ca0aae8b985183ecc8b47abc36a8257e241af748e25e4ac6f596d42d1db"
+      "sha256": "7561e46656e88867b592565c51bbb668b5f828bf1a9a28566306b4ee5ecf5f54"
     },
     {
       "ficheiro": "dados/mudancas.json",

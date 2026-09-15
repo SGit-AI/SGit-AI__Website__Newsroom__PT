@@ -681,9 +681,123 @@ for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
                          f'dados/agentes.json')
 
 
+# ==============================================================================================
+#  36-38 · THE GATES ABOUT MORE THAN ONE SESSION AT A TIME
+#
+#  Three sessions work on this repository at once, and every one of these gates exists because
+#  something was actually lost or duplicated between them — not because a collision was imagined.
+#  They are in one block because they share a cause: a shared counter with no lock, and a merge
+#  that succeeds while silently dropping work.
+#
+#  What they do NOT do is prevent a collision. Nothing here can: two sessions that choose the same
+#  number at the same moment both choose it correctly, and the loser only finds out on push. What
+#  they do is make the collision LOUD at the earliest moment it is knowable, which is the most a
+#  repository can offer. See docs/guidance/concurrent-sessions.md.
+# ==============================================================================================
+
+#  36 · NO TWO GATES SHARE A NUMBER. Two sessions added gates the same afternoon and both started
+#       at 27. The build was green on each branch and stayed green after the merge, because a gate
+#       number is a comment: nothing reads it, so nothing checks it, and for a while this
+#       repository had two gate 27s saying different things.
+# Three files, three ways of writing a gate number — which is itself part of why two sessions
+# collided on 27. The scanner is tolerant rather than strict on purpose: a declaration it fails to
+# recognise makes this gate under-report, which is a worse gate; a declaration it recognises
+# wrongly would make it fail a build for nothing, which is a broken one. The block immediately
+# above had to be added to this list when it was written — it did not match, and the gate said
+# «next free: 36» while sitting under a heading that reads 36-38. That is the failure this gate is
+# about, caught by the gate itself before it shipped.
+DECL = [
+    re.compile(r"^\s{0,4}(\d{1,3})\s+·"),          # docstring:  «  NN · TITLE»
+    re.compile(r"^#\s{0,4}(\d{1,3})\s+·"),         # comment:    «#  NN · TITLE»
+    re.compile(r"^#\s*-+\s*(\d{1,3})\.\s"),       # section:    «# --- NN. title ---»
+]
+FICHEIROS_DE_PORTAO = sorted((ROOT / "build").glob("gates*.py"))
+reclamado = {}
+for f in FICHEIROS_DE_PORTAO:
+    rel = f.relative_to(ROOT).as_posix()
+    for linha in f.read_text(encoding="utf-8").split("\n"):
+        for padrao in DECL:
+            m = padrao.match(linha)
+            if not m:
+                continue
+            n = int(m.group(1))
+            if not 1 <= n <= 200:       # a year, a hex value, a width — not a gate number
+                continue
+            reclamado.setdefault(n, set()).add(rel)
+
+for n in sorted(reclamado):
+    if len(reclamado[n]) > 1:
+        erros.append(f'gates: number {n} is claimed by {" and ".join(sorted(reclamado[n]))}. '
+                     f'A gate number is an address; two gates at one address means one of them '
+                     f'cannot be cited, and the next session will take {n} again')
+proximo_portao = (max(reclamado) + 1) if reclamado else 1
+
+#  37 · A CLASS A COMPONENT PUTS ON THE DOCUMENT HAS A RULE IN THE STYLESHEET. `<pt-chat>` sets
+#       `pt-chat-aberto` on <html>, and assets/site.css turns it into a column. A merge brought a
+#       wholesale rewrite of that stylesheet, git auto-merged it with NO conflict, and the four
+#       rules went with it. Nothing failed: the component still loaded, still reached «pronto»,
+#       still had a shadow root full of text — and the panel simply lay across the article again.
+#       A coupling that crosses a file boundary and is checked by nothing is a coupling that the
+#       next wholesale rewrite deletes in silence.
+FORA_DA_SOMBRA = re.compile(
+    r"document\.(?:documentElement|body)\.classList\.(?:add|toggle)\(\s*['\"]([\w-]+)['\"]")
+FOLHA = ROOT / "assets" / "site.css"
+css = FOLHA.read_text(encoding="utf-8") if FOLHA.exists() else ""
+acoplamentos = 0
+for f in sorted((ROOT / "assets" / "components").rglob("*.js")):
+    rel = f.relative_to(ROOT).as_posix()
+    for classe in sorted(set(FORA_DA_SOMBRA.findall(f.read_text(encoding="utf-8")))):
+        acoplamentos += 1
+        if not re.search(r"[.\[]" + re.escape(classe) + r"\b", css):
+            erros.append(
+                f'{rel}: puts «{classe}» on the document and assets/site.css has no rule for it. '
+                f'A component cannot style outside its own shadow root, so this class does '
+                f'nothing — either the rule was lost in a merge, or it was never written')
+
+#  38 · THE RELEASE HISTORY IS A SET, AND THE VERSION IS ITS NEWEST MEMBER. Two sessions took
+#       v0.13.0 within the hour. The site gate checks the table HAS a row for version.txt; it does
+#       not check there is only one, nor that the number is ahead of every other. It also does not
+#       notice a note file that does not exist, because build/versoes.py skips those silently —
+#       which turns a mistyped path into a release that quietly has no note.
+IDX = ROOT / "admin" / "versions.json"
+versao_actual = (ROOT / "admin" / "build" / "version.txt").read_text(encoding="utf-8").strip()
+n_notas = 0
+if IDX.exists():
+    idx = json.loads(IDX.read_text(encoding="utf-8"))
+    entradas = idx.get("versoes", [])
+    n_notas = len(entradas)
+    vistos = {}
+    for v in entradas:
+        vistos.setdefault(v["versao"], 0)
+        vistos[v["versao"]] += 1
+        if not (ROOT / v["ficheiro"]).exists():
+            erros.append(f'admin/versions.json: {v["versao"]} names {v["ficheiro"]}, which does '
+                         f'not exist. build/versoes.py skips a missing note without a word, so '
+                         f'this release would ship with an empty row')
+    for v, n in sorted(vistos.items()):
+        if n > 1:
+            erros.append(f'admin/versions.json: {v} appears {n} times. Two sessions each wrote a '
+                         f'note for it, and a merge kept both — one of the two releases is now '
+                         f'unaddressable')
+    if idx.get("contagem") != n_notas:
+        erros.append(f'admin/versions.json: contagem says {idx.get("contagem")} and there are '
+                     f'{n_notas} notes. Run build/versoes.py, which counts it')
+
+    def chave(v):
+        return tuple(int(x) for x in v.lstrip("v").split("."))
+
+    numeros = [v["versao"] for v in entradas]
+    if versao_actual in numeros and numeros:
+        mais_alto = max(numeros, key=chave)
+        if chave(versao_actual) < chave(mais_alto):
+            erros.append(f'admin/build/version.txt says {versao_actual} and the history already '
+                         f'holds {mais_alto}. A release number goes forward; another session took '
+                         f'this one first, so take the next free one')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-35: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -691,7 +805,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-35: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "
@@ -701,4 +815,7 @@ print(f"gates 16-26, 34-35: OK — {len(metas)} articles in dated folders "
       f"{n_codigo} code files in English "
       f"({len(pendentes_do_editor)} exempt as deny-listed: "
       f"{', '.join(pendentes_do_editor) or 'none'}), "
-      f"{len(registados)} named agents with a written mandate")
+      f"{len(registados)} named agents with a written mandate, "
+      f"{len(reclamado)} gate numbers each claimed once (next free: {proximo_portao}), "
+      f"{acoplamentos} document-level class(es) set by a component, each with a rule, "
+      f"{n_notas} releases each addressable once, at {versao_actual}")

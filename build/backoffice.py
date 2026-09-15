@@ -303,6 +303,10 @@ GUIA = [
     ("before-you-change.md", "Before you change anything",
      "The checklist: know who you are, read in order, find out who else is working here, check the "
      "tree is green before you touch it, build with build/tudo.py, record what you did."),
+    ("concurrent-sessions.md", "More than one session at a time",
+     "Three sessions work on this repository at once. What has actually collided between them, "
+     "which gates now catch each one, and the order that avoids most of it. Includes the merge "
+     "that succeeded and still deleted a release's work."),
 ]
 
 
