@@ -1,0 +1,21 @@
+{
+  "quando": "2026-09-15T11:45:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "dados/ is Portuguese leaking into the backend and the API, which should be English in preparation for more language editions.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": ["admin/", "api/", "build/", "dados/", "docs/", "redacao/", "backoffice/",
+                       "artigos/", "entidades/", "index.html", "llms.txt", "sitemap.xml", "index.md"],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.22.0",
+  "o_que_fez": [
+    "dados/en-migration.json: the map, published as data. 467 keys, 8 folder renames, and what it does NOT touch with a reason for each — reader URLs, ontology verbs, entity types, and every value in every file.",
+    "build/migrate_to_english.py: applies the map, dry-run by default, and refuses --apply while a blocker stands rather than doing four-fifths of a rename.",
+    "Ran the migration against a scratch clone four times. Six classes of defect, five fixed and recorded: child-before-parent folder ordering, three path-string forms, a map built from one folder when the data lives in five, 120 half-translated keys now written by hand, and redacao/ being a reader URL rather than a backend folder.",
+    "The sixth is unsolved and recorded: 126 Portuguese Python identifiers in build/ that a string-level rename cannot see. junta(agente=...) builds a dict whose keys the map renames, so code and data drift apart.",
+    "Wrote to the editor's inbox: the migration is blocked by build/gates.py and build/entregas.py, which hardcode the folder names and 115 keys and are deny-listed.",
+    "docs/guidance/language.md now links the map and says how large 'do it alone' turned out to be."
+  ],
+  "nota": "A CONSTRUCTION run, and one that renamed nothing. The work is the map, the script, the proof and the honest stop. CLAUDE.md: a run that is blocked writes to the editor and stops; it does not widen its own permissions to get past the block, and the deny list is worth something only because of that."
+}

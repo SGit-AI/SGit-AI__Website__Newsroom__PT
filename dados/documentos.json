@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 98,
+  "contagem": 99,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -185,9 +185,17 @@
       "caminho": "admin/versions/v0.21.0.md",
       "titulo": "v0.21.0",
       "categoria": "Repository root",
-      "bytes": 5807,
-      "linhas": 80,
-      "palavras": 966
+      "bytes": 6526,
+      "linhas": 90,
+      "palavras": 1078
+    },
+    {
+      "caminho": "admin/versions/v0.22.0.md",
+      "titulo": "v0.22.0",
+      "categoria": "Repository root",
+      "bytes": 3997,
+      "linhas": 59,
+      "palavras": 618
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -609,9 +617,9 @@
       "caminho": "docs/guidance/language.md",
       "titulo": "The language rule",
       "categoria": "Guidance — read first",
-      "bytes": 4020,
-      "linhas": 68,
-      "palavras": 649
+      "bytes": 5067,
+      "linhas": 81,
+      "palavras": 812
     },
     {
       "caminho": "docs/guidance/principles.md",

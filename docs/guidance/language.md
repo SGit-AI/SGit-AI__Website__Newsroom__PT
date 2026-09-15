@@ -54,6 +54,19 @@ keys are Portuguese, and `/api/` says so on the page.
 If you are the agent who does that migration: do it alone, in one release, with a key map published
 as data, and a gate that fails on any Portuguese key outside the map.
 
+**The map now exists, and so does the script.** [`dados/en-migration.json`](../../dados/en-migration.json)
+maps 467 keys and 8 folders and states what it does not touch and why;
+`build/migrate_to_english.py` applies it, and refuses to while a blocker stands. Both came out of
+running the migration against a scratch clone four times, which turned up **six classes of defect
+that a reading of the diff would not have** — folder renames applied child-before-parent, a pattern
+that matched `"dados"` but not `"dados/historias.json"`, a key map built from one folder when the
+data lives in five, 120 keys that came out half-translated, `redacao/` being a reader URL rather
+than a backend folder, and Portuguese Python identifiers that a string-level rename cannot see.
+
+**It is blocked, and the blocker is a permissions decision.** `build/gates.py` and
+`build/entregas.py` hardcode the backend folder names and 115 of the keys, and both are deny-listed:
+an agent that can edit the gate that stops it has no gate. The note is in the editor's inbox.
+
 **2. Evidence keeps the shape it arrived in.** A frozen `.snapshot` is another organisation's
 bytes and is never touched. A transfer manifest from a sibling publication
 (`fontes/transferidas/**`) keeps **its own** field names, in its own language, because rewriting a

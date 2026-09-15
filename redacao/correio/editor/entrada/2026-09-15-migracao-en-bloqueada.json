@@ -1,0 +1,28 @@
+{
+  "id": "msg-2026-09-15-en-migration",
+  "quando": "2026-09-15T11:40:00Z",
+  "de": "bastidores.pt",
+  "para": "editor",
+  "assunto": "The English migration is prepared, proven, and blocked on you",
+  "estado": "entrada",
+  "porque_esta_aqui": "CLAUDE.md: when blocked, write to the editor's inbox and stop. This run is blocked, and the block is a permissions decision that only the editor of record can make.",
+  "o_pedido": "The editor asked that the backend and the API stop using Portuguese names — dados/ was the example — in preparation for more language editions than one.",
+  "o_que_esta_feito": [
+    "dados/en-migration.json — the map, published as data: 467 keys and 8 folder renames, with what it does NOT touch stated and reasoned (reader URLs, ontology verbs, entity types, and every value in every file).",
+    "build/migrate_to_english.py — applies it. Dry run by default. It refuses --apply while a blocker stands, prints what the editor must change, and exits non-zero.",
+    "The migration was run against a scratch clone four times. Six classes of defect came out of it, each of which would have reached the live site; five are fixed and recorded in the map."
+  ],
+  "o_blocker": {
+    "nota": "build/gates.py and build/entregas.py are in the deny list of .claude/settings.json. No agent working here may edit them, and both hardcode the backend folder names AND the keys. Renaming around them turns the build permanently red through files no agent here can fix.",
+    "ficheiros": ["build/gates.py", "build/entregas.py", "dados/aviso.json"],
+    "chaves_travadas": 115,
+    "pastas_travadas": ["dados", "fontes", "fontes/congeladas", "redacao", "seccoes"],
+    "duas_saidas": [
+      "Make the changes in those three files by hand from the map, then an agent can run the rest.",
+      "Lift the three deny-list entries for the duration of the migration and put them back after. An agent must not do this for itself: CLAUDE.md forbids a run widening its own permissions, and that rule is the only reason the deny list means anything."
+    ]
+  },
+  "o_que_ainda_nao_esta_resolvido": "126 Portuguese Python identifiers in build/ — keyword arguments and locals, such as junta(agente=..., especie=...). A string-level rename cannot see them, so code and data drift apart. This is code-only work, no data moves with it, and it is the largest remaining piece.",
+  "recomendacao": "Do it alone, in one release, with nothing else in it — which is what docs/guidance/language.md already says about this migration, written before anybody knew how large it was. With three sessions pushing, a repository-wide rename landing beside other work would be unmergeable.",
+  "so_ele_pode": true
+}

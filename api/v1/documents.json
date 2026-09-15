@@ -185,9 +185,9 @@
       "caminho": "admin/versions/v0.21.0.md",
       "titulo": "v0.21.0",
       "categoria": "Repository root",
-      "bytes": 5807,
-      "linhas": 80,
-      "palavras": 966
+      "bytes": 6526,
+      "linhas": 90,
+      "palavras": 1078
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -609,9 +609,9 @@
       "caminho": "docs/guidance/language.md",
       "titulo": "The language rule",
       "categoria": "Guidance — read first",
-      "bytes": 4020,
-      "linhas": 68,
-      "palavras": 649
+      "bytes": 5067,
+      "linhas": 81,
+      "palavras": 812
     },
     {
       "caminho": "docs/guidance/principles.md",
