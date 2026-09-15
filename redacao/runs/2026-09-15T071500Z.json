@@ -1,0 +1,36 @@
+{
+  "quando": "2026-09-15T07:15:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "The chat's API paths were 404ing on every page but the front one; plus gate 34 over assets/ and the gate messages in English.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "backoffice/",
+    "build/",
+    "dados/",
+    "entidades/",
+    "ficheiros/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.13.0",
+  "o_que_fez": [
+    "Reported by the editor with a screenshot: every chat tool answered 404 from any page below the root. raiz() counted pathname segments (short by one for a directory URL) and joined the result to an API prefix beginning with a slash, collapsing to /artigos//api/v1/. It now derives the site root from the script's own URL, the way SgComponent derives its markup path.",
+    "An id the model passed with slashes was silently stripped into a path nobody wrote, then reported as a missing article. It is now refused with a message naming what an id is, which tool hands them out, and an example; each {id} tool carries its own example in the schema.",
+    "Browser gate: it now really calls every listing tool from the deepest page and from the root, and reads one article by an id the listing gave. Injection with the exact shipped raiz() turns it red on the article page and green on the front one — which is why nothing caught this.",
+    "Gate 34 extended from assets/components/ to assets/, which had left four scripts out of scope. ponte.js, observador.js, grafo.js and the rest of conversa.js are in English; assets/vendor/ is excluded because vendored code is not ours to rewrite.",
+    "58 gate failure messages in build/gates_artigos.py translated to English, with values quoted out of the files left exactly as the files have them. Four were exercised by injection to prove they render.",
+    "build/versoes.py now counts admin/versions.json's contagem instead of trusting it; the merge had left it at 15 against 16 entries.",
+    "Merged origin/dev at v0.12.0, resolving seven generated-file conflicts by rebuilding rather than by hand."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. Recorded and not fixed: the article state `superseded` is an English id in a Portuguese vocabulary, and belongs to the key-migration release that docs/guidance/language.md says must happen alone."
+}

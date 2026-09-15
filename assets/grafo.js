@@ -1,16 +1,17 @@
-/* pt.newsroom.sgit.ai — o visualizador do grafo.
+/* pt.newsroom.sgit.ai — the graph viewer.
  *
- * Cytoscape está alojado neste repositório (assets/vendor/), nunca obtido de uma CDN: uma página
- * que precisa de um terceiro para renderizar é uma página que um terceiro pode deixar de
- * renderizar, e este site publica-se a si próprio.
+ * Cytoscape is vendored into this repository (assets/vendor/), never fetched from a CDN: a page
+ * that needs a third party to render is a page a third party can stop rendering, and this site
+ * publishes itself.
  *
- * O que este visualizador faz de diferente do de onde veio: a leitura de um caminho é PORTUGUESA
- * e não tem um seletor de língua. A quinta regra publicada do grafo diz que, se um caminho não se
- * lê como uma frase na língua do leitor, as arestas estão erradas — e o leitor deste site é
- * português. Um seletor faria da língua uma opção, e ela é o teste.
+ * What this viewer does differently from the one it came from: reading a path aloud is PORTUGUESE
+ * and there is no language selector. The graph's fifth published rule says that if a path does not
+ * read as a sentence in the reader's language then the edges are wrong — and this site's reader
+ * reads Portuguese. A selector would make the language an option, and the language is the test.
  *
- * window.__grafo fica exposto para quem quiser interrogar o grafo a partir da consola, ou para um
- * agente que chegue à página: nós, arestas, a ontologia e a função que lê um caminho em voz alta.
+ * window.__grafo is exposed for anybody wanting to interrogate the graph from the console, or for
+ * an agent that reaches the page: nodes, edges, the ontology, and the function that reads a path
+ * aloud.
  */
 (function () {
   'use strict';
@@ -69,9 +70,9 @@
                       'para ler o caminho entre eles em voz alta.</p>';
     alvo.parentNode.insertBefore(saida, alvo.nextSibling);
 
-    /* Ler um caminho em voz alta, em português. É o teste de aceitação da ontologia: se isto não
-       produz uma frase, as arestas estão erradas — e é por isso que a frase é construída a partir
-       do campo `leitura` de cada verbo, e não montada aqui com um verbo à escolha. */
+    /* Read a path aloud, in Portuguese. This is the ontology's acceptance test: if it does not
+       produce a sentence then the edges are wrong — which is why the sentence is built from each
+       verb's own `leitura` field, and not assembled here from a verb of our choosing. */
     function lerCaminho(nos) {
       var partes = [];
       for (var i = 0; i < nos.length - 1; i++) {

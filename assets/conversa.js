@@ -47,7 +47,14 @@
   var CHAVE = "pt-newsroom:conversa:openrouter";
   var MODELO = "pt-newsroom:conversa:modelo";
   var MODELO_OMISSAO = "anthropic/claude-sonnet-4.5";
-  var API = "/api/v1/";
+  /* No leading slash: `raiz()` below is an absolute URL ending in "/", and the two are joined.
+   * With a leading slash here the join produced "../../../..//api/v1/…", whose empty segment
+   * resolved to "/artigos//api/v1/…" and answered 404 on every page except the front one. */
+  var API = "api/v1/";
+
+  /* THIS FILE'S OWN URL, taken at load time. `document.currentScript` is set while a classic
+   * script is executing, and this file is loaded with `defer`, so it is set here. */
+  var MEU = (global.document.currentScript && global.document.currentScript.src) || "";
 
   /* The tools. Each is a GET to a `/api/v1/` path, and the list is closed: a name not in here is
    * not fetched, and an `{id}` is sanitised before it enters the path. Every one is READ, for the
@@ -60,21 +67,27 @@
       descricao: "O registo das fontes congeladas: endereço, bytes, SHA-256 e hora de obtenção de " +
                  "cada uma. É aqui que uma afirmação acaba por assentar." },
     { nome: "ler_fonte", caminho: "sources/{id}.json", id: true,
+      lista: "listar_fontes", exemplo: "dados-gov",
       descricao: "Uma fonte congelada em particular, pelo seu id." },
     { nome: "listar_empresas", caminho: "companies.json",
       descricao: "As organizações que o grafo conhece, derivadas das fontes." },
     { nome: "ler_empresa", caminho: "companies/{id}.json", id: true,
+      lista: "listar_empresas", exemplo: "unbabel",
       descricao: "Uma organização, pelo seu id." },
     { nome: "listar_pessoas", caminho: "people.json",
       descricao: "As pessoas que o grafo conhece. Sem contactos: nenhum contacto de pessoa " +
                  "singular existe em ficheiro nenhum deste site." },
     { nome: "ler_pessoa", caminho: "people/{id}.json", id: true,
+      lista: "listar_pessoas", exemplo: "paulo-andrez",
       descricao: "Uma pessoa, pelo seu id." },
     { nome: "listar_artigos", caminho: "articles.json",
       descricao: "Cada artigo, o seu estado e onde está a sua pasta. Publicado só quando o editor " +
                  "de registo escreve essa linha." },
     { nome: "ler_artigo", caminho: "articles/{id}.json", id: true,
-      descricao: "Um artigo pelo seu slug, com as suas afirmações e a proveniência." },
+      lista: "listar_artigos", exemplo: "dois-nomes-para-os-mesmos-palcos",
+      descricao: "Um artigo pelo seu slug, com as suas afirmações e a proveniência. O id é o " +
+                 "slug e só o slug: a pasta do artigo é datada (artigos/2026/09/14/<slug>/) mas " +
+                 "a data não entra no id." },
     { nome: "o_grafo", caminho: "graph.json",
       descricao: "O grafo inteiro: nós e arestas. Cada aresta é um verbo português com um inverso " +
                  "distinto." },
@@ -113,17 +126,36 @@
   }
 
   function raiz() {
-    /* The page's depth decides the path to `/api/v1/`. An absolute root would work in production
-     * and break in any preview served from a subfolder. */
-    var n = location.pathname.replace(/^\/|\/$/g, "").split("/").length - 1;
-    return location.pathname.endsWith("/") || location.pathname.endsWith(".html")
-      ? new Array(Math.max(0, n) + 1).join("../") : "";
+    /* THE ROOT COMES FROM THIS FILE, NOT FROM COUNTING THE ADDRESS BAR.
+     *
+     * This used to count the segments of `location.pathname` and build that many `../`. It was
+     * wrong in two ways at once, and the two hid each other: the count was short by one for a
+     * directory URL — `/artigos/2026/09/14/slug/` needs five `../` and got four — and the result
+     * was then joined to an `API` that began with a slash, so the whole thing collapsed to
+     * `/artigos//api/v1/`. Every tool call from any page below the root answered 404, and the
+     * panel reported the 404 against a path nobody had written, which is the worst kind.
+     *
+     * Counting was the mistake, not the arithmetic. This file knows where it is: it sits at
+     * `<root>/assets/conversa.js`, so one step up from its own URL is the site root, at any
+     * depth, under any prefix, with no rule to keep in step with the page tree. It is the same
+     * mechanism `SgComponent` uses to find its markup (`static jsUrl = import.meta.url`) — the
+     * house pattern, and the reason a component can be moved without being told where it went.
+     *
+     * The fallback is only for a browser that does not set `document.currentScript`; it assumes
+     * the site is served from the domain root, which is true in production and false in a
+     * preview from a subfolder — hence it being the fallback and not the rule. */
+    if (MEU) return new URL("../", MEU).href;
+    return new URL("/", location.href).href;
   }
 
   function buscar(caminho) {
-    return fetch(raiz() + API + caminho, { credentials: "omit" })
+    var url = raiz() + API + caminho;
+    return fetch(url, { credentials: "omit" })
       .then(function (r) {
-        if (!r.ok) throw new Error(caminho + " respondeu " + r.status);
+        /* The URL and not just the path. A 404 reported against `articles.json` sends you looking
+         * at the file, which is there; a 404 reported against the address actually requested
+         * shows you the bad path in the first line. */
+        if (!r.ok) throw new Error(caminho + " respondeu " + r.status + " (" + url + ")");
         return r.json();
       });
   }
@@ -147,8 +179,8 @@
     return catalogo.map(function (item) {
       var pontos = 0, bateram = [];
       termos.forEach(function (t) {
-        /* Um acerto no nome ou no caminho pesa mais do que um acerto no resumo. O nome é o que a
-         * coisa É; o resumo é o que alguém disse sobre ela. */
+        /* A hit in the name or the path weighs more than a hit in the summary. The name is what
+         * the thing IS; the summary is what somebody said about it. */
         if (palavras(item.nome).indexOf(t) !== -1) { pontos += 3; bateram.push(t + " (no nome)"); }
         else if (palavras(item.caminho).indexOf(t) !== -1) { pontos += 2; bateram.push(t + " (no caminho)"); }
         else if (palavras(item.resumo).indexOf(t) !== -1) { pontos += 1; bateram.push(t + " (no resumo)"); }
@@ -187,15 +219,20 @@
     });
   }
 
-  /* --------------------------------------------------- nível 1: o OpenRouter ---
-   * Chamadas diretas do navegador, com as ferramentas acima. O laço corre no máximo seis voltas:
-   * um modelo que não conclui em seis chamadas de leitura não vai concluir na sétima, e um laço
-   * sem tecto num navegador é uma conta a crescer sem ninguém a ver. */
+  /* ------------------------------------------------------- level 1: OpenRouter ---
+   * Direct calls from the browser, with the tools above. The loop runs at most six rounds: a model
+   * that has not concluded after six reads will not conclude on the seventh, and an uncapped loop
+   * in a browser is a bill growing with nobody watching. */
   function esquemaDeFerramentas() {
     return FERRAMENTAS.map(function (f) {
       var props = {}, obrig = [];
       if (f.id) {
-        props.id = { type: "string", description: "The identifier, exactly as the listing gives it." };
+        props.id = {
+          type: "string",
+          description: "O id, exatamente como vem de `" + (f.lista || "uma listagem") + "`. " +
+            "Letras minúsculas, dígitos, hífen, ponto e sublinhado — sem barras e sem acentos. " +
+            "Por exemplo: " + (f.exemplo || "um-id-assim") + ".",
+        };
         obrig.push("id");
       }
       return {
@@ -213,10 +250,36 @@
     if (!f) return Promise.resolve({ erro: "ferramenta desconhecida: " + nome });
     var caminho = f.caminho;
     if (f.id) {
-      /* Sanitised, not escaped: only the characters an id on this site can have are accepted. An
-       * id with a slash or a `..` would leave `/api/v1/` and fetch something else. */
-      var id = String((args && args.id) || "").toLowerCase().replace(/[^a-z0-9._-]/g, "");
-      if (!id) return Promise.resolve({ erro: "esta ferramenta precisa de um id" });
+      /* REFUSED, NOT REPAIRED. This used to strip the disallowed characters and carry on, and
+       * that is how `2026/09/14/dois-nomes-para-os-mesmos-palcos` became
+       * `20260914dois-nomes-para-os-mesmos-palcos`: a path nobody wrote, fetched, 404'd, and
+       * reported back as though the article were missing. Silently repairing an argument turns a
+       * wrong question into a wrong answer, which on this site is the one failure that does not
+       * look broken. So an id that is not already an id comes back as a refusal that says what an
+       * id is and which tool hands them out — and the model, which is the one that can fix it,
+       * gets told rather than misled.
+       *
+       * The character set is still a whitelist, and that part was never in doubt: a slash or a
+       * `..` would leave `/api/v1/` and fetch something else entirely. */
+      var cru = String((args && args.id) || "").trim();
+      if (!cru) {
+        return Promise.resolve({
+          erro: "esta ferramenta precisa de um id",
+          como_obter: f.lista ? "chama `" + f.lista + "` primeiro" : undefined,
+          exemplo: f.exemplo,
+        });
+      }
+      var id = cru.toLowerCase();
+      if (!/^[a-z0-9._-]+$/.test(id)) {
+        return Promise.resolve({
+          erro: "«" + cru + "» não é um id deste site",
+          porque: "um id é um segmento só: minúsculas, dígitos, hífen, ponto e sublinhado. " +
+                  "Sem barras, sem acentos, e sem a data da pasta.",
+          como_obter: f.lista ? "chama `" + f.lista + "` e usa o id que vem de lá"
+                              : "consulta a listagem correspondente",
+          exemplo: f.exemplo,
+        });
+      }
       caminho = caminho.replace("{id}", id);
     }
     return buscar(caminho).then(function (d) {

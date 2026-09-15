@@ -134,14 +134,14 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
    (paginas.utilitarios), sits in the same slot, and keeps the paper's
    stylesheet and the paper's ground — site.css is loaded first for this strip
    and for nothing else, and console.css is loaded second so every rule below
-   wins on the rest of the page. Gate 36 measures both pages in a browser and
+   wins on the rest of the page. Gate 40 measures both pages in a browser and
    fails the build if the strip's box differs by more than a pixel.
 
    Everything under .bo-strip is the console. The strip is the seam, and it is
    the one place the two systems touch on purpose. */
 /* The paper puts the strip 8px down the page — `.band:first-of-type > .folha`
    in site.css, which the back office has no band to match. So the offset is
-   restated here, and gate 36 is what proves the restatement is still right: it
+   restated here, and gate 40 is what proves the restatement is still right: it
    read `y 8 -> 0` the first time this file was written without it. */
 .bo-strip {
   background: var(--papel, #f7f4ec);
@@ -436,7 +436,7 @@ table.bo tr.needs-you td:first-child { box-shadow: inset 3px 0 0 var(--bo-r1); }
        .chip and start emitting .st, which is the point.
 
    END STATE: every generator emits .st, .card, .bo and real headings, and this
-   block is deleted. Gate 37 counts the GENERATORS still emitting the paper's
+   block is deleted. Gate 39 counts the GENERATORS still emitting the paper's
    class names and holds that count to a ratchet — it may fall and it may not
    rise. Counting the usages instead was tried first and was wrong: it went red
    on a commit that added twelve items to the design-review page, because more

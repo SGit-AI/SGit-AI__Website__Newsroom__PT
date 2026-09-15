@@ -16,11 +16,11 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.14.0" title="O que mudou em v0.14.0, e porquê">v0.14.0</a></div>
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.16.0" title="O que mudou em v0.16.0, e porquê">v0.16.0</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.14.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html" aria-current="page">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.16.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html" aria-current="page">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>The design review</h1></div></div>
@@ -349,7 +349,7 @@ column that still missed the review's own target, and nobody would have known.</
   <div class="queue__meta" style="margin:0 0 6px">
     <span class="st st--4">done</span>
     <span class="path">§5.1</span>
-    <span class="path">held by gate 36 (browser) + the render gate&#x27;s pt-queue check</span>
+    <span class="path">held by gate 40 (browser) + the render gate&#x27;s pt-queue check</span>
   </div>
   <p class="std"><b>«The back office is a report about the newsroom, not a console for operating it»</b></p>
   <p class="sm">The console page now opens with what is waiting on the editor of record, as `pt-queue` — the first thing on the page and the only filled rank on it. The list is derived by `backoffice.fila()` from four sources that each already knew a piece of the answer: the editor&#x27;s own board lane, cards on another agent&#x27;s lane whose `bloqueado_por` is the editor, paper issues the formula assigns to the editor, and mail sitting in their inbox. There is no count attribute anywhere — the rail badge and the queue heading are both `len()` of the same list, so they cannot disagree.</p>
@@ -363,7 +363,7 @@ column that still missed the review's own target, and nobody would have known.</
   </div>
   <p class="std"><b>It wore the newspaper&#x27;s clothes: the console loaded site.css</b></p>
   <p class="sm">`assets/console.css` is adopted from the vault: cool neutrals, a dark rail, system sans, tabular numerals, real buttons, and the publication&#x27;s serif surviving only in `.quote`, where the console shows the newspaper&#x27;s own words. It is loaded second and wins everything below the operator strip.</p>
-  <p class="sm"><b>What blocks it:</b> site.css is still loaded first, for the operator strip and for nothing else. The editor&#x27;s instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper&#x27;s rules and the paper&#x27;s ground, gate 36 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css&#x27;s `.nav` landing on the rail&#x27;s items and rendering the rail centred — is answered by a closed reset in console.css.</p><p class="xs mono">measured: the strip at x=56 y=8 1168×33 on the paper and in the console, measured in Chromium</p><p class="xs mono">assets/console.css · build/backoffice.py · admin/build/render.mjs</p>
+  <p class="sm"><b>What blocks it:</b> site.css is still loaded first, for the operator strip and for nothing else. The editor&#x27;s instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper&#x27;s rules and the paper&#x27;s ground, gate 40 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css&#x27;s `.nav` landing on the rail&#x27;s items and rendering the rail centred — is answered by a closed reset in console.css.</p><p class="xs mono">measured: the strip at x=56 y=8 1168×33 on the paper and in the console, measured in Chromium</p><p class="xs mono">assets/console.css · build/backoffice.py · admin/build/render.mjs</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
   <div class="queue__meta" style="margin:0 0 6px">
@@ -483,7 +483,7 @@ yourself."</i> None of them is picked here. Each is a card on
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/desenho.html</code> · version <span class="ver">v0.14.0</span>.
+<code>backoffice/desenho.html</code> · version <span class="ver">v0.16.0</span>.
 </div>
 
 </main>

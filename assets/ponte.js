@@ -1,46 +1,47 @@
-/* pt.newsroom.sgit.ai — a ponte para uma fila de acrescento de um cofre.
+/* pt.newsroom.sgit.ai — the bridge to a vault's append lane.
  *
- * O QUE ISTO É
+ * WHAT THIS IS
  *
- * Este site é estático: não tem servidor, e por isso não tem como escrever no repositório onde a
- * redação vive. Uma fila de acrescento (append lane) resolve isso sem lhe dar um servidor. É um
- * canal só de escrita para dentro de um cofre, e a sua propriedade útil está na divisão em quatro
- * capacidades separadas:
+ * This site is static: it has no server, so it has no way to write into the repository the
+ * newsroom lives in. An append lane solves that without giving it one. It is a write-only channel
+ * into a vault, and its useful property is the split into four separate capabilities:
  *
- *   append_token   quem o tem ACRESCENTA, e mais nada — não lista, não obtém, não lê
- *   enum_key       o dono lista, obtém e marca como tratado — não escreve
- *   write_key      o dono configura e purga
- *   chave privada  o dono decifra — nunca sai do computador dele
+ *   append_token   whoever holds it APPENDS, and nothing else — cannot list, get or read
+ *   enum_key       the owner lists, gets and marks handled — cannot write
+ *   write_key      the owner configures and purges
+ *   private key    the owner decrypts — it never leaves their machine
  *
- * O servidor guarda só o SHA-256 dos três primeiros, e a resposta a um acrescento é cega: `{ok:true}`
- * e mais nada. Quem envia não consegue saber o que está na fila, quanto lá está, nem se alguém leu.
+ * The server stores only the SHA-256 of the first three, and the answer to an append is blind:
+ * `{ok:true}` and nothing more. A sender cannot learn what is in the lane, how much is there, or
+ * whether anybody read it.
  *
- * É por isso que um código de acrescento é a única forma de credencial que sobrevive a ser
- * publicada — e é por isso que a observabilidade deste site pode enviar eventos sem ter conta.
+ * That is why an append code is the one form of credential that survives being published — and it
+ * is why this site's observability can send events without holding an account.
  *
- * Especificação, lida na fonte e não recordada:
+ * The specification, read at the source rather than recalled:
  *   https://sgit.ai/docs/vault-messaging.md
  *   https://sgit.ai/api/append-lanes.md
  *   https://sgit.ai/docs/pki.md
  *
- * UM ACHADO QUE MUDA O DESENHO, E QUE VEIO DO COFRE DOS JOGOS
+ * A FINDING THAT CHANGES THE DESIGN, AND THAT CAME FROM THE GAMES VAULT
  *
- * O cofre dos jogos de permissões construía eventos e nunca os enviava. A razão não era o código:
- * uma aplicação de cofre corre numa moldura cujo CSP é `connect-src blob: data:`, e um `fetch`
- * para fora é bloqueado em silêncio. A saída seria `permissions.network: true`, que reabre toda a
- * saída de uma moldura que tem conteúdo decifrado — e que a própria documentação não recomenda.
+ * The permission-games vault built events and never sent them. The reason was not the code: a
+ * vault application runs in a frame whose CSP is `connect-src blob: data:`, and a `fetch` to the
+ * outside is blocked silently. The way out would be `permissions.network: true`, which reopens
+ * every outbound path from a frame holding decrypted content — and which the documentation itself
+ * does not recommend.
  *
- * Este site NÃO é uma aplicação de cofre. É um site estático em GitHub Pages. O `fetch` direto para
- * o ponto de acrescento funciona, sem moldura, sem CSP de cofre e sem pedir permissão de rede a
- * ninguém. O que a telemetria dos jogos não conseguiu fazer, isto consegue.
+ * This site is NOT a vault application. It is a static site on GitHub Pages. A direct `fetch` to
+ * the append endpoint works, with no frame, no vault CSP and no network permission to ask anybody
+ * for. What the games' telemetry could not do, this can.
  *
- * O QUE NUNCA ENTRA NUM FICHEIRO
+ * WHAT NEVER ENTERS A FILE
  *
- * O `vault_id` e o `append_token` são dados ao navegador por quem os tem e ficam em
- * `localStorage`. Não estão neste ficheiro, não estão em `dados/pontes.json`, e o
- * `admin/build/validate.js` tem um detetor de cadeias com forma de chave que falha a construção se
- * alguma aparecer. A chave pública PODE ser publicada — uma chave pública publica-se — e é a única
- * das três que um dia ficará em ficheiro.
+ * The `vault_id` and the `append_token` are handed to the browser by whoever holds them and stay
+ * in `localStorage`. They are not in this file, they are not in `dados/pontes.json`, and
+ * `admin/build/validate.js` carries a key-shaped-string detector that fails the build if one ever
+ * appears. The public key MAY be published — a public key is for publishing — and it is the only
+ * one of the three that will one day live in a file.
  */
 (function (global) {
   "use strict";
@@ -59,9 +60,9 @@
     },
   };
 
-  /* Uma chave pública chega como o pacote JSON que `sgit pki export` escreve — é isso que quem
-   * tem o cofre tem em mãos, e pedir-lhe para extrair o PEM à mão seria pedir-lhe para se
-   * enganar. Também se aceita o PEM sozinho, e um SPKI em base64 sem cabeçalho. */
+  /* A public key arrives as the JSON bundle `sgit pki export` writes — that is what the vault's
+   * owner actually has in hand, and asking them to pull the PEM out by hand would be asking them
+   * to make a mistake. A bare PEM is accepted too, and a headerless base64 SPKI. */
   function lerChavePublica(texto) {
     var pem = String(texto || "").trim();
     if (pem.charAt(0) === "{") {
@@ -73,19 +74,19 @@
     if (!corpo) throw new Error("não há chave nenhuma neste texto");
     return crypto.subtle.importKey(
       "spki", b64.dec(corpo).buffer,
-      /* RSA-OAEP 4096 com SHA-256. O 4096 está na documentação do sgit; o SHA-256 é o que o
-       * cofre dos jogos usou e é o que esta redação usa, MAS a página do PKI não nomeia a função
-       * de resumo do OAEP. É o único parâmetro deste ficheiro que não foi confirmado contra o
-       * binário, e uma ida e volta de prova confirma-o numa tentativa. Está dito na página das
-       * pontes em vez de ser assumido em silêncio. */
+      /* RSA-OAEP 4096 with SHA-256. The 4096 is in the sgit documentation; SHA-256 is what the
+       * games vault used and what this newsroom uses, BUT the PKI page does not name OAEP's
+       * digest function. It is the one parameter in this file not confirmed against the binary,
+       * and a single proving round trip would settle it. It is stated on the bridges page rather
+       * than assumed in silence. */
       { name: "RSA-OAEP", hash: "SHA-256" }, false, ["encrypt"]);
   }
 
-  /* O envelope, exatamente como sgit.ai/docs/pki.md o descreve para a v0.15.0: base64 sobre um
-   * JSON pequeno. `v` a versão (2), `w` a chave de conteúdo AES embrulhada com RSA-OAEP para o
-   * destinatário, `i` o IV de 12 bytes, `c` o texto cifrado com a sua etiqueta GCM. Híbrido,
-   * porque é o que o torna usável em cargas de qualquer tamanho: uma chave AES-256-GCM nova por
-   * mensagem, e o RSA só serve para a entregar. */
+  /* The envelope, exactly as sgit.ai/docs/pki.md describes it for v0.15.0: base64 over a small
+   * JSON object. `v` the version (2), `w` the AES content key wrapped with RSA-OAEP for the
+   * recipient, `i` the 12-byte IV, `c` the ciphertext with its GCM tag. Hybrid, because that is
+   * what makes it usable at any payload size: a fresh AES-256-GCM key per message, with RSA doing
+   * nothing but delivering it. */
   function cifrar(chavePublica, texto) {
     var iv = crypto.getRandomValues(new Uint8Array(12));
     var conteudo;
@@ -109,14 +110,15 @@
 
   function Ponte(opcoes) {
     opcoes = opcoes || {};
-    this.id = opcoes.id;                       // qual ponte, para a chave de localStorage
+    this.id = opcoes.id;                       // which bridge — it names the localStorage key
     this.api = opcoes.api || API;
     this.chave = "pt-newsroom:ponte:" + this.id;
   }
 
-  /* A configuração vive no navegador de quem a deu, e em mais lado nenhum. `localStorage` pode
-   * atirar — janela privada, dados de sítio bloqueados — e por isso cada acesso vai dentro de um
-   * try. Uma ponte sem configuração não é um erro: é uma ponte fechada, e a página diz isso. */
+  /* The configuration lives in the browser of whoever supplied it, and nowhere else.
+   * `localStorage` can throw — a private window, blocked site data — so every access goes inside
+   * a try. A bridge with no configuration is not an error: it is a closed bridge, and the page
+   * says so. */
   Ponte.prototype.ler = function () {
     try {
       var cru = global.localStorage.getItem(this.chave);
@@ -140,20 +142,20 @@
     return !!(c && c.vault_id && c.append_token && c.chave_publica);
   };
 
-  /* Envia. Devolve uma promessa que resolve com `{ok:true}` quando o servidor aceitou, e que
-   * rejeita com uma razão legível quando não. O chamador decide se mostra o erro: a
-   * observabilidade falha em silêncio, a caixa de mensagens do editor mostra-o, porque uma
-   * mensagem que o editor pensa ter enviado e não enviou é pior do que um erro à vista. */
+  /* Sends. Returns a promise resolving with `{ok:true}` when the server accepted, and rejecting
+   * with a readable reason when it did not. The caller decides whether to show the error:
+   * observability fails silently, the editor's message box shows it — because a message the
+   * editor believes they sent and did not is worse than an error in plain view. */
   Ponte.prototype.enviar = function (objeto) {
     var cfg = this.ler(), api = this.api;
     if (!cfg || !cfg.vault_id || !cfg.append_token || !cfg.chave_publica) {
       return Promise.reject(new Error("ponte fechada: falta o cofre, o código de acrescento ou a chave pública"));
     }
     if (!/^[0-9a-f]{16,128}$/.test(cfg.append_token)) {
-      /* O padrão é `^[0-9a-f]{16,128}$` e um código com prefixo devolve 400. A impressão digital
-       * que o CLI mostra tem `sha256:` à frente; o código de acrescento não. É a confusão que a
-       * própria documentação marca como fonte viva de enganos, e por isso é apanhada aqui, antes
-       * do pedido, com uma mensagem que diz qual é o engano. */
+      /* The pattern is `^[0-9a-f]{16,128}$` and a prefixed code returns 400. The fingerprint the
+       * CLI prints carries `sha256:` in front; the append code does not. It is the confusion the
+       * documentation itself flags as a live source of mistakes, so it is caught here, before the
+       * request, with a message that names the mistake. */
       return Promise.reject(new Error(
         "o código de acrescento tem de ser 16 a 128 dígitos hexadecimais, sem prefixo — " +
         "uma impressão digital «sha256:…» não é um código de acrescento"));
@@ -176,8 +178,8 @@
         if (r.status === 403) throw new Error("o cofre não reconhece este código de acrescento — " +
           "o seu SHA-256 tem de estar registado como âncora no cofre que recebe");
         if (!r.ok) throw new Error("o servidor respondeu " + r.status);
-        /* A resposta é cega de propósito: `{ok:true}` e mais nada. Sem identificador de ficheiro,
-         * sem contagem, sem metadados. Quem envia não fica a saber o estado da fila. */
+        /* The answer is blind on purpose: `{ok:true}` and nothing else. No file identifier, no
+         * count, no metadata. A sender does not get to learn the state of the lane. */
         return { ok: true };
       });
   };

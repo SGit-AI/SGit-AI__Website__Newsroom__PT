@@ -324,7 +324,7 @@
       "titulo": "«The back office is a report about the newsroom, not a console for operating it»",
       "estado": "feito",
       "o_que_se_fez": "The console page now opens with what is waiting on the editor of record, as `pt-queue` — the first thing on the page and the only filled rank on it. The list is derived by `backoffice.fila()` from four sources that each already knew a piece of the answer: the editor's own board lane, cards on another agent's lane whose `bloqueado_por` is the editor, paper issues the formula assigns to the editor, and mail sitting in their inbox. There is no count attribute anywhere — the rail badge and the queue heading are both `len()` of the same list, so they cannot disagree.",
-      "portao": "gate 36 (browser) + the render gate's pt-queue check",
+      "portao": "gate 40 (browser) + the render gate's pt-queue check",
       "medida": "13 items derived, against the 1 the old console showed — a single cell in row 6 of the first table, in the base chip style",
       "onde": [
         "build/backoffice.py",
@@ -337,7 +337,7 @@
       "titulo": "It wore the newspaper's clothes: the console loaded site.css",
       "estado": "parcial",
       "o_que_se_fez": "`assets/console.css` is adopted from the vault: cool neutrals, a dark rail, system sans, tabular numerals, real buttons, and the publication's serif surviving only in `.quote`, where the console shows the newspaper's own words. It is loaded second and wins everything below the operator strip.",
-      "bloqueio": "site.css is still loaded first, for the operator strip and for nothing else. The editor's instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper's rules and the paper's ground, gate 36 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css's `.nav` landing on the rail's items and rendering the rail centred — is answered by a closed reset in console.css.",
+      "bloqueio": "site.css is still loaded first, for the operator strip and for nothing else. The editor's instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper's rules and the paper's ground, gate 40 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css's `.nav` landing on the rail's items and rendering the rail centred — is answered by a closed reset in console.css.",
       "medida": "the strip at x=56 y=8 1168×33 on the paper and in the console, measured in Chromium",
       "onde": [
         "assets/console.css",

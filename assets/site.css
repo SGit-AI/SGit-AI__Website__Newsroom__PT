@@ -527,6 +527,22 @@ td.num, th.num   { text-align: right; font-variant-numeric: tabular-nums; }
                  border-top: 1px solid var(--filete-3); padding-top: var(--s3); }
 .article-date { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
 
+/* --- the chat column -------------------------------------------------------
+   `<pt-chat>` is a COLUMN and not an overlay: an overlay would cover the page you are asking
+   about. The panel is fixed to the right edge and the document gives up the width, so the page
+   reflows beside it instead of disappearing behind it. The variable is set by the component.
+
+   This block was lost once already, in the merge that brought the design review's stylesheet in:
+   the file was rewritten wholesale, git auto-merged without a conflict, and the rules vanished
+   silently. Nothing failed — the panel still opened, and simply lay across the article again. If
+   you are rewriting this stylesheet, these four lines have to come with you. */
+html.pt-chat-aberto body { padding-right: var(--pt-chat-w, 420px); }
+html.pt-chat-aberto { scroll-padding-right: var(--pt-chat-w, 420px); }
+@media (max-width: 900px) {
+  /* Below this the panel is the whole screen, so there is nothing to reflow beside. */
+  html.pt-chat-aberto body { padding-right: 0; }
+}
+
 /* --- entidades -------------------------------------------------------------
    A 200-name index in one column is a page you thumb through for half a
    minute. In columns it reads at a glance, and `columns` does it without

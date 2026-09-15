@@ -45,8 +45,18 @@ def md_para_html(md):
 
 
 def main():
-    idx = json.loads((ROOT / "admin" / "versions.json").read_text(encoding="utf-8"))
+    ficheiro = ROOT / "admin" / "versions.json"
+    idx = json.loads(ficheiro.read_text(encoding="utf-8"))
     e = P.e
+
+    # COUNTED, NOT WRITTEN. `contagem` was a hand-maintained number, and it drifted the first time
+    # two sessions each added a release note: sixteen entries, a field saying fifteen, and nothing
+    # failing. A count that can disagree with the thing it counts is worse than no count, because
+    # it reads as a check. It is recomputed here, and the file is rewritten when it disagrees, so
+    # the number is a consequence of the list rather than a claim about it.
+    if idx.get("contagem") != len(idx["versoes"]):
+        idx["contagem"] = len(idx["versoes"])
+        ficheiro.write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     linhas = []
     for v in idx["versoes"]:

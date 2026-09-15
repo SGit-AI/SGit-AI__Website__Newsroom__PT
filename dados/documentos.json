@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 85,
+  "contagem": 88,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -112,6 +112,22 @@
     {
       "caminho": "admin/versions/v0.14.0.md",
       "titulo": "v0.14.0",
+      "categoria": "Repository root",
+      "bytes": 4309,
+      "linhas": 56,
+      "palavras": 719
+    },
+    {
+      "caminho": "admin/versions/v0.15.0.md",
+      "titulo": "v0.15.0",
+      "categoria": "Repository root",
+      "bytes": 4106,
+      "linhas": 54,
+      "palavras": 705
+    },
+    {
+      "caminho": "admin/versions/v0.16.0.md",
+      "titulo": "v0.16.0",
       "categoria": "Repository root",
       "bytes": 10122,
       "linhas": 119,
@@ -510,12 +526,20 @@
       "palavras": 713
     },
     {
+      "caminho": "docs/guidance/concurrent-sessions.md",
+      "titulo": "More than one session at a time",
+      "categoria": "Guidance — read first",
+      "bytes": 6676,
+      "linhas": 101,
+      "palavras": 1098
+    },
+    {
       "caminho": "docs/guidance/index.md",
       "titulo": "Working on pt.newsroom.sgit.ai: start here",
       "categoria": "Guidance — read first",
-      "bytes": 4351,
-      "linhas": 72,
-      "palavras": 678
+      "bytes": 4780,
+      "linhas": 77,
+      "palavras": 738
     },
     {
       "caminho": "docs/guidance/language.md",

@@ -1,0 +1,35 @@
+{
+  "quando": "2026-09-15T08:30:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "Guidance and gates for three Claude Code sessions working on this repository at once: avoid what can be avoided, detect what cannot.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "backoffice/",
+    "build/",
+    "dados/",
+    "docs/",
+    "entidades/",
+    "redacao/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.15.0",
+  "o_que_fez": [
+    "Gate 36: no two gates share a number. Two sessions both numbered their new gates from 27 and the build was green on each branch and after the merge, because nothing read a gate number. The scan is tolerant across three declaration styles, and caught its own author: the block adding 36-38 did not match, so it reported 'next free: 36' under a heading reading 36-38.",
+    "Gate 37: a class a component puts on <html> or <body> has a rule in assets/site.css. This is the gate for the merge that succeeded and still deleted work.",
+    "Gate 38: release numbers unique, note files present, contagem counted, and version.txt ahead of every entry. Two sessions took v0.13.0 within the hour.",
+    "build/before_push.py: fetches origin/dev and reports the released version, the highest gate number each side, and the source files the other session rewrote wholesale. Read-only.",
+    "The wholesale-rewrite list was written wrong first — 'files both sides changed' — and checked against the merge that actually lost work it did not contain assets/site.css at all, because the lost rules predated the merge base. Corrected to churn, with a thirty-line floor, and verified in a worktree at the pre-merge commit: it names site.css and nothing else.",
+    "docs/guidance/concurrent-sessions.md, in the reading order and in the back office. build/tudo.py's closing advice now points at before_push.py.",
+    "Five deliberate injections, all red, all restored: a second file numbered from 34, the chat column rules deleted again, a duplicated release entry, a missing note file, and a version number already taken."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. Nothing here prevents a collision — two sessions choosing the same number at the same moment both choose it correctly. What these gates do is make a collision loud at the earliest moment it is knowable."
+}

@@ -72,7 +72,7 @@ PASSOS = [
      "articles, sections, back office, entities, comments, runs, language, agents (16-26, 34-35)",
      True),
     (["python3", "build/gates_desenho.py"],
-     "the design gates (27-33, 37): contrast, measure, leading, the mono face, focus, empty "
+     "the design gates (27-33, 39): contrast, measure, leading, the mono face, focus, empty "
      "columns, the accents of the state vocabulary, and the console's legacy layer held to a "
      "ratchet — the numbers the design review measured", True),
     (["node", "admin/build/validate.js"],
@@ -203,8 +203,10 @@ def main(argv):
     if not com_render:
         print("Without `--render`, no component was opened in a browser. If this change touched "
               "assets/components/, run `python3 build/tudo.py --render`.")
-    print("Left, and the editor's: bump admin/build/version.txt, write the row in "
-          "admin/versions.html, and only then push.")
+    print("Left, and the editor's: run \033[1mpython3 build/before_push.py\033[0m to see what "
+          "another session\n  released while you worked, take the version number it says is "
+          "free, write the note in\n  admin/versions/, bump admin/build/version.txt, re-run this "
+          "command, and only then push.")
     prontidao_para_lancar()
     return 0
 

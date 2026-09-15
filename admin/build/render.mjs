@@ -13,6 +13,7 @@
  *
  *   · the browser console writes an error, or the page throws;
  *   · any request fails or answers 400 or above;
+ *   · a chat tool does not resolve when really called, from the deepest page and from the root;
  *   · a custom element is never defined, opens no shadow root, or comes up empty;
  *   · an element inside it carries `hidden` and is on screen anyway;
  *   · the host ends at `data-estado="erro"`, or never reaches `data-estado="pronto"` — the gate
@@ -75,8 +76,30 @@ const PAGINAS = [
     /* The console carries `pt-queue`, and it is the one component whose whole job is to count:
        the number in its heading and the number in the rail both come from the list it was given,
        so a page where it silently failed would show a queue of nothing and a rail badge of three.
-       Gate 36 below measures both. */
+       Gate 40 below measures the chrome around it. */
     ['/backoffice/index.html', ['pt-queue']],
+]
+
+/* EVERY TOOL, REALLY FETCHED, FROM THE DEEPEST PAGE ON THE SITE.
+ *
+ * The chat's tools are paths, and a path is a claim about where the reader is standing. The engine
+ * used to build that path by counting the segments of `location.pathname`, and it was wrong on
+ * every page except the front one — so every tool call from an article answered 404 and the panel
+ * blamed the article. Nothing caught it: the component loaded, reached «pronto», threw nothing and
+ * overflowed nothing. A tool is only exercised when somebody asks a question, and no gate asks
+ * questions.
+ *
+ * This one does. It calls every listing tool for real, from the deepest page this site has and
+ * from the shallowest, and fails on any that does not come back with JSON. The two paths matter
+ * for different reasons: the article page is five directories down, which is where the arithmetic
+ * broke; the front page is where the old code accidentally worked, so a fix that only works deep
+ * would pass a deep-only check.
+ *
+ * It also reads one id tool with an id taken from the listing, because a `{id}` path is a second
+ * kind of claim — that the id the listing hands out is the id the reader tool accepts. */
+const FERRAMENTAS_EM = [
+    '/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+    '/',
 ]
 
 /* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
@@ -190,17 +213,53 @@ for (const [caminho, comps] of PAGINAS) {
     await ctx.close()
 }
 
-/* --- 36. the operator strip does not move when you cross over -------------------
+for (const caminho of FERRAMENTAS_EM) {
+    const ctx = await navegador.newContext({ viewport: { width: 1280, height: 900 } })
+    const pag = await ctx.newPage()
+    await pag.goto(BASE + caminho, { waitUntil: 'networkidle' })
+    await pag.waitForFunction(() => !!window.ptConversa, null, { timeout: 10000 })
+
+    const problemas = await pag.evaluate(async () => {
+        const m = window.ptConversa
+        const maus = []
+        for (const f of m.FERRAMENTAS) {
+            if (f.id) continue
+            const r = await m.correrFerramenta(f.nome, {})
+            if (!r || r.erro) maus.push(`${f.nome} → ${(r && r.erro) || 'sem resposta'}`)
+        }
+        /* One `{id}` tool, with an id the listing itself gave — the round trip, not the path. */
+        const lista = await m.correrFerramenta('listar_artigos', {})
+        const artigos = (lista && (lista.artigos || lista.historias || lista.itens)) || []
+        const id = artigos.length ? (artigos[0].slug || artigos[0].id) : null
+        if (!id) maus.push('listar_artigos não devolveu nenhum artigo com um id')
+        else {
+            const um = await m.correrFerramenta('ler_artigo', { id: id })
+            if (!um || um.erro) maus.push(`ler_artigo(${id}) → ${(um && um.erro) || 'sem resposta'}`)
+        }
+        return maus
+    })
+
+    if (problemas.length) {
+        falhas++
+        console.log(`\n✗ ${caminho}  ferramentas`)
+        for (const e of problemas) console.log(`    ${e}`)
+    } else {
+        console.log(`✓ ${caminho}  ferramentas: todas resolvem a partir daqui`)
+    }
+    await ctx.close()
+}
+
+/* --- 40. the operator strip does not move when you cross over -------------------
    THE ONE THING A MEASUREMENT CAN SETTLE AND A PROMISE CANNOT. The editor's instruction is that
    the top-level menu must not move when you go from the paper to the back office, and this has
    now been broken twice: once by the original chrome, which moved every item at once, and once by
    the first fix for a layout bug, which put a width on `.folha` and narrowed the strip in the back
    office while leaving the paper alone. Both times it was found by looking at a screenshot.
 
-   So it is measured. The paper and the console are opened in turn, the strip's box is read in both,
-   and a difference of more than a pixel in any edge is a failure. This is also what makes the back
-   office's own stylesheet safe to change: console.css can do what it likes below the strip, and
-   this gate holds the seam. */
+   So it is measured. The paper and the console are opened in turn, the strip's box is read in
+   both, and a difference of more than a pixel in any edge is a failure. This is also what makes
+   the back office's own stylesheet safe to change: console.css can do what it likes below the
+   strip, and this gate holds the seam. It read `y 8 -> 0` the first time it ran. */
 {
     const ctx = await navegador.newContext({ viewport: { width: 1280, height: 900 } })
     const pag = await ctx.newPage()
@@ -218,17 +277,19 @@ for (const [caminho, comps] of PAGINAS) {
     const consola = await caixa('/backoffice/')
     if (!jornal || !consola) {
         falhas++
-        console.log(`\n✗ o painel de utilitários não existe numa das duas cromagens ` +
-                    `(jornal=${JSON.stringify(jornal)}, consola=${JSON.stringify(consola)})`)
+        console.log(`\n\u2717 o painel de utilit\u00e1rios n\u00e3o existe numa das duas ` +
+                    `cromagens (jornal=${JSON.stringify(jornal)}, ` +
+                    `consola=${JSON.stringify(consola)})`)
     } else {
         const difs = ['x', 'y', 'w', 'h'].filter(k => Math.abs(jornal[k] - consola[k]) > 1)
         if (difs.length) {
             falhas++
-            console.log(`\n✗ o painel de utilitários mexe-se entre o jornal e os bastidores: ` +
-                        difs.map(k => `${k} ${jornal[k]} → ${consola[k]}`).join(', '))
+            console.log(`\n\u2717 o painel de utilit\u00e1rios mexe-se entre o jornal e os ` +
+                        `bastidores: ` + difs.map(k => `${k} ${jornal[k]} \u2192 ${consola[k]}`)
+                        .join(', '))
         } else {
-            console.log(`✓ o painel de utilitários no mesmo sítio nas duas cromagens  ` +
-                        `x=${jornal.x} y=${jornal.y} ${jornal.w}×${jornal.h}`)
+            console.log(`\u2713 o painel de utilit\u00e1rios no mesmo s\u00edtio nas duas ` +
+                        `cromagens  x=${jornal.x} y=${jornal.y} ${jornal.w}\u00d7${jornal.h}`)
         }
     }
     await ctx.close()
