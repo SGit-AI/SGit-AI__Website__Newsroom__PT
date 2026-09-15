@@ -11,21 +11,21 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/console.css">
 </head>
 <body>
-<div class="folha">
 
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.13.0" title="O que mudou em v0.13.0, e porquê">v0.13.0</a></div>
-
-<div class="datalinha">
-  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+<div class="folha bo-strip">
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.14.0" title="O que mudou em v0.14.0, e porquê">v0.14.0</a></div>
 </div>
 
-<nav class="nav nav--consola"><a href="../backoffice/">console</a><a href="../backoffice/equipa.html">team</a><a href="../backoffice/quadro.html">board</a><a href="../backoffice/correio.html">mail</a><a href="../backoffice/pontes.html">bridges</a><a href="../backoffice/desenho.html">design</a><a href="../backoffice/docs.html">documents</a><a href="../backoffice/agents.html">agents</a><a href="../backoffice/guidance.html" class="aqui">guidance</a><a href="../admin/versions.html">versions</a></nav>
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.14.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html" aria-current="page">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<main class="main">
 
-<div class="consola-corpo">
+<div class="page-head"><div><h1>Guidance</h1><p>What to read before you change anything here — human or agent.</p></div></div>
 
-<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<div class="aviso-bloco">
 <p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
 purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
 publication itself is natively Portuguese and nothing here is linked from the masthead. Every
@@ -35,9 +35,6 @@ evidence for a claim about Portugal.</p>
 </div>
 
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Guidance</div></div>
-<h1 class="h-2" style="max-width:30em">What to read before you change anything here — human or
-agent.</h1>
 <p class="std" style="max-width:46em;padding:14px 0 8px"><b>Everything except what a visitor reads
 is in English.</b> One test decides it: would a visitor to pt.newsroom.sgit.ai read this string on
 the site? Yes means European Portuguese under AO90; no means English. That covers code, comments,
@@ -50,7 +47,7 @@ break it on purpose first, because a gate that has never failed is a comment.</p
 
 <div class="g4" style="padding-bottom:30px"><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">01</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/index.md">Start here</a></h3><p class="sm">The one-minute version, the reading order, and what not to build. Most tasks end at the third item on that list.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">02</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/language.md">The language rule</a></h3><p class="sm">One test decides every naming question: would a visitor read this string on the site? The most commonly broken rule here, including by the agent that wrote most of this pipeline.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">03</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/principles.md">The nine principles</a></h3><p class="sm">Each one names the gate that enforces it. The one principle with no gate says so in those words.</p></div><div class="col sp6" style="border-top:2px solid var(--tinta);padding-top:10px"><div class="mono xs">04</div><h3 class="h-3" style="padding:2px 0 4px"><a href="docs.html#docs/guidance/before-you-change.md">Before you change anything</a></h3><p class="sm">The checklist: know who you are, read in order, find out who else is working here, check the tree is green before you touch it, build with build/tudo.py, record what you did.</p></div></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">Who you are</div></div>
+<h2>Who you are</h2>
 <p class="sm" style="max-width:48em;padding-bottom:12px">More than one agent works here and they
 are not interchangeable. Claim an identity, name it in your run record, and the gates hold you to
 its write scope. If no identity fits the work, that is a message to the editor, not a licence to
@@ -59,7 +56,7 @@ invent one.</p>
   <th style="width:120px">Role</th><th>Writes in</th><th style="width:210px">Declares</th>
   <th style="width:150px">Mandate</th></tr></thead><tbody><tr><td class="sm"><b>Pesquisa</b> <span class="mono xs">@Pesquisa</span></td><td class="sm">departamento</td><td class="mono xs">fontes/congeladas/&lt;data&gt;/, dados/registo.json, dados/*.json extraídos das fontes…</td><td class="mono xs">pesquisa.pt</td><td class="mono xs"><a href="docs.html#agents/pesquisa.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/pesquisa.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Redação</b> <span class="mono xs">@Redacao</span></td><td class="sm">departamento</td><td class="mono xs">artigos/&lt;data&gt;__&lt;slug&gt;/, conteudo/*.md, redacao/correio/redacao.pt/…</td><td class="mono xs">redacao.pt</td><td class="mono xs"><a href="docs.html#agents/redacao.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/redacao.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Verificação</b> <span class="mono xs">@Verificacao</span></td><td class="sm">departamento</td><td class="mono xs">dados/verificacoes/*.json, artigos/&lt;data&gt;__&lt;slug&gt;/verificacao.json, redacao/correio/verificacao.pt/…</td><td class="mono xs">verificacao.pt</td><td class="mono xs"><a href="docs.html#agents/verificacao.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/verificacao.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Bastidores</b> <span class="mono xs">@Bastidores</span></td><td class="sm">departamento</td><td class="mono xs">backoffice/, build/ (exceto os portões), assets/…</td><td class="mono xs">bastidores.pt</td><td class="mono xs"><a href="docs.html#agents/bastidores.pt/ROLE.md">ROLE</a> · <a href="docs.html#agents/bastidores.pt/MANDATE.md">MANDATE</a></td></tr><tr><td class="sm"><b>Dinis Cruz</b> <span class="mono xs">@Dinis</span></td><td class="sm">humano</td><td class="mono xs">estado: publicado, redacao/decisoes/, redacao/correio/dinis.humano/…</td><td class="mono xs">dinis.humano</td><td class="mono xs"><a href="docs.html#agents/dinis.humano/ROLE.md">ROLE</a> · <a href="docs.html#agents/dinis.humano/MANDATE.md">MANDATE</a></td></tr></tbody></table></div>
 
-<div class="rule" style="padding:22px 0 8px"><div class="sect">The rest of the estate</div></div>
+<h2>The rest of the estate</h2>
 <p class="sm" style="max-width:48em">This repository is an instance of an argument made elsewhere,
 not a restatement of it: where these answer a question, we link rather than copy.
 <a href="https://sgit.ai/docs/guidance/index.html">sgit.ai/docs/guidance</a> ·
@@ -73,10 +70,10 @@ reliability, resilience, security, backups, consistency, explainability, documen
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/guidance.html</code> · version <span class="ver">v0.13.0</span>.
+<code>backoffice/guidance.html</code> · version <span class="ver">v0.14.0</span>.
 </div>
 
-</div>
+</main>
 </div>
 </body>
 </html>

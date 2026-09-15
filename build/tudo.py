@@ -72,8 +72,9 @@ PASSOS = [
      "articles, sections, back office, entities, comments, runs, language, agents (16-26, 34-35)",
      True),
     (["python3", "build/gates_desenho.py"],
-     "the design gates (27-33): contrast, measure, leading, the mono face, focus, empty columns, "
-     "the accents of the state vocabulary — the numbers the design review measured", True),
+     "the design gates (27-33, 37): contrast, measure, leading, the mono face, focus, empty "
+     "columns, the accents of the state vocabulary, and the console's legacy layer held to a "
+     "ratchet — the numbers the design review measured", True),
     (["node", "admin/build/validate.js"],
      "the site gate: structure, links, version, canonicals, key-leak tripwire", True),
 ]

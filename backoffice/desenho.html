@@ -11,133 +11,124 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/console.css">
 </head>
 <body>
-<div class="folha">
 
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.13.0" title="O que mudou em v0.13.0, e porquê">v0.13.0</a></div>
-
-<div class="datalinha">
-  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+<div class="folha bo-strip">
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.14.0" title="O que mudou em v0.14.0, e porquê">v0.14.0</a></div>
 </div>
 
-<nav class="nav nav--consola"><a href="../backoffice/">console</a><a href="../backoffice/equipa.html">team</a><a href="../backoffice/quadro.html">board</a><a href="../backoffice/correio.html">mail</a><a href="../backoffice/pontes.html">bridges</a><a href="../backoffice/desenho.html" class="aqui">design</a><a href="../backoffice/docs.html">documents</a><a href="../backoffice/agents.html">agents</a><a href="../backoffice/guidance.html">guidance</a><a href="../admin/versions.html">versions</a></nav>
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.14.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html" aria-current="page">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<main class="main">
 
-<div class="consola-corpo">
-
-<div class="aviso-bloco" style="border-left-color:var(--acento)">
-<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
-purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
-publication itself is natively Portuguese and nothing here is linked from the masthead. Every
-number on these pages counts files in this repository — the back office reports on the newsroom
-and never on the world, and a gate fails the build if a page here ever cites a frozen source as
-evidence for a claim about Portugal.</p>
-</div>
+<div class="page-head"><div><h1>The design review</h1></div></div>
 
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The design review, item by item
-  </div></div>
-<p class="std">The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn&#x27;t look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten».</p>
-<div class="chips" style="padding:12px 0"><span class="chip ok">18 done</span> <span class="chip miss">6 deferred</span> <span class="chip disputa">3 the editor decides</span> <span class="chip falta">3 partly done</span></div>
+<h2>The design review, item by item
+  </h2>
+<p class="std">The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn&#x27;t look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten». The review&#x27;s second part arrived as vault v0.5.0 and is about the back office: §5 below. It found the console to be «a report about the newsroom, not a console for operating it» — 7,058px of state across nine pages with zero controls on eight of them — and it is right. What the review counted as good and what survived unchanged is not listed as work done, because it was not work: the pipeline model, the department boundaries, the gates and above all the mail protocol are still exactly what they were.</p>
+<div class="chips" style="padding:12px 0"><span class="st st--4">24 done</span> <span class="st st--2">8 deferred</span> <span class="st st--1">5 the editor decides</span> <span class="st st--3">5 partly done</span></div>
 <p class="sm">Source: the encrypted vault <code>e54hfntq</code>, version
-v0.1.0, reviewed against site build v0.6.0. The review is not
+v0.5.0, reviewed against site build v0.6.0. The review is not
 copied into this repository: it is a vault the editor holds, and a copy here would disagree with it
 the first time it was updated. What this page carries is the <b>disposition</b> of each item, which
 is this repository's business and not the vault's.</p>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">Where the review was wrong, and how
-  we know</div></div>
+<h2>Where the review was wrong, and how
+  we know</h2>
 <p class="sm">The review measured rather than asserted, which is why it was worth implementing.
 Two of its numbers were still wrong, and one of them changed the answer. Recording that is not
 scoring a point: an implementation that had followed the review exactly would have shipped a
 column that still missed the review's own target, and nobody would have known.</p>
 <div class="aviso-bloco" style="margin-top:12px"><p class="sm"><b>§2.1 — «.std: 34em ≈ 66 characters» and «.sm: 38em ≈ 68 characters», from an assumed average glyph width of 0.48em.</b></p><p class="sm">Newsreader&#x27;s average glyph, measured in Chromium on a canvas at the element&#x27;s own computed font with real Portuguese text, is 0.405em — about 18% narrower than assumed. Two things follow. The problem was WORSE than reported: the 758px column held ≈104 characters, not 88, and the 828px entity column ≈114, not 96. And the prescription did not reach its own target: 34em is 612px, which measures 84 characters — still above the 75 that §4.4 fixes as the ceiling.</p><p class="sm"><b>Consequence:</b> The site is set to 29em, not 34em, and measures 71 characters. Gate 29 uses 0.405 and says where the number came from. An implementation that had followed the review exactly would have shipped a column that missed the review&#x27;s own target.</p></div><div class="aviso-bloco" style="margin-top:12px"><p class="sm"><b>§2.1b — 34em and 38em give «≈66» and «≈68» characters respectively.</b></p><p class="sm">They cannot both be right. Characters per line is width divided by average glyph width, and with the width expressed in `em` the font size cancels — the same `em` measure gives the same character count at any size. 34em and 38em cannot yield 66 and 68.</p><p class="sm"><b>Consequence:</b> Minor next to the other, and worth recording because it is the kind of internal inconsistency that a reader of the review would otherwise carry forward. Both classes are set to the same measure.</p></div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">§4.1 — pure CSS, shipped · 10 items</div></div>
+<h2>§4.1 — pure CSS, shipped · 10 items</h2>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.1</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 29 + gate 30</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.1</span>
+    <span class="path">held by gate 29 + gate 30</span>
   </div>
   <p class="std"><b>Measure: the column ran 88–96 characters</b></p>
   <p class="sm">`.std` and `.sm` now carry `max-width: 29em` in the stylesheet, and the 54 inline `max-width` declarations the generators emitted on body-text classes were removed — an inline value beats the class, so a single survivor would have undone the fix on that page without failing anything.</p>
   <p class="xs mono">measured: 71 characters on the front page, 70 on an entity page, measured in Chromium on a canvas at the element&#x27;s own computed font</p><p class="xs mono">assets/site.css · build/build.py · build/artigos.py · build/entidades.py · build/paginas_extra.py</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.2</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 29</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.2</span>
+    <span class="path">held by gate 29</span>
   </div>
   <p class="std"><b>Leading: 1.45 where a serif on cream wants 1.6–1.65</b></p>
   <p class="sm">`.std` 1.62, `.sm` 1.6, `.xs` 1.55.</p>
   <p class="xs mono">measured: line-height 29.16px at 18px</p><p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.3</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 32</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.3</span>
+    <span class="path">held by gate 32</span>
   </div>
   <p class="std"><b>`-webkit-font-smoothing` was thinning the serif</b></p>
   <p class="sm">Deleted, and a comment in its place says why it must not come back — it forces grayscale antialiasing and draws the type lighter than specified, which takes weight out of exactly the strokes Newsreader needs at 15–18px.</p>
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.4</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 27</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.4</span>
+    <span class="path">held by gate 27</span>
   </div>
   <p class="std"><b>The hairlines could not be seen: 1.36:1 and 1.62:1</b></p>
   <p class="sm">`--filete` → #9f9780 and `--filete-2` → #8f8873. The stylesheet&#x27;s whole thesis is «filetes, não caixas» — structure carried by rules — and the structure was being carried by lines that are not there on a bright screen. That is why the front-page blocks appeared to run into each other.</p>
   <p class="xs mono">measured: 2.65:1 and 3.22:1 against the paper</p><p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.3</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 28</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.3</span>
+    <span class="path">held by gate 28</span>
   </div>
   <p class="std"><b>Three of four status colours failed or scraped WCAG AA</b></p>
   <p class="sm">The whole ramp darkened. `--disputa` was at 4.48:1 — below the line — while carrying verification state at 11px, on a publication whose entire proposition is that a reader can see the verification state of every claim.</p>
   <p class="xs mono">measured: --acento 6.83:1, --aviso 6.06:1, --disputa 5.81:1, --sec-2 5.80:1, --falta 5.89:1</p><p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.7</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 32</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.7</span>
+    <span class="path">held by gate 32</span>
   </div>
   <p class="std"><b>No focus styles anywhere, on a design with no underlines</b></p>
   <p class="sm">`:focus-visible` with a 2px accent outline, and a variant that switches to the light accent over the dark panel. This was an accessibility failure and not a preference.</p>
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.16</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 32</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.16</span>
+    <span class="path">held by gate 32</span>
   </div>
   <p class="std"><b>`color-scheme` undeclared</b></p>
   <p class="sm">`color-scheme: light` on `:root`, so form controls and scrollbars follow the page rather than the operating system. Dark mode itself is decision 3 and was not taken.</p>
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.6</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 31</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.6</span>
+    <span class="path">held by gate 31</span>
   </div>
   <p class="std"><b>Mono was setting the whole site — the dominant cause of «doesn&#x27;t look like a news site»</b></p>
   <p class="sm">`.kick`, `.sect`, `&lt;th&gt;` and the prose of the `.agent` block all move to Newsreader; the `&lt;code&gt;` inside the agent block stays mono, because that is what it is. The rule now written into the stylesheet: mono means one thing, a machine fact — a hash, a byte count, an identifier, a timestamp, a path, code.</p>
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.5</span>
-    <span class="chip ok">done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.5</span>
     
   </div>
   <p class="std"><b>The accent had seven jobs, so it signalled none</b></p>
@@ -145,49 +136,49 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.6</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 31</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.6</span>
+    <span class="path">held by gate 31</span>
   </div>
   <p class="std"><b>`.kick` and `.sect` combined all four legibility penalties</b></p>
   <p class="sm">Both to the serif at 13px; the kicker loses uppercase and drops to .01em tracking, the section label keeps small caps at .08em. Uppercase at .14em is only legible above ~14px.</p>
   <p class="xs mono">assets/site.css</p>
-</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.2 — generator fixes · 8 items</div></div>
+</div><h2>§4.2 — generator fixes · 8 items</h2>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.1</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 33</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.1</span>
+    <span class="path">held by gate 33</span>
   </div>
   <p class="std"><b>A 60-row table with an entirely empty column, in production</b></p>
   <p class="sm">The generator drops a column that is empty on every row of that table. The review counted 67 of 67 in /empresas/; the new gate found the same fault in /instituicoes/ and /casos-de-uso/, which the review had not visited. Worse than a blank column: it pushed «Fonte congelada» about 1100px away from the name it belongs to.</p>
   <p class="xs mono">build/build.py</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.4</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 33</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.4</span>
+    <span class="path">held by gate 33</span>
   </div>
   <p class="std"><b>`nao resolve` — an unaccented word in the status vocabulary</b></p>
   <p class="sm">The identifier `nao_resolve` is ASCII and stays so; what was wrong was the generator turning `_` into a space and putting an identifier dressed as a word on the page. There is now a written label vocabulary, and a state with no label shows its raw identifier — visible and odd — rather than a laundered one. The review then said the right thing: that a missing accent suggests the strings are being written somewhere ASCII-only, and that is worth an audit. It was: the audit of `dados/` found the same pattern in the board card titles, which this very session had introduced hours earlier by de-slugging filenames.</p>
   <p class="xs mono">build/build.py · build/equipa.py · redacao/correio/*/assuntos/</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.5</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 33</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.5</span>
+    <span class="path">held by gate 33</span>
   </div>
   <p class="std"><b>The version was displayed but not linked</b></p>
   <p class="sm">Both the chrome badge and the version in every page&#x27;s agent block are now links to that version&#x27;s own row, and all twelve rows in admin/versions.html gained the anchor their number names. sgit.ai&#x27;s guidance asks for both halves; half was done, and on a site whose entire proposition is traceability this was the one place the site did not trace itself.</p>
   <p class="xs mono">build/paginas.py · admin/versions.html · assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.9</span>
-    <span class="chip ok">done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.9</span>
     
   </div>
   <p class="std"><b>Article cards had no dateline</b></p>
@@ -195,19 +186,19 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="xs mono">build/build.py</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.1b</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by gate 30</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§2.1b</span>
+    <span class="path">held by gate 30</span>
   </div>
   <p class="std"><b>Remove the inline `max-width:46em` the generators emit</b></p>
   <p class="sm">54 removed, from the body-text classes only. The ones on `.h-lead`, `.h-2` and `.prosa` were left: those control where a HEADLINE wraps, which is a per-instance typographic choice, and the review is explicit that the headline wants the full column even where the body does not.</p>
   <p class="xs mono">build/build.py · build/artigos.py · build/entidades.py · build/paginas_extra.py</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.8a</span>
-    <span class="chip ok">done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§3.8a</span>
     
   </div>
   <p class="std"><b>The mobile nav rule did nothing</b></p>
@@ -215,9 +206,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.2</span>
-    <span class="chip disputa">the editor decides</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--1">the editor decides</span>
+    <span class="path">§3.2</span>
     
   </div>
   <p class="std"><b>Three of six front-page cards repeat stories already on screen</b></p>
@@ -225,39 +216,39 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Decision 5. The filter is ready; it is one condition in build/build.py.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.14</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§2.14</span>
     
   </div>
   <p class="std"><b>Raw identifiers used as human link text</b></p>
   <p class="sm">Not done. The path is the truth and must stay reachable, and replacing it with a label needs a label to exist — which means deciding, per edge, what a human-readable rendering of that relation is. That is the same work as §2.13&#x27;s entity template and belongs with it.</p>
   <p class="sm"><b>What blocks it:</b> Needs the entity template (§2.13), which is §4.3 structural work.</p>
-</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.4 — measurement · 2 items</div></div>
+</div><h2>§4.4 — measurement · 2 items</h2>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§4.4</span>
-    <span class="chip ok">done</span>
-    <span class="chip ok">held by it is the gate</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§4.4</span>
+    <span class="path">held by it is the gate</span>
   </div>
   <p class="std"><b>«Do not re-review by eye» — the numbers, asserted</b></p>
   <p class="sm">build/gates_desenho.py, gates 27–33, wired into build/tudo.py as the fourth of five gates. It asserts contrast for every rule and status token, the measure and leading, that no generator emits an inline max-width on a body class, that mono appears only where the stylesheet means a machine fact, that the focus ring exists, that no table ships an empty column, that no status chip lost its accent, and that the version badge links. A design review without a gate undoes itself over three releases.</p>
   <p class="xs mono">build/gates_desenho.py · build/tudo.py</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§4.4b</span>
-    <span class="chip falta">partly done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--3">partly done</span>
+    <span class="path">§4.4b</span>
     
   </div>
   <p class="std"><b>The two numbers a file cannot hold</b></p>
   <p class="sm">Chrome height above the masthead at 390px, and the count of elements the BROWSER resolves to mono, both need a browser and the cascade. They are measured by hand this release — 131px and 81 elements — and neither is at its target, because both depend on splitting the header strip, which is §4.3 work. They belong in admin/build/render.mjs, where there is a Chromium.</p>
   <p class="sm"><b>What blocks it:</b> Both are consequences of §2.12 / §4.3 item 20, not separate fixes.</p><p class="xs mono">measured: chrome 131px against a target of ≤48px; 81 mono elements on the front page</p>
-</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.3 — structural, not done · 9 items</div></div>
+</div><h2>§4.3 — structural, not done · 9 items</h2>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.9</span>
-    <span class="chip falta">partly done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--3">partly done</span>
+    <span class="path">§3.9</span>
     
   </div>
   <p class="std"><b>The design system lives in generated HTML, not the stylesheet</b></p>
@@ -265,9 +256,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> A large mechanical change across five generators, with no visible result on its own. It wants its own release and its own review, not a corner of this one.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.10</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§2.10</span>
     
   </div>
   <p class="std"><b>No spacing scale — the rhythm lives in inline styles</b></p>
@@ -275,9 +266,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Blocked on §3.9.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.12</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§2.12</span>
     
   </div>
   <p class="std"><b>The utility chrome outranks the publication</b></p>
@@ -285,9 +276,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Interacts with decision 4, which is the editor&#x27;s.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§3.8b</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§3.8b</span>
     
   </div>
   <p class="std"><b>On a phone the operator chrome takes the first third of the screen</b></p>
@@ -295,9 +286,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Same change as §2.12, same decision 4.</p><p class="xs mono">measured: 131px measured at 390×844, against the review&#x27;s target of ≤48px</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.11</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§2.11</span>
     
   </div>
   <p class="std"><b>The front-page grid leaves a hole</b></p>
@@ -305,9 +296,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Blocked on §3.9.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.13</span>
-    <span class="chip miss">deferred</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§2.13</span>
     
   </div>
   <p class="std"><b>Entity pages have no shape</b></p>
@@ -315,9 +306,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> A template is a design decision of its own size; it also carries §2.14.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.8</span>
-    <span class="chip disputa">the editor decides</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--1">the editor decides</span>
+    <span class="path">§2.8</span>
     
   </div>
   <p class="std"><b>Provenance telemetry occupies the lead position</b></p>
@@ -325,9 +316,9 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="sm"><b>What blocks it:</b> Decision 2.</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.7</span>
-    <span class="chip falta">partly done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--3">partly done</span>
+    <span class="path">§2.7</span>
     
   </div>
   <p class="std"><b>Two competing heading ladders on the same page</b></p>
@@ -335,32 +326,152 @@ column that still missed the review's own target, and nobody would have known.</
   <p class="xs mono">assets/site.css</p>
 </div>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§2.15</span>
-    <span class="chip disputa">the editor decides</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--1">the editor decides</span>
+    <span class="path">§2.15</span>
     
   </div>
   <p class="std"><b>The site has one image, and it is the graph</b></p>
   <p class="sm">NOT done. The review&#x27;s own framing: there is no photography, which is a defensible position for a publication that will not reproduce what it cannot verify, but the consequence is that every module below the masthead has identical weight and the page has no focal point. The proposed answer — the graph as the site&#x27;s visual language, a generated thumbnail per entity and per card — is a significant build and changes what the front page is. Decision 1.</p>
   <p class="sm"><b>What blocks it:</b> Decision 1.</p>
-</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§1 — what had to survive, and did · 1 items</div></div>
+</div><h2>§1 — what had to survive, and did · 1 items</h2>
 <div class="cartao" style="padding:14px;margin-top:12px">
-  <div class="chips" style="padding-bottom:6px">
-    <span class="chip">§1.x</span>
-    <span class="chip ok">done</span>
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§1.x</span>
     
   </div>
   <p class="std"><b>The ten things the review said not to break</b></p>
   <p class="sm">The face selection and the subset for Portuguese accents, the masthead, the double nav rule, the warm paper and cool near-black, the «filetes, não caixas» discipline, the mobile work, the `a.ent` link-density pattern, the honest content model, and — the one most at risk from a redesign — the stylesheet&#x27;s own comments. §4.6 warns that an agent which changes a rule and leaves its comment has made the file actively misleading. Every comment over a changed rule was rewritten, one superseded block was deleted rather than left above the block that replaced it, and the header&#x27;s colour list now carries the measured ratio of each token.</p>
   <p class="xs mono">assets/site.css</p>
+</div><h2>§5 — the back office, a console of its own · 12 items</h2>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.1</span>
+    <span class="path">held by gate 36 (browser) + the render gate&#x27;s pt-queue check</span>
+  </div>
+  <p class="std"><b>«The back office is a report about the newsroom, not a console for operating it»</b></p>
+  <p class="sm">The console page now opens with what is waiting on the editor of record, as `pt-queue` — the first thing on the page and the only filled rank on it. The list is derived by `backoffice.fila()` from four sources that each already knew a piece of the answer: the editor&#x27;s own board lane, cards on another agent&#x27;s lane whose `bloqueado_por` is the editor, paper issues the formula assigns to the editor, and mail sitting in their inbox. There is no count attribute anywhere — the rail badge and the queue heading are both `len()` of the same list, so they cannot disagree.</p>
+  <p class="xs mono">measured: 13 items derived, against the 1 the old console showed — a single cell in row 6 of the first table, in the base chip style</p><p class="xs mono">build/backoffice.py · assets/components/pt-queue/v1/v1.0/v1.0.0/</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--3">partly done</span>
+    <span class="path">§5.2</span>
+    
+  </div>
+  <p class="std"><b>It wore the newspaper&#x27;s clothes: the console loaded site.css</b></p>
+  <p class="sm">`assets/console.css` is adopted from the vault: cool neutrals, a dark rail, system sans, tabular numerals, real buttons, and the publication&#x27;s serif surviving only in `.quote`, where the console shows the newspaper&#x27;s own words. It is loaded second and wins everything below the operator strip.</p>
+  <p class="sm"><b>What blocks it:</b> site.css is still loaded first, for the operator strip and for nothing else. The editor&#x27;s instruction in v0.11.0 is that the top-level menu must not move when you cross from the paper to the back office, and the proposal replaces the whole chrome, which would have moved it again. So the strip keeps the paper&#x27;s rules and the paper&#x27;s ground, gate 36 measures both pages in a browser and fails on a difference of more than a pixel, and the one cost — site.css&#x27;s `.nav` landing on the rail&#x27;s items and rendering the rail centred — is answered by a closed reset in console.css.</p><p class="xs mono">measured: the strip at x=56 y=8 1168×33 on the paper and in the console, measured in Chromium</p><p class="xs mono">assets/console.css · build/backoffice.py · admin/build/render.mjs</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.3</span>
+    <span class="path">held by gate 33 (no state without its accent)</span>
+  </div>
+  <p class="std"><b>Nothing told you what needed you, and «a human is blocking this» was said ten ways</b></p>
+  <p class="sm">One scale, four ranks, and only rank 1 is filled. The pipeline&#x27;s own stage 6 — the most important state in the back office and previously the least visible of the ten, because it used the base chip style while nine lesser places used `.chip.miss` — is rank 1 on a tinted stage. Two mappings the paper&#x27;s classes had backwards were corrected at the source rather than in the layer: the design review&#x27;s `parcial` was rendering filled red (which now means a human must act) and `editor` — the one disposition that does mean that — was rendering as the quiet neutral outline.</p>
+  <p class="xs mono">measured: 159 distinct chip labels → 4 ranks; the board 158 chips → 25 ranks; the design review 124 → 39</p><p class="xs mono">build/backoffice.py · build/equipa.py · build/desenho.py · build/pontes.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.4</span>
+    <span class="path">held by gate 19</span>
+  </div>
+  <p class="std"><b>Every page opened with the same 70 words</b></p>
+  <p class="sm">The preamble is on `guidance.html` and nowhere else. What every page carries instead is one sentence in the rail — permanently visible, never above the content. That is not a softening of the rule: gate 19 requires every back-office page to say it is not the publication, because the whole area is in English by the editor&#x27;s decision and the condition of that exception is that a reader who lands here can see it. The gate is unchanged and still finds its string.</p>
+  <p class="xs mono">measured: 9 of 9 pages repeating ~300px of prose → 1 page carrying it in full, 10 carrying one sentence in the rail</p><p class="xs mono">build/backoffice.py · assets/console.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.5</span>
+    
+  </div>
+  <p class="std"><b>Zero `&lt;h2&gt;` in the entire back office, and five of nine pages with no heading at all</b></p>
+  <p class="sm">All 34 section titles became real `&lt;h2&gt;` elements — they were `.sect` divs, which are styling and not structure, so nothing could outline these pages. Every page now has exactly one `&lt;h1&gt;` and it NAMES the place: the console&#x27;s used to be a sentence in the publication&#x27;s voice, «What the newsroom has done, what it is waiting on, and who is allowed to do what», which describes a page rather than labelling where you are standing. What still wears `.sect` is a field label inside a card — «Refuses», «Writes in» — because promoting those would have put 60 more entries in every outline and made it useless a different way.</p>
+  <p class="xs mono">measured: h1: 1 on every one of the 10 pages, against 4 of 9 before. h2: 2–10 per page, against 0 across the whole back office</p><p class="xs mono">build/backoffice.py · build/equipa.py · build/pontes.py · build/desenho.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§5.6</span>
+    
+  </div>
+  <p class="std"><b>The console declared itself English and was 30–40% Portuguese</b></p>
+  <p class="sm">The furniture is English throughout — the rail&#x27;s labels, the headings, the page names. Nothing was translated.</p>
+  <p class="sm"><b>What blocks it:</b> The Portuguese that remains in the running prose is QUOTED: an agent&#x27;s mission, a board card&#x27;s own reading of its work, the formula&#x27;s `porque` column, a mail subject. Those are records this publication keeps about itself, in the language it keeps them in, and the arrangement for reading them is the one the ontology already uses — the record stands and the `en` block annotates it. Paraphrasing a record on the way to a screen is how a console starts to drift from the files it reports on. Where a record has no `en` annotation, adding one is Redação&#x27;s write and not this agent&#x27;s.</p><p class="xs mono">dados/agentes.json · dados/quadro.json</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.7</span>
+    
+  </div>
+  <p class="std"><b>Eleven flat navigation items at 12px mono, no grouping, no counts</b></p>
+  <p class="sm">A rail, grouped Operate / Understand / Reference, with the current page marked by `aria-current=&quot;page&quot;` rather than by weight alone — weight is a styling convention and not something an outline or a screen reader can read. Counts sit on the three items that can be behind, and a zero is never a badge: a count that is always there has stopped being a signal.</p>
+  <p class="xs mono">measured: 11 flat links → 3 groups of 11, 3 carrying a count</p><p class="xs mono">build/backoffice.py · assets/console.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--3">partly done</span>
+    <span class="path">§5.8</span>
+    
+  </div>
+  <p class="std"><b>«Eight of the nine pages have zero buttons, inputs, selects or textareas»</b></p>
+  <p class="sm">The bridges page&#x27;s controls — which were the only real controls in the back office and were dressed as status chips, in the same box as «secret» and «in transit» — are now real buttons and real fields: primary for keeping a credential, danger for forgetting one. The queue&#x27;s action names the file it would write in its `title`, so an operator who does not trust a button can do the same thing by hand.</p>
+  <p class="sm"><b>What blocks it:</b> A button cannot write a file on a static site: there is no server to write it. So the queue&#x27;s buttons GO TO THE PLACE THE WRITE HAPPENS — the document browser for a file, the mail page for a thread, the bridges page for a message to the newsroom — and nothing claims to have written anything. Making them act is the append lane&#x27;s job, and the lane is built and has no credentials: that is §5.10 and the editor&#x27;s.</p><p class="xs mono">measured: console 0 controls → 13 (one per queue item); bridges 7 chips-as-buttons → 6 buttons and 3 fields</p><p class="xs mono">build/pontes.py · build/backoffice.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--4">done</span>
+    <span class="path">§5.9</span>
+    
+  </div>
+  <p class="std"><b>The mail model is the best thing here and was explained in a paragraph and a table</b></p>
+  <p class="sm">Shown as the route a message walks — `saida/ → expedicao/ → entrada/ → tratado/`, each folder carrying the rank its state means — which needs no paragraph. The protocol&#x27;s own four-row table is still published, folded into a `&lt;details&gt;`: the detail is real and worth having and it is not what the page is for. The mailbox table gained a state column and the editor&#x27;s row is marked on the ROW, because a state marked only inside a cell is one you have to hunt for by reading every row.</p>
+  <p class="xs mono">build/equipa.py · assets/console.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--1">the editor decides</span>
+    <span class="path">§5.10</span>
+    
+  </div>
+  <p class="std"><b>«The vault channel gets a real thread view» with a reply box that writes a file</b></p>
+  <p class="sm">Not built. The threads are rendered and the route is visible; the reply box is not.</p>
+  <p class="sm"><b>What blocks it:</b> A reply box that writes a file needs the append lane, and the lane needs three values this repository may not hold: the vault id, the append token and the public key. They go to the editor&#x27;s own browser via /backoffice/pontes.html and nowhere else — `admin/build/validate.js` carries a key-shaped-string tripwire and would fail the build if one appeared. Until the editor hands a browser those values there is nothing to write with, and inventing a box that does nothing would be the one thing this publication says it never does.</p><p class="xs mono">build/pontes.py · assets/ponte.js</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--1">the editor decides</span>
+    <span class="path">§5.11</span>
+    
+  </div>
+  <p class="std"><b>Filenames: the proposal asks for console.html / mail.html / board.html</b></p>
+  <p class="sm">Not renamed. The rail says the English word; the URL still says the Portuguese one.</p>
+  <p class="sm"><b>What blocks it:</b> These addresses are published in llms.txt and in the sitemap, and this site&#x27;s own argument is that a link resolves. Renaming means redirects, and a static site&#x27;s redirect is a page that exists to say it moved — which is why /backoffice/viewer.html still exists. Whether ten of those are worth the consistency is the editor&#x27;s call, and it is open question 2 in the vault.</p><p class="xs mono">build/backoffice.py · build/chrome.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="queue__meta" style="margin:0 0 6px">
+    <span class="st st--2">deferred</span>
+    <span class="path">§5.12</span>
+    
+  </div>
+  <p class="std"><b>Page height: «7,058px on the console, proposed ~2,600px»</b></p>
+  <p class="sm">The queue&#x27;s own prose is cut to one line per item — thirteen cards printed in full made the queue 4,000px tall, which is the same failure as the 70-word preamble one screen further down. The preamble going saved ~300px on eight pages.</p>
+  <p class="sm"><b>What blocks it:</b> The rest of the height is CONTENT: the agent roster, every article, every section, the delivery records, the run records, the commit log. Reaching 2,600px means deciding which of those the console stops showing, and that is an editorial decision about what the operator needs to see rather than a design one. The measured page is longer than before because the queue was added, not because anything was padded.</p><p class="xs mono">measured: console 11,056px; the queue itself 13 items in ~1,400px</p><p class="xs mono">build/backoffice.py</p>
 </div>
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The five decisions the review
-  reserved for the editor</div></div>
+<h2>The five decisions the review
+  reserved for the editor</h2>
 <p class="std">§4.5 of the review says, in as many words: <i>"Agents: do not pick these
 yourself."</i> None of them is picked here. Each is a card on
 <a href="quadro.html#dinis.humano">the editor's board</a>.</p>
-<div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 1</span><span class="chip">§4.5.1</span></div><p class="std"><b>Should the graph become the site&#x27;s visual language?</b></p><p class="sm">It is the one intervention that would give the site a visual identity without importing a single unverifiable photograph — and it is a significant build that changes what the front page is. The review offers: yes, no, or prototype one page first.</p><p class="sm"><b>The options:</b> yes / no / prototype one entity page first</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/005</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 2</span><span class="chip">§4.5.2</span></div><p class="std"><b>Where do the provenance chips go?</b></p><p class="sm">All three options preserve the information; they rank it differently, and that ranking is an editorial position about what this publication leads with. An agent choosing it would be choosing the paper&#x27;s voice.</p><p class="sm"><b>The options:</b> a line of prose under the lead / expand on click / move to the rail</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/006</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 3</span><span class="chip">§4.5.3</span></div><p class="std"><b>Dark mode?</b></p><p class="sm">Worth having for a reading site, but it doubles the palette work and the paper-and-ink metaphor does not transfer for free — a cream page inverted is not a newspaper, it is a terminal.</p><p class="sm"><b>The options:</b> yes / no / later</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/007</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 4</span><span class="chip">§4.5.4</span></div><p class="std"><b>Does the wallet stay in the reader&#x27;s header?</b></p><p class="sm">A balance immediately above a masthead is unusual. The question is whether it is there to be seen by readers or is operator tooling that belongs behind the back-office link — and the answer decides how the header strip gets split, which blocks §2.12, §3.8b and the 131px of chrome on a phone.</p><p class="sm"><b>The options:</b> reader header / operator strip / behind the back office</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/008</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 5</span><span class="chip">§4.5.5</span></div><p class="std"><b>How thin is the edition allowed to look?</b></p><p class="sm">De-duplicating the card grid means the front page shows three stories instead of six. By this publication&#x27;s own standards that is better — the reader currently reads the lead headline twice before scrolling once — but it is visibly emptier, and «visibly emptier» is a judgement about the paper and not about the code.</p><p class="sm"><b>The options:</b> de-duplicate now / keep six and make the second cut mean something else / wait for more stories</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/009</p></div>
+<div class="cartao" style="padding:14px;margin-top:12px"><div class="queue__meta" style="margin:0 0 6px"><span class="st st--1">decision 1</span><span class="path">§4.5.1</span></div><p class="std"><b>Should the graph become the site&#x27;s visual language?</b></p><p class="sm">It is the one intervention that would give the site a visual identity without importing a single unverifiable photograph — and it is a significant build that changes what the front page is. The review offers: yes, no, or prototype one page first.</p><p class="sm"><b>The options:</b> yes / no / prototype one entity page first</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/005</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="queue__meta" style="margin:0 0 6px"><span class="st st--1">decision 2</span><span class="path">§4.5.2</span></div><p class="std"><b>Where do the provenance chips go?</b></p><p class="sm">All three options preserve the information; they rank it differently, and that ranking is an editorial position about what this publication leads with. An agent choosing it would be choosing the paper&#x27;s voice.</p><p class="sm"><b>The options:</b> a line of prose under the lead / expand on click / move to the rail</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/006</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="queue__meta" style="margin:0 0 6px"><span class="st st--1">decision 3</span><span class="path">§4.5.3</span></div><p class="std"><b>Dark mode?</b></p><p class="sm">Worth having for a reading site, but it doubles the palette work and the paper-and-ink metaphor does not transfer for free — a cream page inverted is not a newspaper, it is a terminal.</p><p class="sm"><b>The options:</b> yes / no / later</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/007</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="queue__meta" style="margin:0 0 6px"><span class="st st--1">decision 4</span><span class="path">§4.5.4</span></div><p class="std"><b>Does the wallet stay in the reader&#x27;s header?</b></p><p class="sm">A balance immediately above a masthead is unusual. The question is whether it is there to be seen by readers or is operator tooling that belongs behind the back-office link — and the answer decides how the header strip gets split, which blocks §2.12, §3.8b and the 131px of chrome on a phone.</p><p class="sm"><b>The options:</b> reader header / operator strip / behind the back office</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/008</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="queue__meta" style="margin:0 0 6px"><span class="st st--1">decision 5</span><span class="path">§4.5.5</span></div><p class="std"><b>How thin is the edition allowed to look?</b></p><p class="sm">De-duplicating the card grid means the front page shows three stories instead of six. By this publication&#x27;s own standards that is better — the reader currently reads the lead headline twice before scrolling once — but it is visibly emptier, and «visibly emptier» is a judgement about the paper and not about the code.</p><p class="sm"><b>The options:</b> de-duplicate now / keep six and make the second cut mean something else / wait for more stories</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/009</p></div>
 
 <div class="agent" style="border:0;margin-top:26px">
 <p class="sm"><b>On the one item that looks small and is not.</b>
@@ -372,10 +483,10 @@ yourself."</i> None of them is picked here. Each is a card on
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/desenho.html</code> · version <span class="ver">v0.13.0</span>.
+<code>backoffice/desenho.html</code> · version <span class="ver">v0.14.0</span>.
 </div>
 
-</div>
+</main>
 </div>
 </body>
 </html>

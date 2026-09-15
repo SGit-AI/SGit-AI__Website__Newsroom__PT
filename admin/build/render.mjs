@@ -71,6 +71,12 @@ const PAGINAS = [
     ['/backoffice/quadro.html', []],
     ['/backoffice/correio.html', []],
     ['/backoffice/pontes.html', []],
+    ['/backoffice/desenho.html', []],
+    /* The console carries `pt-queue`, and it is the one component whose whole job is to count:
+       the number in its heading and the number in the rail both come from the list it was given,
+       so a page where it silently failed would show a queue of nothing and a rail badge of three.
+       Gate 36 below measures both. */
+    ['/backoffice/index.html', ['pt-queue']],
 ]
 
 /* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
@@ -180,6 +186,50 @@ for (const [caminho, comps] of PAGINAS) {
         for (const e of unicos) console.log(`    ${e}`)
     } else {
         console.log(`✓ ${caminho}${comps.length ? '  ' + comps.join(' ') : ''}`)
+    }
+    await ctx.close()
+}
+
+/* --- 36. the operator strip does not move when you cross over -------------------
+   THE ONE THING A MEASUREMENT CAN SETTLE AND A PROMISE CANNOT. The editor's instruction is that
+   the top-level menu must not move when you go from the paper to the back office, and this has
+   now been broken twice: once by the original chrome, which moved every item at once, and once by
+   the first fix for a layout bug, which put a width on `.folha` and narrowed the strip in the back
+   office while leaving the paper alone. Both times it was found by looking at a screenshot.
+
+   So it is measured. The paper and the console are opened in turn, the strip's box is read in both,
+   and a difference of more than a pixel in any edge is a failure. This is also what makes the back
+   office's own stylesheet safe to change: console.css can do what it likes below the strip, and
+   this gate holds the seam. */
+{
+    const ctx = await navegador.newContext({ viewport: { width: 1280, height: 900 } })
+    const pag = await ctx.newPage()
+    const caixa = async caminho => {
+        await pag.goto(BASE + caminho, { waitUntil: 'networkidle' })
+        return await pag.evaluate(() => {
+            const el = document.querySelector('.utility')
+            if (!el) return null
+            const r = el.getBoundingClientRect()
+            return { x: Math.round(r.x), y: Math.round(r.y),
+                     w: Math.round(r.width), h: Math.round(r.height) }
+        })
+    }
+    const jornal = await caixa('/')
+    const consola = await caixa('/backoffice/')
+    if (!jornal || !consola) {
+        falhas++
+        console.log(`\n✗ o painel de utilitários não existe numa das duas cromagens ` +
+                    `(jornal=${JSON.stringify(jornal)}, consola=${JSON.stringify(consola)})`)
+    } else {
+        const difs = ['x', 'y', 'w', 'h'].filter(k => Math.abs(jornal[k] - consola[k]) > 1)
+        if (difs.length) {
+            falhas++
+            console.log(`\n✗ o painel de utilitários mexe-se entre o jornal e os bastidores: ` +
+                        difs.map(k => `${k} ${jornal[k]} → ${consola[k]}`).join(', '))
+        } else {
+            console.log(`✓ o painel de utilitários no mesmo sítio nas duas cromagens  ` +
+                        `x=${jornal.x} y=${jornal.y} ${jornal.w}×${jornal.h}`)
+        }
     }
     await ctx.close()
 }
