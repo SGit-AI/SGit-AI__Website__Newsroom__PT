@@ -1,4 +1,5 @@
 ---
+titulo: A vista dos agentes, o quadro de cada um, e o correio
 aberto: 2026-09-14T23:30:00Z
 origem: pedido de @Dinis, nesta sessão
 issue: —

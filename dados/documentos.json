@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-15",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 46,
+  "contagem": 51,
   "documentos": [
     {
       "caminho": ".claude/skills/newsroom-entregas/SKILL.md",
@@ -289,81 +289,121 @@
       "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
       "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
-      "bytes": 1410,
-      "linhas": 29,
-      "palavras": 221
+      "bytes": 1472,
+      "linhas": 30,
+      "palavras": 234
     },
     {
       "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
       "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
       "categoria": "Newsroom files",
-      "bytes": 1470,
-      "linhas": 30,
-      "palavras": 248
+      "bytes": 1520,
+      "linhas": 31,
+      "palavras": 256
     },
     {
       "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
       "titulo": "003__nao-consigo-ler-os-cofres-do-jogo",
       "categoria": "Newsroom files",
-      "bytes": 1670,
-      "linhas": 34,
-      "palavras": 258
+      "bytes": 1715,
+      "linhas": 35,
+      "palavras": 266
     },
     {
       "caminho": "redacao/correio/dinis.humano/assuntos/abertos/001__decidir-a-entrega-chatgpt-politicas.md",
       "titulo": "001__decidir-a-entrega-chatgpt-politicas",
       "categoria": "Newsroom files",
-      "bytes": 839,
-      "linhas": 22,
-      "palavras": 122
+      "bytes": 906,
+      "linhas": 23,
+      "palavras": 133
     },
     {
       "caminho": "redacao/correio/dinis.humano/assuntos/abertos/002__decidir-os-tipos-novos-da-ontologia.md",
       "titulo": "002__decidir-os-tipos-novos-da-ontologia",
       "categoria": "Newsroom files",
-      "bytes": 906,
-      "linhas": 23,
-      "palavras": 145
+      "bytes": 956,
+      "linhas": 24,
+      "palavras": 153
     },
     {
       "caminho": "redacao/correio/dinis.humano/assuntos/abertos/003__decidir-o-pedido-de-acesso-a-anacom.md",
       "titulo": "003__decidir-o-pedido-de-acesso-a-anacom",
       "categoria": "Newsroom files",
-      "bytes": 711,
-      "linhas": 21,
-      "palavras": 105
+      "bytes": 756,
+      "linhas": 22,
+      "palavras": 113
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/005__o-grafo-como-linguagem-visual-do-site.md",
+      "titulo": "005__o-grafo-como-linguagem-visual-do-site",
+      "categoria": "Newsroom files",
+      "bytes": 1473,
+      "linhas": 31,
+      "palavras": 248
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/006__onde-ficam-as-fichas-de-proveniencia.md",
+      "titulo": "006__onde-ficam-as-fichas-de-proveniencia",
+      "categoria": "Newsroom files",
+      "bytes": 1319,
+      "linhas": 29,
+      "palavras": 219
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/007__modo-escuro.md",
+      "titulo": "007__modo-escuro",
+      "categoria": "Newsroom files",
+      "bytes": 1193,
+      "linhas": 28,
+      "palavras": 212
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/008__a-carteira-no-cabecalho-do-leitor.md",
+      "titulo": "008__a-carteira-no-cabecalho-do-leitor",
+      "categoria": "Newsroom files",
+      "bytes": 1710,
+      "linhas": 33,
+      "palavras": 288
+    },
+    {
+      "caminho": "redacao/correio/dinis.humano/assuntos/abertos/009__quao-magra-a-edicao-pode-parecer.md",
+      "titulo": "009__quao-magra-a-edicao-pode-parecer",
+      "categoria": "Newsroom files",
+      "bytes": 1492,
+      "linhas": 31,
+      "palavras": 237
     },
     {
       "caminho": "redacao/correio/dinis.humano/assuntos/bloqueados/004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar.md",
       "titulo": "004__o-aviso-tem-de-falar-da-telemetria-antes-de-ela-ligar",
       "categoria": "Newsroom files",
-      "bytes": 2457,
-      "linhas": 43,
-      "palavras": 413
+      "bytes": 2519,
+      "linhas": 44,
+      "palavras": 425
     },
     {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
       "titulo": "001__pdf-do-diario-da-republica",
       "categoria": "Newsroom files",
-      "bytes": 1342,
-      "linhas": 27,
-      "palavras": 219
+      "bytes": 1418,
+      "linhas": 28,
+      "palavras": 233
     },
     {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
       "titulo": "002__ausencias-publicaveis-tal-como-estao",
       "categoria": "Newsroom files",
-      "bytes": 1145,
-      "linhas": 24,
-      "palavras": 175
+      "bytes": 1198,
+      "linhas": 25,
+      "palavras": 182
     },
     {
       "caminho": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
       "titulo": "003__acesso-a-anacom",
       "categoria": "Newsroom files",
-      "bytes": 919,
-      "linhas": 22,
-      "palavras": 139
+      "bytes": 972,
+      "linhas": 23,
+      "palavras": 148
     },
     {
       "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",

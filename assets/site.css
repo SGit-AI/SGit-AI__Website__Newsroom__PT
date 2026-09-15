@@ -10,27 +10,49 @@
    primeira página deixaria de ser do mesmo jornal que as interiores sem que nada parecesse
    avariado.
 
-   Papel e tinta. Fundo #f7f4ec, tinta #17181c, texto secundário #4a4d55 e #6b6e76, filetes
-   #d9d3c3, painéis #fffdf7. Um acento, o verde do conjunto #0f766e, para antetítulos, ligações
-   e fontes que confirmaram; #b45309 para uma fonte que não confirmou; #b91c1c para «não
-   encontrado»; #a16207 para «disputado».
+   Papel e tinta. Fundo #f7f4ec, tinta #17181c, texto secundário #4a4d55 e #5c5f68, filetes
+   #9f9780, painéis #fffdf7. Um acento, o verde do conjunto #0c5f59, para ligações e fontes que
+   confirmaram; #96450a para uma fonte que não confirmou; #b91c1c para «não encontrado»;
+   #8a5206 para «disputado».
 
-   Filetes, não caixas. Sem cantos redondos, sem sombras, sem gradientes. */
+   Filetes, não caixas. Sem cantos redondos, sem sombras, sem gradientes.
+
+   OS VALORES ACIMA FORAM MEDIDOS E CORRIGIDOS NA v0.9.0. A revisão de desenho (o cofre `e54hfntq`)
+   mediu o contraste de cada um destes fichos contra o papel e encontrou duas famílias de problema:
+
+   - **Os filetes não se viam.** `--filete` estava a 1.36:1 e `--filete-2` a 1.62:1. A tese desta
+     folha é «filetes, não caixas» — a estrutura é carregada por filetes — e a estrutura estava
+     a ser carregada por linhas que, num ecrã claro numa sala clara, não estão lá. Era por isso
+     que os blocos da primeira página pareciam correr uns para dentro dos outros. A norma WCAG
+     1.4.11 pede 3:1 a um elemento não textual que carregue significado; estavam a um terço.
+     Passam a 2.65:1 e 3.22:1, e o `.rule` em tinta cheia fica reservado a divisões maiores —
+     antes havia filetes invisíveis e filetes pesados, e nada no meio, e era esse degrau que
+     faltava para a hierarquia se ler.
+   - **Três das quatro cores de estado falhavam ou raspavam o AA.** `--disputa` estava a 4.48:1,
+     abaixo da linha; `--aviso`, `--sec-2` e `--acento` passavam por centésimas, todas usadas a
+     11–13px. Numa publicação cuja proposta inteira é o leitor poder ver o estado de verificação
+     de cada afirmação, esse estado não pode estar codificado em cor a 4.5:1. A rampa escureceu.
+
+   A cor não é o único canal: a legenda `.pastilha` emparelha a amostra com a palavra, e é isso
+   que faz o estado sobreviver a ser visto por quem não distingue as cores. */
 
 :root {
+  color-scheme: light;   /* senão os controlos de formulário e as barras seguem o sistema
+                            operativo em vez da página, e um campo escuro num jornal em papel
+                            creme é a única coisa da página que não foi escolhida por ninguém */
   --papel:   #f7f4ec;
   --tinta:   #17181c;
   --tinta-2: #2b2d33;
   --sec:     #4a4d55;
-  --sec-2:   #6b6e76;
-  --filete:  #d9d3c3;
-  --filete-2:#c9c2ae;
+  --sec-2:   #5c5f68;   /* 5.80:1 — era #6b6e76, a 4.64:1, e é usado a 13px e a 11px */
+  --filete:  #9f9780;   /* 2.65:1 — o filete de trabalho, dentro de um bloco */
+  --filete-2:#8f8873;   /* 3.22:1 — o que carrega significado: bordas de ficha, o a.ent */
   --painel:  #fffdf7;
-  --acento:  #0f766e;
+  --acento:  #0c5f59;   /* 6.83:1 — era #0f766e, a 4.98:1 */
   --acento-claro: #a7f3d0;
-  --aviso:   #b45309;
-  --falta:   #b91c1c;
-  --disputa: #a16207;
+  --aviso:   #96450a;   /* 6.06:1 — era #b45309, a 4.57:1 */
+  --falta:   #b91c1c;   /* 5.89:1 — já passava, e fica */
+  --disputa: #8a5206;   /* 5.81:1 — era #a16207, a 4.48:1, que FALHAVA o AA */
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --mono:  "IBM Plex Mono", Menlo, Consolas, monospace;
   --goteira: 56px;
@@ -45,7 +67,12 @@ body {
   font-family: var(--serif);
   font-size: 16px;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  /* NÃO voltar a pôr `-webkit-font-smoothing: antialiased` aqui. Força suavização em escala de
+     cinza no WebKit e no Blink, o que desenha o texto MAIS LEVE do que foi especificado. É um
+     hábito da época dos sans pesados em branco; aplicado a um serif variável com hastes finas, a
+     15–18px, sobre papel creme, tira peso exatamente aos traços que a Newsreader precisa para se
+     manter nítida. Se o resultado parecer pesado demais, isso é um sinal verdadeiro e a resposta
+     é mudar o peso da face, não voltar a mentir ao rasterizador. */
 }
 
 .folha { max-width: 1440px; margin: 0 auto; padding: 0 var(--goteira) 56px; }
@@ -54,16 +81,80 @@ a { color: var(--tinta); text-decoration: none; }
 a:hover { color: var(--acento); text-decoration: underline; }
 a.ac { color: var(--acento); }
 
+/* O ACENTO TINHA SETE TRABALHOS e por isso não sinalizava nenhum: antetítulo, secção-atual na
+   navegação, ligação-sob-o-rato, fonte-confirmada, ficha-ok, verbo-do-grafo e «abrir o grafo».
+   Passa a ter dois — **interativo** e **confirmado** — e o antetítulo saiu dele (ver `.kick`).
+   Os títulos ficam em tinta, porque é isso que um jornal faz, mas ganham um foco visível.
+
+   O ANEL DE FOCO, que é uma falha de acessibilidade e não uma preferência. Não havia uma única
+   regra de `:focus` em 13,8 kB de folha, num desenho em que `a { text-decoration: none }` é
+   global: quem navega pelo teclado numa primeira página com ~60 ligações tinha apenas o anel por
+   omissão do navegador, sobre ligações preto-em-creme que não têm outra marca. Sobre o painel
+   escuro e sobre o `a.ent` dentro de prosa, esse anel é ambíguo ou de baixo contraste. */
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.escuro :focus-visible { outline-color: var(--acento-claro); }
+
 /* --- tipografia ------------------------------------------------------------ */
 .mono { font-family: var(--mono); }
-.kick { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); }
-.sect { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta); }
+/* O ANTETÍTULO E O RÓTULO DE SECÇÃO PASSAM AO SERIF, e é a mudança de dez linhas que mais faz por
+   «isto não parece um jornal».
+
+   Até à v0.9.0 a IBM Plex Mono compunha a datalinha, todos os antetítulos, todos os rótulos de
+   secção, as trinta fichas da primeira página, todos os cabeçalhos de tabela e o rodapé inteiro.
+   Cumulativamente a página lia-se como um REGISTO DE CONSTRUÇÃO com uma boa mancheta. Um jornal
+   não compõe os seus rótulos de secção numa face de máquina de escrever: compõe-os na face de
+   texto, pequenos, espaçados, muitas vezes em versaletes ou em itálico.
+
+   A regra que fica: o mono quer dizer UMA coisa, um facto de máquina — um hash, uma contagem de
+   bytes, um identificador, uma hora, uma versão, código, um caminho `dados/…`, uma ligação da API.
+   Onde não é isso, é serif.
+
+   E os dois acumulavam as quatro penalizações de legibilidade ao mesmo tempo: corpo pequeno, mais
+   caixa alta, mais espaçamento forte, mais contraste médio (no caso do antetítulo), numa face
+   monoespaçada. Caixa alta a .14em só se lê acima de ~14px. O antetítulo sobe a 13px, perde a
+   caixa alta, corta o espaçamento, e SAI DO ACENTO — ver a nota sobre os sete trabalhos do acento
+   junto a `a:hover`. */
+.kick { font-family: var(--serif); font-size: 13px; font-style: italic; letter-spacing: .01em;
+        text-transform: none; color: var(--sec); }
+.sect { font-family: var(--serif); font-size: 13px; font-weight: 600; letter-spacing: .08em;
+        text-transform: uppercase; color: var(--tinta); }
 .h-lead { font-size: 54px; line-height: 1.02; font-weight: 500; letter-spacing: -.02em; margin: 0; }
 .h-2 { font-size: 27px; line-height: 1.1; font-weight: 500; letter-spacing: -.015em; margin: 0; }
 .h-3 { font-size: 21px; line-height: 1.15; font-weight: 500; margin: 0; }
-.std { font-size: 18px; line-height: 1.45; margin: 0; color: var(--tinta-2); }
-.sm  { font-size: 15px; line-height: 1.45; margin: 0; color: var(--sec); }
-.xs  { font-size: 13px; line-height: 1.45; margin: 0; color: var(--sec-2); }
+/* DUAS CORREÇÕES AOS NÚMEROS DA PRÓPRIA REVISÃO, e a segunda muda a resposta.
+ *
+ * A primeira é interna. A §2.1 pede `.std: 34em` e `.sm: 38em` e diz que dão «≈66» e «≈68»
+ * caracteres. Os dois não podem estar certos: caracteres por linha são `largura ÷ largura média
+ * do glifo`, e com a largura em `em` o corpo cancela-se — a mesma medida em `em` dá o mesmo
+ * número de caracteres a qualquer tamanho. 34em e 38em não podem dar 66 e 68.
+ *
+ * A segunda é a que importa: **a constante estava errada para esta face**. A revisão assume um
+ * glifo médio de 0.48em, que é o número habitual para um serif de ecrã. Medida no navegador,
+ * numa tela, com a Newsreader a 18px e com texto português a sério, a largura média é **0.405em**
+ * — a Newsreader é mais estreita do que a suposição, cerca de 18%.
+ *
+ * Isso corre nos dois sentidos, e o primeiro é desconfortável:
+ *
+ *   - O problema era PIOR do que a revisão disse. A coluna de 758px não tinha 88 caracteres:
+ *     tinha ≈104. A de 828px das entidades tinha ≈114, não 96.
+ *   - E a correção que a revisão pede não chegava ao alvo que a revisão dá. 34em são 612px, e a
+ *     612px o navegador mede **84 caracteres** — ainda acima dos 75 que a própria §4.4 fixa.
+ *
+ * Por isso a medida é 29em (≈522px, ≈71 caracteres) e não 34em. O portão 29 mede com 0.405 e não
+ * com 0.48, e diz de onde vem o número. É a diferença entre implementar uma revisão e verificá-la.
+ *
+ * A entrelinha andava a 1.45 — 26.1px a 18px. Um serif a 18px sobre um fundo creme de baixo
+ * contraste precisa de mais ar do que um sans em branco: a faixa de leitura é 1.6-1.65.
+ *
+ * O `max-width` vive aqui e não numa coluna da grelha por uma razão: o TÍTULO quer os 758px
+ * inteiros e o corpo não quer. Estreitar a coluna estreitaria os dois.
+ *
+ * O `margin: 0` FICA, e a razão é a de sempre: na primeira página cada parágrafo é filho de um
+ * flex e recebe o seu espaço do `gap` do contentor, e por isso é o `.prosa > p` que devolve o
+ * ritmo ao corpo de um artigo. Mexer nisto desalinha a primeira página inteira. */
+.std { font-size: 18px; line-height: 1.62; margin: 0; color: var(--tinta-2); max-width: 29em; }
+.sm  { font-size: 15px; line-height: 1.6;  margin: 0; color: var(--sec);     max-width: 29em; }
+.xs  { font-size: 13px; line-height: 1.55; margin: 0; color: var(--sec-2); }
 .it { font-style: italic; }
 
 /* --- filetes --------------------------------------------------------------- */
@@ -131,8 +222,12 @@ a:hover .flag { border-color: var(--acento); color: var(--acento); }
 table { border-collapse: collapse; width: 100%; }
 td, th { font-family: var(--serif); font-size: 15px; padding: 9px 10px 9px 0;
   border-top: 1px solid var(--filete); text-align: left; vertical-align: top; }
-th { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--sec-2); border-top: 0; font-weight: 500; }
+/* O cabeçalho de tabela era mono a 11px em caixa alta a .12em, e é a mesma acumulação de
+   penalizações que o `.kick` e o `.sect` tinham. Passa ao serif pela mesma regra: mono só onde o
+   conteúdo É um facto de máquina, e o nome de uma coluna não é. O `th.mono` continua a existir
+   para a coluna cujo CONTEÚDO é um hash ou um caminho. */
+th { font-family: var(--serif); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sec-2); border-top: 0; font-weight: 600; }
 td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 
 /* Tabelas, diagramas e blocos de código são as únicas coisas que podem ser mais largas do que o
@@ -168,10 +263,19 @@ td.mono, th.mono { font-family: var(--mono); font-size: 13px; }
 
 /* --- blocos de casa -------------------------------------------------------- */
 .aviso-bloco { border-left: 3px solid var(--aviso); padding: 12px 0 12px 16px; margin: 22px 0; }
+/* A PROSA do bloco «para um agente» passa ao serif; o `<code>` lá dentro fica mono, porque é
+   isso que ele é. O bloco é lido por pessoas tantas vezes como por máquinas, e compô-lo inteiro
+   em mono fazia o fim de cada página parecer a saída de um comando. */
 .agent { border-top: 1px solid var(--filete); margin-top: 40px; padding-top: 14px;
-  font-family: var(--mono); font-size: 12px; color: var(--sec-2); line-height: 1.6; }
-.agent b { color: var(--tinta); font-weight: 500; }
+  font-family: var(--serif); font-size: 13px; color: var(--sec-2); line-height: 1.6; }
+.agent b { color: var(--tinta); font-weight: 600; }
+.agent code, .agent .ver { font-family: var(--mono); font-size: 12px; }
 .ver { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--sec-2); }
+/* O distintivo é agora uma ligação (ver `build/paginas.py`, `datalinha`) e tem de continuar a
+   parecer um distintivo e não um título: fica na cor secundária, e só se sublinha ao passar o
+   rato. Sem isto herdava a tinta cheia de `a` e passava a competir com a datalinha. */
+a.ver { color: var(--sec-2); }
+a.ver:hover { color: var(--acento); text-decoration: underline; }
 .rodape { border-top: 3px double var(--tinta); padding-top: 16px; margin-top: 40px; }
 
 /* --- estados --------------------------------------------------------------- */
@@ -225,8 +329,20 @@ a.ent:hover, a.no:hover { border-bottom-color: var(--acento); color: var(--acent
   .h-3 { font-size: 19px; }
   .std { font-size: 16px; }
   .sm { font-size: 14px; }
-  .nav { gap: 18px; justify-content: flex-start; overflow-x: auto; padding: 10px 0; }
+  /* `flex-wrap: nowrap` É A LINHA QUE FALTAVA. A regra base põe `flex-wrap: wrap` na navegação, e
+     aqui punha-se `overflow-x: auto` sem desligar o embrulho — o que não faz nada, porque um flex
+     que embrulha nunca transborda. Os onze itens partiam em três linhas e o separador `|` ficava
+     pendurado no início da terceira. Com o embrulho desligado, a navegação passa a ser UMA linha
+     que desliza na horizontal, dentro de si mesma, que é o que a regra já dizia querer.
+     A barra é escondida porque a nav corta à goteira e o corte já convida a arrastar. */
+  .nav { gap: 18px; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto;
+         padding: 10px 0; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
   .nav a { white-space: nowrap; font-size: 14px; }
+  /* A medida no telemóvel é imposta pela largura do ecrã, e não por um `max-width` em `em`: a
+     34em a 16px são 544px, muito mais do que um telemóvel tem, e o `max-width` passaria a
+     limitar nada enquanto continuava a aparecer nas ferramentas de quem medisse a página. */
+  .std, .sm { max-width: none; }
   .datalinha { font-size: 11px; gap: 10px; }
   #cy { height: 420px; }
   .chip { white-space: normal; }     /* uma ficha longa parte-se em vez de alargar a linha */

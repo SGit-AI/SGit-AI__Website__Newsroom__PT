@@ -105,6 +105,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body=""):
        <a href="{raiz}backoffice/quadro.html">board</a> ·
        <a href="{raiz}backoffice/correio.html">mail</a> ·
        <a href="{raiz}backoffice/pontes.html">bridges</a> ·
+       <a href="{raiz}backoffice/desenho.html">design</a> ·
        <a href="{raiz}backoffice/docs.html">documents</a> ·
        <a href="{raiz}backoffice/agents.html">agents</a> ·
        <a href="{raiz}admin/versions.html">versions</a></div>
@@ -478,6 +479,7 @@ in a folder, one commit per cycle, no broker and no API.</p>
   <a class="chip ok" href="quadro.html">the board — what each one has in front of it →</a>
   <a class="chip ok" href="correio.html">the mail — what passed between them →</a>
   <a class="chip" href="pontes.html">the bridges — how the editor reaches them →</a>
+  <a class="chip" href="desenho.html">the design review — item by item, and what was done →</a>
 </div>
 
 <div class="rule" style="padding:22px 0 8px"><div class="sect">Board · {len(issues)} issues</div></div>

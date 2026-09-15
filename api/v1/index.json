@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.8.0",
+  "version": "v0.9.0",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -532,7 +532,7 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 46,
+      "count": 51,
       "items": null,
       "item_ids": null
     },
@@ -850,7 +850,7 @@
       "portuguese_source": "dados/correio.json",
       "summary": "Every message between the agents, under Email-FS-lite",
       "description": "RFC 2822 messages in a folder. The state of a message is the folder it sits in and not a field, because a field can disagree with the folder and a folder cannot disagree with itself. Messages are immutable: never edited, never deleted, only moved.",
-      "count": 4,
+      "count": 6,
       "items": null,
       "item_ids": null
     },
@@ -883,7 +883,7 @@
       "portuguese_source": "dados/manifesto.json",
       "summary": "Every data file with its SHA-256",
       "description": null,
-      "count": 27,
+      "count": 28,
       "items": null,
       "item_ids": null
     },

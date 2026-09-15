@@ -6,7 +6,7 @@
     python3 build/tudo.py --so-portoes # só os portões, sem reconstruir
     python3 build/tudo.py --render     # mais o portão do navegador (precisa de playwright)
 
-PORQUE É QUE ISTO EXISTE. A sequência tem onze passos e **a ordem importa**: `entidades.py` lê o
+PORQUE É QUE ISTO EXISTE. A sequência tem catorze passos e **a ordem importa**: `entidades.py` lê o
 grafo que `graph.py` escreve, `artigos.py` lê os comentários que `comentarios.py` deriva, e a
 passagem que transforma uma menção em ligação lê o `dados/entidades.json` que só existe depois de
 `entidades.py` correr. Correr os passos por outra ordem não rebenta — produz um site com menos
@@ -53,6 +53,8 @@ PASSOS = [
      "api/v1/ — cada caminho é um ficheiro, e por isso o openapi.json é honesto", False),
     (["python3", "build/backoffice.py"],
      "a consola de operações, em inglês", False),
+    (["python3", "build/desenho.py"],
+     "a página da revisão de desenho: cada item, e se foi feito, adiado ou é do editor", False),
     (["python3", "build/pontes.py"],
      "a página das pontes: como o editor chega aos bastidores a partir do navegador", False),
     (["python3", "build/chrome.py"],
@@ -61,6 +63,9 @@ PASSOS = [
      "os portões do núcleo (1-15)", True),
     (["python3", "build/gates_artigos.py"],
      "artigos, secções, bastidores, entidades, comentários e execuções (16-26)", True),
+    (["python3", "build/gates_desenho.py"],
+     "os portões do desenho (27-33): contraste, medida, entrelinha, o mono, o foco, as colunas "
+     "vazias, os acentos do vocabulário de estado — os números que a revisão de desenho mediu", True),
     (["node", "admin/build/validate.js"],
      "o portão do site: estrutura, ligações, versão, canónicos, fuga de chaves", True),
 ]
@@ -135,7 +140,12 @@ def main(argv):
 
     if srv:
         srv.shutdown()
-    quantos = "quatro portões" if com_render else "três portões"
+    # Contado e não escrito: um número à mão nesta linha fica errado no dia em que
+    # alguém acrescenta um portão, e esse é o dia em que a linha é mais lida.
+    n = sum(1 for _, _, g in passos if g)
+    NOMES = {1: "um portão", 2: "dois portões", 3: "três portões", 4: "quatro portões",
+             5: "cinco portões", 6: "seis portões"}
+    quantos = NOMES.get(n, f"{n} portões")
     print(f"\n\033[32mtudo: OK\033[0m — construído e conferido pelos {quantos}.")
     if not com_render:
         print("Sem `--render`: nenhum componente foi aberto num navegador. Se esta mudança mexeu "

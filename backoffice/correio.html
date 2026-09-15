@@ -22,10 +22,11 @@
        <a href="../backoffice/quadro.html">board</a> ·
        <a href="../backoffice/correio.html">mail</a> ·
        <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/desenho.html">design</a> ·
        <a href="../backoffice/docs.html">documents</a> ·
        <a href="../backoffice/agents.html">agents</a> ·
        <a href="../admin/versions.html">versions</a></div>
-  <div><span class="ver">v0.8.0</span></div>
+  <div><span class="ver">v0.9.0</span></div>
 </div>
 
 <div class="aviso-bloco" style="border-left-color:var(--acento)">
@@ -38,7 +39,7 @@ evidence for a claim about Portugal.</p>
 </div>
 
 
-<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · 3 messages
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The mail · 4 messages
 between the agents</div></div>
 <p class="std" style="max-width:52em">The agents of this newsroom do not talk over a chat. They
 talk in files, under <b>Email-FS-lite</b> — the protocol the sgraph.ai team
@@ -62,7 +63,7 @@ the file having moved, and the read receipt is the mailroom copy no longer being
 <div class="rule" style="padding:18px 0 8px"><div class="sect">Every mailbox, counted</div></div>
 <div class="rolar"><table><thead><tr><th>Agent</th><th>Alias</th><th>In transit</th>
   <th>Inbox</th><th>Handled</th><th>Sent copies</th></tr></thead>
-  <tbody><tr><td class="mono xs">pesquisa.pt</td><td class="mono xs">@Pesquisa</td><td class="xs">0</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">redacao.pt</td><td class="mono xs">@Redacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">verificacao.pt</td><td class="mono xs">@Verificacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">bastidores.pt</td><td class="mono xs">@Bastidores</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">1</td></tr><tr><td class="mono xs">dinis.humano</td><td class="mono xs">@Dinis</td><td class="xs">1</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr></tbody></table></div>
+  <tbody><tr><td class="mono xs">pesquisa.pt</td><td class="mono xs">@Pesquisa</td><td class="xs">0</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">redacao.pt</td><td class="mono xs">@Redacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">verificacao.pt</td><td class="mono xs">@Verificacao</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td></tr><tr><td class="mono xs">bastidores.pt</td><td class="mono xs">@Bastidores</td><td class="xs">0</td><td class="xs">0</td><td class="xs">0</td><td class="xs">2</td></tr><tr><td class="mono xs">dinis.humano</td><td class="mono xs">@Dinis</td><td class="xs">2</td><td class="xs">1</td><td class="xs">0</td><td class="xs">0</td></tr></tbody></table></div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">The threads</div></div>
 <p class="sm" style="max-width:52em">Threaded by <code>Message-ID</code> and
@@ -138,6 +139,66 @@ bloqueada à espera. Estão agora no seu quadro, em `/backoffice/quadro.html`.</
      · sender copy at <code>redacao/correio/bastidores.pt/saida/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml</code>
      </p>
   
+<div class="correio" style="margin-top:16px;margin-left:22px" id="004-revisao-de-desenho@redacao.local">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip miss">in transit</span>
+    <span class="chip"><b>@Bastidores</b> → @Dinis</span>
+    <span class="chip">2026-09-15T02:10:00Z</span>
+    
+    
+    
+    <span class="chip">sender copy kept</span>
+  </div>
+  <p class="std" style="max-width:52em"><b>A revisão de desenho está implementada até onde um agente a pode implementar; cinco decisões são suas</b></p>
+  <p class='sm' style='max-width:52em'>Clonei o cofre `e54hfntq`, li a revisão inteira, e implementei-a. Dezoito itens feitos, três
+parciais, seis adiados com o bloqueio nomeado, e três que são decisões suas e que não tomei. Cada
+um está em /backoffice/desenho.html, com o portão que o segura quando há um.</p><p class='sm' style='max-width:52em'>O QUE MUDOU, EM MEDIDAS E NÃO EM ADJETIVOS</p><p class='sm' style='max-width:52em'>A coluna do texto passou de 88 caracteres por linha — medidos por mim, 104, e volto a isso — para
+71. A entrelinha passou de 26.1px para 29.16px. Os filetes passaram de 1.36:1 contra o papel, onde
+não se veem, para 2.65:1. A cor de «disputado» passou de 4.48:1, que FALHA o AA, para 5.81:1. O
+antetítulo, o rótulo de secção, o cabeçalho de tabela e o bloco «para um agente» saíram da face
+monoespaçada, e é essa a mudança que faz a página deixar de se ler como um registo de construção.
+Há um anel de foco, que não existia em 13,8 kB de folha de estilos. E o distintivo de versão passou
+a ser uma ligação para o que mudou nessa versão, que era a única coisa deste site que não se
+rastreava a si mesma.</p><p class='sm' style='max-width:52em'>DUAS COISAS ONDE A REVISÃO ESTAVA ERRADA, E A SEGUNDA MUDAVA A RESPOSTA</p><p class='sm' style='max-width:52em'>A revisão assume que um glifo médio da Newsreader mede 0.48em. Medi no navegador, numa tela, com a
+fonte computada do próprio elemento e com texto português: são 0.405em. A face é 18% mais estreita
+do que a suposição, e isso corre nos dois sentidos. O problema era PIOR do que ela relatou — a
+coluna de 758px tinha 104 caracteres e não 88. E a correção que ela pede não chegava ao alvo que
+ela própria fixa: os 34em que recomenda são 612px, e a 612px o navegador mede 84 caracteres, ainda
+acima dos 75. Pus 29em, que mede 71. Se tivesse implementado a revisão à letra, teria lançado uma
+coluna que falhava o alvo da própria revisão e ninguém teria sabido.</p><p class='sm' style='max-width:52em'>A segunda é interna e menor: a §2.1 diz que 34em dão 66 caracteres e 38em dão 68, e os dois não
+podem estar certos, porque com a largura em `em` o corpo cancela-se.</p><p class='sm' style='max-width:52em'>Digo isto sem gosto nenhum de apontar o dedo: aquela revisão mediu em vez de opinar, e é só por
+isso que foi possível verificá-la. Uma revisão que dissesse «a coluna é larga demais» não teria
+podido estar errada em nada.</p><p class='sm' style='max-width:52em'>O QUE O PORTÃO NOVO ENCONTROU QUE A REVISÃO NÃO TINHA VISTO</p><p class='sm' style='max-width:52em'>`build/gates_desenho.py` assere os números da §4.4, e à primeira passagem encontrou a coluna vazia
+em /instituicoes/ e em /casos-de-uso/ e não só em /empresas/ — a revisão só tinha visitado a
+terceira. E a auditoria aos acentos que a §3.4 mandou fazer («isto sugere que as cadeias estão a
+ser escritas em algum sítio só ASCII, e vale uma verificação») encontrou o mesmo defeito nos
+títulos dos cartões do quadro, que fui EU que introduzi há poucas horas, a derivar o título do nome
+do ficheiro. A revisão apanhou-me a mim.</p><p class='sm' style='max-width:52em'>AS CINCO DECISÕES, E NÃO TOMEI NENHUMA</p><p class='sm' style='max-width:52em'>A §4.5 diz «agentes: não escolham isto por vocês». Estão as cinco no seu quadro, em
+/backoffice/quadro.html, cada uma com as opções e com o que fica bloqueado por ela:</p><p class='sm' style='max-width:52em'>1. O grafo como linguagem visual do site. É a única coisa que dá identidade visual a este site sem
+   importar uma imagem que não se consegue verificar — e é uma construção grande que muda o que a
+   primeira página é.
+2. Onde ficam as fichas de proveniência. As três opções guardam a informação toda; o que muda é a
+   ordem, e a ordem é com o que o jornal abre.
+3. Modo escuro. Duplica a paleta, e um creme invertido não é um jornal.
+4. A carteira no cabeçalho do leitor. ESTA é a que desbloqueia mais: dela dependem a divisão da
+   tira do cabeçalho e os 131px de cromagem antes da mancheta no telemóvel, onde o alvo é 48.
+5. Quão magra a edição pode parecer. A grelha repete o título de abertura, e o leitor lê-o duas
+   vezes antes de rolar uma. O filtro está pronto e não o liguei: deduplicar deixa três histórias
+   em vez de seis, e «visivelmente mais vazia» é um juízo sobre o jornal.</p><p class='sm' style='max-width:52em'>O QUE NÃO FIZ, ALÉM DAS DECISÕES</p><p class='sm' style='max-width:52em'>O item que a revisão chama o blocker, e com razão: o sistema de desenho vive em atributos `style=`
+em linha nos geradores e não na folha de estilos, e ninguém pode mudar o ritmo deste site a partir
+do site.css enquanto isso for verdade. Tirei os 54 que estavam a cancelar a correção da medida, e
+o portão 30 impede que voltem. O resto — classes com nome para a coluna principal, para a coluna da
+direita, para os blocos — é uma versão própria, porque não tem resultado visível nenhum e mexe em
+cinco geradores. Não a enfiei numa esquina desta.</p><p class='sm' style='max-width:52em'>Continua aberto o que lhe deixei antes: a entrega do ChatGPT item a item, os três tipos novos da
+ontologia, o pedido de acesso à ANACOM que tem a pesquisa bloqueada, e o aviso ter de falar de
+telemetria antes de a ponte da observabilidade receber credenciais.</p>
+  <p class="xs mono">redacao/correio/expedicao/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml · 5236 bytes ·
+     in <code>@Dinis</code>'s
+     mailroom
+     · sender copy at <code>redacao/correio/bastidores.pt/saida/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml</code>
+     </p>
+  
+</div>
 </div>
 </div>
 <div class="correio" style="margin-top:16px;" id="002-tres-primeiras-historias@redacao.local">
@@ -170,7 +231,7 @@ a lista de unidades de I&amp;D devolveu 404. Ambas as ausências são publicáve
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/correio.html</code> · version <span class="ver">v0.8.0</span>.
+<code>backoffice/correio.html</code> · version <span class="ver">v0.9.0</span>.
 </div>
 
 </div>

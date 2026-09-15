@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 27,
+  "contagem": 28,
   "ficheiros": [
     {
       "ficheiro": "dados/agentes.json",
@@ -22,13 +22,18 @@
     },
     {
       "ficheiro": "dados/correio.json",
-      "bytes": 13157,
-      "sha256": "a8a06e5bd888a1606c6ae888990582b9bf3d43748c093a9b322a516ba109b3fa"
+      "bytes": 25378,
+      "sha256": "fdfff45128adfd0a0c6bcb4ee10ab99a74e7d897dd920fbd805e795ce585bb5a"
+    },
+    {
+      "ficheiro": "dados/desenho.json",
+      "bytes": 23535,
+      "sha256": "9f8c1c1a74581ecf8136966688084e2bcf9c44a60b85f1d9de71dc89ff120154"
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 11645,
-      "sha256": "676660f6d5fd542a3d76adac89f8e4a127df486df78ae15e56aed4894d02ec12"
+      "bytes": 13008,
+      "sha256": "ee5a28142a8040df2397d52ed2cd1af6d32f283d1de86a9f08edb657147a27d7"
     },
     {
       "ficheiro": "dados/entidades.json",
@@ -77,8 +82,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 4544,
-      "sha256": "cb4c0cf632722aebd9371bd7b967f1b4112b6321db729c62f008d2745db2fcaa"
+      "bytes": 4702,
+      "sha256": "d93c6e062c874321aac5efa453d62624dc87fa9f9345cb8beb079316d0e6cf62"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -107,13 +112,13 @@
     },
     {
       "ficheiro": "dados/quadro.json",
-      "bytes": 37383,
-      "sha256": "23069485809db181ae2fce91298bbd2b26b37ec1eb0b645a9f481a54805c32dd"
+      "bytes": 54580,
+      "sha256": "78c663c6eec71b07bf7f07d93f7f3aeebdfe4c4de1271a17def24882ddb955bc"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 13439,
-      "sha256": "cc2c934c45ed3601401ecbf2cac17131e22da243ba3755de3032b9bd1b89eb96"
+      "bytes": 13908,
+      "sha256": "0a2f599dd032346f068263683e7e99781eb66adc878f9669b68f2eb4ebd1f0a7"
     },
     {
       "ficheiro": "dados/registo.json",

@@ -84,7 +84,15 @@ def datalinha(hoje, dias=None):
             f'<a href="{{raiz}}backoffice/" title="The operations console — in English">'
             f'Back office <span class="flag" aria-label="em inglês">EN</span></a>'
             f'<pt-wallet site-root="{{raiz}}"></pt-wallet>'
-            f'<span class="ver">{VERSAO}</span></div></div>')
+            # O DISTINTIVO DE VERSÃO É UMA LIGAÇÃO. A orientação de sgit.ai pede as duas coisas —
+            # mostrar a versão na cromagem E ligá-la ao detalhe daquela versão — e até à v0.9.0 só
+            # a primeira metade estava feita: era um `<span>`, e a única via para o detalhe era o
+            # último item de uma lista de onze no rodapé. Num site cuja proposta inteira é a
+            # rastreabilidade, era o único lugar onde o site não se rastreava a si mesmo.
+            # A âncora leva ao número desta versão em `admin/versions.html`, onde está o que mudou
+            # e porquê; o `title` diz para onde vai, porque um número de versão sozinho não o diz.
+            f'<a class="ver" href="{{raiz}}admin/versions.html#{VERSAO}" '
+            f'title="O que mudou em {VERSAO}, e porquê">{VERSAO}</a></div></div>')
 
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -135,7 +143,10 @@ def bloco_agente(rel, fontes_n=None, raiz=""):
         f'O índice legível por máquina está em <a href="{raiz}llms.txt">llms.txt</a> e o manifesto '
         f'com o hash de cada ficheiro de dados em '
         f'<a href="{raiz}ficheiros/">ficheiros/</a>.{extra} '
-        f'Versão <span class="ver">{VERSAO}</span> · fonte: '
+        # A mesma ligação que o distintivo da datalinha, e pela mesma razão: o bloco «para um
+        # agente» é onde uma máquina lê de que versão esta página é, e um número sem caminho para
+        # o que mudou nele obriga quem o lê a adivinhar onde procurar.
+        f'Versão <a class="ver" href="{raiz}admin/versions.html#{VERSAO}">{VERSAO}</a> · fonte: '
         f'<a href="{GH}">{GH.split("//")[1]}</a> · ficheiro: <code>{e(rel)}</code>.</div>'
     )
 

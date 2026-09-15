@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The design review · pt.newsroom back office</title>
+<meta name="description" content="Every item of the design review, and whether it was done, deferred, or left to the editor — with the gate that holds each one that was done.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/desenho.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/desenho.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="folha">
+
+<div class="datalinha">
+  <div>pt.newsroom.sgit.ai · <b>back office</b></div>
+  <div><a href="../">← the paper</a> · <a href="../backoffice/">console</a> ·
+       <a href="../backoffice/equipa.html">team</a> ·
+       <a href="../backoffice/quadro.html">board</a> ·
+       <a href="../backoffice/correio.html">mail</a> ·
+       <a href="../backoffice/pontes.html">bridges</a> ·
+       <a href="../backoffice/desenho.html">design</a> ·
+       <a href="../backoffice/docs.html">documents</a> ·
+       <a href="../backoffice/agents.html">agents</a> ·
+       <a href="../admin/versions.html">versions</a></div>
+  <div><span class="ver">v0.9.0</span></div>
+</div>
+
+<div class="aviso-bloco" style="border-left-color:var(--acento)">
+<p class="sm"><b>This is the operations console, not the publication.</b> It is in English on
+purpose: its audience is whoever is operating the newsroom, not the reader of the paper. The
+publication itself is natively Portuguese and nothing here is linked from the masthead. Every
+number on these pages counts files in this repository — the back office reports on the newsroom
+and never on the world, and a gate fails the build if a page here ever cites a frozen source as
+evidence for a claim about Portugal.</p>
+</div>
+
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The design review, item by item
+  </div></div>
+<p class="std">The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn&#x27;t look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten».</p>
+<div class="chips" style="padding:12px 0"><span class="chip ok">18 done</span> <span class="chip miss">6 deferred</span> <span class="chip disputa">3 the editor decides</span> <span class="chip falta">3 partly done</span></div>
+<p class="sm">Source: the encrypted vault <code>e54hfntq</code>, version
+v0.1.0, reviewed against site build v0.6.0. The review is not
+copied into this repository: it is a vault the editor holds, and a copy here would disagree with it
+the first time it was updated. What this page carries is the <b>disposition</b> of each item, which
+is this repository's business and not the vault's.</p>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Where the review was wrong, and how
+  we know</div></div>
+<p class="sm">The review measured rather than asserted, which is why it was worth implementing.
+Two of its numbers were still wrong, and one of them changed the answer. Recording that is not
+scoring a point: an implementation that had followed the review exactly would have shipped a
+column that still missed the review's own target, and nobody would have known.</p>
+<div class="aviso-bloco" style="margin-top:12px"><p class="sm"><b>§2.1 — «.std: 34em ≈ 66 characters» and «.sm: 38em ≈ 68 characters», from an assumed average glyph width of 0.48em.</b></p><p class="sm">Newsreader&#x27;s average glyph, measured in Chromium on a canvas at the element&#x27;s own computed font with real Portuguese text, is 0.405em — about 18% narrower than assumed. Two things follow. The problem was WORSE than reported: the 758px column held ≈104 characters, not 88, and the 828px entity column ≈114, not 96. And the prescription did not reach its own target: 34em is 612px, which measures 84 characters — still above the 75 that §4.4 fixes as the ceiling.</p><p class="sm"><b>Consequence:</b> The site is set to 29em, not 34em, and measures 71 characters. Gate 29 uses 0.405 and says where the number came from. An implementation that had followed the review exactly would have shipped a column that missed the review&#x27;s own target.</p></div><div class="aviso-bloco" style="margin-top:12px"><p class="sm"><b>§2.1b — 34em and 38em give «≈66» and «≈68» characters respectively.</b></p><p class="sm">They cannot both be right. Characters per line is width divided by average glyph width, and with the width expressed in `em` the font size cancels — the same `em` measure gives the same character count at any size. 34em and 38em cannot yield 66 and 68.</p><p class="sm"><b>Consequence:</b> Minor next to the other, and worth recording because it is the kind of internal inconsistency that a reader of the review would otherwise carry forward. Both classes are set to the same measure.</p></div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">§4.1 — pure CSS, shipped · 10 items</div></div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.1</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 29 + gate 30</span>
+  </div>
+  <p class="std"><b>Measure: the column ran 88–96 characters</b></p>
+  <p class="sm">`.std` and `.sm` now carry `max-width: 29em` in the stylesheet, and the 54 inline `max-width` declarations the generators emitted on body-text classes were removed — an inline value beats the class, so a single survivor would have undone the fix on that page without failing anything.</p>
+  <p class="xs mono">measured: 71 characters on the front page, 70 on an entity page, measured in Chromium on a canvas at the element&#x27;s own computed font</p><p class="xs mono">assets/site.css · build/build.py · build/artigos.py · build/entidades.py · build/paginas_extra.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.2</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 29</span>
+  </div>
+  <p class="std"><b>Leading: 1.45 where a serif on cream wants 1.6–1.65</b></p>
+  <p class="sm">`.std` 1.62, `.sm` 1.6, `.xs` 1.55.</p>
+  <p class="xs mono">measured: line-height 29.16px at 18px</p><p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.3</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 32</span>
+  </div>
+  <p class="std"><b>`-webkit-font-smoothing` was thinning the serif</b></p>
+  <p class="sm">Deleted, and a comment in its place says why it must not come back — it forces grayscale antialiasing and draws the type lighter than specified, which takes weight out of exactly the strokes Newsreader needs at 15–18px.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.4</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 27</span>
+  </div>
+  <p class="std"><b>The hairlines could not be seen: 1.36:1 and 1.62:1</b></p>
+  <p class="sm">`--filete` → #9f9780 and `--filete-2` → #8f8873. The stylesheet&#x27;s whole thesis is «filetes, não caixas» — structure carried by rules — and the structure was being carried by lines that are not there on a bright screen. That is why the front-page blocks appeared to run into each other.</p>
+  <p class="xs mono">measured: 2.65:1 and 3.22:1 against the paper</p><p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.3</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 28</span>
+  </div>
+  <p class="std"><b>Three of four status colours failed or scraped WCAG AA</b></p>
+  <p class="sm">The whole ramp darkened. `--disputa` was at 4.48:1 — below the line — while carrying verification state at 11px, on a publication whose entire proposition is that a reader can see the verification state of every claim.</p>
+  <p class="xs mono">measured: --acento 6.83:1, --aviso 6.06:1, --disputa 5.81:1, --sec-2 5.80:1, --falta 5.89:1</p><p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.7</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 32</span>
+  </div>
+  <p class="std"><b>No focus styles anywhere, on a design with no underlines</b></p>
+  <p class="sm">`:focus-visible` with a 2px accent outline, and a variant that switches to the light accent over the dark panel. This was an accessibility failure and not a preference.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.16</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 32</span>
+  </div>
+  <p class="std"><b>`color-scheme` undeclared</b></p>
+  <p class="sm">`color-scheme: light` on `:root`, so form controls and scrollbars follow the page rather than the operating system. Dark mode itself is decision 3 and was not taken.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.6</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 31</span>
+  </div>
+  <p class="std"><b>Mono was setting the whole site — the dominant cause of «doesn&#x27;t look like a news site»</b></p>
+  <p class="sm">`.kick`, `.sect`, `&lt;th&gt;` and the prose of the `.agent` block all move to Newsreader; the `&lt;code&gt;` inside the agent block stays mono, because that is what it is. The rule now written into the stylesheet: mono means one thing, a machine fact — a hash, a byte count, an identifier, a timestamp, a path, code.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.5</span>
+    <span class="chip ok">done</span>
+    
+  </div>
+  <p class="std"><b>The accent had seven jobs, so it signalled none</b></p>
+  <p class="sm">The kicker came off the accent. The accent now means two things: interactive, and confirmed.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.6</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 31</span>
+  </div>
+  <p class="std"><b>`.kick` and `.sect` combined all four legibility penalties</b></p>
+  <p class="sm">Both to the serif at 13px; the kicker loses uppercase and drops to .01em tracking, the section label keeps small caps at .08em. Uppercase at .14em is only legible above ~14px.</p>
+  <p class="xs mono">assets/site.css</p>
+</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.2 — generator fixes · 8 items</div></div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.1</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 33</span>
+  </div>
+  <p class="std"><b>A 60-row table with an entirely empty column, in production</b></p>
+  <p class="sm">The generator drops a column that is empty on every row of that table. The review counted 67 of 67 in /empresas/; the new gate found the same fault in /instituicoes/ and /casos-de-uso/, which the review had not visited. Worse than a blank column: it pushed «Fonte congelada» about 1100px away from the name it belongs to.</p>
+  <p class="xs mono">build/build.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.4</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 33</span>
+  </div>
+  <p class="std"><b>`nao resolve` — an unaccented word in the status vocabulary</b></p>
+  <p class="sm">The identifier `nao_resolve` is ASCII and stays so; what was wrong was the generator turning `_` into a space and putting an identifier dressed as a word on the page. There is now a written label vocabulary, and a state with no label shows its raw identifier — visible and odd — rather than a laundered one. The review then said the right thing: that a missing accent suggests the strings are being written somewhere ASCII-only, and that is worth an audit. It was: the audit of `dados/` found the same pattern in the board card titles, which this very session had introduced hours earlier by de-slugging filenames.</p>
+  <p class="xs mono">build/build.py · build/equipa.py · redacao/correio/*/assuntos/</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.5</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 33</span>
+  </div>
+  <p class="std"><b>The version was displayed but not linked</b></p>
+  <p class="sm">Both the chrome badge and the version in every page&#x27;s agent block are now links to that version&#x27;s own row, and all twelve rows in admin/versions.html gained the anchor their number names. sgit.ai&#x27;s guidance asks for both halves; half was done, and on a site whose entire proposition is traceability this was the one place the site did not trace itself.</p>
+  <p class="xs mono">build/paginas.py · admin/versions.html · assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.9</span>
+    <span class="chip ok">done</span>
+    
+  </div>
+  <p class="std"><b>Article cards had no dateline</b></p>
+  <p class="sm">Every card on the front page now carries the date of its article&#x27;s folder. /empresas/ already had it in a column; the front page did not.</p>
+  <p class="xs mono">build/build.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.1b</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by gate 30</span>
+  </div>
+  <p class="std"><b>Remove the inline `max-width:46em` the generators emit</b></p>
+  <p class="sm">54 removed, from the body-text classes only. The ones on `.h-lead`, `.h-2` and `.prosa` were left: those control where a HEADLINE wraps, which is a per-instance typographic choice, and the review is explicit that the headline wants the full column even where the body does not.</p>
+  <p class="xs mono">build/build.py · build/artigos.py · build/entidades.py · build/paginas_extra.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.8a</span>
+    <span class="chip ok">done</span>
+    
+  </div>
+  <p class="std"><b>The mobile nav rule did nothing</b></p>
+  <p class="sm">The media query set `overflow-x: auto` but never unset `flex-wrap: wrap`, and a flex container that wraps never overflows — so the rule had no effect and the eleven items broke onto three rows with the `|` separator dangling at the start of the third. `flex-wrap: nowrap` was the missing line; the nav is now one row that scrolls inside itself.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.2</span>
+    <span class="chip disputa">the editor decides</span>
+    
+  </div>
+  <p class="std"><b>Three of six front-page cards repeat stories already on screen</b></p>
+  <p class="sm">NOT done, and deliberately. The fix is a five-line filter. But §4.5 decision 5 asks the editor to confirm that a front page showing three stories instead of six — visibly emptier, and more honest — is acceptable. De-duplicating without that answer would be an agent making an editorial judgement about how thin the edition may look.</p>
+  <p class="sm"><b>What blocks it:</b> Decision 5. The filter is ready; it is one condition in build/build.py.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.14</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>Raw identifiers used as human link text</b></p>
+  <p class="sm">Not done. The path is the truth and must stay reachable, and replacing it with a label needs a label to exist — which means deciding, per edge, what a human-readable rendering of that relation is. That is the same work as §2.13&#x27;s entity template and belongs with it.</p>
+  <p class="sm"><b>What blocks it:</b> Needs the entity template (§2.13), which is §4.3 structural work.</p>
+</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.4 — measurement · 2 items</div></div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§4.4</span>
+    <span class="chip ok">done</span>
+    <span class="chip ok">held by it is the gate</span>
+  </div>
+  <p class="std"><b>«Do not re-review by eye» — the numbers, asserted</b></p>
+  <p class="sm">build/gates_desenho.py, gates 27–33, wired into build/tudo.py as the fourth of five gates. It asserts contrast for every rule and status token, the measure and leading, that no generator emits an inline max-width on a body class, that mono appears only where the stylesheet means a machine fact, that the focus ring exists, that no table ships an empty column, that no status chip lost its accent, and that the version badge links. A design review without a gate undoes itself over three releases.</p>
+  <p class="xs mono">build/gates_desenho.py · build/tudo.py</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§4.4b</span>
+    <span class="chip falta">partly done</span>
+    
+  </div>
+  <p class="std"><b>The two numbers a file cannot hold</b></p>
+  <p class="sm">Chrome height above the masthead at 390px, and the count of elements the BROWSER resolves to mono, both need a browser and the cascade. They are measured by hand this release — 131px and 81 elements — and neither is at its target, because both depend on splitting the header strip, which is §4.3 work. They belong in admin/build/render.mjs, where there is a Chromium.</p>
+  <p class="sm"><b>What blocks it:</b> Both are consequences of §2.12 / §4.3 item 20, not separate fixes.</p><p class="xs mono">measured: chrome 131px against a target of ≤48px; 81 mono elements on the front page</p>
+</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§4.3 — structural, not done · 9 items</div></div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.9</span>
+    <span class="chip falta">partly done</span>
+    
+  </div>
+  <p class="std"><b>The design system lives in generated HTML, not the stylesheet</b></p>
+  <p class="sm">The review calls this the blocker and it is: column spans, borders, padding, gaps and even colours are emitted as inline `style=` by the generators, and nobody can change this site&#x27;s rhythm from site.css while that is true. This release removed the 54 that were actively fighting the measure fix, and gate 30 stops those coming back. The rest — named classes for `.lead-col`, `.rail`, `.bloco-nota`, `.stat-linha` — is untouched.</p>
+  <p class="sm"><b>What blocks it:</b> A large mechanical change across five generators, with no visible result on its own. It wants its own release and its own review, not a corner of this one.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.10</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>No spacing scale — the rhythm lives in inline styles</b></p>
+  <p class="sm">Not done. Depends on §3.9: a scale in the stylesheet is only useful once the generator emits class names instead of padding literals.</p>
+  <p class="sm"><b>What blocks it:</b> Blocked on §3.9.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.12</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>The utility chrome outranks the publication</b></p>
+  <p class="sm">Not done. Two of the six things in the strip are editorial (dateline, countdown) and four are operator tooling (back office, wallet, version, API), set identically so the reader cannot tell which is which. Splitting the strip is also what fixes the 131px of chrome above the masthead on a phone, and it interacts with decision 4 — whether the wallet belongs in a reader&#x27;s header at all.</p>
+  <p class="sm"><b>What blocks it:</b> Interacts with decision 4, which is the editor&#x27;s.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§3.8b</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>On a phone the operator chrome takes the first third of the screen</b></p>
+  <p class="sm">The nav half is fixed (see §3.8a). The strip half is not: 131px of dateline, countdown, four tool links, a wallet balance and a version string still arrive before the masthead.</p>
+  <p class="sm"><b>What blocks it:</b> Same change as §2.12, same decision 4.</p><p class="xs mono">measured: 131px measured at 390×844, against the review&#x27;s target of ≤48px</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.11</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>The front-page grid leaves a hole</b></p>
+  <p class="sm">Not done, and visible: roughly 270px of empty paper in the left column before the next rule. Column balancing needs the grid to be describable from the stylesheet first.</p>
+  <p class="sm"><b>What blocks it:</b> Blocked on §3.9.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.13</span>
+    <span class="chip miss">deferred</span>
+    
+  </div>
+  <p class="std"><b>Entity pages have no shape</b></p>
+  <p class="sm">Not done. These are the most numerous pages on the site — 312 nodes — and they are an h1, a wide definitional paragraph, a ONE-ROW table used for a single key/value pair, a two-item list and the graph. They want one template with a stat strip, and the one-row table pattern killed entirely.</p>
+  <p class="sm"><b>What blocks it:</b> A template is a design decision of its own size; it also carries §2.14.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.8</span>
+    <span class="chip disputa">the editor decides</span>
+    
+  </div>
+  <p class="std"><b>Provenance telemetry occupies the lead position</b></p>
+  <p class="sm">NOT done. Directly under the lead headline, where a newspaper puts the dek, sit three bordered 11px chips of character counts. The provenance IS the product and stays on the page — but where it ranks is an editorial position about what this publication leads with, and that is decision 2.</p>
+  <p class="sm"><b>What blocks it:</b> Decision 2.</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.7</span>
+    <span class="chip falta">partly done</span>
+    
+  </div>
+  <p class="std"><b>Two competing heading ladders on the same page</b></p>
+  <p class="sm">Partly resolved as a side-effect: `.sect` and `.h-2` are no longer in the same face, so the two ladders stopped looking like one system badly applied. The rule about which is which — structural label vs title of content — is not yet written down or enforced.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§2.15</span>
+    <span class="chip disputa">the editor decides</span>
+    
+  </div>
+  <p class="std"><b>The site has one image, and it is the graph</b></p>
+  <p class="sm">NOT done. The review&#x27;s own framing: there is no photography, which is a defensible position for a publication that will not reproduce what it cannot verify, but the consequence is that every module below the masthead has identical weight and the page has no focal point. The proposed answer — the graph as the site&#x27;s visual language, a generated thumbnail per entity and per card — is a significant build and changes what the front page is. Decision 1.</p>
+  <p class="sm"><b>What blocks it:</b> Decision 1.</p>
+</div><div class="rule" style="padding:26px 0 8px"><div class="sect">§1 — what had to survive, and did · 1 items</div></div>
+<div class="cartao" style="padding:14px;margin-top:12px">
+  <div class="chips" style="padding-bottom:6px">
+    <span class="chip">§1.x</span>
+    <span class="chip ok">done</span>
+    
+  </div>
+  <p class="std"><b>The ten things the review said not to break</b></p>
+  <p class="sm">The face selection and the subset for Portuguese accents, the masthead, the double nav rule, the warm paper and cool near-black, the «filetes, não caixas» discipline, the mobile work, the `a.ent` link-density pattern, the honest content model, and — the one most at risk from a redesign — the stylesheet&#x27;s own comments. §4.6 warns that an agent which changes a rule and leaves its comment has made the file actively misleading. Every comment over a changed rule was rewritten, one superseded block was deleted rather than left above the block that replaced it, and the header&#x27;s colour list now carries the measured ratio of each token.</p>
+  <p class="xs mono">assets/site.css</p>
+</div>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">The five decisions the review
+  reserved for the editor</div></div>
+<p class="std">§4.5 of the review says, in as many words: <i>"Agents: do not pick these
+yourself."</i> None of them is picked here. Each is a card on
+<a href="quadro.html#dinis.humano">the editor's board</a>.</p>
+<div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 1</span><span class="chip">§4.5.1</span></div><p class="std"><b>Should the graph become the site&#x27;s visual language?</b></p><p class="sm">It is the one intervention that would give the site a visual identity without importing a single unverifiable photograph — and it is a significant build that changes what the front page is. The review offers: yes, no, or prototype one page first.</p><p class="sm"><b>The options:</b> yes / no / prototype one entity page first</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/005</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 2</span><span class="chip">§4.5.2</span></div><p class="std"><b>Where do the provenance chips go?</b></p><p class="sm">All three options preserve the information; they rank it differently, and that ranking is an editorial position about what this publication leads with. An agent choosing it would be choosing the paper&#x27;s voice.</p><p class="sm"><b>The options:</b> a line of prose under the lead / expand on click / move to the rail</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/006</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 3</span><span class="chip">§4.5.3</span></div><p class="std"><b>Dark mode?</b></p><p class="sm">Worth having for a reading site, but it doubles the palette work and the paper-and-ink metaphor does not transfer for free — a cream page inverted is not a newspaper, it is a terminal.</p><p class="sm"><b>The options:</b> yes / no / later</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/007</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 4</span><span class="chip">§4.5.4</span></div><p class="std"><b>Does the wallet stay in the reader&#x27;s header?</b></p><p class="sm">A balance immediately above a masthead is unusual. The question is whether it is there to be seen by readers or is operator tooling that belongs behind the back-office link — and the answer decides how the header strip gets split, which blocks §2.12, §3.8b and the 131px of chrome on a phone.</p><p class="sm"><b>The options:</b> reader header / operator strip / behind the back office</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/008</p></div><div class="cartao" style="padding:14px;margin-top:12px"><div class="chips" style="padding-bottom:6px"><span class="chip disputa">decision 5</span><span class="chip">§4.5.5</span></div><p class="std"><b>How thin is the edition allowed to look?</b></p><p class="sm">De-duplicating the card grid means the front page shows three stories instead of six. By this publication&#x27;s own standards that is better — the reader currently reads the lead headline twice before scrolling once — but it is visibly emptier, and «visibly emptier» is a judgement about the paper and not about the code.</p><p class="sm"><b>The options:</b> de-duplicate now / keep six and make the second cut mean something else / wait for more stories</p><p class="xs mono">on the board: redacao/correio/dinis.humano/assuntos/abertos/009</p></div>
+
+<div class="agent" style="border:0;margin-top:26px">
+<p class="sm"><b>On the one item that looks small and is not.</b>
+§3.9 is the item to read twice. The design system lives in inline `style=` attributes in the Python generators — column spans, borders, padding, gaps, colours — and not in site.css. The review is right that most of its own section 2 cannot be delivered until that is fixed, and right that fixing it changes nothing visible on its own. This release took the 54 inline declarations that were actively cancelling the measure fix and added a gate so they cannot return; the rest is a release of its own. Anyone picking it up should read §4.6 first: the stylesheet&#x27;s comments are the best documentation in this repository, and the work touches nearly every rule they describe.</p>
+</div>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>backoffice/desenho.html</code> · version <span class="ver">v0.9.0</span>.
+</div>
+
+</div>
+</body>
+</html>

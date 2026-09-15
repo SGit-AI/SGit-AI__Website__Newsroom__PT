@@ -1,0 +1,60 @@
+{
+  "quando": "2026-09-15T02:15:00Z",
+  "especie": "construcao",
+  "prompt": "Clonar o cofre da revisão de desenho, rever o brief do agente de desenho, e começar a implementar as recomendações, documentando em detalhe o que foi feito a partir daquele cofre.",
+  "modelo": "Claude Opus 5 (Claude Code, sessão remota)",
+  "pastas_alteradas": [
+    "admin/",
+    "api/",
+    "artigos/",
+    "assets/",
+    "build/",
+    "dados/",
+    "redacao/",
+    "backoffice/",
+    "entidades/",
+    "index.html",
+    "llms.txt",
+    "sitemap.xml",
+    "index.md"
+  ],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.9.0",
+  "fonte_do_trabalho": {
+    "cofre": "e54hfntq",
+    "o_que_e": "A revisão de desenho e legibilidade encomendada pelo editor, v0.1.0, feita contra a construção v0.6.0. Cinco documentos de revisão, capturas a 1440px e a 390px, e as medições em que cada afirmação assenta.",
+    "onde_esta": "Num cofre cifrado que o editor tem. NÃO foi copiada para este repositório: uma cópia discordaria do original na primeira vez que ele fosse atualizado, e a regra deste conjunto é que conteúdo existe uma vez. O que ficou aqui é a DISPOSIÇÃO de cada item, que é assunto deste repositório e não do cofre.",
+    "a_chave_de_leitura": "Não está em ficheiro nenhum deste repositório. O detetor de cadeias com forma de chave do admin/build/validate.js falharia a construção se estivesse."
+  },
+  "o_que_fez": [
+    "§4.1 — os nove itens de folha de estilos: a medida (29em, e não os 34em que a revisão pede — ver as correções), a entrelinha (1.62), o -webkit-font-smoothing apagado, os filetes de 1.36:1 para 2.65:1, a rampa de estado escurecida (o «disputado» estava a 4.48:1 e FALHAVA o AA), o anel de foco que não existia, o color-scheme, e o antetítulo e o rótulo de secção do mono para o serif.",
+    "§2.6 além do pedido: o cabeçalho de tabela e a prosa do bloco «para um agente» também saíram do mono, pela mesma regra — o mono quer dizer um facto de máquina.",
+    "§4.2 — as correções de gerador: a coluna de tabela vazia em todas as linhas deixa de ser enviada; «nao resolve» ganha o seu acento por vocabulário escrito e não por troca de underscore; o distintivo de versão passa a ligar para o que mudou nessa versão, e as doze linhas de admin/versions.html ganham a âncora do seu número; cada cartão da primeira página ganha a data; 54 max-width em linha retirados das classes de corpo; e o flex-wrap que faltava para a regra da navegação no telemóvel fazer alguma coisa.",
+    "§4.4 — build/gates_desenho.py, os portões 27 a 33, ligado ao build/tudo.py. Assere o contraste de cada filete e de cada cor de estado, a medida e a entrelinha, que nenhum gerador emite max-width em linha numa classe de corpo, que o mono só aparece onde a folha quer dizer um facto de máquina, que o anel de foco existe, que nenhuma tabela envia uma coluna vazia, que nenhuma ficha de estado perdeu o acento, e que o distintivo de versão liga.",
+    "/backoffice/desenho.html — os 30 itens da revisão, um a um, com o estado de cada um e o portão que o segura quando há um.",
+    "As cinco decisões da §4.5 no quadro do editor, com as opções e com o que fica bloqueado por cada uma. Nenhuma foi tomada."
+  ],
+  "correcoes_a_revisao": [
+    "A revisão assume um glifo médio da Newsreader de 0.48em. Medido no navegador, numa tela, com a fonte computada do elemento e com texto português, são 0.405em. Consequência dupla: o problema era PIOR do que a revisão relatou (a coluna de 758px tinha ≈104 caracteres e não 88; a de 828px tinha ≈114 e não 96), e a correção que ela pede não chegava ao alvo que ela dá (34em são 612px, que medem 84 caracteres, acima dos 75 da §4.4). O site ficou a 29em, que mede 71. Implementar a revisão à letra teria lançado uma coluna que falhava o alvo da própria revisão.",
+    "A §2.1 diz que 34em dão ≈66 caracteres e 38em dão ≈68. Os dois não podem estar certos: com a largura em «em», o corpo cancela-se na conta, e a mesma medida em «em» dá o mesmo número de caracteres a qualquer tamanho."
+  ],
+  "o_que_o_portao_novo_encontrou_que_a_revisao_nao_viu": [
+    "A coluna de tabela vazia em todas as linhas existia também em /instituicoes/ e em /casos-de-uso/, e não só em /empresas/ — a revisão só tinha visitado a terceira.",
+    "A auditoria aos acentos que a §3.4 mandou fazer encontrou o mesmo defeito nos títulos dos cartões do quadro, derivados do nome do ficheiro, introduzidos pela versão anterior desta mesma sessão. Cada cartão passa a dizer o seu próprio título."
+  ],
+  "medido_no_navegador_depois": {
+    "caracteres_por_linha_primeira_pagina": 71,
+    "caracteres_por_linha_entidade": 70,
+    "entrelinha_px": 29.16,
+    "elementos_em_mono_na_primeira_pagina": 81,
+    "altura_da_cromagem_acima_da_mancheta_a_390px": 131,
+    "nota": "Os dois últimos NÃO estão no alvo (o alvo da cromagem é 48px) e os dois dependem da divisão da tira do cabeçalho, que é §4.3 e que interage com a decisão 4 do editor. Estão medidos e declarados em vez de omitidos."
+  },
+  "nao_feito": [
+    "§3.9, que a revisão chama o blocker e com razão: o sistema de desenho vive em atributos style= em linha nos geradores. Retirados os 54 que cancelavam a correção da medida, e o portão 30 impede que voltem; o resto é uma versão própria.",
+    "§2.10 a escala de espaçamento, §2.11 o buraco na grelha, §2.12 a divisão da tira do cabeçalho, §2.13 o modelo das páginas de entidade, §2.14 os rótulos legíveis — todos bloqueados na §3.9 ou numa decisão do editor, e cada um com o bloqueio nomeado em /backoffice/desenho.html.",
+    "§3.2 a deduplicação dos cartões e §2.8 a posição das fichas de proveniência: as duas estão prontas de um lado técnico e são decisões 5 e 2 do editor. A revisão diz expressamente «agentes: não escolham isto por vocês»."
+  ],
+  "nota": "Uma execução de CONSTRUÇÃO e não de redação: não obteve nem congelou uma fonte, não escreveu uma afirmação sobre Portugal, não moveu um issue e não pôs nada em publicado. Mexeu em redacao/ para escrever o correio, os cartões de decisão e este registo, que o portão 12 permite explicitamente. Leu um cofre exterior, que é a fonte do trabalho e não uma fonte do jornal: nada dele entrou numa página que o leitor lê."
+}

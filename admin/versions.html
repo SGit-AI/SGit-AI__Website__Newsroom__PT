@@ -17,7 +17,7 @@
 <div class="datalinha">
   <div>pt.newsroom.sgit.ai · administração</div>
   <div><a href="../">Voltar ao jornal</a></div>
-  <div><span class="ver">v0.8.0</span></div>
+  <div><span class="ver">v0.9.0</span></div>
 </div>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Versões</div></div>
@@ -34,7 +34,95 @@ vermelha não é lançamento.</p>
 <thead><tr><th style="width:90px">Versão</th><th style="width:110px">Data</th><th>O que mudou, e porquê</th></tr></thead>
 <tbody>
 
-<tr>
+<tr id="v0.9.0">
+<td class="mono"><span class="vnum">v0.9.0</span></td>
+<td class="mono">2026-09-15</td>
+<td class="sm">
+<b>A revisão de desenho, implementada — e o que ela mediu passa a ser um portão.</b> O editor
+encomendou uma revisão de desenho e legibilidade, com a queixa de que «o desenho atual é difícil de
+ler, e não parece tão profissional e suave como um site de notícias ou um blogue forte deviam
+parecer». A revisão chegou num cofre cifrado (<code>e54hfntq</code>, v0.1.0, contra a construção
+v0.6.0) e fez uma coisa invulgar para uma revisão de desenho: <b>mediu</b>. Caracteres por linha
+derivados da grelha e não estimados a olho, contrastes calculados a partir dos fichos em
+<code>:root</code>, células vazias contadas uma a uma, capturas a 1440px e a 390px. É por isso que
+esta versão é grande e específica em vez de ser uma questão de gosto.
+<br><br>
+<b>«Difícil de ler» tinha quatro causas medidas, e compunham-se umas com as outras.</b> A coluna do
+texto media <b>88 caracteres por linha</b> na primeira página e <b>96</b> numa página de entidade,
+onde uma coluna de jornal anda nos 45–75 — acima disso o olho perde o regresso à linha, e a
+experiência é exatamente «consigo ler mas é cansativo». A entrelinha estava a 1.45, onde um serif
+sobre papel creme quer 1.6–1.65. O <code>-webkit-font-smoothing: antialiased</code> estava a
+desenhar o texto mais leve do que foi especificado, tirando peso aos traços de que a Newsreader
+precisa a 15–18px. E <b>os filetes não se viam</b>: <code>--filete</code> estava a 1.36:1 contra o
+papel, quando a norma pede 3:1 a um elemento não textual que carregue significado. A tese inteira
+desta folha de estilos é «filetes, não caixas» — a estrutura é carregada por filetes — e a
+estrutura estava a ser carregada por linhas que, num ecrã claro, não estão lá. Era por isso que os
+blocos da primeira página pareciam correr uns para dentro dos outros.
+<br><br>
+<b>«Não parece um site de notícias» tinha uma causa dominante, e custou dez linhas.</b> A IBM Plex
+Mono compunha a datalinha, todos os antetítulos, todos os rótulos de secção, as trinta fichas da
+primeira página, todos os cabeçalhos de tabela e o rodapé inteiro. Cumulativamente a página lia-se
+como <b>um registo de construção com uma boa mancheta</b>. Um jornal não compõe os seus rótulos de
+secção numa face de máquina de escrever. O antetítulo e o rótulo de secção passam ao serif, e com
+eles o cabeçalho de tabela e a prosa do bloco «para um agente». A regra que fica escrita na folha:
+<b>o mono quer dizer uma coisa, um facto de máquina</b> — um hash, uma contagem de bytes, um
+identificador, uma hora, um caminho, código.
+<br><br>
+<b>O acento tinha sete trabalhos e por isso não sinalizava nenhum.</b> Antetítulo, secção atual,
+ligação-sob-o-rato, fonte confirmada, ficha-ok, verbo do grafo e «abrir o grafo». Passa a ter dois:
+<b>interativo</b> e <b>confirmado</b>. O antetítulo sai dele. E três das quatro cores de estado
+falhavam ou raspavam o AA — <code>--disputa</code> estava a 4.48:1, <b>abaixo da linha</b>, a
+carregar estado de verificação a 11px. Numa publicação cuja proposta inteira é o leitor poder ver
+o estado de verificação de cada afirmação, isso não é um detalhe de contraste. A rampa escureceu:
+o acento a 6.83:1, o aviso a 6.06:1, o disputado a 5.81:1, o secundário a 5.80:1.
+<br><br>
+<b>Não havia uma única regra de foco em 13,8 kB de folha</b>, num desenho em que
+<code>text-decoration: none</code> é global. Quem navega pelo teclado numa primeira página com
+~60 ligações tinha só o anel por omissão do navegador sobre ligações preto-em-creme sem outra
+marca. É uma falha de acessibilidade e não uma preferência, e agora há
+<code>:focus-visible</code>, com uma variante para o painel escuro.
+<br><br>
+<b>Defeitos que a revisão contou, e que se enviavam ao leitor.</b> Uma tabela com a coluna do meio
+vazia em <b>67 de 67 linhas</b> em <code>/empresas/</code> — e o portão novo encontrou o mesmo em
+<code>/instituicoes/</code> e em <code>/casos-de-uso/</code>, que a revisão não tinha visitado.
+Pior do que uma coluna em branco: empurrava a fonte congelada uns 1100px para longe do nome a que
+pertence. O gerador passa a deixar cair uma coluna que está vazia em todas as linhas.
+<code>nao resolve</code> aparecia sem acento no vocabulário de estado — o identificador é ASCII e
+está bem que seja, o que estava mal era o gerador a trocar <code>_</code> por espaço e a pôr um
+identificador maquilhado de palavra na página. E a revisão disse a coisa certa a seguir: que uma
+palavra sem acento no vocabulário sugere que as cadeias estão a ser escritas em algum sítio só
+ASCII, e que isso vale uma <b>auditoria</b> e não uma correção num lugar. Valia: a auditoria a
+<code>dados/</code> encontrou o mesmo padrão nos títulos dos cartões do quadro, derivados do nome
+do ficheiro — introduzidos pela versão anterior, nesta mesma noite. Cada cartão passa a dizer o seu
+próprio título.
+<br><br>
+<b>E o distintivo de versão passa a ser uma ligação.</b> A orientação de sgit.ai pede as duas
+coisas: mostrar a versão na cromagem e ligá-la ao que mudou nessa versão. Metade estava feita. Num
+site cuja proposta inteira é a rastreabilidade, era o único lugar onde o site não se rastreava a si
+mesmo. Cada linha desta tabela ganhou a âncora do seu número.
+<br><br>
+<b>Os portões do desenho (27–33), que são o que impede isto de se desfazer.</b> A §4.4 da revisão
+diz para não voltar a revisar a olho, e dá os números. <code>build/gates_desenho.py</code> assere-os:
+o contraste de cada filete e de cada cor de estado contra o papel, a medida e a entrelinha dentro
+da faixa de leitura, nenhum <code>max-width</code> em linha numa classe de corpo (em linha bate a
+classe, e um único que sobrevivesse desfazia a correção da medida naquela página sem falhar),
+o mono só onde há um facto de máquina, o anel de foco presente, nenhuma coluna de tabela vazia,
+nenhum estado sem acento, e o distintivo de versão a ligar. Uma revisão de desenho sem um portão
+desfaz-se sozinha em três releases.
+<br><br>
+<b>O que NÃO foi feito, e porquê.</b> A revisão fecha com cinco decisões que diz expressamente que
+os agentes não devem tomar — o grafo como linguagem visual do site, onde ficam as fichas de
+proveniência, o modo escuro, se a carteira fica no cabeçalho do leitor, e quão magra a edição pode
+parecer. Estão os cinco no quadro do editor, em <code>/backoffice/quadro.html</code>, e nenhum foi
+decidido aqui. Fica também por fazer o trabalho estrutural da §4.3: o sistema de desenho vive em
+atributos <code>style=</code> em linha nos geradores, e ninguém pode mudar o ritmo deste site a
+partir da folha de estilos enquanto isso for verdade. São 54 <code>max-width</code> de corpo
+retirados nesta versão; falta o resto, e está dito em <code>/backoffice/desenho.html</code>.
+</td>
+</tr>
+
+
+<tr id="v0.8.0">
 <td class="mono"><span class="vnum">v0.8.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
@@ -122,7 +210,7 @@ remover, um nível mais abaixo. Os dois passam a esperar o que começaram.
 </tr>
 
 
-<tr>
+<tr id="v0.7.1">
 <td class="mono"><span class="vnum">v0.7.1</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
@@ -150,7 +238,7 @@ escolherem o mesmo número quer dizer que uma tem de desfazer o seu lançamento.
 </td>
 </tr>
 
-<tr>
+<tr id="v0.7.0">
 <td class="mono"><span class="vnum">v0.7.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
@@ -186,7 +274,7 @@ muitas vezes, de propósito. A mesma coisa para o leitor, coisas diferentes para
 </td>
 </tr>
 
-<tr>
+<tr id="v0.6.0">
 <td class="mono"><span class="vnum">v0.6.0</span></td>
 <td class="mono">2026-09-15</td>
 <td class="sm">
@@ -217,7 +305,7 @@ palavra certa não é uma fronteira — é uma porta com o nome ao lado.
 </td>
 </tr>
 
-<tr>
+<tr id="v0.5.0">
 <td class="mono"><span class="vnum">v0.5.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -252,7 +340,7 @@ executável, que é o único sítio onde não pode ficar desatualizada sem que a
 </td>
 </tr>
 
-<tr>
+<tr id="v0.4.0">
 <td class="mono"><span class="vnum">v0.4.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -294,7 +382,7 @@ conter uma ligação: um portão que deixa de ver metade do que guarda não guar
 </td>
 </tr>
 
-<tr>
+<tr id="v0.3.1">
 <td class="mono"><span class="vnum">v0.3.1</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -308,7 +396,7 @@ consigo, para que o documento pedido continue a abrir. O leitor é um só.
 </td>
 </tr>
 
-<tr>
+<tr id="v0.3.0">
 <td class="mono"><span class="vnum">v0.3.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -361,7 +449,7 @@ humano nomeado. Dizer «leve» é mais honesto do que deixar implícita uma revi
 </td>
 </tr>
 
-<tr>
+<tr id="v0.2.0">
 <td class="mono"><span class="vnum">v0.2.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -405,7 +493,7 @@ onde o espaço vem do <code>gap</code> da coluna, e errado num artigo, que não 
 </td>
 </tr>
 
-<tr>
+<tr id="v0.1.2">
 <td class="mono"><span class="vnum">v0.1.2</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -422,7 +510,7 @@ excertos apanha.
 </td>
 </tr>
 
-<tr>
+<tr id="v0.1.1">
 <td class="mono"><span class="vnum">v0.1.1</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -444,7 +532,7 @@ pesquisa, não baixar a barra.
 </td>
 </tr>
 
-<tr>
+<tr id="v0.1.0">
 <td class="mono"><span class="vnum">v0.1.0</span></td>
 <td class="mono">2026-09-14</td>
 <td class="sm">
@@ -486,7 +574,7 @@ registo nacional» quando a verdade era «não implementámos o decifrador».
 registo de decisões e não uma projeção de dados. O número de versão em
 <code>admin/build/version.txt</code> é a fonte da verdade e
 <code>admin/build/validate.js</code> confere que esta tabela tem uma linha para ele, sem
-duplicados. Versão <span class="ver">v0.8.0</span>.
+duplicados. Versão <span class="ver">v0.9.0</span>.
 </div>
 
 </div>

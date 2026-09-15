@@ -1,0 +1,373 @@
+{
+  "id": "pt-desenho",
+  "versao": "0.1.0",
+  "atualizado": "2026-09-15",
+  "cofre": "e54hfntq",
+  "revisao_versao": "v0.1.0",
+  "revisao_contra": "v0.6.0",
+  "nota": "The editor commissioned a design and readability review, with the complaint that «the current design is hard to read, and doesn't look as professional and smooth as a news or powerful blogging site should look like». The review arrived in an encrypted vault and did something unusual for a design review: it measured. This page is what was done about each of its items, and — for the ones that were not done — what specifically blocks them. A review with items silently dropped is worse than one with items marked undone, because the reader of the first cannot tell «considered and rejected» from «forgotten».",
+  "o_blocker": "§3.9 is the item to read twice. The design system lives in inline `style=` attributes in the Python generators — column spans, borders, padding, gaps, colours — and not in site.css. The review is right that most of its own section 2 cannot be delivered until that is fixed, and right that fixing it changes nothing visible on its own. This release took the 54 inline declarations that were actively cancelling the measure fix and added a gate so they cannot return; the rest is a release of its own. Anyone picking it up should read §4.6 first: the stylesheet's comments are the best documentation in this repository, and the work touches nearly every rule they describe.",
+  "itens": [
+    {
+      "ref": "2.1",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "Measure: the column ran 88–96 characters",
+      "estado": "feito",
+      "o_que_se_fez": "`.std` and `.sm` now carry `max-width: 29em` in the stylesheet, and the 54 inline `max-width` declarations the generators emitted on body-text classes were removed — an inline value beats the class, so a single survivor would have undone the fix on that page without failing anything.",
+      "portao": "gate 29 + gate 30",
+      "medida": "71 characters on the front page, 70 on an entity page, measured in Chromium on a canvas at the element's own computed font",
+      "onde": [
+        "assets/site.css",
+        "build/build.py",
+        "build/artigos.py",
+        "build/entidades.py",
+        "build/paginas_extra.py"
+      ]
+    },
+    {
+      "ref": "2.2",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "Leading: 1.45 where a serif on cream wants 1.6–1.65",
+      "estado": "feito",
+      "o_que_se_fez": "`.std` 1.62, `.sm` 1.6, `.xs` 1.55.",
+      "portao": "gate 29",
+      "medida": "line-height 29.16px at 18px",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.3",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "`-webkit-font-smoothing` was thinning the serif",
+      "estado": "feito",
+      "o_que_se_fez": "Deleted, and a comment in its place says why it must not come back — it forces grayscale antialiasing and draws the type lighter than specified, which takes weight out of exactly the strokes Newsreader needs at 15–18px.",
+      "portao": "gate 32",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.4",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "The hairlines could not be seen: 1.36:1 and 1.62:1",
+      "estado": "feito",
+      "o_que_se_fez": "`--filete` → #9f9780 and `--filete-2` → #8f8873. The stylesheet's whole thesis is «filetes, não caixas» — structure carried by rules — and the structure was being carried by lines that are not there on a bright screen. That is why the front-page blocks appeared to run into each other.",
+      "portao": "gate 27",
+      "medida": "2.65:1 and 3.22:1 against the paper",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "3.3",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "Three of four status colours failed or scraped WCAG AA",
+      "estado": "feito",
+      "o_que_se_fez": "The whole ramp darkened. `--disputa` was at 4.48:1 — below the line — while carrying verification state at 11px, on a publication whose entire proposition is that a reader can see the verification state of every claim.",
+      "portao": "gate 28",
+      "medida": "--acento 6.83:1, --aviso 6.06:1, --disputa 5.81:1, --sec-2 5.80:1, --falta 5.89:1",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "3.7",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "No focus styles anywhere, on a design with no underlines",
+      "estado": "feito",
+      "o_que_se_fez": "`:focus-visible` with a 2px accent outline, and a variant that switches to the light accent over the dark panel. This was an accessibility failure and not a preference.",
+      "portao": "gate 32",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.16",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "`color-scheme` undeclared",
+      "estado": "feito",
+      "o_que_se_fez": "`color-scheme: light` on `:root`, so form controls and scrollbars follow the page rather than the operating system. Dark mode itself is decision 3 and was not taken.",
+      "portao": "gate 32",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.6",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "Mono was setting the whole site — the dominant cause of «doesn't look like a news site»",
+      "estado": "feito",
+      "o_que_se_fez": "`.kick`, `.sect`, `<th>` and the prose of the `.agent` block all move to Newsreader; the `<code>` inside the agent block stays mono, because that is what it is. The rule now written into the stylesheet: mono means one thing, a machine fact — a hash, a byte count, an identifier, a timestamp, a path, code.",
+      "portao": "gate 31",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.5",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "The accent had seven jobs, so it signalled none",
+      "estado": "feito",
+      "o_que_se_fez": "The kicker came off the accent. The accent now means two things: interactive, and confirmed.",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "3.6",
+      "grupo": "§4.1 — pure CSS, shipped",
+      "titulo": "`.kick` and `.sect` combined all four legibility penalties",
+      "estado": "feito",
+      "o_que_se_fez": "Both to the serif at 13px; the kicker loses uppercase and drops to .01em tracking, the section label keeps small caps at .08em. Uppercase at .14em is only legible above ~14px.",
+      "portao": "gate 31",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "3.1",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "A 60-row table with an entirely empty column, in production",
+      "estado": "feito",
+      "o_que_se_fez": "The generator drops a column that is empty on every row of that table. The review counted 67 of 67 in /empresas/; the new gate found the same fault in /instituicoes/ and /casos-de-uso/, which the review had not visited. Worse than a blank column: it pushed «Fonte congelada» about 1100px away from the name it belongs to.",
+      "portao": "gate 33",
+      "onde": [
+        "build/build.py"
+      ]
+    },
+    {
+      "ref": "3.4",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "`nao resolve` — an unaccented word in the status vocabulary",
+      "estado": "feito",
+      "o_que_se_fez": "The identifier `nao_resolve` is ASCII and stays so; what was wrong was the generator turning `_` into a space and putting an identifier dressed as a word on the page. There is now a written label vocabulary, and a state with no label shows its raw identifier — visible and odd — rather than a laundered one. The review then said the right thing: that a missing accent suggests the strings are being written somewhere ASCII-only, and that is worth an audit. It was: the audit of `dados/` found the same pattern in the board card titles, which this very session had introduced hours earlier by de-slugging filenames.",
+      "portao": "gate 33",
+      "onde": [
+        "build/build.py",
+        "build/equipa.py",
+        "redacao/correio/*/assuntos/"
+      ]
+    },
+    {
+      "ref": "3.5",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "The version was displayed but not linked",
+      "estado": "feito",
+      "o_que_se_fez": "Both the chrome badge and the version in every page's agent block are now links to that version's own row, and all twelve rows in admin/versions.html gained the anchor their number names. sgit.ai's guidance asks for both halves; half was done, and on a site whose entire proposition is traceability this was the one place the site did not trace itself.",
+      "portao": "gate 33",
+      "onde": [
+        "build/paginas.py",
+        "admin/versions.html",
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.9",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "Article cards had no dateline",
+      "estado": "feito",
+      "o_que_se_fez": "Every card on the front page now carries the date of its article's folder. /empresas/ already had it in a column; the front page did not.",
+      "onde": [
+        "build/build.py"
+      ]
+    },
+    {
+      "ref": "2.1b",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "Remove the inline `max-width:46em` the generators emit",
+      "estado": "feito",
+      "o_que_se_fez": "54 removed, from the body-text classes only. The ones on `.h-lead`, `.h-2` and `.prosa` were left: those control where a HEADLINE wraps, which is a per-instance typographic choice, and the review is explicit that the headline wants the full column even where the body does not.",
+      "portao": "gate 30",
+      "onde": [
+        "build/build.py",
+        "build/artigos.py",
+        "build/entidades.py",
+        "build/paginas_extra.py"
+      ]
+    },
+    {
+      "ref": "3.8a",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "The mobile nav rule did nothing",
+      "estado": "feito",
+      "o_que_se_fez": "The media query set `overflow-x: auto` but never unset `flex-wrap: wrap`, and a flex container that wraps never overflows — so the rule had no effect and the eleven items broke onto three rows with the `|` separator dangling at the start of the third. `flex-wrap: nowrap` was the missing line; the nav is now one row that scrolls inside itself.",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "3.2",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "Three of six front-page cards repeat stories already on screen",
+      "estado": "editor",
+      "o_que_se_fez": "NOT done, and deliberately. The fix is a five-line filter. But §4.5 decision 5 asks the editor to confirm that a front page showing three stories instead of six — visibly emptier, and more honest — is acceptable. De-duplicating without that answer would be an agent making an editorial judgement about how thin the edition may look.",
+      "bloqueio": "Decision 5. The filter is ready; it is one condition in build/build.py."
+    },
+    {
+      "ref": "2.14",
+      "grupo": "§4.2 — generator fixes",
+      "titulo": "Raw identifiers used as human link text",
+      "estado": "adiado",
+      "o_que_se_fez": "Not done. The path is the truth and must stay reachable, and replacing it with a label needs a label to exist — which means deciding, per edge, what a human-readable rendering of that relation is. That is the same work as §2.13's entity template and belongs with it.",
+      "bloqueio": "Needs the entity template (§2.13), which is §4.3 structural work."
+    },
+    {
+      "ref": "4.4",
+      "grupo": "§4.4 — measurement",
+      "titulo": "«Do not re-review by eye» — the numbers, asserted",
+      "estado": "feito",
+      "o_que_se_fez": "build/gates_desenho.py, gates 27–33, wired into build/tudo.py as the fourth of five gates. It asserts contrast for every rule and status token, the measure and leading, that no generator emits an inline max-width on a body class, that mono appears only where the stylesheet means a machine fact, that the focus ring exists, that no table ships an empty column, that no status chip lost its accent, and that the version badge links. A design review without a gate undoes itself over three releases.",
+      "portao": "it is the gate",
+      "onde": [
+        "build/gates_desenho.py",
+        "build/tudo.py"
+      ]
+    },
+    {
+      "ref": "4.4b",
+      "grupo": "§4.4 — measurement",
+      "titulo": "The two numbers a file cannot hold",
+      "estado": "parcial",
+      "o_que_se_fez": "Chrome height above the masthead at 390px, and the count of elements the BROWSER resolves to mono, both need a browser and the cascade. They are measured by hand this release — 131px and 81 elements — and neither is at its target, because both depend on splitting the header strip, which is §4.3 work. They belong in admin/build/render.mjs, where there is a Chromium.",
+      "medida": "chrome 131px against a target of ≤48px; 81 mono elements on the front page",
+      "bloqueio": "Both are consequences of §2.12 / §4.3 item 20, not separate fixes."
+    },
+    {
+      "ref": "3.9",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "The design system lives in generated HTML, not the stylesheet",
+      "estado": "parcial",
+      "o_que_se_fez": "The review calls this the blocker and it is: column spans, borders, padding, gaps and even colours are emitted as inline `style=` by the generators, and nobody can change this site's rhythm from site.css while that is true. This release removed the 54 that were actively fighting the measure fix, and gate 30 stops those coming back. The rest — named classes for `.lead-col`, `.rail`, `.bloco-nota`, `.stat-linha` — is untouched.",
+      "bloqueio": "A large mechanical change across five generators, with no visible result on its own. It wants its own release and its own review, not a corner of this one."
+    },
+    {
+      "ref": "2.10",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "No spacing scale — the rhythm lives in inline styles",
+      "estado": "adiado",
+      "o_que_se_fez": "Not done. Depends on §3.9: a scale in the stylesheet is only useful once the generator emits class names instead of padding literals.",
+      "bloqueio": "Blocked on §3.9."
+    },
+    {
+      "ref": "2.12",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "The utility chrome outranks the publication",
+      "estado": "adiado",
+      "o_que_se_fez": "Not done. Two of the six things in the strip are editorial (dateline, countdown) and four are operator tooling (back office, wallet, version, API), set identically so the reader cannot tell which is which. Splitting the strip is also what fixes the 131px of chrome above the masthead on a phone, and it interacts with decision 4 — whether the wallet belongs in a reader's header at all.",
+      "bloqueio": "Interacts with decision 4, which is the editor's."
+    },
+    {
+      "ref": "3.8b",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "On a phone the operator chrome takes the first third of the screen",
+      "estado": "adiado",
+      "o_que_se_fez": "The nav half is fixed (see §3.8a). The strip half is not: 131px of dateline, countdown, four tool links, a wallet balance and a version string still arrive before the masthead.",
+      "medida": "131px measured at 390×844, against the review's target of ≤48px",
+      "bloqueio": "Same change as §2.12, same decision 4."
+    },
+    {
+      "ref": "2.11",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "The front-page grid leaves a hole",
+      "estado": "adiado",
+      "o_que_se_fez": "Not done, and visible: roughly 270px of empty paper in the left column before the next rule. Column balancing needs the grid to be describable from the stylesheet first.",
+      "bloqueio": "Blocked on §3.9."
+    },
+    {
+      "ref": "2.13",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "Entity pages have no shape",
+      "estado": "adiado",
+      "o_que_se_fez": "Not done. These are the most numerous pages on the site — 312 nodes — and they are an h1, a wide definitional paragraph, a ONE-ROW table used for a single key/value pair, a two-item list and the graph. They want one template with a stat strip, and the one-row table pattern killed entirely.",
+      "bloqueio": "A template is a design decision of its own size; it also carries §2.14."
+    },
+    {
+      "ref": "2.8",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "Provenance telemetry occupies the lead position",
+      "estado": "editor",
+      "o_que_se_fez": "NOT done. Directly under the lead headline, where a newspaper puts the dek, sit three bordered 11px chips of character counts. The provenance IS the product and stays on the page — but where it ranks is an editorial position about what this publication leads with, and that is decision 2.",
+      "bloqueio": "Decision 2."
+    },
+    {
+      "ref": "2.7",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "Two competing heading ladders on the same page",
+      "estado": "parcial",
+      "o_que_se_fez": "Partly resolved as a side-effect: `.sect` and `.h-2` are no longer in the same face, so the two ladders stopped looking like one system badly applied. The rule about which is which — structural label vs title of content — is not yet written down or enforced.",
+      "onde": [
+        "assets/site.css"
+      ]
+    },
+    {
+      "ref": "2.15",
+      "grupo": "§4.3 — structural, not done",
+      "titulo": "The site has one image, and it is the graph",
+      "estado": "editor",
+      "o_que_se_fez": "NOT done. The review's own framing: there is no photography, which is a defensible position for a publication that will not reproduce what it cannot verify, but the consequence is that every module below the masthead has identical weight and the page has no focal point. The proposed answer — the graph as the site's visual language, a generated thumbnail per entity and per card — is a significant build and changes what the front page is. Decision 1.",
+      "bloqueio": "Decision 1."
+    },
+    {
+      "ref": "1.x",
+      "grupo": "§1 — what had to survive, and did",
+      "titulo": "The ten things the review said not to break",
+      "estado": "feito",
+      "o_que_se_fez": "The face selection and the subset for Portuguese accents, the masthead, the double nav rule, the warm paper and cool near-black, the «filetes, não caixas» discipline, the mobile work, the `a.ent` link-density pattern, the honest content model, and — the one most at risk from a redesign — the stylesheet's own comments. §4.6 warns that an agent which changes a rule and leaves its comment has made the file actively misleading. Every comment over a changed rule was rewritten, one superseded block was deleted rather than left above the block that replaced it, and the header's colour list now carries the measured ratio of each token.",
+      "onde": [
+        "assets/site.css"
+      ]
+    }
+  ],
+  "decisoes_do_editor": [
+    {
+      "ref": "4.5.1",
+      "pergunta": "Should the graph become the site's visual language?",
+      "porque_e_do_editor": "It is the one intervention that would give the site a visual identity without importing a single unverifiable photograph — and it is a significant build that changes what the front page is. The review offers: yes, no, or prototype one page first.",
+      "opcoes": "yes / no / prototype one entity page first",
+      "cartao": "redacao/correio/dinis.humano/assuntos/abertos/005"
+    },
+    {
+      "ref": "4.5.2",
+      "pergunta": "Where do the provenance chips go?",
+      "porque_e_do_editor": "All three options preserve the information; they rank it differently, and that ranking is an editorial position about what this publication leads with. An agent choosing it would be choosing the paper's voice.",
+      "opcoes": "a line of prose under the lead / expand on click / move to the rail",
+      "cartao": "redacao/correio/dinis.humano/assuntos/abertos/006"
+    },
+    {
+      "ref": "4.5.3",
+      "pergunta": "Dark mode?",
+      "porque_e_do_editor": "Worth having for a reading site, but it doubles the palette work and the paper-and-ink metaphor does not transfer for free — a cream page inverted is not a newspaper, it is a terminal.",
+      "opcoes": "yes / no / later",
+      "cartao": "redacao/correio/dinis.humano/assuntos/abertos/007"
+    },
+    {
+      "ref": "4.5.4",
+      "pergunta": "Does the wallet stay in the reader's header?",
+      "porque_e_do_editor": "A balance immediately above a masthead is unusual. The question is whether it is there to be seen by readers or is operator tooling that belongs behind the back-office link — and the answer decides how the header strip gets split, which blocks §2.12, §3.8b and the 131px of chrome on a phone.",
+      "opcoes": "reader header / operator strip / behind the back office",
+      "cartao": "redacao/correio/dinis.humano/assuntos/abertos/008"
+    },
+    {
+      "ref": "4.5.5",
+      "pergunta": "How thin is the edition allowed to look?",
+      "porque_e_do_editor": "De-duplicating the card grid means the front page shows three stories instead of six. By this publication's own standards that is better — the reader currently reads the lead headline twice before scrolling once — but it is visibly emptier, and «visibly emptier» is a judgement about the paper and not about the code.",
+      "opcoes": "de-duplicate now / keep six and make the second cut mean something else / wait for more stories",
+      "cartao": "redacao/correio/dinis.humano/assuntos/abertos/009"
+    }
+  ],
+  "correcoes_a_revisao": [
+    {
+      "ref": "2.1",
+      "o_que_a_revisao_disse": "«.std: 34em ≈ 66 characters» and «.sm: 38em ≈ 68 characters», from an assumed average glyph width of 0.48em.",
+      "o_que_a_medicao_mostrou": "Newsreader's average glyph, measured in Chromium on a canvas at the element's own computed font with real Portuguese text, is 0.405em — about 18% narrower than assumed. Two things follow. The problem was WORSE than reported: the 758px column held ≈104 characters, not 88, and the 828px entity column ≈114, not 96. And the prescription did not reach its own target: 34em is 612px, which measures 84 characters — still above the 75 that §4.4 fixes as the ceiling.",
+      "consequencia": "The site is set to 29em, not 34em, and measures 71 characters. Gate 29 uses 0.405 and says where the number came from. An implementation that had followed the review exactly would have shipped a column that missed the review's own target."
+    },
+    {
+      "ref": "2.1b",
+      "o_que_a_revisao_disse": "34em and 38em give «≈66» and «≈68» characters respectively.",
+      "o_que_a_medicao_mostrou": "They cannot both be right. Characters per line is width divided by average glyph width, and with the width expressed in `em` the font size cancels — the same `em` measure gives the same character count at any size. 34em and 38em cannot yield 66 and 68.",
+      "consequencia": "Minor next to the other, and worth recording because it is the kind of internal inconsistency that a reader of the review would otherwise carry forward. Both classes are set to the same measure."
+    }
+  ]
+}
