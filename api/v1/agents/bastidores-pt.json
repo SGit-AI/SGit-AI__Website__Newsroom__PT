@@ -50,7 +50,7 @@
   ],
   "errado_quando": "Uma página de bastidores publica uma afirmação sobre o mundo, ou uma credencial aparece no repositório.",
   "ferramentas": [
-    "build/equipa.py",
+    "build/backoffice_team.py",
     "build/backoffice.py",
     "fetch para /api/vault/append/write/ do lado do navegador",
     "Web Crypto para cifrar antes de enviar"

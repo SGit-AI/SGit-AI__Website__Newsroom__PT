@@ -19,7 +19,7 @@ um terminal e ler pastas.
    sem o qual cada papel se torna o mesmo papel.
 2. `redacao/correio/` no protocolo Email-FS-lite: escritor único, expedição partilhada, um commit
    por ciclo. As duas mensagens que já existiam passam a `.eml` com o corpo intacto.
-3. Um leitor só — `build/equipa.py` — que lê a pasta e escreve `dados/correio.json` e
+3. Um leitor só — `build/backoffice_team.py` — que lê a pasta e escreve `dados/correio.json` e
    `dados/quadro.json`. As páginas leem o derivado e nunca a pasta, para não haver dois leitores.
 4. Três páginas: a equipa, o quadro por agente, e o correio.
 

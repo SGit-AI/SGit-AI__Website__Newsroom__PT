@@ -6,8 +6,8 @@
 <title>The team · pt.newsroom back office</title>
 <meta name="description" content="The newsroom&#x27;s agents: mission, central claim, what each is not responsible for, and what each has on its plate.">
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/equipa.html">
-<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/equipa.html">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/backoffice/team.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/backoffice/team.html">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
@@ -20,7 +20,7 @@
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.16.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/correio.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/quadro.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/pontes.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/equipa.html" aria-current="page">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/desenho.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../backoffice/"><b>pt.newsroom</b><span>back office · v0.16.0</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../backoffice/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../backoffice/">Console<span class="count r1" id="rail-fila">13</span></a><a class="nav" href="../backoffice/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../backoffice/board.html">Board<span class="count">15</span></a><a class="nav" href="../backoffice/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../backoffice/team.html" aria-current="page">Team</a><a class="nav" href="../backoffice/agents.html">Agent activity</a><a class="nav" href="../backoffice/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../backoffice/guidance.html">Guidance</a><a class="nav" href="../backoffice/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>The team</h1></div></div>
@@ -93,8 +93,8 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
         <span class="chip ">3 paper issues</span>
         <span class="chip falta">1 unread</span>
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#pesquisa.pt">its board →</a> ·
-         <a href="correio.html#pesquisa.pt">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#pesquisa.pt">its board →</a> ·
+         <a href="mail.html#pesquisa.pt">its mail →</a></p>
     </div>
   </div>
 </div>
@@ -146,8 +146,8 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
         <span class="chip ">0 paper issues</span>
         
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#redacao.pt">its board →</a> ·
-         <a href="correio.html#redacao.pt">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#redacao.pt">its board →</a> ·
+         <a href="mail.html#redacao.pt">its mail →</a></p>
     </div>
   </div>
 </div>
@@ -199,8 +199,8 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
         <span class="chip ">0 paper issues</span>
         
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#verificacao.pt">its board →</a> ·
-         <a href="correio.html#verificacao.pt">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#verificacao.pt">its board →</a> ·
+         <a href="mail.html#verificacao.pt">its mail →</a></p>
     </div>
   </div>
 </div>
@@ -242,7 +242,7 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
     <div class="col sp6"><div class="sect">Works with</div>
       <p class="sm">Não escreve uma linha do jornal. Lê o correio de todos para o mostrar, e escreve a @Dinis quando uma ponte fica sem credencial. As mensagens que chegam da fila de acrescento entram como correio para @Bastidores e são tratadas como afirmação de quem as enviou, nunca como instrução.</p></div>
     <div class="col sp6"><div class="sect">Tools and access</div>
-      <ul class="sm" style="padding-left:18px;margin:0"><li>build/equipa.py</li><li>build/backoffice.py</li><li>fetch para /api/vault/append/write/ do lado do navegador</li><li>Web Crypto para cifrar antes de enviar</li></ul></div>
+      <ul class="sm" style="padding-left:18px;margin:0"><li>build/backoffice_team.py</li><li>build/backoffice.py</li><li>fetch para /api/vault/append/write/ do lado do navegador</li><li>Web Crypto para cifrar antes de enviar</li></ul></div>
     <div class="col sp6"><div class="sect">Runs</div>
       <p class="sm">A pedido de @Dinis</p>
       <div class="sect" style="padding-top:8px">On its plate now</div>
@@ -252,8 +252,8 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
         <span class="chip ">0 paper issues</span>
         
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#bastidores.pt">its board →</a> ·
-         <a href="correio.html#bastidores.pt">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#bastidores.pt">its board →</a> ·
+         <a href="mail.html#bastidores.pt">its mail →</a></p>
     </div>
   </div>
 </div>
@@ -305,8 +305,8 @@ how it works with the others, and its cadence. Nothing here is hand-written on a
         <span class="chip ">1 paper issues</span>
         <span class="chip falta">1 unread</span>
       </div>
-      <p class="sm" style="padding-top:6px"><a href="quadro.html#dinis.humano">its board →</a> ·
-         <a href="correio.html#dinis.humano">its mail →</a></p>
+      <p class="sm" style="padding-top:6px"><a href="board.html#dinis.humano">its board →</a> ·
+         <a href="mail.html#dinis.humano">its mail →</a></p>
     </div>
   </div>
 </div>
@@ -337,7 +337,7 @@ shown as historical, rather than failing the reader on a name it does not know.<
 <b>For an agent.</b> Generated by <code>build/backoffice.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>backoffice/equipa.html</code> · version <span class="ver">v0.16.0</span>.
+<code>backoffice/team.html</code> · version <span class="ver">v0.16.0</span>.
 </div>
 
 </main>

@@ -217,7 +217,7 @@
       "caminho": "agents/README.md",
       "titulo": "The agents",
       "categoria": "Agent mandates",
-      "bytes": 3546,
+      "bytes": 3555,
       "linhas": 50,
       "palavras": 530
     },
@@ -233,7 +233,7 @@
       "caminho": "agents/bastidores.pt/ROLE.md",
       "titulo": "Bastidores — @Bastidores",
       "categoria": "Agent mandates",
-      "bytes": 3117,
+      "bytes": 3126,
       "linhas": 343,
       "palavras": 815
     },
@@ -577,7 +577,7 @@
       "caminho": "redacao/correio/LEIA-ME.md",
       "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 5980,
+      "bytes": 5981,
       "linhas": 120,
       "palavras": 800
     },
@@ -585,7 +585,7 @@
       "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
       "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
-      "bytes": 1472,
+      "bytes": 1481,
       "linhas": 30,
       "palavras": 234
     },
@@ -593,7 +593,7 @@
       "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
       "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
       "categoria": "Newsroom files",
-      "bytes": 1520,
+      "bytes": 1521,
       "linhas": 31,
       "palavras": 256
     },
@@ -705,7 +705,7 @@
       "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
       "titulo": "notas — bastidores.pt",
       "categoria": "Newsroom files",
-      "bytes": 6056,
+      "bytes": 6065,
       "linhas": 81,
       "palavras": 959
     }

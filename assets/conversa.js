@@ -38,7 +38,7 @@
  * WHAT THIS DOES NOT DO
  *
  * It does not publish, does not change a file, does not talk to the vault and does not write mail.
- * For talking to the newsroom there is the bridge at `/backoffice/pontes.html`, which is a
+ * For talking to the newsroom there is the bridge at `/backoffice/bridges.html`, which is a
  * different thing with different rules. This reads, and nothing else.
  */
 (function (global) {

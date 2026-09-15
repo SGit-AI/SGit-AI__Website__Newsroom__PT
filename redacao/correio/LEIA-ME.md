@@ -26,7 +26,7 @@ em vez de `sgit pull` — e isso está dito aqui em vez de ser escondido.
 O cofre entra noutro sítio, e por outra razão: o site é estático e não consegue escrever no git.
 Para o editor poder falar com os bastidores **a partir do navegador**, as mensagens entram por uma
 **fila de acrescento** de um cofre, e os bastidores passam-nas para esta pasta. Ver
-`dados/pontes.json` e `/backoffice/pontes.html`.
+`dados/pontes.json` e `/backoffice/bridges.html`.
 
 ## A forma
 

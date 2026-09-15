@@ -38,7 +38,7 @@ Li primeiro, como foi pedido. O que trouxe, e de onde:
 
 Duas decisões que tomei e que podem ser desfeitas:
 
-1. **Um leitor só.** `build/equipa.py` lê a pasta do correio e escreve `dados/correio.json` e
+1. **Um leitor só.** `build/backoffice_team.py` lê a pasta do correio e escreve `dados/correio.json` e
    `dados/quadro.json`; as páginas leem o derivado. A versão 0.3.1 deste site foi precisamente
    apagar um segundo leitor de documentos, e não ia eu acrescentar um segundo leitor de correio.
 2. **A posse de um issue do jornal sai de uma fórmula publicada**, não de um campo escrito à mão,

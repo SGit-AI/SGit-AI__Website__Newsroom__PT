@@ -25,6 +25,6 @@ O `validate.js` tem um detetor de cadeias com forma de chave e falha a construç
 `localStorage`, e não commitadas.
 
 ## Critério de aceitação para desbloquear
-@Dinis dá o `vault_id`, o `append_token` e a chave pública. A página `/backoffice/pontes.html`
+@Dinis dá o `vault_id`, o `append_token` e a chave pública. A página `/backoffice/bridges.html`
 recebe-os no navegador, confirma com um envio de prova, e a ponte passa de «sem credencial» a
 «a enviar».

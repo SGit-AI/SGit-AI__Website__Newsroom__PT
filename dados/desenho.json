@@ -1,6 +1,6 @@
 {
   "id": "pt-desenho",
-  "versao": "0.2.0",
+  "versao": "0.3.0",
   "atualizado": "2026-09-15",
   "cofre": "e54hfntq",
   "revisao_versao": "v0.5.0",
@@ -145,7 +145,7 @@
       "portao": "gate 33",
       "onde": [
         "build/build.py",
-        "build/equipa.py",
+        "build/backoffice_team.py",
         "redacao/correio/*/assuntos/"
       ]
     },
@@ -355,9 +355,9 @@
       "medida": "159 distinct chip labels → 4 ranks; the board 158 chips → 25 ranks; the design review 124 → 39",
       "onde": [
         "build/backoffice.py",
-        "build/equipa.py",
-        "build/desenho.py",
-        "build/pontes.py"
+        "build/backoffice_team.py",
+        "build/backoffice_design.py",
+        "build/backoffice_bridges.py"
       ]
     },
     {
@@ -382,9 +382,9 @@
       "medida": "h1: 1 on every one of the 10 pages, against 4 of 9 before. h2: 2–10 per page, against 0 across the whole back office",
       "onde": [
         "build/backoffice.py",
-        "build/equipa.py",
-        "build/pontes.py",
-        "build/desenho.py"
+        "build/backoffice_team.py",
+        "build/backoffice_bridges.py",
+        "build/backoffice_design.py"
       ]
     },
     {
@@ -420,7 +420,7 @@
       "bloqueio": "A button cannot write a file on a static site: there is no server to write it. So the queue's buttons GO TO THE PLACE THE WRITE HAPPENS — the document browser for a file, the mail page for a thread, the bridges page for a message to the newsroom — and nothing claims to have written anything. Making them act is the append lane's job, and the lane is built and has no credentials: that is §5.10 and the editor's.",
       "medida": "console 0 controls → 13 (one per queue item); bridges 7 chips-as-buttons → 6 buttons and 3 fields",
       "onde": [
-        "build/pontes.py",
+        "build/backoffice_bridges.py",
         "build/backoffice.py"
       ]
     },
@@ -431,7 +431,7 @@
       "estado": "feito",
       "o_que_se_fez": "Shown as the route a message walks — `saida/ → expedicao/ → entrada/ → tratado/`, each folder carrying the rank its state means — which needs no paragraph. The protocol's own four-row table is still published, folded into a `<details>`: the detail is real and worth having and it is not what the page is for. The mailbox table gained a state column and the editor's row is marked on the ROW, because a state marked only inside a cell is one you have to hunt for by reading every row.",
       "onde": [
-        "build/equipa.py",
+        "build/backoffice_team.py",
         "assets/console.css"
       ]
     },
@@ -441,23 +441,28 @@
       "titulo": "«The vault channel gets a real thread view» with a reply box that writes a file",
       "estado": "editor",
       "o_que_se_fez": "Not built. The threads are rendered and the route is visible; the reply box is not.",
-      "bloqueio": "A reply box that writes a file needs the append lane, and the lane needs three values this repository may not hold: the vault id, the append token and the public key. They go to the editor's own browser via /backoffice/pontes.html and nowhere else — `admin/build/validate.js` carries a key-shaped-string tripwire and would fail the build if one appeared. Until the editor hands a browser those values there is nothing to write with, and inventing a box that does nothing would be the one thing this publication says it never does.",
+      "bloqueio": "A reply box that writes a file needs the append lane, and the lane needs three values this repository may not hold: the vault id, the append token and the public key. They go to the editor's own browser via /backoffice/bridges.html and nowhere else — `admin/build/validate.js` carries a key-shaped-string tripwire and would fail the build if one appeared. Until the editor hands a browser those values there is nothing to write with, and inventing a box that does nothing would be the one thing this publication says it never does.",
       "onde": [
-        "build/pontes.py",
+        "build/backoffice_bridges.py",
         "assets/ponte.js"
       ]
     },
     {
       "ref": "5.11",
       "grupo": "§5 — the back office, a console of its own",
-      "titulo": "Filenames: the proposal asks for console.html / mail.html / board.html",
-      "estado": "editor",
-      "o_que_se_fez": "Not renamed. The rail says the English word; the URL still says the Portuguese one.",
-      "bloqueio": "These addresses are published in llms.txt and in the sitemap, and this site's own argument is that a link resolves. Renaming means redirects, and a static site's redirect is a page that exists to say it moved — which is why /backoffice/viewer.html still exists. Whether ten of those are worth the consistency is the editor's call, and it is open question 2 in the vault.",
+      "titulo": "Filenames: the proposal asks for mail.html / board.html / team.html",
+      "estado": "feito",
+      "o_que_se_fez": "Renamed. `correio.html` → `mail.html`, `quadro.html` → `board.html`, `equipa.html` → `team.html`, `pontes.html` → `bridges.html`, `desenho.html` → `design.html`, and no redirect page left behind for any of them. The editor's ruling is what unblocked it: this site has no users and no SEO yet, so it is still cheap to break an address, and a set of stub pages saying «this moved» is worse than a clean tree. `/backoffice/viewer.html` went with them — it was exactly such a stub, kept since v0.3.1 to forward to `docs.html`, and it is deleted rather than renamed. `index.html` is NOT renamed to `console.html`: `/backoffice/` is the address the rail and the paper's footer link, a directory wants an index, and a `console.html` beside an `index.html` that both had to exist is the stub this rename exists to avoid. The three generator modules took English names too — a module called `equipa.py` that writes `team.html` is the same drift one level down.",
+      "bloqueio": null,
       "onde": [
         "build/backoffice.py",
-        "build/chrome.py"
-      ]
+        "build/backoffice_team.py",
+        "build/backoffice_bridges.py",
+        "build/backoffice_design.py",
+        "admin/build/render.mjs",
+        "build/gates_artigos.py"
+      ],
+      "medida": "5 pages renamed, 1 deleted, 0 redirect stubs; 238 pages and every link resolving"
     },
     {
       "ref": "5.12",

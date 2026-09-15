@@ -326,7 +326,7 @@ anywhere else. The boundary is checked on every build, not promised here.
 
 ## Tools
 
-- build/equipa.py
+- build/backoffice_team.py
 - build/backoffice.py
 - fetch para /api/vault/append/write/ do lado do navegador
 - Web Crypto para cifrar antes de enviar

@@ -68,11 +68,11 @@ const PAGINAS = [
        that is what this gate checks. Being out by default is precisely the kind of exemption gate
        26 says you should not be able to claim by writing the right word. */
     ['/backoffice/guidance.html', []],
-    ['/backoffice/equipa.html', []],
-    ['/backoffice/quadro.html', []],
-    ['/backoffice/correio.html', []],
-    ['/backoffice/pontes.html', []],
-    ['/backoffice/desenho.html', []],
+    ['/backoffice/team.html', []],
+    ['/backoffice/board.html', []],
+    ['/backoffice/mail.html', []],
+    ['/backoffice/bridges.html', []],
+    ['/backoffice/design.html', []],
     /* The console carries `pt-queue`, and it is the one component whose whole job is to count:
        the number in its heading and the number in the rail both come from the list it was given,
        so a page where it silently failed would show a queue of nothing and a rail badge of three.

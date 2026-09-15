@@ -28,9 +28,11 @@ WHAT IS HERE
 
   index.html    the console: pipeline, agents, articles, deliveries, sections, gates
   docs.html     every markdown document in this repository, indexed
-  viewer.html   a PERMALINK, kept because things linked it. It forwards to docs.html, carrying
-                the #fragment across, so the two-pane browser is the ONE reader. There is no
-                second implementation of document rendering in this repository.
+  DELETED, in v0.17.0: viewer.html. It existed only to forward to docs.html, and a page whose
+  whole content is "this moved" is the redirect stub the editor asked this site not to accumulate.
+  The rule it protected — one implementation of document rendering — is unchanged: docs.html is
+  still the ONE reader. This site has no users and no SEO yet, so an address may simply stop
+  existing; when that stops being true, a rename becomes a decision with a cost.
 """
 import json
 import re
@@ -92,18 +94,18 @@ def carregar(n):
 # The LABELS are English because the console's furniture is architecture. The URLs are still
 # Portuguese. The proposal asks for console.html / mail.html / board.html as well, and that is a
 # rename of addresses already published in llms.txt and the sitemap, so it needs redirects and it
-# is the editor's call — open question 2 in the vault, recorded on /backoffice/desenho.html.
+# is the editor's call — open question 2 in the vault, recorded on /backoffice/design.html.
 RAIL = [
     ("Operate", [
         ("backoffice/", "Console", "fila"),
-        ("backoffice/correio.html", "Mail", "correio"),
-        ("backoffice/quadro.html", "Board", "quadro"),
-        ("backoffice/pontes.html", "Bridges", None),
+        ("backoffice/mail.html", "Mail", "correio"),
+        ("backoffice/board.html", "Board", "quadro"),
+        ("backoffice/bridges.html", "Bridges", None),
     ]),
     ("Understand", [
-        ("backoffice/equipa.html", "Team", None),
+        ("backoffice/team.html", "Team", None),
         ("backoffice/agents.html", "Agent activity", None),
-        ("backoffice/desenho.html", "Design review", None),
+        ("backoffice/design.html", "Design review", None),
     ]),
     ("Reference", [
         ("backoffice/guidance.html", "Guidance", None),
@@ -317,9 +319,9 @@ FILA_JS = """
     /* Where each action goes. A path is data from this repository's own files, so it is put in a
        fragment and never interpolated into markup. */
     function destino(action, where) {
-        if (action === 'note') return 'pontes.html'
+        if (action === 'note') return 'bridges.html'
         if (!where) return 'docs.html'
-        if (/\.eml$/.test(where)) return 'correio.html'
+        if (/\.eml$/.test(where)) return 'mail.html'
         if (/\.md$/.test(where)) return 'docs.html#' + where
         return 'docs.html'
     }
@@ -502,34 +504,6 @@ asked to do. References to the rest of the estate are at the foot of the tree.</
                          "losing your place.")
 
 
-FORWARD_JS = """
-<script>
-/* This page is kept as a PERMALINK, not as a second viewer. The document browser on docs.html
-   is the one implementation, and having a second one here would be the rule this site repeats
-   most often — content exists once — broken in its own back office. Anyone holding a
-   viewer.html#path link lands where that document is now read. */
-(function () {
-    var path = location.hash.replace(/^#/, '')
-    location.replace('docs.html' + (path ? '#' + path : ''))
-})()
-</script>
-"""
-
-
-def pagina_viewer():
-    corpo = """
-<p class="std" style="max-width:46em;padding:14px 0 10px">Documents are now read in a two-pane
-browser — the tree stays while you read — and this address forwards there, keeping any link
-somebody already holds. There is one viewer, not two: a second implementation of the same thing
-is the rule this site repeats most often, content exists once, broken in its own back office.</p>
-<p class="sm"><a href="docs.html">Go to the documents →</a></p>
-"""
-    return pagina("backoffice/viewer.html", "Document viewer",
-                  "Forwards to the document browser, which is where documents are read.",
-                  corpo, extra_body=FORWARD_JS,
-                  resumo="This page moved into the document browser.")
-
-
 # --------------------------------------------------------------- the console ---
 def commits_recentes(n=12):
     try:
@@ -693,7 +667,7 @@ def pagina_console(docs):
     p = ROOT / "redacao" / "runs"
     for f in sorted(p.glob("*.json")) if p.exists() else []:
         runs.append(json.loads(f.read_text(encoding="utf-8")))
-    # The mail is counted from `dados/correio.json`, which `build/equipa.py` derives by reading
+    # The mail is counted from `dados/correio.json`, which `build/backoffice_team.py` derives by reading
     # `redacao/correio/`. Counting the folder here as well would be a second reader of it.
     corr = carregar("correio.json")
     correio = corr.get("contagem", 0)
@@ -869,25 +843,25 @@ script with role names in the comments.</p></div>
 <h2>The agent team ·
   {len(agentes.get("agentes", []))} roles, {quad.get("contagens", {}).get("cartoes", 0)} board
   cards, {correio} messages</h2>
-<p class="sm" style="max-width:52em">Three pages, generated by <code>build/equipa.py</code> from
+<p class="sm" style="max-width:52em">Three pages, generated by <code>build/backoffice_team.py</code> from
 <code>dados/agentes.json</code> and the mail folder. The roles are defined in the shape
 <a href="https://teams.sgit.ai/role-format/index.html">teams.sgit.ai publishes for a
 <code>ROLE.md</code></a>, and they coordinate under
 <a href="https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite.md">Email-FS-lite</a> — files
 in a folder, one commit per cycle, no broker and no API.</p>
 <div class="chips" style="padding-top:10px">
-  <a class="chip ok" href="equipa.html">the team — who they are, and what each is not
+  <a class="chip ok" href="team.html">the team — who they are, and what each is not
     responsible for →</a>
-  <a class="chip ok" href="quadro.html">the board — what each one has in front of it →</a>
-  <a class="chip ok" href="correio.html">the mail — what passed between them →</a>
-  <a class="chip" href="pontes.html">the bridges — how the editor reaches them →</a>
-  <a class="chip" href="desenho.html">the design review — item by item, and what was done →</a>
+  <a class="chip ok" href="board.html">the board — what each one has in front of it →</a>
+  <a class="chip ok" href="mail.html">the mail — what passed between them →</a>
+  <a class="chip" href="bridges.html">the bridges — how the editor reaches them →</a>
+  <a class="chip" href="design.html">the design review — item by item, and what was done →</a>
 </div>
 
 <h2>Board · {len(issues)} issues</h2>
 <div class="quadro">{colunas}</div>
 <p class="xs" style="padding-top:10px">Rendered from <code>redacao/issues/*.json</code>. The same
-issues appear on <a href="quadro.html">each agent's board</a>, placed there by a published formula
+issues appear on <a href="board.html">each agent's board</a>, placed there by a published formula
 and not by hand. The reader-facing version of this board is
 <a href="../redacao/">A mesa</a>, in Portuguese.</p>
 
@@ -986,7 +960,6 @@ def main():
     feitas = [
         escrever("backoffice/index.html", pagina_console(docs)),
         escrever("backoffice/docs.html", pagina_docs(docs)),
-        escrever("backoffice/viewer.html", pagina_viewer()),
         escrever("backoffice/agents.html", pagina_agentes()),
         escrever("backoffice/guidance.html", pagina_guidance()),
     ]

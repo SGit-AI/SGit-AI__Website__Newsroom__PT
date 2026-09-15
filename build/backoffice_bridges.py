@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the bridges page. How the editor reaches the back office from a browser.
 
-    python3 build/pontes.py
+    python3 build/backoffice_bridges.py
 
 WHAT THIS PAGE IS FOR
 
@@ -308,7 +308,7 @@ line and only his.</p>
 }})();
 </script>
 """
-    return pagina("backoffice/pontes.html", "The bridges",
+    return pagina("backoffice/bridges.html", "The bridges",
                   "How the editor reaches the back office from a browser: append lanes, what they "
                   "send, what they never send, and where the credentials live.", corpo)
 
@@ -316,11 +316,11 @@ line and only his.</p>
 def main():
     d = carregar("pontes.json")
     if not d:
-        print("pontes: dados/pontes.json não existe — nada a fazer")
+        print("bridges: dados/pontes.json does not exist — nothing to do")
         return []
-    feitas = [escrever("backoffice/pontes.html", pagina_pontes(d, carregar("agentes.json")))]
+    feitas = [escrever("backoffice/bridges.html", pagina_pontes(d, carregar("agentes.json")))]
     sem = [p["id"] for p in d.get("pontes", []) if p["estado"] == "sem-credencial"]
-    print(f"pontes: 1 page, {len(d.get('pontes', []))} bridges"
+    print(f"bridges: 1 page, {len(d.get('pontes', []))} bridges"
           + (f", {len(sem)} without credentials ({', '.join(sem)})" if sem else ""))
     return feitas
 

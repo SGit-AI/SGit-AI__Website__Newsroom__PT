@@ -117,7 +117,7 @@ def main():
 
     # --- the mail, counted per bench -----------------------------------------
     # Counted from `dados/correio.json` and not from the folder. `redacao/correio/` has ONE reader,
-    # `build/equipa.py`, which reads the `.eml` files and derives each message's state from the
+    # `build/backoffice_team.py`, which reads the `.eml` files and derives each message's state from the
     # folder it sits in. Counting the folder again here would be a second reader of the same thing
     # — and it would be the second reader that goes stale, as this one did when the mail moved to
     # `.eml` and the boxes took the protocol address («pesquisa.pt») instead of the short name

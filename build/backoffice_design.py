@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pt.newsroom.sgit.ai — the design review, item by item, and what was actually done to each.
 
-    python3 build/desenho.py
+    python3 build/backoffice_design.py
 
 WHY THIS PAGE EXISTS
 
@@ -145,7 +145,7 @@ column that still missed the review's own target, and nobody would have known.</
   reserved for the editor</h2>
 <p class="std">§4.5 of the review says, in as many words: <i>"Agents: do not pick these
 yourself."</i> None of them is picked here. Each is a card on
-<a href="quadro.html#dinis.humano">the editor's board</a>.</p>
+<a href="board.html#dinis.humano">the editor's board</a>.</p>
 {decisoes}
 
 <div class="agent" style="border:0;margin-top:26px">
@@ -153,7 +153,7 @@ yourself."</i> None of them is picked here. Each is a card on
 {e(d["o_blocker"])}</p>
 </div>
 """
-    return pagina("backoffice/desenho.html", "The design review",
+    return pagina("backoffice/design.html", "The design review",
                   "Every item of the design review, and whether it was done, deferred, or left "
                   "to the editor — with the gate that holds each one that was done.", corpo)
 
@@ -161,13 +161,13 @@ yourself."</i> None of them is picked here. Each is a card on
 def main():
     d = carregar("desenho.json")
     if not d:
-        print("desenho: dados/desenho.json não existe — nada a fazer")
+        print("design: dados/desenho.json does not exist — nothing to do")
         return []
-    feitas = [escrever("backoffice/desenho.html", pagina_desenho(d))]
+    feitas = [escrever("backoffice/design.html", pagina_desenho(d))]
     c = {}
     for i in d["itens"]:
         c[i["estado"]] = c.get(i["estado"], 0) + 1
-    print("desenho: 1 page, " + ", ".join(f"{v} {k}" for k, v in sorted(c.items()))
+    print("design: 1 page, " + ", ".join(f"{v} {k}" for k, v in sorted(c.items()))
           + f", {len(d['decisoes_do_editor'])} decisions for the editor")
     return feitas
 
