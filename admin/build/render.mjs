@@ -13,6 +13,7 @@
  *
  *   · the browser console writes an error, or the page throws;
  *   · any request fails or answers 400 or above;
+ *   · a chat tool does not resolve when really called, from the deepest page and from the root;
  *   · a custom element is never defined, opens no shadow root, or comes up empty;
  *   · an element inside it carries `hidden` and is on screen anyway;
  *   · the host ends at `data-estado="erro"`, or never reaches `data-estado="pronto"` — the gate
@@ -71,6 +72,28 @@ const PAGINAS = [
     ['/backoffice/quadro.html', []],
     ['/backoffice/correio.html', []],
     ['/backoffice/pontes.html', []],
+]
+
+/* EVERY TOOL, REALLY FETCHED, FROM THE DEEPEST PAGE ON THE SITE.
+ *
+ * The chat's tools are paths, and a path is a claim about where the reader is standing. The engine
+ * used to build that path by counting the segments of `location.pathname`, and it was wrong on
+ * every page except the front one — so every tool call from an article answered 404 and the panel
+ * blamed the article. Nothing caught it: the component loaded, reached «pronto», threw nothing and
+ * overflowed nothing. A tool is only exercised when somebody asks a question, and no gate asks
+ * questions.
+ *
+ * This one does. It calls every listing tool for real, from the deepest page this site has and
+ * from the shallowest, and fails on any that does not come back with JSON. The two paths matter
+ * for different reasons: the article page is five directories down, which is where the arithmetic
+ * broke; the front page is where the old code accidentally worked, so a fix that only works deep
+ * would pass a deep-only check.
+ *
+ * It also reads one id tool with an id taken from the listing, because a `{id}` path is a second
+ * kind of claim — that the id the listing hands out is the id the reader tool accepts. */
+const FERRAMENTAS_EM = [
+    '/artigos/2026/09/14/uma-captura-nao-mostra-movimento/',
+    '/',
 ]
 
 /* Chromium asks for `/favicon.ico` on its own, unprompted, and on a site serving an SVG that is a
@@ -180,6 +203,42 @@ for (const [caminho, comps] of PAGINAS) {
         for (const e of unicos) console.log(`    ${e}`)
     } else {
         console.log(`✓ ${caminho}${comps.length ? '  ' + comps.join(' ') : ''}`)
+    }
+    await ctx.close()
+}
+
+for (const caminho of FERRAMENTAS_EM) {
+    const ctx = await navegador.newContext({ viewport: { width: 1280, height: 900 } })
+    const pag = await ctx.newPage()
+    await pag.goto(BASE + caminho, { waitUntil: 'networkidle' })
+    await pag.waitForFunction(() => !!window.ptConversa, null, { timeout: 10000 })
+
+    const problemas = await pag.evaluate(async () => {
+        const m = window.ptConversa
+        const maus = []
+        for (const f of m.FERRAMENTAS) {
+            if (f.id) continue
+            const r = await m.correrFerramenta(f.nome, {})
+            if (!r || r.erro) maus.push(`${f.nome} → ${(r && r.erro) || 'sem resposta'}`)
+        }
+        /* One `{id}` tool, with an id the listing itself gave — the round trip, not the path. */
+        const lista = await m.correrFerramenta('listar_artigos', {})
+        const artigos = (lista && (lista.artigos || lista.historias || lista.itens)) || []
+        const id = artigos.length ? (artigos[0].slug || artigos[0].id) : null
+        if (!id) maus.push('listar_artigos não devolveu nenhum artigo com um id')
+        else {
+            const um = await m.correrFerramenta('ler_artigo', { id: id })
+            if (!um || um.erro) maus.push(`ler_artigo(${id}) → ${(um && um.erro) || 'sem resposta'}`)
+        }
+        return maus
+    })
+
+    if (problemas.length) {
+        falhas++
+        console.log(`\n✗ ${caminho}  ferramentas`)
+        for (const e of problemas) console.log(`    ${e}`)
+    } else {
+        console.log(`✓ ${caminho}  ferramentas: todas resolvem a partir daqui`)
     }
     await ctx.close()
 }

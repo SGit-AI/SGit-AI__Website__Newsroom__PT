@@ -1,44 +1,43 @@
-/* pt.newsroom.sgit.ai — a observabilidade, por uma fila de acrescento de cofre.
+/* pt.newsroom.sgit.ai — observability, over a vault append lane.
  *
- * Que páginas são lidas e que caminhos as pessoas seguem, sem montar um servidor de estatísticas e
- * sem saber quem é ninguém. O padrão é o que sgit.ai publica em
- * `docs/briefs/vault-telemetry-append-lanes.md` e que o cofre dos jogos de permissões desenhou
- * primeiro: eventos anónimos, cifrados no navegador para a chave pública de um cofre de
- * observabilidade separado, enviados por um código de acrescento que só escreve.
+ * Which pages are read and which paths people follow, without standing up an analytics server and
+ * without knowing who anybody is. The pattern is the one sgit.ai publishes in
+ * `docs/briefs/vault-telemetry-append-lanes.md`, first designed by the permission-games vault:
+ * anonymous events, encrypted in the browser to the public key of a separate observability vault,
+ * posted through an append code that can only write.
  *
- * AS QUATRO REGRAS QUE ESTE FICHEIRO SEGUE, E QUE NÃO SÃO OPÇÕES
+ * THE FOUR RULES THIS FILE FOLLOWS, NONE OF WHICH IS AN OPTION
  *
- * 1. **Se não está configurado, não faz absolutamente nada.** Nem envia, nem mostra aviso, nem
- *    põe interruptor. Um aviso a dizer «enviamos eventos» num site que não envia nada é pior do
- *    que nenhum aviso: é uma afirmação falsa sobre o próprio site.
- * 2. **Se está configurado, diz-o à vista, e dá um interruptor.** Abrir uma página normalmente não
- *    telefona a casa. Esta telefonaria, e por isso tem de o dizer em português simples, em cada
- *    página, com um botão para desligar — e o desligado fica desligado entre visitas.
- * 3. **Falha em silêncio.** Se o envio falhar, o leitor não pode notar. Nada aqui bloqueia a
- *    leitura de uma página, e nenhum erro de telemetria aparece a quem está a ler o jornal.
- * 4. **Anónimo é o desenho, não uma opção.** O identificador de sessão são 16 dígitos hexadecimais
- *    criados na memória quando a página abre e perdidos quando ela fecha. Não há nome, não há
- *    correio eletrónico, não há agente do utilizador, não há dimensões de ecrã, não há
- *    referenciador, e o endereço vai sem parâmetros. O servidor da fila vê o IP — isso não é do
- *    lado do cliente e não se pode esconder daqui, e está dito na página do aviso em vez de
- *    ser omitido.
+ * 1. **Not configured means it does nothing at all.** It does not send, it does not show a notice
+ *    and it does not add a switch. A notice saying «we send events» on a site that sends nothing
+ *    is worse than no notice: it is a false statement about the site itself.
+ * 2. **Configured means it says so in the open, with a switch.** Opening a page does not normally
+ *    phone home. This one would, so it has to say so in plain Portuguese, on every page, with a
+ *    button to turn it off — and off stays off between visits.
+ * 3. **It fails silently.** If a send fails, the reader must not notice. Nothing here blocks a
+ *    page from being read, and no telemetry error reaches somebody reading the paper.
+ * 4. **Anonymous is the design, not a setting.** The session identifier is 16 hex digits made in
+ *    memory when the page opens and lost when it closes. No name, no email address, no user
+ *    agent, no screen size, no referrer, and the address travels without its query string. The
+ *    lane's server sees the IP — that is not client-side and cannot be hidden from here, so it is
+ *    stated on the notice page instead of being left out.
  *
- * E UMA QUINTA, QUE É SOBRE QUEM RECEBE
+ * AND A FIFTH, WHICH IS ABOUT WHOEVER RECEIVES IT
  *
- * Nesta ponte o código de acrescento é PÚBLICO, porque tem de ser: está na página que qualquer
- * pessoa lê. Isso é seguro quanto ao que ele dá — só escreve, não lista, não obtém, não lê — e é
- * exatamente por isso que os números que dali saem são direcionais e não prova. Quem tem o código
- * pode forjar eventos e pode inundar a fila, que para nos 1000 ficheiros por tratar. Uma página
- * que apresentasse estes números como medição estaria a mentir sobre o que eles são.
+ * On this bridge the append code is PUBLIC, because it has to be: it is in the page anybody can
+ * read. That is safe with respect to what it grants — it only writes; it cannot list, get or read
+ * — and it is exactly why the numbers that come out of it are directional and not evidence.
+ * Anybody holding the code can forge events and can flood the lane, which stops at 1000 unhandled
+ * files. A page presenting these numbers as a measurement would be lying about what they are.
  */
 (function (global) {
   "use strict";
 
   var PONTE = "observabilidade";
   var PAUSA = "pt-newsroom:observador:pausa";
-  var INTERVALO = 4000;   // no máximo um envio a cada 4 segundos
-  var MAX_ENVIOS = 40;    // no máximo 40 envios por sessão
-  var MAX_EVENTOS = 80;   // a fila em memória não cresce sem limite
+  var INTERVALO = 4000;   // at most one send every 4 seconds
+  var MAX_ENVIOS = 40;    // at most 40 sends per session
+  var MAX_EVENTOS = 80;   // the in-memory queue does not grow without a ceiling
 
   function hex(n) {
     var b = new Uint8Array(n / 2), s = "";
@@ -56,8 +55,8 @@
 
   function Observador() {
     this.ponte = new global.PonteCofre.Ponte({ id: PONTE });
-    /* Na memória, e só na memória. Uma sessão que sobrevivesse a fechar o separador seria um
-     * identificador persistente, que é outra coisa e precisaria de outro aviso. */
+    /* In memory, and only in memory. A session that survived closing the tab would be a
+     * persistent identifier, which is a different thing and would need a different notice. */
     this.sessao = hex(16);
     this.fila = [];
     this.envios = 0;
@@ -70,11 +69,11 @@
   };
 
   Observador.prototype.pausar = function (sim) {
-    try { global.localStorage.setItem(PAUSA, sim ? "1" : "0"); } catch (e) { /* nada */ }
+    try { global.localStorage.setItem(PAUSA, sim ? "1" : "0"); } catch (e) { /* nothing */ }
   };
 
-  /* O caminho, sem parâmetros e sem fragmento. `?` e `#` levam muitas vezes coisas que alguém
-   * colou sem pensar, e o caminho é o que interessa saber. */
+  /* The path, with no query string and no fragment. `?` and `#` often carry something somebody
+   * pasted without thinking, and the path is the part worth knowing. */
   Observador.prototype.pagina = function () {
     return location.pathname;
   };
@@ -84,9 +83,9 @@
     if (this.fila.length >= MAX_EVENTOS) return;
     var ev = { quando: new Date().toISOString(), tipo: String(tipo), pagina: this.pagina() };
     if (extra && typeof extra === "object") {
-      /* Só se copiam campos simples e curtos. Um objeto inteiro de outra parte do código poderia
-       * trazer qualquer coisa lá dentro, e «qualquer coisa» é como um identificador entra sem
-       * ninguém decidir que entrava. */
+      /* Only short, simple fields are copied. A whole object from elsewhere in the code could
+       * be carrying anything inside it, and "anything" is how an identifier gets in without
+       * anybody deciding that it should. */
       Object.keys(extra).slice(0, 6).forEach(function (k) {
         var v = extra[k];
         if (typeof v === "string") ev[k] = v.slice(0, 80);
@@ -118,18 +117,18 @@
       tipo: "observacao",
       sessao: this.sessao,
       versao: (document.querySelector(".ver") || {}).textContent || null,
-      /* Grosseiro de propósito: largo ou estreito, e não a dimensão, que é identificadora. */
+      /* Coarse on purpose: wide or narrow, not the measurement, which identifies. */
       formato: global.innerWidth >= 900 ? "largo" : "estreito",
       lingua: (navigator.language || "").slice(0, 2),
       final: !!final,
       eventos: lote,
     }).catch(function () {
-      /* Em silêncio. A regra 3, e é a mais importante deste ficheiro: quem está a ler o jornal
-       * não pode ficar a saber que a telemetria falhou, porque não é problema dele. */
+      /* Silently. Rule 3, and the most important one in this file: somebody reading the paper
+       * must not end up learning that telemetry failed, because it is not their problem. */
     });
   };
 
-  /* O aviso e o interruptor. Só existem se a ponte estiver aberta — ver a regra 1. */
+  /* The notice and the switch. They exist only when the bridge is open — see rule 1. */
   Observador.prototype.avisar = function () {
     var self = this;
     var caixa = document.createElement("div");
@@ -166,13 +165,13 @@
     if (!global.PonteCofre) return;
     var o = new Observador();
     global.ptObservador = o;
-    /* A regra 1, aqui: uma ponte fechada não deixa rasto nenhum na página. */
+    /* Rule 1, here: a closed bridge leaves no trace at all on the page. */
     if (!o.ponte.aberta()) return;
     o.avisar();
     o.evento("abriu");
     var entrou = Date.now();
-    /* `visibilitychange` e não `unload`: é o que dispara de forma fiável em telemóvel, e o
-     * `keepalive` do fetch é o que dá ao último envio a chance de sair. */
+    /* `visibilitychange` and not `unload`: it is what fires reliably on a phone, and fetch's
+     * `keepalive` is what gives the last send a chance to leave. */
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "hidden") {
         o.evento("saiu", { segundos: Math.round((Date.now() - entrou) / 1000) });

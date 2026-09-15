@@ -100,8 +100,8 @@ ESTADOS_VALIDOS = {"procurado", "rascunho", "verificado", "publicado", "supersed
 # --- 16. an article's path does not lie ----------------------------------------
 metas = sorted(ARTIGOS.rglob("artigo.json")) if ARTIGOS.exists() else []
 if not metas:
-    erros.append("artigos: não há uma única pasta de artigo. O site tem uma secção de artigos e "
-                 "nada lá dentro")
+    erros.append("articles: not one article folder exists. The site has an articles section and "
+                 "nothing inside it")
 
 for meta in metas:
     d = meta.parent
@@ -109,92 +109,94 @@ for meta in metas:
     try:
         a = json.loads(meta.read_text(encoding="utf-8"))
     except json.JSONDecodeError as ex:
-        erros.append(f"{rel}/artigo.json: não é JSON válido ({ex})")
+        erros.append(f"{rel}/artigo.json: is not valid JSON ({ex})")
         continue
 
     partes = rel.split("/")
     if len(partes) != 5 or partes[0] != "artigos":
-        erros.append(f"{rel}: um artigo vive em artigos/<aaaa>/<mm>/<dd>/<slug>/, e este não")
+        erros.append(f"{rel}: an article lives at artigos/<yyyy>/<mm>/<dd>/<slug>/, and this one "
+                     f"does not")
         continue
     _, ano, mes, dia, slug = partes
     esperado = f"{ano}-{mes}-{dia}"
     if a.get("data") != esperado:
-        erros.append(f'{rel}: a pasta diz {esperado} e o artigo diz «{a.get("data")}». Um artigo '
-                     f'com duas datas tem dois endereços, e um deles está errado')
+        erros.append(f'{rel}: the folder says {esperado} and the article says «{a.get("data")}». '
+                     f'An article with two dates has two addresses, and one of them is wrong')
     if a.get("slug") != slug:
-        erros.append(f'{rel}: a pasta diz «{slug}» e o artigo diz «{a.get("slug")}»')
+        erros.append(f'{rel}: the folder says «{slug}» and the article says «{a.get("slug")}»')
     if a.get("estado") not in ESTADOS_VALIDOS:
-        erros.append(f'{rel}: estado «{a.get("estado")}» não existe. Os estados são '
+        erros.append(f'{rel}: state «{a.get("estado")}» does not exist. The states are '
                      f'{", ".join(sorted(ESTADOS_VALIDOS))}')
     if a.get("seccao") not in AS_OITO:
-        erros.append(f'{rel}: a secção «{a.get("seccao")}» não é uma das oito do resumo')
+        erros.append(f'{rel}: section «{a.get("seccao")}» is not one of the brief\'s eight')
     for campo in ("titulo", "entrada"):
         if not a.get(campo):
-            erros.append(f'{rel}: falta o campo obrigatório «{campo}»')
+            erros.append(f'{rel}: the required field «{campo}» is missing')
 
     # --- 17. every claim walks back --------------------------------------------
     for sid in a.get("assenta_em", []):
         if sid not in por_id:
-            erros.append(f'{rel}: assenta em «{sid}», que não está no registo de fontes')
+            erros.append(f'{rel}: stands on «{sid}», which is not in the source register')
 
     md = d / "artigo.md"
     prosa = md.read_text(encoding="utf-8") if md.exists() else ""
     for sid in set(re.findall(r"\[\[fonte:([^\]]+)\]\]", prosa)):
         if sid not in por_id:
-            erros.append(f'{rel}/artigo.md: cita [[fonte:{sid}]], que não está no registo')
+            erros.append(f'{rel}/artigo.md: cites [[fonte:{sid}]], which is not in the register')
         elif sid not in a.get("assenta_em", []):
-            erros.append(f'{rel}: a prosa cita «{sid}» e o artigo.json não o lista em '
-                         f'assenta_em — os dois têm de concordar sobre em que o artigo assenta')
+            erros.append(f'{rel}: the prose cites «{sid}» and artigo.json does not list it under '
+                         f'assenta_em — the two have to agree on what the article stands on')
 
     fa = d / "afirmacoes.json"
     ver = json.loads(fa.read_text(encoding="utf-8")) if fa.exists() else None
     if ver:
         for af in ver.get("afirmacoes", []):
             if af.get("fonte") not in por_id:
-                erros.append(f'{rel}/afirmacoes.json: a afirmação {af.get("id")} cita '
-                             f'«{af.get("fonte")}», que não está no registo')
+                erros.append(f'{rel}/afirmacoes.json: claim {af.get("id")} cites '
+                             f'«{af.get("fonte")}», which is not in the register')
             if af.get("estado") not in ("confirmada", "disputada", "nao_encontrada"):
-                erros.append(f'{rel}/afirmacoes.json: {af.get("id")} tem o estado '
-                             f'«{af.get("estado")}», que não é um dos três')
+                erros.append(f'{rel}/afirmacoes.json: {af.get("id")} carries the state '
+                             f'«{af.get("estado")}», which is not one of the three')
         r = ver.get("resumo") or {}
         contado = {k: sum(1 for x in ver.get("afirmacoes", []) if x.get("estado") == k)
                    for k in ("confirmada", "disputada", "nao_encontrada")}
         if (r.get("confirmadas"), r.get("disputadas"), r.get("nao_encontradas")) != \
                 (contado["confirmada"], contado["disputada"], contado["nao_encontrada"]):
-            erros.append(f'{rel}/afirmacoes.json: o resumo não bate certo com as afirmações')
+            erros.append(f'{rel}/afirmacoes.json: the summary does not add up to the claims')
 
     # --- 18. a verified article was actually verified -------------------------
     if a.get("estado") in ("verificado", "publicado"):
         if not prosa.strip():
-            erros.append(f'{rel}: está em «{a["estado"]}» e não tem prosa. Não se verifica o que '
-                         f'não está escrito')
+            erros.append(f'{rel}: is in «{a["estado"]}» and has no prose. You cannot verify what '
+                         f'has not been written')
         if not ver or not ver.get("afirmacoes"):
-            erros.append(f'{rel}: está em «{a["estado"]}» e não tem registo de verificação')
+            erros.append(f'{rel}: is in «{a["estado"]}» and has no verification record')
         elif not ver.get("verificado_em"):
-            erros.append(f'{rel}/afirmacoes.json: não diz quando foi verificado')
+            erros.append(f'{rel}/afirmacoes.json: does not say when it was verified')
 
     # --- a linha do editor, para o formato novo -------------------------------
     ed = (equipa.get("editor_de_registo") or {}).get("nome")
     if a.get("estado") == "publicado":
         if a.get("publicado_por") != ed:
-            erros.append(f'{rel}: está publicado por «{a.get("publicado_por")}», que não é o '
-                         f'editor de registo ({ed}). Só ele põe esta linha')
+            erros.append(f'{rel}: is published by «{a.get("publicado_por")}», who is not the '
+                         f'editor of record ({ed}). Only the editor writes that line')
         if not a.get("publicado_em"):
-            erros.append(f"{rel}: está publicado e não tem data de publicação")
+            erros.append(f"{rel}: is published and carries no publication date")
         if ver and any(x.get("estado") == "nao_encontrada" for x in ver.get("afirmacoes", [])):
-            erros.append(f'{rel}: está publicado e tem uma afirmação por encontrar. Uma história '
-                         f'não se publica com uma afirmação que ninguém conseguiu confirmar')
+            erros.append(f'{rel}: is published and has a claim still not found. A story is not '
+                         f'published carrying a claim nobody could confirm')
     else:
         if a.get("publicado_em") or a.get("publicado_por"):
-            erros.append(f'{rel}: não está publicado e já tem publicado_em/publicado_por')
+            erros.append(f'{rel}: is not published and already carries '
+                         f'publicado_em/publicado_por')
 
 # o índice derivado tem de cobrir exatamente as pastas
 if historias:
     nas_pastas = {m.parent.relative_to(ROOT).as_posix() for m in metas}
     no_indice = {h["pasta"] for h in historias.get("historias", [])}
     if nas_pastas != no_indice:
-        erros.append("historias.json: o índice não cobre exatamente as pastas de artigo — foi "
-                     "editado à mão em vez de derivado por build/artigos.py")
+        erros.append("historias.json: the index does not cover exactly the article folders — it "
+                     "was hand-edited instead of derived by build/artigos.py")
 
 
 # --- 19. the back office publishes no claims -----------------------------------
@@ -206,36 +208,39 @@ if BASTIDORES.exists():
         t = p.read_text(encoding="utf-8")
         rel = p.relative_to(ROOT).as_posix()
         if "[[fonte:" in t:
-            erros.append(f"{rel}: carrega uma marca de fonte. Os bastidores relatam a redação, "
-                         f"não o mundo")
+            erros.append(f"{rel}: carries a source mark. The back office reports on the "
+                         f"newsroom, not on the world")
         # a link to a register anchor is a citation of evidence
         if re.search(r'href="[^"]*registo/#', t):
-            erros.append(f"{rel}: cita uma fonte congelada como prova. A consola pode CONTAR "
-                         f"fontes; não pode assentar uma afirmação numa delas")
+            erros.append(f"{rel}: cites a frozen source as evidence. The console may COUNT "
+                         f"sources; it may not stand a claim on one")
         if not re.search(r'lang="en"', t):
-            erros.append(f"{rel}: os bastidores estão em inglês e a página não o declara em lang")
+            erros.append(f"{rel}: the back office is in English and the page does not say so in "
+                         f"its lang attribute")
         if "This is the operations console" not in t:
-            erros.append(f"{rel}: falta o aviso que diz que isto não é a publicação. A exceção à "
-                         f"regra da língua vale enquanto for visível ao leitor que lá cair")
+            erros.append(f"{rel}: the notice saying this is not the publication is missing. The "
+                         f"exception to the language rule holds only while it is visible to a "
+                         f"reader who lands here")
     for obrigatoria in ("backoffice/index.html", "backoffice/docs.html", "backoffice/viewer.html"):
         if not (ROOT / obrigatoria).exists():
-            erros.append(f"{obrigatoria}: não foi gerada")
+            erros.append(f"{obrigatoria}: was not generated")
 
 
 # --- 20. every section has an editorial record ---------------------------------
 for sid in AS_OITO:
     f = SECCOES / sid / "seccao.json"
     if not f.exists():
-        erros.append(f"seccoes/{sid}/seccao.json: não existe. Cada uma das oito secções do resumo "
-                     f"tem uma pasta e um registo editorial")
+        erros.append(f"seccoes/{sid}/seccao.json: does not exist. Each of the brief's eight "
+                     f"sections has a folder and an editorial record")
         continue
     s = json.loads(f.read_text(encoding="utf-8"))
     for campo in ("rotulo", "ambito", "o_que_pode_afirmar_hoje", "o_que_nao_pode",
                   "a_afirmacao_honesta"):
         if not s.get(campo):
-            erros.append(f"seccoes/{sid}/seccao.json: falta «{campo}»")
+            erros.append(f"seccoes/{sid}/seccao.json: «{campo}» is missing")
     if s.get("id") != sid:
-        erros.append(f'seccoes/{sid}/seccao.json: o id diz «{s.get("id")}» e a pasta diz «{sid}»')
+        erros.append(f'seccoes/{sid}/seccao.json: the id says «{s.get("id")}» and the folder '
+                     f'says «{sid}»')
     congeladas = [t for t in s.get("fontes_alvo", []) if t.get("estado") == "congelada"]
     # A section with no frozen sources cannot say it claims anything. The statement has to BEGIN
     # with «Nada» — what follows is the explanation, and demanding the word alone would force a
@@ -244,19 +249,19 @@ for sid in AS_OITO:
     diz = s.get("o_que_pode_afirmar_hoje", "").strip().lower()
     diz_que_afirma = not diz.startswith("nada")
     if not congeladas and diz_que_afirma:
-        erros.append(f'seccoes/{sid}: não tem nenhuma fonte congelada e o registo editorial diz '
-                     f'que pode afirmar alguma coisa. Uma secção sem bytes afirma «Nada.»')
+        erros.append(f'seccoes/{sid}: has no frozen source and its editorial record says it can '
+                     f'claim something. A section with no bytes claims «Nada.»')
     for t in s.get("fontes_alvo", []):
         if t.get("estado") == "congelada" and not any(
                 x["pagina"].endswith(t["id"]) or x["id"].endswith("/" + t["id"])
                 for x in registo.get("fontes", [])):
-            erros.append(f'seccoes/{sid}: diz que «{t["id"]}» está congelada e não há nenhuma '
-                         f'fonte no registo com esse nome')
+            erros.append(f'seccoes/{sid}: says «{t["id"]}» is frozen and no source in the '
+                         f'register carries that name')
 
 extra = {p.name for p in SECCOES.iterdir() if p.is_dir()} - set(AS_OITO) if SECCOES.exists() else set()
 if extra:
-    erros.append(f'seccoes/: pastas a mais ({", ".join(sorted(extra))}). As secções são as oito do '
-                 f'resumo, e acrescentar uma é uma decisão editorial, não um efeito secundário')
+    erros.append(f'seccoes/: extra folders ({", ".join(sorted(extra))}). The sections are the '
+                 f'brief\'s eight, and adding one is an editorial decision, not a side effect')
 
 
 # --- 21, 22, 23, 24. the entities -----------------------------------------------
@@ -268,8 +273,8 @@ nos_por_id = {n["id"]: n for n in grafo.get("nos", [])}
 ents = entidades.get("entidades", [])
 
 if not ents:
-    erros.append("entidades: dados/entidades.json não tem entidades — build/entidades.py não "
-                 "correu, e as páginas do site estão a ligar para um índice que não existe")
+    erros.append("entities: dados/entidades.json holds no entities — build/entidades.py did not "
+                 "run, and the site's pages are linking into an index that does not exist")
 
 # 21 · the index and the disk say the same thing.
 no_disco = set()
@@ -279,10 +284,10 @@ if ENTIDADES.exists():
                 if p.parent != ENTIDADES}
 no_indice = {x["url"] for x in ents}
 for falta in sorted(no_indice - no_disco):
-    erros.append(f'entidades: o índice promete {falta} e não há página nenhuma nesse caminho')
+    erros.append(f'entities: the index promises {falta} and there is no page at that path')
 for sobra in sorted(no_disco - no_indice):
-    erros.append(f'entidades: {sobra} existe no disco e não está no índice — uma página órfã não '
-                 f'é reconstruída nem apagada quando a entidade desaparece do grafo')
+    erros.append(f'entities: {sobra} exists on disk and is not in the index — an orphan page is '
+                 f'neither rebuilt nor removed when its entity leaves the graph')
 
 # 22 · every linkable entity's ground is true.
 for x in ents:
@@ -290,23 +295,23 @@ for x in ents:
     tem_bytes = bool(x.get("nos_bytes"))
     e_editor = bool((nos_por_id.get(x["no"]) or {}).get("publica"))
     if x.get("ligavel") and not f:
-        erros.append(f'entidades: {x["no"]} está marcada como ligável e não tem fundamento — '
-                     f'uma ligação sem fundamento é uma afirmação sem fonte')
+        erros.append(f'entities: {x["no"]} is marked linkable and has no ground — a link with no '
+                     f'ground is a claim with no source')
     if f == "bytes" and not tem_bytes:
-        erros.append(f'entidades: {x["no"]} diz que o seu fundamento são os bytes e '
-                     f'`nos_bytes` está vazio')
+        erros.append(f'entities: {x["no"]} says its ground is the bytes and `nos_bytes` is '
+                     f'empty')
     if f == "registo" and not e_editor:
-        erros.append(f'entidades: {x["no"]} diz que o seu fundamento é o registo e o nó não é '
-                     f'editor de ficheiro congelado nenhum')
+        erros.append(f'entities: {x["no"]} says its ground is the register and the node '
+                     f'publishes no frozen file at all')
     if f == "registo" and tem_bytes:
-        erros.append(f'entidades: {x["no"]} invoca o fundamento fraco tendo o forte — quando o '
-                     f'nome está nos bytes, o fundamento é `bytes`')
+        erros.append(f'entities: {x["no"]} claims the weak ground while holding the strong one — '
+                     f'when the name is in the bytes, the ground is `bytes`')
     # The ground and linkability are different things: a short name can be in the bytes (and so
     # has a ground) and still not be linkable, which is precisely what the length rule exists
     # to do. The gate checks linkability, not the ground.
     if x.get("ligavel") and len(x["nome"]) < 6:
-        erros.append(f'entidades: {x["no"]} tem um nome de {len(x["nome"])} caracteres e está '
-                     f'ligável — a fórmula publicada exige pelo menos 6')
+        erros.append(f'entities: {x["no"]} has a {len(x["nome"])}-character name and is '
+                     f'linkable — the published formula requires at least 6')
 
 # 23 · the formula is obeyed on the generated pages.
 MAX_POR_PAGINA = 1
@@ -332,20 +337,21 @@ for pag in sorted(ROOT.rglob("*.html")):
         # time this gate ran.
         rotulo = _html.unescape(rotulo)
         if esperado is None:
-            erros.append(f'{rel}: liga a {alvo}, que não é o caminho de nenhuma entidade do índice')
+            erros.append(f'{rel}: links to {alvo}, which is no entity path in the index')
         elif rotulo != esperado:
-            erros.append(f'{rel}: liga a {alvo} com o texto «{rotulo}», e o nome verbatim daquela '
-                         f'entidade é «{esperado}» — a fórmula liga o nome, não uma variante')
+            erros.append(f'{rel}: links to {alvo} with the text «{rotulo}», and that entity\'s '
+                         f'verbatim name is «{esperado}» — the formula links the name, not a '
+                         f'variant of it')
         if alvo + "index.html" == rel:
-            erros.append(f'{rel}: é a página de uma entidade e liga-se a si própria')
+            erros.append(f'{rel}: is an entity page and links to itself')
     for alvo, n in contagem.items():
         if n > MAX_POR_PAGINA:
-            erros.append(f'{rel}: liga {n} vezes a {alvo}; a fórmula publicada permite '
-                         f'{MAX_POR_PAGINA} por página')
+            erros.append(f'{rel}: links {n} times to {alvo}; the published formula allows '
+                         f'{MAX_POR_PAGINA} per page')
     if "<a class=\"ent\"" in texto:
         # A link inside another link is HTML each browser unpicks its own way.
         if re.search(r'<a\b[^>]*>(?:(?!</a>).)*<a class="ent"', texto, re.S):
-            erros.append(f'{rel}: tem uma ligação de entidade dentro de outra ligação')
+            erros.append(f'{rel}: has an entity link nested inside another link')
 
 # 24 · no Pessoa page says anything about the person.
 verbatim = set()
@@ -371,9 +377,9 @@ for x in ents:
     for _rot, valor in CAMPO.findall(f.read_text(encoding="utf-8")):
         cru = _html.unescape(re.sub(r"<[^>]+>", "", valor))
         if cru not in verbatim:
-            erros.append(f'{x["url"]}: a tabela de campos traz «{cru[:60]}», que não é um valor '
-                         f'verbatim de dados/pessoas.json nem do nó do grafo — uma página de '
-                         f'Pessoa não escreve uma linha sobre a pessoa')
+            erros.append(f'{x["url"]}: the field table carries «{cru[:60]}», which is not a '
+                         f'verbatim value from dados/pessoas.json nor from the graph node — a '
+                         f'Pessoa page writes not one line about the person')
 
 
 # --- 25. no agent comment was invented ------------------------------------------
@@ -420,34 +426,34 @@ for f in sorted(ARTIGOS.rglob("comentarios.json")):
     rel = f.relative_to(ROOT).as_posix()
     doc = json.loads(f.read_text(encoding="utf-8"))
     if not doc.get("derivado"):
-        erros.append(f'{rel}: não está marcado como derivado. Um ficheiro de comentários escrito '
-                     f'à mão é proveniência fabricada — este ficheiro é gerado por '
-                     f'build/comentarios.py e diz de onde vem cada entrada')
+        erros.append(f'{rel}: is not marked as derived. A hand-written comments file is '
+                     f'fabricated provenance — this one is generated by build/comentarios.py and '
+                     f'says where every entry came from')
     for c in doc.get("fluxo", []):
         n_comentarios += 1
         agentes_vistos.add(c.get("agente"))
         de = c.get("de")
         if not de:
-            erros.append(f'{rel}: a entrada {c.get("id")} não diz de onde veio')
+            erros.append(f'{rel}: entry {c.get("id")} does not say where it came from')
             continue
         ok, porque = resolve(de)
         if not ok:
-            erros.append(f'{rel}: a entrada {c.get("id")} diz que vem de «{de}» e {porque}')
+            erros.append(f'{rel}: entry {c.get("id")} says it comes from «{de}» and {porque}')
         if c.get("texto") is None:
-            erros.append(f'{rel}: a entrada {c.get("id")} não tem texto')
+            erros.append(f'{rel}: entry {c.get("id")} has no text')
 
 # The aggregate has to agree with the sum of the folders: a console showing more work than
 # happened is the same kind of lie as an invented comment, only in numbers.
 agregado = carregar("comentarios.json")
 if agregado and agregado.get("contagem") != n_comentarios:
-    erros.append(f'dados/comentarios.json diz {agregado.get("contagem")} entradas e as pastas dos '
-                 f'artigos têm {n_comentarios}')
+    erros.append(f'dados/comentarios.json says {agregado.get("contagem")} entries and the '
+                 f'article folders hold {n_comentarios}')
 
 # No agent appears undeclared: an agent name nobody can place is an
 # anonymous contributor to a publication whose entire argument is knowing who said what.
 declarados = set((agregado or {}).get("agentes", {}))
 for a in sorted(agentes_vistos - declarados):
-    erros.append(f'comentários: o agente «{a}» aparece no fluxo e não está declarado em '
+    erros.append(f'comments: agent «{a}» appears in the stream and is not declared in '
                  f'dados/comentarios.json#agentes')
 
 
@@ -461,27 +467,28 @@ for f in sorted(RUNS.glob("*.json")) if RUNS.exists() else []:
         continue                       # that one is checked by gate 12, in build/gates.py
     especie = r.get("especie")
     if not especie:
-        erros.append(f'runs: {f.name} não declara departamento nem espécie. A isenção do portão '
-                     f'12 existe para a sessão de arranque; uma execução que a usa tem de dizer '
-                     f'porquê')
+        erros.append(f'runs: {f.name} declares neither a department nor a species. Gate 12\'s '
+                     f'exemption exists for the bootstrap session; a run claiming it has to say '
+                     f'why')
         continue
     if especie != "construcao":
         continue
     for pasta in r.get("pastas_alteradas", []):
         if pasta.startswith("fontes/congeladas"):
-            erros.append(f'runs: {f.name} declara-se de construção e mexeu em «{pasta}». Congelar '
-                         f'uma fonte é trabalho da pesquisa, e uma execução que o faz declara-se '
-                         f'como tal ou não o faz')
+            erros.append(f'runs: {f.name} declares itself a construction run and touched '
+                         f'«{pasta}». Freezing a source is research work, and a run that does it '
+                         f'declares itself as such or does not do it')
     if r.get("issues_movidos"):
-        erros.append(f'runs: {f.name} declara-se de construção e moveu '
-                     f'{len(r["issues_movidos"])} issue(s). Mover um cartão é trabalho de um '
-                     f'departamento, e cada coluna tem o seu')
+        erros.append(f'runs: {f.name} declares itself a construction run and moved '
+                     f'{len(r["issues_movidos"])} issue(s). Moving a card is a department\'s '
+                     f'work, and every column has its own')
     for m in r.get("issues_movidos", []):
         if m.get("para") == "publicado":
-            erros.append(f'runs: {f.name} pôs um issue em «publicado». Essa linha é do editor de '
-                         f'registo e de mais ninguém')
+            erros.append(f'runs: {f.name} put an issue into «publicado». That line belongs to '
+                         f'the editor of record and to nobody else')
     if r.get("portoes") is not True:
-        erros.append(f'runs: {f.name} registou uma versão sem dizer que os portões ficaram verdes')
+        erros.append(f'runs: {f.name} recorded a version without saying the gates came back '
+                     f'green')
 
 
 # --- 34. code is in English -----------------------------------------------------
@@ -566,12 +573,27 @@ def _comentarios_de(caminho, texto):
 
 
 CODIGO = []
+# `assets/` is here as well as `assets/components/`, and it was the gap that mattered. The gate
+# shipped covering the components and missing the four scripts one directory above them — the
+# bridge, the observer, the graph viewer and the chat engine, about 240 comment lines and some of
+# the most consequential prose in this repository, since two of them are about what leaves the
+# reader's browser. A gate whose scope stops one directory short of the code that matters is a gate
+# that reports a number instead of holding a line.
 for base, padroes in ((ROOT / "build", ("*.py",)),
                       (ROOT / "admin" / "build", ("*.js", "*.mjs")),
+                      (ROOT / "assets", ("*.js",)),
                       (ROOT / "assets" / "components", ("*.js",))):
     if base.exists():
         for pad in padroes:
             CODIGO.extend(sorted(base.rglob(pad)))
+# `assets/*.js` and `assets/components/**/*.js` overlap, because rglob on the parent already
+# reaches the children. Counted twice, a file would also be REPORTED twice, and a gate that says
+# «two files» about one file is a gate nobody trusts the numbers of.
+CODIGO = sorted(set(CODIGO))
+# Vendored third-party code is not this repository's code and is not rewritten to our taste: the
+# whole reason Cytoscape sits in assets/vendor/ is that we do not depend on somebody else serving
+# it, and editing it would break that argument in the other direction.
+CODIGO = [f for f in CODIGO if "/vendor/" not in f.as_posix()]
 
 # THE FILES THIS GATE MAY NOT DEMAND A FIX TO. build/gates.py, build/entregas.py and build/pdf.py
 # are in the deny list of .claude/settings.json, so no agent here can edit them — and a gate that
