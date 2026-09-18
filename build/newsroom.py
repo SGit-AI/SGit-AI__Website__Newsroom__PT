@@ -993,8 +993,31 @@ def pagina_interviews():
             f'<a href="../briefs/pack/{e(pack["folder"])}/README.md">The method, in full.</a></p>'
             + "".join(blocos))
 
+    # THE CARD, AT THE TOP. This page is opened one-handed, in a hall, thirty seconds before a
+    # conversation starts — so the four questions come first and everything explaining them comes
+    # after. Rendered from 00__the-spine.json so there is one copy of them on this site.
+    sp = iv.get("spine")
+    cartao = ""
+    if sp:
+        perguntas = "".join(
+            f'<li><b>{e(q["en"])}</b>'
+            f'<span class="bo-pt">{e(q["pt"])}</span>'
+            f'<span class="bo-why">{e(q["porque"])}</span></li>' for q in sp["perguntas"])
+        cartao = (
+            f'<div class="bo-card">'
+            f'<h2 style="margin-top:0">Ask these four, every time, in this order</h2>'
+            f'<ol class="bo-spine">{perguntas}</ol>'
+            f'<p class="bo-close"><b>{e(sp["fecho"]["en"])}</b>'
+            f'<span class="bo-pt">{e(sp["fecho"]["pt"])}</span>'
+            f'<span class="bo-why">{e(sp["fecho"]["porque"])}</span></p>'
+            f'<p class="bo-note" style="margin-bottom:0"><b>Before you walk away —</b> '
+            f'{e(sp["antes_de_sair"]["en"])}</p>'
+            f'<p class="bo-meta" style="margin:8px 0 0">{e(sp["porque_sao_fixas"])}</p>'
+            f'</div>')
+
     corpo = (
-        f'<p class="bo-note">{e(iv["what_it_is"])}</p>'
+        cartao
+        + f'<p class="bo-note">{e(iv["what_it_is"])}</p>'
         f'<p class="bo-note"><b>The rule that governs what comes out of here.</b> '
         f'{e(iv["the_rule"])} An interview makes no exception to any rule of this house: three '
         f'fields per person, no contact detail in any file, and removal on request is '

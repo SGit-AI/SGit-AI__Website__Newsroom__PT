@@ -812,6 +812,9 @@ if IDX.exists():
                          f'this one first, so take the next free one')
 
 
+#  43 · THE SPINE IS THE SAME EVERYWHERE. The four fixed questions live once, in
+#       00__the-spine.json; they must appear verbatim in both question cards and on
+#       the page that renders them.
 #  42 · A DERIVED PROMPT PAGE CANNOT DRIFT FROM ITS SOURCE. The interview prompts
 #       live once as markdown; newsroom/interviews.html renders them. The page has to
 #       carry the current text and the recorded hash has to be today's.
@@ -905,9 +908,37 @@ if f_ent.exists():
                          f'«{em_falta[0][:60]}…») — it was hand-edited, or not rebuilt')
 
 
+# --- 43. the spine is on the page and in the cards, and it is the same --------
+# The four fixed questions are rendered at the top of the interviews page from
+# 00__the-spine.json, and written out again with their commentary in the two question cards. Two
+# places, one meaning — which is the shape that drifts. So: every question in the spine has to
+# appear verbatim in BOTH cards (English in the English card, Portuguese in the Portuguese one) and
+# on the page itself. Gate 42 already ties the cards to the page; this ties the spine to the cards.
+f_spine = ROOT / "briefs" / "pack" / "11__startup-interviews" / "00__the-spine.json"
+if f_spine.exists():
+    spine = json.loads(f_spine.read_text(encoding="utf-8"))
+    cartao_en = (ROOT / "briefs" / "pack" / "11__startup-interviews"
+                 / "01__the-questions.en.md").read_text(encoding="utf-8")
+    cartao_pt = (ROOT / "briefs" / "pack" / "11__startup-interviews"
+                 / "02__as-perguntas.pt.md").read_text(encoding="utf-8")
+    pag_iv = ROOT / "newsroom" / "interviews.html"
+    html_iv = pag_iv.read_text(encoding="utf-8") if pag_iv.exists() else ""
+    todas = list(spine["perguntas"]) + [spine["fecho"]]
+    for q in todas:
+        if q["en"] not in cartao_en:
+            erros.append(f'spine: «{q["en"][:52]}…» is not in 01__the-questions.en.md — the card '
+                         f'and the spine have drifted')
+        if q["pt"] not in cartao_pt:
+            erros.append(f'spine: «{q["pt"][:52]}…» is not in 02__as-perguntas.pt.md — the card '
+                         f'and the spine have drifted')
+        if html_iv and escape(q["en"]) not in html_iv:
+            erros.append(f'spine: «{q["en"][:52]}…» is not on newsroom/interviews.html — run '
+                         f'build/interviews.py, then build/newsroom.py')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-38, 41-42: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38, 41-43: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -915,7 +946,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-38, 41-42: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38, 41-43: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "

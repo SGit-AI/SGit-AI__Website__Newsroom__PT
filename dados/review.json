@@ -158,6 +158,13 @@
     {
       "kind": "release",
       "when": "2026-09-18",
+      "version": "v0.23.6",
+      "what": "The four questions move to the top, and a gate keeps them from drifting",
+      "url": "../../admin/versions.html#v0.23.6"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-18",
       "version": "v0.23.5",
       "what": "A question card for the summit, and the first content born in English",
       "url": "../../admin/versions.html#v0.23.5"
@@ -203,13 +210,6 @@
       "version": "v0.22.0",
       "what": "The English migration, mapped and proven — and stopped at a wall it may not climb",
       "url": "../../admin/versions.html#v0.22.0"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.21.0",
-      "what": "A session starting here now lands on something, and the guidance gets addresses",
-      "url": "../../admin/versions.html#v0.21.0"
     },
     {
       "kind": "article",

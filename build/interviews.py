@@ -103,8 +103,16 @@ def main():
             "pieces": pieces,
         })
 
+    # THE SPINE, READ ONCE. The four fixed questions are the thing the editor opens this page for
+    # while standing in a hall, so they are rendered at the top — and they are read from their own
+    # file rather than retyped there, because a second copy of four sentences is still a second
+    # copy. Gate 42 checks every one of them still appears in the cards.
+    spine = json.loads((ROOT / "briefs" / "pack" / "11__startup-interviews"
+                        / "00__the-spine.json").read_text(encoding="utf-8"))
+
     doc = {
         "id": "pt-interviews",
+        "spine": spine,
         "version": "2.0.0",
         "what_it_is": ("Two interviews and one mechanism. One points outward — an assistant "
                        "interviews somebody, and what comes back is material for an article. The "

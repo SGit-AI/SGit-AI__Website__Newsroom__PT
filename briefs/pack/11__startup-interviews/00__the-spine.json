@@ -1,0 +1,41 @@
+{
+  "id": "pt-startup-interview-spine",
+  "versao": "1.0.0",
+  "o_que_e": "The four fixed questions, and the closing one. This file is the SOURCE for the quick-reference block at the top of /newsroom/interviews.html, so that the block and the question cards cannot drift apart. Gate 42 fails the build if any question here is missing from the cards.",
+  "porque_sao_fixas": "Asked identically and in this order to everybody. Improvising the spine feels better in the moment and destroys the comparison — and the comparison is the only thing this newsroom can do that a blog cannot.",
+  "perguntas": [
+    {
+      "n": 1,
+      "en": "In one sentence, what do you make, and who pays for it?",
+      "pt": "Numa frase: o que é que fazem, e quem é que paga?",
+      "porque": "The second half is the one people skip. If they answer only the first, ask again."
+    },
+    {
+      "n": 2,
+      "en": "What can you do today that you couldn't do eighteen months ago?",
+      "pt": "O que é que conseguem fazer hoje que não conseguiam há dezoito meses?",
+      "porque": "The AI question without saying «AI». Capability, not positioning."
+    },
+    {
+      "n": 3,
+      "en": "What's the hard part right now — and is it the technology, the money, or the people?",
+      "pt": "Qual é a parte difícil agora — é a tecnologia, é o dinheiro, ou são as pessoas?",
+      "porque": "Make them pick one. The distribution across twenty startups is itself a finding."
+    },
+    {
+      "n": 4,
+      "en": "What's one thing everyone says about AI in Portugal that doesn't match what you see?",
+      "pt": "O que é que toda a gente diz sobre IA em Portugal e não bate certo com o que você vê?",
+      "porque": "The disagreement question. It lets them disagree with a crowd rather than a person, which is why they answer it honestly."
+    }
+  ],
+  "fecho": {
+    "en": "Who else here should I be talking to, and why them?",
+    "pt": "Com quem mais é que eu devia falar aqui, e porquê essa pessoa?",
+    "porque": "This is how twenty interviews become a map. It is also the one easiest to skip at four in the afternoon."
+  },
+  "antes_de_sair": {
+    "en": "Read back and get a yes on each: name, role, company, and their one-line answer to question 1. No email, no phone — those never enter a file here.",
+    "pt": "Leia em voz alta e arranque um sim a cada um: nome, cargo, empresa, e a resposta de uma linha à pergunta 1. Sem email nem telefone — não entram em ficheiro nenhum."
+  }
+}

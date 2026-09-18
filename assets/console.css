@@ -647,3 +647,32 @@ code { background: var(--bo-head); border-radius: 2px; padding: 0 4px; }
   color: var(--bo-ink-2, #5b6270);
   margin: 0 0 var(--bo-2, 8px);
 }
+
+/* The four fixed questions, at the top of the interviews page. This page gets opened one-handed
+   in a conference hall, thirty seconds before a conversation starts — so the questions come first
+   and everything explaining them comes after. Sized to be read at arm's length, not skimmed. */
+.bo-card {
+  border: 2px solid var(--bo-ink, #14171d);
+  border-radius: var(--bo-rad, 4px);
+  padding: var(--bo-5, 24px);
+  margin: 0 0 var(--bo-6, 32px);
+  background: var(--bo-card, #fff);
+}
+
+.bo-spine { margin: 0 0 var(--bo-4, 16px); padding-left: 1.3em; }
+.bo-spine li { margin-bottom: var(--bo-4, 16px); line-height: 1.45; }
+.bo-spine li > b { font-size: 17px; }
+
+/* The Portuguese sits under the English rather than beside it: the interviewer reads one of them,
+   and which one depends on who is in front of them. */
+.bo-pt, .bo-why { display: block; }
+.bo-pt { font-size: 14px; color: var(--bo-ink-2, #5b6270); margin-top: 3px; }
+.bo-why { font-size: 13px; color: var(--bo-ink-2, #5b6270); font-style: italic; margin-top: 4px; }
+
+.bo-close {
+  border-top: 1px solid var(--bo-line, #d8dde5);
+  padding-top: var(--bo-4, 16px);
+  margin: 0 0 var(--bo-4, 16px);
+  line-height: 1.45;
+}
+.bo-close > b { font-size: 17px; }
