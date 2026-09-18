@@ -1,9 +1,9 @@
 {
   "id": "pt-documentos",
   "versao": "0.1.0",
-  "atualizado": "2026-09-15",
+  "atualizado": "2026-09-18",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 114,
+  "contagem": 119,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -228,6 +228,14 @@
       "bytes": 3192,
       "linhas": 42,
       "palavras": 473
+    },
+    {
+      "caminho": "admin/versions/v0.23.4.md",
+      "titulo": "v0.23.4",
+      "categoria": "Repository root",
+      "bytes": 2997,
+      "linhas": 39,
+      "palavras": 487
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -692,6 +700,38 @@
       "bytes": 3665,
       "linhas": 60,
       "palavras": 634
+    },
+    {
+      "caminho": "briefs/pack/11__startup-interviews/01__the-questions.en.md",
+      "titulo": "The questions — English",
+      "categoria": "Commissioning pack",
+      "bytes": 4780,
+      "linhas": 120,
+      "palavras": 872
+    },
+    {
+      "caminho": "briefs/pack/11__startup-interviews/02__as-perguntas.pt.md",
+      "titulo": "As perguntas — português",
+      "categoria": "Commissioning pack",
+      "bytes": 4864,
+      "linhas": 117,
+      "palavras": 864
+    },
+    {
+      "caminho": "briefs/pack/11__startup-interviews/03__from-recording-to-article.md",
+      "titulo": "From a recording to an article",
+      "categoria": "Commissioning pack",
+      "bytes": 4308,
+      "linhas": 81,
+      "palavras": 781
+    },
+    {
+      "caminho": "briefs/pack/11__startup-interviews/README.md",
+      "titulo": "11 — Startup interviews, in the field",
+      "categoria": "Commissioning pack",
+      "bytes": 2569,
+      "linhas": 49,
+      "palavras": 438
     },
     {
       "caminho": "briefs/pack/LICENSE.md",

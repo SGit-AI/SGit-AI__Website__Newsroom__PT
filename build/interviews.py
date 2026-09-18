@@ -43,6 +43,19 @@ PACKS = [
       ("04__agent-prompt.md", "The agent prompt", "english",
        "What the editor hands an agent session to prepare a pack. The agent assembles; it does not "
        "interview.", "the editor")]),
+    ("11__startup-interviews", "Interviewing a founder yourself, at an event",
+     "Five minutes, standing, in a hall with a PA system. Four fixed questions asked identically "
+     "to everybody — which is what turns twenty conversations into something you can count — and a "
+     "short pool of follow-ups picked by what they just said.",
+     [("01__the-questions.en.md", "The question card", "english",
+       "What you actually hold at the event. The four fixed questions, the follow-up pool, the "
+       "closing question, and the thirty seconds before you walk away.", "you"),
+      ("02__as-perguntas.pt.md", "O cartão das perguntas", "português",
+       "The same card, for founders who would rather speak Portuguese.", "you"),
+      ("03__from-recording-to-article.md", "From a recording to an article", "english",
+       "Transcript, the split between what they said about themselves and what they said about the "
+       "world, and the language rule for content born in English and published in Portuguese.",
+       "the agent")]),
     ("10__editor-interview", "Interviewing the editor, to know what to do",
      "An agent knows what is in front of it and does not know what the editor thinks matters. "
      "Twenty minutes gets that out, and gets it out better than any form.",

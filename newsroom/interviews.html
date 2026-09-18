@@ -16,14 +16,14 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.4" title="O que mudou em v0.23.4, e porquê">v0.23.4</a></div>
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.5" title="O que mudou em v0.23.5, e porquê">v0.23.5</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.4</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../newsroom/team.html">Team</a><a class="nav" href="../newsroom/agents.html">Agent activity</a><a class="nav" href="../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../newsroom/guidance.html">Guidance</a><a class="nav" href="../newsroom/interviews.html" aria-current="page">Interviews</a><a class="nav" href="../newsroom/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.5</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../newsroom/team.html">Team</a><a class="nav" href="../newsroom/agents.html">Agent activity</a><a class="nav" href="../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../newsroom/guidance.html">Guidance</a><a class="nav" href="../newsroom/interviews.html" aria-current="page">Interviews</a><a class="nav" href="../newsroom/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
 <main class="main">
 
-<div class="page-head"><div><h1>Interviews</h1><p>8 prompts in 2 packs</p></div></div>
+<div class="page-head"><div><h1>Interviews</h1><p>11 prompts in 3 packs</p></div></div>
 
 <p class="bo-note">Two interviews and one mechanism. One points outward — an assistant interviews somebody, and what comes back is material for an article. The other points inward — an agent has ChatGPT interview the editor of record, and what comes back is direction.</p><p class="bo-note"><b>The rule that governs what comes out of here.</b> An interview is a primary source about the person speaking and nothing else. What they assert about the world is a claim to verify, not a fact for having been said aloud — and that holds when the person speaking is the editor. An interview makes no exception to any rule of this house: three fields per person, no contact detail in any file, and removal on request is unconditional and carries no reason. Nothing said aloud puts a story into published.</p><h2 id="interviews">Interviewing somebody, to write</h2><p class="bo-note">A busy person will not write two pages about their work. They will talk about it for twenty minutes, at an hour that suits them, by voice or by typing. <a href="../briefs/pack/09__interviews/README.md">The method, in full.</a></p><h3 id="interviews-01">The interview prompt</h3><p class="bo-note">Pasted into ChatGPT as the first message. Always the same, whoever the person is. <b>For the interviewee.</b></p><p class="bo-meta">português · 79 lines · <code>f82d2b8687e4</code> · <a href="../briefs/pack/09__interviews/01__interview-prompt.pt.md">the raw file</a></p><pre class="bo-pre"># O prompt da entrevista — português
 
@@ -324,6 +324,321 @@ You are preparing an interview pack for **pt.newsroom.sgit.ai**. The person is: 
 The path to the pack, the topic block for him to read before it goes out, and a list of what you
 could **not** find about the person in the frozen sources — because that is what decides whether the
 questions are good or generic.
+</pre><h2 id="startup-interviews">Interviewing a founder yourself, at an event</h2><p class="bo-note">Five minutes, standing, in a hall with a PA system. Four fixed questions asked identically to everybody — which is what turns twenty conversations into something you can count — and a short pool of follow-ups picked by what they just said. <a href="../briefs/pack/11__startup-interviews/README.md">The method, in full.</a></p><h3 id="startup-interviews-01">The question card</h3><p class="bo-note">What you actually hold at the event. The four fixed questions, the follow-up pool, the closing question, and the thirty seconds before you walk away. <b>For you.</b></p><p class="bo-meta">english · 120 lines · <code>c5de7da25a04</code> · <a href="../briefs/pack/11__startup-interviews/01__the-questions.en.md">the raw file</a></p><pre class="bo-pre"># The questions — English
+
+**For an interview you conduct yourself, standing up, at an event, with a recorder running.**
+Five to ten minutes. Not the ChatGPT interview in pack 09 — that one is for somebody at their own
+desk with half an hour. This one is for a noisy hall and a founder who has somewhere to be.
+
+---
+
+## Before you press record (20 seconds)
+
+&gt; &quot;I write for pt.newsroom.sgit.ai — we&#x27;re mapping who&#x27;s actually building AI in Portugal.
+&gt; Five minutes, I&#x27;m recording so I get your words right, and nothing goes out without you seeing
+&gt; it first. Alright?&quot;
+
+Wait for the yes. **Then press record, and say the date and their name into the microphone** — it
+is the only timestamp you will trust later.
+
+---
+
+## The spine — ask these four, every time, in this order
+
+These four are what make twenty interviews into a dataset instead of twenty anecdotes. Same
+questions, same order, every startup. **Do not improvise these.**
+
+**1. &quot;In one sentence, what do you make, and who pays for it?&quot;**
+
+The second half is the one that matters and the one people skip. If they answer only the first
+half, ask again: *&quot;and who pays?&quot;* A startup that cannot answer who pays in one sentence has told
+you something.
+
+**2. &quot;What can you do today that you couldn&#x27;t do eighteen months ago?&quot;**
+
+This is the AI question without saying &quot;AI&quot;. It gets you the actual capability change rather than
+a positioning statement, and it is comparable across every company you ask.
+
+**3. &quot;What&#x27;s the hard part right now — and is it the technology, the money, or the people?&quot;**
+
+Make them pick one. The distribution across twenty startups is a finding in itself.
+
+**4. &quot;What&#x27;s one thing everyone says about AI in Portugal that doesn&#x27;t match what you see?&quot;**
+
+The disagreement question. It is where the story usually is, and founders answer it honestly
+because it lets them disagree with a crowd rather than a person.
+
+---
+
+## Then pick two or three, by what they said
+
+Do not work through these. Pick the ones their answers opened.
+
+**If they build the models or the infrastructure**
+- What runs where — your own hardware, a cloud, someone&#x27;s API?
+- What broke first when you scaled?
+- What would you need that does not exist in Portugal today?
+
+**If they apply AI to somebody else&#x27;s industry**
+- Who is the buyer, and what were they doing before you?
+- How long from first conversation to money, and what makes it slow?
+- What does the regulation look like from where you sit?
+
+**If they are hiring, or trying to**
+- What role took longest to fill, and did you find them here?
+- How many of your team are in Portugal?
+
+**If they have raised money**
+- Who led it, and were they Portuguese? *(If they name a round, get the date and the lead — those
+  are checkable, and everything else they say about it is not.)*
+- What did the money buy that you could not buy before?
+
+**If they are at the summit for a reason**
+- What are you actually here for — customers, hires, investors, or the room?
+- Who did you want to meet and could not?
+
+---
+
+## The closing question — always ask it
+
+**&quot;Who else here should I be talking to, and why them?&quot;**
+
+This is how twenty interviews become a map. It also tells you what this founder thinks is
+interesting, which is itself worth knowing.
+
+---
+
+## Before you walk away (30 seconds)
+
+Read back, out loud, and get a yes on each:
+
+- their **name**, spelled if it is not obvious
+- their **role**, in their words
+- their **company**, spelled
+- the **one-line** answer to question 1, in their words
+
+That is the whole of what this newsroom records about a person: the listed role, the listed
+organisation, and where it came from. **Do not ask for an email or a phone number** — if they offer
+a card, that is fine, but it does not go into any file here. Tell them you will send the piece
+through whoever introduced you, or through the event.
+
+---
+
+## What you must not do
+
+- **Do not promise publication.** &quot;I&#x27;ll send it to you before anything goes out&quot; is the promise.
+- **Do not let them approve someone else&#x27;s words.** If they characterise another company or
+  person, that is theirs, and it does not go in a piece about them.
+- **Do not treat what they say as fact.** Every number, date and claim about the market is a
+  **claim to verify** — the same rule as any research delivery. What they say is a primary source
+  about *themselves* and nothing else.
+- **Do not ask about anything special-category** — health, politics, religion, union membership,
+  ethnic origin. If it comes up, it stays off the record and out of the file.
+
+---
+
+## One sentence into the recorder at the end
+
+&gt; &quot;Recorded at the Startup Summit, &lt;date&gt;, with &lt;name&gt; of &lt;company&gt;, who agreed to be recorded and
+&gt; to review before publication.&quot;
+
+You will thank yourself in a week.
+</pre><h3 id="startup-interviews-02">O cartão das perguntas</h3><p class="bo-note">The same card, for founders who would rather speak Portuguese. <b>For you.</b></p><p class="bo-meta">português · 117 lines · <code>1053490da626</code> · <a href="../briefs/pack/11__startup-interviews/02__as-perguntas.pt.md">the raw file</a></p><pre class="bo-pre"># As perguntas — português
+
+**Para uma entrevista que é você a conduzir, de pé, num evento, com o gravador a trabalhar.**
+Cinco a dez minutos. Não é a entrevista do bloco 09 — essa é para alguém sentado à secretária com
+meia hora. Esta é para um pavilhão com barulho e um fundador que tem de estar noutro sítio.
+
+---
+
+## Antes de carregar em gravar (20 segundos)
+
+&gt; «Escrevo para o pt.newsroom.sgit.ai — estamos a mapear quem está mesmo a construir IA em
+&gt; Portugal. Cinco minutos, vou gravar para não lhe torcer as palavras, e não sai nada sem você ver
+&gt; primeiro. Pode ser?»
+
+Espere pelo sim. **Depois grave, e diga a data e o nome dele para o microfone** — é a única marca
+temporal em que vai poder confiar daqui a uma semana.
+
+---
+
+## A espinha — estas quatro, sempre, por esta ordem
+
+São estas quatro que transformam vinte entrevistas num conjunto de dados em vez de vinte
+anedotas. As mesmas perguntas, pela mesma ordem, a todas as empresas. **Estas não se improvisam.**
+
+**1. «Numa frase: o que é que fazem, e quem é que paga?»**
+
+A segunda metade é a que importa e a que toda a gente salta. Se responderem só à primeira, volte a
+perguntar: *«e quem paga?»* Uma empresa que não consegue dizer numa frase quem paga já lhe disse
+alguma coisa.
+
+**2. «O que é que conseguem fazer hoje que não conseguiam há dezoito meses?»**
+
+É a pergunta sobre IA sem dizer «IA». Dá-lhe a mudança real de capacidade em vez de uma frase de
+posicionamento, e é comparável entre todas as empresas a que a fizer.
+
+**3. «Qual é a parte difícil agora — é a tecnologia, é o dinheiro, ou são as pessoas?»**
+
+Obrigue a escolher uma. A distribuição das respostas por vinte empresas é, por si só, um achado.
+
+**4. «O que é que toda a gente diz sobre IA em Portugal e não bate certo com o que você vê?»**
+
+A pergunta do desacordo. É onde costuma estar a história, e os fundadores respondem-lhe com
+honestidade porque lhes permite discordar de uma multidão e não de uma pessoa.
+
+---
+
+## Depois escolha duas ou três, conforme o que ouviu
+
+Não percorra esta lista. Escolha as que as respostas abriram.
+
+**Se constroem os modelos ou a infraestrutura**
+- O que corre onde — máquinas vossas, uma nuvem, a API de alguém?
+- O que é que partiu primeiro quando cresceram?
+- O que é que precisavam e não existe em Portugal hoje?
+
+**Se aplicam IA à indústria de outra pessoa**
+- Quem é o comprador, e o que fazia ele antes de vocês?
+- Quanto tempo da primeira conversa até ao dinheiro, e o que o torna lento?
+- Como é que a regulação se vê daí de dentro?
+
+**Se estão a contratar, ou a tentar**
+- Que função demorou mais a preencher, e encontrou-a cá?
+- Quantas pessoas da equipa estão em Portugal?
+
+**Se levantaram dinheiro**
+- Quem liderou a ronda, e era português? *(Se disserem uma ronda, apanhe a data e quem liderou —
+  isso confere-se; o resto do que disserem sobre ela não.)*
+- O que é que o dinheiro comprou que não podiam comprar antes?
+
+**Se estão no summit por uma razão**
+- Ao que vieram mesmo — clientes, contratações, investidores, ou a sala?
+- Quem é que queria encontrar e não encontrou?
+
+---
+
+## A pergunta de fecho — faça-a sempre
+
+**«Com quem mais é que eu devia falar aqui, e porquê essa pessoa?»**
+
+É assim que vinte entrevistas se tornam um mapa. E diz-lhe também o que este fundador acha
+interessante, o que já vale por si.
+
+---
+
+## Antes de se ir embora (30 segundos)
+
+Leia em voz alta e arranque um sim a cada um:
+
+- o **nome**, soletrado se não for óbvio
+- o **cargo**, nas palavras dele
+- a **empresa**, soletrada
+- a resposta de **uma linha** à pergunta 1, nas palavras dele
+
+É este o total do que esta redação regista sobre uma pessoa: o cargo listado, a organização
+listada, e de onde veio. **Não peça email nem telefone** — se lhe derem um cartão, tudo bem, mas
+não entra em ficheiro nenhum aqui. Diga que envia a peça por quem os apresentou, ou pelo evento.
+
+---
+
+## O que não pode fazer
+
+- **Não prometa publicação.** A promessa é «envio-lhe antes de sair alguma coisa».
+- **Não deixe ninguém aprovar as palavras de outro.** Se caracterizarem outra empresa ou pessoa,
+  isso é deles, e não entra numa peça sobre eles.
+- **Não trate o que dizem como facto.** Cada número, data e afirmação sobre o mercado é uma
+  **afirmação para verificar** — a mesma regra de qualquer entrega de investigação. O que dizem é
+  fonte primária sobre *eles próprios* e mais nada.
+- **Não pergunte nada de categoria especial** — saúde, política, religião, sindicato, origem
+  étnica. Se surgir, fica fora da gravação e fora do ficheiro.
+
+---
+
+## Uma frase para o gravador, no fim
+
+&gt; «Gravado no Startup Summit, &lt;data&gt;, com &lt;nome&gt; da &lt;empresa&gt;, que concordou em ser gravado e em
+&gt; rever antes de publicação.»
+</pre><h3 id="startup-interviews-03">From a recording to an article</h3><p class="bo-note">Transcript, the split between what they said about themselves and what they said about the world, and the language rule for content born in English and published in Portuguese. <b>For the agent.</b></p><p class="bo-meta">english · 81 lines · <code>04d46ddd84c1</code> · <a href="../briefs/pack/11__startup-interviews/03__from-recording-to-article.md">the raw file</a></p><pre class="bo-pre"># From a recording to an article
+
+What you hold when you walk away: an audio file, and four facts you said out loud into it. This is
+what happens next, and where the language changes.
+
+## 1 · Transcribe it verbatim, the same day
+
+Whisper, ChatGPT, whatever — but **verbatim**, in the language it was spoken, with `[inaudible]`
+where the hall won. A cleaned-up transcript is already an edit, and you cannot un-edit it later.
+
+Save it at `redacao/entrevistas/&lt;date&gt;-&lt;company-slug&gt;.md` with a header carrying the four spoken
+facts: name, role, company, and the one-line answer to question 1. **That file is the source.**
+Everything downstream cites it the way an article cites a frozen page.
+
+## 2 · Split it into two piles, and never merge them
+
+This is the whole discipline of this newsroom applied to a conversation:
+
+- **What they said about themselves** — what they build, who pays, what is hard, what they are
+  here for. This is a **primary source**, and it is quotable as *&quot;X said&quot;*, attributed, today.
+- **What they said about the world** — market sizes, who is biggest, what the government did, what
+  another company is doing. These are **leads to verify**, exactly like a line in a ChatGPT
+  delivery. They get an issue and a source hunt, and **none of them is publishable as fact because
+  a founder said it into a microphone.**
+
+A number said confidently at a summit is still a number with no source behind it.
+
+## 3 · The language split, which is new here
+
+**You record in English. The site publishes in European Portuguese.** So:
+
+- The **transcript stays in the language it was spoken.** It is evidence, and evidence is never
+  translated — the same rule that keeps a frozen page&#x27;s bytes untouched.
+- The **article is written in European Portuguese**, by this newsroom.
+- A **quotation** is the hard case. A quote translated is no longer verbatim, and this publication&#x27;s
+  whole claim is that what is between quotation marks is what was said. So: a translated quote
+  carries the original beside it, or it is not a quote — it is a summary in our words, unquoted.
+  The article says which language the interview was in, in its own provenance block.
+- **The person approves the Portuguese** before it goes out, not just the English. They are being
+  quoted in a language they may not have chosen; that is their decision to check, not ours to make.
+
+This is the first content on this site that is born in one language and published in another, and
+it is worth saying plainly: **the translation is an editorial act, and it is recorded as one.**
+
+## 4 · Where it lands
+
+In **`empresas`** — the brief&#x27;s own section for companies, which is what a startup is. There is no
+ninth section for this: `CLAUDE.md` fixes the eight, and a series is a shape inside a section, not a
+section of its own. The series is what makes them findable together.
+
+Each interview becomes an article in the ordinary way — a dated folder, prose with source marks, a
+verification record, a provenance file — with one addition: `origem: entrevista` and the transcript
+named as what it rests on.
+
+## 5 · What the four spine questions are for
+
+Twenty interviews with the same four questions is a **dataset**, and it supports pieces no single
+interview can:
+
+- what twenty founders can do now that they could not eighteen months ago
+- whether the hard part is technology, money or people — and how that splits
+- where they disagree with the consensus, and whether they disagree with the same thing
+- who they said to talk to, and who got named more than once
+
+That last one draws a map of the room from the inside. **It is the strongest thing in this pack and
+it comes from the closing question**, which is the one easiest to skip when you are tired and it is
+four in the afternoon.
+
+## 6 · Who does what
+
+| Step | Who |
+|---|---|
+| Record, and get the four facts on tape | You, in the hall |
+| Transcribe verbatim, same day | You, or an agent you hand the audio to |
+| Split into &quot;about themselves&quot; / &quot;about the world&quot; | An agent, and it shows its working |
+| Open issues for every world-claim | An agent |
+| Write the Portuguese article | Redação |
+| Check every quote against the transcript | Verificação |
+| Send the Portuguese to the interviewee | You |
+| `estado: publicado` | You, and only you |
 </pre><h2 id="editor-interview">Interviewing the editor, to know what to do</h2><p class="bo-note">An agent knows what is in front of it and does not know what the editor thinks matters. Twenty minutes gets that out, and gets it out better than any form. <a href="../briefs/pack/10__editor-interview/README.md">The method, in full.</a></p><h3 id="editor-interview-01">The preparation prompt</h3><p class="bo-note">The agent reads its own mandate, its issues and what went wrong, and writes the state block. Without this the conversation is generic and worth nobody&#x27;s time. <b>For the agent.</b></p><p class="bo-meta">english · 77 lines · <code>db2221178b0d</code> · <a href="../briefs/pack/10__editor-interview/01__preparation-prompt.md">the raw file</a></p><pre class="bo-pre"># The preparation prompt — the agent reads itself
 
 Handed to an agent session **before** there is any interview. What comes out is the state block the
@@ -630,7 +945,7 @@ negotiated by voice.
 <b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>newsroom/interviews.html</code> · version <span class="ver">v0.23.4</span>.
+<code>newsroom/interviews.html</code> · version <span class="ver">v0.23.5</span>.
 </div>
 
 </main>

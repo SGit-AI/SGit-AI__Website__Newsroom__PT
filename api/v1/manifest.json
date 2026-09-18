@@ -23,7 +23,7 @@
     {
       "ficheiro": "dados/correio.json",
       "bytes": 33443,
-      "sha256": "d2c95daf2a45a413c0f3bf60d14be2ac10b87901fe690ef497411a701a04ace5"
+      "sha256": "7bf639c099119ff749b06b43864b35fb05ba5fb59b59354a585b2572aa2845d2"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 26268,
-      "sha256": "c0113b286b641e4cfa1552682bd6a8876f30c999de0edc198225024dad5b59f4"
+      "bytes": 27436,
+      "sha256": "5a407f071d26ed52e1f2a54ff2d28142551aebb49201c7bde8408f5229a7a48c"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -82,8 +82,8 @@
     },
     {
       "ficheiro": "dados/interviews.json",
-      "bytes": 75579,
-      "sha256": "9658d59f366371dae32606e50dabcd0bb57e7743d6ae49363d65868d72594428"
+      "bytes": 110382,
+      "sha256": "d0fa945e4c9880fe9247f8aaca5f071444269b66b5388905409713079d9705d5"
     },
     {
       "ficheiro": "dados/lexico.json",
@@ -92,8 +92,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 5348,
-      "sha256": "e8570ed3db39983a62b643c893e399b396dd572a2e1051130555b6088903281e"
+      "bytes": 5349,
+      "sha256": "0bde21241cae4bffa0da90d5cf4c13512672e43f4cca3e0a7a32a344d70d78bb"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -123,12 +123,12 @@
     {
       "ficheiro": "dados/quadro.json",
       "bytes": 63735,
-      "sha256": "11092d5d0c2d600a029b0af3b59dfbbc85d46575c8301ced36088dbcd3c3b52f"
+      "sha256": "7cd09d7ef029c38dce2fa99e2cd506c9c65eb1dd90cef9107dd14d2250b9a602"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 20214,
-      "sha256": "ab86fa78650936c4e787065ffb2ed35c45f8e4b2f0b267935ee65960c7eae429"
+      "bytes": 20669,
+      "sha256": "dd42bf851e42347a6f2190c0bb6f79aff2e0e83b93e74a7e0319c4849de1a702"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -137,8 +137,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 13215,
-      "sha256": "9dfe7cc5db1402a54dde85d73cfb6725adb4761e686277ce3584b93853481ef9"
+      "bytes": 13260,
+      "sha256": "43c8d4dea9153895028f2730b5a8474f9b7d8f3e23d51bf4a9d1ef901fb97370"
     },
     {
       "ficheiro": "dados/sessoes.json",

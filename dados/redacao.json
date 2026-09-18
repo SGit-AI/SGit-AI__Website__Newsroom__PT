@@ -343,6 +343,22 @@
       },
       "aberto_em": "2026-09-15",
       "de": "redacao/issues/008"
+    },
+    {
+      "id": "009",
+      "titulo": "Onde vivem as entrevistas a startups, e a primeira vez que este site tem conteúdo nascido noutra língua",
+      "seccao": "empresas",
+      "estado": "proposto",
+      "especie": "issue",
+      "url": null,
+      "issue": "009",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "editor",
+        "quando": "2026-09-18"
+      },
+      "aberto_em": "2026-09-18",
+      "de": "redacao/issues/009"
     }
   ],
   "execucoes": [
@@ -756,7 +772,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 11,
+    "cartoes": 12,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,

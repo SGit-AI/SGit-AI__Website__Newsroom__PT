@@ -1,0 +1,21 @@
+{
+  "id": "009",
+  "titulo": "Onde vivem as entrevistas a startups, e a primeira vez que este site tem conteúdo nascido noutra língua",
+  "seccao": "empresas",
+  "estado": "proposto",
+  "aberto_em": "2026-09-18",
+  "ultimo_toque": { "quem": "editor", "quando": "2026-09-18" },
+  "enquadramento": "O editor vai gravar entrevistas a fundadores no Startup Summit e perguntou por uma secção nova chamada «Portuguese Startups». Há duas decisões aqui, e só uma delas é livre.",
+  "de_onde_vem": "briefs/pack/11__startup-interviews/",
+  "o_que_ja_se_tem": [
+    "FEITO: o bloco 11 com o cartão das perguntas em inglês e em português, e o percurso da gravação ao artigo. Está em /newsroom/interviews.html, legível ao telemóvel.",
+    "A espinha são quatro perguntas fixas, feitas por igual a toda a gente. É isso que transforma vinte conversas em algo que se conta — e contar é a única coisa que esta redação faz que um blogue não faz.",
+    "NÃO HÁ SECÇÃO NOVA, e não é uma escolha minha: o CLAUDE.md fixa as oito secções do resumo de comissionamento, e está na lista de recusa. Uma startup é uma empresa, e `empresas` é a secção do resumo para isso. Uma série é uma forma dentro de uma secção, não uma secção."
+  ],
+  "o_que_falta": [
+    "DECISÃO 1, do editor: confirmar que as entrevistas saem em `empresas` como uma série, e como se chama a série. «Portuguese Startups» é inglês num sítio que o leitor lê; em português seria «As startups», «Quem está a construir», ou outra coisa. O nome da série aparece ao leitor, portanto é português.",
+    "DECISÃO 2, do editor, e é a maior: este é o primeiro conteúdo deste site nascido em inglês e publicado em português. O bloco 11 propõe uma regra — a transcrição nunca se traduz porque é prova; uma citação traduzida leva o original ao lado ou deixa de ser citação; a pessoa aprova o português e não só o inglês; o artigo diz em que língua a conversa foi. Se o editor concordar, isto passa a regra da casa e leva um portão.",
+    "DECISÃO 3, para quando houver mais do que uma edição: dados/en-migration.json já antecipa várias edições de língua. Uma entrevista gravada em inglês é a primeira peça que vai querer existir nas duas. Não é para hoje."
+  ],
+  "recusa": "Nada do que um fundador disser sobre o mercado entra como facto por ter sido dito ao microfone. O que ele diz é fonte primária sobre a empresa dele e mais nada; os números e as afirmações sobre terceiros são pistas para verificar, como as de qualquer entrega."
+}

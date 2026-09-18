@@ -1,7 +1,7 @@
 {
   "id": "pt-review",
   "version": "1.0.0",
-  "updated": "2026-09-15",
+  "updated": "2026-09-18",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
   "count": 9,
@@ -157,6 +157,13 @@
   "changes": [
     {
       "kind": "release",
+      "when": "2026-09-18",
+      "version": "v0.23.5",
+      "what": "A question card for the summit, and the first content born in English",
+      "url": "../../admin/versions.html#v0.23.5"
+    },
+    {
+      "kind": "release",
       "when": "2026-09-15",
       "version": "v0.23.4",
       "what": "The console moves to /newsroom/, and /admin/ survives on three lines nobody here may edit",
@@ -203,13 +210,6 @@
       "version": "v0.21.0",
       "what": "A session starting here now lands on something, and the guidance gets addresses",
       "url": "../../admin/versions.html#v0.21.0"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.20.0",
-      "what": "The back office's addresses are English, with no redirect stubs left behind",
-      "url": "../../admin/versions.html#v0.20.0"
     },
     {
       "kind": "article",
