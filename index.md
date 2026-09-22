@@ -1,6 +1,6 @@
 # pt.newsroom.sgit.ai
 
-Versão v0.23.8, atualizado 2026-09-14.
+Versão v0.23.9, atualizado 2026-09-14.
 
 Uma redação nativamente portuguesa que mapeia o ecossistema português de IA como um grafo. Não é
 uma tradução de nada: os verbos do grafo são portugueses e o inglês é a anotação.

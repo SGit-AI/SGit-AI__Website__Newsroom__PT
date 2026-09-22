@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-22",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 124,
+  "contagem": 125,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -268,6 +268,14 @@
       "bytes": 3010,
       "linhas": 43,
       "palavras": 492
+    },
+    {
+      "caminho": "admin/versions/v0.23.9.md",
+      "titulo": "v0.23.9",
+      "categoria": "Repository root",
+      "bytes": 8671,
+      "linhas": 109,
+      "palavras": 1459
     },
     {
       "caminho": "admin/versions/v0.3.0.md",

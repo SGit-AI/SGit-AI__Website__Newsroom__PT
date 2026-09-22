@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 34,
+  "contagem": 36,
   "ficheiros": [
     {
       "ficheiro": "dados/agentes.json",
@@ -81,14 +81,24 @@
       "sha256": "093c8aff60de7e65b83528e15243bda20197d8a5fa60fbdc3a700fc47846d44c"
     },
     {
+      "ficheiro": "dados/i18n/en-gb.json",
+      "bytes": 134761,
+      "sha256": "f394ca8920ac58affe541309ec44e0035589291e878f3e4fbf94ba2d3e249221"
+    },
+    {
       "ficheiro": "dados/i18n/fontes.json",
-      "bytes": 632685,
-      "sha256": "2592e15c680135a8b5988c274717619efabc7d7cf7438cb3d5276db1acce5fce"
+      "bytes": 622974,
+      "sha256": "0f03bf3f5d21ef88cac06f5aea4822f7bf79e76581b72897decd3f8179df222a"
     },
     {
       "ficheiro": "dados/i18n/locales.json",
-      "bytes": 3164,
-      "sha256": "5776c4762f624a42581525d77cca8b007e363a50013d921ea74d16e243bc39b5"
+      "bytes": 5103,
+      "sha256": "7576a0020ba45f827579f25db3b04e5ffc183df7733f6abfffbd2464be2b0780"
+    },
+    {
+      "ficheiro": "dados/i18n/vocabulario.json",
+      "bytes": 3766,
+      "sha256": "b5fa88be33838160ee9782ed1848ea6e5a29341cb4df705938070a2697bb9729"
     },
     {
       "ficheiro": "dados/interviews.json",
@@ -102,8 +112,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 5674,
-      "sha256": "5525675939423afc6beca1a310d3a1d308eaf20be6ca79102ea76c817e124ca0"
+      "bytes": 6002,
+      "sha256": "d6c774d111d8fc26ad30381622ca06b0a2417a1153684201b42942a95c38c6a5"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -147,8 +157,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 15934,
-      "sha256": "d2801a70d5c3354d73987ff418d1fde01bd0254f6ad2094246a6343c6a43b538"
+      "bytes": 15913,
+      "sha256": "ec3025544a74ea5defd9c93b7eaee573d0ea1a3be17a8a7377c2cba765584bb8"
     },
     {
       "ficheiro": "dados/sessoes.json",

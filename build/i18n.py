@@ -3,7 +3,8 @@
 
     python3 build/i18n.py extract          walk the sources, write dados/i18n/fontes.json
     python3 build/i18n.py status           per locale: done, missing, words to do, orphaned
-    python3 build/i18n.py todo <locale>    ONLY the missing segments, as a batch to translate
+    python3 build/i18n.py todo <locale> [--na-pagina] [--max-palavras N] [--ficheiro F]
+                                          ONLY the missing segments, most-read first
     python3 build/i18n.py apply <locale> <file.json>   write translations back, hash-checked
 
 THE PROBLEM THIS SOLVES. A naive multilingual build translates every rendered page into every
@@ -54,6 +55,7 @@ JSON, and `apply` refuses anything whose source hash it does not recognise.
 """
 import ast
 import hashlib
+import html
 import json
 import re
 import sys
@@ -146,6 +148,14 @@ def translatable(s):
         return False
     if "{" in s:                                            # a template with a hole in it
         return False
+    # A LISTING OF PATHS. The root of this repository, printed as a comma-separated run of folder
+    # names, reads to every filter above like an ordinary sentence: it has commas, it has words, it
+    # has accents. It is a directory listing, and «casos-de-uso/» is that folder's name in every
+    # language. Translating it would rename folders that exist.
+    pedacos = [x.strip() for x in s.split(",") if x.strip()]
+    if len(pedacos) >= 4 and sum(1 for x in pedacos if re.fullmatch(
+            r"[\w.-]+(/|\.(py|js|json|md|html|css|txt|xml|mjs|nt|tpl))", x)) >= len(pedacos) * 0.6:
+        return False
     if not ACENTOS.search(s) and not re.search(r"\b(de|da|do|que|não|uma|para|com|é)\b", s):
         return False                                        # no Portuguese in it to translate
     return True
@@ -177,7 +187,9 @@ def gerado(s):
     # A count of things this site holds. The unit nouns are named rather than guessed, because the
     # list has to be auditable: every one of them is something build/*.py counts and prints.
     if re.search(r"\b\d+\s+(arestas|nós|nos|páginas|paginas|ficheiros|fontes|afirmações|"
-                 r"afirmacoes|itens|linhas|caracteres|bytes|segmentos|entregas|dias)\b", b):
+                 r"afirmacoes|itens|linhas|caracteres|bytes|segmentos|entregas|dias|"
+                 r"entidade|entidades|sessões|sessoes|palcos|oradores|organizações|organizacoes|"
+                 r"artigos|histórias|historias|capturas|hashes|ficheiro)\b", b):
         return True
     digitos = sum(c.isdigit() for c in b)
     if digitos and digitos / len(b) > 0.12:
@@ -221,20 +233,69 @@ def verbatim():
                     if normalise(pedaco):
                         fora.add(normalise(pedaco))
 
-    for nome, chave, campo in (("entidades.json", "entidades", "nome"),
-                               ("pessoas.json", "pessoas", "nome"),
-                               ("organizacoes.json", "organizacoes", "nome"),
-                               ("sessoes.json", "sessoes", "titulo_verbatim")):
-        d = ler(nome) or {}
-        for x in d.get(chave, []):
-            v = x.get(campo) if isinstance(x, dict) else None
-            if isinstance(v, str):
-                fora.add(normalise(v))
+    # EVERY name-ish field in EVERY data file, at any depth. An earlier version named four files and
+    # one field each, and the graph then read «Gacs Ltd Gacsym Ventures é a organização sob a qual o
+    # evento lista Anmol Goel» into a translation batch, because that organisation's name lives under
+    # `organizacao_listada` on a speaker card and not under `nome` in one of the four.
+    # `nome_em_si` is a language's AUTONYM — «Português (Portugal)», «Deutsch». Translating an
+    # autonym defeats its only purpose, which is to be recognisable to a reader who cannot read the
+    # page they are on.
+    NOMES = ("nome", "name", "rotulo", "label", "titulo_verbatim", "organizacao_listada",
+             "cargo_listado", "publicador", "agente_verbatim", "nome_em_si")
+
+    def colher_nomes(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k in NOMES and isinstance(v, str):
+                    fora.add(normalise(v))
+                elif isinstance(v, (dict, list)):
+                    colher_nomes(v)
+                elif k in NOMES and isinstance(v, list):
+                    fora.update(normalise(x) for x in v if isinstance(x, str))
+        elif isinstance(o, list):
+            for v in o:
+                colher_nomes(v)
+
+    # ONLY THE FILES THAT HOLD OTHER PEOPLE'S NAMES. Harvesting `nome` and `rotulo` from every data
+    # file swallowed this newsroom's OWN vocabulary along with them: the three departments are agents
+    # whose `nome` is «Pesquisa», «Redação» and «Verificação», and the eight sections carry a `rotulo`
+    # in the ontology. All of it was then classified verbatim and left Portuguese on every English
+    # page, while the coverage report counted it as correct — 16 858 runs «verbatim» and a masthead
+    # nobody had translated.
+    #
+    # A name is a name because a SOURCE published it, not because a field is called `nome`. So the
+    # list is of files that hold what sources published. dados/i18n/locales.json is here for the
+    # autonyms, which are the one case of a name this site writes itself.
+    # NOT grafo.json, and NOT lexico.json.
+    #   · grafo.json labels every node, including the nodes that are this site's own articles, so
+    #     harvesting it made «O Governo anunciou 25 milhões de euros para adoção de IA na
+    #     Administração Pública» a name. A headline is this newsroom's own sentence. The names that
+    #     matter are in entidades.json, pessoas.json and organizacoes.json, and those are here.
+    #   · lexico.json labels are this site's own vocabulary for a published formula — and the file
+    #     even carries an `en` field for each one. Harvesting them froze «Diáspora» in the masthead
+    #     of the English page, where it is a section name. What is evidential about the lexicon is
+    #     its PATTERNS, which nothing here touches; the labels are ours to translate.
+    NOMES_DE_TERCEIROS = ("entidades.json", "pessoas.json", "organizacoes.json",
+                          "sessoes.json", "registo.json", "evento.json",
+                          "temas.json", "excluidas.json", "fontes-alvo.json", "documentos.json",
+                          "verificacoes-fonte.json", "mudancas.json")
+    # grafo.json IS harvested, minus its own `Historia` nodes. Every other node label came from
+    # somebody else's bytes — a speaker, an organisation, a session title, a stage — and stays. A
+    # `Historia` node is labelled with this newsroom's own headline, and a headline is a sentence
+    # this publication wrote, so it translates like any other sentence it wrote.
     grafo = ler("grafo.json") or {}
     for n in grafo.get("nos", []):
-        for campo in ("rotulo", "nome", "label"):
-            if isinstance(n.get(campo), str):
-                fora.add(normalise(n[campo]))
+        if isinstance(n, dict) and n.get("tipo") != "Historia":
+            colher_nomes(n)
+
+    for f in ([DATA / n for n in NOMES_DE_TERCEIROS] + sorted(ROOT.glob("artigos/**/*.json"))
+              + [STORE / "locales.json"]):
+        if not f.exists():
+            continue
+        try:
+            colher_nomes(json.loads(f.read_text(encoding="utf-8")))
+        except (ValueError, UnicodeDecodeError):
+            continue
 
     def excertos(o):
         if isinstance(o, dict):
@@ -251,6 +312,15 @@ def verbatim():
             excertos(json.loads(f.read_text(encoding="utf-8")))
         except (ValueError, UnicodeDecodeError):
             continue
+
+    # The publication's own name. «O Ecossistema Português de IA» is what this paper is called, the
+    # way Le Monde is called Le Monde, and a masthead that changes language is a different paper.
+    # The tagline under it is a sentence and IS translated — the name is not.
+    try:
+        from paginas import SUBTITULO, TITULO
+        fora.update({normalise(TITULO), normalise(SUBTITULO)})
+    except ImportError:
+        pass
 
     _VERBATIM = {x for x in fora if x}
     return _VERBATIM
@@ -297,11 +367,166 @@ def nao_traduzir(texto):
     r = normalise(texto)
     if r in verbatim():
         return True
-    if len(r.split()) <= 12:
-        for frag in fragmentos_de_leitura():
-            if re.search(r"\b" + re.escape(frag) + r"\b", r):
-                return True
+    # A PAGE TITLE IS «<name> · <site>», and a name with the site's own handle after it is still a
+    # name. Without this, every entity page's <title> arrived as a segment whose only honest
+    # translation was itself, and 198 of them would have been paid for once per language.
+    for sufixo in (" · pt.newsroom.sgit.ai",):
+        if r.endswith(sufixo) and normalise(r[:-len(sufixo)]) in verbatim():
+            return True
+    # A CHIP IS «<name> · <count>», sometimes «<name> · <count>×». The name is a name and the count
+    # is generated, so the pair is neither translatable nor missing. There were forty of these, one
+    # per entity per page, and translating them would have bought a cache miss on the next build
+    # that changed a count by one.
+    m = re.fullmatch(r"(.+?) · \d+(×|x)?", r)
+    if m and normalise(m.group(1)) in verbatim():
+        return True
+    fragmentos = [f for f in fragmentos_de_leitura()
+                  if re.search(r"\b" + re.escape(f) + r"\b", r)]
+    if fragmentos:
+        # Take out EVERY fragment, not the first one. «o evento lista {s} sob {t}» is two fragments
+        # in one sentence, and removing only «o evento lista» left «Cíntia Costa sob 351 Portuguese
+        # Startup Association», which is not a name and so failed the test that should have passed.
+        resto = r
+        for f in fragmentos:
+            resto = re.sub(r"\b" + re.escape(f) + r"\b", "\x00", resto)
+        lados = [x.strip(" ·—-") for x in resto.split("\x00")]
+        if all((not x) or (normalise(x) in verbatim()) for x in lados):
+            return True
+    for frag in fragmentos:
+        # A GRAPH LABEL IS «<name> <verb> <name>», and that shape can be tested exactly instead of
+        # guessed at by length. Take the reading fragment out and what is left must be names this
+        # site already holds verbatim. A word ceiling gets this wrong in both directions: «Startup
+        # Summit Lisbon 2026 contém Lunch · Beer Hall · Praça Café · Rooftop Bar» is thirteen words
+        # and IS an edge, while «Uma etiqueta diz que a página contém certas palavras» is nineteen
+        # and is a sentence about the site. Raising the ceiling to catch the first would have left
+        # the second untranslated on every page in every language.
+        if r == frag:
+            return True              # the reading itself, with both names stripped by the renderer
+        # A ONE-WORD FRAGMENT IS NOT ENOUGH ON ITS OWN. The ontology reads «{t} sustenta {s}», so
+        # «sustenta» is a fragment, and a bare-label fallback on any short run therefore classified
+        # the front page's heading «O que sustenta» as an edge of the graph and left it Portuguese in
+        # every language. Two words of verb, or an exact match, or nothing.
+        if len(frag.split()) >= 2 and len(r.split()) <= 12:
+            return True
     return False
+
+
+# A NUMBER OR A MONTH NAME IS NOT A WORD TO TRANSLATE — IT IS A HOLE IN A SENTENCE.
+# «Assenta em 1 fonte congelada e hasheada · 2 afirmações reencontradas nos bytes» and «Lisboa ·
+# segunda-feira, 14 de setembro de 2026» are sentences a builder composed from data. Left alone they
+# are Portuguese on an English page; translated as they stand they are a cache miss the next time a
+# count changes, which is the cost curve this whole design exists to avoid.
+#
+# So they are masked: every run of digits becomes «#» and every month or weekday name becomes «@»,
+# and the masked form is the segment. ONE segment covers every value the template will ever take,
+# for ever, and the values are put back at render time from the page itself. This is the mechanism
+# `docs/guidance/multilingual.md` calls «generated text is formatted, not translated» — the formatter
+# is a translated template plus the numbers the page already had.
+_NUM = re.compile(r"\d+(?:[ \u00a0]\d{3})*")
+
+
+# A MACHINE FACT HAS A MACHINE SHAPE: a separator, a digit, or hexadecimal length. An earlier
+# version of this pattern allowed «any single token», which matches «Aviso» — and every one-word
+# label on the site was then classified as a machine fact and left Portuguese in every locale, while
+# the report counted it as correct. A bare Portuguese word is not an identifier.
+MAQUINA = re.compile(
+    r"^(v\d+\.\d+\.\d+"                                  # a version
+    r"|\d{4}-\d{2}-\d{2}([T ][\d:.]+Z?)?"                  # a date or a timestamp
+    r"|[\w+~-]+([./:@][\w+~-]*)+"                            # a path, a domain, an id, a handle
+    r"|[\w+-]*\d[\w+-]*"                                    # a token with a digit in it
+    r"|[0-9a-f]{8,}…?"                                      # a hash, whole or elided
+    r"|[0-9a-f]{4,}…)$")                                    # a hash shortened for display
+
+
+def maquina(s):
+    """A machine fact: a version, a timestamp, a path, a source id, a hash. Not prose, not a
+    template, not missing — it is the same string in every language.
+
+    This exists because masking generated text found identifiers too: «2026-09-14/oradores/luis-
+    valente» became the «template» «#-#-#/oradores/luis-valente», and 465 version badges became
+    «v#.#.#». The report then said a thousand things needed translating that must never be touched,
+    which buries the fifty that do."""
+    return bool(MAQUINA.match(normalise(s)))
+
+
+def mascarar(s):
+    """(masked, values). Values are ('n', text) for a number, ('m', index) for a month, ('d', index)
+    for a weekday — the index, not the word, so the target language can supply its own."""
+    s = normalise(s)
+    valores = []
+    fora = []
+    i = 0
+    baixo = s.lower()
+    while i < len(s):
+        for j, nome in enumerate(DIAS):
+            if baixo.startswith(nome, i):
+                valores.append(("d", j)); fora.append("@"); i += len(nome); break
+        else:
+            for j, nome in enumerate(MESES):
+                if baixo.startswith(nome, i):
+                    valores.append(("m", j)); fora.append("@"); i += len(nome); break
+            else:
+                m = _NUM.match(s, i)
+                if m:
+                    valores.append(("n", m.group(0))); fora.append("#"); i = m.end()
+                else:
+                    fora.append(s[i]); i += 1
+    return "".join(fora), valores
+
+
+def preencher(molde, valores, meses, dias):
+    """Put the values back into a translated template, in the order the page had them."""
+    fora = []
+    restantes = list(valores)
+    for ch in molde:
+        if ch in "#@" and restantes:
+            tipo, v = restantes.pop(0)
+            if tipo == "n":
+                fora.append(v)
+            elif tipo == "m":
+                fora.append(meses[v] if v < len(meses) else MESES[v])
+            else:
+                fora.append(dias[v] if v < len(dias) else DIAS[v])
+        else:
+            fora.append(ch)
+    return "".join(fora)
+
+
+# Words that are Portuguese AND NOT ENGLISH. «as», «os», «se», «no» and «nos» were in this list and
+# they are all ordinary English too, so an English sentence in a data file — «the release history as
+# markdown» — was being counted as Portuguese left untranslated. A detector that reports the
+# finished work as unfinished is a detector nobody will act on.
+PALAVRAS_PT = re.compile(
+    r"\b(de|da|do|das|dos|que|não|nao|uma|para|com|é|em|ao|à|pelo|pela|por|sobre|"
+    r"quando|onde|cada|esta|este|isso|aqui|ainda|já|nada|tudo|mais|entre|foi|está|são|pode)\b",
+    re.I)
+
+
+def parece_portugues(s):
+    """Portuguese a reader would SEE, whether or not this pipeline is willing to translate it.
+
+    This is the honest denominator, and it exists because the coverage figure was lying. A run of one
+    accented word is not translatable by the rules above — one word is usually a name — so it never
+    reached the substitution and was never counted as anything. The report said 100% while the
+    masthead still read «Diáspora» and the counters still read «Oradores». A number that cannot see
+    the thing a reader complains about is worse than no number.
+
+    Anything this matches and the memory cannot serve is counted `missing`, whether the reason is
+    that nobody translated it or that the rules decline to. Both are Portuguese on an English page."""
+    s = normalise(s)
+    if len(s) < 2 or re.fullmatch(r"[\d\s\W]+", s):
+        return False
+    if re.search(r"https?://|\w+\.(json|md|py|js|mjs|html|css|txt|xml|nt|snapshot)\b", s):
+        return False                   # an address or a path is not prose in any language
+    if re.fullmatch(r"[\w.@/:_-]+", s):
+        return False                   # a single token: an id, a domain, a path, a handle
+    return bool(ACENTOS.search(s) or PALAVRAS_PT.search(s))
+
+
+def rotulo(s):
+    """A declared UI label: short, but a word of the site's own vocabulary rather than a name."""
+    s = normalise(s)
+    return bool(s) and 2 <= len(s) <= 60 and not re.fullmatch(r"[\d\s\W]+", s)
 
 
 def frase(s):
@@ -322,8 +547,44 @@ def colher():
     """
     segs = {}
 
-    def add(text, kind, where):
-        if not translatable(text):
+    def add(text, kind, where, curto=False):
+        # `curto` waives the two-word minimum for a DECLARED label and nothing else: see the label
+        # catalogue below. Everything else, including the verbatim test, still applies.
+        # EVERY origin goes through the same two tests, and an earlier version only put the render
+        # harvest through the second one. «Diário da República» and «Governo de Portugal» reached
+        # the memory through the data walk, where they sit under keys that are not in NEVER, and a
+        # translator was going to be asked to render the name of an official journal into German.
+        # A rule applied at three of four entrances is not a rule.
+        if nao_traduzir(text) or maquina(text):
+            return
+        # THE MASK IS TRIED FIRST, and the order is the whole point. `translatable()` asks «is there
+        # Portuguese here to translate?» and «mais 1 entidade» has no accent and none of the function
+        # words it looks for, so it was rejected before the mask ever ran and the template «mais #
+        # entidades» never existed. A run that is generated is not judged as prose; it is masked, and
+        # what is judged is the template.
+        if gerado(text):
+            molde, valores = mascarar(text)
+            # A template that is mostly holes is not a sentence: masking a shortened hash gives
+            # «##e#», which nobody can translate and which only clutters the batch.
+            # `rotulo()` is not the test here: it caps a label at 60 characters, and a template is
+            # often a whole sentence — «Assenta em # fonte congelada e hasheada · # afirmações
+            # reencontradas nos bytes» is 78 and was being dropped for being long.
+            # A SENTENCE THAT STARTS WITH A NAME IS ONE ENTITY'S SENTENCE, NOT A TEMPLATE.
+            # «Nina Chandé — Pessoa no grafo do ecossistema português de IA. 4 arestas, lidas em voz
+            # alta.» masks to a template that is still different for all 198 entities, so masking it
+            # produced 198 «templates» and buried the thirty that are real. They are meta
+            # descriptions — a reader never sees them — and the honest place for them is nowhere.
+            cabeca = normalise(text.split(" — ")[0]) if " — " in text else ""
+            if cabeca and cabeca in verbatim():
+                return
+            letras = sum(1 for c in molde if c.isalpha())
+            if valores and letras >= 3 and letras >= len(molde) * 0.4:
+                k2 = key(molde)
+                e2 = segs.setdefault(k2, {"text": molde, "kind": "padrao", "where": []})
+                if where not in e2["where"]:
+                    e2["where"].append(where)
+            return
+        if not (rotulo(text) if curto else translatable(text)):
             return
         k = key(text)
         e = segs.setdefault(k, {"text": normalise(text), "kind": kind, "where": []})
@@ -376,6 +637,28 @@ def colher():
         except (ValueError, UnicodeDecodeError):
             continue
 
+    # 2b. THE LABEL CATALOGUE. «Empresas». «Eventos». «Aviso». One word each, and every filter in
+    #     this file rejects a single word on purpose, because one word is usually a name. But the
+    #     eight section names in the masthead ARE the navigation, and an English page whose menu
+    #     reads «Empresas Protagonistas Instituições Políticas Use cases Open source Diáspora
+    #     Eventos» is half translated in the one place a reader looks first.
+    #
+    #     So they are declared, not detected: read from the same lists the builders navigate by, so
+    #     a ninth section appears here the day it appears there. `nao_traduzir()` still applies — a
+    #     label that is a name stays a name.
+    try:
+        from paginas import EXTRA, RODAPE, SECCOES, VOCABULARIO
+        extra = list(VOCABULARIO)
+        fv = STORE / "vocabulario.json"
+        if fv.exists():
+            extra += json.loads(fv.read_text(encoding="utf-8"))["termos"]
+        for lista in (SECCOES, EXTRA, RODAPE, [("", v) for v in extra]):
+            for par in lista:
+                if isinstance(par, (list, tuple)) and len(par) >= 2 and isinstance(par[1], str):
+                    add(par[1], "chrome", "build/paginas.py", curto=True)
+    except ImportError:
+        pass
+
     # 3. The chrome: the Portuguese the builders themselves write — navigation, captions, state
     #    words, the explanatory lines. Read with `ast`, never with a regex, for two reasons that
     #    both cost money if you get them wrong. A regex over source text splits an implicitly
@@ -406,12 +689,20 @@ def colher():
             if id(no) in docstrings:
                 continue
             s2 = no.value
-            if not ACENTOS.search(s2) or any(c in s2 for c in '<>"'):
+            if any(c in s2 for c in '<>"') or not frase(s2):
                 continue                                    # a fragment of markup, not a sentence
-            if frase(s2):
+            # ACCENTED ONLY, AND DELIBERATELY. Admitting short unaccented literals as labels was
+            # tried and pulled in 145 segments of which most were the console's own English —
+            # «Board», «Bridges», «Mail» — plus tokens like «NFC», «HEAD» and «MANDATE.md». A
+            # detector cannot tell a Portuguese label from an English one in two words. The
+            # unaccented Portuguese labels are DECLARED instead, in paginas.VOCABULARIO.
+            if ACENTOS.search(s2):
                 add(s2, "chrome", f"build/{py.name}")
 
-    # 4. The finished pages, as a DISCOVERY surface — never as the thing being translated.
+    # 4. The finished pages, as a DISCOVERY surface — and generated runs are NOT filtered out here.
+    #    They were, and `add()`'s masking therefore never saw them: «mais 3 entidades» was dropped at
+    #    the door instead of becoming the template «mais # entidades». Two filters for one decision,
+    #    and the outer one silently won. — never as the thing being translated.
     #    Origins 1 to 3 find the prose that is authored in a file this build can read. They do not
     #    find the sentence a builder assembles with an f-string, or a clause that sits between two
     #    inline links, and on this site those account for more of what a reader actually reads than
@@ -427,24 +718,26 @@ def colher():
         from locales import (ATRIBUTOS, BLOCOS, ENTIDADE_HTML, MARCACAO, TAGS,
                              paginas_de_leitura, substituivel)
         for rel in paginas_de_leitura():
-            html = (ROOT / rel).read_text(encoding="utf-8")
-            for i, parte in enumerate(MARCACAO.split(html)):
-                if i % 2 == 0 and substituivel(parte) and not gerado(parte) \
+            pagina = (ROOT / rel).read_text(encoding="utf-8")
+            for i, parte in enumerate(MARCACAO.split(pagina)):
+                if i % 2 == 0 and substituivel(parte) \
                         and not nao_traduzir(parte):
                     add(parte, "render", rel)
-            for m in BLOCOS.finditer(html):
-                plano = ENTIDADE_HTML.sub(" ", TAGS.sub("", m.group(3))).replace("&amp;", "&")
-                if substituivel(plano) and not gerado(plano) and not nao_traduzir(plano):
+            for m in BLOCOS.finditer(pagina):
+                if "data-verbatim" in m.group(1) or TAGS.search(m.group(3)):
+                    continue        # mixed content is not a segment — see locales.Tradutor.bloco
+                plano = html.unescape(m.group(3))
+                if substituivel(plano) and not nao_traduzir(plano):
                     add(plano, "render", rel)
             # title, alt and aria-label are read aloud by a screen reader and shown on hover; a
             # page whose visible text is English and whose tooltips are Portuguese is half done.
-            for m in ATRIBUTOS.finditer(html):
+            for m in ATRIBUTOS.finditer(pagina):
                 v = m.group(2)
-                if substituivel(v) and not gerado(v) and not nao_traduzir(v):
+                if substituivel(v) and not nao_traduzir(v):
                     add(v, "render", rel)
-            for m in re.finditer(r'<meta name="description" content="([^"]+)"', html):
+            for m in re.finditer(r'<meta name="description" content="([^"]+)"', pagina):
                 v = m.group(1)
-                if substituivel(v) and not gerado(v) and not nao_traduzir(v):
+                if substituivel(v) and not nao_traduzir(v):
                     add(v, "render", rel)
 
     return segs
@@ -504,12 +797,87 @@ def cmd_status():
           "lost: it stays for reuse and costs nothing to keep.")
 
 
-def cmd_todo(loc, limite=None):
+def ocorrencias():
+    """How many times each segment is actually MET on a reader page, counted the way the renderer
+    meets it. This is the number that decides what is worth translating, and it is not the same as
+    the number of segments.
+
+    Two thirds of this memory carries 100% of what a reader sees. The other third — 302 segments,
+    7026 words — is text that exists in a data file or a builder and never reaches a reader page:
+    back-office prose, the README's own paragraphs, llms.txt. Translating it buys nothing, and
+    paying for it would be paying by the size of the repository instead of by the size of the site.
+
+    Within the two thirds the distribution is steeper still: 14 segments carry half of every run a
+    reader meets, and 28 carry four fifths, because the chrome repeats on all 223 pages. Ordering a
+    batch by this number means the first thing translated is the thing most read."""
+    from locales import (ATRIBUTOS, BLOCOS, ENTIDADE_HTML, MARCACAO, TAGS, paginas_de_leitura)
+    src = carregar_fontes()["segmentos"]
+    conta = {}
+
+    def bater(texto):
+        k = key(texto)
+        if k in src:
+            conta[k] = conta.get(k, 0) + 1
+            return True
+        return False
+
+    for rel in paginas_de_leitura():
+        html = (ROOT / rel).read_text(encoding="utf-8")
+        pos, regioes = 0, []
+        for m in BLOCOS.finditer(html):
+            regioes.append(html[pos:m.start()])
+            plano = ENTIDADE_HTML.sub(" ", TAGS.sub("", m.group(3))).replace("&amp;", "&")
+            if not bater(plano):
+                regioes.append(m.group(3))
+            pos = m.end()
+        regioes.append(html[pos:])
+        for regiao in regioes:
+            for parte in MARCACAO.split(regiao)[::2]:
+                if parte.strip():
+                    bater(parte)
+        for m in ATRIBUTOS.finditer(html):
+            bater(m.group(2))
+        for m in re.finditer(r'<meta name="description" content="([^"]+)"', html):
+            bater(m.group(1))
+    return conta
+
+
+def cmd_todo(loc, *opcoes):
+    """todo <locale> [--na-pagina] [--max-palavras N] [--ficheiro F]
+
+    `--na-pagina` is the one that matters: it drops every segment no reader page carries and orders
+    what is left by how often a reader meets it. `--max-palavras` then cuts the batch to a size one
+    pass can do well, taking the most-read segments first, so stopping half way still leaves the
+    site mostly translated rather than patchy.
+    """
+    opts = list(opcoes)
+    na_pagina = "--na-pagina" in opts
+    limite_palavras = None
+    ficheiro = None
+    for i, o in enumerate(opts):
+        if o == "--max-palavras":
+            limite_palavras = int(opts[i + 1])
+        elif o == "--ficheiro":
+            ficheiro = opts[i + 1]
     src = carregar_fontes()
     have = carregar_locale(loc)
     falta = {k: v for k, v in src["segmentos"].items() if k not in have}
-    if limite:
-        falta = dict(list(falta.items())[:int(limite)])
+    if na_pagina:
+        conta = ocorrencias()
+        falta = {k: v for k, v in falta.items() if k in conta}
+        ordem = sorted(falta, key=lambda k: (-conta[k], -len(falta[k]["text"])))
+    else:
+        ordem = sorted(falta, key=lambda k: -len(falta[k]["text"]))
+    if limite_palavras:
+        corte, soma = [], 0
+        for k in ordem:
+            n = len(falta[k]["text"].split())
+            if soma + n > limite_palavras and corte:
+                break
+            corte.append(k)
+            soma += n
+        ordem = corte
+    falta = {k: falta[k] for k in ordem}
     saida = {
         "locale": loc,
         "de": SOURCE_DEFAULT,
@@ -521,7 +889,13 @@ def cmd_todo(loc, limite=None):
         "palavras": sum(len(v["text"].split()) for v in falta.values()),
         "segmentos": {k: v["text"] for k, v in falta.items()},
     }
-    print(json.dumps(saida, ensure_ascii=False, indent=2))
+    texto = json.dumps(saida, ensure_ascii=False, indent=2) + "\n"
+    if ficheiro:
+        Path(ficheiro).write_text(texto, encoding="utf-8")
+        print(f'i18n todo {loc}: {saida["contagem"]} segments, {saida["palavras"]} words '
+              f'-> {ficheiro}')
+    else:
+        print(texto)
 
 
 def cmd_apply(loc, ficheiro):

@@ -42,7 +42,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paginas import utilitarios  # noqa: E402  the ONE utility run, shared
+from paginas import seletor_de_lingua, utilitarios  # noqa: E402  the ONE utility run, shared
 
 ROOT = Path(__file__).resolve().parents[1]
 DADOS = ROOT / "dados"
@@ -374,6 +374,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body="", resumo="", acoes="",
     profundidade = rel.count("/")
     raiz = "../" * profundidade if profundidade else ""
     canonico = f"https://{HOST}/{rel}"
+    seletor = seletor_de_lingua("", raiz_dada=raiz)
     cabeca = (f'<div class="page-head"><div><h1>{e(titulo)}</h1>'
               + (f'<p>{resumo}</p>' if resumo else "")
               + "</div>"
@@ -397,7 +398,7 @@ def pagina(rel, titulo, descricao, corpo, extra_body="", resumo="", acoes="",
 <body>
 
 <div class="folha bo-strip">
-{utilitarios(raiz, no_console=True)}
+{utilitarios(raiz, no_console=True, caminho="").replace("{seletor}", seletor)}
 </div>
 
 <div class="shell">
@@ -868,7 +869,7 @@ in a folder, one commit per cycle, no broker and no API.</p>
 <p class="xs" style="padding-top:10px">Rendered from <code>redacao/issues/*.json</code>. The same
 issues appear on <a href="board.html">each agent's board</a>, placed there by a published formula
 and not by hand. The reader-facing version of this board is
-<a href="../redacao/">A mesa</a>, in Portuguese.</p>
+<a href="../desk/">A mesa</a>, in Portuguese.</p>
 
 <h2>Articles · {hist.get("contagem", 0)}
   folders, {hist.get("publicados", 0)} published</h2>

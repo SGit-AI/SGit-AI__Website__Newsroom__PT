@@ -107,8 +107,8 @@ suficiente para ser interessante.
         ("/equipa/", "Três departamentos, o editor de registo, e o que não está construído."),
         ("/aviso/", "O aviso de proteção de dados. Interesses legítimos; remoção incondicional."),
         ("/sobre/", "O que é real, o que não é, e os limites."),
-        ("/redacao/", "A mesa: o quadro de issues, o correio entre departamentos, as execuções."),
-        ("/entregas/", "As entregas de investigação e o seu fluxo de revisão."),
+        ("/desk/", "A mesa: o quadro de issues, o correio entre departamentos, as execuções."),
+        ("/admin/deliveries/", "As entregas de investigação e o seu fluxo de revisão."),
         ("/empresas/", "As empresas."), ("/protagonistas/", "Os protagonistas."),
         ("/instituicoes/", "As instituições."), ("/politicas/", "As políticas."),
         ("/casos-de-uso/", "Os casos de uso."), ("/codigo-aberto/", "O código aberto (vazia)."),
@@ -119,6 +119,21 @@ suficiente para ser interessante.
     # named here by file path, because "for an agent, a page llms.txt does not name does not
     # exist"; and §8 of the brief says one provider's assistant does not follow links inside a page
     # it fetched, so the address has to be written out in full.
+    # ONE HUB PER PUBLISHED LANGUAGE. The site gate's fourth check requires every top-level page to
+    # be named here — «for an agent, a page llms.txt does not name does not exist» — and a locale
+    # tree is a top-level page. Read from dados/i18n/locales.json so that publishing a language
+    # stays one field in one file and does not need a second edit here.
+    loc_f = DADOS / "i18n" / "locales.json"
+    if loc_f.exists():
+        import json as _json
+        for lc in _json.loads(loc_f.read_text(encoding="utf-8"))["locales"]:
+            if lc.get("estado") != "publicado" or lc.get("e_registo"):
+                continue
+            HUBS.append((f'/{lc["codigo"]}/',
+                         f'A tradução deste site em {lc["nome"].lower()} ({lc["nome_em_si"]}). '
+                         f'A página de registo é a portuguesa e cada página traduzida liga para a '
+                         f'sua; nenhum excerto, nome ou verbo do grafo é traduzido.'))
+
     for caminho, desc in HUBS:
         rel = "index.html" if caminho == "/" else caminho.strip("/") + "/index.html"
         if rel in todas:
@@ -202,7 +217,7 @@ without a named human editor of record, and no automated run may set `estado: pu
 2. Um alvo não é um resultado. O evento declara «150+ speakers»; este site conta cartões.
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
-5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /admin/deliveries/.
 6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
    existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
    escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um

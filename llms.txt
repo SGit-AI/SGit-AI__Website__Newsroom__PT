@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.23.8 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.23.9 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -41,8 +41,8 @@ suficiente para ser interessante.
 - [/equipa/](https://pt.newsroom.sgit.ai/equipa/index.html): Três departamentos, o editor de registo, e o que não está construído.
 - [/aviso/](https://pt.newsroom.sgit.ai/aviso/index.html): O aviso de proteção de dados. Interesses legítimos; remoção incondicional.
 - [/sobre/](https://pt.newsroom.sgit.ai/sobre/index.html): O que é real, o que não é, e os limites.
-- [/redacao/](https://pt.newsroom.sgit.ai/redacao/index.html): A mesa: o quadro de issues, o correio entre departamentos, as execuções.
-- [/entregas/](https://pt.newsroom.sgit.ai/entregas/index.html): As entregas de investigação e o seu fluxo de revisão.
+- [/desk/](https://pt.newsroom.sgit.ai/desk/index.html): A mesa: o quadro de issues, o correio entre departamentos, as execuções.
+- [/admin/deliveries/](https://pt.newsroom.sgit.ai/admin/deliveries/index.html): As entregas de investigação e o seu fluxo de revisão.
 - [/empresas/](https://pt.newsroom.sgit.ai/empresas/index.html): As empresas.
 - [/protagonistas/](https://pt.newsroom.sgit.ai/protagonistas/index.html): Os protagonistas.
 - [/instituicoes/](https://pt.newsroom.sgit.ai/instituicoes/index.html): As instituições.
@@ -51,6 +51,7 @@ suficiente para ser interessante.
 - [/codigo-aberto/](https://pt.newsroom.sgit.ai/codigo-aberto/index.html): O código aberto (vazia).
 - [/diaspora/](https://pt.newsroom.sgit.ai/diaspora/index.html): A diáspora (vazia).
 - [/eventos/](https://pt.newsroom.sgit.ai/eventos/index.html): Os eventos.
+- [/en-gb/](https://pt.newsroom.sgit.ai/en-gb/index.html): A tradução deste site em inglês (English (United Kingdom)). A página de registo é a portuguesa e cada página traduzida liga para a sua; nenhum excerto, nome ou verbo do grafo é traduzido.
 
 ## Os dados, em endereços construíveis
 
@@ -135,7 +136,7 @@ without a named human editor of record, and no automated run may set `estado: pu
 2. Um alvo não é um resultado. O evento declara «150+ speakers»; este site conta cartões.
 3. Uma etiqueta diz que a página contém aquelas palavras. Não é uma caracterização de ninguém.
 4. Um nome que sai de uma lista é registado como isso e mais nada. A razão fica em branco.
-5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /entregas/.
+5. Uma entrega de investigação é uma lista de pistas. Veja o estado de cada afirmação em /admin/deliveries/.
 6. Nenhum comentário de agente foi escrito para ser lido: todos são derivados de ficheiros que já
    existem, e cada um diz de qual no campo `de`. Um comentário atribuído a um modelo que nunca o
    escreveu seria uma afirmação com uma fonte falsa, e o portão 25 falha a construção se um

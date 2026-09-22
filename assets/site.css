@@ -379,6 +379,40 @@ td .sm, th .sm, .chips .sm, .stats .sm { max-width: none; }
         border-radius: 2px; padding: 0 3px; color: var(--sec-2); vertical-align: 1px; }
 a:hover .flag { border-color: var(--acento); color: var(--acento); }
 
+/* THE LANGUAGE RUN. Codes, not flags: a flag is a country and a language is not a
+   country, and «EN» on a Union Jack would be telling a reader in Ireland or Ghana
+   something untrue. The current language is marked and is not a link to itself.
+
+   NO BORDER AND NO PADDING, and that is not a style preference. `.utility` is a thin
+   operator strip that gate 33 measures in BOTH chromes and requires to be the same
+   height: a boxed badge added 3px to the paper's strip, the console's stayed at 33,
+   and the browser gate reported the panel moving between them. A run of links has to
+   sit in the same line box as the links beside it. */
+.langs { display: inline-flex; gap: 8px; align-items: baseline; }
+.lang { font-family: var(--mono); font-size: 11px; letter-spacing: .09em; }
+.lang, .lang:link, .lang:visited { color: var(--sec-2); }
+.lang:hover { color: var(--acento); text-decoration: none; }
+.lang.aqui { color: var(--tinta); text-decoration: underline; text-underline-offset: 3px; }
+.lang.aqui:hover { color: var(--tinta); }
+
+/* THE BETA TAG, beside the wordmark, the way Google carried one for years.
+   It is a superscript on the masthead rather than a banner across the page,
+   because it is a standing fact about the publication and not an alert: the
+   reader should see it once, on arrival, in the place a reader looks for what
+   a publication is. It is a LINK — to /sobre/, which is the page that says
+   what is real on this site today and what is not yet — because a beta tag
+   that does not say what is unfinished is decoration. Mono, like .flag and
+   .ver: the face on this site means a fact about the build. */
+.beta { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .08em;
+        text-transform: lowercase; vertical-align: super; line-height: 1;
+        border: 1px solid var(--acento); border-radius: 2px; padding: 1px 4px;
+        margin-left: 10px; white-space: nowrap; }
+.beta, .beta:link, .beta:visited { color: var(--acento); text-decoration: none; }
+.beta:hover { background: var(--acento); color: var(--papel); text-decoration: none; }
+.mast .nome .beta { font-size: 15px; margin-left: 14px; vertical-align: 14px; }
+@media (max-width: 640px) { .mast .nome .beta { font-size: 11px; vertical-align: 8px;
+        margin-left: 8px; } }
+
 /* THE VERSION CHIP IS NOW A LINK. sgit.ai guidance: show the version AND
    link it to that version's change detail, naming the commit it was built
    from. The site had the first half only. */

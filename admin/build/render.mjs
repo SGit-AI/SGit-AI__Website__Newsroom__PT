@@ -70,7 +70,7 @@ const PAGINAS = [
        pages below, and that is deliberate: the chat talks to the paper, in Portuguese, and the
        back office is the English side of the house. */
     ['/', ['pt-chat']],
-    ['/redacao/', ['pt-newsroom-floor', 'pt-chat']],
+    ['/desk/', ['pt-newsroom-floor', 'pt-chat']],
     ['/admin/review/', ['pt-decisions']],
 
     ['/entidades/', ['pt-chat']],

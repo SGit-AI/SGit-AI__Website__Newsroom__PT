@@ -180,7 +180,7 @@ pessoa.</p></div>
 <div class="chips">
   <a class="chip ok" href="../registo/">{reg.get("contagem", 0)} ficheiros congelados</a>
   <a class="chip" href="../artigos/">{hist.get("contagem", 0)} artigos</a>
-  <a class="chip" href="../entregas/">{sum(x["contagens"]["afirmacoes"] for x in ent.get("entregas", []))} afirmações entregues</a>
+  <a class="chip" href="../admin/deliveries/">{sum(x["contagens"]["afirmacoes"] for x in ent.get("entregas", []))} afirmações entregues</a>
   <a class="chip" href="../ficheiros/">o manifesto, com o hash de cada ficheiro</a>
   <a class="chip" href="../api/">a API</a>
 </div>

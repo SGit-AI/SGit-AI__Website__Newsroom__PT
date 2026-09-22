@@ -64,7 +64,7 @@ def questions_from_deliveries(deliveries):
                 "without_bytes": total - len(confirmed),
                 "why_it_matters": item.get("porque_importa") or "",
                 "confirmed_claims": [c["texto"] for c in confirmed],
-                "url": f'../../entregas/{d["id"]}.html#{item["id"]}',
+                "url": f'../deliveries/{d["id"]}.html#{item["id"]}',
             })
     return out
 
@@ -85,7 +85,7 @@ def questions_from_issues():
             "section": d.get("seccao", "—"),
             "why_it_matters": d.get("porque_esta_bloqueado") or d.get("enquadramento", ""),
             "what_is_missing": d.get("o_que_falta", []),
-            "url": "../../redacao/",
+            "url": "../../desk/",
         })
     return out
 
@@ -114,7 +114,7 @@ def questions_from_vocabulary(deliveries):
                            "None of the articles published so far needed these: they are proposals, "
                            "not blockers."),
         "types": sorted(proposed),
-        "url": "../../entregas/",
+        "url": "../deliveries/",
     }]
 
 
@@ -144,7 +144,7 @@ def main():
             "kind": "delivery", "when": d["data"], "version": "",
             "what": (f'{d["ferramenta"]} delivery · {c["itens"]} items, '
                      f'{c["confirmadas"]} of {c["afirmacoes"]} claims found in the bytes'),
-            "url": f'../../entregas/{d["id"]}.html'})
+            "url": f'../deliveries/{d["id"]}.html'})
     changes.sort(key=lambda m: (m["when"], m["version"]), reverse=True)
 
     doc = {

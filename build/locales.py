@@ -40,6 +40,7 @@ the back office. /newsroom/, /admin/, /redacao/, /entregas/, /briefs/ and /docs/
 the editor of record, who reads Portuguese and English. Every locale page carries a link back to
 the Portuguese original, which is the page of record.
 """
+import html
 import json
 import posixpath
 import re
@@ -67,6 +68,10 @@ MARCACAO = re.compile(r"(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>"
                       r"|<code\b[^>]*>.*?</code>|<pre\b[^>]*>.*?</pre>|<[^>]+>)", re.S | re.I)
 ATRIBUTOS = re.compile(r'\b(title|alt|aria-label)="([^"]+)"')
 TAGS = re.compile(r"<[^>]+>")
+# Kept for the harvest's import list. The block pass uses html.unescape() instead: substituting
+# every entity with a SPACE turned «Gacs Ltd &amp; Gacsym Ventures» into «Gacs Ltd Gacsym Ventures»,
+# which matches no name in dados/, so an organisation's name stopped being recognised as a name and
+# was offered for translation as part of a graph edge.
 ENTIDADE_HTML = re.compile(r"&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z]+);")
 
 
@@ -107,31 +112,74 @@ class Tradutor:
         self.gerados = 0
         self.verbatim = 0
         self.traducoes = set(self.mem.values())
+        # AN ORPHAN IS NOT SERVED, and this set is what makes that true rather than asserted.
+        # Substitution looks up the hash of the text ON THE PAGE, so a translation left behind by a
+        # source that has since changed — or by a rule that has since reclassified its source as
+        # verbatim — would still be found in the memory and still be shown. Serving only keys the
+        # CURRENT extraction knows makes «kept for reuse, never served» a property of the code rather
+        # than a claim in a comment.
+        self.conhecidos = set(i18n.carregar_fontes()["segmentos"])
+        lc = next((x for x in registo()["locales"] if x["codigo"] == loc), {})
+        self.meses = lc.get("meses", i18n.MESES)
+        self.dias = lc.get("dias", i18n.DIAS)
         self.faltas_texto = []
 
     def procurar(self, texto):
-        k = i18n.key(texto)
-        if k in self.mem:
-            self.acertos += 1
-            return self.mem[k]
-        if not i18n.translatable(texto):
-            return None
         plano = i18n.normalise(texto)
         if plano in self.traducoes:
-            # Already translated by an earlier pass on this same page. Two passes see the same
-            # bytes, and without this the second one reports the first one's work as missing.
+            # Already translated by an earlier pass on this same page. Two passes see the same bytes,
+            # and without this the second reports the first's work as missing.
+            return None
+        if i18n.maquina(plano):
+            # A version, a timestamp, a path, a source id. The same string in every language, and
+            # not a template either — see i18n.maquina().
+            self.verbatim += 1
             return None
         if i18n.nao_traduzir(plano):
             # A verb of the graph, a name, an excerpt. Correct as it stands — i18n.nao_traduzir().
+            # TESTED BEFORE THE MEMORY, not after. The other order served a translation the memory
+            # happened to hold for a string the rules had since reclassified as verbatim: «sessão de
+            # arranque (Claude Code, Opus 5)» went out translated on 224 pages and gate 44 caught it.
+            # What a page may show is decided by the rules, never by what is in the cache.
             self.verbatim += 1
             return None
+        k = i18n.key(plano)
+        if k in self.mem and k in self.conhecidos:
+            self.acertos += 1
+            return self.mem[k]
         if i18n.gerado(texto):
-            # A date line, a version badge, a count. Not missing — generated. See i18n.gerado().
+            # A date line, a count, a byte total. Try the MASKED template first: one translated
+            # sentence with holes, filled from the numbers and month names this page already had. See
+            # i18n.mascarar(). THIS RUNS BEFORE THE TRANSLATABLE TEST, because «mais 3 entidades» is
+            # not prose by that test and was being counted as a miss with its own translated template
+            # sitting in the memory unread.
+            molde, valores = i18n.mascarar(plano)
+            km = i18n.key(molde)
+            if valores and km in self.mem and km in self.conhecidos:
+                self.acertos += 1
+                return i18n.preencher(self.mem[km], valores, self.meses, self.dias)
+            if valores and km in self.conhecidos:
+                # THERE IS A TEMPLATE AND NOBODY HAS TRANSLATED IT YET. That is a miss, not a
+                # «generated» — a reader sees Portuguese either way, and filing it under the column
+                # that does not count against coverage is how a report reaches 100% with a
+                # Portuguese page in front of it. `generated` now means only: no template exists.
+                self.faltas += 1
+                if len(self.faltas_texto) < 3000:
+                    self.faltas_texto.append(plano)
+                return None
             self.gerados += 1
+            return None
+        if not i18n.translatable(texto):
+            # Not translatable by the rules — but if a reader would still see Portuguese here, it is
+            # a miss and the report has to say so. See i18n.parece_portugues().
+            if i18n.parece_portugues(plano):
+                self.faltas += 1
+                if len(self.faltas_texto) < 3000:
+                    self.faltas_texto.append(plano)
             return None
         self.faltas += 1
         if len(self.faltas_texto) < 3000:
-            self.faltas_texto.append(i18n.normalise(texto))
+            self.faltas_texto.append(plano)
         return None
 
     # ------------------------------------------------------------------ passes ---
@@ -153,17 +201,41 @@ class Tradutor:
         return "".join(saida)
 
     def bloco(self, m, raiz):
-        """A paragraph, heading or list item whose whole text is a known segment. Its inner HTML is
-        replaced by the translation and the entity linker is run again over it: entity names are
-        verbatim in every language, so the links the Portuguese page had come back by themselves."""
+        """A paragraph, heading or list item whose whole text is a known segment, replaced by the
+        translation. `raiz` is unused and kept so the two passes have one shape."""
         abre, etiqueta, dentro, fecha = m.groups()
+        if "data-verbatim" in abre:
+            # A builder has declared this element's text untranslatable — a name, a wordmark, a
+            # quotation. Declared where it is written, which is the only place that knows.
+            return abre + dentro + fecha
         if re.search(rf"<{etiqueta}\b", dentro, re.I):
             return m.group(0)          # nested block of the same kind: the regex cannot pair it
-        plano = ENTIDADE_HTML.sub(" ", TAGS.sub("", dentro)).replace("&amp;", "&")
+        # A tag becomes a SPACE, not nothing. Stripping it to nothing glued the masthead's wordmark
+        # to the beta badge beside it — «O Ecossistema Português de IAbeta» — and offered the pair
+        # to a translator as one phrase. Whitespace is collapsed by normalise() straight after, so
+        # the space costs nothing where one was already there.
+        if TAGS.search(dentro):
+            # MIXED CONTENT IS NOT A SEGMENT. Replacing the inner HTML of a paragraph that contains
+            # markup means rebuilding that markup from the translation, and the only links this
+            # renderer can put back are entity links. A paragraph like the footer's «Responsável:
+            # … O aviso.» carries a hand-made link to /aviso/ — which gate 14 requires on every page
+            # that names people — and the block pass was quietly deleting it. So a block is a
+            # segment only when its content is plain text; anything with a tag in it goes to the
+            # finer pass, which substitutes the runs BETWEEN the tags and cannot touch a link.
+            return abre + self.texto(dentro) + fecha
+        plano = html.unescape(dentro)
         if substituivel(plano):
             traduzido = self.procurar(plano)
             if traduzido is not None:
-                return abre + paginas.ligar_entidades(paginas.e(traduzido), raiz) + fecha
+                # NO RE-LINKING. An earlier version ran the entity linker over the translation, on
+                # the reasoning that entity names are verbatim in every language so the links would
+                # come back. Two things were wrong with it. The block pass now only fires on
+                # TAG-FREE content, so the Portuguese block had no links to bring back — the linker
+                # was ADDING links the page of record does not have. And each call carried its own
+                # «already linked» set, so a name linked once per block became four links to one
+                # entity on a page whose published formula allows one, which gate 24 caught on four
+                # pages. A translation of a paragraph with no links is a paragraph with no links.
+                return abre + paginas.e(traduzido) + fecha
         # Not a whole segment: fall through to the finer pass, which will catch the runs between
         # this paragraph's inline links.
         return abre + self.texto(dentro) + fecha
@@ -216,7 +288,10 @@ def cabeca(html, rel, loc, todos, estados):
     alternativas = [f'<link rel="alternate" hreflang="x-default" href="{url_pt}">',
                     f'<link rel="alternate" hreflang="pt-PT" href="{url_pt}">']
     for codigo in todos:
-        if estados.get(codigo) != "publicado":
+        # The language of record is already named twice above, as x-default and as pt-PT. Emitting it
+        # again from this loop produced `hreflang="pt" href="…/pt/"` — a path that does not exist,
+        # because the Portuguese tree IS the root and is not a locale directory.
+        if estados.get(codigo) != "publicado" or codigo == "pt":
             continue
         et = {"en-gb": "en-GB", "fr": "fr-FR", "de": "de-DE"}.get(codigo, codigo)
         alternativas.append(f'<link rel="alternate" hreflang="{et}" '
@@ -225,6 +300,34 @@ def cabeca(html, rel, loc, todos, estados):
     # Idempotent: the previous run's block goes before this one's goes in.
     html = re.sub(r'\n?<link rel="alternate" hreflang="[^"]*" href="[^"]*">', "", html)
     return html.replace("</head>", bloco + "\n</head>", 1)
+
+
+def seletor(pagina_html, rel, loc, reg):
+    """Rebuild the language run for THIS tree: the current mark on this locale, and every href
+    recomputed from this page's depth inside it.
+
+    The markup is generated once, in Portuguese, where the hrefs are relative and correct. One
+    directory deeper they are not, and the generic link pass cannot fix them either, because that
+    pass asks «is the target a page this run localised?» — and a link INTO another locale tree is
+    never that. So this is the one link on the page rewritten from its own data: `data-lang` says
+    which language each entry is for, and the rest follows from `rel`.
+    """
+    caminho = rel[:-len("index.html")] if rel.endswith("index.html") else rel
+    raiz = "../" * (caminho.rstrip("/").count("/") + (1 if caminho.strip("/") else 0) + 1)
+    por_codigo = {lc["codigo"]: lc for lc in reg["locales"]}
+
+    def um(m):
+        classes, codigo = m.group(1), m.group(2)
+        classes = " ".join(c for c in classes.split() if c != "aqui")
+        if codigo == loc:
+            classes += " aqui"
+        lc = por_codigo.get(codigo, {})
+        prefixo = "" if lc.get("e_registo") else codigo + "/"
+        return (f'<a class="{classes}" data-lang="{codigo}" '
+                f'hreflang="{lc.get("etiqueta_html", codigo)}" href="{raiz}{prefixo}{caminho}"')
+
+    return re.sub(r'<a class="([^"]*)" data-lang="([^"]+)" hreflang="[^"]*" href="[^"]*"',
+                  um, pagina_html)
 
 
 def ligacoes(html, rel, loc, conjunto):
@@ -241,13 +344,27 @@ def ligacoes(html, rel, loc, conjunto):
             alvo = u.lstrip("/")
             destino = alvo if alvo.endswith(".html") else alvo.rstrip("/") + "/index.html"
             return f'{attr}="/{loc}/{alvo}"' if destino in conjunto else m.group(0)
-        caminho = u.split("#")[0].split("?")[0]
-        alvo = posixpath.normpath(posixpath.join(pasta, caminho)) if caminho else ""
+        # RESOLVE, THEN RE-RELATIVISE. An earlier version simply prepended one «../» to anything
+        # that left the localised set, on the reasoning that a locale page sits one level deeper.
+        # That is right for a link written from the root — `assets/site.css` — and wrong for a link
+        # to a SIBLING file: an article page links `comentarios.json` beside it, and one extra «../»
+        # pointed at a directory that holds no such file. Resolving the target to a root-relative
+        # path and then asking posixpath for the way there from the locale page is right in both
+        # cases and in the ones nobody has written yet.
+        alvo_bruto = u.split("#")[0].split("?")[0]
+        if not alvo_bruto:
+            return m.group(0)                      # a bare fragment or query: same page either way
+        cauda = u[len(alvo_bruto):]
+        alvo = posixpath.normpath(posixpath.join(pasta, alvo_bruto))
         destino = alvo if alvo.endswith(".html") else (alvo.rstrip("/") + "/index.html"
                                                       if alvo not in ("", ".") else "index.html")
         if destino in conjunto:
-            return m.group(0)
-        return f'{attr}="../{u}"'
+            return m.group(0)                      # the locale tree mirrors: the same path is right
+        novo = posixpath.relpath(alvo, posixpath.join(loc, pasta) if pasta else loc)
+        if alvo_bruto.endswith("/") and not novo.endswith("/"):
+            novo += "/"
+        return f'{attr}="{novo}{cauda}"'
+
     return re.sub(r'\b(href|src)="([^"]*)"', um, html)
 
 
@@ -255,7 +372,9 @@ def aviso_de_lingua(html, loc, rel, cobertura):
     """One line, in the locale, saying what this page is and what it is not: a translation of a
     Portuguese page of record, and where that page is. On a site whose first rule is that a claim
     walks back to bytes, a translation has to say that it is one."""
-    original = f'/{rel.replace("index.html", "")}'
+    caminho = rel[:-len("index.html")] if rel.endswith("index.html") else rel
+    original = ("../" * (caminho.rstrip("/").count("/") + (1 if caminho.strip("/") else 0) + 1)
+                + caminho)
     texto = {
         "en-gb": ('This page is a translation. The page of record is the Portuguese one, and every '
                   'claim on it walks back to the bytes named there.'),
@@ -291,6 +410,7 @@ def render(loc, destino, estados, relatorio_apenas=False):
             continue
         html = cabeca(html, rel, loc, todos, estados)
         html = ligacoes(html, rel, loc, conjunto)
+        html = seletor(html, rel, loc, registo())
         html = aviso_de_lingua(html, loc, rel, cob)
         fora = destino / rel
         fora.parent.mkdir(parents=True, exist_ok=True)

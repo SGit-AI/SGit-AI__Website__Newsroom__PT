@@ -117,6 +117,12 @@ PASSOS = [
      "/<locale>/ for every language the editor has put in `publicado` — and nothing at all while "
      "they are all `preparado`, which is where they are. dados/i18n/locales.json is the switch and "
      "CLAUDE.md is the reason it is the editor's: it says what language a reader sees", False),
+    (["python3", "build/chrome.py"],
+     "chrome AGAIN, and this is not belt and braces. chrome.py writes llms.txt and sitemap.xml by "
+     "globbing the pages that exist, and locales.py has only just written /<locale>/. On the first "
+     "build of a clone the first pass cannot see them, the site gate then reports that llms.txt "
+     "does not name /en-gb/, and rule 7 says the sitemap agrees with the tree. Running it after the "
+     "locales is the whole fix", False),
     (["python3", "build/gates.py"],
      "the core gates (1-15), in the deny-listed file", True),
     (["python3", "build/gates_artigos.py"],

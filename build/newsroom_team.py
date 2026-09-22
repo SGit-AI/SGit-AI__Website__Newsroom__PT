@@ -422,7 +422,7 @@ def pagina_quadro(ag, q):
     <span class="path">paper issue {e(i["id"])} · {e(i["estado"])}{
         " · " + e(i["seccao"]) if i.get("seccao") else ""}</span>
   </div>
-  <p class="quote quote--sm" style="margin:0 0 6px"><a href="../redacao/">{e(i["titulo"])}</a>
+  <p class="quote quote--sm" style="margin:0 0 6px"><a href="../desk/">{e(i["titulo"])}</a>
     <span class="lang">PT</span></p>
   <p class="note" style="margin:0">By formula: {e(i["porque_aqui"])}</p>
 </div>""")

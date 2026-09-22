@@ -22,7 +22,7 @@
       "confirmed_claims": [
         "O portal digitalGOV afirma que o Regulamento Europeu de Inteligência Artificial é diretamente aplicável em Portugal."
       ],
-      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-09"
+      "url": "../deliveries/chatgpt-2026-09-15-politicas-2.html#item-pol-09"
     },
     {
       "id": "chatgpt-2026-09-15-politicas-2/item-pol-10",
@@ -40,7 +40,7 @@
       "confirmed_claims": [
         "O digitalGOV identifica um período de transição para sistemas disponíveis no mercado antes de 2 de agosto de 2026."
       ],
-      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-10"
+      "url": "../deliveries/chatgpt-2026-09-15-politicas-2.html#item-pol-10"
     },
     {
       "id": "chatgpt-2026-09-15-politicas-2/item-pol-11",
@@ -58,7 +58,7 @@
       "confirmed_claims": [
         "O Centro de Excelência em IA declara três funções nucleares: estratégica, operacional e de capacitação."
       ],
-      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html#item-pol-11"
+      "url": "../deliveries/chatgpt-2026-09-15-politicas-2.html#item-pol-11"
     },
     {
       "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-01",
@@ -74,7 +74,7 @@
       "without_bytes": 3,
       "why_it_matters": "Corrige diretamente a ausência de confirmação automatizada referida no primeiro artigo da redação e fornece o URL oficial, o número, a data, o diário e o emitente.",
       "confirmed_claims": [],
-      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-01"
+      "url": "../deliveries/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-01"
     },
     {
       "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-04",
@@ -90,7 +90,7 @@
       "without_bytes": 2,
       "why_it_matters": "Identifica a participação portuguesa na infraestrutura europeia, a infraestrutura nacional associada, o calendário formal e a entidade executora indicada.",
       "confirmed_claims": [],
-      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-04"
+      "url": "../deliveries/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-04"
     },
     {
       "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-06",
@@ -106,7 +106,7 @@
       "without_bytes": 3,
       "why_it_matters": "A Política Nacional de Dados surge no diploma como dependência operacional da IA, mas não foi localizada uma página oficial que confirme a sua aprovação autónoma ou estado de execução.",
       "confirmed_claims": [],
-      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-06"
+      "url": "../deliveries/chatgpt-pt-newsroom-2026-09-14-politicas.html#item-pol-06"
     },
     {
       "id": "issue-005",
@@ -120,7 +120,7 @@
         "Corrigir build/pdf.py: quando _aes_cbc devolve None por falta de dependência, Cifra tem de ficar com ok=False e uma razão que nomeie a dependência, como já acontece no AES-256. Uma limitação deste leitor nunca pode ser publicada como um achado sobre o documento de outrem — é o que o próprio docstring de build/entregas.py exige.",
         "Considerar um portão que leia um PDF conhecido e falhe a construção se ele deixar de dar texto. Uma prova que depende de quem a lê não é uma prova."
       ],
-      "url": "../../redacao/"
+      "url": "../../desk/"
     },
     {
       "id": "issue-008",
@@ -136,7 +136,7 @@
         "admin/build/validate.js fixa dois caminhos: admin/build/version.txt (linha 54) e admin/versions.html (linhas 69-75). Enquanto estiverem fixados ali, o registo de lançamentos e o ficheiro da versão não podem sair de /admin/. É o que mantém /admin/ vivo.",
         "admin/build/ é a cadeia de ferramentas — validate.js e render.mjs — e não é uma ação de administração do site. Pode ficar onde está, ou passar a build/, o que obriga a mexer no workflow do CI e no próprio validate.js."
       ],
-      "url": "../../redacao/"
+      "url": "../../desk/"
     },
     {
       "id": "issue-010",
@@ -152,7 +152,7 @@
         "Traduzir. `python3 build/i18n.py todo en-gb` emite exactamente os segmentos que faltam e mais nada; `apply` recusa qualquer tradução cujo hash de origem não conheça.",
         "build/chrome.py corre antes de build/locales.py, porque locales.py lê páginas acabadas. Logo o sitemap.xml e o llms.txt ainda não conhecem as páginas de locale, e a regra 7 diz que o sitemap concorda com a árvore. Antes de publicar: chrome.py corre uma segunda vez depois de locales.py, ou passa a ler dados/i18n/locales.json."
       ],
-      "url": "../../redacao/"
+      "url": "../../desk/"
     },
     {
       "id": "issue-011",
@@ -167,7 +167,7 @@
         "Depois: disparar o workflow à mão uma vez (workflow_dispatch) e ler o registo de execução que escrever, antes de confiar no agendamento.",
         "Decidir se uma execução agendada que falha deve avisar. Hoje não avisa ninguém, e foi por isso que quatro dias de falhas passaram sem ser notados."
       ],
-      "url": "../../redacao/"
+      "url": "../../desk/"
     },
     {
       "id": "ontology-new-types",
@@ -182,10 +182,17 @@
         "InstrumentoJuridico",
         "Organizacao"
       ],
-      "url": "../../entregas/"
+      "url": "../deliveries/"
     }
   ],
   "changes": [
+    {
+      "kind": "release",
+      "when": "2026-09-22",
+      "version": "v0.23.9",
+      "what": "English live at /en-gb/, English back-office addresses, a beta tag, and a coverage number that stopped lying",
+      "url": "../../admin/versions.html#v0.23.9"
+    },
     {
       "kind": "release",
       "when": "2026-09-22",
@@ -236,13 +243,6 @@
       "url": "../../admin/versions.html#v0.23.2"
     },
     {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.23.1",
-      "what": "The editor gets a page that asks him the questions, and the interview method arrives",
-      "url": "../../admin/versions.html#v0.23.1"
-    },
-    {
       "kind": "article",
       "when": "2026-09-15",
       "version": "",
@@ -282,14 +282,14 @@
       "when": "2026-09-15",
       "version": "",
       "what": "chatgpt delivery · 3 items, 3 of 4 claims found in the bytes",
-      "url": "../../entregas/chatgpt-2026-09-15-politicas-2.html"
+      "url": "../deliveries/chatgpt-2026-09-15-politicas-2.html"
     },
     {
       "kind": "delivery",
       "when": "2026-09-14",
       "version": "",
       "what": "chatgpt delivery · 8 items, 9 of 19 claims found in the bytes",
-      "url": "../../entregas/chatgpt-pt-newsroom-2026-09-14-politicas.html"
+      "url": "../deliveries/chatgpt-pt-newsroom-2026-09-14-politicas.html"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "pt-i18n-locales",
   "versao": "1.0.0",
-  "o_que_e": "The languages this site is prepared to serve, and the state of each. `estado` is the editor of record's switch and nothing else in this repository may set it to `publicado`: CLAUDE.md says what language a reader sees, CLAUDE.md is the editor's file, and a build that started serving English pages on its own would have decided that question for them. `preparado` means the machinery is built and proven and the pages are not written; `publicado` means build/locales.py renders the tree and every page links to it.",
+  "o_que_e": "The languages this site is prepared to serve, and the state of each. `estado` is the editor of record's switch and nothing else in this repository may set it to `publicado`: CLAUDE.md says what language a reader sees, CLAUDE.md is the editor's file, and a build that started serving English pages on its own would have decided that question for them. `preparado` means the machinery is built and proven and the pages are not written; `publicado` means build/locales.py renders the tree and every page links to it. Each locale also carries its own month and weekday names: a date line is a generated sentence, and build/i18n.py masks the number and the month out of it so that ONE translated template serves every date this site will ever print. Without these lists the template would be filled with Portuguese month names.",
   "lingua_de_registo": "pt",
   "porque_o_pt_e_a_lingua_de_registo": "Every claim on this site walks back to bytes, and those bytes are Portuguese: official journals, government pages, event programmes. The Portuguese page is the one whose sentences were checked against the frozen copy. A translation is a second reading of a checked page, and it says so on its face.",
   "locales": [
@@ -13,16 +13,62 @@
       "estado": "publicado",
       "e_registo": true,
       "ortografia": "AO90",
-      "nota": "The site itself. Not rendered by build/locales.py — it IS what build/locales.py reads."
+      "nota": "The site itself. Not rendered by build/locales.py — it IS what build/locales.py reads.",
+      "meses": [
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro"
+      ],
+      "dias": [
+        "segunda-feira",
+        "terça-feira",
+        "quarta-feira",
+        "quinta-feira",
+        "sexta-feira",
+        "sábado",
+        "domingo"
+      ]
     },
     {
       "codigo": "en-gb",
       "etiqueta_html": "en-GB",
       "nome": "Inglês",
       "nome_em_si": "English (United Kingdom)",
-      "estado": "preparado",
+      "estado": "publicado",
       "e_registo": false,
-      "nota": "First locale, and the one with source material of its own: the summit interviews were recorded in English. An item written in English is published in English first and Portuguese is then the translation — see `lingua_original` in docs/guidance/multilingual.md."
+      "nota": "First locale, and the one with source material of its own: the summit interviews were recorded in English. An item written in English is published in English first and Portuguese is then the translation — see `lingua_original` in docs/guidance/multilingual.md.",
+      "meses": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "dias": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ]
     },
     {
       "codigo": "fr",
@@ -30,7 +76,30 @@
       "nome": "Francês",
       "nome_em_si": "Français",
       "estado": "preparado",
-      "e_registo": false
+      "e_registo": false,
+      "meses": [
+        "janvier",
+        "février",
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet",
+        "août",
+        "septembre",
+        "octobre",
+        "novembre",
+        "décembre"
+      ],
+      "dias": [
+        "lundi",
+        "mardi",
+        "mercredi",
+        "jeudi",
+        "vendredi",
+        "samedi",
+        "dimanche"
+      ]
     },
     {
       "codigo": "de",
@@ -38,7 +107,30 @@
       "nome": "Alemão",
       "nome_em_si": "Deutsch",
       "estado": "preparado",
-      "e_registo": false
+      "e_registo": false,
+      "meses": [
+        "Januar",
+        "Februar",
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "Dezember"
+      ],
+      "dias": [
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+        "Sonntag"
+      ]
     }
   ],
   "o_que_falta_para_publicar": [

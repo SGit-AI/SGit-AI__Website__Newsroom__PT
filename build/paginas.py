@@ -36,10 +36,30 @@ SECCOES = [
 # machinery: it is the door to the two hundred names this site already knows something about.
 EXTRA = [("entidades", "Entidades"), ("registo", "Registo"), ("grafo", "Grafo")]
 
+# THE SITE'S SHORT VOCABULARY, declared because it cannot be detected.
+#
+# These are the one- and two-word Portuguese labels the builders write inside f-strings: the utility
+# run, the counters on the front page, the state words on a card. build/i18n.py skips anything under
+# two words on purpose — one word is usually a name — and the accent test that finds the rest misses
+# «Aviso», «Fontes», «Oradores». Detecting them by shape was tried and pulled in the console's own
+# English along with them, because two words is not enough to tell one language from another.
+#
+# So they are a list. A label added to a page and not added here stays Portuguese in every locale,
+# which is the visible failure rather than the silent one; `python3 build/locales.py --relatorio`
+# counts it.
+VOCABULARIO = [
+    "Aviso", "Método", "Fontes", "Oradores", "Organizações", "Programa", "Entregas", "Pesquisa",
+    "Redação", "Verificação", "Nesta edição", "O que sustenta", "Assenta em", "Entidades",
+    "Registo", "Grafo", "Diáspora", "Empresas", "Eventos", "Protagonistas", "Instituições",
+    "Políticas", "Sessões", "Palcos", "Temas", "Artigos", "Histórias", "Secções", "Capturas",
+    "Afirmações", "Confirmadas", "Disputadas", "Não encontradas", "Publicado", "Rascunho",
+    "Verificado", "Procurado", "Substituído", "A primeira página", "Ler mais", "Ver tudo",
+]
+
 # The machinery pages, in the footer rather than the masthead.
 RODAPE = [
     ("artigos", "Os artigos"), ("metodo", "Método"), ("equipa", "A redação"),
-    ("entregas", "Entregas de investigação"), ("redacao", "A mesa"),
+    ("admin/deliveries", "Entregas de investigação"), ("desk", "A mesa"),
     ("carteira", "A carteira"),
     ("ficheiros", "Os ficheiros"), ("aviso", "Aviso de proteção de dados"),
     ("sobre", "Sobre e limites"),
@@ -70,7 +90,65 @@ def carregar(n):
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
 
 
-def utilitarios(raiz, no_console=False):
+def linguas_publicadas():
+    """The locales dados/i18n/locales.json has in `publicado`, in register order. Read at build time
+    rather than listed here, because the switch that publishes a language is the editor's and must
+    not need a second edit in a builder to take effect."""
+    f = DADOS / "i18n" / "locales.json"
+    if not f.exists():
+        return []
+    reg = json.loads(f.read_text(encoding="utf-8"))
+    return [lc for lc in reg["locales"] if lc.get("estado") == "publicado"]
+
+
+# The first path segment of every tree build/locales.py does not mirror. Listed here as well as
+# there because the switcher must not offer a reader a page that was never rendered: a language run
+# with a dead link in it is worse than no language run.
+SEM_LOCALE = {"assets", "fontes", "ficheiros", "dados", "api", "newsroom", "admin", "redacao",
+              "briefs", "docs", "build", "seccoes", "agents", "equipa"}
+
+
+def seletor_de_lingua(caminho, raiz_dada=None):
+    """The language run, and it points at THIS page in the other language rather than at that
+    language's front door.
+
+    A switcher that always lands on the home page makes a reader who is four levels deep pay for
+    changing language by losing their place, and it is the commonest way multilingual navigation is
+    got wrong. The hrefs are root-absolute — `/en-gb/registo/` — for one specific reason:
+    build/locales.py rewrites RELATIVE links when it mirrors a page one level deeper, and a relative
+    switcher would have to be excluded from that by name. An absolute path is already correct in
+    every copy of the page, in every tree.
+
+    `data-lang` is how the locale renderer knows which entry to mark as current in its own copy: the
+    markup is generated once, in Portuguese, and the mark has to move per tree.
+
+    THE CONSOLE GETS ONE TOO, pointing at each language's front door. Not because the back office is
+    translated — it is in English by the language rule — but because gate 33 requires the utility run
+    to be IDENTICAL in both chromes, and it is right: the panel must not move when a reader crosses
+    between them. Adding the run to one side and not the other changed its height by 3px, and the
+    browser gate measured it.
+    """
+    publicadas = linguas_publicadas()
+    if len(publicadas) < 2:
+        return ""                      # one language is not a choice, and a switch with one item is
+    if raiz_dada is None and caminho.split("/")[0] in SEM_LOCALE:
+        return ""     # a page with no locale twin: a language run with a dead link is worse than none
+    if raiz_dada is None:
+        profundidade = caminho.rstrip("/").count("/") + (1 if caminho.strip("/") else 0)
+        raiz = "../" * profundidade
+    else:
+        raiz = raiz_dada        # the console knows its own depth and is not a page of the paper
+    fora = []
+    for lc in publicadas:
+        prefixo = "" if lc.get("e_registo") else lc["codigo"] + "/"
+        aqui = " aqui" if lc.get("e_registo") else ""
+        fora.append(f'<a class="lang{aqui}" data-lang="{lc["codigo"]}" '
+                    f'hreflang="{lc["etiqueta_html"]}" href="{raiz}{prefixo}{caminho}" '
+                    f'title="{e(lc["nome_em_si"])}">{e(lc["codigo"].split("-")[0].upper())}</a>')
+    return f'<span class="langs" aria-label="Língua">{"".join(fora)}</span>'
+
+
+def utilitarios(raiz, no_console=False, caminho=None):
     """The utility run at the top right, IDENTICAL on the paper and in the back office.
 
     THE MENU MUST NOT MOVE WHEN YOU CROSS BETWEEN THEM, and before v0.11.0 it moved a lot: the
@@ -96,6 +174,11 @@ def utilitarios(raiz, no_console=False):
         f'<a href="{raiz}metodo/">Método</a>'
         f'<a href="{raiz}api/">API</a>'
         f'{atravessar}'
+        # A PLACEHOLDER, NOT A CALL. `utilitarios()` is generated once with `{raiz}` and `{pagina}`
+        # still in it and substituted later by whoever knows the page — so at this point `caminho` is
+        # the literal «{pagina}» and any depth computed from it is zero. The switcher needs the real
+        # path, so it is emitted as a marker and built in `pagina()`.
+        f'{"{seletor}" if caminho is not None else ""}'
         # The wallet is a LINK to its own page, not a panel over this one. See pt-wallet.js: the
         # editor asked for the spend on a page of its own, and a ledger worth reading is worth a
         # URL. The component still debits the page it is on — that is the demonstration — it just
@@ -213,7 +296,7 @@ def datalinha(hoje, dias=None):
     # visually subordinate; `.datalinha` is editorial — Lisbon, the date, the countdown — in the
     # serif, ruled top and bottom, sitting directly above the masthead where a newspaper puts it.
     # Same links, legible ranking. The operator strip collapses to one scrollable line on a phone.
-    return (utilitarios("{raiz}")
+    return (utilitarios("{raiz}", caminho="{pagina}")
             + f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}</div>')
 
 
@@ -230,6 +313,26 @@ def data_pt(iso, com_dia_da_semana=True):
     return f"{DIAS[d.weekday()]}, {base}" if com_dia_da_semana else base
 
 
+def selo_beta(raiz, lingua="pt"):
+    """The beta tag. One word in the masthead, linking to the page that says what is unfinished.
+
+    The editor asked for it plainly: this is a beta newspaper and should say so, the way Google
+    carried a beta tag for years. On a site whose whole proposition is that a claim walks back to
+    bytes, the tag is not modesty — it is the same promise turned on the publication itself. So it
+    links to /sobre/, «o que é real neste site hoje, o que ainda não é», and not to nothing.
+
+    The word is the same in every language this site serves, which is why it is not a translatable
+    segment: `beta` is one word, and build/i18n.py sends nothing shorter than two.
+    """
+    titulo = {"pt": "Este jornal está em beta: o que é real hoje, e o que ainda não é",
+              "en-gb": "This paper is in beta: what is real today, and what is not yet",
+              "fr": "Ce journal est en version bêta : ce qui est réel aujourd'hui, et ce qui ne "
+                    "l'est pas encore",
+              "de": "Diese Zeitung ist im Beta-Stadium: was heute belegt ist und was noch nicht"}
+    return (f'<a class="beta" href="{raiz}sobre/" '
+            f'title="{e(titulo.get(lingua, titulo["pt"]))}">beta</a>')
+
+
 def mancheta(aqui, raiz):
     ligacoes = []
     for sid, rot in SECCOES:
@@ -241,7 +344,9 @@ def mancheta(aqui, raiz):
         ligacoes.append(f'<a href="{raiz}{sid}/"{cls}>{rot}</a>')
     return (
         f'<div class="mast">'
-        f'<h1 class="nome"><a href="{raiz}">{e(TITULO)}</a></h1>'
+        # data-verbatim: this element's text is the publication's NAME with the badge beside it, and
+        # build/locales.py must not offer the pair to a translator as a phrase. See i18n.verbatim().
+        f'<h1 class="nome" data-verbatim><a href="{raiz}">{e(TITULO)}</a>{selo_beta(raiz)}</h1>'
         f'<div class="sub"><a href="{raiz}">{e(SUBTITULO)}</a></div>'
         f'<div class="lema">{e(LEMA)}</div></div>'
         f'<nav class="nav">{"".join(ligacoes)}</nav>'
@@ -407,7 +512,11 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
     canonico = canonico.replace("/index.html", "/")
     hoje = (carregar("registo.json") or {}).get("atualizado", "2026-09-14")
     dias = dias_para_evento(hoje)
-    cabeca = datalinha(hoje, dias).replace("{raiz}", raiz or "")
+    caminho_da_pagina = rel[:-len("index.html")] if rel.endswith("index.html") else rel
+    cabeca = (datalinha(hoje, dias)
+              .replace("{seletor}", seletor_de_lingua(caminho_da_pagina))
+              .replace("{raiz}", raiz or "")
+              .replace("{pagina}", caminho_da_pagina))
     fecho = (f'{bloco_declaracao(nomeia_pessoas, raiz) if com_declaracao else ""}'
              f'{rodape(raiz)}{bloco_agente(rel, fontes_n, raiz)}')
     if corpo_em_bandas:

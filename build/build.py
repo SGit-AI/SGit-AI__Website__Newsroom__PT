@@ -352,9 +352,9 @@ def primeira(d):
       <div class="col sp6"><div class="mono xs">04</div><h3 class="h-3">Publicação</h3>
         <p class="sm">É um passo de build. O arquivo é o git. Sem palco, sem opinião.</p></div>
     </div>
-    <p class="sm"><a href="redacao/">A mesa</a> mostra o quadro, o correio entre os departamentos e
+    <p class="sm"><a href="desk/">A mesa</a> mostra o quadro, o correio entre os departamentos e
       as afirmações de cada história coloridas pelo seu registo de verificação.
-      <a href="entregas/">As entregas de investigação</a> mostram o que assistentes exteriores
+      <a href="admin/deliveries/">As entregas de investigação</a> mostram o que assistentes exteriores
       trouxeram, e o que aconteceu quando esta redação foi procurar cada excerto nos bytes.</p>
   </div>
   <div class="col sp10 escuro" style="grid-column:span 4">
@@ -691,7 +691,7 @@ def registo(d):
         fichas = []
         m = re.fullmatch(r"[^/]+/entregas/([^/]+)/(.+)", sid)
         if m and m.group(1) in ids_de_entrega:
-            fichas.append(f'<a class="chip" href="../entregas/{e(m.group(1))}.html#{e(m.group(2))}">'
+            fichas.append(f'<a class="chip" href="../admin/deliveries/{e(m.group(1))}.html#{e(m.group(2))}">'
                           f'a entrega · {e(m.group(2))}</a>')
         for h in a["artigos"]:
             fichas.append(f'<a class="chip ok" href="../{e(h["url"])}">'
@@ -938,7 +938,7 @@ def entregas_indice(d):
     if not ent or not ent["entregas"]:
         corpo = ('<div class="rule" style="padding:26px 0 8px"><div class="sect">Entregas de '
                  'investigação</div></div><p class="std">Ainda não chegou nenhuma.</p>')
-        return pagina("entregas/index.html", "Entregas de investigação",
+        return pagina("admin/deliveries/index.html", "Entregas de investigação",
                       "O que assistentes exteriores trouxeram, e o que aconteceu quando esta "
                       "redação foi procurar cada excerto nos bytes.", corpo, aqui=None)
 
@@ -988,7 +988,8 @@ def entregas_indice(d):
             f'<div class="mono xs">{e(f)} · {n_linhas} linhas</div>'
             f'<h3 class="h-3">{e(titulo)}</h3>'
             f'<p class="sm">{e(porque)}</p>'
-            f'<a class="mono xs ac" href="../briefs/pack/08__research-briefs/{e(f)}">Ler o resumo →</a>'
+            f'<a class="mono xs ac" href="../../briefs/pack/08__research-briefs/{e(f)}">'
+            f'Ler o resumo →</a>'
             f'</div>')
     briefs = "".join(cartoes_b)
     corpo = f"""
@@ -1039,7 +1040,7 @@ razão por que uma entrega pode falhar a validação sem falhar como investigaç
 entidade que a ontologia ainda não tem é uma proposta de vocabulário, e essa é uma decisão do
 editor sobre a ontologia, não um defeito da entrega.</p>
 """
-    return pagina("entregas/index.html", "Entregas de investigação",
+    return pagina("admin/deliveries/index.html", "Entregas de investigação",
                   "O que assistentes exteriores trouxeram, e o que aconteceu quando esta redação "
                   "congelou cada fonte e foi procurar cada excerto nos bytes.",
                   corpo, aqui=None, fontes_n=sum(x["contagens"]["fontes"] for x in ent["entregas"]))
@@ -1297,7 +1298,8 @@ admin/build/validate.js</code>. Os dois portões têm de imprimir OK antes de a 
 ter feito · {len(x["consultas"])}</div></div>
 <ul style="columns:2;column-gap:40px">{consultas}</ul>
 """
-    return pagina(f"entregas/{x['id']}.html", f"Entrega {x['ferramenta']} · {x['data']}",
+    return pagina(f"admin/deliveries/{x['id']}.html",
+                  f"Entrega {x['ferramenta']} · {x['data']}",
                   f"Uma entrega de investigação de {x['ferramenta']}, com cada afirmação conferida "
                   f"contra os bytes congelados da fonte que cita.",
                   corpo, aqui=None, fontes_n=c["fontes"])
@@ -1387,7 +1389,7 @@ ficheiros.</p>
       </table></div></div>
 </div>
 """
-    return pagina("redacao/index.html", "A mesa",
+    return pagina("desk/index.html", "A mesa",
                   "O quadro de trabalho, o correio entre os departamentos e o registo de cada "
                   "execução. Tudo a partir dos ficheiros que os agentes escreveram.",
                   corpo, aqui=None,
@@ -1628,7 +1630,7 @@ a prova, depois a afirmação.</h1>
 <div class="col sp10"><div class="sect">O que ainda não é</div>
 <ul>
 <li class="sm"><b>Nenhuma história publicada.</b> As três primeiras estão como issues em
-  <a href="../redacao/">a mesa</a>, no estado «procurado». Publicar é a linha do editor de registo,
+  <a href="../desk/">a mesa</a>, no estado «procurado». Publicar é a linha do editor de registo,
   e nenhuma execução automática a pode escrever.</li>
 <li class="sm"><b>A camada das empresas não pode ser completa.</b> Não há registo comercial aberto
   em Portugal: o registo é por empresa, pago e com código de acesso, e o registo de beneficiários
@@ -1767,11 +1769,11 @@ def main():
     feitas.append(escrever("equipa/index.html", equipa(d)))
     feitas.append(escrever("aviso/index.html", aviso(d)))
     feitas.append(escrever("sobre/index.html", sobre(d)))
-    feitas.append(escrever("redacao/index.html", mesa(d)))
+    feitas.append(escrever("desk/index.html", mesa(d)))
     feitas.append(escrever("admin/review/index.html", review(d)))
-    feitas.append(escrever("entregas/index.html", entregas_indice(d)))
+    feitas.append(escrever("admin/deliveries/index.html", entregas_indice(d)))
     for x in (d["entregas"] or {}).get("entregas", []):
-        feitas.append(escrever(f"entregas/{x['id']}.html", entrega_pagina(x, d)))
+        feitas.append(escrever(f"admin/deliveries/{x['id']}.html", entrega_pagina(x, d)))
     # An article is its dated folder, and build/artigos.py renders it there from artigo.md. This
     # used to render a SECOND copy of every published article at artigos/<slug>.html out of
     # conteudo/<slug>.md — a path that predates the dated folders and that nothing ever exercised,
