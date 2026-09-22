@@ -359,6 +359,22 @@
       },
       "aberto_em": "2026-09-18",
       "de": "redacao/issues/009"
+    },
+    {
+      "id": "010",
+      "titulo": "A regra da língua em CLAUDE.md é o que separa três línguas prontas de três línguas publicadas",
+      "seccao": "politicas",
+      "estado": "bloqueado",
+      "especie": "issue",
+      "url": null,
+      "issue": "010",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "sessao-a-linha-de-publicacao",
+        "quando": "2026-09-22"
+      },
+      "aberto_em": "2026-09-22",
+      "de": "redacao/issues/010"
     }
   ],
   "execucoes": [
@@ -772,7 +788,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 12,
+    "cartoes": 13,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,

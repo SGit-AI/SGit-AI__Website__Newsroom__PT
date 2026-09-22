@@ -100,9 +100,19 @@ def main(argv):
     print(f"  on {remoto}: {deles}")
     print(f"  in your tree: {minha}")
     if como_numero(minha) <= como_numero(deles):
+        # THE MINOR IS THE THIRD COMPONENT. This line used to advise `v{a}.{b+1}.0` — the second
+        # component — and that is a major release. CLAUDE.md says every push to `dev` is a MINOR
+        # release, and the tag job in .github/workflows/deploy-pages.yml computes NEXT_MINOR from
+        # the third component and REJECTS a tag that is neither that nor NEXT_MAJOR. So the advice
+        # this file gave sent a session to write a release note under a number CI would refuse,
+        # which is a failure discovered after the note is written and the tree is green.
         a, b, c = como_numero(deles)[:3] if len(como_numero(deles)) >= 3 else (0, 0, 0)
-        print(f"  \033[31mTAKEN.\033[0m {deles} is already released. Take v{a}.{b + 1}.0, rename "
-              f"your note in admin/versions/, fix admin/versions.json, and re-run build/tudo.py.")
+        print(f"  \033[31mTAKEN.\033[0m {deles} is already released. Take "
+              f"\033[1mv{a}.{b}.{c + 1}\033[0m — the minor is the THIRD component and a push to "
+              f"dev is a minor release. Rename your note in admin/versions/, fix "
+              f"admin/versions.json, and re-run build/tudo.py.")
+        print(f"  (v{a}.{b + 1}.0 is the MAJOR, and CI accepts it only when the release really is "
+              f"one. See docs/guidance/releasing.md.)")
     else:
         print("  \033[32mfree\033[0m — nobody has published this number")
 

@@ -1,9 +1,9 @@
 {
   "id": "pt-documentos",
   "versao": "0.1.0",
-  "atualizado": "2026-09-18",
+  "atualizado": "2026-09-22",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 120,
+  "contagem": 122,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -244,6 +244,14 @@
       "bytes": 3077,
       "linhas": 47,
       "palavras": 533
+    },
+    {
+      "caminho": "admin/versions/v0.23.6.md",
+      "titulo": "v0.23.6",
+      "categoria": "Repository root",
+      "bytes": 1775,
+      "linhas": 25,
+      "palavras": 319
     },
     {
       "caminho": "admin/versions/v0.3.0.md",
@@ -780,6 +788,14 @@
       "bytes": 5065,
       "linhas": 81,
       "palavras": 812
+    },
+    {
+      "caminho": "docs/guidance/multilingual.md",
+      "titulo": "Multilingual, and how the bill stays flat",
+      "categoria": "Guidance — read first",
+      "bytes": 13747,
+      "linhas": 253,
+      "palavras": 2304
     },
     {
       "caminho": "docs/guidance/principles.md",

@@ -16,17 +16,17 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.6" title="O que mudou em v0.23.6, e porquê">v0.23.6</a></div>
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.7" title="O que mudou em v0.23.7, e porquê">v0.23.7</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.6</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../newsroom/team.html">Team</a><a class="nav" href="../../newsroom/agents.html">Agent activity</a><a class="nav" href="../../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../newsroom/guidance.html">Guidance</a><a class="nav" href="../../newsroom/interviews.html">Interviews</a><a class="nav" href="../../newsroom/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.7</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../newsroom/team.html">Team</a><a class="nav" href="../../newsroom/agents.html">Agent activity</a><a class="nav" href="../../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../newsroom/guidance.html">Guidance</a><a class="nav" href="../../newsroom/interviews.html">Interviews</a><a class="nav" href="../../newsroom/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>More than one session at a time</h1></div></div>
 
 
-<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 6 of 6</div></div>
+<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 6 of 7</div></div>
 <h2 class="h-lead">More than one session at a time</h2>
 <p class="std">Three Claude Code sessions work on this repository at once, each with a different focus. That is the normal condition here, not an exception to plan around — and everything on this page is written from collisions that actually happened, in one week, between sessions on this site. None of it is hypothetical.</p>
 <p class="std"><b>The short version.</b> Run <code>python3 build/before_push.py</code> before you choose a version number, and again after any merge. Take your version number <b>last</b>, not first. Resolve a conflict in a generated file by rebuilding, never by hand. And when the other session rewrote a file wholesale, read your own lines in it afterwards — a clean merge is not evidence that your work survived.</p>
@@ -68,7 +68,7 @@
 <p class="std">The cheapest thing you can do is give each session a <b>different area of the tree</b>, because gate 12 already enforces area boundaries and two sessions in different areas essentially cannot collide. The three things that collide regardless of area are the shared counters — the version number, the gate number — and the stylesheet. Those are now gated. Everything else is reading.</p>
 
 <div class="rule" style="padding:26px 0 8px"><div class="sect">Next</div></div>
-<p class="sm"><a href="releasing.html">← Releasing, and the four things that go quiet</a></p>
+<p class="sm"><a href="releasing.html">← Releasing, and the four things that go quiet</a> · <a href="multilingual.html">Multilingual, and how the bill stays flat →</a></p>
 <p class="xs" style="padding-top:12px">This page is rendered from
 <a href="../../docs/guidance/concurrent-sessions.md"><code>docs/guidance/concurrent-sessions.md</code></a> by <code>build/guia.py</code>. The
 markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
@@ -78,7 +78,7 @@ markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
 <b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>newsroom/guidance/concurrent-sessions.html</code> · version <span class="ver">v0.23.6</span>.
+<code>newsroom/guidance/concurrent-sessions.html</code> · version <span class="ver">v0.23.7</span>.
 </div>
 
 </main>

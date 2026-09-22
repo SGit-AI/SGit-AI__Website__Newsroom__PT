@@ -1,10 +1,10 @@
 {
   "id": "pt-review",
   "version": "1.0.0",
-  "updated": "2026-09-18",
+  "updated": "2026-09-22",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
-  "count": 9,
+  "count": 10,
   "questions": [
     {
       "id": "chatgpt-2026-09-15-politicas-2/item-pol-09",
@@ -139,6 +139,22 @@
       "url": "../../redacao/"
     },
     {
+      "id": "issue-010",
+      "kind": "issue",
+      "for_agent": "whoever the editor authorises",
+      "file": "redacao/issues/010-a-regra-da-lingua-e-as-tres-linguas.json",
+      "question": "A regra da língua em CLAUDE.md é o que separa três línguas prontas de três línguas publicadas",
+      "section": "politicas",
+      "why_it_matters": "CLAUDE.md está na lista de recusa de .claude/settings.json: `Edit(CLAUDE.md)`. Uma sessão que pode reescrever a constituição pela qual é julgada não está a ser julgada por nada. Não se contorna por Write, nem por Bash, nem por um ficheiro ao lado que diga o contrário — seria a mesma edição com outro nome. A linha é do editor de registo.",
+      "what_is_missing": [
+        "CLAUDE.md, secção «Language»: a emenda. Proposta abaixo, palavra a palavra.",
+        "dados/i18n/locales.json: pôr `estado` em «publicado» na língua que for para o ar. Depois da emenda, e uma língua de cada vez.",
+        "Traduzir. `python3 build/i18n.py todo en-gb` emite exactamente os segmentos que faltam e mais nada; `apply` recusa qualquer tradução cujo hash de origem não conheça.",
+        "build/chrome.py corre antes de build/locales.py, porque locales.py lê páginas acabadas. Logo o sitemap.xml e o llms.txt ainda não conhecem as páginas de locale, e a regra 7 diz que o sitemap concorda com a árvore. Antes de publicar: chrome.py corre uma segunda vez depois de locales.py, ou passa a ler dados/i18n/locales.json."
+      ],
+      "url": "../../redacao/"
+    },
+    {
       "id": "ontology-new-types",
       "kind": "ontology",
       "for_agent": "the session that touches the ontology",
@@ -155,6 +171,13 @@
     }
   ],
   "changes": [
+    {
+      "kind": "release",
+      "when": "2026-09-22",
+      "version": "v0.23.7",
+      "what": "Three languages engineered so the bill stays flat, and not one page published",
+      "url": "../../admin/versions.html#v0.23.7"
+    },
     {
       "kind": "release",
       "when": "2026-09-18",
@@ -203,13 +226,6 @@
       "version": "v0.23.0",
       "what": "The messages say where things are, and the rule that let them be corrected",
       "url": "../../admin/versions.html#v0.23.0"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.22.0",
-      "what": "The English migration, mapped and proven — and stopped at a wall it may not climb",
-      "url": "../../admin/versions.html#v0.22.0"
     },
     {
       "kind": "article",

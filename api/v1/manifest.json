@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 32,
+  "contagem": 34,
   "ficheiros": [
     {
       "ficheiro": "dados/agentes.json",
@@ -23,7 +23,7 @@
     {
       "ficheiro": "dados/correio.json",
       "bytes": 33443,
-      "sha256": "7bf639c099119ff749b06b43864b35fb05ba5fb59b59354a585b2572aa2845d2"
+      "sha256": "7c03d94a44d8a3ac90dbc6f6f9fea5ba2a375d04bef7e59767ed0e26d039d2d8"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 27623,
-      "sha256": "bbdf07083327acbb8eb8146d2743772e67638c4c06978c1d61ae7f82dfe73cb6"
+      "bytes": 28046,
+      "sha256": "52d929796423e807d278a110599069a720c13375213659f684438b412007f1a5"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -81,6 +81,16 @@
       "sha256": "093c8aff60de7e65b83528e15243bda20197d8a5fa60fbdc3a700fc47846d44c"
     },
     {
+      "ficheiro": "dados/i18n/fontes.json",
+      "bytes": 632685,
+      "sha256": "2592e15c680135a8b5988c274717619efabc7d7cf7438cb3d5276db1acce5fce"
+    },
+    {
+      "ficheiro": "dados/i18n/locales.json",
+      "bytes": 3164,
+      "sha256": "5776c4762f624a42581525d77cca8b007e363a50013d921ea74d16e243bc39b5"
+    },
+    {
       "ficheiro": "dados/interviews.json",
       "bytes": 112979,
       "sha256": "f32993c6dec17090db674ebc0a6003713342172d635b25f3327c803de237269d"
@@ -92,8 +102,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 5349,
-      "sha256": "a2e1b062bcf34700876fe158ff54d23689324fabaf0e1dbd93d4fdc325748b74"
+      "bytes": 5674,
+      "sha256": "9129d292eed42e5576c4caca0a5ee3091b343b6832d869ca1af6f7cc0c429b60"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -123,12 +133,12 @@
     {
       "ficheiro": "dados/quadro.json",
       "bytes": 63735,
-      "sha256": "7cd09d7ef029c38dce2fa99e2cd506c9c65eb1dd90cef9107dd14d2250b9a602"
+      "sha256": "1f773cc1b7234f0467067579ca20e17cbc04da04269ac788a88d136444971ac3"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 20669,
-      "sha256": "dd42bf851e42347a6f2190c0bb6f79aff2e0e83b93e74a7e0319c4849de1a702"
+      "bytes": 21142,
+      "sha256": "45e3e32d70f2c328e815e2424df942ae402e39852667173c61b68adce1a0044d"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -137,8 +147,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 13254,
-      "sha256": "90495d85bef14626de32ea3db95478a10ea786ee081afcc225397208980586c1"
+      "bytes": 14790,
+      "sha256": "796c0692da4e22983c9a63e009b5360525b3aedca33999c88569f8a4a5686d2e"
     },
     {
       "ficheiro": "dados/sessoes.json",

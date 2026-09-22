@@ -1,0 +1,35 @@
+{
+  "id": "010",
+  "titulo": "A regra da língua em CLAUDE.md é o que separa três línguas prontas de três línguas publicadas",
+  "seccao": "politicas",
+  "estado": "bloqueado",
+  "aberto_em": "2026-09-22",
+  "ultimo_toque": {
+    "quem": "sessao-a-linha-de-publicacao",
+    "quando": "2026-09-22"
+  },
+  "enquadramento": "O editor pediu: «make our pt.newsroom.sgit.ai main site proper multi lingual, by adding English, French and German support at pt.newsroom.sgit.ai/{language-locale}». A máquina está construída, provada e com portão. Não serve uma única página, e a razão é uma frase em CLAUDE.md que nenhuma sessão automática pode editar — de propósito, porque é a constituição deste sítio e não uma preferência de configuração.",
+  "de_onde_vem": "CLAUDE.md, secção «Language», primeira linha",
+  "a_frase_que_bloqueia": "«Everything a reader sees is European Portuguese under AO90. Section names are the brief's: as empresas, os protagonistas, as instituições, as políticas, os casos de uso, o código aberto, a diáspora, os eventos.»",
+  "o_que_ja_se_tem": [
+    "build/i18n.py — a memória de tradução. A chave de um segmento é o SHA-256 do seu próprio texto de origem, logo uma tradução velha nunca pode ser servida para texto novo: é uma falha de cache, que o portão conta. 959 segmentos, 18 948 palavras, para as 223 páginas de leitura.",
+    "build/locales.py — o renderizador. Lê as páginas portuguesas acabadas e escreve /<locale>/ com substituição por segmento, hreflang recíproco, <html lang>, e uma linha no topo de cada página a dizer que é uma tradução e onde está o original.",
+    "build/gates_i18n.py — o portão 44. Confere que a chave de cada segmento é o hash do seu texto, que cada língua publicada espelha o conjunto de páginas português, e que cada excerto, cada nome e cada leitura do grafo é byte a byte igual em todas as línguas.",
+    "dados/i18n/locales.json — o registo das línguas. As três estão em «preparado». O campo `estado` é o interruptor e está descrito como sendo do editor de registo.",
+    "docs/guidance/multilingual.md — as seis decisões de engenharia, com os números medidos neste repositório: 18 948 palavras de origem contra 186 101 da renderização, e porque a segunda coluna (pagar por construção em vez de por frase) é a que decide o custo a um ano.",
+    "PROVADO, não afirmado: um ensaio com a memória cheia chega a 100,0% de cobertura nas 223 páginas, e o portão 44 apanhou os dois atos de sabotagem com que foi testado — um excerto traduzido e uma página apagada."
+  ],
+  "o_que_falta": [
+    "CLAUDE.md, secção «Language»: a emenda. Proposta abaixo, palavra a palavra.",
+    "dados/i18n/locales.json: pôr `estado` em «publicado» na língua que for para o ar. Depois da emenda, e uma língua de cada vez.",
+    "Traduzir. `python3 build/i18n.py todo en-gb` emite exactamente os segmentos que faltam e mais nada; `apply` recusa qualquer tradução cujo hash de origem não conheça.",
+    "build/chrome.py corre antes de build/locales.py, porque locales.py lê páginas acabadas. Logo o sitemap.xml e o llms.txt ainda não conhecem as páginas de locale, e a regra 7 diz que o sitemap concorda com a árvore. Antes de publicar: chrome.py corre uma segunda vez depois de locales.py, ou passa a ler dados/i18n/locales.json."
+  ],
+  "emenda_proposta": {
+    "onde": "CLAUDE.md, secção «Language», a substituir a primeira linha",
+    "texto": "- Portuguese is the language of RECORD. Every claim on this site was checked against frozen bytes that are Portuguese, so the Portuguese page is the page of record and its orthography is European Portuguese under AO90. Section names are the brief's: as empresas, os protagonistas, as instituições, as políticas, os casos de uso, o código aberto, a diáspora, os eventos.\n- A reader may be served a TRANSLATION of a page of record, at `/<locale>/`, for the locales `dados/i18n/locales.json` puts in `publicado` — and only the editor of record sets that field. A translated page says on its face that it is a translation and links to the Portuguese original. No excerpt, no name and no verb of the graph is ever translated: gate 44 asserts they are byte-identical in every language.\n- An item whose SOURCE is another language — an interview recorded in English — is published in that language first and Portuguese is then its translation. The language of record for the site does not change; the language of origin for that item is recorded.",
+    "porque_assim": "A emenda não afrouxa a regra, muda-lhe o eixo: passa de «tudo o que um leitor vê é português» para «tudo o que um leitor vê anda para trás até uma página portuguesa que foi conferida contra bytes». É a mesma exigência de proveniência, dita de uma maneira que uma tradução pode cumprir e que uma invenção em inglês não pode."
+  },
+  "porque_esta_bloqueado": "CLAUDE.md está na lista de recusa de .claude/settings.json: `Edit(CLAUDE.md)`. Uma sessão que pode reescrever a constituição pela qual é julgada não está a ser julgada por nada. Não se contorna por Write, nem por Bash, nem por um ficheiro ao lado que diga o contrário — seria a mesma edição com outro nome. A linha é do editor de registo.",
+  "recusa": "Não se publica uma língua a 60% de cobertura para mostrar progresso. O portão 44 exige 92% e o ensaio mostra que 100% é alcançável, portanto uma página meia portuguesa servida como inglesa não é um primeiro passo, é um rascunho posto à frente de um leitor. E não se sobe a cobertura traduzindo os bastidores, que estão fora do âmbito de propósito."
+}

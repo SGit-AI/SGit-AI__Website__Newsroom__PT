@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multilingual, and how the bill stays flat · pt.newsroom back office</title>
+<meta name="description" content="Multilingual, and how the bill stays flat — guidance for anyone changing pt.newsroom.sgit.ai.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pt.newsroom.sgit.ai/newsroom/guidance/multilingual.html">
+<meta property="og:url" content="https://pt.newsroom.sgit.ai/newsroom/guidance/multilingual.html">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/console.css">
+</head>
+<body>
+
+<div class="folha bo-strip">
+<div class="utility"><a href="../../aviso/">Aviso</a><a href="../../metodo/">Método</a><a href="../../api/">API</a><a href="../../" title="A publicação, em português">← o jornal</a><pt-wallet site-root="../../"></pt-wallet><a class="ver" href="../../admin/versions.html#v0.23.7" title="O que mudou em v0.23.7, e porquê">v0.23.7</a></div>
+</div>
+
+<div class="shell">
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.7</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../../newsroom/bridges.html">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../../newsroom/team.html">Team</a><a class="nav" href="../../newsroom/agents.html">Agent activity</a><a class="nav" href="../../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../../newsroom/guidance.html">Guidance</a><a class="nav" href="../../newsroom/interviews.html">Interviews</a><a class="nav" href="../../newsroom/docs.html">Documents</a><a class="nav" href="../../admin/versions.html">Versions</a><a class="nav" href="../../">↗ The paper</a></div></nav>
+<main class="main">
+
+<div class="page-head"><div><h1>Multilingual, and how the bill stays flat</h1></div></div>
+
+
+<div class="rule" style="padding:6px 0 8px"><div class="sect">Guidance · 7 of 7</div></div>
+<h2 class="h-lead">Multilingual, and how the bill stays flat</h2>
+<p class="std">This site is written in Portuguese and is being prepared to serve English, French and German at <code>pt.newsroom.sgit.ai/en-gb/</code>, <code>/fr/</code> and <code>/de/</code>. The brief for the work was one sentence long and it was the right sentence: <i>make it multilingual, and engineer it so that as we make new changes the translation costs and prompts don&#x27;t grow exponentially.</i></p>
+<p class="std">This page is the answer to the second half. It is also the answer to &quot;why is nothing published yet&quot;, which has one cause and it is not technical.</p>
+<h3 class="h-2">The number the whole design turns on</h3>
+<p class="std">Measured on this repository, not estimated:</p>
+<div class="rolar"><table><thead><tr><th>what you could translate</th><th>words</th><th>x 3 locales</th><th>how often you pay</th></tr></thead><tbody><tr><td class="sm">the rendered site</td><td class="sm">186 101</td><td class="sm">558 303</td><td class="sm"><b>every build</b></td></tr><tr><td class="sm">the authored source behind it</td><td class="sm"><b>18 948</b></td><td class="sm">56 844</td><td class="sm"><b>once per sentence, ever</b></td></tr></tbody></table></div>
+<p class="std">The rendered site is ten times larger than the writing behind it, and the difference is not padding. It is 106 920 unique words of names, SHA-256 hashes, dates, byte counts, source identifiers and frozen excerpts — every one of which <b>must not be translated</b>, because a translated excerpt is a different piece of evidence and a translated name is a different claim. Translating the render means paying to translate the exact material the rules of this repository forbid you to touch.</p>
+<p class="std">So the first decision is not a saving, it is a correctness rule that happens to be ten times cheaper: <b>translate the source, never the render.</b></p>
+<p class="std">The second column is the one that matters more. A pipeline that translates pages pays again every time it builds; a pipeline that translates sentences pays once per sentence and nothing on a rebuild. The site builds on a schedule. Over a year that is the difference between two numbers of very different shapes.</p>
+<h3 class="h-2">The six decisions, in order of what they save</h3>
+<h4 class="h-3">1. The key is the hash of the source text</h4>
+<p class="std">A segment&#x27;s identity is <code>sha256(normalised source)[:16]</code>. Change one word of a paragraph and it becomes a <i>different segment</i> with a different key, whose translation does not exist yet.</p>
+<p class="std">There is therefore no such thing as a stale translation on this site. There is no &quot;needs review&quot; flag, no modification timestamp to compare, nothing anybody has to remember to invalidate. Staleness is a <b>cache miss</b>, and <code>build/i18n.py status</code> counts cache misses.</p>
+<pre class="bloco-codigo"><code>python3 build/i18n.py status
+source: 959 segments, 18948 words, from pt
+locale     done  missing  words to do  orphaned
+en-gb         0      959        18948         0</code></pre>
+<p class="std"><code>words to do</code> is the entire cost of the next translation run. After the first pass it is the cost of the week&#x27;s edits and nothing else. The old translation of a changed paragraph is kept as an <i>orphan</i>: not served, not deleted, there for reuse, costing nothing.</p>
+<h4 class="h-3">2. Identical text is one segment</h4>
+<p class="std">The navigation, the footer, the provenance line, the state vocabulary — the chrome appears on all 223 reader pages and hashes <b>once</b>. Translate it once and 223 pages have it. The same holds for any sentence repeated across data files.</p>
+<p class="std">This is why the segment count (959) is so much smaller than the number of substitutable runs on the site (about 10 900): the average segment is reused eleven times.</p>
+<h4 class="h-3">3. Deny, do not allow</h4>
+<p class="std">The data layer is translated <b>by default</b>, and a short list says what never is.</p>
+<p class="std">The other way round — a list of the fields that <i>are</i> prose — is the version that rots. A field added next month falls silently out of every locale and nobody finds out, because an untranslated page still looks like a page. Deny-by-default fails the other way: a field that should not have been translated turns up as a wasted segment in the next <code>todo</code>, where a human reads it, and one line in <code>NEVER</code> fixes it for ever.</p>
+<p class="std"><b>Prefer the failure you can see.</b> That sentence decides most of the design of <code>build/i18n.py</code>.</p>
+<h4 class="h-3">4. Evidence is an object, not a field</h4>
+<p class="std">Any JSON object carrying a <code>sha256</code> is a record of somebody else&#x27;s bytes. Nothing inside it is translated, at any depth, whatever its fields happen to be called.</p>
+<p class="std">One structural rule instead of a growing list of field names — and it protects a field added to a source record on the day it appears, which a name list never does.</p>
+<h4 class="h-3">5. The render is the discovery surface, not the thing translated</h4>
+<p class="std">Reading the authored files finds the prose in <code>artigos/</code> and <code>dados/</code>. It does not find the sentence a builder assembles with an f-string, or the clause that sits between two inline entity links, and on this site those account for more of what a reader actually reads than everything in <code>dados/</code> put together.</p>
+<p class="std">The alternative was to wrap four hundred Portuguese strings across twenty builders in a <code>t()</code> call. This repository has already paid for that kind of bulk rewrite once: turning Portuguese identifiers into English produced half-translated code (<code>save(estado)</code>, <code>this.items = itens</code>) and took two rewrites from scratch to undo. So instead <code>build/i18n.py</code> reads the <b>finished HTML</b> and takes the runs.</p>
+<p class="std">This is not translating the render. The unit is still a piece of authored text; the key is still the hash of that text; it is still translated exactly once however many pages carry it. What the render adds is <i>completeness</i> — no reader-visible sentence is invisible to the pipeline, so coverage can reach 100% and a gap is a number instead of a surprise.</p>
+<h4 class="h-3">6. Generated text is formatted, not translated</h4>
+<p class="std"><code>Lisboa · segunda-feira, 14 de setembro de 2026</code> is a different string tomorrow. Its hash is different tomorrow. A translation of it is a cache miss for ever, and the site pays for the same sentence every day it builds.</p>
+<p class="std"><b>That is the exponential growth this architecture exists to avoid, arriving through the back door</b>, and it is the failure mode a naive segment store walks into within a week. <code>i18n.gerado()</code> keeps date lines, version badges and counts out of the memory; they are localised by <i>formatting</i> them in the target language, which is a function somebody writes once. Until that function exists they stay Portuguese, and the coverage report counts them as <code>generated</code> rather than <code>missing</code> — because calling them missing would invite exactly the wrong fix.</p>
+<h3 class="h-2">What never gets translated, and why it is a rule before it is a saving</h3>
+<div class="rolar"><table><thead><tr><th>what</th><th>which rule</th></tr></thead><tbody><tr><td class="sm">frozen excerpts and quotations</td><td class="sm">rules 1 and 3 — evidence is not translated</td></tr><tr><td class="sm">names of people, organisations, sessions</td><td class="sm">a transcription is a claim</td></tr><tr><td class="sm">the graph&#x27;s verbs and the sentences they read as</td><td class="sm"><b>rule 6</b> — the graph reads aloud in Portuguese</td></tr><tr><td class="sm">ids, hashes, dates, paths, published formulas, code</td><td class="sm">they are not language</td></tr></tbody></table></div>
+<p class="std"><code>i18n.nao_traduzir()</code> decides this, from the data rather than from a typed list: the verbs come out of <code>dados/ontologia.json</code>, the names out of <code>dados/entidades.json</code> and friends, the excerpts out of every record that has a <code>sha256</code>.</p>
+<p class="std">The graph test is a substring test against the ontology&#x27;s own reading fragments, so it can in principle fire on ordinary prose that happens to contain « organiza ». That mistake costs one sentence left in Portuguese on a translated page, which the coverage report counts and a reader can see. The opposite mistake — a translated edge label — is a <b>different graph</b>, and nothing would catch it. Fail in the direction you can see.</p>
+<h3 class="h-2">What is not localised at all: the back office</h3>
+<p class="std"><code>/newsroom/</code>, <code>/admin/</code>, <code>/redacao/</code>, <code>/entregas/</code>, <code>/briefs/</code> and <code>/docs/</code> have one reader — the editor of record — and that reader reads Portuguese and English. Translating the review board into German is paying to translate a to-do list nobody will open, and it was over half the words in the data layer.</p>
+<p class="std">223 pages can have a locale twin. The other 24 stay as they are.</p>
+<h3 class="h-2">Source language: when Portuguese is the translation</h3>
+<p class="std"><code>dados/i18n/locales.json</code> names <code>pt</code> as the <b>language of record</b>, and the reason is evidential rather than sentimental: every claim on this site walks back to bytes, and those bytes are Portuguese — official journals, government pages, event programmes. The Portuguese page is the one whose sentences were checked against the frozen copy. Every locale page says so on its face, above the masthead, with a link to the original.</p>
+<p class="std">But not all of the material is Portuguese. The summit interviews were <b>recorded in English</b>. An item written in English is published in English first, and Portuguese is then the translation of it. The translation memory does not care which direction it runs in: the key is the hash of the source text, in whatever language that text was written. A segment whose source is English simply has its <code>pt</code> value in <code>dados/i18n/pt.json</code> instead of its <code>en-gb</code> value in <code>dados/i18n/en-gb.json</code>.</p>
+<p class="std">What still has to be built for that case, and is not built yet: a <code>lingua_original</code> field on an article, so that <code>build/locales.py</code> knows which tree holds the page of record for that one item and which way the &quot;this page is a translation&quot; line should point. Until it exists, an English-source item is published on the Portuguese site in Portuguese, the way everything else is, and the English recording is cited as its source.</p>
+<h3 class="h-2">The two commands, and the workflow that does not grow</h3>
+<pre class="bloco-codigo"><code>python3 build/i18n.py extract                 # after a build: what exists, and its hashes
+python3 build/i18n.py status                  # per locale: done, missing, words to do
+python3 build/i18n.py todo en-gb &gt; batch.json # ONLY the missing segments
+#   … translate batch.json — an agent session, a service, or a person …
+python3 build/i18n.py apply en-gb batch.json  # hash-checked on the way in
+python3 build/locales.py --relatorio          # the coverage a reader would actually see</code></pre>
+<p class="std">Two properties of this loop are the whole point.</p>
+<p class="std"><b><code>todo</code> emits only what is missing.</b> Not the file the segment came from, not the page, not the site — the missing segments and nothing else. The prompt is the batch, so the prompt is the size of the change. A week in which three paragraphs were edited produces a three-paragraph prompt.</p>
+<p class="std"><b><code>apply</code> refuses a translation whose source hash it does not recognise.</b> Anything else is a translation of text that no longer exists, and writing it into the memory would be writing a lie that a later build would serve.</p>
+<h3 class="h-2">The coverage number, and why it is measured on the render</h3>
+<pre class="bloco-codigo"><code>python3 build/locales.py --relatorio
+locale   estado          hits  missing  generated  verbatim  coverage
+en-gb    preparado          0     8215        998      1668      0.0%</code></pre>
+<p class="std">Counted over <b>every substitutable run on every page</b>, so it is the coverage a reader would see, not the coverage of the segment list. The four columns are four different things and conflating any two of them produces a dishonest number:</p>
+<ul>
+<li class="sm"><b>hits</b> — translated.</li>
+<li class="sm"><b>missing</b> — a sentence a reader would find in Portuguese on a page served as English. The only column that counts against coverage.</li>
+<li class="sm"><b>generated</b> — a date, a count, a version badge. Formatted, not translated (decision 6).</li>
+<li class="sm"><b>verbatim</b> — an excerpt, a name, an edge of the graph. <b>Correct as it stands.</b> Counting these as missing would set a target the site must never reach.</li>
+</ul>
+<p class="std">A rehearsal with the memory filled reaches <b>100.0%</b> on all 223 pages:</p>
+<pre class="bloco-codigo"><code>python3 build/locales.py --ensaio en-gb /tmp/somewhere
+python3 build/gates_i18n.py en-gb /tmp/somewhere</code></pre>
+<p class="std">That rehearsal is how this design was proved before any locale was published, and it is how the next one should be checked.</p>
+<h3 class="h-2">Gate 44, and the two things it caught</h3>
+<p class="std"><code>build/gates_i18n.py</code> is the locale gate. It asserts, in this order: the language register is coherent and <code>pt</code> is the only language of record; <b>the key of every segment really is the hash of its own text</b> (if somebody hand-edits <code>fontes.json</code>, the identity that the whole memory rests on breaks silently); no orphan is served; every published locale mirrors the Portuguese page set exactly; <code>&lt;html lang&gt;</code> is right and every page names the Portuguese original as <code>x-default</code>; inline <code>&lt;script type=&quot;application/json&quot;&gt;</code> still parses after substitution; and — the one that matters most — <b>every excerpt, name and graph reading in the Portuguese page is byte-identical in the translated page.</b></p>
+<p class="std">It was tested the only way a gate is worth testing, by sabotaging a rehearsal: a translated excerpt and a deleted page were both caught and both named.</p>
+<h3 class="h-2">Why nothing is published yet, and whose line it is</h3>
+<p class="std"><code>CLAUDE.md</code> says:</p>
+<div class="aviso-bloco"><p class="sm">Everything a reader sees is European Portuguese under AO90.</p></div>
+<p class="std">That is the constitution of this repository, it is in the deny list of every automated session, and it means <b>no build may serve an English page to a reader until the editor of record amends it.</b> The engine is built, proved and gated; <code>dados/i18n/locales.json</code> holds all three locales at <code>preparado</code>; <code>build/locales.py</code> renders nothing and says so.</p>
+<p class="std">The amendment is written out for the editor, word for word, in <code>redacao/issues/010</code>. Flipping a locale to <code>publicado</code> is one line in a JSON file — afterwards.</p>
+<h3 class="h-2">Three things a future session should not have to rediscover</h3>
+<ol>
+<li class="sm"><b><code>build/chrome.py</code> runs before <code>build/locales.py</code></b>, because locales.py reads finished pages. So <code>sitemap.xml</code> and <code>llms.txt</code> do not know about locale pages yet. Rule 7 says the sitemap agrees with the tree: before publishing a language, chrome.py has to run a second time after locales.py, or read <code>dados/i18n/locales.json</code> itself.</li>
+<li class="sm"><b>Do not translate the back office</b> to raise the coverage number. It is out of scope on purpose and it is half the words.</li>
+<li class="sm"><b>Do not add a field to <code>PROSE_KEYS</code>.</b> There is no <code>PROSE_KEYS</code> any more, and the reason it was deleted is decision 3.</li>
+</ol>
+
+<div class="rule" style="padding:26px 0 8px"><div class="sect">Next</div></div>
+<p class="sm"><a href="concurrent-sessions.html">← More than one session at a time</a></p>
+<p class="xs" style="padding-top:12px">This page is rendered from
+<a href="../../docs/guidance/multilingual.md"><code>docs/guidance/multilingual.md</code></a> by <code>build/guia.py</code>. The
+markdown is the source; edit that and rebuild. Nobody hand-edits this file.</p>
+
+
+<div class="agent">
+<b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
+repository; nothing here is hand-written. The machine-readable index of the publication is at
+<a href="../../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
+<code>newsroom/guidance/multilingual.html</code> · version <span class="ver">v0.23.7</span>.
+</div>
+
+</main>
+</div>
+</body>
+</html>

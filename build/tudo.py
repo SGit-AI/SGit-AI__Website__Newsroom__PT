@@ -108,6 +108,15 @@ PASSOS = [
      False),
     (["python3", "build/chrome.py"],
      "llms.txt, sitemap.xml, index.md — the surface a machine reads", False),
+    (["python3", "build/i18n.py", "extract"],
+     "dados/i18n/fontes.json — every translatable segment, keyed by the hash of its own source "
+     "text. AFTER chrome.py, because the finished pages are one of the four places it reads: the "
+     "render is how the pipeline discovers a sentence a builder assembled with an f-string, and it "
+     "is still the authored text that gets translated, once, however many pages carry it", False),
+    (["python3", "build/locales.py"],
+     "/<locale>/ for every language the editor has put in `publicado` — and nothing at all while "
+     "they are all `preparado`, which is where they are. dados/i18n/locales.json is the switch and "
+     "CLAUDE.md is the reason it is the editor's: it says what language a reader sees", False),
     (["python3", "build/gates.py"],
      "the core gates (1-15), in the deny-listed file", True),
     (["python3", "build/gates_artigos.py"],
@@ -119,6 +128,10 @@ PASSOS = [
      "ratchet — the numbers the design review measured", True),
     (["node", "admin/build/validate.js"],
      "the site gate: structure, links, version, canonicals, key-leak tripwire", True),
+    (["python3", "build/gates_i18n.py"],
+     "gate 44, the locale gate: the key of a segment really is the hash of its text; every "
+     "published locale mirrors the Portuguese page set; every excerpt, name and edge of the graph "
+     "is byte-identical in every language; and a locale is not published at half coverage", True),
 ]
 
 # The browser gate is separate because it needs a browser and a server, and this repository has no
