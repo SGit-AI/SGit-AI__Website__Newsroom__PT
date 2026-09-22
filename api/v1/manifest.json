@@ -32,8 +32,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 28423,
-      "sha256": "4b8894713769ad9ce9afb12dad1239a5184bf80bc5f0a12eb8eb4fa75e89802c"
+      "bytes": 28612,
+      "sha256": "235b742131b3f2d39cc6cd50e3488aa637cb9c1daabea4e840c37a1e35fe442f"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -113,7 +113,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 6002,
-      "sha256": "d6c774d111d8fc26ad30381622ca06b0a2417a1153684201b42942a95c38c6a5"
+      "sha256": "8bde0b755f3d058a9b3d8a2ad32005a0f4c995381aa9c23afd11af31d19f558e"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -157,8 +157,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 15913,
-      "sha256": "ec3025544a74ea5defd9c93b7eaee573d0ea1a3be17a8a7377c2cba765584bb8"
+      "bytes": 15937,
+      "sha256": "c903eb032a78db5f10fc1e6384fa58fadadae8f67e47ddec32e6a4cca69f6842"
     },
     {
       "ficheiro": "dados/sessoes.json",
