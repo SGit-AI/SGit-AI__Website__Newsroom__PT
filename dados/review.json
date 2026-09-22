@@ -4,7 +4,7 @@
   "updated": "2026-09-22",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
-  "count": 10,
+  "count": 11,
   "questions": [
     {
       "id": "chatgpt-2026-09-15-politicas-2/item-pol-09",
@@ -155,6 +155,21 @@
       "url": "../../redacao/"
     },
     {
+      "id": "issue-011",
+      "kind": "issue",
+      "for_agent": "whoever the editor authorises",
+      "file": "redacao/issues/011-a-execucao-agendada-nunca-correu.json",
+      "question": "A execução agendada nunca correu: falta o segredo, e falhou igual todos os dias",
+      "section": "politicas",
+      "why_it_matters": "Um segredo de repositório não se põe de dentro de uma execução, e não deve. Uma sessão que pudesse escrever as suas próprias credenciais deixava de ter limite nenhum. É a linha do editor de registo.",
+      "what_is_missing": [
+        "Pôr o segredo do repositório: ANTHROPIC_API_KEY, ou trocar a entrada `anthropic_api_key` por `claude_code_oauth_token` e pôr esse. Settings → Secrets and variables → Actions.",
+        "Depois: disparar o workflow à mão uma vez (workflow_dispatch) e ler o registo de execução que escrever, antes de confiar no agendamento.",
+        "Decidir se uma execução agendada que falha deve avisar. Hoje não avisa ninguém, e foi por isso que quatro dias de falhas passaram sem ser notados."
+      ],
+      "url": "../../redacao/"
+    },
+    {
       "id": "ontology-new-types",
       "kind": "ontology",
       "for_agent": "the session that touches the ontology",
@@ -171,6 +186,13 @@
     }
   ],
   "changes": [
+    {
+      "kind": "release",
+      "when": "2026-09-22",
+      "version": "v0.23.8",
+      "what": "The scheduled run has never run, and two defects found in the log that looked like a working cron",
+      "url": "../../admin/versions.html#v0.23.8"
+    },
     {
       "kind": "release",
       "when": "2026-09-22",
@@ -219,13 +241,6 @@
       "version": "v0.23.1",
       "what": "The editor gets a page that asks him the questions, and the interview method arrives",
       "url": "../../admin/versions.html#v0.23.1"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.23.0",
-      "what": "The messages say where things are, and the rule that let them be corrected",
-      "url": "../../admin/versions.html#v0.23.0"
     },
     {
       "kind": "article",

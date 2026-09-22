@@ -375,6 +375,22 @@
       },
       "aberto_em": "2026-09-22",
       "de": "redacao/issues/010"
+    },
+    {
+      "id": "011",
+      "titulo": "A execução agendada nunca correu: falta o segredo, e falhou igual todos os dias",
+      "seccao": "politicas",
+      "estado": "bloqueado",
+      "especie": "issue",
+      "url": null,
+      "issue": "011",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "sessao-a-linha-de-publicacao",
+        "quando": "2026-09-22"
+      },
+      "aberto_em": "2026-09-22",
+      "de": "redacao/issues/011"
     }
   ],
   "execucoes": [
@@ -788,7 +804,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 13,
+    "cartoes": 14,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,

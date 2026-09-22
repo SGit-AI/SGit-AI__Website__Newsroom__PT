@@ -30,7 +30,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      # pyoxigraph for the triples, and the two packages a GATE depends on. This step used to
+      # install pyoxigraph alone, and the omission was silent by design of the failure: without
+      # pycryptodomex, build/pdf.py decrypts every stream of an AES-encrypted diploma to zero bytes
+      # and reports «nenhuma camada de texto foi encontrada — é provavelmente um PDF digitalizado»,
+      # which is a WRONG statement about somebody else's document, made with every gate green;
+      # without jsonschema, build/entregas.py validates no delivery at all. A scheduled run reading
+      # evidence differently from the machine that released it is not reading evidence.
       - run: pip install -q pyoxigraph
+      - name: The two packages a gate depends on
+        run: python3 -m pip install --disable-pip-version-check -q -r requirements.txt
+      # The date, computed in Lisbon rather than asked for. The prompt used to interpolate
+      # ${{ github.run_started_at }}, which is not a property of the `github` expression context and
+      # therefore rendered as nothing: every scheduled run has been telling the session «Today is
+      # (convert to Europe/Lisbon)» with the date missing. This run is date-driven from end to end —
+      # the freeze directory, the register row, the run record — so an empty date is not a cosmetic
+      # fault, it is a run that has to guess what day it is.
+      - name: Today, in Lisbon
+        id: hoje
+        run: echo "data=$(TZ=Europe/Lisbon date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
       - name: Git identity for the run's commits
         run: |
           git config user.name  "newsroom-run"
@@ -40,7 +58,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            Run /newsroom-run. Today is ${{ github.run_started_at }} (convert to Europe/Lisbon).
+            Run /newsroom-run. Today is ${{ steps.hoje.outputs.data }} in Europe/Lisbon.
             Work on dev; push only with every gate green; never set estado: publicado; when
             blocked, write to the editor's inbox and stop. End with the run record written to
             redacao/runs/ and one message in the editor's inbox.

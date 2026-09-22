@@ -1,0 +1,26 @@
+{
+  "id": "011",
+  "titulo": "A execução agendada nunca correu: falta o segredo, e falhou igual todos os dias",
+  "seccao": "politicas",
+  "estado": "bloqueado",
+  "aberto_em": "2026-09-22",
+  "ultimo_toque": {
+    "quem": "sessao-a-linha-de-publicacao",
+    "quando": "2026-09-22"
+  },
+  "enquadramento": "O modelo operacional deste sítio assenta numa execução agendada: uma passagem do ciclo por dia, às 06:30 UTC, com o editor de registo como porta de tudo o que vai para o ar. O cron dispara. A execução nunca começa. Falha sempre no mesmo sítio, antes do primeiro passo do ciclo, e falha desde pelo menos 19 de setembro — as execuções 5, 6, 7 e 8 do workflow newsroom-run, todas «failure», todas com a mesma linha.",
+  "de_onde_vem": ".github/workflows/newsroom-run.yml — o passo «One pass of the newsroom loop»",
+  "o_erro_verbatim": "Action failed with error: Environment variable validation failed:\n  - Either ANTHROPIC_API_KEY, CLAUDE_CODE_OAUTH_TOKEN, or workload identity federation (ANTHROPIC_FEDERATION_RULE_ID and ANTHROPIC_ORGANIZATION_ID) is required when using direct Anthropic API.",
+  "o_que_isto_significa": "`secrets.ANTHROPIC_API_KEY` resolve para vazio, logo o segredo do repositório não está posto. Não é uma execução que corre mal: é uma execução que não corre. Nenhuma fonte foi obtida, nenhuma pista foi trabalhada e nenhum registo de execução foi escrito por um agendamento — tudo o que está em redacao/runs/ veio de uma sessão interativa. E a maneira como isto se esconde é a parte que importa: na página de Actions, um cron que falha identicamente todos os dias parece-se com um cron que está a funcionar, porque a cadência é a mesma.",
+  "o_que_ja_se_tem": [
+    "CORRIGIDO nesta versão: o workflow instalava `pyoxigraph` e mais nada. Sem `pycryptodomex`, build/pdf.py decifra cada fluxo de um diploma cifrado com AES para zero bytes e afirma «é provavelmente um PDF digitalizado» — uma afirmação ERRADA sobre o documento de outra pessoa, feita com todos os portões verdes. Sem `jsonschema`, build/entregas.py não valida entrega nenhuma. Passa a instalar requirements.txt, como o deploy já fazia.",
+    "CORRIGIDO nesta versão: o prompt interpolava ${{ github.run_started_at }}, que não é uma propriedade do contexto de expressão `github` e por isso renderizava nada. Cada execução agendada dizia à sessão «Today is  (convert to Europe/Lisbon)» com a data em falta, e esta execução é datada de ponta a ponta: a pasta de congelamento, a linha do registo, o registo de execução. Passa a ser calculada em Lisboa num passo próprio."
+  ],
+  "o_que_falta": [
+    "Pôr o segredo do repositório: ANTHROPIC_API_KEY, ou trocar a entrada `anthropic_api_key` por `claude_code_oauth_token` e pôr esse. Settings → Secrets and variables → Actions.",
+    "Depois: disparar o workflow à mão uma vez (workflow_dispatch) e ler o registo de execução que escrever, antes de confiar no agendamento.",
+    "Decidir se uma execução agendada que falha deve avisar. Hoje não avisa ninguém, e foi por isso que quatro dias de falhas passaram sem ser notados."
+  ],
+  "porque_esta_bloqueado": "Um segredo de repositório não se põe de dentro de uma execução, e não deve. Uma sessão que pudesse escrever as suas próprias credenciais deixava de ter limite nenhum. É a linha do editor de registo.",
+  "recusa": "Não se substitui o segredo por uma chave escrita num ficheiro, nem por uma variável de ambiente posta no workflow, nem se desliga o agendamento para o vermelho desaparecer da página de Actions. Um cron vermelho que ninguém consegue explicar é informação; um cron apagado não é."
+}
