@@ -189,6 +189,13 @@
     {
       "kind": "release",
       "when": "2026-09-23",
+      "version": "v0.23.11",
+      "what": "The language-rule amendment written out to be applied, and an emergency exit that writes into a folder nothing reads",
+      "url": "../../admin/versions.html#v0.23.11"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-23",
       "version": "v0.23.10",
       "what": "French and German live, a quotation guard that refused too much, and the verbatim fields the data actually uses",
       "url": "../../admin/versions.html#v0.23.10"
@@ -234,13 +241,6 @@
       "version": "v0.23.4",
       "what": "The console moves to /newsroom/, and /admin/ survives on three lines nobody here may edit",
       "url": "../../admin/versions.html#v0.23.4"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.23.3",
-      "what": "The operational surface stops speaking Portuguese in its addresses",
-      "url": "../../admin/versions.html#v0.23.3"
     },
     {
       "kind": "article",

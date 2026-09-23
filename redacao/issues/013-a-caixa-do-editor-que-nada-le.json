@@ -1,0 +1,40 @@
+{
+  "id": "013",
+  "titulo": "A saída de emergência do CLAUDE.md escreve numa pasta que nada lê, e uma mensagem está lá há oito dias",
+  "seccao": "metodo",
+  "estado": "aberto",
+  "aberto_em": "2026-09-23",
+  "ultimo_toque": {
+    "quem": "sessao-as-tres-linguas",
+    "quando": "2026-09-23"
+  },
+  "enquadramento": "O CLAUDE.md termina com a instrução que governa toda a sessão que se bloqueia: «When blocked, write to the editor's inbox (`redacao/correio/editor/entrada/`) and stop. A run that stops honestly is a good run.» Uma sessão que faça exactamente isso escreve num sítio que nenhum leitor deste repositório visita. A mensagem não aparece no /newsroom/mail.html, não entra em dados/correio.json, e não chega ao editor. A saída de emergência parece funcionar porque nada diz que não funcionou — que é a forma de falha que este sítio persegue em todos os outros sistemas.",
+  "de_onde_vem": "CLAUDE.md, última secção; build/newsroom_team.py, ler_correio(); redacao/correio/LEIA-ME.md, «A forma»; dados/agentes.json",
+  "as_tres_divergencias": [
+    "O FORMATO. build/newsroom_team.py varre `CORREIO.rglob(\"*.eml\")`. As mensagens são ficheiros .eml com cabeçalhos From/To/Date/Subject/Message-ID. Um .json na mesma pasta é invisível para o leitor.",
+    "A CAIXA. As caixas são os agentes de dados/agentes.json: pesquisa.pt, redacao.pt, verificacao.pt, bastidores.pt, dinis.humano. NÃO existe um agente `editor`. `redacao/correio/editor/` não é uma caixa deste protocolo — é uma pasta que ninguém declarou e ninguém lê.",
+    "O CAMINHO. Pela regra 2 do LEIA-ME, para chegar a outro agente deixa-se o ficheiro em `expedicao/<destinatario>/` e é o DESTINATÁRIO que o move para a sua `entrada/`. Escrever directamente na `entrada/` de outro agente viola o escritor único, que é a regra 1. A instrução do CLAUDE.md manda escrever numa `entrada/` — a única coisa que o protocolo proíbe."
+  ],
+  "a_consequencia_medida": "redacao/correio/editor/entrada/2026-09-15-migracao-en-bloqueada.json. Uma sessão bloqueou-se na migração para inglês, fez exactamente o que o CLAUDE.md manda, e escreveu uma mensagem cuidadosa que nomeia três ficheiros da lista de negação e dá duas saídas ao editor. Está lá há oito dias. Nunca renderizou e nunca foi lida. Esta sessão só a encontrou porque foi escrever ao lado dela e depois foi conferir se aparecia.",
+  "o_que_ja_se_tem": [
+    "O protocolo funciona, e bem: redacao/correio/LEIA-ME.md descreve-o, build/newsroom_team.py é o leitor único, /newsroom/mail.html renderiza-o, e as oito mensagens .eml que seguem o protocolo aparecem todas.",
+    "A mensagem 006 desta sessão foi escrita pela via correcta — bastidores.pt/saida/dinis.humano/ e expedicao/dinis.humano/ — e é a prova de que a via correcta chega.",
+    "Nenhum portão apanha isto, e é por isso que durou. Um ficheiro numa pasta que ninguém lê não falha nada."
+  ],
+  "duas_saidas": [
+    {
+      "qual": "Emendar o CLAUDE.md para nomear a via do protocolo. RECOMENDADA.",
+      "texto_proposto": "When blocked, dispatch to the editor by the mail protocol — a `.eml` in `redacao/correio/expedicao/dinis.humano/`, with the sender's copy in your own `saida/dinis.humano/` — and stop. See `redacao/correio/LEIA-ME.md`: you never write into another agent's `entrada/`. A run that stops honestly is a good run.",
+      "custo": "Duas linhas no CLAUDE.md, que é do editor. Nada no código. A pasta redacao/correio/editor/ passa a ser lixo declarado e pode sair, depois de a mensagem de 15 de setembro ser reenviada pela via certa — o que é do editor fazer, porque o escritor único impede outro agente de mexer no que aquela sessão escreveu.",
+      "porque_esta": "expedicao/ já é a superfície partilhada, já renderiza, e já é o que o LEIA-ME manda. A emenda alinha a constituição com o protocolo em vez de fazer o protocolo crescer uma segunda porta."
+    },
+    {
+      "qual": "Fazer de `redacao/correio/editor/entrada/` uma caixa a sério.",
+      "custo": "Um agente `editor` em dados/agentes.json, o leitor a aceitar .json a par de .eml, a página do correio a saber desenhá-lo, e um portão a impedir que volte a divergir. É mais código para uma segunda maneira de fazer o que já se faz.",
+      "porque_nao": "Duas portas para a mesma sala é como esta divergência nasceu."
+    }
+  ],
+  "o_portao_que_falta": "Qualquer das saídas precisa de um portão, senão volta. O mais simples é o mais forte: falhar a construção se existir, sob redacao/correio/, um ficheiro que o leitor único não lê — isto é, qualquer coisa que não seja .eml nas caixas, .md em assuntos/ e sessoes/, ou o próprio LEIA-ME. Um ficheiro que ninguém lê numa pasta de mensagens é sempre um defeito, e hoje é silencioso.",
+  "recusa": "Não se resolve isto reenviando a mensagem de 15 de setembro por conta própria. É de outro agente, o escritor único é a regra 1 do protocolo, e mover o correio de outra caixa é exactamente a fronteira que faz este protocolo valer alguma coisa. Fica nomeada para o editor e não é tocada.",
+  "so_ele_pode": true
+}

@@ -152,7 +152,7 @@
         "entrada": 1,
         "saida": 1,
         "tratado": 0,
-        "em_transito": 2
+        "em_transito": 3
       },
       "execucoes": 0
     }
@@ -407,6 +407,22 @@
       },
       "aberto_em": "2026-09-23",
       "de": "redacao/issues/012"
+    },
+    {
+      "id": "013",
+      "titulo": "A saída de emergência do CLAUDE.md escreve numa pasta que nada lê, e uma mensagem está lá há oito dias",
+      "seccao": "metodo",
+      "estado": "aberto",
+      "especie": "issue",
+      "url": null,
+      "issue": "013",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "sessao-as-tres-linguas",
+        "quando": "2026-09-23"
+      },
+      "aberto_em": "2026-09-23",
+      "de": "redacao/issues/013"
     }
   ],
   "execucoes": [
@@ -820,7 +836,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 15,
+    "cartoes": 16,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,

@@ -2,8 +2,14 @@
   "id": "pt-versoes",
   "versao": "1.0.0",
   "nota": "The release history as data. Each release's prose lives in its own markdown file under admin/versions/, and admin/versions.html is RENDERED from the two by build/versoes.py. Text does not live inside HTML here: a release note is a document, and a document that can only be read as markup is a document with extra steps.",
-  "contagem": 37,
+  "contagem": 38,
   "versoes": [
+    {
+      "versao": "v0.23.11",
+      "data": "2026-09-23",
+      "titulo": "The language-rule amendment written out to be applied, and an emergency exit that writes into a folder nothing reads",
+      "ficheiro": "admin/versions/v0.23.11.md"
+    },
     {
       "versao": "v0.23.10",
       "data": "2026-09-23",

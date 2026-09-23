@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-23",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 126,
+  "contagem": 127,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -220,6 +220,14 @@
       "bytes": 7809,
       "linhas": 95,
       "palavras": 1282
+    },
+    {
+      "caminho": "admin/versions/v0.23.11.md",
+      "titulo": "v0.23.11",
+      "categoria": "Repository root",
+      "bytes": 5740,
+      "linhas": 76,
+      "palavras": 891
     },
     {
       "caminho": "admin/versions/v0.23.2.md",
@@ -857,7 +865,7 @@
       "caminho": "index.md",
       "titulo": "pt.newsroom.sgit.ai",
       "categoria": "Repository root",
-      "bytes": 795,
+      "bytes": 796,
       "linhas": 15,
       "palavras": 100
     },
