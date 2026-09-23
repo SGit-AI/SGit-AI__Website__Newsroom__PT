@@ -1,0 +1,112 @@
+{
+  "delivery": {
+    "id": "chatgpt-2026-09-18-politicas-delta",
+    "tool": "chatgpt",
+    "model": "gpt-5",
+    "date": "2026-09-18",
+    "brief": "12__research-brief-for-chatgpt.md v2",
+    "language": "pt-PT",
+    "sections_covered": [
+      "politicas"
+    ],
+    "queries": [
+      "Startup Summit Lisbon 2026 16 17 18 setembro 2026 cobertura programa IA Beato",
+      "site:startupsummit.io 2026 AI inteligência artificial September 18 2026",
+      "site:portugalglobal.pt Startup Summit Lisbon Guinness pitch marathon September 2026",
+      "Portugal inteligência artificial Diário da República ANACOM IPQ 16 17 18 setembro 2026",
+      "\"Startup Summit Lisbon 2026\" September 17 2026",
+      "\"Startup Summit Lisbon\" setembro 2026 Beato",
+      "\"Startup Summit\" Lisbon Guinness pitch marathon 2026",
+      "site:portugalbusinessnews.com \"Startup Summit Lisbon\" 2026",
+      "site:startupsummit.io Guinness \"48 hour\"",
+      "site:startupsummit.io Guinness pitch marathon",
+      "site:startupsummit.io \"pitch marathon\"",
+      "site:startupsummit.io agenda \"AI or Die\"",
+      "site:files.diariodarepublica.pt/1s/2026/01 \"Resolução do Conselho de Ministros n.º 2/2026\"",
+      "site:files.diariodarepublica.pt/1s/2026/01/ \"Agenda Nacional de Inteligência Artificial\"",
+      "site:diariodarepublica.pt/dr/detalhe 2026 ANACOM IPQ inteligência artificial autoridade",
+      "site:digital.gov.pt/pt/noticias \"18.09.2026\" inteligência artificial",
+      "site:digital.gov.pt/pt/noticias \"Cloud and AI Development Act: a nova proposta europeia\"",
+      "site:digital.gov.pt \"Cloud and AI Development Act\" 17.09.2026",
+      "\"Cloud and AI Development Act\" European Commission 2026 official"
+    ],
+    "part": "1/8",
+    "notes": "Passagem delta entre 15 e 18 de setembro de 2026. Foi encontrada uma publicação oficial nova, datada de 17 de setembro, sobre o Cloud and AI Development Act. A página primária da Comissão Europeia devolveu HTTP 429 e não foi usada como fonte. Não foi localizado o PDF legível da Série I da RCM n.º 2/2026 nem um ato publicado que designe a autoridade portuguesa de fiscalização do mercado ou a autoridade notificadora do Regulamento de IA. A pesquisa do Startup Summit encontrou alterações e sessões de IA nas páginas atuais do evento; esse material fica reservado para a parte Eventos, porque o brief exige uma secção por documento. A tentativa Guinness não aparece nas páginas oficiais atuais encontradas. O esquema vivo continua a exigir delivery.vault; foi usado null enquanto o cofre não existe.",
+    "vault": null
+  },
+  "sources": [
+    {
+      "id": "src-pol-13",
+      "url": "https://digital.gov.pt/pt/noticias/cloud-and-ai-development-act",
+      "publisher": "digitalGOV",
+      "publisher_kind": "official",
+      "title": "Cloud and AI Development Act: a nova proposta europeia para Cloud, IA e soberania digital",
+      "language": "pt-PT",
+      "published": "2026-09-17",
+      "retrieved": "2026-09-18T21:56:14Z",
+      "access": "open",
+      "locator": "Em detalhe; Cloud e Inteligência Artificial no setor público; Uma proposta da Comissão Europeia",
+      "archived_copy": null
+    }
+  ],
+  "items": [
+    {
+      "id": "item-pol-12",
+      "section": "politicas",
+      "kind": "policy-instrument",
+      "headline": "Proposta europeia CADA prevê um quadro comum de contratação pública para serviços de Cloud e IA",
+      "what_the_sources_say": "O digitalGOV descreve o Cloud and AI Development Act como uma proposta da Comissão Europeia. Segundo a página, o texto inclui um quadro comum de contratação pública para serviços de Cloud e inteligência artificial e segue o processo legislativo ordinário europeu sob o procedimento 2026/0138(COD).",
+      "dates": [
+        {
+          "date": "2026-06-03",
+          "what": "apresentação da proposta pela Comissão Europeia",
+          "source": "src-pol-13"
+        },
+        {
+          "date": "2026-09-17",
+          "what": "atualização da página do digitalGOV",
+          "source": "src-pol-13"
+        }
+      ],
+      "claims": [
+        {
+          "text": "O Cloud and AI Development Act é uma proposta da Comissão Europeia.",
+          "source": "src-pol-13",
+          "locator": "Uma proposta da Comissão Europeia",
+          "excerpt": "O Cloud and AI Development Act é uma proposta da Comissão Europeia",
+          "confidence": "alta",
+          "status": "por_verificar"
+        },
+        {
+          "text": "A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência artificial.",
+          "source": "src-pol-13",
+          "locator": "Cloud e Inteligência Artificial no setor público",
+          "excerpt": "Prevê igualmente um quadro comum de contratação pública",
+          "confidence": "alta",
+          "status": "por_verificar"
+        }
+      ],
+      "entities": [
+        {
+          "id": "politica:cloud-and-ai-development-act",
+          "type": "Política",
+          "name": "Cloud and AI Development Act",
+          "source": "src-pol-13",
+          "attributes": {
+            "sigla": "CADA",
+            "procedimento": "2026/0138(COD)"
+          }
+        }
+      ],
+      "edges": [],
+      "why_it_matters": "O quadro proposto pode afetar a forma como administrações portuguesas avaliam e contratam serviços de Cloud e IA, articulando-se com a execução do Plano Nacional de Nuvem Soberana.",
+      "suggested_story": "O que a proposta CADA pode mudar na contratação pública portuguesa de Cloud e IA.",
+      "personal_data_check": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      }
+    }
+  ],
+  "vocabulary_proposals": []
+}

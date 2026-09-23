@@ -21,6 +21,26 @@
       "ocorrencias": 41
     },
     {
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "ocorrencias": 41
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "ocorrencias": 40
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "ocorrencias": 36
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "ocorrencias": 32
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "ocorrencias": 29
+    },
+    {
       "fonte": "2026-09-14/oradores/tina-valand",
       "ocorrencias": 27
     },
@@ -31,29 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/daniel-grech",
       "ocorrencias": 21
-    },
-    {
-      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
-      "ocorrencias": 21
-    },
-    {
-      "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
-      "ocorrencias": 16
-    },
-    {
-      "fonte": "2026-09-14/oradores/joaquim-nascimento",
-      "ocorrencias": 16
-    },
-    {
-      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
-      "ocorrencias": 16
-    },
-    {
-      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
-      "ocorrencias": 15
     }
   ],
-  "ficheiros_com_o_nome": 43,
+  "ficheiros_com_o_nome": 51,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

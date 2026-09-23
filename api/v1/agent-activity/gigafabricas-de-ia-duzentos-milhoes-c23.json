@@ -1,0 +1,14 @@
+{
+  "quando": "2026-09-14",
+  "agente": "editor",
+  "especie": "decisao",
+  "sobre": {
+    "tipo": "artigo",
+    "ref": "gigafabricas-de-ia-duzentos-milhoes"
+  },
+  "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+  "estado": "em_revisao",
+  "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
+  "id": "gigafabricas-de-ia-duzentos-milhoes-c23",
+  "artigo": "gigafabricas-de-ia-duzentos-milhoes"
+}

@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.23.11 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.23.12 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -16,7 +16,7 @@ suficiente para ser interessante.
 - 312 nós e 942 arestas; cada aresta é um verbo português com um inverso distinto
 - 70 pessoas e 67 organizações, derivadas das fontes, nunca escritas à mão
 - 15 sessões lidas do recuo estático da agenda congelada
-- 23 afirmações entregues por assistentes exteriores; 12 com o excerto encontrado nos bytes; 0 publicadas
+- 25 afirmações entregues por assistentes exteriores; 14 com o excerto encontrado nos bytes; 0 publicadas
 
 ## O que NÃO é real, dito aqui e em cada página onde importa
 

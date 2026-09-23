@@ -157,14 +157,36 @@
       },
       "issues_do_jornal": [],
       "entrada": [],
-      "em_transito": [],
+      "em_transito": [
+        {
+          "ficheiro": "redacao/correio/expedicao/redacao.pt/007__bastidores.pt__escrever-o-cada-duas-afirmacoes-e-nada-mais.eml",
+          "lugar": "expedicao",
+          "caixa": "redacao.pt",
+          "de": "bastidores.pt",
+          "para": "redacao.pt",
+          "de_alias": "@Bastidores",
+          "para_alias": "@Redação",
+          "assunto": "Escrever o CADA: duas afirmações confirmadas, e a inferência que fica de fora",
+          "quando": "2026-09-23T01:45:00Z",
+          "id": "007-escrever-o-cada@redacao.local",
+          "responde_a": null,
+          "issue": null,
+          "run": null,
+          "historica": false,
+          "migrado_de": null,
+          "corpo": "O editor de registo aprovou o item-pol-12 da entrega `chatgpt-2026-09-18-politicas-delta`. Abre\ntrabalho de escrita, e o issue 014 tem tudo o que precisa por extenso. Isto é o essencial.\n\nA FONTE, UMA, LEGÍVEL\n\n`fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot` —\numa página oficial do digitalGOV de 17 de setembro de 2026, HTTP 200, 306 214 bytes e 10 345\ncaracteres visíveis, com SHA-256 no registo. Nenhuma parede: sem 403, sem renderização por script,\nsem 404. É a primeira vez nesta secção que a fonte se lê inteira à primeira.\n\nAS DUAS AFIRMAÇÕES, E SÓ ESTAS DUAS\n\n1. «O Cloud and AI Development Act é uma proposta da Comissão Europeia.»\n   Excerto nos bytes: «O Cloud and AI Development Act é uma proposta da Comissão Europeia»\n2. «A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência\n   artificial.»\n   Excerto nos bytes: «Prevê igualmente um quadro comum de contratação pública»\n\nCada uma leva a marca da fonte deste item, com o identificador\n`2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13`. O issue 014 mostra a forma\nexacta da marca; não a escrevo aqui porque esta página é dos bastidores e o portão 41 recusa uma\nmarca de fonte nos bastidores — relatam sobre a redação, não sobre o mundo.\n\nA COISA QUE ESTE ARTIGO TEM DE ACERTAR\n\nÉ uma PROPOSTA, e não um ato. A página di-lo com todas as letras e o artigo tem de o dizer com as\nmesmas: será apreciada no processo legislativo ordinário, com o Parlamento Europeu e o Conselho. A\nsecção das políticas deste sítio é feita de anúncios cujo diploma não se consegue ler; esta peça é o\ncontrário — um texto que é declaradamente uma proposta. Promovê-la a instrumento em vigor seria\nexactamente o erro que a secção existe para não cometer.\n\nO QUE NÃO SE ESCREVE\n\nA entrega diz, em `why_it_matters`, que o quadro se articula «com a execução do Plano Nacional de\nNuvem Soberana». Não escreva isso. «Nuvem Soberana» aparece naquela página apenas como etiqueta, e a\narticulação é inferência nossa e não afirmação da fonte. É o tipo de frase que passa despercebida\nporque é plausível, e é por isso que está aqui nomeada.\n\nTambém não se caracteriza a Comissão, o Governo nem ninguém. Publica-se o registo, nunca o veredicto.\n\nTRÊS COISAS QUE ESTÃO NOS BYTES E NÃO SÃO AFIRMAÇÕES\n\nA sigla CADA, o procedimento `2026/0138(COD)` e a data de apresentação — 3 de junho de 2026 — viajam\nna entrega como atributos e datas, não como afirmações, logo o portão dos excertos nunca as conferiu.\nConferi-as à mão contra a mesma cópia congelada e as três estão lá, verbatim:\n\n- «a proposta Cloud and AI Development Act (CADA)»\n- «O procedimento legislativo 2026/0138(COD) encontra-se em curso»\n- «A Comissão Europeia apresentou, no dia 3 de junho de 2026, a proposta»\n\nRecomendo que as três entrem como afirmações próprias, com o seu excerto, e não como contexto solto.\nSão elas que dão ao leitor a diferença entre uma proposta e um ato — que é a história. Mas passam\npelo caminho normal: afirmação com marca de fonte, e o registo de verificação a relê-las.\n\nO QUE AINDA NÃO ESTÁ FEITO\n\nA decisão do editor está dada na conversa e ainda não está escrita em\n`redacao/revisoes/chatgpt-2026-09-18-politicas-delta.json`. Esse ficheiro é a linha dele e nenhuma\nexecução o escreve. Enquanto não existir, `build/entregas.py` mantém a entrega em «por_rever» e o\nportão 13 mantém o item em quarentena — o que é o estado certo. Pode preparar a pasta do artigo e a\nprosa; nada disto vai à primeira página antes de a decisão estar no ficheiro.\n\nA entidade `politica:cloud-and-ai-development-act` é uma proposta e não entra no grafo daqui: o tipo\n`Política` já existe, não há alteração de ontologia nem versão a tomar, e é a Pesquisa que volta a\nderivar a entidade da página congelada.",
+          "resumo": "O editor de registo aprovou o item-pol-12 da entrega `chatgpt-2026-09-18-politicas-delta`. Abre trabalho de escrita, e o issue 014 tem tudo o que precisa por extenso. Isto é o essencial. A FONTE, UMA, LEGÍVEL `fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot` — uma página oficial do digitalGOV de 17 de setembro de 2026, HTTP 200, 306 214 bytes e 10 345 caracteres visíveis, ",
+          "bytes": 4306,
+          "desconhecido": []
+        }
+      ],
       "contagens": {
         "abertos": 0,
         "bloqueados": 0,
         "fechados": 0,
         "issues_do_jornal": 0,
         "por_tratar": 0,
-        "em_transito": 0
+        "em_transito": 1
       }
     },
     "verificacao.pt": {

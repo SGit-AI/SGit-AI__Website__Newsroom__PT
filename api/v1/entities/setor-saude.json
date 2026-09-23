@@ -25,15 +25,27 @@
       "ocorrencias": 9
     },
     {
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "ocorrencias": 9
+    },
+    {
       "fonte": "2026-09-14/registo/gov-ia",
       "ocorrencias": 3
     },
     {
       "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
       "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 7,
+  "ficheiros_com_o_nome": 10,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

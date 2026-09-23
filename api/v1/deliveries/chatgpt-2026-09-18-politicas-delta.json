@@ -1,0 +1,135 @@
+{
+  "id": "chatgpt-2026-09-18-politicas-delta",
+  "ficheiro": "redacao/entregas/chatgpt/chatgpt-2026-09-18-politicas-delta.json",
+  "ferramenta": "chatgpt",
+  "modelo": "gpt-5",
+  "data": "2026-09-18",
+  "parte": "1/8",
+  "resumo_brief": "12__research-brief-for-chatgpt.md v2",
+  "seccoes": [
+    "politicas"
+  ],
+  "consultas": [
+    "Startup Summit Lisbon 2026 16 17 18 setembro 2026 cobertura programa IA Beato",
+    "site:startupsummit.io 2026 AI inteligência artificial September 18 2026",
+    "site:portugalglobal.pt Startup Summit Lisbon Guinness pitch marathon September 2026",
+    "Portugal inteligência artificial Diário da República ANACOM IPQ 16 17 18 setembro 2026",
+    "\"Startup Summit Lisbon 2026\" September 17 2026",
+    "\"Startup Summit Lisbon\" setembro 2026 Beato",
+    "\"Startup Summit\" Lisbon Guinness pitch marathon 2026",
+    "site:portugalbusinessnews.com \"Startup Summit Lisbon\" 2026",
+    "site:startupsummit.io Guinness \"48 hour\"",
+    "site:startupsummit.io Guinness pitch marathon",
+    "site:startupsummit.io \"pitch marathon\"",
+    "site:startupsummit.io agenda \"AI or Die\"",
+    "site:files.diariodarepublica.pt/1s/2026/01 \"Resolução do Conselho de Ministros n.º 2/2026\"",
+    "site:files.diariodarepublica.pt/1s/2026/01/ \"Agenda Nacional de Inteligência Artificial\"",
+    "site:diariodarepublica.pt/dr/detalhe 2026 ANACOM IPQ inteligência artificial autoridade",
+    "site:digital.gov.pt/pt/noticias \"18.09.2026\" inteligência artificial",
+    "site:digital.gov.pt/pt/noticias \"Cloud and AI Development Act: a nova proposta europeia\"",
+    "site:digital.gov.pt \"Cloud and AI Development Act\" 17.09.2026",
+    "\"Cloud and AI Development Act\" European Commission 2026 official"
+  ],
+  "notas_do_assistente": "Passagem delta entre 15 e 18 de setembro de 2026. Foi encontrada uma publicação oficial nova, datada de 17 de setembro, sobre o Cloud and AI Development Act. A página primária da Comissão Europeia devolveu HTTP 429 e não foi usada como fonte. Não foi localizado o PDF legível da Série I da RCM n.º 2/2026 nem um ato publicado que designe a autoridade portuguesa de fiscalização do mercado ou a autoridade notificadora do Regulamento de IA. A pesquisa do Startup Summit encontrou alterações e sessões de IA nas páginas atuais do evento; esse material fica reservado para a parte Eventos, porque o brief exige uma secção por documento. A tentativa Guinness não aparece nas páginas oficiais atuais encontradas. O esquema vivo continua a exigir delivery.vault; foi usado null enquanto o cofre não existe.",
+  "cofre": null,
+  "esquema_valido": true,
+  "erros_de_esquema": [],
+  "congelada_em": "2026-09-23",
+  "fontes": [
+    {
+      "id": "src-pol-13",
+      "url": "https://digital.gov.pt/pt/noticias/cloud-and-ai-development-act",
+      "publicador": "digitalGOV",
+      "titulo": "Cloud and AI Development Act: a nova proposta europeia para Cloud, IA e soberania digital",
+      "lingua": "pt-PT",
+      "acesso": "open",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot",
+      "sha256": "899837eea02f26e19b6397d2e09ac534ef219e7f4dd73726fb6fc2bb77747a84",
+      "bytes": 306214,
+      "caracteres_visiveis": 10345,
+      "formato": "html",
+      "legivel": true,
+      "porque": null
+    }
+  ],
+  "itens": [
+    {
+      "id": "item-pol-12",
+      "seccao": "politicas",
+      "especie": "policy-instrument",
+      "titulo": "Proposta europeia CADA prevê um quadro comum de contratação pública para serviços de Cloud e IA",
+      "o_que_dizem_as_fontes": "O digitalGOV descreve o Cloud and AI Development Act como uma proposta da Comissão Europeia. Segundo a página, o texto inclui um quadro comum de contratação pública para serviços de Cloud e inteligência artificial e segue o processo legislativo ordinário europeu sob o procedimento 2026/0138(COD).",
+      "porque_importa": "O quadro proposto pode afetar a forma como administrações portuguesas avaliam e contratam serviços de Cloud e IA, articulando-se com a execução do Plano Nacional de Nuvem Soberana.",
+      "historia_sugerida": "O que a proposta CADA pode mudar na contratação pública portuguesa de Cloud e IA.",
+      "afirmacoes": [
+        {
+          "id": "item-pol-12-c1",
+          "texto": "O Cloud and AI Development Act é uma proposta da Comissão Europeia.",
+          "fonte": "src-pol-13",
+          "localizador": "Uma proposta da Comissão Europeia",
+          "excerto": "O Cloud and AI Development Act é uma proposta da Comissão Europeia",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "confirmada",
+          "nota": null,
+          "correspondencia": "exacta",
+          "trocos": 1
+        },
+        {
+          "id": "item-pol-12-c2",
+          "texto": "A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência artificial.",
+          "fonte": "src-pol-13",
+          "localizador": "Cloud e Inteligência Artificial no setor público",
+          "excerto": "Prevê igualmente um quadro comum de contratação pública",
+          "confianca_declarada": "alta",
+          "estado_entregue": "por_verificar",
+          "estado": "confirmada",
+          "nota": null,
+          "correspondencia": "exacta",
+          "trocos": 1
+        }
+      ],
+      "entidades_propostas": [
+        {
+          "id": "politica:cloud-and-ai-development-act",
+          "type": "Política",
+          "name": "Cloud and AI Development Act",
+          "source": "src-pol-13",
+          "attributes": {
+            "sigla": "CADA",
+            "procedimento": "2026/0138(COD)"
+          }
+        }
+      ],
+      "arestas_propostas": [],
+      "verificacao_dados_pessoais": {
+        "contains_contact_details": false,
+        "contains_characterisation": false,
+        "persons_named": []
+      },
+      "resumo": {
+        "confirmada": 2,
+        "nao_encontrada": 0,
+        "fonte_inacessivel": 0
+      }
+    }
+  ],
+  "propostas_de_vocabulario": [],
+  "contagens": {
+    "fontes": 1,
+    "fontes_legiveis": 1,
+    "itens": 1,
+    "afirmacoes": 2,
+    "confirmadas": 2,
+    "nao_encontradas": 0,
+    "fonte_inacessivel": 0
+  },
+  "revisao": {
+    "entrega": "chatgpt-2026-09-18-politicas-delta",
+    "estado": "por_rever",
+    "decidido_por": null,
+    "decidido_em": null,
+    "itens": {},
+    "comentarios": []
+  }
+}

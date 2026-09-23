@@ -17,13 +17,13 @@
     },
     {
       "ficheiro": "dados/comentarios.json",
-      "bytes": 79548,
-      "sha256": "e8791b2fbf54fa0480038ee7e3087f49472a88c9fcf8201ca9ffeeec66c5fe4e"
+      "bytes": 85412,
+      "sha256": "ed08ae02c93efc035a9a66945c5bf46df6a5344e4cb61379cbafd968cf52a10d"
     },
     {
       "ficheiro": "dados/correio.json",
-      "bytes": 48529,
-      "sha256": "6c597081fc7326d17f60f4abbbdcb66ad221758c35a620fe87b127de1fb9f0bf"
+      "bytes": 58908,
+      "sha256": "9a39da65bafa87db82e1dc4e61a18439c099d5ed1796e0321d82190bf9afe92a"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -42,13 +42,13 @@
     },
     {
       "ficheiro": "dados/entidades.json",
-      "bytes": 139219,
-      "sha256": "e45c9fd4d11debf7e30cc67047b5a8dd2fb8608428eb264367257c7c399758b4"
+      "bytes": 143913,
+      "sha256": "4770bdab0dbaf10539f4c41b41ae9396400c4b12cab35efd4467977028e64892"
     },
     {
       "ficheiro": "dados/entregas.json",
-      "bytes": 76790,
-      "sha256": "12bb0975abdfd9c8a36937fa5004f14775fd9632c9331fdd37ca110821ae340d"
+      "bytes": 84210,
+      "sha256": "f194536208c23815ae957d4f5401b52347af7f7943fb22b8b69e2b32c85185b7"
     },
     {
       "ficheiro": "dados/equipa.json",
@@ -92,8 +92,8 @@
     },
     {
       "ficheiro": "dados/i18n/fontes.json",
-      "bytes": 640747,
-      "sha256": "fe2b82b8a31127669b6365a5c39260773fe994b1d337f22543bb9ec1d36f47f9"
+      "bytes": 641659,
+      "sha256": "51421233e2a2ace20efd4499a9edbac7f0b3a0571796a93f1bd62339da91467c"
     },
     {
       "ficheiro": "dados/i18n/fr.json",
@@ -123,7 +123,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 6320,
-      "sha256": "5095be0b98e34c0db386677e33bbc9439f585fa1b14712495e7e3144ba8acf63"
+      "sha256": "d2ad3240076023d2aac682e26b83276df6eca854d8cbe297fd3a988bdb3a0dac"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -152,13 +152,13 @@
     },
     {
       "ficheiro": "dados/quadro.json",
-      "bytes": 71358,
-      "sha256": "543e6681c1303dce4175b8440865049aac5f09458427bce02625ef90e7bb1497"
+      "bytes": 76633,
+      "sha256": "e2eaf6d4e719333569cd37c34d908acab7fb6f5e28c512508a712260ac01eb39"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 22527,
-      "sha256": "0a67c4cd3d4855e22fc0e596a58adf099dc3c2e7e54cdfd0b6c66c7b9f3e8512"
+      "bytes": 22976,
+      "sha256": "af063d50431e4e99ce8e1aa14a525a47444bece13989431a3e2bcfe87a96a6ea"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -167,8 +167,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 16014,
-      "sha256": "78b5ff832d00ee730d9d6534588c15a95cd40067fa98c364282d753baea8c1c5"
+      "bytes": 17322,
+      "sha256": "6f558ed8d06cb5e01a05ce27a25bb614a7978fe750d494f2cd31012431e5928d"
     },
     {
       "ficheiro": "dados/sessoes.json",

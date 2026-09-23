@@ -8,8 +8,8 @@
     "fr",
     "de"
   ],
-  "contagem": 1051,
-  "palavras": 17593,
+  "contagem": 1053,
+  "palavras": 17623,
   "segmentos": {
     "009ab28fee181f80": {
       "text": "Empresas",
@@ -799,6 +799,13 @@
       "kind": "prose",
       "where": [
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/artigo.md"
+      ]
+    },
+    "13ead4785ced9516": {
+      "text": "São 198, e 173 delas podem ser ligadas: 181 porque o nome está nos bytes de uma cópia congelada, 3 porque é assim que o nosso próprio registo nomeia o editor de um ficheiro congelado — um fundamento mais fraco, marcado como tal, e dito por extenso na página de cada uma. As restantes 14 têm página e nunca são ligadas. A fórmula que decide isto está publicada em",
+      "kind": "render",
+      "where": [
+        "entidades/index.html"
       ]
     },
     "140651e7720b2a79": {
@@ -2367,13 +2374,6 @@
         "casos-de-uso/index.html"
       ]
     },
-    "3acb20264e22521d": {
-      "text": "São 198, e 172 delas podem ser ligadas: 180 porque o nome está nos bytes de uma cópia congelada, 3 porque é assim que o nosso próprio registo nomeia o editor de um ficheiro congelado — um fundamento mais fraco, marcado como tal, e dito por extenso na página de cada uma. As restantes 15 têm página e nunca são ligadas. A fórmula que decide isto está publicada em",
-      "kind": "render",
-      "where": [
-        "entidades/index.html"
-      ]
-    },
     "3afc0d92b7f72748": {
       "text": "Cada passagem do ciclo escreve um registo: que instrução correu, que modelo a executou, que pastas mudaram, se os portões ficaram verdes e que versão foi publicada.",
       "kind": "render",
@@ -3279,6 +3279,7 @@
         "entidades/setor/educacao/index.html",
         "entidades/setor/imobiliario/index.html",
         "entidades/setor/saude/index.html",
+        "entidades/tecnologia/ciberseguranca/index.html",
         "entidades/tecnologia/dados/index.html",
         "entidades/tecnologia/hardware/index.html",
         "entidades/tecnologia/ia-generativa/index.html",
@@ -6773,7 +6774,6 @@
         "entidades/setor/investimento-anjo/index.html",
         "entidades/tecnologia/agentes/index.html",
         "entidades/tecnologia/cadeia-de-blocos/index.html",
-        "entidades/tecnologia/ciberseguranca/index.html",
         "entidades/tecnologia/ia/index.html",
         "entidades/tecnologia/nuvem/index.html"
       ]
@@ -7090,6 +7090,7 @@
         "entidades/setor/educacao/index.html",
         "entidades/setor/imobiliario/index.html",
         "entidades/setor/saude/index.html",
+        "entidades/tecnologia/ciberseguranca/index.html",
         "entidades/tecnologia/dados/index.html",
         "entidades/tecnologia/hardware/index.html",
         "entidades/tecnologia/ia-generativa/index.html",
@@ -9362,7 +9363,6 @@
         "entidades/setor/investimento-anjo/index.html",
         "entidades/tecnologia/agentes/index.html",
         "entidades/tecnologia/cadeia-de-blocos/index.html",
-        "entidades/tecnologia/ciberseguranca/index.html",
         "entidades/tecnologia/ia/index.html",
         "entidades/tecnologia/nuvem/index.html"
       ]
@@ -9387,6 +9387,13 @@
       "where": [
         "dados/aviso.json",
         "aviso/index.html"
+      ]
+    },
+    "b1a93f985169420e": {
+      "text": "A proposta europeia CADA e o quadro comum de contratação pública de Cloud e IA",
+      "kind": "render",
+      "where": [
+        "desk/index.html"
       ]
     },
     "b1b443034310de64": {
@@ -12293,6 +12300,16 @@
         "metodo/index.html"
       ]
     },
+    "e9ab6a424de84876": {
+      "text": "O que a proposta CADA pode mudar na contratação pública portuguesa de Cloud e IA.",
+      "kind": "prose",
+      "where": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
+      ]
+    },
     "e9ae13d736bce5c6": {
       "text": "Os ficheiros deste artigo",
       "kind": "chrome",
@@ -13336,9 +13353,13 @@
       "text": "Aparece em # ficheiros congelados; listam-se os # com mais ocorrências.",
       "kind": "padrao",
       "where": [
+        "entidades/editor/digitalgov/index.html",
         "entidades/evento/startup-summit-lisbon-2026/index.html",
+        "entidades/instituicao/dados-gov-pt/index.html",
         "entidades/local/beato-innovation-district/index.html",
         "entidades/organizacao/startup-summit/index.html",
+        "entidades/produto/plataforma/index.html",
+        "entidades/tecnologia/dados/index.html",
         "entidades/tema/ai/index.html",
         "entidades/tema/european-startups/index.html",
         "entidades/tema/founder-journey/index.html",
@@ -13771,7 +13792,6 @@
         "entidades/setor/investimento-anjo/index.html",
         "entidades/tecnologia/agentes/index.html",
         "entidades/tecnologia/cadeia-de-blocos/index.html",
-        "entidades/tecnologia/ciberseguranca/index.html",
         "entidades/tecnologia/ia/index.html",
         "entidades/tecnologia/nuvem/index.html"
       ]

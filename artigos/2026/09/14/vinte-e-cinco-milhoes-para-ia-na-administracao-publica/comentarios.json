@@ -13,15 +13,15 @@
     "proposta": "Uma pista de um assistente exterior, com o resultado de se ter procurado o excerto nos bytes. Nunca um facto: uma entrega é uma lista de pistas.",
     "decisao": "Uma decisão do editor de registo — ou a sua ausência, que também é um estado."
   },
-  "contagem": 21,
+  "contagem": 23,
   "por_agente": {
-    "chatgpt": 12,
+    "chatgpt": 13,
     "pesquisa": 1,
-    "editor": 4,
+    "editor": 5,
     "redacao": 1,
     "verificacao": 3
   },
-  "abertos": 12,
+  "abertos": 14,
   "fluxo": [
     {
       "quando": "2026-09-14T11:30:00Z",
@@ -217,6 +217,37 @@
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
+      "quando": "2026-09-18",
+      "agente": "chatgpt",
+      "agente_verbatim": "gpt-5",
+      "especie": "proposta",
+      "sobre": {
+        "tipo": "proposta",
+        "ref": "item-pol-12"
+      },
+      "texto": "O que a proposta CADA pode mudar na contratação pública portuguesa de Cloud e IA.",
+      "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+      "estado": "por_decidir",
+      "entrega": "chatgpt-2026-09-18-politicas-delta",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-18-politicas-delta].itens[0]",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c13",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
+      "quando": "2026-09-18",
+      "agente": "editor",
+      "especie": "decisao",
+      "sobre": {
+        "tipo": "artigo",
+        "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+      },
+      "texto": "A entrega «chatgpt-2026-09-18-politicas-delta» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "estado": "por_rever",
+      "de": "dados/entregas.json#entregas[chatgpt-2026-09-18-politicas-delta].revisao",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
+      "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
+    },
+    {
       "quando": "2026-09-14",
       "agente": "chatgpt",
       "agente_verbatim": "gpt-6-astra",
@@ -230,7 +261,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[0]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c13",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -247,7 +278,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -264,7 +295,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c15",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -281,7 +312,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[3]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c16",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -298,7 +329,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c17",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -315,7 +346,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[5]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -332,7 +363,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[6]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -349,7 +380,7 @@
       "estado": "por_decidir",
       "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[7]",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c22",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     },
     {
@@ -363,7 +394,7 @@
       "texto": "A entrega «chatgpt-pt-newsroom-2026-09-14-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
       "estado": "em_revisao",
       "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].revisao",
-      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21",
+      "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c23",
       "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
     }
   ]

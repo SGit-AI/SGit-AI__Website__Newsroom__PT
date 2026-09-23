@@ -1,0 +1,76 @@
+{
+  "id": "014",
+  "titulo": "A proposta europeia CADA e o quadro comum de contratação pública de Cloud e IA",
+  "seccao": "politicas",
+  "estado": "extraido",
+  "aberto_em": "2026-09-23",
+  "ultimo_toque": {
+    "quem": "sessao-as-tres-linguas",
+    "quando": "2026-09-23"
+  },
+  "enquadramento": "O editor de registo aprovou o item-pol-12 da entrega chatgpt-2026-09-18-politicas-delta. As duas afirmações do item foram reencontradas, palavra por palavra, nos bytes congelados de uma página oficial do digitalGOV datada de 17 de setembro de 2026. É material para um artigo da secção das políticas, e é o primeiro desta redação sobre um instrumento que ainda NÃO existe: uma proposta em processo legislativo europeu.",
+  "de_onde_vem": {
+    "entrega": "chatgpt-2026-09-18-politicas-delta",
+    "item": "item-pol-12",
+    "ferramenta": "chatgpt",
+    "modelo": "gpt-5",
+    "aprovado_por": "Dinis Cruz",
+    "aprovado_em": "2026-09-23"
+  },
+  "a_fonte_congelada": {
+    "id": "src-pol-13",
+    "url": "https://digital.gov.pt/pt/noticias/cloud-and-ai-development-act",
+    "publicador": "digitalGOV",
+    "publicado": "2026-09-17",
+    "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot",
+    "sha256": "899837eea02f26e19b6397d2e09ac534ef219e7f4dd73726fb6fc2bb77747a84",
+    "http": 200,
+    "bytes": 306214,
+    "caracteres_visiveis": 10345
+  },
+  "as_afirmacoes_confirmadas": [
+    {
+      "texto": "O Cloud and AI Development Act é uma proposta da Comissão Europeia.",
+      "excerto_nos_bytes": "O Cloud and AI Development Act é uma proposta da Comissão Europeia",
+      "estado": "confirmada"
+    },
+    {
+      "texto": "A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência artificial.",
+      "excerto_nos_bytes": "Prevê igualmente um quadro comum de contratação pública",
+      "estado": "confirmada"
+    }
+  ],
+  "o_que_esta_nos_bytes_e_nao_e_afirmacao": {
+    "nota": "Três coisas viajam na entrega como atributos e datas e não como afirmações, logo o portão dos excertos nunca as conferiu. Foram conferidas à mão contra a mesma cópia congelada e as três ESTÃO lá. Se alguma delas chegar à prosa, tem de passar a afirmação com o seu próprio excerto, senão a regra 2 fica satisfeita por acaso e não por construção.",
+    "verificadas_a_mao": [
+      { "o_que": "a sigla CADA", "nos_bytes": "a proposta Cloud and AI Development Act (CADA)" },
+      { "o_que": "o procedimento legislativo", "nos_bytes": "O procedimento legislativo 2026/0138(COD) encontra-se em curso" },
+      { "o_que": "a data de apresentação", "nos_bytes": "A Comissão Europeia apresentou, no dia 3 de junho de 2026, a proposta" }
+    ]
+  },
+  "o_que_o_artigo_pode_afirmar": [
+    "Que o digitalGOV, numa página oficial datada de 17 de setembro de 2026 e congelada com SHA-256 neste repositório, descreve o Cloud and AI Development Act como uma proposta da Comissão Europeia.",
+    "Que, segundo essa página, a proposta prevê um quadro comum de contratação pública, destinado a mobilizar o poder de compra das administrações na aquisição de serviços de Cloud e IA.",
+    "Que a página diz que a proposta será apreciada no processo legislativo ordinário, envolvendo o Parlamento Europeu e o Conselho, e nomeia o procedimento — se essas duas passarem a afirmações com excerto."
+  ],
+  "o_que_o_artigo_nao_pode_afirmar": [
+    "Que o CADA está em vigor, foi aprovado, ou obriga alguém a alguma coisa. É uma proposta em processo legislativo, e a diferença entre uma proposta e um ato é a mesma que separa as outras histórias desta secção.",
+    "Que o CADA se articula com a execução do Plano Nacional de Nuvem Soberana. A entrega diz isto em `why_it_matters` e é inferência nossa: «Nuvem Soberana» aparece naquela página apenas como etiqueta, e a página não afirma essa articulação. Fica fora da prosa.",
+    "Qualquer caracterização da Comissão Europeia, do Governo ou de qualquer outra parte nomeada. Publica-se o registo, nunca o veredicto.",
+    "Que a proposta muda a contratação pública portuguesa. O que se pode dizer é o que o texto proposto prevê, segundo a página congelada."
+  ],
+  "a_entidade_proposta": {
+    "id": "politica:cloud-and-ai-development-act",
+    "tipo": "Política",
+    "nome": "Cloud and AI Development Act",
+    "nota": "O tipo já existe na ontologia e o identificador cumpre o padrão, logo NÃO há alteração de ontologia nem versão a tomar por causa desta entrega. A entidade e as arestas continuam a ser propostas: a Pesquisa volta a derivá-las da página congelada e não as ingere daqui."
+  },
+  "o_que_falta": [
+    "O editor escrever a decisão em redacao/revisoes/chatgpt-2026-09-18-politicas-delta.json. A aprovação foi dada na conversa de 2026-09-23; o ficheiro é a linha do editor e nenhuma execução o escreve. Enquanto não existir, build/entregas.py mantém a entrega em «por_rever» e o portão 13 mantém o item em quarentena — que é o estado seguro e correto.",
+    "A Redação escrever a prosa a partir das duas afirmações confirmadas e de mais nada, com a marca [[fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13]] em cada uma.",
+    "A Verificação reler cada afirmação contra a cópia congelada e escrever o registo em dados/verificacoes/.",
+    "Decidir se a sigla, o procedimento e a data de 3 de junho entram como afirmações próprias. Recomendo que sim para as três: são o que dá ao leitor a diferença entre uma proposta e um ato."
+  ],
+  "porque_importa": "É a primeira peça desta redação sobre um instrumento europeu que ainda não existe. Toda a secção das políticas até aqui trata de anúncios nacionais cujo diploma não se consegue ler; esta trata de uma proposta que é declaradamente uma proposta, e a honestidade do artigo está em não a promover a ato. É também o primeiro item de uma entrega que validou contra o esquema sem um único erro.",
+  "recusa": "Não se escreve a partir da página primária da Comissão Europeia sem a congelar. A entrega diz que essa página devolveu HTTP 429 e não a usou, o que é a decisão certa; se for congelada mais tarde, é uma fonte nova e um excerto novo, não uma confirmação retroativa desta."
+}

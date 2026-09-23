@@ -1,17 +1,14 @@
 {
-  "quando": "2026-09-14",
-  "agente": "chatgpt",
-  "agente_verbatim": "gpt-6-astra",
-  "especie": "proposta",
+  "quando": "2026-09-18",
+  "agente": "editor",
+  "especie": "decisao",
   "sobre": {
-    "tipo": "proposta",
-    "ref": "item-pol-02"
+    "tipo": "artigo",
+    "ref": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
   },
-  "texto": "Mapa de execução: quem responde pelas 32 iniciativas da ANIA e quais já começaram.",
-  "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 1 de 2 afirmações tinham o excerto nos bytes.",
-  "estado": "por_decidir",
-  "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-  "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[1]",
+  "texto": "A entrega «chatgpt-2026-09-18-politicas-delta» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+  "estado": "por_rever",
+  "de": "dados/entregas.json#entregas[chatgpt-2026-09-18-politicas-delta].revisao",
   "id": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c14",
   "artigo": "vinte-e-cinco-milhoes-para-ia-na-administracao-publica"
 }

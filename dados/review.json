@@ -4,7 +4,7 @@
   "updated": "2026-09-23",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
-  "count": 11,
+  "count": 12,
   "questions": [
     {
       "id": "chatgpt-2026-09-15-politicas-2/item-pol-09",
@@ -59,6 +59,25 @@
         "O Centro de Excelência em IA declara três funções nucleares: estratégica, operacional e de capacitação."
       ],
       "url": "../deliveries/chatgpt-2026-09-15-politicas-2.html#item-pol-11"
+    },
+    {
+      "id": "chatgpt-2026-09-18-politicas-delta/item-pol-12",
+      "kind": "delivery",
+      "for_agent": "the /newsroom-entregas session",
+      "file": "redacao/revisoes/chatgpt-2026-09-18-politicas-delta.json",
+      "question": "Proposta europeia CADA prevê um quadro comum de contratação pública para serviços de Cloud e IA",
+      "delivery_id": "chatgpt-2026-09-18-politicas-delta",
+      "item_id": "item-pol-12",
+      "section": "politicas",
+      "confirmed": 2,
+      "claims": 2,
+      "without_bytes": 0,
+      "why_it_matters": "O quadro proposto pode afetar a forma como administrações portuguesas avaliam e contratam serviços de Cloud e IA, articulando-se com a execução do Plano Nacional de Nuvem Soberana.",
+      "confirmed_claims": [
+        "O Cloud and AI Development Act é uma proposta da Comissão Europeia.",
+        "A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência artificial."
+      ],
+      "url": "../deliveries/chatgpt-2026-09-18-politicas-delta.html#item-pol-12"
     },
     {
       "id": "chatgpt-pt-newsroom-2026-09-14-politicas/item-pol-01",
@@ -189,6 +208,13 @@
     {
       "kind": "release",
       "when": "2026-09-23",
+      "version": "v0.23.12",
+      "what": "A fourth delivery, the first with a clean schema and a source readable at the first attempt, and the CADA proposal commissioned",
+      "url": "../../admin/versions.html#v0.23.12"
+    },
+    {
+      "kind": "release",
+      "when": "2026-09-23",
       "version": "v0.23.11",
       "what": "The language-rule amendment written out to be applied, and an emergency exit that writes into a folder nothing reads",
       "url": "../../admin/versions.html#v0.23.11"
@@ -236,11 +262,11 @@
       "url": "../../admin/versions.html#v0.23.5"
     },
     {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.23.4",
-      "what": "The console moves to /newsroom/, and /admin/ survives on three lines nobody here may edit",
-      "url": "../../admin/versions.html#v0.23.4"
+      "kind": "delivery",
+      "when": "2026-09-18",
+      "version": "",
+      "what": "chatgpt delivery · 1 items, 2 of 2 claims found in the bytes",
+      "url": "../deliveries/chatgpt-2026-09-18-politicas-delta.html"
     },
     {
       "kind": "article",

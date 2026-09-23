@@ -5,13 +5,13 @@
   "especie": "proposta",
   "sobre": {
     "tipo": "proposta",
-    "ref": "item-pol-05"
+    "ref": "item-pol-03"
   },
-  "texto": "Portugal reservou até 200 milhões de euros para uma Gigafábrica de IA; falta ligar o anúncio ao diploma publicado.",
-  "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 2 afirmações tinham o excerto nos bytes.",
+  "texto": "Designação anunciada, diploma ausente: onde está o ato nacional de execução do AI Act?",
+  "porque": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. 2 de 3 afirmações tinham o excerto nos bytes.",
   "estado": "por_decidir",
   "entrega": "chatgpt-pt-newsroom-2026-09-14-politicas",
-  "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[4]",
+  "de": "dados/entregas.json#entregas[chatgpt-pt-newsroom-2026-09-14-politicas].itens[2]",
   "id": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c16",
   "artigo": "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler"
 }

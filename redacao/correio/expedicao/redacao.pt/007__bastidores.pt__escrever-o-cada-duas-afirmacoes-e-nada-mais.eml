@@ -1,0 +1,73 @@
+From: bastidores.pt <bastidores.pt@redacao.local>
+To: redacao.pt <redacao.pt@redacao.local>
+Date: 2026-09-23T01:45:00Z
+Subject: Escrever o CADA: duas afirmações confirmadas, e a inferência que fica de fora
+Message-ID: <007-escrever-o-cada@redacao.local>
+X-EmailFS-From-Alias: @Bastidores
+X-EmailFS-To-Alias: @Redação
+
+O editor de registo aprovou o item-pol-12 da entrega `chatgpt-2026-09-18-politicas-delta`. Abre
+trabalho de escrita, e o issue 014 tem tudo o que precisa por extenso. Isto é o essencial.
+
+A FONTE, UMA, LEGÍVEL
+
+`fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot` —
+uma página oficial do digitalGOV de 17 de setembro de 2026, HTTP 200, 306 214 bytes e 10 345
+caracteres visíveis, com SHA-256 no registo. Nenhuma parede: sem 403, sem renderização por script,
+sem 404. É a primeira vez nesta secção que a fonte se lê inteira à primeira.
+
+AS DUAS AFIRMAÇÕES, E SÓ ESTAS DUAS
+
+1. «O Cloud and AI Development Act é uma proposta da Comissão Europeia.»
+   Excerto nos bytes: «O Cloud and AI Development Act é uma proposta da Comissão Europeia»
+2. «A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência
+   artificial.»
+   Excerto nos bytes: «Prevê igualmente um quadro comum de contratação pública»
+
+Cada uma leva a marca da fonte deste item, com o identificador
+`2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13`. O issue 014 mostra a forma
+exacta da marca; não a escrevo aqui porque esta página é dos bastidores e o portão 41 recusa uma
+marca de fonte nos bastidores — relatam sobre a redação, não sobre o mundo.
+
+A COISA QUE ESTE ARTIGO TEM DE ACERTAR
+
+É uma PROPOSTA, e não um ato. A página di-lo com todas as letras e o artigo tem de o dizer com as
+mesmas: será apreciada no processo legislativo ordinário, com o Parlamento Europeu e o Conselho. A
+secção das políticas deste sítio é feita de anúncios cujo diploma não se consegue ler; esta peça é o
+contrário — um texto que é declaradamente uma proposta. Promovê-la a instrumento em vigor seria
+exactamente o erro que a secção existe para não cometer.
+
+O QUE NÃO SE ESCREVE
+
+A entrega diz, em `why_it_matters`, que o quadro se articula «com a execução do Plano Nacional de
+Nuvem Soberana». Não escreva isso. «Nuvem Soberana» aparece naquela página apenas como etiqueta, e a
+articulação é inferência nossa e não afirmação da fonte. É o tipo de frase que passa despercebida
+porque é plausível, e é por isso que está aqui nomeada.
+
+Também não se caracteriza a Comissão, o Governo nem ninguém. Publica-se o registo, nunca o veredicto.
+
+TRÊS COISAS QUE ESTÃO NOS BYTES E NÃO SÃO AFIRMAÇÕES
+
+A sigla CADA, o procedimento `2026/0138(COD)` e a data de apresentação — 3 de junho de 2026 — viajam
+na entrega como atributos e datas, não como afirmações, logo o portão dos excertos nunca as conferiu.
+Conferi-as à mão contra a mesma cópia congelada e as três estão lá, verbatim:
+
+- «a proposta Cloud and AI Development Act (CADA)»
+- «O procedimento legislativo 2026/0138(COD) encontra-se em curso»
+- «A Comissão Europeia apresentou, no dia 3 de junho de 2026, a proposta»
+
+Recomendo que as três entrem como afirmações próprias, com o seu excerto, e não como contexto solto.
+São elas que dão ao leitor a diferença entre uma proposta e um ato — que é a história. Mas passam
+pelo caminho normal: afirmação com marca de fonte, e o registo de verificação a relê-las.
+
+O QUE AINDA NÃO ESTÁ FEITO
+
+A decisão do editor está dada na conversa e ainda não está escrita em
+`redacao/revisoes/chatgpt-2026-09-18-politicas-delta.json`. Esse ficheiro é a linha dele e nenhuma
+execução o escreve. Enquanto não existir, `build/entregas.py` mantém a entrega em «por_rever» e o
+portão 13 mantém o item em quarentena — o que é o estado certo. Pode preparar a pasta do artigo e a
+prosa; nada disto vai à primeira página antes de a decisão estar no ficheiro.
+
+A entidade `politica:cloud-and-ai-development-act` é uma proposta e não entra no grafo daqui: o tipo
+`Política` já existe, não há alteração de ontologia nem versão a tomar, e é a Pesquisa que volta a
+derivar a entidade da página congelada.

@@ -56,7 +56,7 @@
   "cofre": null,
   "esquema_valido": true,
   "erros_de_esquema": [],
-  "congelada_em": "2026-09-15",
+  "congelada_em": "2026-09-23",
   "fontes": [
     {
       "id": "src-pol-09",
@@ -65,11 +65,13 @@
       "titulo": "Regulamento (UE) 2026/1744 do Parlamento Europeu e do Conselho",
       "lingua": "pt-PT",
       "acesso": "pdf",
-      "congelada": null,
-      "sha256": null,
-      "bytes": 0,
-      "legivel": false,
-      "porque": "nenhum corpo foi devolvido"
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09.pdf",
+      "sha256": "b3fcd2e0b66a35fc86e7432db681dbd65ac8a00afa4ed770747667328844eaee",
+      "bytes": 1273119,
+      "caracteres_visiveis": 392245,
+      "formato": "pdf",
+      "legivel": true,
+      "porque": null
     },
     {
       "id": "src-pol-10",
@@ -78,10 +80,10 @@
       "titulo": "Regulamento Europeu de Inteligência Artificial revisto: novos prazos e novas regras",
       "lingua": "pt-PT",
       "acesso": "open",
-      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
-      "sha256": "7dbf1a67eb5dd11feffbb8a88c1591f9ce4835abb86145825d291923e81832f8",
-      "bytes": 265049,
-      "caracteres_visiveis": 8199,
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
+      "sha256": "5f448111c27ecee31e4d14853047a68a32913b1ffdf75aafb55a8b228f59bfd4",
+      "bytes": 280815,
+      "caracteres_visiveis": 8235,
       "formato": "html",
       "legivel": true,
       "porque": null
@@ -93,10 +95,10 @@
       "titulo": "Novas regras de transparência para a Inteligência Artificial",
       "lingua": "pt-PT",
       "acesso": "open",
-      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
-      "sha256": "28c465242bd8b91d3b3cf1a3ddb8f03c24297fe8204c3ceb0a0c7b52110e9eaa",
-      "bytes": 267411,
-      "caracteres_visiveis": 7244,
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
+      "sha256": "be239fa77b6a295f70aae77704fd9b3489bad323340cf0dfd710f31a811433df",
+      "bytes": 289529,
+      "caracteres_visiveis": 7280,
       "formato": "html",
       "legivel": true,
       "porque": null
@@ -108,10 +110,10 @@
       "titulo": "Centro de Excelência em IA: o novo motor da adoção de IA na Administração Pública",
       "lingua": "pt-PT",
       "acesso": "open",
-      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
-      "sha256": "c4527b9c777643392a1a6b25e30b2a6709bede3ea78887b3a4c753e243b9a5ad",
-      "bytes": 256074,
-      "caracteres_visiveis": 8764,
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
+      "sha256": "2c594203a4266e2e77cec7841bf14c6b1f3aef0d1523b1aeea00f94ebf7a9df0",
+      "bytes": 265422,
+      "caracteres_visiveis": 8784,
       "formato": "html",
       "legivel": true,
       "porque": null
@@ -135,8 +137,8 @@
           "excerto": "i) 2 de dezembro de 2027, no que diz respeito aos sistemas de IA classificados como sendo de risco elevado",
           "confianca_declarada": "alta",
           "estado_entregue": "por_verificar",
-          "estado": "fonte_inacessivel",
-          "nota": "nenhum corpo foi devolvido",
+          "estado": "nao_encontrada",
+          "nota": "o excerto não está no texto visível da cópia congelada. Pode ser uma página que mudou desde a entrega, uma que só mostra este texto a um cliente que corre scripts, ou um excerto que nunca esteve lá. O registo não adivinha qual.",
           "correspondencia": null,
           "trocos": 0
         },
@@ -180,8 +182,8 @@
       },
       "resumo": {
         "confirmada": 1,
-        "nao_encontrada": 0,
-        "fonte_inacessivel": 1
+        "nao_encontrada": 1,
+        "fonte_inacessivel": 0
       }
     },
     {
@@ -278,12 +280,12 @@
   "propostas_de_vocabulario": [],
   "contagens": {
     "fontes": 4,
-    "fontes_legiveis": 3,
+    "fontes_legiveis": 4,
     "itens": 3,
     "afirmacoes": 4,
     "confirmadas": 3,
-    "nao_encontradas": 0,
-    "fonte_inacessivel": 1
+    "nao_encontradas": 1,
+    "fonte_inacessivel": 0
   },
   "revisao": {
     "entrega": "chatgpt-2026-09-15-politicas-2",

@@ -5,6 +5,10 @@
   "url": "entidades/tecnologia/ia-generativa/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "ocorrencias": 4
+    },
+    {
       "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
       "ocorrencias": 3
     },
@@ -15,9 +19,13 @@
     {
       "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
       "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 3,
+  "ficheiros_com_o_nome": 5,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

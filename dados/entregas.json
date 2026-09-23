@@ -1,7 +1,7 @@
 {
   "id": "pt-entregas",
   "versao": "0.1.0",
-  "atualizado": "2026-09-15",
+  "atualizado": "2026-09-23",
   "o_que_e": "Entregas de investigação de assistentes exteriores, com o estado de cada afirmação depois de esta redação ter congelado a fonte e procurado nos bytes o excerto que o assistente diz ter lido.",
   "a_regra": "Uma entrega é uma lista de pistas com proveniência, nunca factos. Nada daqui aparece na primeira página nem num artigo enquanto o editor de registo não aprovar a afirmação, uma a uma, ao lado da sua fonte congelada. O portão 13 de build/gates.py falha a construção se isso for contornado.",
   "estados": [
@@ -42,7 +42,7 @@
       "o_que_significa": "O editor leu-a e não a quer. A razão fica no ficheiro de revisão."
     }
   ],
-  "contagem": 2,
+  "contagem": 3,
   "entregas": [
     {
       "id": "chatgpt-2026-09-15-politicas-2",
@@ -102,7 +102,7 @@
       "cofre": null,
       "esquema_valido": true,
       "erros_de_esquema": [],
-      "congelada_em": "2026-09-15",
+      "congelada_em": "2026-09-23",
       "fontes": [
         {
           "id": "src-pol-09",
@@ -111,11 +111,13 @@
           "titulo": "Regulamento (UE) 2026/1744 do Parlamento Europeu e do Conselho",
           "lingua": "pt-PT",
           "acesso": "pdf",
-          "congelada": null,
-          "sha256": null,
-          "bytes": 0,
-          "legivel": false,
-          "porque": "nenhum corpo foi devolvido"
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09.pdf",
+          "sha256": "b3fcd2e0b66a35fc86e7432db681dbd65ac8a00afa4ed770747667328844eaee",
+          "bytes": 1273119,
+          "caracteres_visiveis": 392245,
+          "formato": "pdf",
+          "legivel": true,
+          "porque": null
         },
         {
           "id": "src-pol-10",
@@ -124,10 +126,10 @@
           "titulo": "Regulamento Europeu de Inteligência Artificial revisto: novos prazos e novas regras",
           "lingua": "pt-PT",
           "acesso": "open",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
-          "sha256": "7dbf1a67eb5dd11feffbb8a88c1591f9ce4835abb86145825d291923e81832f8",
-          "bytes": 265049,
-          "caracteres_visiveis": 8199,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
+          "sha256": "5f448111c27ecee31e4d14853047a68a32913b1ffdf75aafb55a8b228f59bfd4",
+          "bytes": 280815,
+          "caracteres_visiveis": 8235,
           "formato": "html",
           "legivel": true,
           "porque": null
@@ -139,10 +141,10 @@
           "titulo": "Novas regras de transparência para a Inteligência Artificial",
           "lingua": "pt-PT",
           "acesso": "open",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
-          "sha256": "28c465242bd8b91d3b3cf1a3ddb8f03c24297fe8204c3ceb0a0c7b52110e9eaa",
-          "bytes": 267411,
-          "caracteres_visiveis": 7244,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
+          "sha256": "be239fa77b6a295f70aae77704fd9b3489bad323340cf0dfd710f31a811433df",
+          "bytes": 289529,
+          "caracteres_visiveis": 7280,
           "formato": "html",
           "legivel": true,
           "porque": null
@@ -154,10 +156,10 @@
           "titulo": "Centro de Excelência em IA: o novo motor da adoção de IA na Administração Pública",
           "lingua": "pt-PT",
           "acesso": "open",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
-          "sha256": "c4527b9c777643392a1a6b25e30b2a6709bede3ea78887b3a4c753e243b9a5ad",
-          "bytes": 256074,
-          "caracteres_visiveis": 8764,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
+          "sha256": "2c594203a4266e2e77cec7841bf14c6b1f3aef0d1523b1aeea00f94ebf7a9df0",
+          "bytes": 265422,
+          "caracteres_visiveis": 8784,
           "formato": "html",
           "legivel": true,
           "porque": null
@@ -181,8 +183,8 @@
               "excerto": "i) 2 de dezembro de 2027, no que diz respeito aos sistemas de IA classificados como sendo de risco elevado",
               "confianca_declarada": "alta",
               "estado_entregue": "por_verificar",
-              "estado": "fonte_inacessivel",
-              "nota": "nenhum corpo foi devolvido",
+              "estado": "nao_encontrada",
+              "nota": "o excerto não está no texto visível da cópia congelada. Pode ser uma página que mudou desde a entrega, uma que só mostra este texto a um cliente que corre scripts, ou um excerto que nunca esteve lá. O registo não adivinha qual.",
               "correspondencia": null,
               "trocos": 0
             },
@@ -226,8 +228,8 @@
           },
           "resumo": {
             "confirmada": 1,
-            "nao_encontrada": 0,
-            "fonte_inacessivel": 1
+            "nao_encontrada": 1,
+            "fonte_inacessivel": 0
           }
         },
         {
@@ -324,15 +326,150 @@
       "propostas_de_vocabulario": [],
       "contagens": {
         "fontes": 4,
-        "fontes_legiveis": 3,
+        "fontes_legiveis": 4,
         "itens": 3,
         "afirmacoes": 4,
         "confirmadas": 3,
-        "nao_encontradas": 0,
-        "fonte_inacessivel": 1
+        "nao_encontradas": 1,
+        "fonte_inacessivel": 0
       },
       "revisao": {
         "entrega": "chatgpt-2026-09-15-politicas-2",
+        "estado": "por_rever",
+        "decidido_por": null,
+        "decidido_em": null,
+        "itens": {},
+        "comentarios": []
+      }
+    },
+    {
+      "id": "chatgpt-2026-09-18-politicas-delta",
+      "ficheiro": "redacao/entregas/chatgpt/chatgpt-2026-09-18-politicas-delta.json",
+      "ferramenta": "chatgpt",
+      "modelo": "gpt-5",
+      "data": "2026-09-18",
+      "parte": "1/8",
+      "resumo_brief": "12__research-brief-for-chatgpt.md v2",
+      "seccoes": [
+        "politicas"
+      ],
+      "consultas": [
+        "Startup Summit Lisbon 2026 16 17 18 setembro 2026 cobertura programa IA Beato",
+        "site:startupsummit.io 2026 AI inteligência artificial September 18 2026",
+        "site:portugalglobal.pt Startup Summit Lisbon Guinness pitch marathon September 2026",
+        "Portugal inteligência artificial Diário da República ANACOM IPQ 16 17 18 setembro 2026",
+        "\"Startup Summit Lisbon 2026\" September 17 2026",
+        "\"Startup Summit Lisbon\" setembro 2026 Beato",
+        "\"Startup Summit\" Lisbon Guinness pitch marathon 2026",
+        "site:portugalbusinessnews.com \"Startup Summit Lisbon\" 2026",
+        "site:startupsummit.io Guinness \"48 hour\"",
+        "site:startupsummit.io Guinness pitch marathon",
+        "site:startupsummit.io \"pitch marathon\"",
+        "site:startupsummit.io agenda \"AI or Die\"",
+        "site:files.diariodarepublica.pt/1s/2026/01 \"Resolução do Conselho de Ministros n.º 2/2026\"",
+        "site:files.diariodarepublica.pt/1s/2026/01/ \"Agenda Nacional de Inteligência Artificial\"",
+        "site:diariodarepublica.pt/dr/detalhe 2026 ANACOM IPQ inteligência artificial autoridade",
+        "site:digital.gov.pt/pt/noticias \"18.09.2026\" inteligência artificial",
+        "site:digital.gov.pt/pt/noticias \"Cloud and AI Development Act: a nova proposta europeia\"",
+        "site:digital.gov.pt \"Cloud and AI Development Act\" 17.09.2026",
+        "\"Cloud and AI Development Act\" European Commission 2026 official"
+      ],
+      "notas_do_assistente": "Passagem delta entre 15 e 18 de setembro de 2026. Foi encontrada uma publicação oficial nova, datada de 17 de setembro, sobre o Cloud and AI Development Act. A página primária da Comissão Europeia devolveu HTTP 429 e não foi usada como fonte. Não foi localizado o PDF legível da Série I da RCM n.º 2/2026 nem um ato publicado que designe a autoridade portuguesa de fiscalização do mercado ou a autoridade notificadora do Regulamento de IA. A pesquisa do Startup Summit encontrou alterações e sessões de IA nas páginas atuais do evento; esse material fica reservado para a parte Eventos, porque o brief exige uma secção por documento. A tentativa Guinness não aparece nas páginas oficiais atuais encontradas. O esquema vivo continua a exigir delivery.vault; foi usado null enquanto o cofre não existe.",
+      "cofre": null,
+      "esquema_valido": true,
+      "erros_de_esquema": [],
+      "congelada_em": "2026-09-23",
+      "fontes": [
+        {
+          "id": "src-pol-13",
+          "url": "https://digital.gov.pt/pt/noticias/cloud-and-ai-development-act",
+          "publicador": "digitalGOV",
+          "titulo": "Cloud and AI Development Act: a nova proposta europeia para Cloud, IA e soberania digital",
+          "lingua": "pt-PT",
+          "acesso": "open",
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot",
+          "sha256": "899837eea02f26e19b6397d2e09ac534ef219e7f4dd73726fb6fc2bb77747a84",
+          "bytes": 306214,
+          "caracteres_visiveis": 10345,
+          "formato": "html",
+          "legivel": true,
+          "porque": null
+        }
+      ],
+      "itens": [
+        {
+          "id": "item-pol-12",
+          "seccao": "politicas",
+          "especie": "policy-instrument",
+          "titulo": "Proposta europeia CADA prevê um quadro comum de contratação pública para serviços de Cloud e IA",
+          "o_que_dizem_as_fontes": "O digitalGOV descreve o Cloud and AI Development Act como uma proposta da Comissão Europeia. Segundo a página, o texto inclui um quadro comum de contratação pública para serviços de Cloud e inteligência artificial e segue o processo legislativo ordinário europeu sob o procedimento 2026/0138(COD).",
+          "porque_importa": "O quadro proposto pode afetar a forma como administrações portuguesas avaliam e contratam serviços de Cloud e IA, articulando-se com a execução do Plano Nacional de Nuvem Soberana.",
+          "historia_sugerida": "O que a proposta CADA pode mudar na contratação pública portuguesa de Cloud e IA.",
+          "afirmacoes": [
+            {
+              "id": "item-pol-12-c1",
+              "texto": "O Cloud and AI Development Act é uma proposta da Comissão Europeia.",
+              "fonte": "src-pol-13",
+              "localizador": "Uma proposta da Comissão Europeia",
+              "excerto": "O Cloud and AI Development Act é uma proposta da Comissão Europeia",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            },
+            {
+              "id": "item-pol-12-c2",
+              "texto": "A proposta prevê um quadro comum de contratação pública para serviços de Cloud e inteligência artificial.",
+              "fonte": "src-pol-13",
+              "localizador": "Cloud e Inteligência Artificial no setor público",
+              "excerto": "Prevê igualmente um quadro comum de contratação pública",
+              "confianca_declarada": "alta",
+              "estado_entregue": "por_verificar",
+              "estado": "confirmada",
+              "nota": null,
+              "correspondencia": "exacta",
+              "trocos": 1
+            }
+          ],
+          "entidades_propostas": [
+            {
+              "id": "politica:cloud-and-ai-development-act",
+              "type": "Política",
+              "name": "Cloud and AI Development Act",
+              "source": "src-pol-13",
+              "attributes": {
+                "sigla": "CADA",
+                "procedimento": "2026/0138(COD)"
+              }
+            }
+          ],
+          "arestas_propostas": [],
+          "verificacao_dados_pessoais": {
+            "contains_contact_details": false,
+            "contains_characterisation": false,
+            "persons_named": []
+          },
+          "resumo": {
+            "confirmada": 2,
+            "nao_encontrada": 0,
+            "fonte_inacessivel": 0
+          }
+        }
+      ],
+      "propostas_de_vocabulario": [],
+      "contagens": {
+        "fontes": 1,
+        "fontes_legiveis": 1,
+        "itens": 1,
+        "afirmacoes": 2,
+        "confirmadas": 2,
+        "nao_encontradas": 0,
+        "fonte_inacessivel": 0
+      },
+      "revisao": {
+        "entrega": "chatgpt-2026-09-18-politicas-delta",
         "estado": "por_rever",
         "decidido_por": null,
         "decidido_em": null,
@@ -453,7 +590,7 @@
         "sources/5/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']",
         "sources/6/access: 'html' is not one of ['open', 'paywalled', 'login', 'script-rendered', 'pdf', 'blocked']"
       ],
-      "congelada_em": "2026-09-15",
+      "congelada_em": "2026-09-23",
       "fontes": [
         {
           "id": "src-pol-01",
@@ -462,7 +599,7 @@
           "titulo": "Resolução do Conselho de Ministros n.º 2/2026, de 8 de janeiro",
           "lingua": "pt",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
           "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
           "bytes": 2346,
           "caracteres_visiveis": 22,
@@ -477,9 +614,9 @@
           "titulo": "Resolução do Conselho de Ministros n.º 2/2026",
           "lingua": "pt",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
-          "sha256": "92218b35d08bf8312238e304dae1556331868206b3aef93b3938352152c0f0db",
-          "bytes": 156327,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
+          "sha256": "d4ceb1ba7e9daf91b060bd17aadaa3c37347f3d10d295e2c2536bc4ceb94700d",
+          "bytes": 156666,
           "caracteres_visiveis": 2738,
           "formato": "html",
           "legivel": true,
@@ -492,9 +629,9 @@
           "titulo": "Agenda Nacional de Inteligência Artificial (ANIA)",
           "lingua": "pt",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
-          "sha256": "f61594416b8fd19a14c479c59b32137db8f199197a54f6ddb8ac47a0aefbb252",
-          "bytes": 181286,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
+          "sha256": "19005dfc3abc7a598385880219c57ae699c8f863ab5df3e760615406d810fb4e",
+          "bytes": 181194,
           "caracteres_visiveis": 4262,
           "formato": "html",
           "legivel": true,
@@ -507,9 +644,9 @@
           "titulo": "Comunicado do Conselho de Ministros de 25 de junho de 2026",
           "lingua": "pt",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
-          "sha256": "2e5645535541b492b017b96951126cafe4b1c502b1fbc193540c0d3051a56584",
-          "bytes": 224635,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
+          "sha256": "8da6e17b00cbad815cbda991a3532bc7f564d3e8fb39d606e620bb10fa80917a",
+          "bytes": 225049,
           "caracteres_visiveis": 6492,
           "formato": "html",
           "legivel": true,
@@ -522,7 +659,7 @@
           "titulo": "Conferência ANACOM 2025 termina com compromisso de avançar na regulação da inteligência artificial",
           "lingua": "pt",
           "acesso": "search-snippet; abertura devolveu HTTP 403",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
           "sha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
           "bytes": 239,
           "caracteres_visiveis": 74,
@@ -537,9 +674,9 @@
           "titulo": "Inteligência Artificial",
           "lingua": "pt",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
-          "sha256": "645b2e78e08458febed615296ca46a6a91608a50ede6df5c4fb3a371c77a6d80",
-          "bytes": 193743,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
+          "sha256": "f560cacd8dcafe15a6eb68dbbe871f7d6a1f8436a672d993c36448aac0041926",
+          "bytes": 193994,
           "caracteres_visiveis": 4590,
           "formato": "html",
           "legivel": true,
@@ -552,9 +689,9 @@
           "titulo": "Governance and enforcement of the AI Act",
           "lingua": "en",
           "acesso": "html",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
-          "sha256": "de200aa14720d9f0551bdbe9daa30727dbdae265e4d8fa9cc4c97bc53ac6f576",
-          "bytes": 54695,
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
+          "sha256": "6a299f77fdd568f2a5ea10c037ef9a519c3ffd99e58a247b2b403184790c45e0",
+          "bytes": 54677,
           "caracteres_visiveis": 5128,
           "formato": "html",
           "legivel": true,
@@ -567,7 +704,7 @@
           "titulo": "Resolução do Conselho de Ministros n.º 70/2026",
           "lingua": "pt",
           "acesso": "pdf",
-          "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
+          "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
           "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
           "bytes": 228725,
           "caracteres_visiveis": 30808,

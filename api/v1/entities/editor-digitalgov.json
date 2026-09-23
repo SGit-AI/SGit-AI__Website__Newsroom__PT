@@ -9,6 +9,14 @@
       "ocorrencias": 22
     },
     {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "ocorrencias": 22
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "ocorrencias": 16
+    },
+    {
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
       "ocorrencias": 13
     },
@@ -31,9 +39,21 @@
     {
       "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
       "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "ocorrencias": 13
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "ocorrencias": 13
     }
   ],
-  "ficheiros_com_o_nome": 7,
+  "ficheiros_com_o_nome": 13,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

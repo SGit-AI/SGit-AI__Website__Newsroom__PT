@@ -5,6 +5,18 @@
   "url": "entidades/editor/comissao-europeia/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "ocorrencias": 9
+    },
+    {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "ocorrencias": 9
+    },
+    {
       "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
       "ocorrencias": 6
     },
@@ -13,11 +25,15 @@
       "ocorrencias": 6
     },
     {
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "ocorrencias": 3
+    },
+    {
       "fonte": "2026-09-14/registo/dados-gov",
       "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 3,
+  "ficheiros_com_o_nome": 7,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

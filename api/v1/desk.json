@@ -93,7 +93,7 @@
         "entrada": 0,
         "saida": 0,
         "tratado": 0,
-        "em_transito": 0
+        "em_transito": 1
       },
       "execucoes": 0
     },
@@ -138,14 +138,14 @@
         "Limpar um item que ficou «parado»."
       ],
       "carga": {
-        "entradas": 16,
-        "abertas": 4,
+        "entradas": 20,
+        "abertas": 8,
         "por_especie": {
           "acao": 8,
-          "decisao": 8
+          "decisao": 12
         },
         "cartoes_a_espera": 0,
-        "entregas_por_rever": 1
+        "entregas_por_rever": 2
       },
       "cartoes": [],
       "correio": {
@@ -423,6 +423,22 @@
       },
       "aberto_em": "2026-09-23",
       "de": "redacao/issues/013"
+    },
+    {
+      "id": "014",
+      "titulo": "A proposta europeia CADA e o quadro comum de contratação pública de Cloud e IA",
+      "seccao": "politicas",
+      "estado": "extraido",
+      "especie": "issue",
+      "url": null,
+      "issue": "014",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "sessao-as-tres-linguas",
+        "quando": "2026-09-23"
+      },
+      "aberto_em": "2026-09-23",
+      "de": "redacao/issues/014"
     }
   ],
   "execucoes": [
@@ -836,10 +852,10 @@
     }
   ],
   "contagens": {
-    "cartoes": 16,
+    "cartoes": 17,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,
-    "a_espera_do_editor": 1
+    "a_espera_do_editor": 2
   }
 }

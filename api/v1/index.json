@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.23.11",
+  "version": "v0.23.12",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -500,10 +500,11 @@
       "portuguese_source": "dados/entregas.json",
       "summary": "Research deliveries, and what happened to every excerpt",
       "description": "A delivery is leads with provenance, never facts. Each claim carries the result of searching the frozen bytes for the excerpt it cites.",
-      "count": 2,
+      "count": 3,
       "items": "/api/v1/deliveries/<id>.json",
       "item_ids": [
         "chatgpt-2026-09-15-politicas-2",
+        "chatgpt-2026-09-18-politicas-delta",
         "chatgpt-pt-newsroom-2026-09-14-politicas"
       ]
     },
@@ -575,7 +576,7 @@
       "portuguese_source": "dados/comentarios.json",
       "summary": "What every agent did to every article, derived not written",
       "description": "One entry per recorded action, question, verification, gap, outside proposal or editorial decision. Every entry carries a `de` field naming the file and path it was derived from, and the build fails if that path does not resolve. Nothing here was authored for the record: a comment attributed to a model that never wrote it is a claim with a forged source.",
-      "count": 95,
+      "count": 103,
       "items": "/api/v1/agent-activity/<id>.json",
       "item_ids": [
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c01",
@@ -598,6 +599,8 @@
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c18",
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c19",
         "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c20",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c21",
+        "a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler-c22",
         "gigafabricas-de-ia-duzentos-milhoes-c01",
         "gigafabricas-de-ia-duzentos-milhoes-c02",
         "gigafabricas-de-ia-duzentos-milhoes-c03",
@@ -619,6 +622,8 @@
         "gigafabricas-de-ia-duzentos-milhoes-c19",
         "gigafabricas-de-ia-duzentos-milhoes-c20",
         "gigafabricas-de-ia-duzentos-milhoes-c21",
+        "gigafabricas-de-ia-duzentos-milhoes-c22",
+        "gigafabricas-de-ia-duzentos-milhoes-c23",
         "plano-nacional-centros-de-dados-c01",
         "plano-nacional-centros-de-dados-c02",
         "plano-nacional-centros-de-dados-c03",
@@ -640,6 +645,8 @@
         "plano-nacional-centros-de-dados-c19",
         "plano-nacional-centros-de-dados-c20",
         "plano-nacional-centros-de-dados-c21",
+        "plano-nacional-centros-de-dados-c22",
+        "plano-nacional-centros-de-dados-c23",
         "quantas-startups-sao-de-ia-c01",
         "quantas-startups-sao-de-ia-c02",
         "quantas-startups-sao-de-ia-c03",
@@ -672,7 +679,9 @@
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c18",
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c19",
         "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c20",
-        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21"
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c21",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c22",
+        "vinte-e-cinco-milhoes-para-ia-na-administracao-publica-c23"
       ]
     },
     {
@@ -906,7 +915,7 @@
       "portuguese_source": "dados/correio.json",
       "summary": "Every message between the agents, under Email-FS-lite",
       "description": "RFC 2822 messages in a folder. The state of a message is the folder it sits in and not a field, because a field can disagree with the folder and a folder cannot disagree with itself. Messages are immutable: never edited, never deleted, only moved.",
-      "count": 10,
+      "count": 12,
       "items": null,
       "item_ids": null
     },
