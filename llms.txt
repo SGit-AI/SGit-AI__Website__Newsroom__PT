@@ -4,7 +4,7 @@
 > artificial como um grafo. Cada afirmação anda para trás até uma cópia congelada e hasheada da
 > fonte de onde veio. Editor de registo: Dinis Cruz, que lê cada página antes de publicar.
 
-Versão v0.23.9 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
+Versão v0.23.10 · atualizado 2026-09-14 · licença CC BY 4.0 · fonte:
 https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT
 
 O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o
@@ -52,6 +52,8 @@ suficiente para ser interessante.
 - [/diaspora/](https://pt.newsroom.sgit.ai/diaspora/index.html): A diáspora (vazia).
 - [/eventos/](https://pt.newsroom.sgit.ai/eventos/index.html): Os eventos.
 - [/en-gb/](https://pt.newsroom.sgit.ai/en-gb/index.html): A tradução deste site em inglês (English (United Kingdom)). A página de registo é a portuguesa e cada página traduzida liga para a sua; nenhum excerto, nome ou verbo do grafo é traduzido.
+- [/fr/](https://pt.newsroom.sgit.ai/fr/index.html): A tradução deste site em francês (Français). A página de registo é a portuguesa e cada página traduzida liga para a sua; nenhum excerto, nome ou verbo do grafo é traduzido.
+- [/de/](https://pt.newsroom.sgit.ai/de/index.html): A tradução deste site em alemão (Deutsch). A página de registo é a portuguesa e cada página traduzida liga para a sua; nenhum excerto, nome ou verbo do grafo é traduzido.
 
 ## Os dados, em endereços construíveis
 

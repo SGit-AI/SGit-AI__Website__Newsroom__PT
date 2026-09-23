@@ -1,7 +1,7 @@
 {
   "id": "pt-review",
   "version": "1.0.0",
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
   "count": 11,
@@ -188,6 +188,13 @@
   "changes": [
     {
       "kind": "release",
+      "when": "2026-09-23",
+      "version": "v0.23.10",
+      "what": "French and German live, a quotation guard that refused too much, and the verbatim fields the data actually uses",
+      "url": "../../admin/versions.html#v0.23.10"
+    },
+    {
+      "kind": "release",
       "when": "2026-09-22",
       "version": "v0.23.9",
       "what": "English live at /en-gb/, English back-office addresses, a beta tag, and a coverage number that stopped lying",
@@ -234,13 +241,6 @@
       "version": "v0.23.3",
       "what": "The operational surface stops speaking Portuguese in its addresses",
       "url": "../../admin/versions.html#v0.23.3"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-15",
-      "version": "v0.23.2",
-      "what": "The release rules stop living in one session's head, and the editor gets interviewed too",
-      "url": "../../admin/versions.html#v0.23.2"
     },
     {
       "kind": "article",

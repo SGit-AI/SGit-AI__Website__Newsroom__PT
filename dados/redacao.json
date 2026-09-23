@@ -391,6 +391,22 @@
       },
       "aberto_em": "2026-09-22",
       "de": "redacao/issues/011"
+    },
+    {
+      "id": "012",
+      "titulo": "A cobertura não vê um rótulo sem acento: 1 798 ocorrências medidas, e sete regras por escrever",
+      "seccao": "metodo",
+      "estado": "aberto",
+      "especie": "issue",
+      "url": null,
+      "issue": "012",
+      "irmaos": 0,
+      "ultimo_toque": {
+        "quem": "sessao-as-tres-linguas",
+        "quando": "2026-09-23"
+      },
+      "aberto_em": "2026-09-23",
+      "de": "redacao/issues/012"
     }
   ],
   "execucoes": [
@@ -804,7 +820,7 @@
     }
   ],
   "contagens": {
-    "cartoes": 14,
+    "cartoes": 15,
     "bancadas": 4,
     "execucoes": 17,
     "publicados": 5,

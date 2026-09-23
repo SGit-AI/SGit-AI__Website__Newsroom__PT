@@ -97,10 +97,28 @@ def paginas_de_leitura():
 
 
 def substituivel(t):
-    """A text run this renderer is willing to touch. The guillemet rule is a cheap, absolute guard:
-    anything inside «…» on this site is somebody else's words, and a translated quotation is a
-    misquotation. It costs a handful of chrome lines their translation and is worth it."""
-    return "«" not in t and "»" not in t
+    """A text run this renderer is willing to touch.
+
+    Anything inside «…» is somebody else's words and a translated quotation is a misquotation. This
+    used to be enforced by refusing the whole run, which is the blunt version: it left 174
+    occurrences of Portuguese prose on every locale page — 69 of them the same sentence on
+    /empresas/ — and the coverage report could not see one of them, because a run refused here is
+    never counted as a miss.
+
+    A BALANCED SPAN IS MASKED, NOT REFUSED: i18n.citar() takes it out, the prose around it is
+    translated, and i18n.descitar() puts the span back byte-identical. What is left to refuse is an
+    UNBALANCED guillemet, where the quotation opens in this run and closes inside the markup that
+    follows — there, the text after « really is quoted and translating it would misquote. The one
+    safe shape is a stray that carries no quoted text with it: a « that is the run's last character,
+    or a » that is its first. That is the case the split around «Independent» produces, and it is
+    why those two runs are now translated and the quotation between them is still untouched."""
+    resto, _ = i18n.citar(t)
+    resto = resto.strip()
+    if resto.endswith("«"):
+        resto = resto[:-1]
+    if resto.startswith("»"):
+        resto = resto[1:]
+    return "«" not in resto and "»" not in resto
 
 
 class Tradutor:
@@ -135,7 +153,7 @@ class Tradutor:
             # not a template either — see i18n.maquina().
             self.verbatim += 1
             return None
-        if i18n.nao_traduzir(plano):
+        if i18n.nao_traduzir(plano) or i18n.nao_traduzir(i18n.normalise(html.unescape(texto))):
             # A verb of the graph, a name, an excerpt. Correct as it stands — i18n.nao_traduzir().
             # TESTED BEFORE THE MEMORY, not after. The other order served a translation the memory
             # happened to hold for a string the rules had since reclassified as verbatim: «sessão de
@@ -147,6 +165,20 @@ class Tradutor:
         if k in self.mem and k in self.conhecidos:
             self.acertos += 1
             return self.mem[k]
+        # A QUOTATION IS A HOLE, AND THE SENTENCE AROUND IT IS THE SEGMENT. The span goes out
+        # byte-identical; everything else about the lookup is the ordinary path, so a sentence with
+        # both a quotation and a count is served from a template with both kinds of hole. See
+        # i18n.citar() for why this replaced refusing the run.
+        semcit, citacoes = i18n.citar(plano)
+        if citacoes:
+            dentro = self.procurar(semcit)
+            if dentro is None:
+                return None
+            cheio = i18n.descitar(dentro, citacoes)
+            # The filled string is what lands on the page, so the second pass has to recognise it as
+            # already done — the raw memory value carries ¤ and would not match.
+            self.traducoes.add(i18n.normalise(cheio))
+            return cheio
         if i18n.gerado(texto):
             # A date line, a count, a byte total. Try the MASKED template first: one translated
             # sentence with holes, filled from the numbers and month names this page already had. See
@@ -385,9 +417,14 @@ def aviso_de_lingua(html, loc, rel, cobertura):
     }.get(loc, "This page is a translation of the Portuguese page of record.")
     rotulo = {"en-gb": "Portuguese original", "fr": "original en portugais",
               "de": "portugiesisches Original"}.get(loc, "original")
+    # The coverage figure is part of what this line SAYS, so it says it in the locale's own language.
+    # It read «100% translated» on the French page, which is a page telling a French reader, in
+    # English, how much of it is French.
+    quanto = {"en-gb": f"{cobertura}% translated", "fr": f"{cobertura}% traduit",
+              "de": f"{cobertura}% übersetzt"}.get(loc, f"{cobertura}%")
     bloco = (f'<div class="aviso-bloco"><p class="sm">{texto} '
              f'<a href="{original}">{rotulo}</a> · '
-             f'<span class="mono xs">{cobertura}% translated</span></p></div>')
+             f'<span class="mono xs">{quanto}</span></p></div>')
     return html.replace("<body>", "<body>\n" + bloco, 1)
 
 
@@ -426,6 +463,7 @@ def cmd_relatorio():
     print(f'pages that can be localised: {len(paginas_de_leitura())}')
     print(f'{"locale":<8} {"estado":<12} {"hits":>7} {"missing":>8} {"generated":>10} '
           f'{"verbatim":>9} {"coverage":>9}')
+    faltas = {}
     for lc in reg["locales"]:
         if lc.get("e_registo"):
             continue
@@ -434,7 +472,23 @@ def cmd_relatorio():
         cob = round(100 * t.acertos / total, 1) if total else 0.0
         print(f'{lc["codigo"]:<8} {lc["estado"]:<12} {t.acertos:>7} {t.faltas:>8} '
               f'{t.gerados:>10} {t.verbatim:>9} {cob:>8}%')
+        faltas[lc["codigo"]] = t.faltas_texto
     print()
+    # THE LIST, NOT JUST THE NUMBER. dados/i18n/vocabulario.json says to extend itself from this
+    # report — «--relatorio lists every run a reader would see in Portuguese that the memory cannot
+    # serve, most frequent first» — and the report did not list them. A number nobody can act on is
+    # the same problem as a number that reads 100% over a Portuguese page.
+    for loc, textos in faltas.items():
+        if not textos:
+            continue
+        contagem = {}
+        for s in textos:
+            contagem[s] = contagem.get(s, 0) + 1
+        print(f'{loc}: {len(contagem)} distinct runs a reader would see in Portuguese, '
+              f'{len(textos)} occurrences')
+        for s, n in sorted(contagem.items(), key=lambda kv: (-kv[1], kv[0]))[:40]:
+            print(f'  {n:>5}  {s[:110]}')
+        print()
     print("Counted over every substitutable run on every page, so this is the coverage a reader")
     print("would see and not the coverage of the segment list. `generated` is a date line, a count")
     print("or a version badge: not translated as text, and not counted against coverage, because")

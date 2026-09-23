@@ -3,7 +3,7 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-  "contagem": 36,
+  "contagem": 38,
   "ficheiros": [
     {
       "ficheiro": "dados/agentes.json",
@@ -23,7 +23,7 @@
     {
       "ficheiro": "dados/correio.json",
       "bytes": 33443,
-      "sha256": "7c03d94a44d8a3ac90dbc6f6f9fea5ba2a375d04bef7e59767ed0e26d039d2d8"
+      "sha256": "3ce71d2519a15d8115bdb78f577fbe8b8a2982b4970b97dab41fcb7611db89bb"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -33,7 +33,7 @@
     {
       "ficheiro": "dados/documentos.json",
       "bytes": 28612,
-      "sha256": "235b742131b3f2d39cc6cd50e3488aa637cb9c1daabea4e840c37a1e35fe442f"
+      "sha256": "b3f7c0a823cc673341be1f14d35586fd014933485c92ae900e312447a601d703"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -81,24 +81,34 @@
       "sha256": "093c8aff60de7e65b83528e15243bda20197d8a5fa60fbdc3a700fc47846d44c"
     },
     {
+      "ficheiro": "dados/i18n/de.json",
+      "bytes": 146731,
+      "sha256": "c1c4dd0ca776e429ab10fd4b8a6868d6d6eacf4288e0f0b0c148afcbee531712"
+    },
+    {
       "ficheiro": "dados/i18n/en-gb.json",
-      "bytes": 134761,
-      "sha256": "f394ca8920ac58affe541309ec44e0035589291e878f3e4fbf94ba2d3e249221"
+      "bytes": 142352,
+      "sha256": "bfe77fc07086f22b1844e52e0a42820d3d0ae2e6806f9df5c891a399130a6729"
     },
     {
       "ficheiro": "dados/i18n/fontes.json",
-      "bytes": 622974,
-      "sha256": "0f03bf3f5d21ef88cac06f5aea4822f7bf79e76581b72897decd3f8179df222a"
+      "bytes": 640747,
+      "sha256": "fe2b82b8a31127669b6365a5c39260773fe994b1d337f22543bb9ec1d36f47f9"
+    },
+    {
+      "ficheiro": "dados/i18n/fr.json",
+      "bytes": 141728,
+      "sha256": "e9cb7ea1565ab39c8d9739edf4a0478208d95c640cb9923ee3096f54577f5ce7"
     },
     {
       "ficheiro": "dados/i18n/locales.json",
       "bytes": 5103,
-      "sha256": "7576a0020ba45f827579f25db3b04e5ffc183df7733f6abfffbd2464be2b0780"
+      "sha256": "021534d045ec0ec4b00c37021b5dca6b60340d147516c9ad9aedbb8e0f84a700"
     },
     {
       "ficheiro": "dados/i18n/vocabulario.json",
-      "bytes": 3766,
-      "sha256": "b5fa88be33838160ee9782ed1848ea6e5a29341cb4df705938070a2697bb9729"
+      "bytes": 4827,
+      "sha256": "1281a8d39460ab94281c463c789bea6bf32e4c4ef1f8e2775464f25881806948"
     },
     {
       "ficheiro": "dados/interviews.json",
@@ -112,8 +122,8 @@
     },
     {
       "ficheiro": "dados/manifesto.json",
-      "bytes": 6002,
-      "sha256": "8bde0b755f3d058a9b3d8a2ad32005a0f4c995381aa9c23afd11af31d19f558e"
+      "bytes": 6320,
+      "sha256": "bb3e34b0952f8c1f51b69d8bd6534f069c9c59569164ec39644313960cc6b0f8"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -143,7 +153,7 @@
     {
       "ficheiro": "dados/quadro.json",
       "bytes": 63735,
-      "sha256": "1f773cc1b7234f0467067579ca20e17cbc04da04269ac788a88d136444971ac3"
+      "sha256": "f87facf1b4fe6ec85cb44267157580610eacdb3d8554ba6df78f7c0035d70893"
     },
     {
       "ficheiro": "dados/redacao.json",

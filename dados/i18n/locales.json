@@ -75,7 +75,7 @@
       "etiqueta_html": "fr-FR",
       "nome": "Francês",
       "nome_em_si": "Français",
-      "estado": "preparado",
+      "estado": "publicado",
       "e_registo": false,
       "meses": [
         "janvier",
@@ -106,7 +106,7 @@
       "etiqueta_html": "de-DE",
       "nome": "Alemão",
       "nome_em_si": "Deutsch",
-      "estado": "preparado",
+      "estado": "publicado",
       "e_registo": false,
       "meses": [
         "Januar",

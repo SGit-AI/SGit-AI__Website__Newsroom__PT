@@ -1,0 +1,37 @@
+{
+  "id": "012",
+  "titulo": "A cobertura não vê um rótulo sem acento: 1 798 ocorrências medidas, e sete regras por escrever",
+  "seccao": "metodo",
+  "estado": "aberto",
+  "aberto_em": "2026-09-23",
+  "ultimo_toque": {
+    "quem": "sessao-as-tres-linguas",
+    "quando": "2026-09-23"
+  },
+  "enquadramento": "A cobertura de tradução deste sítio lê 100,0% nas três línguas publicadas. O número é honesto sobre tudo o que `i18n.parece_portugues()` consegue ver — e essa função encontra português por acento ou por palavra funcional, logo não vê um rótulo sem nenhum dos dois. «O registo», «Papel listado», «· fonte:», «Ficheiro congelado» são portugueses numa página inglesa e não entram em conta nenhuma. É a mesma forma de falha que a v0.23.9 corrigiu quatro vezes: um relatório verde sobre um registo que mudou de significado.",
+  "de_onde_vem": "build/i18n.py — parece_portugues(); build/locales.py — Tradutor.procurar(); o portão 44 em build/gates_i18n.py lê o número",
+  "a_medicao": "Na v0.23.10 alargou-se a função a «qualquer troço com uma letra que não seja um nome nem um facto de máquina» e correu-se o relatório. Resultado: 1 798 ocorrências em 154 troços distintos, com a cobertura a cair de 100,0% para 88,8%. Esse é o tamanho real do que a métrica atual não vê. O alargamento foi revertido na mesma sessão, porque a lista continha sete classes que NÃO são português e cada uma precisa da sua regra.",
+  "o_que_ja_se_tem": [
+    "A medição acima, reproduzível: trocar o `return` final de parece_portugues() por `bool(re.search(r\"[A-Za-zÀ-ÿ]\", s))` e correr `python3 build/locales.py --relatorio`.",
+    "O relatório já imprime a lista por frequência, o que não fazia antes desta versão.",
+    "39 dos rótulos identificados por essa medição já estão declarados em dados/i18n/vocabulario.json e traduzidos nas três línguas — foi o que baixou o número de 1 939 para 1 798 antes da reversão.",
+    "O caminho declarado funciona hoje e não precisa de mudança nenhuma no detetor: acrescentar a cadeia portuguesa a `termos` e traduzi-la."
+  ],
+  "as_sete_classes_que_nao_sao_portugues": [
+    "As expressões regulares publicadas de dados/lexico.json, mostradas como código nas páginas de entidade — cerca de 32 troços. São a fórmula publicada, não prosa.",
+    "Os nomes de tipo da ontologia em ASCII: «Pessoa → Organizacao», «Fonte → Captura». São identificadores da ontologia.",
+    "Os moldes de leitura do grafo com marcadores de nome: «X oferece Y», «X cobre Y». A regra 6 fixa-os em português; o teste de forma exata em nao_traduzir() não os reconhece porque um fragmento de uma palavra exige correspondência exata.",
+    "O inglês declarado dos bastidores: «Newsroom (EN)», «The operations console — in English», os títulos de execução. A regra da língua deste repositório diz que quem opera a redação lê inglês.",
+    "Nomes truncados para apresentação com sufixo de contagem: «Fio Legal | Fractional Fre · 5×». Verbatim por truncatura.",
+    "Listas de caminhos separadas por vírgulas: «build/, dados/, fontes/congeladas/, …». MAQUINA casa um caminho, não uma lista deles.",
+    "Contagens com o nome do tipo à frente: «Evento · 1», «Setor · 7», «2 confirmadas», «1 fonte(s)». gerado() devolve False para estas e devia devolver True — é a classe mais provável de ser um defeito e não uma classificação em falta."
+  ],
+  "o_que_falta": [
+    "Uma regra por classe, escrita e comentada como as outras, e não sete de uma vez dentro de um lançamento.",
+    "Começar pela última: descobrir porque gerado() devolve False para «2 confirmadas» e «Evento · 1». Se for um defeito, corrigi-lo dá um molde por forma de frase e fecha 20-odd ocorrências sem tocar no detetor.",
+    "Depois as duas maiores e mais seguras: as expressões regulares do léxico (um campo declarado, como padrao) e o inglês declarado dos bastidores (uma lista declarada em dados/i18n/vocabulario.json, a par de `termos`).",
+    "Só depois alargar parece_portugues(), com o portão 44 a ver o número verdadeiro e o piso de cobertura a ser reconsiderado à luz dele."
+  ],
+  "porque_nao_se_fez_agora": "Escrever sete regras à pressa dentro de um lançamento é como uma métrica começa a mentir na outra direção: a primeira versão desta medição classificou como português a cento e tantas funções listadas verbatim de uma página congelada, e traduzir uma função listada seria inventá-la, contra as regras 3 e 4. A reversão é a decisão conservadora e está dita por extenso na nota da v0.23.10, em vez de ficar num comentário que ninguém lê.",
+  "recusa": "Não se baixa o piso de cobertura do portão 44 para acomodar um número verdadeiro mais baixo. O piso existe para impedir que uma língua seja publicada a meio; se a medição honesta ficar abaixo dele, a resposta é traduzir ou declarar o que falta, não mexer no portão — que está, de resto, num ficheiro da lista de negação."
+}

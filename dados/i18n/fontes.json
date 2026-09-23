@@ -8,8 +8,8 @@
     "fr",
     "de"
   ],
-  "contagem": 998,
-  "palavras": 17190,
+  "contagem": 1051,
+  "palavras": 17593,
   "segmentos": {
     "009ab28fee181f80": {
       "text": "Empresas",
@@ -62,6 +62,13 @@
         "index.html"
       ]
     },
+    "020763de2fcf0ae5": {
+      "text": "A mesa · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "02182d8f202b8e53": {
       "text": "Os ficheiros",
       "kind": "chrome",
@@ -74,6 +81,81 @@
       "kind": "render",
       "where": [
         "equipa/index.html"
+      ]
+    },
+    "0248701ed1b2900a": {
+      "text": "» são assinalados, não removidos.",
+      "kind": "render",
+      "where": [
+        "empresas/index.html",
+        "entidades/index.html",
+        "entidades/organizacao/351-portuguese-startup-association/index.html",
+        "entidades/organizacao/abn-amro-bank/index.html",
+        "entidades/organizacao/accenture/index.html",
+        "entidades/organizacao/aiffin/index.html",
+        "entidades/organizacao/angels-way/index.html",
+        "entidades/organizacao/around-pr-studio/index.html",
+        "entidades/organizacao/bankless-ventures/index.html",
+        "entidades/organizacao/brandulogy/index.html",
+        "entidades/organizacao/brdge/index.html",
+        "entidades/organizacao/bsc-ai-factory/index.html",
+        "entidades/organizacao/business-network-albania/index.html",
+        "entidades/organizacao/cosysense/index.html",
+        "entidades/organizacao/creativity-matter/index.html",
+        "entidades/organizacao/digiseg/index.html",
+        "entidades/organizacao/dyrectli-capital/index.html",
+        "entidades/organizacao/ecox-bombastic-burgh/index.html",
+        "entidades/organizacao/fast-track-ventures/index.html",
+        "entidades/organizacao/fiiys-ltd/index.html",
+        "entidades/organizacao/fio-legal/index.html",
+        "entidades/organizacao/fio-legal-fractional-freelance-hr/index.html",
+        "entidades/organizacao/first-ten-advisory/index.html",
+        "entidades/organizacao/freedom-vas/index.html",
+        "entidades/organizacao/gacs-ltd-gacsym-ventures/index.html",
+        "entidades/organizacao/globalfy/index.html",
+        "entidades/organizacao/growth-geek-unipessoal-lda/index.html",
+        "entidades/organizacao/humannovate-consulting/index.html",
+        "entidades/organizacao/ideasoft/index.html",
+        "entidades/organizacao/ilof/index.html",
+        "entidades/organizacao/jab-holdings/index.html",
+        "entidades/organizacao/jci/index.html",
+        "entidades/organizacao/kapisci/index.html",
+        "entidades/organizacao/konnect-ai-human-strategy-execution-workspace/index.html",
+        "entidades/organizacao/ladies-who-talk/index.html",
+        "entidades/organizacao/lexidy/index.html",
+        "entidades/organizacao/lexidy-law-boutique-slp/index.html",
+        "entidades/organizacao/like-no-other/index.html",
+        "entidades/organizacao/linkilaw-solicitors-cbca-group/index.html",
+        "entidades/organizacao/lisa-press-consulting/index.html",
+        "entidades/organizacao/lisbon-business-leaders/index.html",
+        "entidades/organizacao/many/index.html",
+        "entidades/organizacao/mvmt-studio/index.html",
+        "entidades/organizacao/mykor/index.html",
+        "entidades/organizacao/on-this-planet/index.html",
+        "entidades/organizacao/ow-ventures-scr/index.html",
+        "entidades/organizacao/pactum-global/index.html",
+        "entidades/organizacao/pioneering-people/index.html",
+        "entidades/organizacao/pr-agency-techwaves/index.html",
+        "entidades/organizacao/prifly-advisors/index.html",
+        "entidades/organizacao/roman-knorr/index.html",
+        "entidades/organizacao/s8-aquisitions/index.html",
+        "entidades/organizacao/self-employed/index.html",
+        "entidades/organizacao/sibillastrupule-com/index.html",
+        "entidades/organizacao/sigal-ventures/index.html",
+        "entidades/organizacao/solegency/index.html",
+        "entidades/organizacao/sotavento-angels-fund/index.html",
+        "entidades/organizacao/sotavento-invest/index.html",
+        "entidades/organizacao/soulbranding/index.html",
+        "entidades/organizacao/startup-summit/index.html",
+        "entidades/organizacao/time-space/index.html",
+        "entidades/organizacao/time-to-rise/index.html",
+        "entidades/organizacao/trivevo/index.html",
+        "entidades/organizacao/upstride-holdings/index.html",
+        "entidades/organizacao/vntr-capital/index.html",
+        "entidades/organizacao/what-she-said-limited/index.html",
+        "entidades/organizacao/zero-risk-startup/index.html",
+        "entidades/organizacao/zoya-mesaric-private-international-practice/index.html",
+        "grafo/index.html"
       ]
     },
     "0262d0e47a77b70d": {
@@ -152,6 +234,13 @@
       "kind": "chrome",
       "where": [
         "build/chrome.py"
+      ]
+    },
+    "0597900d35c43a78": {
+      "text": "nosso registo",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "05a1a2dc132eafce": {
@@ -263,6 +352,13 @@
         "build/transferencias.py"
       ]
     },
+    "07eccbcb582f0d49": {
+      "text": "A página de oradores do evento declara ¤ e, separadamente, que há um certo número de oradores confirmados listados abaixo. O primeiro número é um alvo. O segundo é uma contagem, e é o único que este site relata.",
+      "kind": "data",
+      "where": [
+        "dados/evento.json"
+      ]
+    },
     "07fc32e2491a7a45": {
       "text": "As camadas de agente",
       "kind": "render",
@@ -298,13 +394,6 @@
       "kind": "render",
       "where": [
         "metodo/index.html"
-      ]
-    },
-    "0a8e9098b3a741fd": {
-      "text": "Num grafo construído a partir de texto, tudo «menciona» alguma coisa. É a ausência de um verbo.",
-      "kind": "data",
-      "where": [
-        "dados/ontologia.json"
       ]
     },
     "0a9eec3512d8359f": {
@@ -413,6 +502,13 @@
         "index.html"
       ]
     },
+    "0bd5ccece7e41448": {
+      "text": "Os eventos · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "0c14fa6459ac5c13": {
       "text": "O executivo. Publica o programa e as áreas de política.",
       "kind": "data",
@@ -420,13 +516,6 @@
         "dados/grafo.json",
         "entidades/instituicao/governo-de-portugal/index.html",
         "instituicoes/index.html"
-      ]
-    },
-    "0c5ab282a0d7f3e1": {
-      "text": "- «Portugal não designou as suas autoridades nacionais.» Isto seria uma afirmação sobre o mundo, e esta redação não a pode fazer: não leu o registo todo, e uma designação pode existir num diploma que ainda não encontrou. - «Esta redação procurou e não encontrou o ato de designação; e a página temática do Governo, na cópia que congelou, não nomeia autoridade nenhuma.» Isto é uma afirmação sobre o registo público e sobre esta busca, e é verificável por quem quiser repeti-la.",
-      "kind": "prose",
-      "where": [
-        "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
       ]
     },
     "0c8bf97c905199d0": {
@@ -476,13 +565,6 @@
         "dados/grafo.json",
         "entidades/instituicao/diario-da-republica-eletronico/index.html",
         "instituicoes/index.html"
-      ]
-    },
-    "0e9f170d91ba5bed": {
-      "text": "tirar o parêntesis final: «dados.gov.pt (AMA)» → «dados.gov.pt»",
-      "kind": "data",
-      "where": [
-        "dados/ontologia.json"
       ]
     },
     "0ef0e24cc6d83fcc": {
@@ -607,6 +689,13 @@
         "build/chrome.py"
       ]
     },
+    "10f6d0b0afa6a564": {
+      "text": "de cada tipo em vez de adivinhar o deslocamento dos glifos. Quando mesmo assim um PDF não abre, a razão fica registada ao lado da afirmação, e a afirmação é marcada ¤ e nunca ¤.",
+      "kind": "render",
+      "where": [
+        "metodo/index.html"
+      ]
+    },
     "10fd0749cefa8ff0": {
       "text": "A gramática deste grafo. Os verbos são portugueses e o campo `en` é uma anotação: num sítio nativamente português, um caminho que não se lê em voz alta em português tem as arestas erradas (§6 do resumo). O portão 10 lê cada verbo em voz alta e falha a construção se um deles não produzir uma frase.",
       "kind": "data",
@@ -652,6 +741,13 @@
         "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html",
         "artigos/2026/09/14/plano-nacional-centros-de-dados/index.html",
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/index.html"
+      ]
+    },
+    "1238b16c8331a482": {
+      "text": "como dados",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "123f9d45dbbfc1d2": {
@@ -726,11 +822,36 @@
         "empresas/index.html"
       ]
     },
+    "14cd3768e15cd143": {
+      "text": "A data da captura vem do nome da pasta e do `id_no_registo_de_origem`; a hora vem do manifesto. As duas ficam registadas e não são reconciliadas — decidir qual delas está ¤ certa seria uma inferência nossa sobre o registo de outra publicação.",
+      "kind": "chrome",
+      "where": [
+        "build/transferencias.py"
+      ]
+    },
     "15116ba377896771": {
       "text": "Versão",
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "15176dd3414ebe42": {
+      "text": "Pôs a linha: estado ¤, com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
+      "kind": "prose",
+      "where": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json",
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/index.html",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/index.html",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/index.html"
       ]
     },
     "15339eb1b15570ff": {
@@ -773,6 +894,13 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "15d8491e2f5ce7a3": {
+      "text": "É curadoria leve, e dizer ¤ é mais honesto do que deixar implícita uma revisão linha a linha.",
+      "kind": "render",
+      "where": [
+        "proveniencia/index.html"
       ]
     },
     "1611c3e57f77dc0f": {
@@ -865,6 +993,13 @@
     },
     "1894abfe32722b53": {
       "text": "não resolve",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "1938bb4bdcdcc07f": {
+      "text": "Energia e clima",
       "kind": "chrome",
       "where": [
         "build/paginas.py"
@@ -973,6 +1108,14 @@
       "kind": "render",
       "where": [
         "sobre/index.html"
+      ]
+    },
+    "1bccd104bacc805b": {
+      "text": "Uma organização sob a qual uma pessoa está LISTADA no seu cartão de orador. Derivada dos cartões, nunca escrita à mão; marcadores como ¤ são assinalados, não removidos.",
+      "kind": "data",
+      "where": [
+        "dados/ontologia.json",
+        "entidades/organizacao/independent/index.html"
       ]
     },
     "1bdb4add5da2415f": {
@@ -1148,13 +1291,6 @@
         "dados/documentos.json"
       ]
     },
-    "220c7d043b07ae72": {
-      "text": "ficar com o segmento depois do último travessão: «CORDIS — Comissão Europeia» → «Comissão Europeia»",
-      "kind": "data",
-      "where": [
-        "dados/ontologia.json"
-      ]
-    },
     "232a446f647f1a6f": {
       "text": "As organizações sob as quais o",
       "kind": "render",
@@ -1182,6 +1318,24 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "24184ae9ffb0268f": {
+      "text": "A casa que publica uma página congelada: um organismo, um jornal, um portal, o sítio de um evento. Sai do campo de editor do registo pela fórmula `editor_de_fonte`, e diz quem PUBLICA a página — não quem a escreveu, não quem a opera. Existe como tipo à parte porque a definição de Instituição é ¤, e um jornal não é nenhuma dessas coisas: alargar aquela definição para caber aqui seria mudar o que ela promete.",
+      "kind": "data",
+      "where": [
+        "dados/ontologia.json",
+        "entidades/editor/aicep-portugal-global/index.html",
+        "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
+        "entidades/editor/comissao-europeia/index.html",
+        "entidades/editor/diario-da-republica/index.html",
+        "entidades/editor/digitalgov/index.html",
+        "entidades/editor/portugal-business-news/index.html",
+        "entidades/editor/scaleup-porto/index.html",
+        "entidades/editor/startupevents-org/index.html",
+        "entidades/index.html",
+        "grafo/index.html",
+        "instituicoes/index.html"
       ]
     },
     "2493ec468fc117fa": {
@@ -1276,6 +1430,20 @@
       "kind": "render",
       "where": [
         "equipa/index.html"
+      ]
+    },
+    "26b9228d8a2eafc1": {
+      "text": "fazer, e o que está à espera dela — e repare que não há maneira de mover um cartão daqui: o estado de uma história vive nos ficheiros da pasta dela, e a coluna ¤ é a linha do editor de registo. O correio vem dos ficheiros em",
+      "kind": "render",
+      "where": [
+        "desk/index.html"
+      ]
+    },
+    "27c899d7c8f80704": {
+      "text": "O estado ¤ é a linha do editor. Uma execução automática que a escrevesse falhava o portão 11 e a construção parava.",
+      "kind": "render",
+      "where": [
+        "proveniencia/index.html"
       ]
     },
     "27d3bb9d4f9a11c4": {
@@ -1419,6 +1587,13 @@
         "build/paginas.py"
       ]
     },
+    "2a136ef842b8e67f": {
+      "text": "a API",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "2a7451558bb09724": {
       "text": "Afirmação",
       "kind": "chrome",
@@ -1431,6 +1606,16 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "2b0a098566316a9c": {
+      "text": "Chegou para a secção ¤, que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. # de # afirmações tinham o excerto nos bytes.",
+      "kind": "padrao",
+      "where": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
       ]
     },
     "2b9ac67b645f07fa": {
@@ -2078,6 +2263,13 @@
         "proveniencia/index.html"
       ]
     },
+    "36c910c673828565": {
+      "text": "Os eventos",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "36e236e331a33dae": {
       "text": "Secção",
       "kind": "chrome",
@@ -2613,6 +2805,21 @@
       "kind": "chrome",
       "where": [
         "build/build.py"
+      ]
+    },
+    "42f16fced1f4b0f6": {
+      "text": "Pôr uma história em ¤. Nenhuma execução automática o pode fazer.",
+      "kind": "render",
+      "where": [
+        "equipa/index.html",
+        "proveniencia/index.html"
+      ]
+    },
+    "4344c568d89b43be": {
+      "text": "- ¤ Isto seria uma afirmação sobre o mundo, e esta redação não a pode fazer: não leu o registo todo, e uma designação pode existir num diploma que ainda não encontrou. - ¤ Isto é uma afirmação sobre o registo público e sobre esta busca, e é verificável por quem quiser repeti-la.",
+      "kind": "prose",
+      "where": [
+        "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
       ]
     },
     "43fd9668a3f1764f": {
@@ -3252,6 +3459,13 @@
         "dados/ontologia.json"
       ]
     },
+    "4795cfdb20b33467": {
+      "text": "O grafo",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "47b942d89a6cc577": {
       "text": "#-bootstrap.md — construir o MVP v#.#.#",
       "kind": "padrao",
@@ -3266,8 +3480,22 @@
         "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/index.html"
       ]
     },
+    "489d044a85699bdd": {
+      "text": "renderiza por script: obtido por HTTP, devolve poucos bytes e quase nenhum texto. Mas publica o diploma integral em PDF, e esse PDF chega cifrado com o manipulador de segurança padrão e com tipos subconjuntados — o que faz uma biblioteca genérica devolver zero caracteres, e devolvê-los em silêncio. Um zero devolvido por uma limitação do leitor é indistinguível, no ficheiro de resultados, de um zero devolvido por uma página vazia, e essa confusão faria esta redação publicar ¤ quando a verdade seria ¤.",
+      "kind": "render",
+      "where": [
+        "metodo/index.html"
+      ]
+    },
     "4912c05fb102488a": {
       "text": "Por isso esta entidade",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "495f6fe3ec8b853e": {
+      "text": "Os protagonistas · pt.newsroom.sgit.ai",
       "kind": "chrome",
       "where": [
         "build/paginas.py"
@@ -3328,6 +3556,13 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "4c2f57de15306fd6": {
+      "text": "O trabalho de um agente neste site não é ¤. É",
+      "kind": "render",
+      "where": [
+        "proveniencia/index.html"
       ]
     },
     "4c3a57785f66c3f7": {
@@ -3572,13 +3807,6 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
-      ]
-    },
-    "4c84b130d32a91db": {
-      "text": "A casa que publica uma página congelada: um organismo, um jornal, um portal, o sítio de um evento. Sai do campo de editor do registo pela fórmula `editor_de_fonte`, e diz quem PUBLICA a página — não quem a escreveu, não quem a opera. Existe como tipo à parte porque a definição de Instituição é «um organismo público, um regulador ou uma unidade de investigação», e um jornal não é nenhuma dessas coisas: alargar aquela definição para caber aqui seria mudar o que ela promete.",
-      "kind": "data",
-      "where": [
-        "dados/ontologia.json"
       ]
     },
     "4c8a0f4b2caf4c94": {
@@ -4044,6 +4272,13 @@
         "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
       ]
     },
+    "5640f21a6369cef6": {
+      "text": "A base material",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "56ac9d9f03d5662f": {
       "text": "# artigos, cada afirmação reencontrada nos bytes congelados",
       "kind": "padrao",
@@ -4107,6 +4342,13 @@
         "build/transferencias.py"
       ]
     },
+    "58285450fd62b6b7": {
+      "text": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna ¤ verificável em vez de uma promessa.",
+      "kind": "data",
+      "where": [
+        "dados/manifesto.json"
+      ]
+    },
     "582c3a6a9c680944": {
       "text": "Não é o que a fonte diz. Um cartão de orador lista uma organização; não afirma uma relação laboral. A aresta é listado_sob.",
       "kind": "data",
@@ -4165,6 +4407,14 @@
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/index.html"
       ]
     },
+    "5baf9d5d8b356f58": {
+      "text": "Limpar um item que ficou ¤.",
+      "kind": "render",
+      "where": [
+        "equipa/index.html",
+        "proveniencia/index.html"
+      ]
+    },
     "5bf0b9ced09673a8": {
       "text": "A secção está vazia e a página di-lo, em vez de ser escondida da navegação. O tamanho do que ainda não se vê faz parte do que esta publicação tem para dizer.",
       "kind": "render",
@@ -4191,6 +4441,13 @@
       "kind": "render",
       "where": [
         "metodo/index.html"
+      ]
+    },
+    "5d22658e44c604a6": {
+      "text": "O aviso",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "5d4ec1c398d578d6": {
@@ -4458,6 +4715,13 @@
         "sobre/index.html"
       ]
     },
+    "6151b15969cf742d": {
+      "text": "¤ Isto seria uma afirmação sobre o mundo, e",
+      "kind": "render",
+      "where": [
+        "artigos/2026/09/14/regulador-designacao-ausente/index.html"
+      ]
+    },
     "617bc5672049b06a": {
       "text": "# · politicas",
       "kind": "padrao",
@@ -4472,18 +4736,18 @@
         "metodo/index.html"
       ]
     },
-    "6229679790bbe9c3": {
-      "text": "Derivadas do campo de organização de cada cartão de orador, nunca escritas à mão. O campo é texto livre na fonte, por isso valores de marcador como «Independent» chegam com o aspeto de organizações. São assinalados, não removidos: inventar um valor mais arrumado poria no grafo um facto que nenhuma fonte sustenta.",
-      "kind": "data",
-      "where": [
-        "dados/organizacoes.json"
-      ]
-    },
     "62aa55ddc8483c1d": {
       "text": "O que falta, e porque é que fica dito em vez de omitido",
       "kind": "render",
       "where": [
         "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html"
+      ]
+    },
+    "62dfe5ce42e7122b": {
+      "text": "Ficheiro congelado",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "62e897816fe4c641": {
@@ -4499,6 +4763,13 @@
       "where": [
         "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/artigo.json",
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/artigo.json"
+      ]
+    },
+    "646872acb5c2795d": {
+      "text": "Como a fonte o descreve",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "647526c0da1d2ef9": {
@@ -5370,13 +5641,6 @@
         "registo/index.html"
       ]
     },
-    "6fa7a9ef9b048c5e": {
-      "text": "Prova transferida entre publicações irmãs continua a ser prova, desde que a proveniência viaje com ela e seja publicada. Numa página diz-se «captura de # de @, obtida por newsroom.sgit.ai» — nunca «a nossa captura de # de @».",
-      "kind": "padrao",
-      "where": [
-        "build/transferencias.py"
-      ]
-    },
     "6fd5457e66496e69": {
       "text": "Uma espécie de produto que uma página congelada nomeia, correspondida pelo léxico publicado. Categorias, não nomes de produto.",
       "kind": "data",
@@ -5765,6 +6029,13 @@
         "sobre/index.html"
       ]
     },
+    "74833c93b25b9de5": {
+      "text": "Ler e escrever ficheiros, correr comandos, fazer commit",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "7498269997fb246e": {
       "text": "sessao-de-arranque → dinis.humano · #-#-#T#:#:#Z",
       "kind": "padrao",
@@ -5777,13 +6048,6 @@
       "kind": "render",
       "where": [
         "metodo/index.html"
-      ]
-    },
-    "75e9cdae70f0e83b": {
-      "text": "Um comunicado do Conselho de Ministros anuncia que uma resolução foi aprovada. Não é a resolução. O ato publicado tem um número, uma data de publicação e um texto, e é o texto que diz o que fica efetivamente decidido — a que programa europeu adere Portugal, com que contrapartidas, através de que entidade, e o que significa «até».",
-      "kind": "prose",
-      "where": [
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/artigo.md"
       ]
     },
     "764d9dcba0fbcc18": {
@@ -6009,6 +6273,13 @@
         "equipa/index.html"
       ]
     },
+    "7d48b39d00204243": {
+      "text": "· fonte:",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "7d568503a432541d": {
       "text": "# pt.newsroom.sgit.ai Versão",
       "kind": "chrome",
@@ -6028,6 +6299,16 @@
       "kind": "render",
       "where": [
         "aviso/index.html"
+      ]
+    },
+    "7dec93cf73881118": {
+      "text": "A entrega ¤ está em ¤. Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
+      "kind": "prose",
+      "where": [
+        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
+        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
+        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
       ]
     },
     "7e207f138f77414c": {
@@ -6288,18 +6569,18 @@
         "eventos/index.html"
       ]
     },
+    "7f0f03de36d5a664": {
+      "text": ", no campo",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "7f62512d057c4310": {
       "text": "Releu as duas afirmações nas cópias congeladas e reencontrou os dois excertos nos bytes.",
       "kind": "prose",
       "where": [
         "artigos/2026/09/14/regulador-designacao-ausente/artigo.json"
-      ]
-    },
-    "7f7c1deb270d7cdb": {
-      "text": "O quadro de cada agente. Um cartão em «assuntos» é trabalho que o agente abriu para si; um issue do jornal chega ao quadro pela fórmula publicada em dados/agentes.json e por mais nada.",
-      "kind": "chrome",
-      "where": [
-        "build/newsroom_team.py"
       ]
     },
     "7f97a6b6d14b655d": {
@@ -6938,6 +7219,13 @@
         "entidades/index.html"
       ]
     },
+    "8d336be2172fb30f": {
+      "text": "Obter · congelar · hashear · extrair · comparar",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "8d7c4c2bd198e24c": {
       "text": "Não afirma que os dois casos nomeados estão em funcionamento. O comunicado descreve-os como em desenvolvimento.",
       "kind": "prose",
@@ -6983,6 +7271,13 @@
         "dados/historias.json",
         "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/index.html",
         "index.html"
+      ]
+    },
+    "8f9651ea1e24f783": {
+      "text": "As três primeiras histórias estão abertas como issues em ¤",
+      "kind": "render",
+      "where": [
+        "desk/index.html"
       ]
     },
     "8f9c68c3c5d10403": {
@@ -7645,11 +7940,11 @@
         "build/paginas.py"
       ]
     },
-    "969521b4a06e45b3": {
-      "text": "Uma organização sob a qual uma pessoa está LISTADA no seu cartão de orador. Derivada dos cartões, nunca escrita à mão; marcadores como «Independent» são assinalados, não removidos.",
-      "kind": "data",
+    "97261467ef97781e": {
+      "text": "Porque importa:",
+      "kind": "chrome",
       "where": [
-        "dados/ontologia.json"
+        "build/paginas.py"
       ]
     },
     "976895221535499e": {
@@ -8038,6 +8333,14 @@
         "instituicoes/index.html"
       ]
     },
+    "9ca44bb12afe2180": {
+      "text": "Num grafo construído a partir de texto, tudo ¤ alguma coisa. É a ausência de um verbo.",
+      "kind": "data",
+      "where": [
+        "dados/ontologia.json",
+        "grafo/index.html"
+      ]
+    },
     "9cc5af4489405299": {
       "text": "Qual é o número de startups ativas que vem de uma FONTE e não de um relatório?",
       "kind": "render",
@@ -8089,6 +8392,13 @@
         "entidades/editor/comissao-europeia/index.html"
       ]
     },
+    "9e4a45cb47d9e760": {
+      "text": "Prova transferida entre publicações irmãs continua a ser prova, desde que a proveniência viaje com ela e seja publicada. Numa página diz-se ¤ — nunca ¤.",
+      "kind": "chrome",
+      "where": [
+        "build/transferencias.py"
+      ]
+    },
     "9ec52aaa7eaf0ab4": {
       "text": "Tudo o resto. E esta é a secção onde é mais fácil escorregar para afirmações sobre pessoas que nenhuma fonte sustenta.",
       "kind": "render",
@@ -8124,11 +8434,25 @@
         "build/paginas.py"
       ]
     },
+    "9fc162c7eae06492": {
+      "text": "O registo · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "9ff80149304bcbd7": {
       "text": "Resolução do Conselho de Ministros n.º #/#",
       "kind": "padrao",
       "where": [
         "artigos/2026/09/14/plano-nacional-centros-de-dados/index.html"
+      ]
+    },
+    "a0391ca4b3278343": {
+      "text": "ficar com o segmento depois do último travessão: ¤ → ¤",
+      "kind": "data",
+      "where": [
+        "dados/ontologia.json"
       ]
     },
     "a06d4f6d469c4c25": {
@@ -8480,6 +8804,20 @@
         "entidades/instituicao/diario-da-republica-eletronico/index.html"
       ]
     },
+    "a4f4955291a0bf46": {
+      "text": "Derivadas do campo de organização de cada cartão de orador, nunca escritas à mão. O campo é texto livre na fonte, por isso valores de marcador como ¤ chegam com o aspeto de organizações. São assinalados, não removidos: inventar um valor mais arrumado poria no grafo um facto que nenhuma fonte sustenta.",
+      "kind": "data",
+      "where": [
+        "dados/organizacoes.json"
+      ]
+    },
+    "a50b9cd685c2213a": {
+      "text": "As empresas · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "a51a991554ca0668": {
       "text": "e dizem-no na própria página, em vez de serem escondidas da navegação.",
       "kind": "render",
@@ -8502,6 +8840,13 @@
         "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/index.html"
       ]
     },
+    "a5aa5b0b94cf33e7": {
+      "text": "Nenhuma biografia reproduzida",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "a69e7ddc3d419236": {
       "text": "As palavras dessa página que correspondem a um léxico publicado de setores, tecnologias, ideias, serviços e produtos — apenas as palavras correspondidas, nunca a frase",
       "kind": "data",
@@ -8510,11 +8855,25 @@
         "aviso/index.html"
       ]
     },
+    "a6c29695c567f081": {
+      "text": ", no estado ¤. Publicar é a linha do editor de registo, e nenhuma execução automática a pode escrever.",
+      "kind": "render",
+      "where": [
+        "sobre/index.html"
+      ]
+    },
     "a7048af2b790d0ad": {
       "text": "A última coluna é o caminho ao contrário. Uma afirmação deste site anda para trás até um destes ficheiros; daqui anda para a frente até",
       "kind": "render",
       "where": [
         "registo/index.html"
+      ]
+    },
+    "a708cb8018014a33": {
+      "text": "tirar o parêntesis final: ¤ → ¤",
+      "kind": "data",
+      "where": [
+        "dados/ontologia.json"
       ]
     },
     "a71a9ddc9a9b25f1": {
@@ -8613,6 +8972,13 @@
       "kind": "render",
       "where": [
         "sobre/index.html"
+      ]
+    },
+    "aa75003c8dd6c559": {
+      "text": "A carteira · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "aab659a802d5e051": {
@@ -9059,6 +9425,27 @@
         "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html"
       ]
     },
+    "b27d0c6108e368f1": {
+      "text": "Agente visual",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "b2e948a116b18eeb": {
+      "text": "a mesa",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "b2fb99b60ede1ac4": {
+      "text": "O grafo · pt.newsroom.sgit.ai",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "b32884df5432ab73": {
       "text": "As histórias · # nós",
       "kind": "padrao",
@@ -9269,6 +9656,13 @@
         "entidades/pessoa/luis-gutman/index.html",
         "entidades/pessoa/luiza-castro-rey/index.html",
         "entidades/pessoa/paulo-andrez/index.html"
+      ]
+    },
+    "b7d270a8d573fed3": {
+      "text": "O quadro de cada agente. Um cartão em ¤ é trabalho que o agente abriu para si; um issue do jornal chega ao quadro pela fórmula publicada em dados/agentes.json e por mais nada.",
+      "kind": "chrome",
+      "where": [
+        "build/newsroom_team.py"
       ]
     },
     "b7e1035cdf4583cb": {
@@ -9536,13 +9930,6 @@
         "carteira/index.html"
       ]
     },
-    "b86e920dca57d1d9": {
-      "text": "A página de oradores do evento declara «150+ speakers from 40+ countries» e, separadamente, que há um certo número de oradores confirmados listados abaixo. O primeiro número é um alvo. O segundo é uma contagem, e é o único que este site relata.",
-      "kind": "data",
-      "where": [
-        "dados/evento.json"
-      ]
-    },
     "b87a2956c13bbb33": {
       "text": "A página temática oficial portuguesa descreve o Regulamento de IA sem identificar nominalmente a autoridade nacional.",
       "kind": "prose",
@@ -9616,6 +10003,13 @@
       "kind": "prose",
       "where": [
         "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json"
+      ]
+    },
+    "ba48babdab183c4c": {
+      "text": "Verbos proibidos",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "baa947553becb664": {
@@ -9972,6 +10366,13 @@
         "proveniencia/index.html"
       ]
     },
+    "c4e1a999936cdb97": {
+      "text": "Papel listado",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "c4ffcbb09d12e560": {
       "text": "implementa-o, e lê o mapa",
       "kind": "render",
@@ -10015,6 +10416,13 @@
       "kind": "render",
       "where": [
         "artigos/index.html"
+      ]
+    },
+    "c61f05a15eb858b1": {
+      "text": "Construir produto",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "c66fcff91c4bf85c": {
@@ -10113,6 +10521,13 @@
       "kind": "prose",
       "where": [
         "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
+      ]
+    },
+    "c9ec4f9cacbdd72d": {
+      "text": "O portão 11 falha a construção se um artigo estiver em ¤ sem o nome do editor de registo e a data. Uma execução agendada que escrevesse essa linha seria apanhada: é a única salvaguarda que separa esta publicação de um gerador de texto.",
+      "kind": "render",
+      "where": [
+        "artigos/index.html"
       ]
     },
     "c9f1544f79cb807b": {
@@ -10234,6 +10649,13 @@
         "desk/index.html"
       ]
     },
+    "ccf7f57a4ea3139e": {
+      "text": "Nenhum alvo relatado como resultado",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "cd03df7bc88aa79f": {
       "text": "As # entidades do grafo do ecossistema português de IA, cada uma com página própria e as suas arestas lidas em português.",
       "kind": "padrao",
@@ -10261,6 +10683,13 @@
       "where": [
         "dados/aviso.json",
         "aviso/index.html"
+      ]
+    },
+    "cea84789d27b1e2b": {
+      "text": "Ler o registo oficial",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
       ]
     },
     "ceb5ad55f1dc7242": {
@@ -10599,16 +11028,6 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html"
       ]
     },
-    "d2daf728caa08d39": {
-      "text": "A entrega «chatgpt-#-#-#-politicas-#» está em «por_rever». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
-      "kind": "padrao",
-      "where": [
-        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
-        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
-        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
-      ]
-    },
     "d2fc0042b78f8b5e": {
       "text": "Cada frase assenta numa fonte registada.",
       "kind": "chrome",
@@ -10681,20 +11100,6 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
-      ]
-    },
-    "d4a7ce7ae802ff4d": {
-      "text": "Pôs a linha: estado «publicado», com o seu nome e a data. É a única transição que uma execução agendada não pode fazer.",
-      "kind": "prose",
-      "where": [
-        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
-        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/proveniencia.json",
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/proveniencia.json",
-        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
-        "artigos/2026/09/14/plano-nacional-centros-de-dados/proveniencia.json",
-        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json",
-        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/proveniencia.json"
       ]
     },
     "d4b981047d30208f": {
@@ -10893,6 +11298,13 @@
         "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
       ]
     },
+    "d6a70b73e8ca2cf6": {
+      "text": "Os protagonistas",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "d6b9d38f9592db14": {
       "text": "A Resolução do Conselho de Ministros n.º #/# aprova o Plano Nacional de Centros de Dados e o respetivo Plano de Ação. É o único diploma desta entrega que esta redação leu na íntegra — # caracteres de um PDF do Diário da República — e as duas afirmações que dele saem confirmaram contra os bytes.",
       "kind": "padrao",
@@ -10915,13 +11327,6 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
-      ]
-    },
-    "d8052ee08110c7cf": {
-      "text": "Não deixa uma execução automática publicar seja o que for: o estado «publicado» é a linha do editor de registo, e só dele.",
-      "kind": "data",
-      "where": [
-        "dados/aviso.json"
       ]
     },
     "d85ca9850e555817": {
@@ -11067,6 +11472,13 @@
     },
     "dbe2d266f7af92d3": {
       "text": "Protagonistas",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "dc687f1874b9c6c6": {
+      "text": "· ficheiro:",
       "kind": "chrome",
       "where": [
         "build/paginas.py"
@@ -11469,6 +11881,81 @@
         "artigos/2026/09/14/regulador-designacao-ausente/index.html"
       ]
     },
+    "e0749d43c04cde2c": {
+      "text": "Uma organização sob a qual uma pessoa está LISTADA no seu cartão de orador. Derivada dos cartões, nunca escrita à mão; marcadores como «",
+      "kind": "render",
+      "where": [
+        "empresas/index.html",
+        "entidades/index.html",
+        "entidades/organizacao/351-portuguese-startup-association/index.html",
+        "entidades/organizacao/abn-amro-bank/index.html",
+        "entidades/organizacao/accenture/index.html",
+        "entidades/organizacao/aiffin/index.html",
+        "entidades/organizacao/angels-way/index.html",
+        "entidades/organizacao/around-pr-studio/index.html",
+        "entidades/organizacao/bankless-ventures/index.html",
+        "entidades/organizacao/brandulogy/index.html",
+        "entidades/organizacao/brdge/index.html",
+        "entidades/organizacao/bsc-ai-factory/index.html",
+        "entidades/organizacao/business-network-albania/index.html",
+        "entidades/organizacao/cosysense/index.html",
+        "entidades/organizacao/creativity-matter/index.html",
+        "entidades/organizacao/digiseg/index.html",
+        "entidades/organizacao/dyrectli-capital/index.html",
+        "entidades/organizacao/ecox-bombastic-burgh/index.html",
+        "entidades/organizacao/fast-track-ventures/index.html",
+        "entidades/organizacao/fiiys-ltd/index.html",
+        "entidades/organizacao/fio-legal/index.html",
+        "entidades/organizacao/fio-legal-fractional-freelance-hr/index.html",
+        "entidades/organizacao/first-ten-advisory/index.html",
+        "entidades/organizacao/freedom-vas/index.html",
+        "entidades/organizacao/gacs-ltd-gacsym-ventures/index.html",
+        "entidades/organizacao/globalfy/index.html",
+        "entidades/organizacao/growth-geek-unipessoal-lda/index.html",
+        "entidades/organizacao/humannovate-consulting/index.html",
+        "entidades/organizacao/ideasoft/index.html",
+        "entidades/organizacao/ilof/index.html",
+        "entidades/organizacao/jab-holdings/index.html",
+        "entidades/organizacao/jci/index.html",
+        "entidades/organizacao/kapisci/index.html",
+        "entidades/organizacao/konnect-ai-human-strategy-execution-workspace/index.html",
+        "entidades/organizacao/ladies-who-talk/index.html",
+        "entidades/organizacao/lexidy/index.html",
+        "entidades/organizacao/lexidy-law-boutique-slp/index.html",
+        "entidades/organizacao/like-no-other/index.html",
+        "entidades/organizacao/linkilaw-solicitors-cbca-group/index.html",
+        "entidades/organizacao/lisa-press-consulting/index.html",
+        "entidades/organizacao/lisbon-business-leaders/index.html",
+        "entidades/organizacao/many/index.html",
+        "entidades/organizacao/mvmt-studio/index.html",
+        "entidades/organizacao/mykor/index.html",
+        "entidades/organizacao/on-this-planet/index.html",
+        "entidades/organizacao/ow-ventures-scr/index.html",
+        "entidades/organizacao/pactum-global/index.html",
+        "entidades/organizacao/pioneering-people/index.html",
+        "entidades/organizacao/pr-agency-techwaves/index.html",
+        "entidades/organizacao/prifly-advisors/index.html",
+        "entidades/organizacao/roman-knorr/index.html",
+        "entidades/organizacao/s8-aquisitions/index.html",
+        "entidades/organizacao/self-employed/index.html",
+        "entidades/organizacao/sibillastrupule-com/index.html",
+        "entidades/organizacao/sigal-ventures/index.html",
+        "entidades/organizacao/solegency/index.html",
+        "entidades/organizacao/sotavento-angels-fund/index.html",
+        "entidades/organizacao/sotavento-invest/index.html",
+        "entidades/organizacao/soulbranding/index.html",
+        "entidades/organizacao/startup-summit/index.html",
+        "entidades/organizacao/time-space/index.html",
+        "entidades/organizacao/time-to-rise/index.html",
+        "entidades/organizacao/trivevo/index.html",
+        "entidades/organizacao/upstride-holdings/index.html",
+        "entidades/organizacao/vntr-capital/index.html",
+        "entidades/organizacao/what-she-said-limited/index.html",
+        "entidades/organizacao/zero-risk-startup/index.html",
+        "entidades/organizacao/zoya-mesaric-private-international-practice/index.html",
+        "grafo/index.html"
+      ]
+    },
     "e078a44f094722b0": {
       "text": "3 · As cópias são",
       "kind": "render",
@@ -11593,11 +12080,11 @@
         "proveniencia/index.html"
       ]
     },
-    "e509c15ba06ba7d4": {
-      "text": "A data da captura vem do nome da pasta e do `id_no_registo_de_origem`; a hora vem do manifesto. As duas ficam registadas e não são reconciliadas — decidir qual delas está «realmente» certa seria uma inferência nossa sobre o registo de outra publicação.",
+    "e4e9a60ac12f2da4": {
+      "text": "A necessidade",
       "kind": "chrome",
       "where": [
-        "build/transferencias.py"
+        "build/paginas.py"
       ]
     },
     "e524286b296e1b37": {
@@ -11764,6 +12251,13 @@
         "metodo/index.html"
       ]
     },
+    "e89b5eaaa65115c1": {
+      "text": "O registo",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "e8b3a0533c574d5a": {
       "text": "# set",
       "kind": "padrao",
@@ -11811,6 +12305,20 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "ea3e7ac77aaf224d": {
+      "text": "As empresas",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "ea6728556ec330be": {
+      "text": "O evento declara ¤; isso é um plano. O que este site conta são os cartões da cópia congelada. O portão 4 falha a construção se um alvo aparecer como resultado.",
+      "kind": "render",
+      "where": [
+        "metodo/index.html"
       ]
     },
     "ea6b330344c1e26d": {
@@ -12099,6 +12607,14 @@
         "build/paginas.py"
       ]
     },
+    "ec29ce2ca22deb11": {
+      "text": "Um comunicado do Conselho de Ministros anuncia que uma resolução foi aprovada. Não é a resolução. O ato publicado tem um número, uma data de publicação e um texto, e é o texto que diz o que fica efetivamente decidido — a que programa europeu adere Portugal, com que contrapartidas, através de que entidade, e o que significa ¤.",
+      "kind": "prose",
+      "where": [
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/artigo.md",
+        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html"
+      ]
+    },
     "ec64fce1cf11ac06": {
       "text": ", que",
       "kind": "chrome",
@@ -12140,13 +12656,6 @@
       "kind": "render",
       "where": [
         "equipa/index.html"
-      ]
-    },
-    "edcf32e8ea827efd": {
-      "text": "Cada ficheiro de dados deste site, com o seu SHA-256. É o que torna «a um clique dos bytes» verificável em vez de uma promessa.",
-      "kind": "data",
-      "where": [
-        "dados/manifesto.json"
       ]
     },
     "ede94f57af5380bd": {
@@ -12562,6 +13071,14 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html"
       ]
     },
+    "f31f073654584312": {
+      "text": "Não deixa uma execução automática publicar seja o que for: o estado ¤ é a linha do editor de registo, e só dele.",
+      "kind": "data",
+      "where": [
+        "dados/aviso.json",
+        "aviso/index.html"
+      ]
+    },
     "f3337fe0b0e67d27": {
       "text": "A vizinhança, carregada do grafo",
       "kind": "render",
@@ -12780,6 +13297,13 @@
         "eventos/index.html"
       ]
     },
+    "f3da9329340528c8": {
+      "text": "A diáspora",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "f40ab0a6c243f0e2": {
       "text": "Uma ideia recorrente da conversa de fundadores, nomeada pelo léxico publicado. Derivada por fórmula.",
       "kind": "data",
@@ -12834,16 +13358,6 @@
       "kind": "padrao",
       "where": [
         "artigos/index.html"
-      ]
-    },
-    "f47b241e2e1deebb": {
-      "text": "A entrega «chatgpt-pt-newsroom-#-#-#-politicas» está em «em_revisao». Enquanto o editor de registo não decidir item a item, nada dela é facto e nada dela chega a este artigo.",
-      "kind": "padrao",
-      "where": [
-        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
-        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
-        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
       ]
     },
     "f47b467fba3aced7": {
@@ -13085,6 +13599,13 @@
         "sobre/index.html"
       ]
     },
+    "f4b6f8a61acb218a": {
+      "text": "O interesse",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "f53116b88ec07593": {
       "text": "Ocorrências",
       "kind": "chrome",
@@ -13118,16 +13639,6 @@
       "kind": "render",
       "where": [
         "metodo/index.html"
-      ]
-    },
-    "f69a85d01802ccac": {
-      "text": "Chegou para a secção «politicas», que é a secção deste artigo. Não é uma afirmação de que seja sobre ele. # de # afirmações tinham o excerto nos bytes.",
-      "kind": "padrao",
-      "where": [
-        "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/comentarios.json",
-        "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/comentarios.json",
-        "artigos/2026/09/14/plano-nacional-centros-de-dados/comentarios.json",
-        "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
       ]
     },
     "f6e002e414668715": {
@@ -13293,6 +13804,13 @@
         "index.html"
       ]
     },
+    "faddfeb8a3163163": {
+      "text": "Fonte congelada",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
     "fb2c9e6bf8ac774e": {
       "text": "Entregas de investigação de assistentes exteriores, com o estado de cada afirmação depois de esta redação ter congelado a fonte e procurado nos bytes o excerto que o assistente diz ter lido.",
       "kind": "chrome",
@@ -13353,6 +13871,13 @@
     },
     "fc88ab02464f0fe7": {
       "text": "Para onde iria o dinheiro",
+      "kind": "chrome",
+      "where": [
+        "build/paginas.py"
+      ]
+    },
+    "fcbd4e6012e893f1": {
+      "text": "A recusa",
       "kind": "chrome",
       "where": [
         "build/paginas.py"

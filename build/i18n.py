@@ -240,8 +240,21 @@ def verbatim():
     # `nome_em_si` is a language's AUTONYM — «Português (Portugal)», «Deutsch». Translating an
     # autonym defeats its only purpose, which is to be recognisable to a reader who cannot read the
     # page they are on.
+    # `papel`, `organizacao`, `dia`, `tema`, `formato`, `quando` and `correspondeu` are the names the
+    # DATA actually uses — `cargo_listado` and `organizacao_listada` above are what the ontology calls
+    # them, and dados/pessoas.json calls them `papel` and `organizacao`. Every one of these is a field
+    # read verbatim out of a frozen page: a listed role («CIO & Co-founder»), the organisation a card
+    # lists, the day a programme names («Thursday 17 September — Day 1»), the event's own topic
+    # («Exits / M&A»), the format it declares, and the words the published lexicon matched. Rule 3
+    # says they are linked and never rewritten and rule 4 says no characterisation of a person, so
+    # translating a listed role would be inventing one. Until these were named here the report counted
+    # 100-odd third-party roles as Portuguese left untranslated, which is a coverage target the site
+    # must never reach. `titulo` is deliberately NOT here: it holds session titles, which are
+    # verbatim, AND this newsroom's own headings, which are not — `titulo_verbatim` is the declared
+    # one and guessing at the rest would silence prose that should be translated.
     NOMES = ("nome", "name", "rotulo", "label", "titulo_verbatim", "organizacao_listada",
-             "cargo_listado", "publicador", "agente_verbatim", "nome_em_si")
+             "cargo_listado", "publicador", "agente_verbatim", "nome_em_si",
+             "papel", "organizacao", "dia", "tema", "formato", "quando", "correspondeu")
 
     def colher_nomes(o):
         if isinstance(o, dict):
@@ -474,6 +487,44 @@ def mascarar(s):
     return "".join(fora), valores
 
 
+# A QUOTATION IS MASKED, NOT REFUSED. Anything inside «…» on this site is somebody else's words and
+# a translated quotation is a misquotation, so an earlier version refused any run containing a
+# guillemet outright. The comment said that cost «a handful of chrome lines their translation». It
+# did not: it left 23 distinct runs Portuguese on every locale page, 174 occurrences, and the worst
+# of them was the sentence on /empresas/ explaining what happens to a marker value such as
+# «Independent» — a whole Portuguese sentence, repeated 69 times on one page, refused because the
+# marker it names is quoted. The coverage report could not see any of it, because a run refused at
+# never a miss. A green report over a page half in the wrong language is the failure this
+# repository keeps meeting; the fix is at the level of the rule.
+#
+# So a balanced «…» span becomes «¤» and is put back byte-identical after the substitution, exactly
+# as mascarar() does with a number. The prose around it is translated; not one character inside the
+# guillemets is ever touched, which is the whole of what the guard existed to protect.
+_CITACAO = re.compile(r"«[^«»]*»")
+_MARCA_CITACAO = "¤"
+
+
+def citar(s):
+    """(masked, quotations). Every balanced «…» span — guillemets included — is replaced by ¤ and
+    kept aside verbatim."""
+    fora = []
+
+    def troca(m):
+        fora.append(m.group(0))
+        return _MARCA_CITACAO
+
+    return _CITACAO.sub(troca, s), fora
+
+
+def descitar(molde, citacoes):
+    """Put the quotations back into a translated template, in the order the page had them."""
+    fora = []
+    restantes = list(citacoes)
+    for ch in molde:
+        fora.append(restantes.pop(0) if ch == _MARCA_CITACAO and restantes else ch)
+    return "".join(fora)
+
+
 def preencher(molde, valores, meses, dias):
     """Put the values back into a translated template, in the order the page had them."""
     fora = []
@@ -557,6 +608,13 @@ def colher():
         # A rule applied at three of four entrances is not a rule.
         if nao_traduzir(text) or maquina(text):
             return
+        # A QUOTATION IS A HOLE IN THE TEMPLATE, like a number. Masked here so that the segment is
+        # the sentence AROUND the quotation, which is ordinary prose and translates once; see
+        # i18n.citar(). Before this, the renderer refused the whole run and the report never
+        # counted it.
+        semcit, citacoes = citar(normalise(text))
+        if citacoes:
+            text = semcit
         # THE MASK IS TRIED FIRST, and the order is the whole point. `translatable()` asks «is there
         # Portuguese here to translate?» and «mais 1 entidade» has no accent and none of the function
         # words it looks for, so it was rejected before the mask ever ran and the template «mais #
