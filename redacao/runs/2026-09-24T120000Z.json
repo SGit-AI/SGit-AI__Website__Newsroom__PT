@@ -1,0 +1,19 @@
+{
+  "quando": "2026-09-24T12:00:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "Step back and look at the site from a quality point of view before it opens to a wider audience.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": ["admin/", "api/", "artigos/", "assets/", "build/", "dados/", "entidades/",
+                       "redacao/", "seccoes/", "index.html", "llms.txt", "sitemap.xml", "index.md"],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.23.13",
+  "o_que_fez": [
+    "Found and fixed the countdown: 231 pages said 'Faltam 3 dias para o Startup Summit' for ten days, including the six after the event ended. It was computed from registo.json.atualizado, so it froze when the register did.",
+    "The dateline now says 'última captura' rather than presenting the capture date as the reader's.",
+    "assets/quando.js adds the tense from the reader's own clock; the server states the dates with no tense in them. Tested at three reader clocks: foi há 7 dias / é hoje / faltam 2 dias.",
+    "Gate 45: no reader page may state a countdown or present the capture date as today. Injection-tested — restoring the old line turns 17 pages red."
+  ],
+  "nota": "A CONSTRUCTION run: no source frozen, no card moved, nothing published. The quality audit itself is reported to the editor rather than acted on: the empresas section lists employer strings from speaker cards (including 'Self-Employed', 'Accenture', 'ABN AMRO Bank') rather than mapped Portuguese companies, and a company record holds four fields, so the editor's Estonia and Web Summit questions cannot be answered at all. That is an editorial decision, not a build one."
+}

@@ -279,12 +279,36 @@ def banda(corpo, fundo=""):
 
 
 def datalinha(hoje, dias=None):
+    """The dateline. It states the date of the last capture, and it says so.
+
+    A STATIC PAGE CANNOT COUNT DOWN, and for ten days this one did. `hoje` is not today: it is
+    `registo.json.atualizado`, the date of the most recent frozen source, because every page on
+    this site has to be deterministic — a rebuild that changed 231 files because the clock moved
+    would make every diff unreadable. That is right. What was wrong is what was built on top of
+    it: a masthead reading «Lisboa · 14 de setembro» as though it were today, and beside it
+    «Faltam 3 dias para o Startup Summit», computed as 17 September minus the capture date.
+
+    The event ran on 17-18 September. On the day this was found the site had been promising it in
+    three days for ten days, to every reader, on 231 pages.
+
+    Two claims, both false, and they fail differently. The dateline was **mislabelled**: the date
+    is real, it is simply the capture's and not the reader's, so it now says which. The countdown
+    was **unknowable**: how long until an event depends on when you are reading, and a file on a
+    disk cannot know that. So the server states what it can prove — the event and its dates — and
+    a few lines of script upgrade that to a live relative phrase against the reader's own clock.
+    Without script the reader gets a true sentence rather than a false one, which is the right way
+    round for a publication whose whole argument is that it does not assert what it cannot show.
+    """
     dta = data_pt(hoje)
+    ev = carregar("evento.json") or {}
+    datas = (ev.get("datas") or {}).get("principais", "")
     direita = ""
-    if dias is not None and dias >= 0:
-        direita = (f'<div>Faltam <b>{dias} dia{"s" if dias != 1 else ""}</b> para o '
-                   f'Startup Summit Lisbon 2026</div>' if dias else
-                   '<div><b>Hoje</b>: Startup Summit Lisbon 2026</div>')
+    if datas:
+        # `data-evento` is the machine-readable first day; the script reads it and rewrites the
+        # span. The server's own sentence is a fact with no tense in it.
+        direita = (f'<div class="quando-evento" data-evento="{EVENTO_INICIO}">'
+                   f'{e(ev.get("nome", "Startup Summit Lisbon 2026"))} · '
+                   f'<span class="relativo">{e(datas)}</span></div>')
     # THE SPLIT. Until v0.13.0 these were one row: the dateline, the countdown and the four
     # operator links ran together in a single grey mono line, set identically, so a reader could
     # not tell which were the paper's and which were the machinery's. A wallet balance sitting
@@ -297,7 +321,8 @@ def datalinha(hoje, dias=None):
     # serif, ruled top and bottom, sitting directly above the masthead where a newspaper puts it.
     # Same links, legible ranking. The operator strip collapses to one scrollable line on a phone.
     return (utilitarios("{raiz}", caminho="{pagina}")
-            + f'<div class="datalinha"><div>Lisboa · {dta}</div>{direita}</div>')
+            + f'<div class="datalinha"><div>Lisboa · última captura: {dta}</div>'
+              f'{direita}</div>')
 
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -547,6 +572,7 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 <link rel="stylesheet" href="{raiz}assets/site.css">
 <script type="module" src="{raiz}assets/components/pt-wallet/v1/v1.0/v1.0.0/pt-wallet.js"></script>
 <script src="{raiz}assets/ponte.js" defer></script>
+<script src="{raiz}assets/quando.js" defer></script>
 <script src="{raiz}assets/observador.js" defer></script>
 <script src="{raiz}assets/conversa.js" defer></script>
 <script type="module" src="{raiz}assets/components/pt-chat/v1/v1.0/v1.0.0/pt-chat.js"></script>
@@ -563,13 +589,21 @@ def pagina(rel, titulo, descricao, corpo, aqui=None, nomeia_pessoas=False,
 """
 
 
+EVENTO_INICIO = "2026-09-17"
+
+
 def dias_para_evento(hoje):
+    """Kept, and deliberately no longer used for the masthead.
+
+    It answers a question worth asking — how far was the evidence from the event — and it is a
+    fact about the CAPTURE, not about the reader. It was the masthead that misread it as the
+    second. Anything calling this is measuring the register, and should say so in words."""
     import datetime
     try:
         d = datetime.date.fromisoformat(hoje)
     except ValueError:
         return None
-    return (datetime.date(2026, 9, 17) - d).days
+    return (datetime.date.fromisoformat(EVENTO_INICIO) - d).days
 
 
 def escrever(rel, texto):

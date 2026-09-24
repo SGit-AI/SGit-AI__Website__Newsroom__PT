@@ -1,7 +1,7 @@
 {
   "id": "pt-review",
   "version": "1.0.0",
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
   "count": 12,
@@ -207,6 +207,13 @@
   "changes": [
     {
       "kind": "release",
+      "when": "2026-09-24",
+      "version": "v0.23.13",
+      "what": "A static page cannot count down, and for ten days this one did",
+      "url": "../../admin/versions.html#v0.23.13"
+    },
+    {
+      "kind": "release",
       "when": "2026-09-23",
       "version": "v0.23.12",
       "what": "A fourth delivery, the first with a clean schema and a source readable at the first attempt, and the CADA proposal commissioned",
@@ -253,13 +260,6 @@
       "version": "v0.23.6",
       "what": "The four questions move to the top, and a gate keeps them from drifting",
       "url": "../../admin/versions.html#v0.23.6"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-18",
-      "version": "v0.23.5",
-      "what": "A question card for the summit, and the first content born in English",
-      "url": "../../admin/versions.html#v0.23.5"
     },
     {
       "kind": "delivery",

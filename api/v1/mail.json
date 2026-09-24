@@ -1,7 +1,7 @@
 {
   "id": "pt-correio",
   "versao": "0.1.0",
-  "atualizado": "2026-09-23",
+  "atualizado": "2026-09-24",
   "protocolo": "email-fs-lite",
   "protocolo_versao": "0.6",
   "nota": "Cada mensagem entre os agentes desta redação, lida de redacao/correio/ por build/newsroom_team.py. O estado de uma mensagem é a pasta onde está e não um campo: um campo pode discordar da pasta, uma pasta não pode discordar de si mesma. Este é o ficheiro que as páginas leem — a pasta tem um leitor só.",

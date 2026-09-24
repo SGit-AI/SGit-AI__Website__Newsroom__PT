@@ -2,8 +2,14 @@
   "id": "pt-versoes",
   "versao": "1.0.0",
   "nota": "The release history as data. Each release's prose lives in its own markdown file under admin/versions/, and admin/versions.html is RENDERED from the two by build/versoes.py. Text does not live inside HTML here: a release note is a document, and a document that can only be read as markup is a document with extra steps.",
-  "contagem": 39,
+  "contagem": 40,
   "versoes": [
+    {
+      "versao": "v0.23.13",
+      "data": "2026-09-24",
+      "titulo": "A static page cannot count down, and for ten days this one did",
+      "ficheiro": "admin/versions/v0.23.13.md"
+    },
     {
       "versao": "v0.23.12",
       "data": "2026-09-23",

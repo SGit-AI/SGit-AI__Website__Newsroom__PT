@@ -936,9 +936,39 @@ if f_spine.exists():
                          f'build/interviews.py, then build/newsroom.py')
 
 
+#  45 · NO PAGE TELLS THE READER WHAT TIME IT IS. Every page here is rendered once and has to be
+#       true whenever it is read. «Faltam 3 dias para o Startup Summit» is not: it is a claim
+#       about the reader's present, and a file on a disk cannot know that. It was computed from
+#       `registo.json.atualizado` — the date of the last frozen source — so when the register
+#       stopped moving the countdown froze with it, and the site promised an event in three days
+#       for ten days, including the six after it had finished, on 231 pages.
+#
+#       The dateline was a second, different lie: the date was real but presented as the reader's
+#       rather than the capture's, so it now says which. Only `assets/quando.js` may add a tense,
+#       because only the browser knows when now is.
+TEMPO = re.compile(r"Faltam?\s+<?b?>?\s*\d+\s*dias?|dentro de\s+\d+\s+dias?"
+                   r"|<b>Hoje</b>\s*:", re.I)
+DATELINE_CRUA = re.compile(r'<div class="datalinha"><div>Lisboa · (?!última captura)')
+n_tempo = 0
+for pag in sorted(ROOT.rglob("*.html")):
+    rel = pag.relative_to(ROOT).as_posix()
+    if rel.startswith(("backoffice/", "admin/")) or "/vendor/" in rel:
+        continue
+    t = pag.read_text(encoding="utf-8")
+    n_tempo += 1
+    m = TEMPO.search(t)
+    if m:
+        erros.append(f'{rel}: says «{m.group(0)[:40]}» in the rendered HTML. A static page cannot '
+                     f'know when it is being read; state the dates and let assets/quando.js add '
+                     f'the tense from the reader\'s own clock')
+    if DATELINE_CRUA.search(t):
+        erros.append(f'{rel}: the dateline presents the capture date as the reader\'s. It is '
+                     f'`registo.json.atualizado`, so it has to say «última captura»')
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-38, 41-43: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38, 41-43, 45: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -946,7 +976,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-38, 41-43: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38, 41-43, 45: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "
@@ -960,4 +990,5 @@ print(f"gates 16-26, 34-38, 41-43: OK — {len(metas)} articles in dated folders
       f"{len(reclamado)} gate numbers each claimed once (next free: {proximo_portao}), "
       f"{acoplamentos} document-level class(es) set by a component, each with a rule, "
       f"{n_notas} releases each addressable once, at {versao_actual}, "
-      f"{n_guia} guidance pages with an address and {n_ligacoes} briefing links that resolve")
+      f"{n_guia} guidance pages with an address and {n_ligacoes} briefing links that "
+      f"resolve, {n_tempo} reader pages none of which tells you what time it is")
