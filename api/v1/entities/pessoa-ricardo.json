@@ -17,6 +17,18 @@
       "ocorrencias": 6
     },
     {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+      "ocorrencias": 4
+    },
+    {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 3
     },
@@ -25,15 +37,23 @@
       "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 7,
+  "ficheiros_com_o_nome": 15,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

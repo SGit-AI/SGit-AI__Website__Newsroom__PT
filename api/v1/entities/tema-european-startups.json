@@ -5,6 +5,22 @@
   "url": "entidades/tema/european-startups/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/oradores/alexandra-isenegger",
       "ocorrencias": 1
     },
@@ -35,25 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/luiza-castro-rey",
       "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/micael-lopes",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/mike-sigal",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/nataliia-komarnytska",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/rita-figueiredo",
-      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 16,
+  "ficheiros_com_o_nome": 21,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

@@ -5,55 +5,55 @@
   "url": "entidades/tema/fundraising/",
   "nos_bytes": [
     {
-      "fonte": "2026-09-14/agenda",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/about",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/imprensa/startupevents-org",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/amit-grinvald",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/hello-2026-week-1",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/angelee-sidar",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/ben-lakoff",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/reading-week-25",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/david-graham",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/time-to-get-back-week-33",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/dina-kondratiuk",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "ocorrencias": 4
     },
     {
-      "fonte": "2026-09-14/oradores/hector-lv",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/home",
+      "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/oradores/jorge-sebastiao",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/llms",
+      "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/oradores/lisa-rebecca-press",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on",
+      "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/oradores/luis-valente",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "ocorrencias": 2
     },
     {
-      "fonte": "2026-09-14/oradores/luiza-castro-rey",
-      "ocorrencias": 1
+      "fonte": "2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 19,
+  "ficheiros_com_o_nome": 116,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

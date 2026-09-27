@@ -1,0 +1,21 @@
+{
+  "quando": "2026-09-27T04:15:00Z",
+  "agente": "bastidores.pt",
+  "especie": "construcao",
+  "prompt": "The code for the adamastor.blog capture, and the defects found while running it.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": ["admin/", "api/", "artigos/", "backoffice/", "build/", "entidades/", "redacao/",
+                       "index.html", "llms.txt", "sitemap.xml", "index.md"],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.23.14",
+  "o_que_fez": [
+    "build/adamastor.py: capture (robots-checked, polite, once per file per day) and extraction; English names throughout except the dados/ folder, which is blocked on task #5.",
+    "build/extract.py: the event is read from the newest capture that contains the event, not the newest folder. Without this, re-running the register — with or without Adamastor — wrote 0 people, 0 organisations and 0 sessions and turned the core gate red.",
+    "build/graph.py: a capture node for every dated folder a file was frozen in; 128 edges had pointed at nodes that did not exist.",
+    "Robots matching replaced: urllib.robotparser applies the first matching rule, so a leading 'Allow: /' shadowed every Disallow in the publisher's file. RFC 9309 precedence now, tested on eight paths against the frozen file.",
+    "Gate 46: every JSON file the site builds from or serves is scanned for contact details. An email planted in dados/adamastor.json had passed both gate files. Injection-tested with an email and a phone number.",
+    "api/v1/adamastor.json and one file per post; build/tudo.py extracts Adamastor on every build but never fetches it."
+  ],
+  "nota": "A CONSTRUCTION run: it froze nothing. The capture is the research record beside it."
+}

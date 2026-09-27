@@ -57,6 +57,10 @@ def data_do_congelamento():
 PASSOS = [
     (["python3", "build/extract.py"],
      "fetch, freeze, hash, register, extract, diff", False),
+    (["python3", "build/adamastor.py"],
+     "adamastor.blog — the digest, the events calendar and the places they link to, read from "
+     "the frozen copy. Never fetches: freezing is `build/adamastor.py --fetch`, on purpose not "
+     "part of --fetch here, so the daily run does not re-freeze 14 MB of unchanged posts", False),
     (["python3", "build/transferencias.py"],
      "evidence transferred from a sibling publication — verified, kept as ITS evidence", False),
     (["python3", "build/entregas.py", "--date", "@DATA@"],

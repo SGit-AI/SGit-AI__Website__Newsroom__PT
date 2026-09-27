@@ -1,0 +1,64 @@
+{
+  "no": "editor:adamastor",
+  "tipo": "Editor",
+  "nome": "Adamastor",
+  "url": "entidades/editor/adamastor/",
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 104
+    },
+    {
+      "fonte": "2026-09-27/adamastor/home",
+      "ocorrencias": 52
+    },
+    {
+      "fonte": "2026-09-27/adamastor/about",
+      "ocorrencias": 51
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/welcome-back-week-28",
+      "ocorrencias": 32
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/reading-week-25",
+      "ocorrencias": 30
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "ocorrencias": 30
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/wildfires-week-29",
+      "ocorrencias": 30
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+      "ocorrencias": 24
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-10",
+      "ocorrencias": 24
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "ocorrencias": 24
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/sim-week-19",
+      "ocorrencias": 24
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "ocorrencias": 22
+    }
+  ],
+  "ficheiros_com_o_nome": 102,
+  "fundamento": "bytes",
+  "ligavel": true,
+  "ligavel_em_prosa": true,
+  "grau": {
+    "saida": 0,
+    "entrada": 104
+  }
+}

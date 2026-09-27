@@ -437,13 +437,21 @@ def registar(caps):
                 continue
             rel = f.relative_to(cap).as_posix()
             base = re.sub(r"\.(snapshot|pdf)$", "", rel)
-            grupo = ("oradores" if rel.startswith("oradores/") else
+            grupo = ("adamastor" if rel.startswith("adamastor/") else
+                     "oradores" if rel.startswith("oradores/") else
                      "registo" if rel.startswith("registo/") else
                      "abertas" if rel.startswith("abertas/") else
                      "imprensa" if rel.startswith("imprensa/") else
                      "entregas" if rel.startswith("entregas/") else "evento")
             if grupo == "entregas":
                 alvo = por_entrega.get(base[len("entregas/"):], {})
+            elif grupo == "adamastor":
+                # Imported here, not at the top: build/adamastor.py imports this module, and a
+                # top-level import in both directions is a cycle. The URL is derived from the
+                # path, the way a speaker page's is, so no second list of URLs has to agree.
+                import adamastor
+                alvo = {"url": adamastor.url_for(rel), "publicador": adamastor.PUBLISHER,
+                        "lingua": adamastor.LANGUAGE}
             else:
                 alvo = por_alvo.get(base.split("/")[-1], {})
             corpo = f.read_text(encoding="utf-8", errors="replace")[:4000]
@@ -481,8 +489,26 @@ def main():
     caps = capturas()
     if not caps:
         raise SystemExit("não há capturas em fontes/congeladas/<data>/ — corra com --fetch")
-    ultima = caps[-1]
+    # THE NEWEST FOLDER IS NOT THE NEWEST CAPTURE OF THE EVENT. This used to be `caps[-1]`, which
+    # assumed every dated folder is a full capture of the event. It stopped being true the day a
+    # research delivery froze its sources into a folder of their own: 2026-09-15 and 2026-09-23
+    # hold delivery PDFs and nothing else, so re-running this file read the event from a folder
+    # with no speakers page in it and wrote 0 people, 0 organisations and 0 sessions — silently,
+    # because the build only runs this step with --fetch, so nobody had run it since.
+    #
+    # An event capture is a folder holding the event's own speakers page. Everything read from
+    # the event is read from the newest of those. Every folder is still registered, file by file:
+    # a folder that is not an event capture is still evidence.
+    #
+    # `capturas` in the register keeps its old meaning — the dated captures of the event — which
+    # is also what build/gates.py relies on when it reads `capturas[-1]`. `atualizado` becomes the
+    # newest folder of any kind, because it is what the masthead prints as «última captura».
+    evento = [c for c in caps if (c / "oradores.snapshot").exists()]
+    if not evento:
+        raise SystemExit("nenhuma captura contém oradores.snapshot — a do evento está em falta")
+    ultima = evento[-1]
     hoje = ultima.name
+    mais_recente = caps[-1].name
 
     fontes_reg, excluidas = registar(caps)
     pessoas = pessoas_em(ultima)
@@ -495,7 +521,7 @@ def main():
     # are
     # indistinguíveis de fora (CLAUDE.md regra 5).
     mudancas = []
-    for a, b in zip(caps, caps[1:]):
+    for a, b in zip(evento, evento[1:]):
         pa = {p["id"]: p for p in pessoas_em(a)}
         pb = {p["id"]: p for p in pessoas_em(b)}
         if not pa or not pb:
@@ -526,12 +552,13 @@ def main():
         })
 
     escrever("registo.json", {
-        "id": "pt-registo", "versao": "0.1.0", "atualizado": hoje,
+        "id": "pt-registo", "versao": "0.1.0", "atualizado": mais_recente,
         "nota": ("Todas as páginas obtidas, congeladas byte a byte neste repositório e hasheadas. "
                  "Uma afirmação deste site anda para trás até um SHA-256 desta lista. As cópias "
                  "congeladas têm extensão .snapshot: são prova, não são páginas deste site, e não "
                  "são servidas nem indexadas como tal."),
-        "capturas": [c.name for c in caps], "contagem": len(fontes_reg), "fontes": fontes_reg,
+        "capturas": [c.name for c in evento], "capture_dates": [c.name for c in caps],
+        "contagem": len(fontes_reg), "fontes": fontes_reg,
     })
     escrever("excluidas.json", {
         "id": "pt-excluidas", "versao": "0.1.0", "atualizado": hoje,
@@ -615,7 +642,8 @@ def main():
         "por_resolver": [{"id": k, **v} for k, v in fontes.TENTADAS.items()],
     })
 
-    print(f"extract: {len(caps)} captura(s), {len(fontes_reg)} ficheiros congelados, "
+    print(f"extract: {len(caps)} dated folder(s), {len(evento)} of the event (read: {hoje}), "
+          f"{len(fontes_reg)} ficheiros congelados, "
           f"{len(excluidas)} excluídos, {len(pessoas)} pessoas, {len(orgs)} organizações, "
           f"{len(sessoes)} sessões")
     for c in mudancas:

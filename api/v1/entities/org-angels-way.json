@@ -5,15 +5,35 @@
   "url": "entidades/organizacao/angels-way/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9",
+      "ocorrencias": 16
+    },
+    {
       "fonte": "2026-09-14/oradores/diogo-mendonca",
+      "ocorrencias": 10
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
       "ocorrencias": 10
     },
     {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startup-xmas-week-43",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 2,
+  "ficheiros_com_o_nome": 7,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

@@ -1,0 +1,98 @@
+{
+  "id": "hello-2026-week-1",
+  "slug": "hello-2026-week-1",
+  "title": "Hello 2026 👐",
+  "published": "2026-01-05T10:24:03.520091+00:00",
+  "author": "Carlos Resende",
+  "url": "https://adamastor.blog/posts/hello-2026-week-1",
+  "source": "2026-09-27/adamastor/posts/hello-2026-week-1",
+  "links": [
+    {
+      "url": "https://landingjobs.typeform.com/ttt2026",
+      "domain": "landingjobs.typeform.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://startupportugal.com/programs/scale-up-now-en/",
+      "domain": "startupportugal.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.thevccorner.com/p/sequoia-playbook-vc-discipline-systems",
+      "domain": "thevccorner.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://pitchbook.com/news/articles/ai-strength-meets-correction-risk-whats-next-for-european-vc-in-2026",
+      "domain": "pitchbook.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://startupsmagazine.co.uk/article-partechs-alison-imbert-shifting-seed-strategies-and-taking-smarter-risks",
+      "domain": "startupsmagazine.co.uk",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.readtrung.com/p/how-hermes-sells-time",
+      "domain": "readtrung.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://techcrunch.com/2026/01/04/can-a-social-app-fix-the-terrible-devastation-of-social-media/",
+      "domain": "techcrunch.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jpGYBcDy4c4",
+      "domain": "youtube.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://x.com/jaynitx/status/2004586855480856925",
+      "domain": "x.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.the-ai-corner.com/p/sam-altman-openai-interview-ai-deployment-memory-enterprise",
+      "domain": "the-ai-corner.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.linkedin.com/in/carlos-resende-%F0%9F%94%B7-35162613/",
+      "domain": "linkedin.com",
+      "kind": "link"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "capital-de-risco",
+      "type": "Setor",
+      "matched": "venture capital"
+    },
+    {
+      "tag": "fintech",
+      "type": "Setor",
+      "matched": "fintech"
+    },
+    {
+      "tag": "ia",
+      "type": "Tecnologia",
+      "matched": "AI"
+    },
+    {
+      "tag": "escalar",
+      "type": "Ideia",
+      "matched": "SCALE UP"
+    },
+    {
+      "tag": "internacionalizar",
+      "type": "Ideia",
+      "matched": "going global"
+    },
+    {
+      "tag": "angariar",
+      "type": "Ideia",
+      "matched": "Fundraising"
+    }
+  ]
+}

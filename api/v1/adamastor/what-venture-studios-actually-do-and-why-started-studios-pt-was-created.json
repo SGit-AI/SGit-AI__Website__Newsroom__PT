@@ -1,0 +1,68 @@
+{
+  "id": "what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+  "slug": "what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+  "title": "What Venture Studios Actually Do and Why Started Studios.pt was created",
+  "published": "2026-01-15T19:59:09.567846+00:00",
+  "author": "Rui Gouveia",
+  "url": "https://adamastor.blog/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+  "source": "2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+  "links": [
+    {
+      "url": "https://builduplabs.com/",
+      "domain": "builduplabs.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.cron.studio/",
+      "domain": "cron.studio",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.dengun.com/pt-pt/",
+      "domain": "dengun.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.laikaventures.co/",
+      "domain": "laikaventures.co",
+      "kind": "link"
+    },
+    {
+      "url": "https://novalegal.pt/",
+      "domain": "novalegal.pt",
+      "kind": "link"
+    },
+    {
+      "url": "https://startupportugal.com/",
+      "domain": "startupportugal.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://studios.pt",
+      "domain": "studios.pt",
+      "kind": "link"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "capital-de-risco",
+      "type": "Setor",
+      "matched": "VC Fund"
+    },
+    {
+      "tag": "investimento-anjo",
+      "type": "Setor",
+      "matched": "angel investing"
+    },
+    {
+      "tag": "angariar",
+      "type": "Ideia",
+      "matched": "Fundraising"
+    },
+    {
+      "tag": "aceleracao",
+      "type": "Serviço",
+      "matched": "incubator"
+    }
+  ]
+}

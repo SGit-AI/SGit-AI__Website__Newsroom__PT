@@ -5,6 +5,30 @@
   "url": "entidades/tema/operations/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/oradores/diego-sampaio",
       "ocorrencias": 1
     },
@@ -27,33 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/lisa-rebecca-press",
       "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/max-rodman",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/nataliia-komarnytska",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/nina-chande",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/precy-servito",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/rita-figueiredo",
-      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 14,
+  "ficheiros_com_o_nome": 20,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

@@ -9,11 +9,27 @@
       "ocorrencias": 7
     },
     {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 6
+    },
+    {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/almost-back-week-32",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/time-to-get-back-week-33",
+      "ocorrencias": 4
     }
   ],
-  "ficheiros_com_o_nome": 2,
+  "ficheiros_com_o_nome": 6,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

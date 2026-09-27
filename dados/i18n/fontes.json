@@ -8,9 +8,16 @@
     "fr",
     "de"
   ],
-  "contagem": 1052,
-  "palavras": 17622,
+  "contagem": 1079,
+  "palavras": 17848,
   "segmentos": {
+    "0083e891a628f5fb": {
+      "text": "São João, Startups & Talent",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "009ab28fee181f80": {
       "text": "Empresas",
       "kind": "chrome",
@@ -381,6 +388,13 @@
         "metodo/index.html"
       ]
     },
+    "08f14886ee8d7fe8": {
+      "text": "Thursday, # November # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "090bacd7e6fe837f": {
       "text": "mais # entidades",
       "kind": "padrao",
@@ -472,6 +486,13 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html",
         "artigos/2026/09/14/regulador-designacao-ausente/index.html",
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/index.html"
+      ]
+    },
+    "0b4438b2b96d0baa": {
+      "text": "Startup Guide Summit • #/#/# • Lisbon",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "0b60e59bb204d3a2": {
@@ -799,13 +820,6 @@
       "kind": "prose",
       "where": [
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/artigo.md"
-      ]
-    },
-    "13ead4785ced9516": {
-      "text": "São 198, e 173 delas podem ser ligadas: 181 porque o nome está nos bytes de uma cópia congelada, 3 porque é assim que o nosso próprio registo nomeia o editor de um ficheiro congelado — um fundamento mais fraco, marcado como tal, e dito por extenso na página de cada uma. As restantes 14 têm página e nunca são ligadas. A fórmula que decide isto está publicada em",
-      "kind": "render",
-      "where": [
-        "entidades/index.html"
       ]
     },
     "140651e7720b2a79": {
@@ -1269,6 +1283,13 @@
         "artigos/2026/09/14/regulador-designacao-ausente/index.html"
       ]
     },
+    "20fd0d43ecefd6d1": {
+      "text": "Uma 2.ª página (fct-unidades) devolveu um erro e ficou fora do registo: não pode ser citada.",
+      "kind": "render",
+      "where": [
+        "index.html"
+      ]
+    },
     "213a59052edd33d7": {
       "text": ". Clique numa bancada para ver o que ela faz, o que",
       "kind": "render",
@@ -1332,11 +1353,13 @@
       "kind": "data",
       "where": [
         "dados/ontologia.json",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -1912,11 +1935,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -2274,11 +2299,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -2491,6 +2518,13 @@
       "kind": "render",
       "where": [
         "desk/index.html"
+      ]
+    },
+    "36520299deccde06": {
+      "text": "Friday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "365bba7200b6dbf4": {
@@ -2792,11 +2826,25 @@
         "instituicoes/index.html"
       ]
     },
+    "41d9d5a4ab5cc38c": {
+      "text": "Thursday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "41e3dbdd68421fda": {
       "text": "Insiste em abrir cada página, copiar o excerto verbatim e entregar em partes, porque a ferramenta estrutura bem e é mais fraca a garantir que abriu mesmo cada endereço.",
       "kind": "chrome",
       "where": [
         "build/build.py"
+      ]
+    },
+    "4285048de142cc86": {
+      "text": "Saturday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "42a1cb6875ff6a69": {
@@ -2818,11 +2866,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -3071,11 +3121,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -3355,13 +3407,16 @@
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/index.html",
         "casos-de-uso/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
         "entidades/evento/startup-summit-lisbon-2026/index.html",
+        "entidades/ideia/sustentabilidade/index.html",
         "entidades/instituicao/dados-gov-pt/index.html",
         "entidades/instituicao/governo-de-portugal/index.html",
         "entidades/local/beato-innovation-district/index.html",
@@ -3505,7 +3560,9 @@
         "entidades/pessoa/wouter-heijnen/index.html",
         "entidades/pessoa/zoya-mesaric-mag-a-pth/index.html",
         "entidades/produto/plataforma/index.html",
+        "entidades/servico/aceleracao/index.html",
         "entidades/servico/juridico/index.html",
+        "entidades/setor/capital-de-risco/index.html",
         "entidades/setor/educacao/index.html",
         "entidades/setor/imobiliario/index.html",
         "entidades/setor/saude/index.html",
@@ -3760,6 +3817,13 @@
         "index.html"
       ]
     },
+    "4a5c8b6dcb747a13": {
+      "text": "Tuesday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "4a957228cec4f4af": {
       "text": "Não reproduz o texto de terceiros. Liga, e resume por palavras suas.",
       "kind": "data",
@@ -3821,11 +3885,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -4281,11 +4347,13 @@
       "text": "Onde este nome está nos bytes",
       "kind": "render",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -4488,6 +4556,13 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html"
       ]
     },
+    "557c86925440c110": {
+      "text": "Monday, # September # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "55898a5b2c416e26": {
       "text": "Dinis Cruz, a título pessoal",
       "kind": "data",
@@ -4503,11 +4578,25 @@
         "artigos/2026/09/14/regulador-designacao-ausente/artigo.md"
       ]
     },
+    "55dd58de99ba80e1": {
+      "text": "Monday, # November # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "5640f21a6369cef6": {
       "text": "A base material",
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "56a07a50fc2b1151": {
+      "text": "Where São João Lights meet Startups | Week #22",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "56ac9d9f03d5662f": {
@@ -4559,6 +4648,13 @@
         "equipa/index.html"
       ]
     },
+    "57b5ec81683b0441": {
+      "text": "Sweet as a Pastel de Nata",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "57ca568afbe65b6a": {
       "text": "O responsável pelo tratamento nomeado no aviso de proteção de dados. A via de oposição chega a ele e não a um formulário.",
       "kind": "render",
@@ -4593,6 +4689,13 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "58ce037f38e41cd7": {
+      "text": "Decentralizing entrepreneurship: How Guimarães is building its own Startup Ecosystem",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "58f5d8d603def6db": {
@@ -4840,11 +4943,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -5384,6 +5489,13 @@
         "dados/ontologia.json"
       ]
     },
+    "65bb69bd6e37e6b0": {
+      "text": "Wednesday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "65d55855e8d25346": {
       "text": "Cada página deste site custa um cêntimo a abrir. O saldo, o gasto e o registo das páginas lidas — tudo no seu próprio navegador, e nada cobrado a ninguém.",
       "kind": "chrome",
@@ -5559,11 +5671,13 @@
       "text": "Editor · uma entidade do grafo",
       "kind": "render",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html"
@@ -5581,6 +5695,13 @@
       "kind": "data",
       "where": [
         "dados/aviso.json"
+      ]
+    },
+    "6c0262934a557c8a": {
+      "text": "Editor · #",
+      "kind": "padrao",
+      "where": [
+        "entidades/index.html"
       ]
     },
     "6c584f4d0598e2b1": {
@@ -5604,6 +5725,13 @@
         "eventos/index.html"
       ]
     },
+    "6d50ade9e9c6f9b4": {
+      "text": "Read from a frozen, hashed copy of adamastor.blog, never from the network. Titles are verbatim in the language the publisher used. No prose is copied: a post keeps its title, date, byline, outbound links and lexicon tags; an event keeps its title, when, where and link. `resources` are places the digest linked to — not companies. Generated by build/adamastor.py; do not edit by hand.",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "6d7c56aaa158a91e": {
       "text": "O ecossistema português de IA é pequeno o suficiente para ser mapeado por completo e grande o suficiente para ser interessante.",
       "kind": "chrome",
@@ -5623,11 +5751,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -6048,11 +6178,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -6560,11 +6692,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -6800,6 +6934,13 @@
         "eventos/index.html"
       ]
     },
+    "7edde8d06833259e": {
+      "text": "São 200, e 178 delas podem ser ligadas: 186 porque o nome está nos bytes de uma cópia congelada, 3 porque é assim que o nosso próprio registo nomeia o editor de um ficheiro congelado — um fundamento mais fraco, marcado como tal, e dito por extenso na página de cada uma. As restantes 11 têm página e nunca são ligadas. A fórmula que decide isto está publicada em",
+      "kind": "render",
+      "where": [
+        "entidades/index.html"
+      ]
+    },
     "7f0f03de36d5a664": {
       "text": ", no campo",
       "kind": "chrome",
@@ -6826,6 +6967,13 @@
       "kind": "padrao",
       "where": [
         "dados/documentos.json"
+      ]
+    },
+    "804baa5b0c6de720": {
+      "text": "The # Effect",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "807c9d00209797f5": {
@@ -6994,11 +7142,8 @@
         "entidades/ideia/angariar/index.html",
         "entidades/ideia/internacionalizar/index.html",
         "entidades/ideia/saida/index.html",
-        "entidades/ideia/sustentabilidade/index.html",
         "entidades/instituicao/diario-da-republica-eletronico/index.html",
-        "entidades/servico/aceleracao/index.html",
         "entidades/servico/consultoria/index.html",
-        "entidades/setor/capital-de-risco/index.html",
         "entidades/setor/comercio/index.html",
         "entidades/setor/fintech/index.html",
         "entidades/setor/investimento-anjo/index.html",
@@ -7166,13 +7311,16 @@
       "text": "O nome, tal e qual como está escrito acima, foi procurado em cada cópia congelada. Isto é uma contagem de ocorrências da sequência de caracteres — não é uma afirmação de que a página seja sobre esta entidade.",
       "kind": "render",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
         "entidades/evento/startup-summit-lisbon-2026/index.html",
+        "entidades/ideia/sustentabilidade/index.html",
         "entidades/instituicao/dados-gov-pt/index.html",
         "entidades/instituicao/governo-de-portugal/index.html",
         "entidades/local/beato-innovation-district/index.html",
@@ -7316,7 +7464,9 @@
         "entidades/pessoa/wouter-heijnen/index.html",
         "entidades/pessoa/zoya-mesaric-mag-a-pth/index.html",
         "entidades/produto/plataforma/index.html",
+        "entidades/servico/aceleracao/index.html",
         "entidades/servico/juridico/index.html",
+        "entidades/setor/capital-de-risco/index.html",
         "entidades/setor/educacao/index.html",
         "entidades/setor/imobiliario/index.html",
         "entidades/setor/saude/index.html",
@@ -7595,11 +7745,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -7841,11 +7993,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -8058,11 +8212,13 @@
       "kind": "chrome",
       "where": [
         "build/entidades.py",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -8305,6 +8461,13 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html"
       ]
     },
+    "9c51bf93db711bbc": {
+      "text": "Thursday, # December # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "9c8a859d4cdce0ce": {
       "text": "— uma instância do argumento. Este site é nativamente português; não é uma tradução.",
       "kind": "render",
@@ -8323,11 +8486,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -8729,6 +8894,13 @@
         "sobre/index.html"
       ]
     },
+    "a2fd03f6ed6dfa21": {
+      "text": "Monday, # October # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "a3346c788a2a24be": {
       "text": "Entidades",
       "kind": "chrome",
@@ -8799,11 +8971,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -9071,6 +9245,14 @@
         "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/index.html"
       ]
     },
+    "a59f6352069a283f": {
+      "text": "o corpo devolvido é um erro (# bytes) — não entra no registo e não pode ser citado",
+      "kind": "padrao",
+      "where": [
+        "dados/excluidas.json",
+        "registo/index.html"
+      ]
+    },
     "a5aa5b0b94cf33e7": {
       "text": "Nenhuma biografia reproduzida",
       "kind": "chrome",
@@ -9196,6 +9378,13 @@
       "kind": "chrome",
       "where": [
         "build/paginas.py"
+      ]
+    },
+    "aa11c628f0699607": {
+      "text": "Inscrições – Global Talent Day",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "aa5d01f0e1007f25": {
@@ -9354,10 +9543,7 @@
         "entidades/ideia/angariar/index.html",
         "entidades/ideia/internacionalizar/index.html",
         "entidades/ideia/saida/index.html",
-        "entidades/ideia/sustentabilidade/index.html",
-        "entidades/servico/aceleracao/index.html",
         "entidades/servico/consultoria/index.html",
-        "entidades/setor/capital-de-risco/index.html",
         "entidades/setor/comercio/index.html",
         "entidades/setor/fintech/index.html",
         "entidades/setor/investimento-anjo/index.html",
@@ -9697,11 +9883,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -9944,6 +10132,13 @@
         "artigos/2026/09/14/regulador-designacao-ausente/afirmacoes.json",
         "artigos/2026/09/14/regulador-designacao-ausente/comentarios.json",
         "artigos/2026/09/14/regulador-designacao-ausente/index.html"
+      ]
+    },
+    "b8865af670f96faa": {
+      "text": "Hello # 👐",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "b88bdaa4a04ff658": {
@@ -10544,13 +10739,6 @@
         "sobre/index.html"
       ]
     },
-    "ca3c674c03e352a5": {
-      "text": "Uma 1.ª página (fct-unidades) devolveu um erro e ficou fora do registo: não pode ser citada.",
-      "kind": "render",
-      "where": [
-        "index.html"
-      ]
-    },
     "caf729f711bf261e": {
       "text": "Cada página obtida, congelada byte a byte e hasheada. É até aqui que uma afirmação deste site anda para trás — e daqui para a frente, até tudo o que assenta em cada ficheiro.",
       "kind": "chrome",
@@ -10670,6 +10858,13 @@
         "entidades/index.html"
       ]
     },
+    "cd09df873b4e3b68": {
+      "text": "Tuesday, # November # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "cde2bd0671f966d1": {
       "text": "O portal de transparência do plano de recuperação. Metade da semente aberta do dia um, e não respondeu a nenhuma tentativa.",
       "kind": "render",
@@ -10717,11 +10912,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -11035,6 +11232,13 @@
         "artigos/2026/09/14/quantas-startups-sao-de-ia/index.html"
       ]
     },
+    "d2eb5ef63afc1e0c": {
+      "text": "Wednesday, # September # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "d2fc0042b78f8b5e": {
       "text": "Cada frase assenta numa fonte registada.",
       "kind": "chrome",
@@ -11136,11 +11340,13 @@
       "text": "E o que diz a chegar aqui",
       "kind": "render",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -11613,11 +11819,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -11864,6 +12072,13 @@
       "kind": "padrao",
       "where": [
         "artigos/2026/09/14/plano-nacional-centros-de-dados/index.html"
+      ]
+    },
+    "df89dc8782dafc09": {
+      "text": "Friday, # November # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
       ]
     },
     "e0165d8a6de1b4e2": {
@@ -12390,11 +12605,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -12720,11 +12937,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -12946,6 +13165,13 @@
         "entidades/palco/unicorn-stage/index.html"
       ]
     },
+    "ef05aad0e080cc05": {
+      "text": "André Marquet",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "ef354c097eb78773": {
       "text": "por testar — ninguém no conjunto o tentou",
       "kind": "render",
@@ -13100,11 +13326,13 @@
       "text": "A vizinhança, carregada do grafo",
       "kind": "render",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -13321,6 +13549,13 @@
         "build/paginas.py"
       ]
     },
+    "f3ec0f8df47e08be": {
+      "text": "KIT - Otimização das Operações na Hotelaria",
+      "kind": "data",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "f40ab0a6c243f0e2": {
       "text": "Uma ideia recorrente da conversa de fundadores, nomeada pelo léxico publicado. Derivada por fórmula.",
       "kind": "data",
@@ -13353,12 +13588,16 @@
       "text": "Aparece em # ficheiros congelados; listam-se os # com mais ocorrências.",
       "kind": "padrao",
       "where": [
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/digitalgov/index.html",
         "entidades/evento/startup-summit-lisbon-2026/index.html",
         "entidades/instituicao/dados-gov-pt/index.html",
         "entidades/local/beato-innovation-district/index.html",
+        "entidades/organizacao/351-portuguese-startup-association/index.html",
         "entidades/organizacao/startup-summit/index.html",
+        "entidades/pessoa/ricardo/index.html",
         "entidades/produto/plataforma/index.html",
+        "entidades/setor/saude/index.html",
         "entidades/tecnologia/dados/index.html",
         "entidades/tema/ai/index.html",
         "entidades/tema/european-startups/index.html",
@@ -13367,9 +13606,11 @@
         "entidades/tema/future-of-work/index.html",
         "entidades/tema/go/index.html",
         "entidades/tema/go-to-market/index.html",
+        "entidades/tema/hiring/index.html",
         "entidades/tema/leadership/index.html",
         "entidades/tema/operations/index.html",
         "entidades/tema/other/index.html",
+        "entidades/tema/sales/index.html",
         "entidades/tema/scaling/index.html",
         "entidades/tema/venture-capital/index.html"
       ]
@@ -13408,11 +13649,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",
@@ -13641,6 +13884,13 @@
         "build/paginas.py"
       ]
     },
+    "f56b624be0e4078f": {
+      "text": "Tuesday, # September # at #:#",
+      "kind": "padrao",
+      "where": [
+        "dados/adamastor.json"
+      ]
+    },
     "f5a8191202ebc5c2": {
       "text": "Nenhuma revisão jurídica foi feita e nada neste site é aconselhamento jurídico.",
       "kind": "render",
@@ -13783,10 +14033,7 @@
         "entidades/ideia/angariar/index.html",
         "entidades/ideia/internacionalizar/index.html",
         "entidades/ideia/saida/index.html",
-        "entidades/ideia/sustentabilidade/index.html",
-        "entidades/servico/aceleracao/index.html",
         "entidades/servico/consultoria/index.html",
-        "entidades/setor/capital-de-risco/index.html",
         "entidades/setor/comercio/index.html",
         "entidades/setor/fintech/index.html",
         "entidades/setor/investimento-anjo/index.html",
@@ -13949,11 +14196,13 @@
         "desk/index.html",
         "diaspora/index.html",
         "empresas/index.html",
+        "entidades/editor/adamastor/index.html",
         "entidades/editor/aicep-portugal-global/index.html",
         "entidades/editor/autoridade-nacional-de-comunicacoes/index.html",
         "entidades/editor/comissao-europeia/index.html",
         "entidades/editor/diario-da-republica/index.html",
         "entidades/editor/digitalgov/index.html",
+        "entidades/editor/jornal-oficial-da-uniao-europeia/index.html",
         "entidades/editor/portugal-business-news/index.html",
         "entidades/editor/scaleup-porto/index.html",
         "entidades/editor/startupevents-org/index.html",

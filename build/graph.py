@@ -318,9 +318,19 @@ def main():
                         "bloco": bloco, **extra})
 
     # --- the evidence: every capture and every frozen file --------------------
-    for c in caps:
+    # EVERY DATED FOLDER A FILE WAS FROZEN IN, not only the event's. `caps` is the register's
+    # `capturas`, which means "captures of the event" — the list build/gates.py reads — and this
+    # loop used to make nodes for those alone. Meanwhile every frozen file gets a `capturado_em`
+    # edge to its own folder's date, so the day a delivery froze its sources into 2026-09-15, and
+    # the day adamastor.blog was frozen into 2026-09-27, 128 edges pointed at nodes that did not
+    # exist. A capture that is not of the event cites the first file it froze as its evidence,
+    # since it has no event index page to cite.
+    primeira = {}
+    for f in registo["fontes"]:
+        primeira.setdefault(f["captura"], f["id"])
+    for c in sorted(set(caps) | set(primeira)):
         no({"id": f"captura:{c}", "tipo": "Captura", "rotulo": f"Captura de {c}", "bloco": "prova",
-            "data": c, "fonte": f"{ultima}/index"})
+            "data": c, "fonte": f"{ultima}/index" if c in caps else primeira[c]})
     for f in registo["fontes"]:
         fid = f"fonte:{f['id']}"
         no({"id": fid, "tipo": "Fonte", "rotulo": f["pagina"], "bloco": "prova",

@@ -15,9 +15,13 @@
     {
       "fonte": "2026-09-14/oradores/brian-nogaro",
       "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 3,
+  "ficheiros_com_o_nome": 4,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

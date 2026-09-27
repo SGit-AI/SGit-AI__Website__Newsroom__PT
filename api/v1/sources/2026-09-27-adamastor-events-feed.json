@@ -1,0 +1,14 @@
+{
+  "id": "2026-09-27/adamastor/events-feed",
+  "pagina": "adamastor/events-feed",
+  "captura": "2026-09-27",
+  "grupo": "adamastor",
+  "url": "https://adamastor.blog/events/feed.xml",
+  "congelada": "fontes/congeladas/2026-09-27/adamastor/events-feed.snapshot",
+  "sha256": "0fccc3fa1049cdafe9acd28fb7bcbb19f1fa8391998403d0251e04d03b41bbe5",
+  "bytes": 103190,
+  "obtida": "2026-09-27T03:41:27Z",
+  "publicador": "Adamastor",
+  "lingua": "en",
+  "estado": "primaria"
+}

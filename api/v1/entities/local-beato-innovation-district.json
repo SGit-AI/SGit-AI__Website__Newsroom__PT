@@ -21,6 +21,14 @@
       "ocorrencias": 5
     },
     {
+      "fonte": "2026-09-27/adamastor/events-feed",
+      "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed",
+      "ocorrencias": 5
+    },
+    {
       "fonte": "2026-09-14/bilhetes",
       "ocorrencias": 4
     },
@@ -43,17 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/andreia-gaudencio",
       "ocorrencias": 3
-    },
-    {
-      "fonte": "2026-09-14/oradores/angelee-sidar",
-      "ocorrencias": 3
-    },
-    {
-      "fonte": "2026-09-14/oradores/anisha-yadav",
-      "ocorrencias": 3
     }
   ],
-  "ficheiros_com_o_nome": 78,
+  "ficheiros_com_o_nome": 80,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

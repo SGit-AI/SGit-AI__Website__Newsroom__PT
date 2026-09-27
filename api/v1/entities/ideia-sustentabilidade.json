@@ -3,10 +3,23 @@
   "tipo": "Ideia",
   "nome": "Sustentabilidade",
   "url": "entidades/ideia/sustentabilidade/",
-  "nos_bytes": [],
-  "ficheiros_com_o_nome": 0,
-  "fundamento": null,
-  "ligavel": false,
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/almost-back-week-32",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 1
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
   "ligavel_em_prosa": false,
   "grau": {
     "saida": 0,

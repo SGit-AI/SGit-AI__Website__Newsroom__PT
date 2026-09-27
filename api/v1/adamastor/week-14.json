@@ -1,0 +1,33 @@
+{
+  "id": "week-14",
+  "slug": "week-14",
+  "title": "🌹 | Week #14",
+  "published": "2025-04-22T00:11:09.706043+00:00",
+  "author": "Carlos Resende",
+  "url": "https://adamastor.blog/posts/week-14",
+  "source": "2026-09-27/adamastor/posts/week-14",
+  "links": [
+    {
+      "url": "https://www.linkedin.com/in/carlos-resende-%F0%9F%94%B7-35162613/",
+      "domain": "linkedin.com",
+      "kind": "link"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "fintech",
+      "type": "Setor",
+      "matched": "Fintech"
+    },
+    {
+      "tag": "ia",
+      "type": "Tecnologia",
+      "matched": "AI"
+    },
+    {
+      "tag": "angariar",
+      "type": "Ideia",
+      "matched": "fundraising"
+    }
+  ]
+}

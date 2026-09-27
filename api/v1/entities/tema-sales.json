@@ -9,6 +9,18 @@
       "ocorrencias": 10
     },
     {
+      "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/oradores/anisha-yadav",
       "ocorrencias": 1
     },
@@ -39,13 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/nashwa-shah",
       "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/rita-kastrati",
-      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 10,
+  "ficheiros_com_o_nome": 13,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

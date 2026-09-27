@@ -966,9 +966,48 @@ for pag in sorted(ROOT.rglob("*.html")):
                      f'`registo.json.atualizado`, so it has to say «última captura»')
 
 
+#  46 · NO DATA FILE CARRIES A PERSON'S CONTACT DETAILS — CHECKED ON THE FILE, NOT ONLY ON THE WAY
+#       IN. Rule 4 is enforced at extraction (`extract.sem_contactos`), and that is the right
+#       primary control. But a control at the point of reading only covers the readers that call
+#       it. When adamastor.blog was captured, an email planted in dados/adamastor.json passed
+#       BOTH gate files green: nothing checked the file itself, so the first extractor that forgot
+#       to call sem_contactos — or the first hand edit — would have shipped a person's address to
+#       every page and every API consumer. A rule with a gate at one door is a rule with no gate.
+#
+#       Every JSON file the site builds from or serves is scanned. Frozen evidence is not: it is
+#       kept byte for byte, and the rule is that contacts never LEAVE it. Two exemptions, each
+#       read from the repository rather than typed here:
+#         · the data controller's contact, as the notice declares it (dados/aviso.json,
+#           responsavel.contacto) — the GDPR requires it to be published;
+#         · `.local` addresses, which are the internal mail protocol's addresses for cards and
+#           issues, on a non-routable domain, and belong to no person.
+EMAIL_46 = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+TEL_46 = re.compile(r"(?<![\w/.])\+\d{2,3}[ ]?\(?\d[\d ()-]{6,}\d")
+_aviso = ROOT / "dados" / "aviso.json"
+CONTROLADOR = set()
+if _aviso.exists():
+    _c = (json.loads(_aviso.read_text(encoding="utf-8")).get("responsavel") or {}).get("contacto")
+    if _c:
+        CONTROLADOR.add(_c.lower())
+n_json_46 = 0
+for pat in ("dados/**/*.json", "api/v1/**/*.json", "artigos/**/*.json", "seccoes/**/*.json"):
+    for f in sorted(ROOT.glob(pat)):
+        n_json_46 += 1
+        t = f.read_text(encoding="utf-8", errors="replace")
+        rel = f.relative_to(ROOT).as_posix()
+        maus = sorted({m for m in EMAIL_46.findall(t)
+                       if m.lower() not in CONTROLADOR and not m.lower().endswith(".local")})
+        maus += sorted({"tel " + m for m in TEL_46.findall(t)})
+        if maus:
+            erros.append(f"{rel}: carries a contact detail — {', '.join(maus[:3])}"
+                         f"{'…' if len(maus) > 3 else ''}. Rule 4: nobody's contact details reach a "
+                         f"data file. If it came from a source, the extractor that wrote this file "
+                         f"did not call extract.sem_contactos")
+
+
 # --- relatório -----------------------------------------------------------------
 if erros:
-    print(f"gates 16-26, 34-38, 41-43, 45: {len(erros)} error(s)")
+    print(f"gates 16-26, 34-38, 41-43, 45-46: {len(erros)} error(s)")
     for x in erros:
         print("  ✗", x)
     sys.exit(1)
@@ -976,7 +1015,7 @@ if erros:
 pub = sum(1 for m in metas
           if json.loads(m.read_text(encoding="utf-8")).get("estado") == "publicado")
 com_prosa = sum(1 for m in metas if (m.parent / "artigo.md").exists())
-print(f"gates 16-26, 34-38, 41-43, 45: OK — {len(metas)} articles in dated folders "
+print(f"gates 16-26, 34-38, 41-43, 45-46: OK — {len(metas)} articles in dated folders "
       f"({com_prosa} with prose, {pub} published), every path agreeing with its date and slug, "
       f"every claim walking back to the register, {len(AS_OITO)} sections with an editorial "
       f"record, a back office in English citing no evidence, "
@@ -991,4 +1030,5 @@ print(f"gates 16-26, 34-38, 41-43, 45: OK — {len(metas)} articles in dated fol
       f"{acoplamentos} document-level class(es) set by a component, each with a rule, "
       f"{n_notas} releases each addressable once, at {versao_actual}, "
       f"{n_guia} guidance pages with an address and {n_ligacoes} briefing links that "
-      f"resolve, {n_tempo} reader pages none of which tells you what time it is")
+      f"resolve, {n_tempo} reader pages none of which tells you what time it is, "
+      f"{n_json_46} data files with no one's contact details in them")

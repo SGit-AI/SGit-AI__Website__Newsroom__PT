@@ -3,12 +3,17 @@
   "versao": "0.1.0",
   "atualizado": "2026-09-14",
   "nota": "Fontes que foram tentadas e não resolveram. Não são descartadas em silêncio: uma fonte que esta redação não consegue alcançar é um facto sobre o registo público, e o tamanho do que não se consegue ver pertence à página (§10 do resumo). São re-tentadas em cada execução.",
-  "contagem": 1,
+  "contagem": 2,
   "itens": [
     {
       "id": "2026-09-14/abertas/fct-unidades",
       "url": "https://www.fct.pt/en/financiamento/programas-de-financiamento/unidades-de-id/",
       "porque": "o corpo devolvido é um erro (Page not found) — não entra no registo e não pode ser citado"
+    },
+    {
+      "id": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "url": "https://eur-lex.europa.eu/legal-content/PT/TXT/PDF/?uri=OJ:L_202601744",
+      "porque": "o corpo devolvido é um erro (0 bytes) — não entra no registo e não pode ser citado"
     }
   ],
   "por_resolver": [

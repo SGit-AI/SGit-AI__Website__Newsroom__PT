@@ -5,6 +5,38 @@
   "url": "entidades/tema/hiring/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 8
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/easter-time-week-13",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/where-research-meets-reality-week-16",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/oradores/ed-chandler",
       "ocorrencias": 1
     },
@@ -19,33 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/precy-servito",
       "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/raffaella-loncao",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/rita-kastrati",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/rita-martins-freire",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/satya-morarji",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/sylvie-ritt",
-      "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/vini-devnani",
-      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 10,
+  "ficheiros_com_o_nome": 18,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

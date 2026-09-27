@@ -3,10 +3,15 @@
   "tipo": "Setor",
   "nome": "Capital de risco",
   "url": "entidades/setor/capital-de-risco/",
-  "nos_bytes": [],
-  "ficheiros_com_o_nome": 0,
-  "fundamento": null,
-  "ligavel": false,
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 1,
+  "fundamento": "bytes",
+  "ligavel": true,
   "ligavel_em_prosa": false,
   "grau": {
     "saida": 0,

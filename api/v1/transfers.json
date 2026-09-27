@@ -1,7 +1,7 @@
 {
   "id": "pt-transferencias",
   "versao": "1.0.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-27",
   "o_que_e": "Prova congelada por OUTRA publicação e oferecida a esta. NÃO está no registo desta redação e não deve ser tratada como se estivesse: o registo é o que ESTA redação obteve, e estes ficheiros foram obtidos por outra, com o user-agent dela, às horas do registo dela.",
   "a_regra": "Prova transferida entre publicações irmãs continua a ser prova, desde que a proveniência viaje com ela e seja publicada. Numa página diz-se «captura de 8 de setembro, obtida por newsroom.sgit.ai» — nunca «a nossa captura de 8 de setembro».",
   "o_que_e_conferido": "Cada SHA-256 do manifesto recebido é recalculado a partir dos bytes em disco. É a única coisa numa transferência que não obriga a acreditar em ninguém. Um lote com um hash errado é recusado inteiro.",

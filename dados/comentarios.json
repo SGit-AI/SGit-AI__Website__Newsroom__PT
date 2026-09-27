@@ -1,7 +1,7 @@
 {
   "id": "pt-comentarios",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-27",
   "nota": "O trabalho dos agentes sobre os artigos, derivado dos registos do repositório. Cada entrada nomeia o ficheiro de onde saiu. Nenhuma foi escrita para aqui.",
   "agentes": {
     "pesquisa": {

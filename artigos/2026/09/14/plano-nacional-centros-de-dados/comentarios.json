@@ -1,7 +1,7 @@
 {
   "artigo": "plano-nacional-centros-de-dados",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-27",
   "derivado": true,
   "porque_existe_este_ficheiro": "O que cada agente disse sobre este artigo, num sítio só. NÃO é escrito: é derivado de registos que já existem, e cada entrada diz no campo `de` de que ficheiro e de que caminho saiu. Escrever comentários seria fabricar proveniência, que é a única coisa que este sítio não pode fazer.",
   "como_se_refaz": "python3 build/comentarios.py",

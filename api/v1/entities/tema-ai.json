@@ -5,55 +5,55 @@
   "url": "entidades/tema/ai/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 226
+    },
+    {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 93
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "ocorrencias": 75
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "ocorrencias": 71
     },
     {
       "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
       "ocorrencias": 64
     },
     {
+      "fonte": "2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "ocorrencias": 55
+    },
+    {
+      "fonte": "2026-09-27/adamastor/events-feed",
+      "ocorrencias": 53
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "ocorrencias": 49
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "ocorrencias": 47
+    },
+    {
+      "fonte": "2026-09-27/adamastor/events-ai-feed",
+      "ocorrencias": 43
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+      "ocorrencias": 43
+    },
+    {
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
       "ocorrencias": 41
-    },
-    {
-      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
-      "ocorrencias": 41
-    },
-    {
-      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
-      "ocorrencias": 41
-    },
-    {
-      "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
-      "ocorrencias": 40
-    },
-    {
-      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-      "ocorrencias": 36
-    },
-    {
-      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
-      "ocorrencias": 32
-    },
-    {
-      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-      "ocorrencias": 29
-    },
-    {
-      "fonte": "2026-09-14/oradores/tina-valand",
-      "ocorrencias": 27
-    },
-    {
-      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-      "ocorrencias": 24
-    },
-    {
-      "fonte": "2026-09-14/oradores/daniel-grech",
-      "ocorrencias": 21
     }
   ],
-  "ficheiros_com_o_nome": 51,
+  "ficheiros_com_o_nome": 152,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

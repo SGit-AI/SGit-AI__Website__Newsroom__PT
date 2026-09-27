@@ -1,0 +1,83 @@
+{
+  "id": "reading-week-25",
+  "slug": "reading-week-25",
+  "title": "Reading | Week #25",
+  "published": "2025-07-15T12:29:41.964836+00:00",
+  "author": "Carlos Resende",
+  "url": "https://adamastor.blog/posts/reading-week-25",
+  "source": "2026-09-27/adamastor/posts/reading-week-25",
+  "links": [
+    {
+      "url": "https://lisbonai.xyz/cfs",
+      "domain": "lisbonai.xyz",
+      "kind": "link"
+    },
+    {
+      "url": "https://351startups.com/techstars-startup-weekend-viseu/",
+      "domain": "351startups.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://hoopers.club/neemias-queta-training-camp/",
+      "domain": "hoopers.club",
+      "kind": "link"
+    },
+    {
+      "url": "https://adt4blue.eu/open-calls/oc2/",
+      "domain": "adt4blue.eu",
+      "kind": "link"
+    },
+    {
+      "url": "https://351startups.com/wp-content/uploads/2025/06/Report_351_Startup_Weekend.pdf",
+      "domain": "351startups.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://buildingcreativemachines.substack.com/p/llms-are-not-enough-the-rise-of-world",
+      "domain": "buildingcreativemachines.substack.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://secondopinion.media/p/should-you-build-relationships-with-vcs-before-a-raise-that-s-a-hard-yes-b0c7",
+      "domain": "secondopinion.media",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.thealgorithmicbridge.com/p/im-losing-all-trust-in-the-ai-industry",
+      "domain": "thealgorithmicbridge.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.thedailyupside.com/technology/big-tech/meta-investors-want-zuckerberg-to-reimburse-the-company/",
+      "domain": "thedailyupside.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://open.spotify.com/episode/3viFt3uj9jCIsj01q1oHye?si=8vfaVrFkS8ScOSCNhsQ-9w",
+      "domain": "open.spotify.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://youtu.be/Fs7FeSkRz5E",
+      "domain": "youtu.be",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.linkedin.com/in/carlos-resende-%F0%9F%94%B7-35162613/",
+      "domain": "linkedin.com",
+      "kind": "link"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "ia",
+      "type": "Tecnologia",
+      "matched": "AI"
+    },
+    {
+      "tag": "angariar",
+      "type": "Ideia",
+      "matched": "Fundraising"
+    }
+  ]
+}

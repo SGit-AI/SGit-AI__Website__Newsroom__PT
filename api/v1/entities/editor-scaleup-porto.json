@@ -7,9 +7,17 @@
     {
       "fonte": "2026-09-14/imprensa/scaleup-porto",
       "ocorrencias": 11
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+      "ocorrencias": 4
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 1,
+  "ficheiros_com_o_nome": 3,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

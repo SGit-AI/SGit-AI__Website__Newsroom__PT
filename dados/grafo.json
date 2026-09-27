@@ -4,8 +4,8 @@
   "atualizado": "2026-09-14",
   "nota": "Cada nó nomeia a fonte congelada de onde veio; cada aresta é um verbo português com um inverso distinto. Um caminho lê-se em voz alta em português, e se não se ler, a aresta está errada.",
   "contagens": {
-    "nos": 312,
-    "arestas": 942,
+    "nos": 445,
+    "arestas": 1198,
     "tipos": 17,
     "verbos": 15
   },
@@ -42,7 +42,7 @@
       "id": "registo",
       "rotulo": "O registo nacional",
       "ordem": 5,
-      "nos": 11,
+      "nos": 13,
       "arestas": 0
     },
     {
@@ -63,8 +63,8 @@
       "id": "prova",
       "rotulo": "A prova",
       "ordem": 8,
-      "nos": 93,
-      "arestas": 341
+      "nos": 224,
+      "arestas": 597
     },
     {
       "id": "mudancas",
@@ -89,6 +89,30 @@
       "bloco": "prova",
       "data": "2026-09-14",
       "fonte": "2026-09-14/index"
+    },
+    {
+      "id": "captura:2026-09-15",
+      "tipo": "Captura",
+      "rotulo": "Captura de 2026-09-15",
+      "bloco": "prova",
+      "data": "2026-09-15",
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10"
+    },
+    {
+      "id": "captura:2026-09-23",
+      "tipo": "Captura",
+      "rotulo": "Captura de 2026-09-23",
+      "bloco": "prova",
+      "data": "2026-09-23",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09"
+    },
+    {
+      "id": "captura:2026-09-27",
+      "tipo": "Captura",
+      "rotulo": "Captura de 2026-09-27",
+      "bloco": "prova",
+      "data": "2026-09-27",
+      "fonte": "2026-09-27/adamastor/about"
     },
     {
       "id": "fonte:2026-09-14/abertas/cordis",
@@ -1193,6 +1217,1542 @@
       "publicador": "Governo de Portugal",
       "congelada": "fontes/congeladas/2026-09-14/registo/gov-ia.snapshot",
       "fonte": "2026-09-14/registo/gov-ia"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "bloco": "prova",
+      "sha256": "7dbf1a67eb5dd11feffbb8a88c1591f9ce4835abb86145825d291923e81832f8",
+      "bytes": 265049,
+      "url": "https://digital.gov.pt/pt/noticias/regulamento-europeu-de-inteligencia-artificial-novos-prazos-e-novas-regras",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "bloco": "prova",
+      "sha256": "28c465242bd8b91d3b3cf1a3ddb8f03c24297fe8204c3ceb0a0c7b52110e9eaa",
+      "bytes": 267411,
+      "url": "https://digital.gov.pt/pt/noticias/novas-regras-de-transparencia-ia",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "bloco": "prova",
+      "sha256": "c4527b9c777643392a1a6b25e30b2a6709bede3ea78887b3a4c753e243b9a5ad",
+      "bytes": 256074,
+      "url": "https://digital.gov.pt/pt/noticias/centro-excelencia-ia-motor-administracao-publica",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "bloco": "prova",
+      "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
+      "bytes": 2346,
+      "url": "https://diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros/2-2026-1000882016",
+      "publicador": "Diário da República",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "bloco": "prova",
+      "sha256": "92218b35d08bf8312238e304dae1556331868206b3aef93b3938352152c0f0db",
+      "bytes": 156327,
+      "url": "https://digital.gov.pt/pt/documentos/resolucao-do-conselho-de-ministros-2-2026",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "bloco": "prova",
+      "sha256": "f61594416b8fd19a14c479c59b32137db8f199197a54f6ddb8ac47a0aefbb252",
+      "bytes": 181286,
+      "url": "https://portugal.gov.pt/gc25/comunicacao/comunicados/agenda-nacional-de-inteligencia-artificial-ania-",
+      "publicador": "Governo de Portugal",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "bloco": "prova",
+      "sha256": "2e5645535541b492b017b96951126cafe4b1c502b1fbc193540c0d3051a56584",
+      "bytes": 224635,
+      "url": "https://portugal.gov.pt/gc25/governo/comunicados-do-conselho-de-ministros/comunicado-do-conselho-de-ministros-de-25-de-junho-de-2026",
+      "publicador": "Governo de Portugal",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "bloco": "prova",
+      "sha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+      "bytes": 239,
+      "url": "https://www.anacom.pt/render.jsp?contentId=1817086",
+      "publicador": "Autoridade Nacional de Comunicações",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "bloco": "prova",
+      "sha256": "645b2e78e08458febed615296ca46a6a91608a50ede6df5c4fb3a371c77a6d80",
+      "bytes": 193743,
+      "url": "https://digital.gov.pt/pt/inteligencia-artificial",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "bloco": "prova",
+      "sha256": "de200aa14720d9f0551bdbe9daa30727dbdae265e4d8fa9cc4c97bc53ac6f576",
+      "bytes": 54695,
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "publicador": "Comissão Europeia",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
+    },
+    {
+      "id": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "bloco": "prova",
+      "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
+      "bytes": 228725,
+      "url": "https://files.diariodarepublica.pt/1s/2026/04/07100/0004500052.pdf",
+      "publicador": "Diário da República",
+      "congelada": "fontes/congeladas/2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
+      "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "bloco": "prova",
+      "sha256": "b3fcd2e0b66a35fc86e7432db681dbd65ac8a00afa4ed770747667328844eaee",
+      "bytes": 1273119,
+      "url": "https://eur-lex.europa.eu/legal-content/PT/TXT/PDF/?uri=OJ:L_202601744",
+      "publicador": "Jornal Oficial da União Europeia",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09.pdf",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "bloco": "prova",
+      "sha256": "5f448111c27ecee31e4d14853047a68a32913b1ffdf75aafb55a8b228f59bfd4",
+      "bytes": 280815,
+      "url": "https://digital.gov.pt/pt/noticias/regulamento-europeu-de-inteligencia-artificial-novos-prazos-e-novas-regras",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "bloco": "prova",
+      "sha256": "be239fa77b6a295f70aae77704fd9b3489bad323340cf0dfd710f31a811433df",
+      "bytes": 289529,
+      "url": "https://digital.gov.pt/pt/noticias/novas-regras-de-transparencia-ia",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "bloco": "prova",
+      "sha256": "2c594203a4266e2e77cec7841bf14c6b1f3aef0d1523b1aeea00f94ebf7a9df0",
+      "bytes": 265422,
+      "url": "https://digital.gov.pt/pt/noticias/centro-excelencia-ia-motor-administracao-publica",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "bloco": "prova",
+      "sha256": "899837eea02f26e19b6397d2e09ac534ef219e7f4dd73726fb6fc2bb77747a84",
+      "bytes": 306214,
+      "url": "https://digital.gov.pt/pt/noticias/cloud-and-ai-development-act",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "bloco": "prova",
+      "sha256": "043b1ab50ac43d1f14ac425f913d3255819d737cc44d6f2e0f13b672237bb4d5",
+      "bytes": 2346,
+      "url": "https://diariodarepublica.pt/dr/detalhe/resolucao-conselho-ministros/2-2026-1000882016",
+      "publicador": "Diário da República",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "bloco": "prova",
+      "sha256": "d4ceb1ba7e9daf91b060bd17aadaa3c37347f3d10d295e2c2536bc4ceb94700d",
+      "bytes": 156666,
+      "url": "https://digital.gov.pt/pt/documentos/resolucao-do-conselho-de-ministros-2-2026",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "bloco": "prova",
+      "sha256": "19005dfc3abc7a598385880219c57ae699c8f863ab5df3e760615406d810fb4e",
+      "bytes": 181194,
+      "url": "https://portugal.gov.pt/gc25/comunicacao/comunicados/agenda-nacional-de-inteligencia-artificial-ania-",
+      "publicador": "Governo de Portugal",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "bloco": "prova",
+      "sha256": "8da6e17b00cbad815cbda991a3532bc7f564d3e8fb39d606e620bb10fa80917a",
+      "bytes": 225049,
+      "url": "https://portugal.gov.pt/gc25/governo/comunicados-do-conselho-de-ministros/comunicado-do-conselho-de-ministros-de-25-de-junho-de-2026",
+      "publicador": "Governo de Portugal",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "bloco": "prova",
+      "sha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+      "bytes": 239,
+      "url": "https://www.anacom.pt/render.jsp?contentId=1817086",
+      "publicador": "Autoridade Nacional de Comunicações",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "bloco": "prova",
+      "sha256": "f560cacd8dcafe15a6eb68dbbe871f7d6a1f8436a672d993c36448aac0041926",
+      "bytes": 193994,
+      "url": "https://digital.gov.pt/pt/inteligencia-artificial",
+      "publicador": "digitalGOV",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "bloco": "prova",
+      "sha256": "6a299f77fdd568f2a5ea10c037ef9a519c3ffd99e58a247b2b403184790c45e0",
+      "bytes": 54677,
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "publicador": "Comissão Europeia",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07.snapshot",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07"
+    },
+    {
+      "id": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "tipo": "Fonte",
+      "rotulo": "entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "bloco": "prova",
+      "sha256": "bd5aba99a2fb124e701ee7e23209f81e7bb092956396637bf8fe33d784c5b531",
+      "bytes": 228725,
+      "url": "https://files.diariodarepublica.pt/1s/2026/04/07100/0004500052.pdf",
+      "publicador": "Diário da República",
+      "congelada": "fontes/congeladas/2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08.pdf",
+      "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/about",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/about",
+      "bloco": "prova",
+      "sha256": "1fdfe702b2754bd94d7dcbfb240002293527d666c7b6c1f55a1dd6484be683b8",
+      "bytes": 153864,
+      "url": "https://adamastor.blog/about",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/about.snapshot",
+      "fonte": "2026-09-27/adamastor/about"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-ai-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-ai-feed",
+      "bloco": "prova",
+      "sha256": "45dd0405ad450732ec682a4f62ecd8c2491f00b3b8f91ad65814be4f2fb160f6",
+      "bytes": 22245,
+      "url": "https://adamastor.blog/events/ai/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-ai-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-ai-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-design-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-design-feed",
+      "bloco": "prova",
+      "sha256": "7122c16b033d1da3af7097c78d40745f649a10390accc3cd2be2f30ecaa8bf1f",
+      "bytes": 16071,
+      "url": "https://adamastor.blog/events/design/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-design-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-design-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-feed",
+      "bloco": "prova",
+      "sha256": "0fccc3fa1049cdafe9acd28fb7bcbb19f1fa8391998403d0251e04d03b41bbe5",
+      "bytes": 103190,
+      "url": "https://adamastor.blog/events/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-product-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-product-feed",
+      "bloco": "prova",
+      "sha256": "19ac5d4c3761ca57f30af709dcc676998ec98eea106ba8dfc57d15af0ae489ea",
+      "bytes": 2015,
+      "url": "https://adamastor.blog/events/product/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-product-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-product-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-software-engineering-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-software-engineering-feed",
+      "bloco": "prova",
+      "sha256": "9065c6342ec6551c8059268773de6eede36b45014b2ef5ede9c57d36f20717cc",
+      "bytes": 17022,
+      "url": "https://adamastor.blog/events/software-engineering/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-software-engineering-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-software-engineering-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/events-startups-fundraising-feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/events-startups-fundraising-feed",
+      "bloco": "prova",
+      "sha256": "9e0a36ab2bf711be08b31216c59f33cdea8fb457eab118e0ba2e701aff7e68c0",
+      "bytes": 80687,
+      "url": "https://adamastor.blog/events/startups-fundraising/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/events-startups-fundraising-feed.snapshot",
+      "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/feed",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/feed",
+      "bloco": "prova",
+      "sha256": "f3e24f671e77de190290b037a95f09ba558ddb6b1b13507f6a4a21ca217b5c26",
+      "bytes": 618566,
+      "url": "https://adamastor.blog/feed.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/feed.snapshot",
+      "fonte": "2026-09-27/adamastor/feed"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/home",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/home",
+      "bloco": "prova",
+      "sha256": "7a7c88a1289f7d5e0a04e47687f04d675c840b0110e660cd70d4556e2dd30c19",
+      "bytes": 161920,
+      "url": "https://adamastor.blog/",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/home.snapshot",
+      "fonte": "2026-09-27/adamastor/home"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/llms",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/llms",
+      "bloco": "prova",
+      "sha256": "fa648938ba2d5ddf84d2bf32f422809e8362e96fcc5fbd78bf5ad11de2e20abf",
+      "bytes": 4015,
+      "url": "https://adamastor.blog/llms.txt",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/llms.snapshot",
+      "fonte": "2026-09-27/adamastor/llms"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/a-goal-we-can-all-agree-on",
+      "bloco": "prova",
+      "sha256": "6ab97909432b8fca89b9619d4b14c165526a7c8727e4b888ae57eb3c10cd911f",
+      "bytes": 171555,
+      "url": "https://adamastor.blog/posts/a-goal-we-can-all-agree-on",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "bloco": "prova",
+      "sha256": "63d7842e416b40f2496b024f530dbd5505925e3ade3a59658efaac03a1718b6c",
+      "bytes": 169366,
+      "url": "https://adamastor.blog/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "bloco": "prova",
+      "sha256": "a962eb61276fb565e41b8c561232563d69a2f30f80c975011ce52f823db25260",
+      "bytes": 162035,
+      "url": "https://adamastor.blog/posts/a-more-agile-and-digital-state-week-21",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+      "bloco": "prova",
+      "sha256": "bbb6c91c0ec9257d8b7eff2b53432f99d1ef8c1322e3d6e3da4b25f3d2eda8dd",
+      "bytes": 160506,
+      "url": "https://adamastor.blog/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "bloco": "prova",
+      "sha256": "26dfbb330b52fed2ad96a072db45078ae60c78623132eb387efc1d72c9df2c28",
+      "bytes": 168640,
+      "url": "https://adamastor.blog/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/all-eyes-on-guimaraes-week-34",
+      "bloco": "prova",
+      "sha256": "7e158e349870abddd9579961d66c9c4901d74b3b7fecd98e53fd8381c45d6127",
+      "bytes": 167052,
+      "url": "https://adamastor.blog/posts/all-eyes-on-guimaraes-week-34",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/almost-back-week-32",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/almost-back-week-32",
+      "bloco": "prova",
+      "sha256": "97348c127fc2646eaa3c03be1b63d5d9e68c4464a932cddcc5d4112ec0ea1217",
+      "bytes": 172171,
+      "url": "https://adamastor.blog/posts/almost-back-week-32",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/almost-back-week-32.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/almost-back-week-32"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/are-we-back-not-yet-week-31",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/are-we-back-not-yet-week-31",
+      "bloco": "prova",
+      "sha256": "308451dedfdfa729f8bb1b917f08b900e3a31a916f7574ed0f238c6dbaf7ed15",
+      "bytes": 172167,
+      "url": "https://adamastor.blog/posts/are-we-back-not-yet-week-31",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/are-we-back-not-yet-week-31.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/are-we-back-not-yet-week-31"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/as-august-approaches-week-30",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/as-august-approaches-week-30",
+      "bloco": "prova",
+      "sha256": "b03376215f136277a2e75ea74ba43f0d966d981994aeac1bb3c01a2810fc40d5",
+      "bytes": 167936,
+      "url": "https://adamastor.blog/posts/as-august-approaches-week-30",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/as-august-approaches-week-30.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/as-august-approaches-week-30"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/big-wave-of-events-coming-up-week-31",
+      "bloco": "prova",
+      "sha256": "99af85056a56e34311348cb29d10ba5a6ed4a8603e87a7b3294882b39a729133",
+      "bytes": 165304,
+      "url": "https://adamastor.blog/posts/big-wave-of-events-coming-up-week-31",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/bridges-to-the-world-week-26",
+      "bloco": "prova",
+      "sha256": "0e7ea477a9f4b8c0a2bb64c1ef803f8740662f56710036c3102813b495703537",
+      "bytes": 165174,
+      "url": "https://adamastor.blog/posts/bridges-to-the-world-week-26",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/bridges-to-the-world-week-26.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/bridges-to-the-world-week-26"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "bloco": "prova",
+      "sha256": "0ec429d10e24dfa71428d9e4e2743a2894c94212f307d7a6a24583b1531b6734",
+      "bytes": 184303,
+      "url": "https://adamastor.blog/posts/build-a-stronger-ecosystem-week-34",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/build-together-week-5",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/build-together-week-5",
+      "bloco": "prova",
+      "sha256": "5e3cff0f15509d91cbbcdf4c15f330337d3032a207099e2eeaef6c2d969bb8bd",
+      "bytes": 171339,
+      "url": "https://adamastor.blog/posts/build-together-week-5",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/build-together-week-5.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/build-together-week-5"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+      "bloco": "prova",
+      "sha256": "f2ff609cc95090bae80633e3d153cd352ee038ee9df844c406f41187ee721de2",
+      "bytes": 172712,
+      "url": "https://adamastor.blog/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/celebration-of-entrepreneurship-week-36",
+      "bloco": "prova",
+      "sha256": "b32100e3da9b79c74b66125bb47e84de662251066a2bc5c3e6f4d653855de19a",
+      "bytes": 168511,
+      "url": "https://adamastor.blog/posts/celebration-of-entrepreneurship-week-36",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/community-vision-for-what-s-next-week-13",
+      "bloco": "prova",
+      "sha256": "5b4983355fdf9261df115f848618313d0dfd0337992df5cccd4135cf0ce6860f",
+      "bytes": 159076,
+      "url": "https://adamastor.blog/posts/community-vision-for-what-s-next-week-13",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "bloco": "prova",
+      "sha256": "b8145fdf8e853f7f01f08a3183259d1cd06eb29f82b57925342dced7ead0360f",
+      "bytes": 157403,
+      "url": "https://adamastor.blog/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "bloco": "prova",
+      "sha256": "9095fb69270c32a51b4a7f441a083651cd4cdce6c6808e7d775f91409b576ef6",
+      "bytes": 173576,
+      "url": "https://adamastor.blog/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/easter-time-week-13",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/easter-time-week-13",
+      "bloco": "prova",
+      "sha256": "2f66fe31bbb44e60494cfe69594630b05bb22924af81ab15be0b96989ae2f234",
+      "bytes": 170370,
+      "url": "https://adamastor.blog/posts/easter-time-week-13",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/easter-time-week-13.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/easter-time-week-13"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/ecosystem-is-buzzing-week-17",
+      "bloco": "prova",
+      "sha256": "3edbd67848342b1d02f9531f4c999a220ceb4f074c95253155301405c3f0cf2d",
+      "bytes": 181452,
+      "url": "https://adamastor.blog/posts/ecosystem-is-buzzing-week-17",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/ecosystem-keeps-moving-week-35",
+      "bloco": "prova",
+      "sha256": "0257248bf5918b1307bac4bbccf45b3ba8d63621900619959e10d6e4e577f875",
+      "bytes": 182302,
+      "url": "https://adamastor.blog/posts/ecosystem-keeps-moving-week-35",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/emotional-and-cultural-impact-week-39",
+      "bloco": "prova",
+      "sha256": "923cd00a7c079fbed15a00f702c6da4ec307527592b944f0a54779cf27c03d10",
+      "bytes": 170192,
+      "url": "https://adamastor.blog/posts/emotional-and-cultural-impact-week-39",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23",
+      "bloco": "prova",
+      "sha256": "32490a39b0e559486405bbbd604112aa185286df87a390a6d5943163d65b1914",
+      "bytes": 163623,
+      "url": "https://adamastor.blog/posts/entrepreneur-s-dna-do-you-have-it-week-23",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/entrepreneurial-dna-week-28",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/entrepreneurial-dna-week-28",
+      "bloco": "prova",
+      "sha256": "037aa195ef96baf045cebab93537b8ae23b38a040fe69fe0805eb810bdfafe33",
+      "bytes": 171113,
+      "url": "https://adamastor.blog/posts/entrepreneurial-dna-week-28",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/entrepreneurial-dna-week-28.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/entrepreneurial-dna-week-28"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+      "bloco": "prova",
+      "sha256": "e2df05663172de597952a6c6e49acfda8ed7f06be307e2e85ab085d06d42fe4c",
+      "bytes": 218969,
+      "url": "https://adamastor.blog/posts/entrepreneurial-spirit-of-carnaval-week-7",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41",
+      "bloco": "prova",
+      "sha256": "2501bb3c0f05177ed0ff2ed33bd541f9fdb3172f3e59c4f275eccf9bc9c08a9a",
+      "bytes": 170703,
+      "url": "https://adamastor.blog/posts/entrepreneurial-universities-from-campus-to-startup-week-41",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/entrepreneurs-asylum-week-12",
+      "bloco": "prova",
+      "sha256": "13d2f2c85bddea154fa05550d676bc19c3f1a68c470934d9bf951905a8aeb795",
+      "bytes": 160715,
+      "url": "https://adamastor.blog/posts/entrepreneurs-asylum-week-12",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/erasmus-for-young-entrepreneurs",
+      "bloco": "prova",
+      "sha256": "11b57a581561fe07a5b0d0559e865ec78056bc19a5f22b5fbe0655c11bc7d983",
+      "bytes": 151075,
+      "url": "https://adamastor.blog/posts/erasmus-for-young-entrepreneurs",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "bloco": "prova",
+      "sha256": "c21070f304fac5f4ad1c1f767ea7ea3fee28b35bdff574e1578f2d33723b0677",
+      "bytes": 171900,
+      "url": "https://adamastor.blog/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/europe-is-moving-week-4",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/europe-is-moving-week-4",
+      "bloco": "prova",
+      "sha256": "0f4dc8e11af1dda4c326a7059e6078cbe980b36e07a12018213062c5b11ecd8a",
+      "bytes": 165923,
+      "url": "https://adamastor.blog/posts/europe-is-moving-week-4",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/europe-is-moving-week-4.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/europe-is-moving-week-4"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8",
+      "bloco": "prova",
+      "sha256": "2fdf41e1db0c7b3dcb682b9aca6ee30e9e46a33d163402a92f638172aeab3428",
+      "bytes": 173759,
+      "url": "https://adamastor.blog/posts/femtech-as-a-defining-economic-and-social-frontier-week-8",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/founder-vs-reality-fit-week-21",
+      "bloco": "prova",
+      "sha256": "3823854f9b8f44ba8bf3f0e2e545a9ba8b8c7182be43476ccc4d40487886d906",
+      "bytes": 166878,
+      "url": "https://adamastor.blog/posts/founder-vs-reality-fit-week-21",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder",
+      "bloco": "prova",
+      "sha256": "7fe97ca2ae4f367d76b2b3d7b3542c0e5a0e174eb7ce39ed7ccfc6ebab733d68",
+      "bytes": 171553,
+      "url": "https://adamastor.blog/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/green-pass-is-an-opportunity-week-23",
+      "bloco": "prova",
+      "sha256": "0764c850b924be93132aa52e55dbc000a385f099ae0b2af01debcaf8fabb1604",
+      "bytes": 171431,
+      "url": "https://adamastor.blog/posts/green-pass-is-an-opportunity-week-23",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/growing-up-week-20",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/growing-up-week-20",
+      "bloco": "prova",
+      "sha256": "268d2ffe8406dab8b882bfd0fb7017a651dd5ec796054c4656c036100968f2b0",
+      "bytes": 164624,
+      "url": "https://adamastor.blog/posts/growing-up-week-20",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/growing-up-week-20.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/growing-up-week-20"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/heat-wave-week-27",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/heat-wave-week-27",
+      "bloco": "prova",
+      "sha256": "ecde9a34ab36d29122510d258a5662c2a210c73f96fffeac0ba40ea2d500b7d3",
+      "bytes": 170754,
+      "url": "https://adamastor.blog/posts/heat-wave-week-27",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/heat-wave-week-27.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/heat-wave-week-27"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/heat-waves-and-startups-week-24",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/heat-waves-and-startups-week-24",
+      "bloco": "prova",
+      "sha256": "4781578da1720b7942a35c7e1fcd3e14a0718c22bf0ee8f6ba868b88c0a01107",
+      "bytes": 157167,
+      "url": "https://adamastor.blog/posts/heat-waves-and-startups-week-24",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/heat-waves-and-startups-week-24.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/heat-waves-and-startups-week-24"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/hello-2026-week-1",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/hello-2026-week-1",
+      "bloco": "prova",
+      "sha256": "6c3a8b72485b18e1b1dbb7c594bd4e339c7665f80acace7293fc77fa5e95b7d6",
+      "bytes": 161322,
+      "url": "https://adamastor.blog/posts/hello-2026-week-1",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/hello-2026-week-1.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/hello-2026-week-1"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time",
+      "bloco": "prova",
+      "sha256": "84267fe62064db805041f994232b66ba7254d1d438f6989335b0637c8dc83283",
+      "bytes": 160741,
+      "url": "https://adamastor.blog/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/in-love-with-startups-week-5",
+      "bloco": "prova",
+      "sha256": "db79f9285ac05d1ba84aee5f03fee44b29a9af0d758fb62f485d38ca69f88fd7",
+      "bytes": 202656,
+      "url": "https://adamastor.blog/posts/in-love-with-startups-week-5",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/in-love-with-startups-week-5.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "bloco": "prova",
+      "sha256": "abd0b06be84e1b0e8bb2b3e7030ed13cdf407eff633e89d0e8f6f37408790831",
+      "bytes": 167293,
+      "url": "https://adamastor.blog/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-10",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/international-women-s-day-week-10",
+      "bloco": "prova",
+      "sha256": "43147700691b6ff317744298438abffc315c2674fcde13a0c0eefeb620aec3d8",
+      "bytes": 169799,
+      "url": "https://adamastor.blog/posts/international-women-s-day-week-10",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/international-women-s-day-week-10.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-10"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-8",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/international-women-s-day-week-8",
+      "bloco": "prova",
+      "sha256": "eb806fb264153995a4dd755d478f6f777645a29efa37ce7925019381903d4480",
+      "bytes": 206283,
+      "url": "https://adamastor.blog/posts/international-women-s-day-week-8",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/international-women-s-day-week-8.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/knowledge-in-motion-week-14",
+      "bloco": "prova",
+      "sha256": "82fa24549ee5bd6fea7d4990a5e706155b8759ed9df05fa623782115bd6c79d5",
+      "bytes": 176427,
+      "url": "https://adamastor.blog/posts/knowledge-in-motion-week-14",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/knowledge-in-motion-week-14.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "bloco": "prova",
+      "sha256": "b47e396029c8cdebe3b9c0d6fcf5f572f6d89e61877c307f3338146c7628ab94",
+      "bytes": 182572,
+      "url": "https://adamastor.blog/posts/on-ai-and-the-art-of-being-human-week-35",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go",
+      "bloco": "prova",
+      "sha256": "cf43e220aefc84c19411438cfe489e01843b1359d60b37971b3b7f87b7e1e167",
+      "bytes": 158782,
+      "url": "https://adamastor.blog/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "bloco": "prova",
+      "sha256": "2271a46343c8c0842547309b08588b6ae7d24dee5e894cfdb78d3acef961d851",
+      "bytes": 171050,
+      "url": "https://adamastor.blog/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/reading-week-25",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/reading-week-25",
+      "bloco": "prova",
+      "sha256": "aaf8638ce4eb142c338e863ee6af7b96d247fbf0ec3bb7d2c23711e223165225",
+      "bytes": 157323,
+      "url": "https://adamastor.blog/posts/reading-week-25",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/reading-week-25.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/reading-week-25"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/resilience-week-24",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/resilience-week-24",
+      "bloco": "prova",
+      "sha256": "b60144d4d1c62f17fbd558cc8c2f1492912a2e4eca925e001b5fd8f2eeb548e9",
+      "bytes": 169660,
+      "url": "https://adamastor.blog/posts/resilience-week-24",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/resilience-week-24.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/resilience-week-24"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/santos-and-entrepreneurship-week-22",
+      "bloco": "prova",
+      "sha256": "ffc394981b8544146488db3a98b40105939e51cba66e746bcbcb255b3549ac3e",
+      "bytes": 165307,
+      "url": "https://adamastor.blog/posts/santos-and-entrepreneurship-week-22",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/sao-joao-startups-talent-week-25",
+      "bloco": "prova",
+      "sha256": "83904a13972d5d7d96248241f5ecab57129a80432a7f126333648390dfea7bb6",
+      "bytes": 169892,
+      "url": "https://adamastor.blog/posts/sao-joao-startups-talent-week-25",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/shape-the-future-week-6",
+      "bloco": "prova",
+      "sha256": "f88ba5b4cd23bd94c07db3be9a72fece758f17ec746ea718b460ec83629aa931",
+      "bytes": 281300,
+      "url": "https://adamastor.blog/posts/shape-the-future-week-6",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/shape-the-future-week-6.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/siiim-to-simconference-week-15",
+      "bloco": "prova",
+      "sha256": "b38db5096e00c1720836b00dda2a2ac4a276946593f14fe31d348340f186af53",
+      "bytes": 154634,
+      "url": "https://adamastor.blog/posts/siiim-to-simconference-week-15",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/siiim-to-simconference-week-15.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/sim-week-19",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/sim-week-19",
+      "bloco": "prova",
+      "sha256": "26a48599a010ed2a5b41221e5b5aa3d6a51c7a11e102dcfb93b00b25bc39ef09",
+      "bytes": 163911,
+      "url": "https://adamastor.blog/posts/sim-week-19",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/sim-week-19.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/sim-week-19"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/solo-founder-why-not-week-2",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/solo-founder-why-not-week-2",
+      "bloco": "prova",
+      "sha256": "bb637b00855331e2144de7904607c9a60f10f36b568bb69b32c0544bc61bbead",
+      "bytes": 168611,
+      "url": "https://adamastor.blog/posts/solo-founder-why-not-week-2",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/solo-founder-why-not-week-2.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/solo-founder-why-not-week-2"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "bloco": "prova",
+      "sha256": "a16c21184e637a249419b2e52a99e2263cba204bed6f537587f4ac85770dce45",
+      "bytes": 207313,
+      "url": "https://adamastor.blog/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-digest-portugal-blue-monday-week-2",
+      "bloco": "prova",
+      "sha256": "666788c4a6f649b2c07142b6ccc1e41e0b4e5e49835c0c51f1552240018cf7e7",
+      "bytes": 205606,
+      "url": "https://adamastor.blog/posts/startup-digest-portugal-blue-monday-week-2",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "bloco": "prova",
+      "sha256": "335697e5be355de7f94de9b222e79a62e86dbff6715d50cc6e38fa14002c5445",
+      "bytes": 203200,
+      "url": "https://adamastor.blog/posts/startup-digest-portugal-business-enviroment-week-4",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-digest-portugal-community-support-week-3",
+      "bloco": "prova",
+      "sha256": "43ad48d7633d15e0c37f43d92e7633af105679f06a1cd64f0cc59cb8b92e7552",
+      "bytes": 200331,
+      "url": "https://adamastor.blog/posts/startup-digest-portugal-community-support-week-3",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-digest-portugal-hello-2025-week-1",
+      "bloco": "prova",
+      "sha256": "d781d89613b434b8f34ba91906b8f2b708db1574e77cc9f3fb6f196984c1fe2f",
+      "bytes": 207381,
+      "url": "https://adamastor.blog/posts/startup-digest-portugal-hello-2025-week-1",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "bloco": "prova",
+      "sha256": "1e997f4c761462c939c7a357e7aa2f8bf439000d09f6ceb276ca00d9be378ada",
+      "bytes": 155917,
+      "url": "https://adamastor.blog/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startup-xmas-week-43",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startup-xmas-week-43",
+      "bloco": "prova",
+      "sha256": "8cc273ac5b4782ef904875b8b5cbad2b13d5bb9016da49e8a961e4975bbe6269",
+      "bytes": 169512,
+      "url": "https://adamastor.blog/posts/startup-xmas-week-43",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startup-xmas-week-43.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startup-xmas-week-43"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startups-and-the-media-week-11",
+      "bloco": "prova",
+      "sha256": "f5ec4853d1e11454ff0f313fb0fd25fcf6275549edf540bad070cb5a880e86e8",
+      "bytes": 207530,
+      "url": "https://adamastor.blog/posts/startups-and-the-media-week-11",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startups-and-the-media-week-11.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startups-corporates-week-3",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startups-corporates-week-3",
+      "bloco": "prova",
+      "sha256": "ec9cd63fcbcd1a858d6032cd8b8622f0ac46559c05f3468ca83f2443424eb6fa",
+      "bytes": 167933,
+      "url": "https://adamastor.blog/posts/startups-corporates-week-3",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startups-corporates-week-3.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startups-corporates-week-3"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/startups-get-out-there-week-18",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/startups-get-out-there-week-18",
+      "bloco": "prova",
+      "sha256": "2f4b3082252f53fd3fc6fe4caae619ced41d3af259ad3665d9aa71e1dc1a84a6",
+      "bytes": 168337,
+      "url": "https://adamastor.blog/posts/startups-get-out-there-week-18",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/startups-get-out-there-week-18.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/startups-get-out-there-week-18"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/summer-break-week-27",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/summer-break-week-27",
+      "bloco": "prova",
+      "sha256": "570e48d1053d9fd44ccd9e3f923c892c4982c6c0e6916f8b162f98af1f622bed",
+      "bytes": 161591,
+      "url": "https://adamastor.blog/posts/summer-break-week-27",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/summer-break-week-27.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/summer-break-week-27"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/summer-readings-week-29",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/summer-readings-week-29",
+      "bloco": "prova",
+      "sha256": "65d7e475c066504f7e37ba2eb6ec3de12f7322a550d25b2ccb3559ab5f485eb8",
+      "bytes": 170180,
+      "url": "https://adamastor.blog/posts/summer-readings-week-29",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/summer-readings-week-29.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/summer-readings-week-29"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/sweet-as-a-pastel-de-nata-week-42",
+      "bloco": "prova",
+      "sha256": "e327a1254399908a66ff2133cf084e45dd910f9187d1a450644f922e5a805dd7",
+      "bytes": 166168,
+      "url": "https://adamastor.blog/posts/sweet-as-a-pastel-de-nata-week-42",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/the-351-effect-week-26",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/the-351-effect-week-26",
+      "bloco": "prova",
+      "sha256": "3ac152ee8b86b7c3204bc0c3669cc290cdb3ad6981d795632204d7d15c7fc262",
+      "bytes": 167188,
+      "url": "https://adamastor.blog/posts/the-351-effect-week-26",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/the-351-effect-week-26.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/the-351-effect-week-26"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/the-need-for-a-startup-media-outlet-week-16",
+      "bloco": "prova",
+      "sha256": "b38e40162c01821e75935ae330ba8bb48d0488678bda95594528bbd6ee1be746",
+      "bytes": 157385,
+      "url": "https://adamastor.blog/posts/the-need-for-a-startup-media-outlet-week-16",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/the-power-of-sim-week-17",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/the-power-of-sim-week-17",
+      "bloco": "prova",
+      "sha256": "c9b33215b50c4dce058b4985f7f03945ac6f01bfd88505f61f112f65ce16b52f",
+      "bytes": 157489,
+      "url": "https://adamastor.blog/posts/the-power-of-sim-week-17",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/the-power-of-sim-week-17.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/the-power-of-sim-week-17"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37",
+      "bloco": "prova",
+      "sha256": "2eefc3b0b0d4f9a482fed72cc9e0ccad0a756e97fe1b03eee4ea93d820aeeb4b",
+      "bytes": 178199,
+      "url": "https://adamastor.blog/posts/the-power-to-build-portugal-s-startup-season-week-37",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/the-quiet-strength-of-angels-week-9",
+      "bloco": "prova",
+      "sha256": "c377a2684417424f88900b9dbf8dc67bbd1f114097b4628e59d9ab060134928d",
+      "bytes": 174174,
+      "url": "https://adamastor.blog/posts/the-quiet-strength-of-angels-week-9",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/time-to-get-back-week-33",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/time-to-get-back-week-33",
+      "bloco": "prova",
+      "sha256": "1948d1ac3e57e53b01e0215a42b73192b3ff4aed40ecd2236b050d067205d469",
+      "bytes": 179772,
+      "url": "https://adamastor.blog/posts/time-to-get-back-week-33",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/time-to-get-back-week-33.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/time-to-get-back-week-33"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/transformative-role-of-innovation-hubs-week-33",
+      "bloco": "prova",
+      "sha256": "05057f82ba3429bac909dca525e705cd7961d7a60eace8be36635d891dc01762",
+      "bytes": 172368,
+      "url": "https://adamastor.blog/posts/transformative-role-of-innovation-hubs-week-33",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "bloco": "prova",
+      "sha256": "6a9e04a6d64cdbf8180c5a81d7fe6704322f8393d620fa331e0b3bbb83c4f46d",
+      "bytes": 176147,
+      "url": "https://adamastor.blog/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/try-again-and-fail-better-week-10",
+      "bloco": "prova",
+      "sha256": "ebb111c1e6377def63cfba77646de26cb8520260ae6fbbb1782f83dec87a0fd9",
+      "bytes": 211964,
+      "url": "https://adamastor.blog/posts/try-again-and-fail-better-week-10",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/try-again-and-fail-better-week-10.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/unicorns-before-the-saints-week-20",
+      "bloco": "prova",
+      "sha256": "87751dcda5c5206e6bc11d62ed7c2de7e1ef22a453dcb1938fdb35d4f0c8e40d",
+      "bytes": 157473,
+      "url": "https://adamastor.blog/posts/unicorns-before-the-saints-week-20",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/week-14",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/week-14",
+      "bloco": "prova",
+      "sha256": "d26604d188a3839728fd8aaae4b466021ebb70d4d5fadafa74edea639d6c257a",
+      "bytes": 154836,
+      "url": "https://adamastor.blog/posts/week-14",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/week-14.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/week-14"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/welcome-back-week-28",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/welcome-back-week-28",
+      "bloco": "prova",
+      "sha256": "9da14b380bacd436de3eaccf4c6294cf4284406b4e02f21115347f2478aa74fc",
+      "bytes": 165888,
+      "url": "https://adamastor.blog/posts/welcome-back-week-28",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/welcome-back-week-28.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/welcome-back-week-28"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "bloco": "prova",
+      "sha256": "9cf96f2e895bbf7b7d164aa8adb80e2231ee2ed989e14cc615e8158eb6c03199",
+      "bytes": 177252,
+      "url": "https://adamastor.blog/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+      "bloco": "prova",
+      "sha256": "10ab6db7960c38f46b5c85c7cbc08e70e8099a3b830403481558816cb89832fa",
+      "bytes": 184920,
+      "url": "https://adamastor.blog/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "bloco": "prova",
+      "sha256": "1aca33fdbd1d6c27751647953eb2aff874532a17fb654ee6f7ab8e40f11752f5",
+      "bytes": 161993,
+      "url": "https://adamastor.blog/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "bloco": "prova",
+      "sha256": "2d3efb575ff8110fe7859d267f262ae05e16c22896fe3501a36c838b8491ffa9",
+      "bytes": 198930,
+      "url": "https://adamastor.blog/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/what_if_we_werent_always_so_critical",
+      "bloco": "prova",
+      "sha256": "e05fbe9f4694c45bdd9f0a2c77ee0def5206c205c2baa22548e73cd2a6841acf",
+      "bytes": 151721,
+      "url": "https://adamastor.blog/posts/what_if_we_werent_always_so_critical",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/where-research-meets-reality-week-16",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/where-research-meets-reality-week-16",
+      "bloco": "prova",
+      "sha256": "3a2d1f02c08d6dbcdbd609fce8fba3801fa689b3e30784273b235296f2998d23",
+      "bytes": 173539,
+      "url": "https://adamastor.blog/posts/where-research-meets-reality-week-16",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/where-research-meets-reality-week-16.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/where-research-meets-reality-week-16"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/where-sao-joao-lights-meet-startups-week-22",
+      "bloco": "prova",
+      "sha256": "e8e7f0ab698d8262396362a2e000878d631d41a85067348d8d1aa18288cc0e4a",
+      "bytes": 161670,
+      "url": "https://adamastor.blog/posts/where-sao-joao-lights-meet-startups-week-22",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/where-the-tech-world-meets-week-38",
+      "bloco": "prova",
+      "sha256": "e5cb708af9012e38e4016733ad985bef89e155b994caa9753b9535a0b1836bfe",
+      "bytes": 170148,
+      "url": "https://adamastor.blog/posts/where-the-tech-world-meets-week-38",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon",
+      "bloco": "prova",
+      "sha256": "63bdfd3856a43c74e1f9821a0ee37c2992ad2ef0df33cc787415385eb34e5d85",
+      "bytes": 165744,
+      "url": "https://adamastor.blog/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/why-the-startup-voucher-matters-and-why-you-should",
+      "bloco": "prova",
+      "sha256": "4bdcfd94c384e7d08a06a30c11427de352cdbede767d9033798fe1a325f86cab",
+      "bytes": 164718,
+      "url": "https://adamastor.blog/posts/why-the-startup-voucher-matters-and-why-you-should",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/wildfires-week-29",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/wildfires-week-29",
+      "bloco": "prova",
+      "sha256": "921c940d80b9498278e3dc47286fb7c3d7884043a5b644bf487f3054ac3f3d36",
+      "bytes": 168078,
+      "url": "https://adamastor.blog/posts/wildfires-week-29",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/wildfires-week-29.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/wildfires-week-29"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/posts/world-gratitude-day-week-32",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/posts/world-gratitude-day-week-32",
+      "bloco": "prova",
+      "sha256": "d560619d8947e2275371c2bef3358c6797f3a7b5e6105b894466adbd46fe42b9",
+      "bytes": 170847,
+      "url": "https://adamastor.blog/posts/world-gratitude-day-week-32",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/posts/world-gratitude-day-week-32.snapshot",
+      "fonte": "2026-09-27/adamastor/posts/world-gratitude-day-week-32"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/robots",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/robots",
+      "bloco": "prova",
+      "sha256": "1b8499e570dadc2b51cb74efe97974ff1dc3b6821dcf3905f66a69e23753393d",
+      "bytes": 974,
+      "url": "https://adamastor.blog/robots.txt",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/robots.snapshot",
+      "fonte": "2026-09-27/adamastor/robots"
+    },
+    {
+      "id": "fonte:2026-09-27/adamastor/sitemap",
+      "tipo": "Fonte",
+      "rotulo": "adamastor/sitemap",
+      "bloco": "prova",
+      "sha256": "79e9c60928fc0dbe6a623102931f41f47dc35fd4783fed55a87b65b24a82b743",
+      "bytes": 20572,
+      "url": "https://adamastor.blog/sitemap.xml",
+      "publicador": "Adamastor",
+      "congelada": "fontes/congeladas/2026-09-27/adamastor/sitemap.snapshot",
+      "fonte": "2026-09-27/adamastor/sitemap"
     },
     {
       "id": "evento:startup-summit-lisbon-2026",
@@ -3404,7 +4964,7 @@
       "caracteres_visiveis": 348,
       "nota_legibilidade": "A página deste organismo devolveu 348 caracteres visíveis a um leitor automático a partir de 165569 bytes. É uma medição datada e hasheada sobre a legibilidade do registo público, e não uma opinião sobre o organismo.",
       "fonte": "2026-09-14/registo/gov-ia",
-      "publica": 3,
+      "publica": 7,
       "verbatim_no_registo": [
         "Governo de Portugal"
       ]
@@ -3452,13 +5012,25 @@
       ]
     },
     {
+      "id": "editor:adamastor",
+      "tipo": "Editor",
+      "rotulo": "Adamastor",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-27/adamastor/about",
+      "publica": 104,
+      "verbatim_no_registo": [
+        "Adamastor"
+      ]
+    },
+    {
       "id": "editor:autoridade-nacional-de-comunicacoes",
       "tipo": "Editor",
       "rotulo": "Autoridade Nacional de Comunicações",
       "bloco": "registo",
       "derivado_de": "editor_de_fonte — ver ontologia.formulas",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
-      "publica": 1,
+      "publica": 3,
       "verbatim_no_registo": [
         "Autoridade Nacional de Comunicações"
       ]
@@ -3470,7 +5042,7 @@
       "bloco": "registo",
       "derivado_de": "editor_de_fonte — ver ontologia.formulas",
       "fonte": "2026-09-14/abertas/cordis",
-      "publica": 2,
+      "publica": 4,
       "verbatim_no_registo": [
         "CORDIS — Comissão Europeia",
         "Comissão Europeia"
@@ -3483,9 +5055,21 @@
       "bloco": "registo",
       "derivado_de": "editor_de_fonte — ver ontologia.formulas",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
-      "publica": 2,
+      "publica": 6,
       "verbatim_no_registo": [
         "Diário da República"
+      ]
+    },
+    {
+      "id": "editor:jornal-oficial-da-uniao-europeia",
+      "tipo": "Editor",
+      "rotulo": "Jornal Oficial da União Europeia",
+      "bloco": "registo",
+      "derivado_de": "editor_de_fonte — ver ontologia.formulas",
+      "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "publica": 1,
+      "verbatim_no_registo": [
+        "Jornal Oficial da União Europeia"
       ]
     },
     {
@@ -3531,7 +5115,7 @@
       "bloco": "registo",
       "derivado_de": "editor_de_fonte — ver ontologia.formulas",
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
-      "publica": 2,
+      "publica": 13,
       "verbatim_no_registo": [
         "digitalGOV"
       ]
@@ -4228,6 +5812,902 @@
       "verbo": "capturado_em",
       "origem": "fonte:2026-09-14/registo/gov-ia",
       "destino": "captura:2026-09-14",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:captura:2026-09-15",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "destino": "captura:2026-09-15",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:captura:2026-09-23",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "destino": "captura:2026-09-23",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/about:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/about",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-ai-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-ai-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-design-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-design-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-product-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-product-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-software-engineering-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-software-engineering-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/events-startups-fundraising-feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/events-startups-fundraising-feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/feed:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/feed",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/home:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/home",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/llms:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/llms",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/almost-back-week-32:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/almost-back-week-32",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/are-we-back-not-yet-week-31:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/are-we-back-not-yet-week-31",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/as-august-approaches-week-30:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/as-august-approaches-week-30",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/bridges-to-the-world-week-26:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/build-together-week-5:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/build-together-week-5",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/easter-time-week-13:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/easter-time-week-13",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/entrepreneurial-dna-week-28:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-dna-week-28",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/europe-is-moving-week-4:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/europe-is-moving-week-4",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/growing-up-week-20:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/growing-up-week-20",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/heat-wave-week-27:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/heat-wave-week-27",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/heat-waves-and-startups-week-24:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/heat-waves-and-startups-week-24",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/hello-2026-week-1:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/hello-2026-week-1",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/in-love-with-startups-week-5:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/international-women-s-day-week-10:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-10",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/international-women-s-day-week-8:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-8",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/knowledge-in-motion-week-14:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/reading-week-25:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/reading-week-25",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/resilience-week-24:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/resilience-week-24",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/shape-the-future-week-6:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/siiim-to-simconference-week-15:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/sim-week-19:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/sim-week-19",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/solo-founder-why-not-week-2:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/solo-founder-why-not-week-2",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startup-xmas-week-43:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-xmas-week-43",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startups-and-the-media-week-11:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startups-corporates-week-3:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-corporates-week-3",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/startups-get-out-there-week-18:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-get-out-there-week-18",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/summer-break-week-27:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/summer-break-week-27",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/summer-readings-week-29:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/summer-readings-week-29",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/the-351-effect-week-26:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-351-effect-week-26",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/the-power-of-sim-week-17:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-power-of-sim-week-17",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/time-to-get-back-week-33:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/time-to-get-back-week-33",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/try-again-and-fail-better-week-10:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/week-14:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/week-14",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/welcome-back-week-28:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/welcome-back-week-28",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/where-research-meets-reality-week-16:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-research-meets-reality-week-16",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/wildfires-week-29:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/wildfires-week-29",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/posts/world-gratitude-day-week-32:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/posts/world-gratitude-day-week-32",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/robots:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/robots",
+      "destino": "captura:2026-09-27",
+      "bloco": "prova"
+    },
+    {
+      "id": "capturado_em:fonte:2026-09-27/adamastor/sitemap:captura:2026-09-27",
+      "verbo": "capturado_em",
+      "origem": "fonte:2026-09-27/adamastor/sitemap",
+      "destino": "captura:2026-09-27",
       "bloco": "prova"
     },
     {
@@ -9658,9 +12138,751 @@
       "bloco": "prova"
     },
     {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/about:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/about",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-ai-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-ai-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-design-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-design-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-product-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-product-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-software-engineering-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-software-engineering-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/events-startups-fundraising-feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/events-startups-fundraising-feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/feed:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/feed",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/home:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/home",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/llms:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/llms",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/all-eyes-on-guimaraes-week-34",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/almost-back-week-32:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/almost-back-week-32",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/are-we-back-not-yet-week-31:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/are-we-back-not-yet-week-31",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/as-august-approaches-week-30:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/as-august-approaches-week-30",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/bridges-to-the-world-week-26:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/build-together-week-5:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/build-together-week-5",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/celebration-of-entrepreneurship-week-36",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/community-vision-for-what-s-next-week-13",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/easter-time-week-13:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/easter-time-week-13",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneur-s-dna-do-you-have-it-week-23",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/entrepreneurial-dna-week-28:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-dna-week-28",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurial-universities-from-campus-to-startup-week-41",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/entrepreneurs-asylum-week-12",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/erasmus-for-young-entrepreneurs",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/europe-is-moving-week-4:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/europe-is-moving-week-4",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/femtech-as-a-defining-economic-and-social-frontier-week-8",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/from-lecture-halls-to-startup-calls-the-journey-of-being-a-university-founder",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/growing-up-week-20:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/growing-up-week-20",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/heat-wave-week-27:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/heat-wave-week-27",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/heat-waves-and-startups-week-24:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/heat-waves-and-startups-week-24",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/hello-2026-week-1:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/hello-2026-week-1",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/how-i-almost-broke-my-first-company-and-how-i-chose-my-co-founder-differently-the-second-time",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/in-love-with-startups-week-5:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/international-women-s-day-week-10:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-10",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/international-women-s-day-week-8:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/international-women-s-day-week-8",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/knowledge-in-motion-week-14:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/portugal-in-the-spotlight-cloudflare-ceo-s-post-go",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/reading-week-25:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/reading-week-25",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/resilience-week-24:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/resilience-week-24",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/santos-and-entrepreneurship-week-22",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/shape-the-future-week-6:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/shape-the-future-week-6",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/siiim-to-simconference-week-15:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/sim-week-19:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/sim-week-19",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/solo-founder-why-not-week-2:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/solo-founder-why-not-week-2",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-blue-monday-week-2",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-digest-portugal-hello-2025-week-1",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startup-xmas-week-43:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startup-xmas-week-43",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startups-and-the-media-week-11:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startups-corporates-week-3:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-corporates-week-3",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/startups-get-out-there-week-18:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/startups-get-out-there-week-18",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/summer-break-week-27:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/summer-break-week-27",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/summer-readings-week-29:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/summer-readings-week-29",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/sweet-as-a-pastel-de-nata-week-42",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/the-351-effect-week-26:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-351-effect-week-26",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/the-power-of-sim-week-17:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-power-of-sim-week-17",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-power-to-build-portugal-s-startup-season-week-37",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/time-to-get-back-week-33:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/time-to-get-back-week-33",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/transformative-role-of-innovation-hubs-week-33",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/try-again-and-fail-better-week-10:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/unicorns-before-the-saints-week-20",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/week-14:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/week-14",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/welcome-back-week-28:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/welcome-back-week-28",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/what_if_we_werent_always_so_critical",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/where-research-meets-reality-week-16:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-research-meets-reality-week-16",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-sao-joao-lights-meet-startups-week-22",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/where-the-tech-world-meets-week-38",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/why-europes-next-great-companies-will-be-built-differently-and-why-i-m-betting-on-lisbon",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/why-the-startup-voucher-matters-and-why-you-should",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/wildfires-week-29:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/wildfires-week-29",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/posts/world-gratitude-day-week-32:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/posts/world-gratitude-day-week-32",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/robots:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/robots",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-27/adamastor/sitemap:editor:adamastor",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-27/adamastor/sitemap",
+      "destino": "editor:adamastor",
+      "bloco": "prova"
+    },
+    {
       "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:editor:autoridade-nacional-de-comunicacoes",
       "verbo": "publicada_por",
       "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "destino": "editor:autoridade-nacional-de-comunicacoes",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:editor:autoridade-nacional-de-comunicacoes",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
+      "destino": "editor:autoridade-nacional-de-comunicacoes",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05:editor:autoridade-nacional-de-comunicacoes",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-05",
       "destino": "editor:autoridade-nacional-de-comunicacoes",
       "bloco": "prova"
     },
@@ -9679,6 +12901,20 @@
       "bloco": "prova"
     },
     {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07:editor:comissao-europeia",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "destino": "editor:comissao-europeia",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07:editor:comissao-europeia",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
+      "destino": "editor:comissao-europeia",
+      "bloco": "prova"
+    },
+    {
       "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:editor:diario-da-republica",
       "verbo": "publicada_por",
       "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
@@ -9689,6 +12925,34 @@
       "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:editor:diario-da-republica",
       "verbo": "publicada_por",
       "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-01",
+      "destino": "editor:diario-da-republica",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08:editor:diario-da-republica",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-08",
       "destino": "editor:diario-da-republica",
       "bloco": "prova"
     },
@@ -9718,6 +12982,41 @@
       "verbo": "publicada_por",
       "origem": "fonte:2026-09-14/registo/gov-ia",
       "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04:instituicao:governo-de-portugal",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
+      "destino": "instituicao:governo-de-portugal",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09:editor:jornal-oficial-da-uniao-europeia",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-09",
+      "destino": "editor:jornal-oficial-da-uniao-europeia",
       "bloco": "prova"
     },
     {
@@ -10291,6 +13590,83 @@
       "id": "publicada_por:fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:editor:digitalgov",
       "verbo": "publicada_por",
       "origem": "fonte:2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-02",
+      "destino": "editor:digitalgov",
+      "bloco": "prova"
+    },
+    {
+      "id": "publicada_por:fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06:editor:digitalgov",
+      "verbo": "publicada_por",
+      "origem": "fonte:2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-06",
       "destino": "editor:digitalgov",
       "bloco": "prova"
     },

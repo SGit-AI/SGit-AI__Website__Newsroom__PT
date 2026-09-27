@@ -1,0 +1,418 @@
+{
+  "id": "shape-the-future-week-6",
+  "slug": "shape-the-future-week-6",
+  "title": "Shape The Future | Week #6",
+  "published": "2025-02-19T16:22:23.304285+00:00",
+  "author": "Carlos Resende",
+  "url": "https://adamastor.blog/posts/shape-the-future-week-6",
+  "source": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+  "links": [
+    {
+      "url": "https://post.spmailtechnol.com/f/a/uSWMgl2FRMlP6KY1OBqeCg~~/AASU4xA~/LL8KvqmISrgw6hzlBgWQCa9oH7JZyt28-032Rq8rFUOAgdbSAR4i8_bekagJoiKbrQuo1vlvqLNHf-ZpH7gCyiW6O43aN2E8tz_9g4NZ352OmWRXkf1cIlpxZ7JZR_yPoOq4Nmj-mPqgrKv9eYqIp6ugW_tAPIWW5qO14RBawFIzp2YuCSJx0DedLG7xFTHsRMsgeDScuTTRwB4R0I95XKzsjr7gjrszd1zOyJpyjyXCQRnRf1ssWoH7_x0jlGso",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/AttrZ-MyPpyw9ptu1OllGg~~/AASU4xA~/YTG9b6yB9MqAQW_I_kLm_8ud-xYH4nC2fSAPfhX7tcXKU6hWs_egYKuesYcSV3G3qEbinAArpkMYwrBTbJ7ubVkQ0RUSwxIYK4KjKizzWqzcGXbKdaB7E_FFGN_5wRoHl4flDOlZWbhLikJBlMRqyiShVHN5IcVxTqWfWlZjqU-2MCPO2L_3D1DQFvgLRiuvwvwAdctx2AFW-ASOaRxRIa50ZGNVJ14tB2f1U69VMdEDhiTrTGSIhWKr8ZgS0KOB",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/5h3hIZP3dL-W-0832SmV7g~~/AASU4xA~/xb_0OmeDsjNRd9wxAvYK94YnrAyBxDBHy_OtF9ZxFFPdp-wO2hFLpIPBVTfwinXANNMF01Vgkr5BogGqSBEk6_mlcVLEAlBmmRjVCAVgqcyvrEHhAuOOo4doCkP72AkIYYKx-ajJ2ZMKRvHPubyAgu6_yRH125vMNmc2A2jlwmEb9WJLHVrMla7vN4SsSGGl5kffimw_2Pp4cbnvkNbsr_zB2Gu_44i8phXGBE1LfG28BKuvYLcEoyAbSyiiKeJR",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/mDx01M9OaH5Ocd2LXxsrTg~~/AASU4xA~/I3gRf3I0IWJi7Qe33iEqctNCTUyYpTIKAjby5f7FCExoYLrBD2ljzvlTr0rMHYZZiGrP-Yi_-N_gKrf3D73KfSYw5PSdkuoRJ48X__ZorSi3pW4rKEqIJhZ9HkT_ibsjuE0jgqPBoo-5awOStSA_w34NuWPy7Zmy9uzr07hKLlStOu4eC0gXh6_Ngp5-x5cDAIJXTzbWQzIA3qOymaP3Pg~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/OQJjh5B8FCdbfPITdxJ4cA~~/AASU4xA~/WEZf2OldVjxHgAKAH5Ch7Et-rqeO-rREwYLnD1Un5MLGvCRiuXuJUM2KQLlxCEZD2AvMKDCYAkuYjGUhaVJqtc_z9VQKTBSe2WAWVFDEDCclr5vfiXa8o_u1-OpicfNkMN4weTocMzTPZ1ia-CRJiqraRE7y7SkK0vKv-Ni1OWxnVl-O2xk-2KwupG5-sShl5c3Qg6F3m1hrsM3uW5fOzA~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/a02ClSjbZJYE6BAJcMjpwQ~~/AASU4xA~/HrClF9iTmXIQ9SkG99V7LSidOPVt9YYouSuEuzGb7fY9hrdpyQNVJItAVwR7gZN0E1aLvVXyhsdVN-_PNTB3mZ9UXcg8ZgJvgrh-KsfDb6WM3h_QxNdJ4gZ3EyYhwcy2gj3T1BzrPYxSvdfI2ztaknou840GLEUm65Sh3kmCsRo~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/jN90GF5OftMyrw8PFD8h9Q~~/AASU4xA~/Wqf3QjrKjx8sQzC3S61RAWKp3PVpI9Fso10PbCuPR65lfn3cyjrd-Vq0jojWSTyFawDwJ1FavFoaxsROdJMafC2n3g-gOpJ7QMpxTk301gHbeS_vATR4AMaSCTRpCn4M3GKRzbqmRkW4VMABk3tD5xzsn8EEvMHdn-9s27LRtm0~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/e-tceIukoFaXbkBOOuhPCQ~~/AASU4xA~/HrClF9iTmXIQ9SkG99V7LQC0FGdJ6GweRKQj1qZjHT59o10hN_eaA8HMMd3iFgMhlcP3tTwFmjm6_p7TS0abtVLMHiJk3AxwHfrwi6bcAshFgaE7lOVTbdkmX_ADVhtC94gmMuT6WYq3d8fX46S37JvlBuF2wssn142ChjZivfQ~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/ddiPe3eyqA_5ApHCcm644A~~/AASU4xA~/YUGkUxLy1s_Sny1Lhi9ECW2AQjRR9Y0q9oIRlfGz77b8IzY92HErkgcLv1DbagRnfn9XZ3AEhnPUvn_-shgPuAxNmivut6PwM_XJcI3r7TvTPtWKNCJJfTZZhKburdWInw-urvKvFshDmL7gm4cv1rFCpnieG5gWvzYl5iUpHhJue8QpOVBlkB4844hsRbNJ5avhhNuwzXzbLlif5NXdBQ~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/SQfxNqxBW9byZEFZphp-XQ~~/AASU4xA~/NBJbqYWeDtEzwsB8jr1QJzrcWSBN_CxVtqsgjQlvS1CSW-UzFPwzzvfqzG75ZyZM6qGZI-FxVCUV3pjl5TWGjzJDGj_lfzB6TWnPueJka34pk9DIrD3cG8AiHjew7XY5gvrbvc6w0r2ze7zxJ9d7KFiyuGJlchDWbKKqA3zBGjE~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/bJY3z9IT5jKLE6cZpONb2w~~/AASU4xA~/gIvzDWXk23m8AtDhhf5NLxCi1mJ0I9xTqTxRXHluFVNvWUmcE-Hq1MS12JKbAQoQQM-MH5E5iPfiKWBTU-bv-kjnvMDfzqYIeplXK0We-1cb38Ett9d0m_bg8hm3bPhOUxHbgpp2iMj1_zI8SYrNkg~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/C5B7eb1bUEZYLaIorO3RVw~~/AASU4xA~/wydLwYv0oFsX3F4ScT2ObaxojF1SaRVlHw4NL1rcApSAmVsPvtnJTN41ygSQe7FSEnKPlUsQrC9CAHkfbXDxkYdRNxYQ2WcS4Sv2XKp5wmgPj7oWSSC0135wumGyydMpcEiQJiQrQXQc0In8Y3VSFyoXju-Aru8aDqzbnwiZxZUElJsOF4dz81pm58I2brtUEXByrLGS1KxTqzbRHs2OE_tP6Nxp2QPdzdmqRGUKMNE~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "http://ai.pt",
+      "domain": "ai.pt",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/BirnIRACWkJPf_HgYH7a8A~~/AASU4xA~/WEZf2OldVjxHgAKAH5Ch7NgfPjbYLcTF1HKRrvm3j_8hJHvCpL01rH6B0RJsv4W4e1-BRkwtt3ghXWqhtZtC84TrYlGax6If-jSqm8XlCWpcAlo0hr7js3NLXWyvcZtWKBrAlHYhemUdCpHHGr4T8MacYLNjK09JcEpgZG85i1oFoB1UOXjTmjp9kMeGACF3Btb-J89qk_MgM8jQGxlnzA~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/krZuqT08F4TRdAUgPuftIw~~/AASU4xA~/_d8h-RU27lZtGtJVgvHyqm3_nPRPZTs9uePJkhDCkAhd06Jf_pHr1G28MN5L2VeoPjPShz05qHCbDEAG9YjrKxlpQdXmf9zRoZ4Hu8YZ-BjvsUost8NQJPIGfm_z56D4",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/3C-Ra6aanIueq0jhfvYjMw~~/AASU4xA~/YUGkUxLy1s_Sny1Lhi9ECWNHNZAeo6fY9s5v-Xj6XBO6By8YrF7rCrUSnvsDsagUAm0BdGw9SZULyjdTK-ASufL8QunkavZOKt8sJhTeO0d24ASmmpKIx7I0pw2-5653X7rgPxNbfXezmhN7gOyT4t29Y5Iuv546IvcXAmDadvtEBv3J6MqVZPzpBrbSSCwxzEx4vRgZf0BiRjqohRa1nw~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/2vPImOi5q_lxv56cgA-ZjQ~~/AASU4xA~/GzvRi4ug1wAC47cyiPRLfxH0Mpz2I4KVKLRLovSoZMRepX64skYBLzpgHce5SXAUcFoGwG8oHl_2vhMieRfzgFXqc2GcyAbzOVF3B2CMU_shPPFwb6B2O9hNUw2orecguAjfQAAjUI64m12rT_uYADgc3k-ozt_3HH4Mpe_Xna-CZ6TlvSZJBHWTCqO8jBhKg12x1mVGUrRueH426rkTnf9wOpej12Jr-s87ewloZjBDdRI-2AZSdBoBIWLM141S",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/P2j3tBAImi38H_gbnUn_qw~~/AASU4xA~/_d8h-RU27lZtGtJVgvHyqvU3V5NBl7FnXBRSw5vESa3WgGBS7v2TFOqX5O_Ehv2qc0upIGLj_h5KKPruARihDAp2kOjqWR9V9b1ipcpoMSJnXfL8m402jD1ien9AYDJw",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/-BvOB__vDEWYVGb73l-g_Q~~/AASU4xA~/060Iuc4VIc1mrMVczgT1qexmoAY4nJPxRcuOjxJxfLX5VLDxwBehJj7uS1oXiOcQBrb0G3Ls8X-gkxM4t-VDfCYz9UBmIHuM6a8creL1YiFRfKD0H3_EsfXqkcbkfGdRHczLQD_1Jfl7yLjSUvZwYR78pZ11yuQzu0JAgh4k9GTTp6kw0mjOGp7yTc_fi6ncdVrGtLAvTqqv5wjOcyDyqxcektHsCVXNXyBW73Cs_i8~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://boutique-impact.com/",
+      "domain": "boutique-impact.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/SVEfPzNG_j1ToOCdEFgPBA~~/AASU4xA~/qUKwIFf-HV1lH2bvq2BQSZY7xgvKWid6xIBuveA_IW6fKTy_Z4c7vFsjtze3iyoc3lZJS9D31dVDyM1RqkKjKDxCEbAPvKXDUa7EmtXhbO-8mR73xrd-XPp_8itcsYcjVGj8Ci5nRin9YoFKRKksyQ~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/79TnEVsTM-lNIm2da7sZFQ~~/AASU4xA~/8MUqVYD5U1c8_DiwdZO1Q5j0AxCQ7SowY2nPedzWDaFNFJyNVUF8W6vxW6uuRqUNY1_mp8A7-4j2RM3p3Y4RaP8KHW16C7maMZQzynT5rRJ3IqWOSyAhYq8UFQYyehgfqec4PDEKRSuexN03xO3ujK0AO4T1Al0By-AZ21OE2GdO_Qhs8sFFDFDlENcTQP7E",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/EUxW-G8Ri-XzTgGUfElUrA~~/AASU4xA~/HrClF9iTmXIQ9SkG99V7LWOKRC8ExDC2KNS6OXI1umzy0Vh7LHHTk4K8azN3A1PNFEv1ztRW2_6_9pzKhn6lfIlX8A4a_09XMfaH02HcM_V9xoEdbqhw4tcTqFGVYdyUlcTx9s6L_2-rUFqlqSWNshQAiv8UYDnSDM1lXz2Sz3E~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/9ca5SeKNzdr_ZrlaRT0BYQ~~/AASU4xA~/Fy3KCBNMtRB1--o-iSHVw4pqWUz9tfyZJtLb_4WNAe1JWyZLuqqJlLD52QkzEclGvVOmDj7OflK7u4G9PxHtsv9diJQxQOSjHfw2xp9MQjgxewBZYQW4kmnK4wYVrjpLtl4V0eLpJLBDiyHmwkSOFvlZEsvnlDlwICJtjSBCAwC78RqJdMBLJO2zFkwQSYGZFwph2D59u2yBSPLCH0KbrGeP7VPumMnBt8gpDKM2kyC29EOApJ6qtkyxfhd7VDBR",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/wIefoJb_aARYG6VIP4EbEA~~/AASU4xA~/_d8h-RU27lZtGtJVgvHyqpqnAvUGdi4XV1cduml5I3mP-1JULtPXXVStWZI_wxk_buz7gO_bdGLz4g1cnQu1PpiCjsmI3LSuC9yEIAkzxTMtvn06zfXzbx44_iEQXoTd",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/UD76Z2RMwTejBpvPiTzNgg~~/AASU4xA~/QFNqOHfT62Tc9nq39BtKNznc_agnR-r0Px221l5CwLAuwU6zmX07Re8gX7akrU4n6O88alB1YP0U73JQGLmbB7UdTOjWbDB31NnyR0dkosQTEjSADFRu11BxBH-gpGATOjMzSIZMOMdLqu0ystZkGuGM4RussOc60mx8b2hq-z47bDooWsk-cda9w2ylDVJNgA-1izrdsAtK8GWjbkMErQ~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/PfKdcSeoFu5yAluOicopUg~~/AASU4xA~/zzahoyE57LwFM0lDYqzfinvzRb-o1cNG-cZLHUX47wqtyBgvK6v4jPygI9TkV-aXk039CuQCNy50BHzffrDaLapcUGZL8wNuuwoeZkrY7AQWqUU8zVWkm488ir_R5thh",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/h3wWEHi39dgjeQzREEuqXw~~/AASU4xA~/-SWdnwcvXh7OGVD-57g_RWb9Fsj55QLpmTECc9bsiEmCIqIohKLii6BI2MwQSsIS9CL-StTTUetO5qXRK8db8PlMqP99bay1Q6doGKrnbCI6WbvX2EhNBMqek3teTPpgQPybZCRlyssboiToUJQdfyCeie-Cy01s3G9S-8kw99xnG8t2QjX6JJgKxgTOAJDUQMOAKk6z11_LopjaJgPl0tZ2Bbwg4WFaZRuNUqTd1aQ~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/p7JHPE32KH3DiW3uB7r81A~~/AASU4xA~/wydLwYv0oFsX3F4ScT2Obeqgahvw3PhbWl1ZhI8krSBO085Ke0v5PNA9KCTIE08y5wjc7ivQfXLKsus0SIJHpeq9iI6seFRm5v_qMCihEYNoCX3QYgrixPWCZlnvljTOaGQzEpiwp22miTOq7f6dXNpsbQm6UCR4_Fon_QbDuZtIhYRpFGFkZG6tM_2M541CMkT14UidamFfAGDxicwkyeXuLpoZR62PQIkEB4maMnw~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/K0WEGMH-z-zWvjorAc-gxQ~~/AASU4xA~/VJ7jfdKSX25uTb8pPQ2VdZORiJ7FUfxks29ovTigzJlIQX2bYvrhz0yj6mb51L9LKmANzV8Iv7M8C93TKck5DaG2NjIyvvch_Z0SChijAlxEtXS4M_D-vEWHmnhYjQJBsFA-NJl7FBbFweD5VYKZNzHWbXZfI0CBoJ3xMwfyop9c-ghZxSHIZ0KMtlkSFWrwNrBDYNtVsfALlX3MhT578HL5hz1iH4z3GIBVLP-ADpk~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/h2verdp5KTtk4mf3lBiFXA~~/AASU4xA~/Ew9BsYmlS-5LHgj4OafV7YhdPI4Xt4eGJQjFr51nI2xpDsrRUPqN7aTbNpcbekF56fu7hpHAn8yDAEzz8pN_p8tFM4hxadUh3dD0HibPAOgPW58-vzsrNMcARQYRbSDGzxPIyq-orzmRChqCNyVTLFDQM4EBkvOWzExpUv4rINn9pHz_M8IxrWXwO_Ltd9tQMdzAIgANgkP87tIU6vSmug~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/0wbpdPHYNBNQngV2Y4Jiqw~~/AASU4xA~/SzpfO6txUXwM7ApyNF1pBiumJFtT1haMDKJ00DW2zNpWtdUHbrPqSXb3wq1heQA8wHsmuaIQ6QlgShJHzd48LrffdCa6krKG4ZHjj0svqLm4LMViKAN7BKy6-1QrI0qDCUSofxg-F6EpIsIUld6wswQ8DwX1XgnAjyY0ZzuGvKoPA77NyINey2bU_QgRGne9",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/guLdaPk8Z9rVmjuoMeMKCQ~~/AASU4xA~/aSCvZUoQvyD_NSOnlqeOFzjOlo1yj81Fz605n3hOg1weu_BxR8xw7YpwtJNItySDaTFgPIDg6H-FgRJ9mNcfLdmM0EpyyLTM4R1w-nUY5DyOlggogJuLLxGCex280hTsV2-bIU5FjpMMsIMxcjMzTpTVS9VvxtHZoB0gOwnFntJgt2uRvGQsv1W-319n-bhT4_GA03Z7x3ml2EbchJt9NGKUH2wh2UD_81gVED-PkRY~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/76f2N6Op2lElqPvMJvMmvw~~/AASU4xA~/VKhJ384MFUYid6lfWBkxZB1pG7jTly52bNAY18H52lSDIZsWcRCMTVh1zhL3kHAs-RjFoObVcWVmLgoyMuJ8qTnxPzX3psVRZFzqtZSuH4OUCdZuTaTgJUmJ7A3DqDPQhfajiOomYHXOcE1SjcoGLu2vBbUGBP7ZZUhOC8gn4HYdt5gjowk11458JDEGRydzpfcdHhkeoiJoKYAISMoceJiawC-M_jTzdFSo_aGFqfU~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/2YD17pR0vARCkoirpFIthg~~/AASU4xA~/TJ7wgQ-NSNgRdZm8BO3l63_oAyDWj2oNGuFFcuaX6QHlB9wpGBkr122uatQTjbLURQvvrZFj1vmgYqCPm3UBxnQyB0yeT5k9AMVyShhiGo35NxH-fj0-70sImuSyg2bt24jKH5dXEu6wS1ItRhvnfAtiPtRzJasP0k0-liZndErkQGqP9r--EdIQYqxAQN_K",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/Rw__Xsob8g2_xgOwc8Lw5Q~~/AASU4xA~/eZCO_b6p63mEq1npmKxOUGnIS6F2bX8OLYh5_oY2W9NJxEfWw9EB6eGqWS9X92t2yEZRj00HdcnXbtvjO79pLec4qA3B_-Z60Wx57SwqUggu6WZQOELW0AktU-gVYyI1F4cgYiJjjSvI_tbRxbvVJYCElntkCDRW-qgJX9bau50~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/gxodwt524MJXu2jzqAnYvw~~/AASU4xA~/Wr0o12bY-vasU-SOJJYNOdzQLDbV7oHOdqiHOvH9bKAkt_EPqtyZIUEjoZbvh3HLoGkKAy3G7jjTVZDTIKnxK2NkCIvTk8TrUoarRhSwK443nU1UwtKbqTiMqkLXHdhStIi_-5fxUTCWu8XoJk1yyonnkJX9PonPF17dq3mJqHOpQpPxNc4u93a5SH8zd_AbsBO9OUEphsdLcMLTeHqWRR9nj-2Yq9HNR2dMoILxCCw~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/2J8sODJ0HM4h9jl4kby68Q~~/AASU4xA~/6a7oiRS8iVf_fZprRTwBG9f0RBalfwK_papRsX6-TL-QhwcCz20gNlaPJY0uLhP5BGorFvQxx_Y4cROwO3xiQ7X9Sm9fWeqB7L2VdryA_PWJfbXGC3wR0vr6YvCYrH84",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/vxziQJAu0CIAA3Y4Jxl7cQ~~/AASU4xA~/_d8h-RU27lZtGtJVgvHyqg3bAs3V2DeSFL-ttPuOkUAdCHSS62wFHVKaTsPBr-yUE5fRBNoJBr3pGf3zE9_UADPsqis4ALiEKSHTb0RRy0aPQSjdglbmpJeLhV1Up2Qh",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/SsavPvyCOi3drU6TJa82jw~~/AASU4xA~/29wadCCf3FhGJ4EXiwgZ1z_l6e8ROULjHUbfCY2Ut1nEJskr3CxgMNnnLMao2SlqXO-qsb8O6gp5Xl-cpj2VB2bGmHO0qSLFUk0RAP_BEnNjxk6jXqoYwmDN721ZACPfaSe74VLoGlo4UDHeetHq3KFg1_lsdcJs424BWIAgz8kW04S_iQ75CXM3kEMcqBRgCYhhzF9MBO1EWKPamqFB7zZ9e4c0ab7qCgIWepgcNkc~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/jKuLadIp5p8_rpdmkbIHCA~~/AASU4xA~/Dey7khFxzLedWXZi4IgslhFqXAoYLeKmPCqFJuBmXrvDhVil6LfjTQ_qsRaW01kkJYtF6l6kH6z69c-V2g9U5FSfKz-0uM5APMrz5S3iOTTaJhTicHZAQrIDXBAFxENCo8ZNQAfEYGY4JX0YZap1DKRbFqvX_p6nXs4iwmydseW0DC6MpR-pusYjlIuqH0zbTCsgxr6eE64qY4gIaZpvSvYeiDB3i0mID2saqOe89QA~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/fEhwzCLpQIKo0T_zrtA7AQ~~/AASU4xA~/F5sPDhsaVfYvzte8YCKmJdMrLwSCAdDuwQKr6eOZlAotRuxAdTpkRfvMzTBum5Q4D5uFasXjKJOx5M1T3Ly_l_UFtFPOOYQODHaxNx6KRrXP0NT52cJvISLezUoazmaYU1gV-hiksy5Lvlv0KLaNqOg2EuqdZKansimFegxvVMPT2o_siOCUebLltPwqx_1Khsh_Pfcxa-4qB7mGH4Eqyw~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.canopy.community/2025-founder-programs",
+      "domain": "canopy.community",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/82ZmdlRTB616Wedfz3YOjQ~~/AASU4xA~/6EAgVGBYhDRQ9vjXS3kXmq2KC1rRrRNrD1kuhApYqFVhCIbBVKEVsGzMAN2LqLanrT0EpfnT9P93fh0QFzkBgpv6PdgUSq54Bicl7qc7GI7DK5QVFHh4NC8WJPjXnfE5",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/My7PnXaE_nGRCUbYVS1kqA~~/AASU4xA~/LX7jy6luiP5You63jtOcLrUmnpZ-AvGO6BisABxqt5mJnS0pM1IoyJcZvhVTyUfwh6_Gh19H_Zd0Ai56sTASgWG75W6u5WBZYYDSQf-Voywv1VH1qtrD1dJ7XFEHzCAVFQR0_G9ZQbdUIlH2Nh3ogg~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/wEn4zadjQgw3gTuTq6tkZw~~/AASU4xA~/GJoPI6vT_JdNhghrjZ0qi3wb1DjG7Vrer5wHZLi48n97Y2P1yeWjBggYUfhvul50ok6-b5jIUinQ4XiHPoEcmBhVO2h2hev-ja-BQAykXgYe6XwgtOKWPjPJXGfe8V9cS72gTLTX7Ct55w15rZv9fw~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/yCmLrX9KNYgpjZiODrrtlw~~/AASU4xA~/eZCO_b6p63mEq1npmKxOUG331881RITqe6oI2meoGaDL1Q5Css4Wu78H_CIOiKZuXSkLWRTHMn4TN5m6CfmqVuMwFc483GxNUKEzBjPIJxPPUwpiUj6hUfccz01ODMyYC4dW5geKDCiwa9YqJ4LgYKbWoihfctjhlu14EREqYOM~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/43N46IZRvbgmPxDJpfE7mw~~/AASU4xA~/-2aUrdEhd1mM3fBeG9Pz_s78si89cPF_JaSEUURsMYZqU9Zu7_HUwlaN1_oF6gORwTkI7fiXz0EY96PV_ZWhYEcAXKNIJXAIrrpDyQccoepwtjgWlRhoV6MoWzjeDnmkV-YFWyoxW7glBvJmn2HcG_re6MygSRB3ijNPXuEb3Dk~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/vDvysmawG54jLtIIpRzeYA~~/AASU4xA~/XFt0XGr9sL1rxqkz7kgvqX9SbBClQ23i9CixkUAsWQShL_phsNG2q2aacnoBGmHplgeEEB4HzNxVzUdrNd7kRv33oC-pbqDsyoUHO_FmQ09bMWXuotcl7KFrtVbdPouw",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/-ADhZVX2tNmb8V7H-mLvMQ~~/AASU4xA~/9dzdW81Wm2kYDICvLkOIxT_dDqAAr6FH7Oe0AkOmB41Pcpo0ged7t-qoL33dxsWVTjOWt-5stMetVIK8d9TiHIOhdMnXJhQm0RupChz5g7L1Clko-qegG918UbobGQHOgQOJnskmYf4fsXlG-4vdiDNa63dnACRSedwEYA7YB2s~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/RIuOMcwfZBuHaWL0uVCgUw~~/AASU4xA~/pR3DegRrHeFFs72_uXQgAmWPhrWA2QBR3yEiSWvvo2YaPVqlAvXSiS3ZGpOmYGdXNTXYjBvJGxOn1H13z_mBTL9R4TwEtLvmuhHQGHq6u3_4r2c8oQxaLNKn5_Hs6E_7",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/Phse-nJ-VekzNpdefmX4Jw~~/AASU4xA~/6a7oiRS8iVf_fZprRTwBG0i6yW0fQFiADRrtPcRs3VddKYakqtJVJ_V8v_2tEiw-qDpNNE2IH4btjRrFYmgCO2HfJUPi9ATDntncpKCN2fYbGWfr4ycK9P9j6npHdA0O",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "http://local.foundation",
+      "domain": "local.foundation",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/nzM0OfiaAMaxUjCP3aYpsw~~/AASU4xA~/4J7nmZAQHY2ChuhT31DHViguWisySBMB0btHcun1YvRVxeU2KBcWdix3mkJs2T_d1XJ6vlxf56lGO1j5IiHpq034tF7EXg7GanLQzOHMJVi4CQ0zuI_apmRsrFcwiNYzCXvlHggfCnFbiFJCrc-nWw~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/TvpZBEKHp51F4L7KfL0h5w~~/AASU4xA~/GJoPI6vT_JdNhghrjZ0qi9dmQRmirLqL8EbonlUSLTmQZ9_IPb1h6Yu809H1OfCjAtp4EeiSLGunm2-2S7ysIRORV-bmyr8OxSWQdrGur_PnPJ-QAVTtNPFVqz7UNE_e2QJp-nYmRep5ZQNYyuLDhg~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/q10Uw67AW7k_8vCcmedRBQ~~/AASU4xA~/aUF5QTJOulJNTOaW1rZDPtrbTMRcK7uZ7SN5OoehimKK_49kBnNp1g54TVDzYSQiU_nSgC8GAvKnNCkRoO_Mwv2AFob0LwwWQJEUG9ASr_LBsPYlqhmIFiWaHnyt1S37",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/h0pyc26F0u-mOfow6LRZ5A~~/AASU4xA~/NBJbqYWeDtEzwsB8jr1QJ42fsK2qiN8x0y9MYEFMD19qsRlRc7MamCXWlKAxRVtbXVutc2gieStnbKf8btX7RTAfLGHXuRBzmLh_BHTzWKX0wxNA9FMPMACgi_k4NcSBB2B_V4juuAY8GMiEbhu-h0D6tZkFrrrX80IRn5GZo14~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/0HvWPvnaNc1j8xij5p7vUg~~/AASU4xA~/4A42WZJlPKlvvF_z9Zgv5ODyqm_7RsqP1i7ESNJFWt62SY8HAu_ZOZd7IJipmjicRFiZCT3J5Y8Dd9qW4yg-7giWZ0zD1nrBh_aar_KIin7sDsmX66pZF4a2DUq4UeMH",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/hu3_o4V1U3BxngQf0vwDIg~~/AASU4xA~/bhCdse8FoKqRWuQjIgN8b6DZQZpQhNpIe2v9bTbhZvge6s98AYmB6dK84KxWfs32tMR_px_pBsBG7NDAdiszPZfTCSDS6CdMaUiSTkVL5G484XQZ1o2TX2aJwiMI1VIqufTPnM3W9AwQU8mT4Kkt6EoZpeEEAI_c3QQpgfo4-Aw~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/DmuFBacDyaF_sopqEZzPHA~~/AASU4xA~/4J7nmZAQHY2ChuhT31DHVueSxVP0rCaceQC_xlbVOsx8xK0SOWSXxV8lkI63ghjPMJPaDy0v7tmWMonV661C5mEP0aczd8MtmKMlbnJDuLnCt7jn8msK7kDbJp33Mgfre9degAvHbFmtTv2KwbSLLQ~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/uDj1M0vr7giOsOUESbkahg~~/AASU4xA~/lL9N9fBNH411_X62iyyS1aHNyIFc9VFcx27qdO8ZvoTvxLTC5l-MebapFV-cmWF0QW-NXQdnVsJCIFLWD2p1nXJmXt6vzsjlov_VP_coDME3WTb8v00GY4cbZpgvWYHgJJsa-yhsyOW3DkUiScHdcg~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/f62CC5PpI75SBBCE23HrKA~~/AASU4xA~/_d8h-RU27lZtGtJVgvHyqik6K4uph3MNOHgkIQwj0EuodWgwNw80N0w9vnupaB2kdV5oQFqpXZqdf9K_JBhmQArlY4hoqNBspq8eFIefz3vt2zzwKsS0VlIjngEu3hsE",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/KvkwMX6bpZP5GONIGwpK2w~~/AASU4xA~/WsQxOJOXDe43Wnusy2vyp-jR0INfGl0_Ti5o1WHASqMbaFqH3SpgeadZ0XSEmWu3reM2SN-n-5-ZqDKEMaSETG8qVVeT0WLeeDnJBnKRTUjax6CXHhzhTvK7cQDmpVR7",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/uNwwOXqcRPSdUC_-Mt9q0Q~~/AASU4xA~/6a7oiRS8iVf_fZprRTwBG5SO4VnC-l7RFFNmo9Mg9AVIHA8Cb2-jBXacGpq94BcgcK8bIqN-nSTWV8eH271FxdKhL7k4f1ULQUMlIU4whtq0wYAvfZNJAWfkHbjVcKeC",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/W1_2jjmEvFNV7UuwjyjyXw~~/AASU4xA~/gIvzDWXk23m8AtDhhf5NL1ikuQAwUjtRb00q2EDkJ2gyvDsIOtIbJOJcLstULfnA1TDwUkistpm4EkRyA_81-6rE_JHwWq6E_FNRRYRbOoNYKoQxLvJV7P6D5BpmZuEyvUKEQ-5JprXY4pVAIjCrlQ~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/pp9lZavhGw_AML-ofQ5cMA~~/AASU4xA~/gxfrOIiCs5FQ0Ov4WCAllQxo8W84L7kSqy28hA5omKo8dQBTXe9Aj4oLTPGvPH68UnviAyzOQR8qbSYHGtpV5779egpEVhXM9YLOo9AxgZeS9wyttGalfR-b1aaYCfPfcfXJdFRfcD31mOZ4-BOOZ1woPL9e6nmvQU6f1Aqi4YQ~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/iW4gzZGqVnLd4_0SmpKU7Q~~/AASU4xA~/QrNaSD61FHlBmOh6d6QzAzY50Gb9v1YlrOu1v83s8gW-ZbENtgZ4-vYQT-VoM1g0A3BBfmIMRsApi_9tVT7NHSOQR8xBMttlhHPwcmcINj8O_0KBjx6WAufQ7N9uScjn",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/0SCGQOTRBDJ55RZ0ph49AA~~/AASU4xA~/wEN5kvNx4bGYixmk1LP3LlBgpWnhe201CYZlr97AsOS1kBoRUnS-AvL_VPW7HBfkXAIuYauGbF4RbtSTkENPIIyXJTT0c0GAnq-E5boEJ9CMBS0nALa3vr6vcbHfOfVd6b-8x3QaR1UjhZG7w1YgPRXtiJ6lHpl0zAnv5tqtzogqGlu4q9Xw6a7UXYmsSCPU",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/bW4Aueu9-6o1i-Nc28FTdw~~/AASU4xA~/EyvSvI9SZtLUI2Apuz5EUuhIT5b1nU3OUwi1x2_L5HBJyE52PeA67Ww8OCdi7dOyTToGU71fZBzRe2ryVpgR3mY3TX4gqzABuJVyECfLOYRG3-RMDSj7VXgNuPCKiZojI2xV8ARzsvhcIqEBuxjdPA~~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/RLozJ9O-NVcL8M-54BtjZQ~~/AASU4xA~/NBJbqYWeDtEzwsB8jr1QJwchnmhFsEIpPQffKpS70fTbx3WXAOp9GG0wLDgmOlnJT2v6iKhFOMIUzzUu73WuPmdatvxAXlH381n2NxUqe5kM-ijjhPiggqUKuVYt5Yt97-e1z4EnwV8yTl3q6fTplK4IyyoTru8kU8JCUaWo74A~",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://post.spmailtechnol.com/f/a/VUPZDEE-EWQDF2oKiZJjjw~~/AASU4xA~/SzpfO6txUXwM7ApyNF1pBru37sXEjUNNA_QnLMQTC9gOEySsRKNLOkoab_O-ZoXaWqbX3rm1b5eVUPNvKnfCuA_GANiMvDashajU12COJZYP1BMlFDFZDdmWVA3uA9bTHjrP1fJ2w3qTeGr_HYmB3KqZjkRDKD41RvxM-wKAXwKP7SSIaeywlkgoac-45GGa",
+      "domain": "post.spmailtechnol.com",
+      "kind": "link"
+    },
+    {
+      "url": "https://www.linkedin.com/in/carlos-resende-%F0%9F%94%B7-35162613/",
+      "domain": "linkedin.com",
+      "kind": "link"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "capital-de-risco",
+      "type": "Setor",
+      "matched": "Venture Capital"
+    },
+    {
+      "tag": "saude",
+      "type": "Setor",
+      "matched": "healthcare"
+    },
+    {
+      "tag": "ia",
+      "type": "Tecnologia",
+      "matched": "AI"
+    },
+    {
+      "tag": "ia-generativa",
+      "type": "Tecnologia",
+      "matched": "GenAI"
+    },
+    {
+      "tag": "agentes",
+      "type": "Tecnologia",
+      "matched": "AI agents"
+    },
+    {
+      "tag": "cadeia-de-blocos",
+      "type": "Tecnologia",
+      "matched": "Web3"
+    },
+    {
+      "tag": "angariar",
+      "type": "Ideia",
+      "matched": "fundraising"
+    },
+    {
+      "tag": "sustentabilidade",
+      "type": "Ideia",
+      "matched": "sustainability"
+    },
+    {
+      "tag": "aceleracao",
+      "type": "Serviço",
+      "matched": "accelerator"
+    }
+  ]
+}

@@ -5,11 +5,19 @@
   "url": "entidades/tecnologia/hardware/",
   "nos_bytes": [
     {
+      "fonte": "2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/agenda",
+      "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
       "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 1,
+  "ficheiros_com_o_nome": 3,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

@@ -1,0 +1,18 @@
+{
+  "quando": "2026-09-27T04:00:00Z",
+  "agente": "pesquisa.pt",
+  "departamento": "pesquisa",
+  "prompt": "Run the capture of adamastor.blog now. Only the content is in Portuguese; file and folder names are in English.",
+  "modelo": "Claude Code, remote session",
+  "pastas_alteradas": ["fontes/congeladas/", "dados/"],
+  "issues_movidos": [],
+  "portoes": true,
+  "versao": "v0.23.14",
+  "o_que_fez": [
+    "Froze adamastor.blog into fontes/congeladas/2026-09-27/adamastor/: robots.txt first, then llms.txt, home, about, sitemap, the digest feed, the events feed and five category feeds, and 92 posts. 104 files, 0 failed, 0 refused by robots.txt.",
+    "Read posts from the union of the sitemap and the feed: the sitemap omits the newest 14 posts, recorded in dados/adamastor.json as an observation about the publisher's file.",
+    "Extracted dados/adamastor.json: 92 posts (title, date, byline, outbound links, lexicon tags), 45 events (title, when, where, link, categories by feed membership), 406 linked domains. No prose copied; 29 tracking redirects set aside; 0 contacts reached the file.",
+    "Rebuilt dados/registo.json: 220 frozen files, every SHA-256 recomputed. This registers the 104 Adamastor files and, for the first time, 24 delivery sources frozen on 15 and 23 September that had never entered the register."
+  ],
+  "nota": "Freezing a source is research work, so this record carries the research department and its two folders only. The code that made the capture possible is a separate construction record, because gate 12 holds each department to its own folders and one record cannot honestly declare both."
+}

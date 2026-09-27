@@ -11,9 +11,17 @@
     {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 5
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 2,
+  "ficheiros_com_o_nome": 4,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": true,

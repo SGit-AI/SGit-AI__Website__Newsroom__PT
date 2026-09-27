@@ -3,10 +3,23 @@
   "tipo": "Servico",
   "nome": "Aceleração",
   "url": "entidades/servico/aceleracao/",
-  "nos_bytes": [],
-  "ficheiros_com_o_nome": 0,
-  "fundamento": null,
-  "ligavel": false,
+  "nos_bytes": [
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+      "ocorrencias": 2
+    }
+  ],
+  "ficheiros_com_o_nome": 3,
+  "fundamento": "bytes",
+  "ligavel": true,
   "ligavel_em_prosa": false,
   "grau": {
     "saida": 0,

@@ -1,7 +1,7 @@
 {
   "id": "pt-mesa",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-27",
   "nota": "A mesa como estado, não como narrativa. Cada número é uma contagem de ficheiros ou de entradas que já existem noutro lado deste repositório; nada aqui é escrito. Nenhuma coluna se move a partir desta página: mostra onde as coisas estão, e quem as move é quem tem direito de escrita naquela pasta.",
   "colunas": [
     {
@@ -67,7 +67,7 @@
         "tratado": 0,
         "em_transito": 0
       },
-      "execucoes": 16
+      "execucoes": 18
     },
     {
       "id": "redacao",
@@ -123,7 +123,7 @@
         "tratado": 0,
         "em_transito": 0
       },
-      "execucoes": 16
+      "execucoes": 18
     },
     {
       "id": "editor",
@@ -849,12 +849,65 @@
         "index.md"
       ],
       "movidos": 0
+    },
+    {
+      "quando": "2026-09-24T12:00:00Z",
+      "versao": "v0.23.13",
+      "modelo": "Claude Code, remote session",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "assets/",
+        "build/",
+        "dados/",
+        "entidades/",
+        "redacao/",
+        "seccoes/",
+        "index.html",
+        "llms.txt",
+        "sitemap.xml",
+        "index.md"
+      ],
+      "movidos": 0
+    },
+    {
+      "quando": "2026-09-27T04:00:00Z",
+      "versao": "v0.23.14",
+      "modelo": "Claude Code, remote session",
+      "portoes": true,
+      "pastas": [
+        "fontes/congeladas/",
+        "dados/"
+      ],
+      "movidos": 0
+    },
+    {
+      "quando": "2026-09-27T04:15:00Z",
+      "versao": "v0.23.14",
+      "modelo": "Claude Code, remote session",
+      "portoes": true,
+      "pastas": [
+        "admin/",
+        "api/",
+        "artigos/",
+        "backoffice/",
+        "build/",
+        "entidades/",
+        "redacao/",
+        "index.html",
+        "llms.txt",
+        "sitemap.xml",
+        "index.md"
+      ],
+      "movidos": 0
     }
   ],
   "contagens": {
     "cartoes": 17,
     "bancadas": 4,
-    "execucoes": 17,
+    "execucoes": 20,
     "publicados": 5,
     "a_espera_do_editor": 2
   }

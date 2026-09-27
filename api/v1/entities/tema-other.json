@@ -21,6 +21,10 @@
       "ocorrencias": 2
     },
     {
+      "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
       "ocorrencias": 1
     },
@@ -47,13 +51,9 @@
     {
       "fonte": "2026-09-14/oradores/janelle-harder",
       "ocorrencias": 1
-    },
-    {
-      "fonte": "2026-09-14/oradores/lauren-mucklow",
-      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 25,
+  "ficheiros_com_o_nome": 27,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,

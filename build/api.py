@@ -116,6 +116,13 @@ COLECCOES = [
      "pt": "seccoes", "summary": "The eight sections and their editorial records",
      "description": "What each section covers, what it can and cannot claim today, which sources "
                     "are frozen and which did not resolve."},
+    {"path": "adamastor", "ficheiro": "adamastor.json", "lista": "posts", "chave": "slug",
+     "pt": "adamastor", "summary": "adamastor.blog, frozen: the digest's posts, the events calendar, "
+                                   "and the places the digest links to",
+     "description": "Read from a frozen, hashed copy — never the network. A post keeps its title, "
+                    "date, byline, outbound links and lexicon tags; no prose is copied. Events keep "
+                    "title, when, where, link and the category feeds they appear in. `resources` "
+                    "are domains the digest pointed at, counted — they are not companies."},
     {"path": "deliveries", "ficheiro": "entregas.json", "lista": "entregas", "chave": "id",
      "pt": "entregas", "summary": "Research deliveries, and what happened to every excerpt",
      "description": "A delivery is leads with provenance, never facts. Each claim carries the "

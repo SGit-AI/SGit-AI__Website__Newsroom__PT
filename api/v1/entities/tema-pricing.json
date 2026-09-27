@@ -13,15 +13,23 @@
       "ocorrencias": 10
     },
     {
+      "fonte": "2026-09-27/adamastor/posts/europe-is-moving-week-4",
+      "ocorrencias": 2
+    },
+    {
       "fonte": "2026-09-14/oradores/nina-chande",
       "ocorrencias": 1
     },
     {
       "fonte": "2026-09-14/oradores/rita-martins-freire",
       "ocorrencias": 1
+    },
+    {
+      "fonte": "2026-09-27/adamastor/feed",
+      "ocorrencias": 1
     }
   ],
-  "ficheiros_com_o_nome": 4,
+  "ficheiros_com_o_nome": 6,
   "fundamento": "bytes",
   "ligavel": true,
   "ligavel_em_prosa": false,

@@ -1,7 +1,7 @@
 {
   "id": "pt-entidades",
   "versao": "0.1.0",
-  "atualizado": "2026-09-14",
+  "atualizado": "2026-09-27",
   "nota": "Uma entrada por nó do grafo que é uma coisa do mundo. Cada uma tem página, e as que têm `ligavel: true` são as que uma menção em prosa passa a ligar. O nome é o rótulo do nó, que veio dos bytes de uma cópia congelada; `nos_bytes` diz em que ficheiros congelados esse nome aparece e quantas vezes.",
   "formula": {
     "id": "ligacao_de_entidade",
@@ -19,16 +19,16 @@
       "nunca dentro de uma ligação, de um elemento de código, de uma marca ou de um atributo"
     ]
   },
-  "contagem": 198,
-  "ligaveis": 173,
+  "contagem": 200,
+  "ligaveis": 178,
   "por_fundamento": {
-    "bytes": 181,
+    "bytes": 186,
     "registo": 3,
-    "nenhum": 14
+    "nenhum": 11
   },
-  "ligaveis_em_prosa": 147,
+  "ligaveis_em_prosa": 149,
   "por_tipo": {
-    "Editor": 8,
+    "Editor": 10,
     "Evento": 1,
     "Ideia": 4,
     "Instituicao": 3,
@@ -44,71 +44,67 @@
   },
   "entidades": [
     {
-      "no": "editor:comissao-europeia",
+      "no": "editor:adamastor",
       "tipo": "Editor",
-      "nome": "Comissão Europeia",
-      "url": "entidades/editor/comissao-europeia/",
+      "nome": "Adamastor",
+      "url": "entidades/editor/adamastor/",
       "nos_bytes": [
         {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
-          "ocorrencias": 11
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 104
         },
         {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-          "ocorrencias": 9
+          "fonte": "2026-09-27/adamastor/home",
+          "ocorrencias": 52
         },
         {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
-          "ocorrencias": 9
+          "fonte": "2026-09-27/adamastor/about",
+          "ocorrencias": 51
         },
         {
-          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-          "ocorrencias": 6
+          "fonte": "2026-09-27/adamastor/posts/welcome-back-week-28",
+          "ocorrencias": 32
         },
         {
-          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
-          "ocorrencias": 6
+          "fonte": "2026-09-27/adamastor/posts/reading-week-25",
+          "ocorrencias": 30
         },
         {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 3
+          "fonte": "2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+          "ocorrencias": 30
         },
         {
-          "fonte": "2026-09-14/registo/dados-gov",
-          "ocorrencias": 2
+          "fonte": "2026-09-27/adamastor/posts/wildfires-week-29",
+          "ocorrencias": 30
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+          "ocorrencias": 24
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-10",
+          "ocorrencias": 24
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+          "ocorrencias": 24
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/sim-week-19",
+          "ocorrencias": 24
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+          "ocorrencias": 22
         }
       ],
-      "ficheiros_com_o_nome": 7,
+      "ficheiros_com_o_nome": 102,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
       "grau": {
         "saida": 0,
-        "entrada": 2
-      }
-    },
-    {
-      "no": "editor:diario-da-republica",
-      "tipo": "Editor",
-      "nome": "Diário da República",
-      "url": "entidades/editor/diario-da-republica/",
-      "nos_bytes": [
-        {
-          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 1
-        }
-      ],
-      "ficheiros_com_o_nome": 2,
-      "fundamento": "bytes",
-      "ligavel": true,
-      "ligavel_em_prosa": true,
-      "grau": {
-        "saida": 0,
-        "entrada": 2
+        "entrada": 104
       }
     },
     {
@@ -172,7 +168,90 @@
       "ligavel_em_prosa": true,
       "grau": {
         "saida": 0,
-        "entrada": 2
+        "entrada": 13
+      }
+    },
+    {
+      "no": "editor:diario-da-republica",
+      "tipo": "Editor",
+      "nome": "Diário da República",
+      "url": "entidades/editor/diario-da-republica/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 6
+      }
+    },
+    {
+      "no": "editor:comissao-europeia",
+      "tipo": "Editor",
+      "nome": "Comissão Europeia",
+      "url": "entidades/editor/comissao-europeia/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
+          "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 9
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
+          "ocorrencias": 6
+        },
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
+          "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-14/registo/dados-gov",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 7,
+      "fundamento": "bytes",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 4
+      }
+    },
+    {
+      "no": "editor:autoridade-nacional-de-comunicacoes",
+      "tipo": "Editor",
+      "nome": "Autoridade Nacional de Comunicações",
+      "url": "entidades/editor/autoridade-nacional-de-comunicacoes/",
+      "nos_bytes": [],
+      "ficheiros_com_o_nome": 0,
+      "fundamento": "registo",
+      "ligavel": true,
+      "ligavel_em_prosa": true,
+      "grau": {
+        "saida": 0,
+        "entrada": 3
       }
     },
     {
@@ -191,13 +270,22 @@
       }
     },
     {
-      "no": "editor:autoridade-nacional-de-comunicacoes",
+      "no": "editor:jornal-oficial-da-uniao-europeia",
       "tipo": "Editor",
-      "nome": "Autoridade Nacional de Comunicações",
-      "url": "entidades/editor/autoridade-nacional-de-comunicacoes/",
-      "nos_bytes": [],
-      "ficheiros_com_o_nome": 0,
-      "fundamento": "registo",
+      "nome": "Jornal Oficial da União Europeia",
+      "url": "entidades/editor/jornal-oficial-da-uniao-europeia/",
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 2,
+      "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
       "grau": {
@@ -234,9 +322,17 @@
         {
           "fonte": "2026-09-14/imprensa/scaleup-porto",
           "ocorrencias": 11
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 1,
+      "ficheiros_com_o_nome": 3,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -334,10 +430,23 @@
       "tipo": "Ideia",
       "nome": "Sustentabilidade",
       "url": "entidades/ideia/sustentabilidade/",
-      "nos_bytes": [],
-      "ficheiros_com_o_nome": 0,
-      "fundamento": null,
-      "ligavel": false,
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/almost-back-week-32",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
       "ligavel_em_prosa": false,
       "grau": {
         "saida": 0,
@@ -418,15 +527,23 @@
         {
           "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-04",
           "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 6,
+      "ficheiros_com_o_nome": 8,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
       "grau": {
         "saida": 1,
-        "entrada": 3
+        "entrada": 7
       }
     },
     {
@@ -531,6 +648,14 @@
           "ocorrencias": 5
         },
         {
+          "fonte": "2026-09-27/adamastor/events-feed",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed",
+          "ocorrencias": 5
+        },
+        {
           "fonte": "2026-09-14/bilhetes",
           "ocorrencias": 4
         },
@@ -553,17 +678,9 @@
         {
           "fonte": "2026-09-14/oradores/andreia-gaudencio",
           "ocorrencias": 3
-        },
-        {
-          "fonte": "2026-09-14/oradores/angelee-sidar",
-          "ocorrencias": 3
-        },
-        {
-          "fonte": "2026-09-14/oradores/anisha-yadav",
-          "ocorrencias": 3
         }
       ],
-      "ficheiros_com_o_nome": 78,
+      "ficheiros_com_o_nome": 80,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -667,11 +784,51 @@
           "ocorrencias": 10
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/the-351-effect-week-26",
+          "ocorrencias": 10
+        },
+        {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/wildfires-week-29",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/world-gratitude-day-week-32",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/a-startup-in-54-hours-repboost-wins-techstars-startup-weekend-viseu",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/big-wave-of-events-coming-up-week-31",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/hello-2026-week-1",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/reading-week-25",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 20,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -763,15 +920,35 @@
       "url": "entidades/organizacao/angels-way/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/posts/the-quiet-strength-of-angels-week-9",
+          "ocorrencias": 16
+        },
+        {
           "fonte": "2026-09-14/oradores/diogo-mendonca",
+          "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
           "ocorrencias": 10
         },
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startup-xmas-week-43",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 7,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -839,11 +1016,27 @@
           "ocorrencias": 7
         },
         {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 6
+        },
+        {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/almost-back-week-32",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/time-to-get-back-week-33",
+          "ocorrencias": 4
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 6,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -1333,9 +1526,13 @@
         {
           "fonte": "2026-09-14/oradores/brian-nogaro",
           "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -1597,9 +1794,41 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 10,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -2051,7 +2280,7 @@
           "ocorrencias": 12
         }
       ],
-      "ficheiros_com_o_nome": 79,
+      "ficheiros_com_o_nome": 81,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -2545,9 +2774,17 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/build-together-week-5",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -2833,9 +3070,17 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/europe-is-moving-week-4",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -2857,9 +3102,17 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -3169,9 +3422,17 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 3
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/what-s-moving-the-ecosystem-4-signals-worth-your-attention-week-36",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -3433,9 +3694,17 @@
         {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 2,
+      "ficheiros_com_o_nome": 4,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -3823,6 +4092,14 @@
           "ocorrencias": 2
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startups-corporates-week-3",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/bilhetes",
           "ocorrencias": 1
         },
@@ -3833,9 +4110,13 @@
         {
           "fonte": "2026-09-14/patrocinadores",
           "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 6,
+      "ficheiros_com_o_nome": 9,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -3971,6 +4252,18 @@
           "ocorrencias": 6
         },
         {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+          "ocorrencias": 4
+        },
+        {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 3
         },
@@ -3979,15 +4272,23 @@
           "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/imprensa/portugalglobal-maratona",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/sao-joao-startups-talent-week-25",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 7,
+      "ficheiros_com_o_nome": 15,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": true,
@@ -4164,10 +4465,23 @@
       "tipo": "Servico",
       "nome": "Aceleração",
       "url": "entidades/servico/aceleracao/",
-      "nos_bytes": [],
-      "ficheiros_com_o_nome": 0,
-      "fundamento": null,
-      "ligavel": false,
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/emotional-and-cultural-impact-week-39",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/portugal-s-sword-health-and-the-future-of-care-week-40",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 3,
+      "fundamento": "bytes",
+      "ligavel": true,
       "ligavel_em_prosa": false,
       "grau": {
         "saida": 0,
@@ -4243,15 +4557,23 @@
           "ocorrencias": 3
         },
         {
-          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 3
         },
         {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/carnaval-as-a-metaphor-for-entrepreneurship-week-7",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/founder-vs-reality-fit-week-21",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 10,
+      "ficheiros_com_o_nome": 25,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -4265,10 +4587,15 @@
       "tipo": "Setor",
       "nome": "Capital de risco",
       "url": "entidades/setor/capital-de-risco/",
-      "nos_bytes": [],
-      "ficheiros_com_o_nome": 0,
-      "fundamento": null,
-      "ligavel": false,
+      "nos_bytes": [
+        {
+          "fonte": "2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+          "ocorrencias": 2
+        }
+      ],
+      "ficheiros_com_o_nome": 1,
+      "fundamento": "bytes",
+      "ligavel": true,
       "ligavel_em_prosa": false,
       "grau": {
         "saida": 0,
@@ -4412,9 +4739,13 @@
         {
           "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
           "ocorrencias": 10
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 1,
+      "ficheiros_com_o_nome": 2,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4529,7 +4860,7 @@
           "ocorrencias": 4
         }
       ],
-      "ficheiros_com_o_nome": 14,
+      "ficheiros_com_o_nome": 18,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -4545,11 +4876,19 @@
       "url": "entidades/tecnologia/hardware/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/agenda",
+          "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
           "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 1,
+      "ficheiros_com_o_nome": 3,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4565,55 +4904,55 @@
       "url": "entidades/tema/leadership/",
       "nos_bytes": [
         {
-          "fonte": "2026-09-14/oradores/akshay-ruparelia",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/alexandra-isenegger",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/amit-grinvald",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/week-14",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/angelee-sidar",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 3
         },
         {
-          "fonte": "2026-09-14/oradores/brian-nogaro",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/entrepreneurial-dna-week-28",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/cintia-costa",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/green-pass-is-an-opportunity-week-23",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/daniel-gouveia",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/dina-kondratiuk",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/diogo-mendonca",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/ed-chandler",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/summer-break-week-27",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/elias-flachowsky",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/the-need-for-a-startup-media-outlet-week-16",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/filipa-faria",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/welcome-back-week-28",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 37,
+      "ficheiros_com_o_nome": 52,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4693,55 +5032,55 @@
       "url": "entidades/tema/ai/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 226
+        },
+        {
           "fonte": "2026-09-14/oradores",
           "ocorrencias": 93
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+          "ocorrencias": 75
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+          "ocorrencias": 71
         },
         {
           "fonte": "2026-09-14/imprensa/pbn-recorde-guinness",
           "ocorrencias": 64
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/ai-from-buzzword-to-competitive-advantage-week-11",
+          "ocorrencias": 55
+        },
+        {
+          "fonte": "2026-09-27/adamastor/events-feed",
+          "ocorrencias": 53
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+          "ocorrencias": 49
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/what-innovation-and-r-d-strategy-for-portugal-s-defense-economy",
+          "ocorrencias": 47
+        },
+        {
+          "fonte": "2026-09-27/adamastor/events-ai-feed",
+          "ocorrencias": 43
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+          "ocorrencias": 43
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
           "ocorrencias": 41
-        },
-        {
-          "fonte": "2026-09-15/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
-          "ocorrencias": 41
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-07",
-          "ocorrencias": 41
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-18-politicas-delta/src-pol-13",
-          "ocorrencias": 40
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-          "ocorrencias": 36
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-11",
-          "ocorrencias": 32
-        },
-        {
-          "fonte": "2026-09-23/entregas/chatgpt-2026-09-15-politicas-2/src-pol-12",
-          "ocorrencias": 29
-        },
-        {
-          "fonte": "2026-09-14/oradores/tina-valand",
-          "ocorrencias": 27
-        },
-        {
-          "fonte": "2026-09-15/entregas/chatgpt-2026-09-15-politicas-2/src-pol-10",
-          "ocorrencias": 24
-        },
-        {
-          "fonte": "2026-09-14/oradores/daniel-grech",
-          "ocorrencias": 21
         }
       ],
-      "ficheiros_com_o_nome": 51,
+      "ficheiros_com_o_nome": 152,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -4821,55 +5160,55 @@
       "url": "entidades/tema/fundraising/",
       "nos_bytes": [
         {
-          "fonte": "2026-09-14/agenda",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/about",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/imprensa/startupevents-org",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/amit-grinvald",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/hello-2026-week-1",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/angelee-sidar",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/ben-lakoff",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/reading-week-25",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/david-graham",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/time-to-get-back-week-33",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/dina-kondratiuk",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/what-venture-studios-actually-do-and-why-started-studios-pt-was-created",
+          "ocorrencias": 4
         },
         {
-          "fonte": "2026-09-14/oradores/hector-lv",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/home",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/jorge-sebastiao",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/llms",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/a-goal-we-can-all-agree-on",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/luis-valente",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/a-hard-week-a-stronger-ecosystem-week-6",
+          "ocorrencias": 2
         },
         {
-          "fonte": "2026-09-14/oradores/luiza-castro-rey",
-          "ocorrencias": 1
+          "fonte": "2026-09-27/adamastor/posts/a-more-agile-and-digital-state-week-21",
+          "ocorrencias": 2
         }
       ],
-      "ficheiros_com_o_nome": 19,
+      "ficheiros_com_o_nome": 116,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -4884,6 +5223,22 @@
       "nome": "European startups",
       "url": "entidades/tema/european-startups/",
       "nos_bytes": [
+        {
+          "fonte": "2026-09-27/adamastor/posts/defense-tech-a-sector-of-opportunity-week-30",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/on-ai-and-the-art-of-being-human-week-35",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startup-voucher-proof-it-works-and-one-week-left",
+          "ocorrencias": 2
+        },
         {
           "fonte": "2026-09-14/oradores/alexandra-isenegger",
           "ocorrencias": 1
@@ -4915,25 +5270,9 @@
         {
           "fonte": "2026-09-14/oradores/luiza-castro-rey",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/micael-lopes",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/mike-sigal",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/rita-figueiredo",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 16,
+      "ficheiros_com_o_nome": 21,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -5013,55 +5352,55 @@
       "url": "entidades/tema/scaling/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 5
+        },
+        {
+          "fonte": "2026-09-27/adamastor/events-feed",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/events-startups-fundraising-feed",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/entrepreneurial-spirit-of-carnaval-week-7",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/as-august-approaches-week-30",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/easter-time-week-13",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/entrepreneurial-dna-week-28",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/summer-readings-week-29",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/akshay-ruparelia",
           "ocorrencias": 1
         },
         {
           "fonte": "2026-09-14/oradores/alexandra-isenegger",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/angelee-sidar",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/ed-chandler",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/joao-ramos",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/lauren-mucklow",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/lidija-krickovic",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/lisa-rebecca-press",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/luis-gutman",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/mark-paul-haaksman",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/nina-chande",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/olivia-page",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 15,
+      "ficheiros_com_o_nome": 25,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -5076,6 +5415,30 @@
       "nome": "Operations",
       "url": "entidades/tema/operations/",
       "nos_bytes": [
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/ecosystem-keeps-moving-week-35",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/build-a-stronger-ecosystem-week-34",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startups-and-the-media-week-11",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+          "ocorrencias": 2
+        },
         {
           "fonte": "2026-09-14/oradores/diego-sampaio",
           "ocorrencias": 1
@@ -5099,33 +5462,9 @@
         {
           "fonte": "2026-09-14/oradores/lisa-rebecca-press",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/max-rodman",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/muhammad-farooq-rathod",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/nataliia-komarnytska",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/nina-chande",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/precy-servito",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/rita-figueiredo",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 14,
+      "ficheiros_com_o_nome": 20,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -5281,6 +5620,10 @@
           "ocorrencias": 2
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/what-will-the-future-jobs-be-and-how-can-regions-like-the-algarve-create-them",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/entregas/chatgpt-pt-newsroom-2026-09-14-politicas/src-pol-03",
           "ocorrencias": 1
         },
@@ -5307,13 +5650,9 @@
         {
           "fonte": "2026-09-14/oradores/janelle-harder",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/lauren-mucklow",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 25,
+      "ficheiros_com_o_nome": 27,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -5329,6 +5668,38 @@
       "url": "entidades/tema/hiring/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 8
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/ecosystem-is-buzzing-week-17",
+          "ocorrencias": 4
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/easter-time-week-13",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/eu-inc-and-the-rebuild-letter-week-12",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/in-times-like-these-builders-matter-even-more-week-15",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/knowledge-in-motion-week-14",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/truth-hurts-but-silence-hurts-more-week-18",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/where-research-meets-reality-week-16",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/ed-chandler",
           "ocorrencias": 1
         },
@@ -5343,33 +5714,9 @@
         {
           "fonte": "2026-09-14/oradores/precy-servito",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/raffaella-loncao",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/rita-kastrati",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/rita-martins-freire",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/satya-morarji",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/sylvie-ritt",
-          "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/vini-devnani",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 10,
+      "ficheiros_com_o_nome": 18,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -5453,6 +5800,18 @@
           "ocorrencias": 10
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/international-women-s-day-week-8",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/shape-the-future-week-6",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/anisha-yadav",
           "ocorrencias": 1
         },
@@ -5483,13 +5842,9 @@
         {
           "fonte": "2026-09-14/oradores/nashwa-shah",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/rita-kastrati",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 10,
+      "ficheiros_com_o_nome": 13,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -5557,6 +5912,10 @@
           "ocorrencias": 2
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/startups-get-out-there-week-18",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/akshay-ruparelia",
           "ocorrencias": 1
         },
@@ -5591,13 +5950,9 @@
         {
           "fonte": "2026-09-14/oradores/karan-setiya",
           "ocorrencias": 1
-        },
-        {
-          "fonte": "2026-09-14/oradores/luis-valente",
-          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 22,
+      "ficheiros_com_o_nome": 23,
       "fundamento": "bytes",
       "ligavel": false,
       "ligavel_em_prosa": false,
@@ -5645,6 +6000,14 @@
       "url": "entidades/tema/regulation/",
       "nos_bytes": [
         {
+          "fonte": "2026-09-27/adamastor/posts/hello-2026-week-1",
+          "ocorrencias": 2
+        },
+        {
+          "fonte": "2026-09-27/adamastor/posts/welcome-back-week-28",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/luiza-castro-rey",
           "ocorrencias": 1
         },
@@ -5655,9 +6018,13 @@
         {
           "fonte": "2026-09-14/oradores/thiago-vieira",
           "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 3,
+      "ficheiros_com_o_nome": 6,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,
@@ -5717,15 +6084,23 @@
           "ocorrencias": 10
         },
         {
+          "fonte": "2026-09-27/adamastor/posts/europe-is-moving-week-4",
+          "ocorrencias": 2
+        },
+        {
           "fonte": "2026-09-14/oradores/nina-chande",
           "ocorrencias": 1
         },
         {
           "fonte": "2026-09-14/oradores/rita-martins-freire",
           "ocorrencias": 1
+        },
+        {
+          "fonte": "2026-09-27/adamastor/feed",
+          "ocorrencias": 1
         }
       ],
-      "ficheiros_com_o_nome": 4,
+      "ficheiros_com_o_nome": 6,
       "fundamento": "bytes",
       "ligavel": true,
       "ligavel_em_prosa": false,

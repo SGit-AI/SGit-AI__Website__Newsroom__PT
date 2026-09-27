@@ -11,9 +11,41 @@
     {
       "fonte": "2026-09-14/oradores",
       "ocorrencias": 3
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/bridges-to-the-world-week-26",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/decentralizing-entrepreneurship-how-guimaraes-is-building-its-own-startup-ecosystem",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/in-love-with-startups-week-5",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/siiim-to-simconference-week-15",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/spin-offs-drivers-of-innovation-in-europe-week-9",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-business-enviroment-week-4",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/startup-digest-portugal-community-support-week-3",
+      "ocorrencias": 2
+    },
+    {
+      "fonte": "2026-09-27/adamastor/posts/try-again-and-fail-better-week-10",
+      "ocorrencias": 2
     }
   ],
-  "ficheiros_com_o_nome": 2,
+  "ficheiros_com_o_nome": 10,
   "fundamento": "bytes",
   "ligavel": false,
   "ligavel_em_prosa": false,
