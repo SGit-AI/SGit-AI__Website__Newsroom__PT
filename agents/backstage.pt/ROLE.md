@@ -1,8 +1,8 @@
 <!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
-# Bastidores — @Bastidores
+# Bastidores — @Backstage
 
-**Register id** `bastidores.pt` · **short id** `bastidores` · **role**
+**Register id** `backstage.pt` · **short id** `bastidores` · **role**
 `departamento` · **agent level** A · **state**
 a-correr
 
@@ -34,7 +34,7 @@ be contradicted, which is the only version worth publishing.
 - dados/correio.json
 - dados/quadro.json
 - dados/pontes.json
-- redacao/correio/bastidores.pt/
+- redacao/correio/backstage.pt/
 - redacao/correio/expedicao/*/
 
 Gate 12 reads a run record's `pastas_alteradas` and fails a run by this department that wrote
@@ -244,14 +244,13 @@ anywhere else. The boundary is checked on every build, not promised here.
 - @
 - B
 - a
+- c
+- k
 - s
 - t
-- i
-- d
-- o
-- r
+- a
+- g
 - e
-- s
 -  
 - e
 -  

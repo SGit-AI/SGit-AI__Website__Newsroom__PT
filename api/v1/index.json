@@ -1,6 +1,6 @@
 {
   "name": "pt.newsroom.sgit.ai — read-only API",
-  "version": "v0.23.14",
+  "version": "v0.23.15",
   "base": "https://pt.newsroom.sgit.ai/api/v1/",
   "openapi": "https://pt.newsroom.sgit.ai/api/v1/openapi.json",
   "console": "https://pt.newsroom.sgit.ai/api/",
@@ -765,7 +765,7 @@
       "portuguese_source": "dados/documentos.json",
       "summary": "Every markdown document in this repository",
       "description": null,
-      "count": 129,
+      "count": 122,
       "items": null,
       "item_ids": null
     },
@@ -1135,10 +1135,10 @@
       "count": 5,
       "items": "/api/v1/agents/<id>.json",
       "item_ids": [
-        "pesquisa-pt",
-        "redacao-pt",
-        "verificacao-pt",
-        "bastidores-pt",
+        "research-pt",
+        "desk-pt",
+        "verification-pt",
+        "backstage-pt",
         "dinis-humano"
       ]
     },

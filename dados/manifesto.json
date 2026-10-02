@@ -12,8 +12,8 @@
     },
     {
       "ficheiro": "dados/agentes.json",
-      "bytes": 20529,
-      "sha256": "490bcc51f7b22836979e122e542b6a0b2c94c3890147b51e5d22f4e506bb1775"
+      "bytes": 23144,
+      "sha256": "aa5a3fa8998f8463e15c4cfbd3ac16761873057289289f2e9ddbeccb25a632d6"
     },
     {
       "ficheiro": "dados/aviso.json",
@@ -22,13 +22,13 @@
     },
     {
       "ficheiro": "dados/comentarios.json",
-      "bytes": 85412,
-      "sha256": "4dee0841e4e91bd8fa6c295164c6fdf9b12957ab07139309cbf15b6ddf97faaf"
+      "bytes": 85408,
+      "sha256": "51ed4412e828ade47664ec2b9fe95b99ddade528dc0438faf5cdc636b3ae7c62"
     },
     {
       "ficheiro": "dados/correio.json",
-      "bytes": 58908,
-      "sha256": "6ec8892d95acad4ee81855aa8c3cf0ef620fa7fcde9e878652a66b18e51dd522"
+      "bytes": 58872,
+      "sha256": "1c54d0e5342213515304aff576f6862940bad6f6aeb5ac5aa03daef76fe80441"
     },
     {
       "ficheiro": "dados/desenho.json",
@@ -37,8 +37,8 @@
     },
     {
       "ficheiro": "dados/documentos.json",
-      "bytes": 29369,
-      "sha256": "b78c9011c43ab4870d7e8350a18e3ffd6067796d249cb16c2e71b4feeea0a7fa"
+      "bytes": 27898,
+      "sha256": "043b2255b6d311b1fefaca63247097e64988717d0de404e07750caeb8c24de66"
     },
     {
       "ficheiro": "dados/en-migration.json",
@@ -97,8 +97,8 @@
     },
     {
       "ficheiro": "dados/i18n/fontes.json",
-      "bytes": 637744,
-      "sha256": "a6d2598c6cc969ed0aae5ea5596d1905ee47040ae1d97ed5d75ccb2c09a7f747"
+      "bytes": 637126,
+      "sha256": "1486fd6d5f911701f02eb5563960ea25a3add8b2b501236443d03cfc36710cf1"
     },
     {
       "ficheiro": "dados/i18n/fr.json",
@@ -128,7 +128,7 @@
     {
       "ficheiro": "dados/manifesto.json",
       "bytes": 6482,
-      "sha256": "d2b2212963c2ab0afda06eaf4edc46f1d6b4aa2f428f3ad565d41e904f7b5767"
+      "sha256": "38aa577d0baea4dc36159cbf73997c5f9a1c9508f538704d7234841bc53effb7"
     },
     {
       "ficheiro": "dados/mudancas.json",
@@ -152,18 +152,18 @@
     },
     {
       "ficheiro": "dados/pontes.json",
-      "bytes": 9182,
-      "sha256": "35a65d8082ad650a27087c9ef985368b2630cad7201f33d3f50ed22b7e74be37"
+      "bytes": 9178,
+      "sha256": "42d635863324c4c4802521b6de8282d99aae6d3befa41d1acd4a338dc4035300"
     },
     {
       "ficheiro": "dados/quadro.json",
-      "bytes": 76633,
-      "sha256": "7f0548875cf1bb207b7946390d8f73b9175efd565170914fc9218b475847d2aa"
+      "bytes": 76603,
+      "sha256": "b074fae768a13020a00dbb477c5832122187747b8bbd2c41507fd30572834eac"
     },
     {
       "ficheiro": "dados/redacao.json",
-      "bytes": 23428,
-      "sha256": "78053854ad0b34d98c5bb5f8e328583bc22a85bd854afbc3bc1e11bdea67c323"
+      "bytes": 24090,
+      "sha256": "a6142f720848775c764c9243b168248afcc0a185b7dac8a58cd88b930b95895c"
     },
     {
       "ficheiro": "dados/registo.json",
@@ -172,8 +172,8 @@
     },
     {
       "ficheiro": "dados/review.json",
-      "bytes": 17357,
-      "sha256": "8b5a7dc9c5011de13afe4f7b3f3177e84912f0da8f54885653a15d02e9ff3fbf"
+      "bytes": 17376,
+      "sha256": "2501f384a52ef338b804cdb906387da5f766198122f87c3a1d8d2aac0b84516d"
     },
     {
       "ficheiro": "dados/sessoes.json",

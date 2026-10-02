@@ -42,8 +42,8 @@ redacao/correio/
   <agente>/assuntos/fechados/        o que ficou feito
 ```
 
-Os agentes são os de `dados/agentes.json`: `pesquisa.pt`, `redacao.pt`, `verificacao.pt`,
-`bastidores.pt` e `dinis.humano`. O identificador é `<papel>.<equipa>`, estável entre sessões —
+Os agentes são os de `dados/agentes.json`: `research.pt`, `desk.pt`, `verification.pt`,
+`backstage.pt` e `dinis.humano`. Até 2026-10-02 os quatro departamentos tinham endereços em português (`pesquisa.pt`, `redacao.pt`, `verificacao.pt`, `bastidores.pt`): o correio que enviaram guarda esses cabeçalhos tal como estão, e `identidades_historicas` em `dados/agentes.json` resolve cada um para o agente vivo. O identificador é `<papel>.<equipa>`, estável entre sessões —
 **é ele o endereço**. Um agente por identificador, de cada vez.
 
 ## As três regras, que são o protocolo todo
@@ -109,13 +109,13 @@ histórico citável. No dia em que uma mensagem destas for citada de fora, a var
 a ter um custo que hoje não tem, e esta secção é onde essa mudança de regime se escreve.
 
 ```
-From: pesquisa.pt <pesquisa.pt@redacao.local>
+From: research.pt <research.pt@redacao.local>
 To: dinis.humano <dinis.humano@redacao.local>
 Date: 2026-09-14T12:05:00Z
 Subject: A página da ANACOM devolve 403 a esta redação
 Message-ID: <003-anacom-403@redacao.local>
 In-Reply-To: <001-mvp-construido@redacao.local>
-X-EmailFS-From-Alias: @Pesquisa
+X-EmailFS-From-Alias: @Research
 X-EmailFS-To-Alias: @Dinis
 X-Redacao-Issue: 002
 
@@ -138,7 +138,7 @@ não a mensagem que o pediu. Mostra intenção, estado, bloqueio e conclusão nu
 ```
 ---
 aberto: 2026-09-14T12:10:00Z
-origem: redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml
+origem: redacao/correio/research.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml
 issue: 001
 prioridade: alta
 esforco: 2h

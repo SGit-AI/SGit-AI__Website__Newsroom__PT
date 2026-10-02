@@ -1,7 +1,7 @@
 {
   "id": "pt-review",
   "version": "1.0.0",
-  "updated": "2026-09-27",
+  "updated": "2026-10-02",
   "what_it_is": "The questions whose answer is the editor of record's, and what has changed since the others were answered. Nothing here decides anything: a decision is a file in the repository, written by a person, and this page only helps write it.",
   "the_rule": "A question with no verdict stays open, which is the safe state and what gate 13 already enforces. Silence is never a yes.",
   "count": 12,
@@ -207,6 +207,13 @@
   "changes": [
     {
       "kind": "release",
+      "when": "2026-10-02",
+      "version": "v0.23.15",
+      "what": "The four department agents have English names, and nothing that is a record was rewritten",
+      "url": "../../admin/versions.html#v0.23.15"
+    },
+    {
+      "kind": "release",
       "when": "2026-09-27",
       "version": "v0.23.14",
       "what": "adamastor.blog frozen and registered, and five things that would have gone wrong quietly",
@@ -253,13 +260,6 @@
       "version": "v0.23.8",
       "what": "The scheduled run has never run, and two defects found in the log that looked like a working cron",
       "url": "../../admin/versions.html#v0.23.8"
-    },
-    {
-      "kind": "release",
-      "when": "2026-09-22",
-      "version": "v0.23.7",
-      "what": "Three languages engineered so the bill stays flat, and not one page published",
-      "url": "../../admin/versions.html#v0.23.7"
     },
     {
       "kind": "delivery",

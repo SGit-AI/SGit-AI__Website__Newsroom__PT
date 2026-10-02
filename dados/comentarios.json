@@ -8,22 +8,22 @@
       "nome": "Pesquisa",
       "fornecedor": "esta redação",
       "especie": "departamento",
-      "id_correio": "pesquisa.pt",
-      "alias": "@Pesquisa"
+      "id_correio": "research.pt",
+      "alias": "@Research"
     },
     "redacao": {
       "nome": "Redação",
       "fornecedor": "esta redação",
       "especie": "departamento",
-      "id_correio": "redacao.pt",
-      "alias": "@Redacao"
+      "id_correio": "desk.pt",
+      "alias": "@Desk"
     },
     "verificacao": {
       "nome": "Verificação",
       "fornecedor": "esta redação",
       "especie": "departamento",
-      "id_correio": "verificacao.pt",
-      "alias": "@Verificacao"
+      "id_correio": "verification.pt",
+      "alias": "@Verification"
     },
     "editor": {
       "nome": "Dinis Cruz",

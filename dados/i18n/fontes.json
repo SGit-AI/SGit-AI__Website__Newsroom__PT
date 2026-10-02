@@ -2803,13 +2803,6 @@
         "artigos/2026/09/14/gigafabricas-de-ia-duzentos-milhoes/index.html"
       ]
     },
-    "40491c4b4465adc7": {
-      "text": "Verificação — @Verificacao",
-      "kind": "data",
-      "where": [
-        "dados/documentos.json"
-      ]
-    },
     "40fb5f0d3109de0e": {
       "text": "Escreveu a partir da única afirmação aprovada e da medição que esta redação fez dos bytes da outra página.",
       "kind": "prose",
@@ -6466,6 +6459,13 @@
         "build/chrome.py"
       ]
     },
+    "784b2412f05909aa": {
+      "text": "dinis.humano → research.pt · #-#-#T#:#:#Z · #,#,#",
+      "kind": "padrao",
+      "where": [
+        "desk/index.html"
+      ]
+    },
     "789126d3517a00c8": {
       "text": "o método",
       "kind": "chrome",
@@ -6648,13 +6648,6 @@
       "kind": "chrome",
       "where": [
         "build/chrome.py"
-      ]
-    },
-    "7d6990d77166d685": {
-      "text": "Redação — @Redacao",
-      "kind": "data",
-      "where": [
-        "dados/documentos.json"
       ]
     },
     "7dd47f33e872f990": {
@@ -9507,13 +9500,6 @@
         "artigos/2026/09/14/vinte-e-cinco-milhoes-para-ia-na-administracao-publica/comentarios.json"
       ]
     },
-    "af9839dd7f62e219": {
-      "text": "dinis.humano → pesquisa.pt · #-#-#T#:#:#Z · #,#,#",
-      "kind": "padrao",
-      "where": [
-        "desk/index.html"
-      ]
-    },
     "afe0158f74034994": {
       "text": "O editor leu-a e não a quer. A razão fica no ficheiro de revisão.",
       "kind": "chrome",
@@ -10302,6 +10288,13 @@
       "kind": "padrao",
       "where": [
         "grafo/index.html"
+      ]
+    },
+    "bd44f0ed0a3cbd51": {
+      "text": "Redação — @Desk",
+      "kind": "data",
+      "where": [
+        "dados/documentos.json"
       ]
     },
     "bd858b9a46073ba0": {
@@ -11583,6 +11576,13 @@
       "kind": "render",
       "where": [
         "index.html"
+      ]
+    },
+    "dacc2ba33b9fa7e1": {
+      "text": "Verificação — @Verification",
+      "kind": "data",
+      "where": [
+        "dados/documentos.json"
       ]
     },
     "dadf4b384dfd07c5": {

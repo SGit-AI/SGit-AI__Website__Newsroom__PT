@@ -120,12 +120,12 @@ def main():
     # `build/newsroom_team.py`, which reads the `.eml` files and derives each message's state from the
     # folder it sits in. Counting the folder again here would be a second reader of the same thing
     # — and it would be the second reader that goes stale, as this one did when the mail moved to
-    # `.eml` and the boxes took the protocol address («pesquisa.pt») instead of the short name
+    # `.eml` and the boxes took the protocol address («research.pt») instead of the short name
     # («pesquisa»).
     corr = carregar(DADOS / "correio.json")
     registo_agentes = carregar(DADOS / "agentes.json")
     # `id_curto` -> `id`, from the register, which is where the correspondence between the two
-    # identifiers lives. Without it, a bench called «pesquisa» does not find the «pesquisa.pt» box.
+    # identifiers lives. Without it, a bench called «pesquisa» does not find the «research.pt» box.
     ENDERECO = {a["id_curto"]: a["id"] for a in registo_agentes.get("agentes", [])}
 
     def correio(dep):

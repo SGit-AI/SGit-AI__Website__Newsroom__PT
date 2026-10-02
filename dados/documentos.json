@@ -1,9 +1,9 @@
 {
   "id": "pt-documentos",
   "versao": "0.1.0",
-  "atualizado": "2026-09-27",
+  "atualizado": "2026-10-02",
   "nota": "Every markdown document in this repository, indexed for the back office. The viewer reads the file itself over fetch rather than a copy, so what it shows cannot drift from what the build read.",
-  "contagem": 130,
+  "contagem": 131,
   "documentos": [
     {
       "caminho": ".claude/ONBOARDING.md",
@@ -254,6 +254,14 @@
       "palavras": 733
     },
     {
+      "caminho": "admin/versions/v0.23.15.md",
+      "titulo": "v0.23.15",
+      "categoria": "Repository root",
+      "bytes": 2384,
+      "linhas": 30,
+      "palavras": 381
+    },
+    {
       "caminho": "admin/versions/v0.23.2.md",
       "titulo": "v0.23.2",
       "categoria": "Repository root",
@@ -393,25 +401,41 @@
       "caminho": "agents/README.md",
       "titulo": "The agents",
       "categoria": "Agent mandates",
-      "bytes": 3553,
+      "bytes": 3538,
       "linhas": 50,
       "palavras": 530
     },
     {
-      "caminho": "agents/bastidores.pt/MANDATE.md",
+      "caminho": "agents/backstage.pt/MANDATE.md",
       "titulo": "Bastidores — mandate",
       "categoria": "Agent mandates",
-      "bytes": 3206,
+      "bytes": 3203,
       "linhas": 161,
       "palavras": 633
     },
     {
-      "caminho": "agents/bastidores.pt/ROLE.md",
-      "titulo": "Bastidores — @Bastidores",
+      "caminho": "agents/backstage.pt/ROLE.md",
+      "titulo": "Bastidores — @Backstage",
       "categoria": "Agent mandates",
-      "bytes": 3126,
-      "linhas": 343,
-      "palavras": 815
+      "bytes": 3119,
+      "linhas": 342,
+      "palavras": 813
+    },
+    {
+      "caminho": "agents/desk.pt/MANDATE.md",
+      "titulo": "Redação — mandate",
+      "categoria": "Agent mandates",
+      "bytes": 2587,
+      "linhas": 139,
+      "palavras": 503
+    },
+    {
+      "caminho": "agents/desk.pt/ROLE.md",
+      "titulo": "Redação — @Desk",
+      "categoria": "Agent mandates",
+      "bytes": 2450,
+      "linhas": 246,
+      "palavras": 604
     },
     {
       "caminho": "agents/dinis.humano/MANDATE.md",
@@ -430,52 +454,36 @@
       "palavras": 553
     },
     {
-      "caminho": "agents/pesquisa.pt/MANDATE.md",
+      "caminho": "agents/research.pt/MANDATE.md",
       "titulo": "Pesquisa — mandate",
       "categoria": "Agent mandates",
-      "bytes": 2529,
+      "bytes": 2526,
       "linhas": 129,
       "palavras": 496
     },
     {
-      "caminho": "agents/pesquisa.pt/ROLE.md",
-      "titulo": "Pesquisa — @Pesquisa",
+      "caminho": "agents/research.pt/ROLE.md",
+      "titulo": "Pesquisa — @Research",
       "categoria": "Agent mandates",
-      "bytes": 2766,
-      "linhas": 291,
-      "palavras": 681
+      "bytes": 2754,
+      "linhas": 288,
+      "palavras": 675
     },
     {
-      "caminho": "agents/redacao.pt/MANDATE.md",
-      "titulo": "Redação — mandate",
-      "categoria": "Agent mandates",
-      "bytes": 2589,
-      "linhas": 139,
-      "palavras": 503
-    },
-    {
-      "caminho": "agents/redacao.pt/ROLE.md",
-      "titulo": "Redação — @Redacao",
-      "categoria": "Agent mandates",
-      "bytes": 2455,
-      "linhas": 245,
-      "palavras": 602
-    },
-    {
-      "caminho": "agents/verificacao.pt/MANDATE.md",
+      "caminho": "agents/verification.pt/MANDATE.md",
       "titulo": "Verificação — mandate",
       "categoria": "Agent mandates",
-      "bytes": 2445,
+      "bytes": 2443,
       "linhas": 125,
       "palavras": 474
     },
     {
-      "caminho": "agents/verificacao.pt/ROLE.md",
-      "titulo": "Verificação — @Verificacao",
+      "caminho": "agents/verification.pt/ROLE.md",
+      "titulo": "Verificação — @Verification",
       "categoria": "Agent mandates",
-      "bytes": 2381,
-      "linhas": 224,
-      "palavras": 549
+      "bytes": 2372,
+      "linhas": 221,
+      "palavras": 543
     },
     {
       "caminho": "artigos/2026/09/14/a-agenda-de-ia-tem-32-iniciativas-e-o-diploma-continua-por-ler/artigo.md",
@@ -897,12 +905,12 @@
       "caminho": "redacao/correio/LEIA-ME.md",
       "titulo": "O correio desta redação — Email-FS-lite",
       "categoria": "Newsroom files",
-      "bytes": 8251,
+      "bytes": 8538,
       "linhas": 154,
-      "palavras": 1176
+      "palavras": 1210
     },
     {
-      "caminho": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
+      "caminho": "redacao/correio/backstage.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
       "titulo": "001__a-vista-dos-agentes-e-o-correio",
       "categoria": "Newsroom files",
       "bytes": 1481,
@@ -910,7 +918,7 @@
       "palavras": 234
     },
     {
-      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
+      "caminho": "redacao/correio/backstage.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
       "titulo": "002__a-fila-de-acrescento-nao-tem-credenciais",
       "categoria": "Newsroom files",
       "bytes": 1521,
@@ -918,7 +926,7 @@
       "palavras": 256
     },
     {
-      "caminho": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
+      "caminho": "redacao/correio/backstage.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
       "titulo": "003__nao-consigo-ler-os-cofres-do-jogo",
       "categoria": "Newsroom files",
       "bytes": 1715,
@@ -1014,7 +1022,7 @@
       "palavras": 263
     },
     {
-      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
+      "caminho": "redacao/correio/research.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
       "titulo": "001__pdf-do-diario-da-republica",
       "categoria": "Newsroom files",
       "bytes": 1418,
@@ -1022,7 +1030,7 @@
       "palavras": 233
     },
     {
-      "caminho": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
+      "caminho": "redacao/correio/research.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
       "titulo": "002__ausencias-publicaveis-tal-como-estao",
       "categoria": "Newsroom files",
       "bytes": 1198,
@@ -1030,7 +1038,7 @@
       "palavras": 182
     },
     {
-      "caminho": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
+      "caminho": "redacao/correio/research.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
       "titulo": "003__acesso-a-anacom",
       "categoria": "Newsroom files",
       "bytes": 972,
@@ -1038,12 +1046,12 @@
       "palavras": 148
     },
     {
-      "caminho": "redacao/correio/sessoes/bastidores.pt/notas.md",
+      "caminho": "redacao/correio/sessoes/backstage.pt/notas.md",
       "titulo": "notas — bastidores.pt",
       "categoria": "Newsroom files",
-      "bytes": 6065,
-      "linhas": 81,
-      "palavras": 959
+      "bytes": 7132,
+      "linhas": 98,
+      "palavras": 1109
     }
   ]
 }

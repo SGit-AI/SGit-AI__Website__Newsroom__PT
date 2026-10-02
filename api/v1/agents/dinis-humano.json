@@ -35,7 +35,7 @@
     "a consola de bastidores",
     "a fila de acrescento, do navegador"
   ],
-  "trabalha_com": "Recebe de @Verificacao a história com o registo ao lado, e de @Bastidores a vista do que está em curso. Fala com qualquer agente pela fila de acrescento ou pelo correio.",
+  "trabalha_com": "Recebe de @Verification a história com o registo ao lado, e de @Backstage a vista do que está em curso. Fala com qualquer agente pela fila de acrescento ou pelo correio.",
   "corre": "Quando decide correr",
   "estado": "a-correr",
   "en": {

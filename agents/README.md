@@ -12,10 +12,10 @@ rendered from it by `build/mandatos.py`. Do not edit them: edit the register, or
 
 | Agent | Alias | Role | Mail address | Domain | Mandate |
 |---|---|---|---|---|---|
-| [**Pesquisa**](pesquisa.pt/ROLE.md) | `@Pesquisa` | departamento | `pesquisa.pt` | Fontes primárias, congelamento, hash, registo, extração e comparação… | [ROLE](pesquisa.pt/ROLE.md) · [MANDATE](pesquisa.pt/MANDATE.md) |
-| [**Redação**](redacao.pt/ROLE.md) | `@Redacao` | departamento | `redacao.pt` | A prosa de cada artigo, e a marca de fonte em cada afirmação… | [ROLE](redacao.pt/ROLE.md) · [MANDATE](redacao.pt/MANDATE.md) |
-| [**Verificação**](verificacao.pt/ROLE.md) | `@Verificacao` | departamento | `verificacao.pt` | A releitura de cada fonte citada, na cópia congelada… | [ROLE](verificacao.pt/ROLE.md) · [MANDATE](verificacao.pt/MANDATE.md) |
-| [**Bastidores**](bastidores.pt/ROLE.md) | `@Bastidores` | departamento | `bastidores.pt` | A consola de operações, o protocolo de correio entre agentes, as pontes para o cofre e a o… | [ROLE](bastidores.pt/ROLE.md) · [MANDATE](bastidores.pt/MANDATE.md) |
+| [**Pesquisa**](research.pt/ROLE.md) | `@Research` | departamento | `research.pt` | Fontes primárias, congelamento, hash, registo, extração e comparação… | [ROLE](research.pt/ROLE.md) · [MANDATE](research.pt/MANDATE.md) |
+| [**Redação**](desk.pt/ROLE.md) | `@Desk` | departamento | `desk.pt` | A prosa de cada artigo, e a marca de fonte em cada afirmação… | [ROLE](desk.pt/ROLE.md) · [MANDATE](desk.pt/MANDATE.md) |
+| [**Verificação**](verification.pt/ROLE.md) | `@Verification` | departamento | `verification.pt` | A releitura de cada fonte citada, na cópia congelada… | [ROLE](verification.pt/ROLE.md) · [MANDATE](verification.pt/MANDATE.md) |
+| [**Bastidores**](backstage.pt/ROLE.md) | `@Backstage` | departamento | `backstage.pt` | A consola de operações, o protocolo de correio entre agentes, as pontes para o cofre e a o… | [ROLE](backstage.pt/ROLE.md) · [MANDATE](backstage.pt/MANDATE.md) |
 | [**Dinis Cruz**](dinis.humano/ROLE.md) | `@Dinis` | humano | `dinis.humano` | Editor de registo; responsável pelo tratamento nomeado no aviso… | [ROLE](dinis.humano/ROLE.md) · [MANDATE](dinis.humano/MANDATE.md) |
 
 ## How to claim one

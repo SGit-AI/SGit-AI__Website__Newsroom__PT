@@ -1,8 +1,8 @@
 <!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
-# Redação — @Redacao
+# Redação — @Desk
 
-**Register id** `redacao.pt` · **short id** `redacao` · **role**
+**Register id** `desk.pt` · **short id** `redacao` · **role**
 `departamento` · **agent level** A · **state**
 a-correr
 
@@ -29,7 +29,7 @@ be contradicted, which is the only version worth publishing.
 
 - artigos/<data>__<slug>/
 - conteudo/*.md
-- redacao/correio/redacao.pt/
+- redacao/correio/desk.pt/
 - redacao/correio/expedicao/*/
 
 Gate 12 reads a run record's `pastas_alteradas` and fails a run by this department that wrote
@@ -47,14 +47,14 @@ anywhere else. The boundary is checked on every build, not promised here.
 - e
 -  
 - @
-- P
+- R
 - e
 - s
-- q
-- u
-- i
-- s
+- e
 - a
+- r
+- c
+- h
 -  
 - r
 - e
@@ -86,9 +86,10 @@ anywhere else. The boundary is checked on every build, not promised here.
 - i
 - c
 - a
-- c
-- a
+- t
+- i
 - o
+- n
 - .
 -  
 - Q
@@ -205,14 +206,14 @@ anywhere else. The boundary is checked on every build, not promised here.
 - a
 -  
 - @
-- P
+- R
 - e
 - s
-- q
-- u
-- i
-- s
+- e
 - a
+- r
+- c
+- h
 -  
 - o
 -  

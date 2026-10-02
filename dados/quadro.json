@@ -1,13 +1,13 @@
 {
   "id": "pt-quadro",
   "versao": "0.1.0",
-  "atualizado": "2026-09-27",
+  "atualizado": "2026-10-02",
   "nota": "O quadro de cada agente. Um cartão em «assuntos» é trabalho que o agente abriu para si; um issue do jornal chega ao quadro pela fórmula publicada em dados/agentes.json e por mais nada.",
   "formula": {
     "nota": "A quem pertence um issue do jornal não é escrito à mão em lado nenhum: sai do seu estado, por esta tabela, e é por isso que o quadro não pode discordar dos ficheiros. Um cartão em «assuntos» é diferente: é o trabalho que o próprio agente abriu, e esse é escrito por ele.",
     "de_estado_para_agente": {
-      "procurado": "pesquisa.pt",
-      "rascunho": "verificacao.pt",
+      "procurado": "research.pt",
+      "rascunho": "verification.pt",
       "verificado": "dinis.humano",
       "congelado": "dinis.humano",
       "publicado": "—",
@@ -38,15 +38,15 @@
     "agentes": 5
   },
   "por_agente": {
-    "pesquisa.pt": {
-      "agente": "pesquisa.pt",
-      "alias": "@Pesquisa",
+    "research.pt": {
+      "agente": "research.pt",
+      "alias": "@Research",
       "nome": "Pesquisa",
       "colunas": {
         "abertos": [
           {
-            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
-            "agente": "pesquisa.pt",
+            "ficheiro": "redacao/correio/research.pt/assuntos/abertos/001__pdf-do-diario-da-republica.md",
+            "agente": "research.pt",
             "coluna": "abertos",
             "origem_tipo": "assunto",
             "titulo": "O PDF do Diário da República, para a agenda e para a designação",
@@ -60,8 +60,8 @@
             "resumo": "Encontrar o endereço do PDF do Diário da República para o diploma da agenda nacional (001) e para o ato de designação do regulador (002). O `dre.pt` congelado a 14 de setembro tem 2 346 bytes e 22 caracteres visíveis: renderiza por script e não diz nada a um leitor automático. Os PDFs dizem, e `buil"
           },
           {
-            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
-            "agente": "pesquisa.pt",
+            "ficheiro": "redacao/correio/research.pt/assuntos/abertos/002__ausencias-publicaveis-tal-como-estao.md",
+            "agente": "research.pt",
             "coluna": "abertos",
             "origem_tipo": "assunto",
             "titulo": "Duas ausências publicáveis tal como estão",
@@ -77,8 +77,8 @@
         ],
         "bloqueados": [
           {
-            "ficheiro": "redacao/correio/pesquisa.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
-            "agente": "pesquisa.pt",
+            "ficheiro": "redacao/correio/research.pt/assuntos/bloqueados/003__acesso-a-anacom.md",
+            "agente": "research.pt",
             "coluna": "bloqueados",
             "origem_tipo": "assunto",
             "titulo": "Acesso à página da ANACOM, que devolve 403",
@@ -97,7 +97,7 @@
       "issues_do_jornal": [
         {
           "ficheiro": "redacao/issues/003-quantas-startups-ia.json",
-          "agente": "pesquisa.pt",
+          "agente": "research.pt",
           "coluna": "abertos",
           "origem_tipo": "issue",
           "id": "003",
@@ -115,13 +115,13 @@
       ],
       "entrada": [
         {
-          "ficheiro": "redacao/correio/pesquisa.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
+          "ficheiro": "redacao/correio/research.pt/entrada/002__dinis.humano__tres-primeiras-historias.eml",
           "lugar": "entrada",
-          "caixa": "pesquisa.pt",
+          "caixa": "research.pt",
           "de": "dinis.humano",
-          "para": "pesquisa.pt",
+          "para": "research.pt",
           "de_alias": "@Dinis",
-          "para_alias": "@Pesquisa",
+          "para_alias": "@Research",
           "assunto": "As três primeiras histórias estão abertas como issues em «procurado»",
           "quando": "2026-09-14T12:05:00Z",
           "id": "002-tres-primeiras-historias@redacao.local",
@@ -146,9 +146,9 @@
         "em_transito": 0
       }
     },
-    "redacao.pt": {
-      "agente": "redacao.pt",
-      "alias": "@Redacao",
+    "desk.pt": {
+      "agente": "desk.pt",
+      "alias": "@Desk",
       "nome": "Redação",
       "colunas": {
         "abertos": [],
@@ -159,13 +159,13 @@
       "entrada": [],
       "em_transito": [
         {
-          "ficheiro": "redacao/correio/expedicao/redacao.pt/007__bastidores.pt__escrever-o-cada-duas-afirmacoes-e-nada-mais.eml",
+          "ficheiro": "redacao/correio/expedicao/desk.pt/007__bastidores.pt__escrever-o-cada-duas-afirmacoes-e-nada-mais.eml",
           "lugar": "expedicao",
-          "caixa": "redacao.pt",
-          "de": "bastidores.pt",
-          "para": "redacao.pt",
-          "de_alias": "@Bastidores",
-          "para_alias": "@Redação",
+          "caixa": "desk.pt",
+          "de": "backstage.pt",
+          "para": "desk.pt",
+          "de_alias": "@Backstage",
+          "para_alias": "@Desk",
           "assunto": "Escrever o CADA: duas afirmações confirmadas, e a inferência que fica de fora",
           "quando": "2026-09-23T01:45:00Z",
           "id": "007-escrever-o-cada@redacao.local",
@@ -189,9 +189,9 @@
         "em_transito": 1
       }
     },
-    "verificacao.pt": {
-      "agente": "verificacao.pt",
-      "alias": "@Verificacao",
+    "verification.pt": {
+      "agente": "verification.pt",
+      "alias": "@Verification",
       "nome": "Verificação",
       "colunas": {
         "abertos": [],
@@ -210,15 +210,15 @@
         "em_transito": 0
       }
     },
-    "bastidores.pt": {
-      "agente": "bastidores.pt",
-      "alias": "@Bastidores",
+    "backstage.pt": {
+      "agente": "backstage.pt",
+      "alias": "@Backstage",
       "nome": "Bastidores",
       "colunas": {
         "abertos": [
           {
-            "ficheiro": "redacao/correio/bastidores.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
-            "agente": "bastidores.pt",
+            "ficheiro": "redacao/correio/backstage.pt/assuntos/abertos/001__a-vista-dos-agentes-e-o-correio.md",
+            "agente": "backstage.pt",
             "coluna": "abertos",
             "origem_tipo": "assunto",
             "titulo": "A vista dos agentes, o quadro de cada um, e o correio",
@@ -234,8 +234,8 @@
         ],
         "bloqueados": [
           {
-            "ficheiro": "redacao/correio/bastidores.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
-            "agente": "bastidores.pt",
+            "ficheiro": "redacao/correio/backstage.pt/assuntos/bloqueados/002__a-fila-de-acrescento-nao-tem-credenciais.md",
+            "agente": "backstage.pt",
             "coluna": "bloqueados",
             "origem_tipo": "assunto",
             "titulo": "A fila de acrescento não tem credenciais",
@@ -249,8 +249,8 @@
             "resumo": "A ponte que deixa o editor escrever aos bastidores a partir do navegador está construída e não tem por onde enviar. Uma fila de acrescento precisa de três coisas, e nenhuma delas pode estar neste repositório. | O quê | Para quê | Porque não fica em ficheiro | |---|---|---| | `vault_id` do cofre que "
           },
           {
-            "ficheiro": "redacao/correio/bastidores.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
-            "agente": "bastidores.pt",
+            "ficheiro": "redacao/correio/backstage.pt/assuntos/bloqueados/003__nao-consigo-ler-os-cofres-do-jogo.md",
+            "agente": "backstage.pt",
             "coluna": "bloqueados",
             "origem_tipo": "assunto",
             "titulo": "Não consigo ler os cofres dos jogos",
@@ -270,13 +270,13 @@
       "entrada": [],
       "em_transito": [
         {
-          "ficheiro": "redacao/correio/expedicao/bastidores.pt/005__dinis.humano__os-resumos-de-investigacao-precisam-de-uma-pagina.eml",
+          "ficheiro": "redacao/correio/expedicao/backstage.pt/005__dinis.humano__os-resumos-de-investigacao-precisam-de-uma-pagina.eml",
           "lugar": "expedicao",
-          "caixa": "bastidores.pt",
+          "caixa": "backstage.pt",
           "de": "dinis.humano",
-          "para": "bastidores.pt",
+          "para": "backstage.pt",
           "de_alias": "@Dinis",
-          "para_alias": "@Bastidores",
+          "para_alias": "@Backstage",
           "assunto": "Os resumos de investigação precisam de uma página que os renderize, e não de uma segunda cópia",
           "quando": "2026-09-15T09:40:00Z",
           "id": "005-resumos-em-html@redacao.local",
@@ -543,9 +543,9 @@
           "ficheiro": "redacao/correio/expedicao/dinis.humano/003__bastidores.pt__a-equipa-esta-visivel-e-a-ponte-nao-tem-chave.eml",
           "lugar": "expedicao",
           "caixa": "dinis.humano",
-          "de": "bastidores.pt",
+          "de": "backstage.pt",
           "para": "dinis.humano",
-          "de_alias": "@Bastidores",
+          "de_alias": "@Backstage",
           "para_alias": "@Dinis",
           "assunto": "A equipa passa a ser visível nos bastidores; a ponte para o navegador está construída e sem credencial",
           "quando": "2026-09-14T23:55:00Z",
@@ -564,9 +564,9 @@
           "ficheiro": "redacao/correio/expedicao/dinis.humano/004__bastidores.pt__a-revisao-de-desenho-esta-implementada.eml",
           "lugar": "expedicao",
           "caixa": "dinis.humano",
-          "de": "bastidores.pt",
+          "de": "backstage.pt",
           "para": "dinis.humano",
-          "de_alias": "@Bastidores",
+          "de_alias": "@Backstage",
           "para_alias": "@Dinis",
           "assunto": "A revisão de desenho está implementada até onde um agente a pode implementar; cinco decisões são suas",
           "quando": "2026-09-15T02:10:00Z",
@@ -585,9 +585,9 @@
           "ficheiro": "redacao/correio/expedicao/dinis.humano/006__bastidores.pt__a-emenda-da-regra-da-lingua-e-a-caixa-que-ninguem-le.eml",
           "lugar": "expedicao",
           "caixa": "dinis.humano",
-          "de": "bastidores.pt",
+          "de": "backstage.pt",
           "para": "dinis.humano",
-          "de_alias": "@Bastidores",
+          "de_alias": "@Backstage",
           "para_alias": "@Dinis",
           "assunto": "A emenda da regra da língua está escrita palavra a palavra; e a caixa de entrada que o CLAUDE.md manda usar não é lida por nada",
           "quando": "2026-09-23T01:20:00Z",

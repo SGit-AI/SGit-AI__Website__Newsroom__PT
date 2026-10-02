@@ -34,7 +34,7 @@ forgets to change both. So the owner is derived from the state, by the table in
 
 WHAT THIS SCRIPT MAY NOT DO
 
-It is @Bastidores' script, and @Bastidores publishes no claim about the world. Every number these
+It is @Backstage's script, and @Backstage publishes no claim about the world. Every number these
 pages carry is a count of files in this repository. `build/gates_artigos.py` fails the build if a
 back-office page ever cites a frozen source as evidence.
 """
@@ -98,13 +98,22 @@ def ler_eml(f):
 
 
 def endereco(valor):
-    """`pesquisa.pt <pesquisa.pt@redacao.local>` -> `pesquisa.pt`. The identity is the address."""
+    """`research.pt <research.pt@redacao.local>` -> `research.pt`. The identity is the address."""
     m = re.match(r"^\s*([^<]+?)\s*<", valor or "")
     return (m.group(1) if m else (valor or "")).strip()
 
 
-def ler_correio(ids):
-    """Every `.eml` under redacao/correio/, with the state its location implies."""
+def ler_correio(ids, renomes=None, alias_vivo=None):
+    """Every `.eml` under redacao/correio/, with the state its location implies.
+
+    `renomes` maps a retired protocol address to the live one — `bastidores.pt` -> `backstage.pt`
+    — from `identidades_historicas[].renomeada_para` in the register. MAIL IS NEVER EDITED: a
+    message sent as `bastidores.pt` keeps that header for as long as the file exists, so the
+    resolution happens here, on the way in, and the sender shows as the agent it is rather than
+    as an unknown address. The folder the file sits in was moved with `git mv`, which is why the
+    box is already right and only the headers need resolving."""
+    renomes = renomes or {}
+    alias_vivo = alias_vivo or {}
     msgs = []
     for f in sorted(CORREIO.rglob("*.eml")) if CORREIO.exists() else []:
         rel = f.relative_to(ROOT).as_posix()
@@ -116,15 +125,23 @@ def ler_correio(ids):
         else:
             continue
         cab, corpo = ler_eml(f)
-        de, para = endereco(cab.get("from")), endereco(cab.get("to"))
+        de_cru, para_cru = endereco(cab.get("from")), endereco(cab.get("to"))
+        de, para = renomes.get(de_cru, de_cru), renomes.get(para_cru, para_cru)
         msgs.append({
             "ficheiro": rel,
             "lugar": lugar,
             "caixa": caixa,
             "de": de,
             "para": para,
-            "de_alias": cab.get("x-emailfs-from-alias") or f"@{de}",
-            "para_alias": cab.get("x-emailfs-to-alias") or f"@{para}",
+            # The alias follows the address. A message sent as `bastidores.pt` carries
+            # `X-EmailFS-From-Alias: @Bastidores` in its header, and the header is a record; but
+            # the page would then show one agent under two names, the live one on its own box and
+            # the old one on every message it sent before the rename. So when the address was
+            # resolved through `renomes`, the alias is the live agent's; otherwise the header's.
+            "de_alias": (alias_vivo.get(de) if de != de_cru else None)
+                        or cab.get("x-emailfs-from-alias") or f"@{de}",
+            "para_alias": (alias_vivo.get(para) if para != para_cru else None)
+                          or cab.get("x-emailfs-to-alias") or f"@{para}",
             "assunto": cab.get("subject", ""),
             "quando": cab.get("date", ""),
             "id": cab.get("message-id", "").strip("<>"),
@@ -693,7 +710,10 @@ def main():
         print("team: dados/agentes.json does not exist — nothing to do")
         return []
     ids = {a["id"] for a in ag.get("agentes", [])}
-    msgs = ler_correio(ids)
+    renomes = {h["id"]: h["renomeada_para"] for h in ag.get("identidades_historicas", [])
+               if h.get("renomeada_para")}
+    alias_vivo = {a["id"]: a.get("alias") for a in ag.get("agentes", [])}
+    msgs = ler_correio(ids, renomes, alias_vivo)
     cartoes = ler_cartoes()
     issues = ler_issues_do_jornal(ag.get("formula_do_quadro", {}))
     q = quadro(ag.get("agentes", []), cartoes, issues, msgs)

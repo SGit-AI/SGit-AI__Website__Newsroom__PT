@@ -1,67 +1,39 @@
 <!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
-# Verificação — mandate
+# Pesquisa — mandate
 
-**Register id** `verificacao.pt` · declares `departamento:
-verificacao` in a run record.
+**Register id** `research.pt` · declares `departamento:
+pesquisa` in a run record.
 
 ## Not responsible for
 
 The field that makes this a team rather than five copies of one role. Without it every role
 silently becomes the same role, so each entry says whose the work actually is.
 
-**Editar a história**  
-Belongs to: @Redacao — a verificação anota, não reescreve
+**Escrever prosa**  
+Belongs to: @Desk — o portão 12 falha a construção se a diferença de uma execução mostrar a pesquisa a escrever em conteudo/
 
-**Obter uma fonte que falta**  
-Belongs to: @Pesquisa
+**Decidir se uma afirmação está confirmada**  
+Belongs to: @Verification, que relê a cópia congelada
 
-**Dar um veredicto sobre uma parte nomeada**  
-Belongs to: Ninguém: publica-se o registo, e nenhum adjetivo sobre uma pessoa ou organização nomeada é da competência de agente nenhum
+**Pôr uma história em «publicado»**  
+Belongs to: @Dinis, e só ele
 
-**Aprovar uma entrega de investigação**  
-Belongs to: @Dinis, item a item
+**A consola de bastidores e as pontes**  
+Belongs to: @Backstage
 
 ## Refuses
 
-- Editar a história
-- Marcar como confirmada uma afirmação que não releu
-- Ler a fonte pela rede em vez da cópia congelada
+- Ler uma fonte pela rede no momento de publicar
+- Citar uma página que ninguém congelou
+- Arrumar um valor confuso da fonte para um mais limpo
+- Deixar um contacto de pessoa singular entrar num ficheiro de dados
 
 ## Wrong when
 
 - U
 - m
 - a
--  
-- h
-- i
-- s
-- t
-- ó
-- r
-- i
-- a
--  
-- c
-- h
-- e
-- g
-- a
--  
-- a
-- o
--  
-- e
-- d
-- i
-- t
-- o
-- r
--  
-- c
-- o
-- m
 -  
 - a
 - f
@@ -70,36 +42,68 @@ Belongs to: @Dinis, item a item
 - m
 - a
 - ç
-- õ
+- ã
+- o
+-  
+- n
+- ã
+- o
+-  
+- p
+- o
+- d
 - e
+-  
+- s
+- e
+- r
+-  
+- p
+- e
+- r
+- c
+- o
+- r
+- r
+- i
+- d
+- a
+-  
+- p
+- a
+- r
+- a
+-  
+- t
+- r
+- á
 - s
 -  
-- q
-- u
-- e
--  
-- n
-- i
-- n
-- g
-- u
+- a
+- t
 - é
+-  
+- u
 - m
 -  
-- v
+- S
+- H
+- A
+- -
+- 2
+- 5
+- 6
+-  
+- d
 - o
-- l
+-  
+- r
+- e
+- g
+- i
+- s
 - t
 - o
-- u
--  
-- a
--  
-- a
-- b
-- r
-- i
-- r
 - .
 
 ## What holds this mandate to its word

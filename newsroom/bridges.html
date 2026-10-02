@@ -16,11 +16,11 @@
 <body>
 
 <div class="folha bo-strip">
-<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><span class="langs" aria-label="Língua"><a class="lang aqui" data-lang="pt" hreflang="pt-PT" href="../" title="Português (Portugal)">PT</a><a class="lang" data-lang="en-gb" hreflang="en-GB" href="../en-gb/" title="English (United Kingdom)">EN</a><a class="lang" data-lang="fr" hreflang="fr-FR" href="../fr/" title="Français">FR</a><a class="lang" data-lang="de" hreflang="de-DE" href="../de/" title="Deutsch">DE</a></span><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.14" title="O que mudou em v0.23.14, e porquê">v0.23.14</a></div>
+<div class="utility"><a href="../aviso/">Aviso</a><a href="../metodo/">Método</a><a href="../api/">API</a><a href="../" title="A publicação, em português">← o jornal</a><span class="langs" aria-label="Língua"><a class="lang aqui" data-lang="pt" hreflang="pt-PT" href="../" title="Português (Portugal)">PT</a><a class="lang" data-lang="en-gb" hreflang="en-GB" href="../en-gb/" title="English (United Kingdom)">EN</a><a class="lang" data-lang="fr" hreflang="fr-FR" href="../fr/" title="Français">FR</a><a class="lang" data-lang="de" hreflang="de-DE" href="../de/" title="Deutsch">DE</a></span><pt-wallet site-root="../"></pt-wallet><a class="ver" href="../admin/versions.html#v0.23.15" title="O que mudou em v0.23.15, e porquê">v0.23.15</a></div>
 </div>
 
 <div class="shell">
-<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.14</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../newsroom/bridges.html" aria-current="page">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../newsroom/team.html">Team</a><a class="nav" href="../newsroom/agents.html">Agent activity</a><a class="nav" href="../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../newsroom/guidance.html">Guidance</a><a class="nav" href="../newsroom/interviews.html">Interviews</a><a class="nav" href="../newsroom/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
+<nav class="rail" aria-label="Back office"><a class="rail__brand" href="../newsroom/"><b>pt.newsroom</b><span>back office · v0.23.15</span></a><p class="rail__note">This is the operations console, not the publication. English on purpose — <a href="../newsroom/guidance.html">why</a>.</p><div class="rail__group"><h3>Operate</h3><a class="nav" href="../newsroom/">Console<span class="count r1" id="rail-fila">15</span></a><a class="nav" href="../newsroom/mail.html">Mail<span class="count r1">1</span></a><a class="nav" href="../newsroom/board.html">Board<span class="count">17</span></a><a class="nav" href="../newsroom/bridges.html" aria-current="page">Bridges</a></div><div class="rail__group"><h3>Understand</h3><a class="nav" href="../newsroom/team.html">Team</a><a class="nav" href="../newsroom/agents.html">Agent activity</a><a class="nav" href="../newsroom/design.html">Design review</a></div><div class="rail__group"><h3>Reference</h3><a class="nav" href="../newsroom/guidance.html">Guidance</a><a class="nav" href="../newsroom/interviews.html">Interviews</a><a class="nav" href="../newsroom/docs.html">Documents</a><a class="nav" href="../admin/versions.html">Versions</a><a class="nav" href="../">↗ The paper</a></div></nav>
 <main class="main">
 
 <div class="page-head"><div><h1>The bridges</h1></div></div>
@@ -57,7 +57,7 @@
     <span class="st st--2">sem-credencial</span>
     <span class="path">editor-para-bastidores</span>
   </div>
-  <p class="sm mono xs">navegador do editor → fila de acrescento → cofre → @Bastidores</p>
+  <p class="sm mono xs">navegador do editor → fila de acrescento → cofre → @Backstage</p>
   <p class="std" style="max-width:52em;padding-top:6px">Para o editor poder comentar uma página, pedir uma alteração ou dar uma instrução no momento em que a está a ler, sem abrir um terminal e sem escrever um issue à mão.</p>
   <div class="g2 sp12" style="padding-top:10px">
     <div class="col sp6">
@@ -81,7 +81,7 @@
     <tbody><tr><td class="mono xs">vault_id</td><td class="sm">O cofre que recebe</td><td><span class="st st--2">secret</span></td><td class="sm">Junto ao código de acrescento dá a fila inteira a quem leia o repositório</td></tr><tr><td class="mono xs">append_token</td><td class="sm">Autoriza o acrescento, e só o acrescento. Hexadecimal, 16 a 128 dígitos, sem prefixo</td><td><span class="st st--2">secret</span></td><td class="sm">Nesta ponte o código é do editor e não é público: se o fosse, qualquer visitante escrevia na caixa dos bastidores</td></tr><tr><td class="mono xs">chave_publica</td><td class="sm">O pacote JSON de «sgit pki export», ou o PEM sozinho</td><td><span class="st st--4">publishable</span></td><td class="sm">Uma chave pública publica-se. Esta é a única das três que um dia fica em ficheiro</td></tr></tbody></table></div>
   <p class="xs mono" style="padding-top:6px">localStorage: <code>pt-newsroom:ponte:editor-para-bastidores</code></p>
   <div class="aviso-bloco" style="margin-top:12px">
-    <p class="sm"><b>How the receiving end must treat this.</b> Cada mensagem que chega é uma AFIRMAÇÃO de quem a enviou, e nunca uma instrução que se execute sem ler. Quem tem o código de acrescento pode forjar e pode inundar; a fila para nos 1000 ficheiros por tratar. @Bastidores trata o que chega como correio: entra na expedição, é entregue, e é lido por uma pessoa ou por uma sessão que responde por aquilo que faz.</p>
+    <p class="sm"><b>How the receiving end must treat this.</b> Cada mensagem que chega é uma AFIRMAÇÃO de quem a enviou, e nunca uma instrução que se execute sem ler. Quem tem o código de acrescento pode forjar e pode inundar; a fila para nos 1000 ficheiros por tratar. @Backstage trata o que chega como correio: entra na expedição, é entregue, e é lido por uma pessoa ou por uma sessão que responde por aquilo que faz.</p>
   </div>
 </div>
 <div class="cartao" style="padding:16px;margin-top:18px" id="observabilidade">
@@ -155,10 +155,10 @@ JSON bundle <code>sgit pki export &lt;fingerprint&gt;</code> writes: the page re
 </div>
 
 <h2>Write to
-  @Bastidores</h2>
+  @Backstage</h2>
 <p class="std" style="max-width:52em">This goes into the append lane, and
-@Bastidores files it as mail — into
-<code>redacao/correio/expedicao/bastidores.pt/</code>, delivered, read, and answered like any
+@Backstage files it as mail — into
+<code>redacao/correio/expedicao/backstage.pt/</code>, delivered, read, and answered like any
 other message. It is treated as <b>a claim by whoever sent it</b>, never as an instruction that
 runs without being read. Nothing here can publish a story: that is
 @Dinis's
@@ -247,7 +247,7 @@ base64 sobre um JSON pequeno, from <a href="https://sgit.ai/docs/pki.md">https:/
   el("ponte-prova").onclick = function () {
     el("ponte-resposta").textContent = "sending…";
     ponte().enviar({
-      tipo: "prova", quando: new Date().toISOString(), versao: "v0.23.14",
+      tipo: "prova", quando: new Date().toISOString(), versao: "v0.23.15",
       pagina: location.pathname,
       corpo: "Proof round trip from the bridges page. If this decrypts, the envelope is right.",
     }).then(function () {
@@ -267,10 +267,10 @@ base64 sobre um JSON pequeno, from <a href="https://sgit.ai/docs/pki.md">https:/
     var p = new PonteCofre.Ponte({ id: "editor-para-bastidores" });
     el("msg-resposta").textContent = "sending…";
     p.enviar({
-      tipo: el("msg-tipo").value, quando: new Date().toISOString(), versao: "v0.23.14",
+      tipo: el("msg-tipo").value, quando: new Date().toISOString(), versao: "v0.23.15",
       pagina: location.pathname, assunto: assunto, corpo: corpo,
     }).then(function () {
-      el("msg-resposta").textContent = "Sent. @Bastidores files it into its mailroom on the next " +
+      el("msg-resposta").textContent = "Sent. @Backstage files it into its mailroom on the next " +
         "check-in, and it will show on the mail page.";
       el("msg-assunto").value = ""; el("msg-corpo").value = "";
     }).catch(function (err) {
@@ -289,7 +289,7 @@ base64 sobre um JSON pequeno, from <a href="https://sgit.ai/docs/pki.md">https:/
 <b>For an agent.</b> Generated by <code>build/newsroom.py</code> from the files in this
 repository; nothing here is hand-written. The machine-readable index of the publication is at
 <a href="../llms.txt">llms.txt</a>. Source: <a href="https://github.com/SGit-AI/SGit-AI__Website__Newsroom__PT">github.com/SGit-AI/SGit-AI__Website__Newsroom__PT</a> · file:
-<code>newsroom/bridges.html</code> · version <span class="ver">v0.23.14</span>.
+<code>newsroom/bridges.html</code> · version <span class="ver">v0.23.15</span>.
 </div>
 
 </main>

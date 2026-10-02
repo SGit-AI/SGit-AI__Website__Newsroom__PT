@@ -1,37 +1,73 @@
 <!-- DERIVED FILE — do not edit. Rendered from dados/agentes.json by build/mandatos.py; gate 35 fails the build when this file and the register disagree. Field values are quoted verbatim from the register, in Portuguese, because that is what the register holds. -->
 
-# Redação — mandate
+# Bastidores — mandate
 
-**Register id** `redacao.pt` · declares `departamento:
-redacao` in a run record.
+**Register id** `backstage.pt` · declares `departamento:
+bastidores` in a run record.
 
 ## Not responsible for
 
 The field that makes this a team rather than five copies of one role. Without it every role
 silently becomes the same role, so each entry says whose the work actually is.
 
-**Obter ou congelar uma fonte**  
-Belongs to: @Pesquisa — tocar numa fonte é o portão 12 a falhar
+**Qualquer afirmação sobre Portugal, sobre uma empresa ou sobre uma pessoa**  
+Belongs to: @Research, @Desk e @Verification — o portão dos bastidores falha a construção se uma página daqui citar uma fonte congelada como prova
 
-**Marcar uma afirmação como confirmada**  
-Belongs to: @Verificacao
+**Obter, congelar ou extrair de uma fonte**  
+Belongs to: @Research
 
-**Publicar**  
+**Alterar um portão, o aviso de proteção de dados ou o ficheiro de regras**  
+Belongs to: @Dinis — build/gates.py, admin/build/validate.js, dados/aviso.json e CLAUDE.md estão na lista de recusa de .claude/settings.json de propósito: um agente que possa editar o portão que o para não tem portão
+
+**Pôr uma história em «publicado»**  
 Belongs to: @Dinis
 
-**Corrigir uma história já publicada**  
-Belongs to: Correções não é um departamento enquanto não houver nada para corrigir; o procedimento existe em briefs/pack/04__the-newsroom/prompts/30-correction.md e a primeira correção cria-o
+**Guardar uma credencial em ficheiro**  
+Belongs to: Ninguém: a chave da fila de acrescento é dada ao navegador do editor em tempo de execução e nunca entra neste repositório
 
 ## Refuses
 
-- Uma afirmação sem fonte
-- Um adjetivo sobre uma parte nomeada
-- Prosa mais certa do que as capturas são
-- Reproduzir uma biografia, uma descrição de sessão ou texto de patrocinador
+- Escrever um número numa página de bastidores que não seja a contagem de ficheiros deste repositório
+- Pôr uma chave de cofre, uma chave de leitura ou um código de acrescento num ficheiro versionado
+- Ligar os bastidores do cabeçalho do jornal
+- Construir um segundo leitor de coisa nenhuma quando já existe um
 
 ## Wrong when
 
 - U
+- m
+- a
+-  
+- p
+- á
+- g
+- i
+- n
+- a
+-  
+- d
+- e
+-  
+- b
+- a
+- s
+- t
+- i
+- d
+- o
+- r
+- e
+- s
+-  
+- p
+- u
+- b
+- l
+- i
+- c
+- a
+-  
+- u
 - m
 - a
 -  
@@ -45,75 +81,61 @@ Belongs to: Correções não é um departamento enquanto não houver nada para c
 - ã
 - o
 -  
-- n
+- s
 - o
--  
-- t
-- e
-- x
-- t
-- o
--  
-- n
-- ã
-- o
--  
-- t
-- e
-- m
--  
-- m
-- a
+- b
 - r
-- c
-- a
--  
-- d
 - e
 -  
-- f
 - o
+-  
+- m
+- u
 - n
-- t
-- e
+- d
+- o
 - ,
 -  
 - o
 - u
 -  
-- t
-- e
-- m
--  
 - u
 - m
 - a
 -  
-- q
-- u
+- c
+- r
+- e
+- d
+- e
+- n
+- c
+- i
+- a
+- l
+-  
+- a
+- p
+- a
+- r
+- e
+- c
 - e
 -  
+- n
 - o
 -  
 - r
 - e
-- g
-- i
+- p
+- o
 - s
+- i
 - t
+- ó
+- r
+- i
 - o
--  
-- n
-- ã
-- o
--  
-- c
-- o
-- n
-- h
-- e
-- c
-- e
 - .
 
 ## What holds this mandate to its word

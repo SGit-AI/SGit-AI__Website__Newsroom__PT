@@ -651,6 +651,13 @@ AGENTES_DIR = ROOT / "agents"
 # diverge on the day somebody edits one. The register won; this gate holds the rendering to it.
 registados = {a["id"] for a in agentes.get("agentes", [])}
 curtos = {a.get("id_curto") for a in agentes.get("agentes", [])} | registados
+# A RETIRED ADDRESS ON AN OLD RUN RECORD IS NOT AN UNKNOWN AGENT. On 2026-10-02 the four department
+# ids went English. The nine run records signed `bastidores.pt` before that day are records: they
+# say who ran, and rewriting a record to make a gate pass is the one thing this repository never
+# does. So an id that the register lists under `identidades_historicas` WITH a `renomeada_para`
+# is accepted on a run record — it names a live agent by the name it had at the time. An entry
+# without `renomeada_para` (the bootstrap session) is still not a run-record identity.
+curtos |= {h["id"] for h in agentes.get("identidades_historicas", []) if h.get("renomeada_para")}
 if not registados:
     erros.append("agents: dados/agentes.json registers nobody. Every agent that may change this "
                  "site is named there, and its mandate is rendered from that entry")

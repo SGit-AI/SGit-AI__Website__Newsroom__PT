@@ -108,7 +108,7 @@ def pagina_pontes(d, ag):
     nao = "".join(f'<tr><td class="sm"><b>{e(x["o_que"])}</b></td><td class="sm">{e(x["porque"])}'
                   f"</td></tr>" for x in d.get("ainda_nao_construido", []))
     blocos = "".join(bloco_ponte(p) for p in d.get("pontes", []))
-    bastidores = next((a for a in ag.get("agentes", []) if a["id"] == "bastidores.pt"), {})
+    backstage = next((a for a in ag.get("agentes", []) if a["id"] == "backstage.pt"), {})
 
     # The unlock and the composer. No secret is rendered into this HTML: the page reads and writes
     # localStorage in the reader's own browser, and the build never sees a value.
@@ -149,10 +149,10 @@ JSON bundle <code>sgit pki export &lt;fingerprint&gt;</code> writes: the page re
 </div>
 
 <h2>Write to
-  {e(bastidores.get("alias", "@Bastidores"))}</h2>
+  {e(backstage.get("alias", "@Backstage"))}</h2>
 <p class="std" style="max-width:52em">This goes into the append lane, and
-{e(bastidores.get("alias", "@Bastidores"))} files it as mail — into
-<code>redacao/correio/expedicao/bastidores.pt/</code>, delivered, read, and answered like any
+{e(backstage.get("alias", "@Backstage"))} files it as mail — into
+<code>redacao/correio/expedicao/backstage.pt/</code>, delivered, read, and answered like any
 other message. It is treated as <b>a claim by whoever sent it</b>, never as an instruction that
 runs without being read. Nothing here can publish a story: that is
 {e(next((a["alias"] for a in ag.get("agentes", []) if a["id"] == "dinis.humano"), "@Dinis"))}'s
@@ -294,7 +294,7 @@ line and only his.</p>
       tipo: el("msg-tipo").value, quando: new Date().toISOString(), versao: "{VERSAO}",
       pagina: location.pathname, assunto: assunto, corpo: corpo,
     }}).then(function () {{
-      el("msg-resposta").textContent = "Sent. @Bastidores files it into its mailroom on the next " +
+      el("msg-resposta").textContent = "Sent. @Backstage files it into its mailroom on the next " +
         "check-in, and it will show on the mail page.";
       el("msg-assunto").value = ""; el("msg-corpo").value = "";
     }}).catch(function (err) {{

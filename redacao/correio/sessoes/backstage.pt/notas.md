@@ -78,3 +78,20 @@ não fala de telemetria. Enquanto a ponte estiver desligada, isso está correto.
 receber credenciais, o aviso fica errado por omissão — e o IP que o servidor da fila vê é a parte
 que tem de estar escrita, porque é a única que o leitor não pode verificar. A ordem é o aviso
 primeiro e as credenciais depois, que é a mesma ordem que este site já acertou uma vez.
+
+## 2026-10-02 — the four department ids went English
+
+`pesquisa.pt` → `research.pt` (@Research), `redacao.pt` → `desk.pt` (@Desk), `verificacao.pt` →
+`verification.pt` (@Verification), `bastidores.pt` → `backstage.pt` (@Backstage). The id is a
+protocol address and the alias an operator handle; both are operations, so both are English. This
+folder was `sessoes/bastidores.pt/` until today and was moved with `git mv`.
+
+What did not move, and why, is written into `dados/agentes.json` under
+`o_que_nao_mudou_na_renomeacao`: the reader-facing display names, the `id_curto` department keys
+(gate 12, deny-listed), the `@redacao.local` mail domain, and the bridge id that keys the editor's
+stored credential. Mail already sent and run records already signed keep their bytes; each old id
+is in `identidades_historicas` with `renomeada_para`, the mail reader resolves through it, and gate
+35 accepts it on an old run record.
+
+The Agent Contact identity (brief of 2026-09-29) will be published as `backstage.pt`, so no key is
+ever generated under the old name.
